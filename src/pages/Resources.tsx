@@ -1,9 +1,30 @@
+import { useState, useEffect } from 'react'
+import { getResources } from '@/services/resources'
+import { useRealtime } from '@/hooks/use-realtime'
+import pb from '@/lib/pocketbase/client'
 import { TaxSimulator } from '@/components/TaxSimulator'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { FileDown, FileSpreadsheet } from 'lucide-react'
 
 export default function Resources() {
+  const [resources, setResources] = useState<any[]>([])
+
+  const loadData = async () => {
+    try {
+      setResources(await getResources())
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+  useEffect(() => {
+    loadData()
+  }, [])
+  useRealtime('resources', () => {
+    loadData()
+  })
+
   return (
     <div className="py-24 bg-background min-h-screen">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -38,49 +59,43 @@ export default function Resources() {
             </div>
 
             <div className="grid gap-4">
-              <Card className="hover:border-yellow-500 transition-colors cursor-pointer group">
-                <CardHeader className="flex flex-row items-center gap-4 pb-2">
-                  <div className="p-3 bg-primary/20 text-black rounded-lg group-hover:bg-primary transition-colors">
-                    <FileDown className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-lg text-black">
-                      Guia Prático: Holding Familiar 2026
-                    </CardTitle>
-                    <CardDescription>E-book em PDF - 15 páginas</CardDescription>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <Button
-                    variant="default"
-                    className="w-full mt-2 bg-black hover:bg-gray-800 text-white"
-                  >
-                    Baixar E-book
-                  </Button>
-                </CardContent>
-              </Card>
+              {resources.map((res) => {
+                const fileUrl = res.file ? pb.files.getUrl(res, res.file) : res.link
+                const Icon = res.category?.toLowerCase().includes('planilha')
+                  ? FileSpreadsheet
+                  : FileDown
 
-              <Card className="hover:border-yellow-500 transition-colors cursor-pointer group">
-                <CardHeader className="flex flex-row items-center gap-4 pb-2">
-                  <div className="p-3 bg-primary/20 text-black rounded-lg group-hover:bg-primary transition-colors">
-                    <FileSpreadsheet className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-lg text-black">
-                      Planilha de Diagnóstico Simples Nacional
-                    </CardTitle>
-                    <CardDescription>Template Excel (.xlsx)</CardDescription>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <Button
-                    variant="default"
-                    className="w-full mt-2 bg-black hover:bg-gray-800 text-white"
+                return (
+                  <Card
+                    key={res.id}
+                    className="hover:border-yellow-500 transition-colors cursor-pointer group"
                   >
-                    Baixar Planilha
-                  </Button>
-                </CardContent>
-              </Card>
+                    <CardHeader className="flex flex-row items-center gap-4 pb-2">
+                      <div className="p-3 bg-primary/20 text-black rounded-lg group-hover:bg-primary transition-colors">
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      <div>
+                        <CardTitle className="text-lg text-black">{res.title}</CardTitle>
+                        <CardDescription>{res.description}</CardDescription>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <Button
+                        asChild
+                        variant="default"
+                        className="w-full mt-2 bg-black hover:bg-gray-800 text-white"
+                      >
+                        <a href={fileUrl || '#'} target="_blank" rel="noreferrer">
+                          Baixar Material
+                        </a>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                )
+              })}
+              {resources.length === 0 && (
+                <p className="text-sm text-gray-500">Nenhum recurso disponível no momento.</p>
+              )}
             </div>
           </div>
         </div>

@@ -7,6 +7,13 @@ import NotFound from './pages/NotFound'
 
 // Pages
 import Index from './pages/Index'
+import { AuthProvider } from './hooks/use-auth'
+import Login from './pages/admin/Login'
+import AdminLayout from './components/AdminLayout'
+import AdminDashboard from './pages/admin/Dashboard'
+import AdminPosts from './pages/admin/Posts'
+import AdminResources from './pages/admin/Resources'
+import AdminCases from './pages/admin/Cases'
 import About from './pages/About'
 import Services from './pages/Services'
 import Cases from './pages/Cases'
@@ -15,28 +22,37 @@ import Glossary from './pages/Glossary'
 import Resources from './pages/Resources'
 
 const App = () => (
-  <BrowserRouter future={{ v7_startTransition: false, v7_relativeSplatPath: false }}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Index />} />
-          <Route path="/sobre" element={<About />} />
-          <Route path="/servicos" element={<Services />} />
-          <Route path="/casos" element={<Cases />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:id" element={<Blog />} />{' '}
-          {/* Simplification: reuse index view for detail or handle inside */}
-          <Route path="/glossario" element={<Glossary />} />
-          <Route path="/recursos" element={<Resources />} />
-          <Route path="/contato" element={<Resources />} />{' '}
-          {/* Routing Contato to Resources for Simulator demo */}
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </TooltipProvider>
-  </BrowserRouter>
+  <AuthProvider>
+    <BrowserRouter future={{ v7_startTransition: false, v7_relativeSplatPath: false }}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Index />} />
+            <Route path="/sobre" element={<About />} />
+            <Route path="/servicos" element={<Services />} />
+            <Route path="/casos" element={<Cases />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<Blog />} />{' '}
+            {/* Simplification: reuse index view for detail or handle inside */}
+            <Route path="/glossario" element={<Glossary />} />
+            <Route path="/recursos" element={<Resources />} />
+            <Route path="/contato" element={<Resources />} />{' '}
+            {/* Routing Contato to Resources for Simulator demo */}
+          </Route>
+          <Route path="/login" element={<Login />} />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="posts" element={<AdminPosts />} />
+            <Route path="resources" element={<AdminResources />} />
+            <Route path="cases" element={<AdminCases />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </TooltipProvider>
+    </BrowserRouter>
+  </AuthProvider>
 )
 
 export default App

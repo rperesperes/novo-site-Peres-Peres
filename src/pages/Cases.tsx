@@ -1,4 +1,6 @@
-import { CASES } from '@/lib/data'
+import { useState, useEffect } from 'react'
+import { getSuccessCases } from '@/services/success_cases'
+import { useRealtime } from '@/hooks/use-realtime'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import {
   ChartContainer,
@@ -11,6 +13,23 @@ import { Bar, BarChart, CartesianGrid, XAxis, YAxis, ResponsiveContainer } from 
 import { Scale, TrendingDown } from 'lucide-react'
 
 export default function Cases() {
+  const [cases, setCases] = useState<any[]>([])
+
+  const loadData = async () => {
+    try {
+      setCases(await getSuccessCases())
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+  useEffect(() => {
+    loadData()
+  }, [])
+  useRealtime('success_cases', () => {
+    loadData()
+  })
+
   const chartConfig = {
     before: { label: 'Carga Inicial (R$)', color: 'hsl(var(--chart-3))' },
     after: { label: 'Após Intervenção (R$)', color: 'hsl(var(--chart-1))' },
@@ -29,7 +48,7 @@ export default function Cases() {
         </div>
 
         <div className="grid gap-12">
-          {CASES.map((kase) => {
+          {cases.map((kase) => {
             const chartData = [
               { name: 'Antes', valor: kase.before, fill: 'var(--color-before)' },
               { name: 'Depois', valor: kase.after, fill: 'var(--color-after)' },
