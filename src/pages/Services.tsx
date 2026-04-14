@@ -8,15 +8,15 @@ import { Link } from 'react-router-dom'
 const getIcon = (iconName: string) => {
   switch (iconName) {
     case 'Calculator':
-      return <Calculator className="h-8 w-8 text-primary" />
+      return <Calculator className="h-8 w-8 text-black" />
     case 'RefreshCcw':
-      return <RefreshCcw className="h-8 w-8 text-primary" />
+      return <RefreshCcw className="h-8 w-8 text-black" />
     case 'Shield':
-      return <Shield className="h-8 w-8 text-primary" />
+      return <Shield className="h-8 w-8 text-black" />
     case 'Scale':
-      return <Scale className="h-8 w-8 text-primary" />
+      return <Scale className="h-8 w-8 text-black" />
     default:
-      return <Calculator className="h-8 w-8 text-primary" />
+      return <Calculator className="h-8 w-8 text-black" />
   }
 }
 
@@ -39,14 +39,20 @@ export default function Services() {
               className="border-none shadow-md hover:shadow-xl transition-all duration-300"
             >
               <CardHeader className="flex flex-row items-start gap-4 space-y-0">
-                <div className="p-4 bg-primary/10 rounded-xl">{getIcon(service.icon)}</div>
+                <div className="p-4 bg-primary rounded-xl border border-yellow-500">
+                  {getIcon(service.icon)}
+                </div>
                 <div>
                   <CardTitle className="text-2xl mb-2 text-black">{service.title}</CardTitle>
                   <p className="text-muted-foreground leading-relaxed">{service.description}</p>
                 </div>
               </CardHeader>
               <CardContent className="pt-0 flex justify-end">
-                <Button variant="ghost" className="text-primary hover:text-primary/80 p-0" asChild>
+                <Button
+                  variant="link"
+                  className="text-black font-bold hover:text-gray-700 p-0 underline decoration-primary decoration-2 underline-offset-4"
+                  asChild
+                >
                   <Link to="/contato">
                     Solicitar Análise <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
@@ -62,7 +68,7 @@ export default function Services() {
             Nossa equipe está preparada para analisar cenários tributários complexos e específicos
             do seu setor de atuação.
           </p>
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-white" asChild>
+          <Button size="lg" className="bg-primary hover:bg-primary/90 text-black font-bold" asChild>
             <Link to="/contato">Fale com um Especialista</Link>
           </Button>
         </div>

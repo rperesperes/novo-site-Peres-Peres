@@ -38,9 +38,9 @@ export default function Resources() {
             </div>
 
             <div className="grid gap-4">
-              <Card className="hover:border-primary/50 transition-colors cursor-pointer group">
+              <Card className="hover:border-yellow-500 transition-colors cursor-pointer group">
                 <CardHeader className="flex flex-row items-center gap-4 pb-2">
-                  <div className="p-3 bg-primary/10 text-primary rounded-lg group-hover:bg-primary/20 transition-colors">
+                  <div className="p-3 bg-primary/20 text-black rounded-lg group-hover:bg-primary transition-colors">
                     <FileDown className="h-6 w-6" />
                   </div>
                   <div>
@@ -60,9 +60,9 @@ export default function Resources() {
                 </CardContent>
               </Card>
 
-              <Card className="hover:border-primary/50 transition-colors cursor-pointer group">
+              <Card className="hover:border-yellow-500 transition-colors cursor-pointer group">
                 <CardHeader className="flex flex-row items-center gap-4 pb-2">
-                  <div className="p-3 bg-primary/10 text-primary rounded-lg group-hover:bg-primary/20 transition-colors">
+                  <div className="p-3 bg-primary/20 text-black rounded-lg group-hover:bg-primary transition-colors">
                     <FileSpreadsheet className="h-6 w-6" />
                   </div>
                   <div>

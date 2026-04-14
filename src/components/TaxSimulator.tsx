@@ -70,18 +70,21 @@ export function TaxSimulator() {
               </SelectContent>
             </Select>
           </div>
-          <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-white">
+          <Button
+            type="submit"
+            className="w-full bg-primary hover:bg-primary/90 text-black font-bold"
+          >
             Analisar Potencial
           </Button>
         </form>
 
         {result !== null && (
-          <div className="mt-6 p-4 bg-green-50 rounded-md border border-green-200 animate-fade-in-up">
-            <h4 className="font-semibold text-green-800 text-sm mb-1">
+          <div className="mt-6 p-4 bg-emerald-50 rounded-md border border-emerald-200 animate-fade-in-up">
+            <h4 className="font-semibold text-emerald-800 text-sm mb-1">
               Potencial de Economia Estimado*
             </h4>
-            <p className="text-2xl font-bold text-green-700">{formatCurrency(result)} / ano</p>
-            <p className="text-xs text-green-600 mt-2">
+            <p className="text-2xl font-bold text-emerald-700">{formatCurrency(result)} / ano</p>
+            <p className="text-xs text-emerald-600 mt-2">
               *Este é um valor estimado baseado em médias do setor. Um planejamento personalizado é
               necessário para dados exatos.
             </p>

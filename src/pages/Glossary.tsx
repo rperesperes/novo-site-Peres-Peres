@@ -15,8 +15,8 @@ export default function Glossary() {
     <div className="py-24 bg-white min-h-screen">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="flex items-center gap-4 mb-8">
-          <div className="p-3 bg-primary/10 rounded-lg">
-            <BookA className="h-8 w-8 text-primary" />
+          <div className="p-3 bg-primary rounded-lg border border-yellow-500">
+            <BookA className="h-8 w-8 text-black" />
           </div>
           <div>
             <h1 className="text-3xl font-bold text-black">Glossário Tributário</h1>
@@ -34,7 +34,7 @@ export default function Glossary() {
                 value={`item-${index}`}
                 className="border-b border-gray-200"
               >
-                <AccordionTrigger className="text-lg font-semibold hover:text-primary text-black hover:no-underline">
+                <AccordionTrigger className="text-lg font-semibold hover:text-gray-600 text-black hover:no-underline">
                   {item.term}
                 </AccordionTrigger>
                 <AccordionContent className="text-base text-gray-700 leading-relaxed pb-4">

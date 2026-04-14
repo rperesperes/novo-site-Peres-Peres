@@ -59,7 +59,10 @@ export function Header() {
               {link.name}
             </Link>
           ))}
-          <Button asChild className="bg-primary hover:bg-primary/90 text-white border-none">
+          <Button
+            asChild
+            className="bg-primary hover:bg-primary/90 text-black font-bold border-none"
+          >
             <Link to="/contato">Agendar Consultoria</Link>
           </Button>
         </nav>
@@ -90,7 +93,10 @@ export function Header() {
                 </Link>
               ))}
               <div className="mt-4 flex flex-col gap-2">
-                <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white">
+                <Button
+                  asChild
+                  className="w-full bg-primary hover:bg-primary/90 text-black font-bold"
+                >
                   <Link to="/contato">Agendar Consultoria</Link>
                 </Button>
               </div>

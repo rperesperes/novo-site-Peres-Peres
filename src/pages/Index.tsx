@@ -40,7 +40,7 @@ export default function Index() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-white text-base h-12 px-8"
+                className="bg-primary hover:bg-primary/90 text-black font-semibold text-base h-12 px-8"
                 asChild
               >
                 <Link to="/contato">Agendar Consultoria Gratuita</Link>
@@ -99,14 +99,14 @@ export default function Index() {
                   'Articulista Tributário',
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-2 font-medium text-black">
-                    <CheckCircle2 className="h-5 w-5 text-primary" /> {item}
+                    <CheckCircle2 className="h-5 w-5 text-green-600" /> {item}
                   </li>
                 ))}
               </ul>
               <div className="pt-6">
                 <Button
                   variant="link"
-                  className="text-primary hover:text-primary/80 p-0 font-semibold text-lg group"
+                  className="text-black hover:text-gray-700 p-0 font-semibold text-lg group underline decoration-primary decoration-2 underline-offset-4"
                   asChild
                 >
                   <Link to="/sobre">
@@ -138,8 +138,8 @@ export default function Index() {
                 className="border-none shadow-md hover:shadow-xl transition-shadow duration-300 bg-white group"
               >
                 <CardHeader>
-                  <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
-                    <ShieldCheck className="h-6 w-6 text-primary group-hover:text-white transition-colors" />
+                  <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
+                    <ShieldCheck className="h-6 w-6 text-black transition-colors" />
                   </div>
                   <CardTitle className="text-xl">{service.title}</CardTitle>
                 </CardHeader>
@@ -189,9 +189,9 @@ export default function Index() {
                     </CardHeader>
                     <CardContent className="flex-grow flex flex-col justify-between">
                       <p className="text-white/70 mb-6 line-clamp-3">{kase.description}</p>
-                      <div className="bg-white/10 p-4 rounded-md">
-                        <div className="text-sm text-white/60 mb-1">Redução de Carga</div>
-                        <div className="text-3xl font-bold text-accent">{kase.savings}</div>
+                      <div className="bg-primary/20 p-4 rounded-md border border-primary/30">
+                        <div className="text-sm text-white/80 mb-1">Redução de Carga</div>
+                        <div className="text-3xl font-bold text-primary">{kase.savings}</div>
                       </div>
                     </CardContent>
                   </Card>

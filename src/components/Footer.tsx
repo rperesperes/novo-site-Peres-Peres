@@ -88,7 +88,7 @@ export function Footer() {
                 required
                 className="bg-gray-900 border-gray-700 text-white placeholder:text-gray-500 focus-visible:ring-primary"
               />
-              <Button type="submit" className="bg-primary hover:bg-primary/90 text-white">
+              <Button type="submit" className="bg-primary hover:bg-primary/90 text-black font-bold">
                 Assinar
               </Button>
             </form>

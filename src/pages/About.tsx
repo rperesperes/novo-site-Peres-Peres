@@ -13,7 +13,7 @@ export default function About() {
               <img src={logoPadrao} alt="Peres & Peres" className="h-16 w-auto" />
             </div>
           </div>
-          <Badge variant="outline" className="mb-4 border-primary text-primary">
+          <Badge variant="outline" className="mb-4 border-black text-black bg-primary">
             Expertise e Excelência
           </Badge>
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-black">
@@ -37,7 +37,7 @@ export default function About() {
             </div>
             <div className="md:col-span-3 p-8 lg:p-12 bg-white flex flex-col justify-center">
               <h2 className="text-3xl font-bold text-black mb-2">Rafael Peres Peres Nunes Altoé</h2>
-              <p className="text-primary font-semibold mb-6 uppercase tracking-wider text-sm">
+              <p className="text-black font-bold mb-6 uppercase tracking-wider text-sm bg-primary inline-block px-3 py-1 rounded-md self-start">
                 Contador Responsável • CRC 027704/O
               </p>
 
@@ -61,14 +61,18 @@ export default function About() {
 
               <div className="grid grid-cols-2 gap-4 mt-8 pt-8 border-t">
                 <div className="flex items-start gap-3">
-                  <GraduationCap className="h-6 w-6 text-primary shrink-0" />
+                  <div className="p-2 bg-primary rounded-md shrink-0">
+                    <GraduationCap className="h-5 w-5 text-black" />
+                  </div>
                   <div>
                     <h4 className="font-semibold text-black">Pós-Graduação</h4>
                     <p className="text-sm text-muted-foreground">Direito Tributário (CERS)</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <BookOpen className="h-6 w-6 text-primary shrink-0" />
+                  <div className="p-2 bg-primary rounded-md shrink-0">
+                    <BookOpen className="h-5 w-5 text-black" />
+                  </div>
                   <div>
                     <h4 className="font-semibold text-black">Pesquisa Acadêmica</h4>
                     <p className="text-sm text-muted-foreground">UniCEUB & IDP</p>
@@ -83,7 +87,7 @@ export default function About() {
         <div className="mt-24">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 flex items-center justify-center gap-3 text-black">
-              <Users className="h-8 w-8 text-primary" /> Equipe Multidisciplinar
+              <Users className="h-8 w-8 text-black" /> Equipe Multidisciplinar
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Contamos com profissionais altamente qualificados, incluindo advogados tributaristas,
@@ -103,7 +107,9 @@ export default function About() {
                   />
                 </div>
                 <h3 className="font-bold text-lg">Membro Equipe {member}</h3>
-                <p className="text-sm text-primary font-medium mb-3">Auditor Sênior</p>
+                <p className="text-sm text-black font-semibold bg-primary/20 inline-block px-2 py-0.5 rounded mb-3">
+                  Auditor Sênior
+                </p>
                 <p className="text-sm text-muted-foreground">
                   Especialista na análise de obrigações acessórias e SPED Fiscal.
                 </p>

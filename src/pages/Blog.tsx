@@ -33,7 +33,7 @@ export default function Blog() {
                 <div className="flex items-center justify-between mb-2">
                   <Badge
                     variant="secondary"
-                    className="bg-primary/10 text-primary hover:bg-primary/20"
+                    className="bg-primary text-black hover:bg-primary/90 font-bold"
                   >
                     {post.category}
                   </Badge>
@@ -42,7 +42,7 @@ export default function Blog() {
                     {post.date}
                   </span>
                 </div>
-                <CardTitle className="text-xl line-clamp-2 hover:text-primary text-black cursor-pointer transition-colors">
+                <CardTitle className="text-xl line-clamp-2 hover:text-gray-700 underline-offset-4 hover:underline text-black cursor-pointer transition-all">
                   {post.title}
                 </CardTitle>
                 <p className="text-muted-foreground mt-3 line-clamp-3 text-sm">{post.excerpt}</p>
@@ -50,7 +50,7 @@ export default function Blog() {
               <CardFooter className="pt-0">
                 <Link
                   to={`/blog/${post.id}`}
-                  className="text-sm font-semibold text-primary flex items-center group"
+                  className="text-sm font-bold text-black flex items-center group bg-primary px-3 py-1.5 rounded-md hover:bg-primary/80 transition-colors w-fit"
                 >
                   Ler artigo completo{' '}
                   <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />

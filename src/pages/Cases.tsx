@@ -12,7 +12,7 @@ import { Scale, TrendingDown } from 'lucide-react'
 
 export default function Cases() {
   const chartConfig = {
-    before: { label: 'Carga Inicial (R$)', color: 'hsl(var(--chart-4))' },
+    before: { label: 'Carga Inicial (R$)', color: 'hsl(var(--chart-3))' },
     after: { label: 'Após Intervenção (R$)', color: 'hsl(var(--chart-1))' },
   }
 
@@ -39,7 +39,7 @@ export default function Cases() {
               <Card key={kase.id} className="overflow-hidden border-none shadow-lg">
                 <div className="grid md:grid-cols-2">
                   <div className="p-8 flex flex-col justify-center bg-white">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold w-fit mb-4">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary text-black text-xs font-bold w-fit mb-4">
                       {kase.sector}
                     </div>
                     <CardTitle className="text-2xl mb-4 text-black leading-tight">
@@ -50,11 +50,11 @@ export default function Cases() {
                     </CardDescription>
 
                     <div className="space-y-4">
-                      <div className="flex items-center gap-3 bg-primary/10 p-4 rounded-lg border border-primary/20">
-                        <TrendingDown className="h-8 w-8 text-primary" />
+                      <div className="flex items-center gap-3 bg-primary p-4 rounded-lg border border-yellow-500 shadow-sm">
+                        <TrendingDown className="h-8 w-8 text-black" />
                         <div>
-                          <p className="text-sm font-medium text-black">Redução Efetiva</p>
-                          <p className="text-2xl font-bold text-primary">{kase.savings}</p>
+                          <p className="text-sm font-semibold text-black/80">Redução Efetiva</p>
+                          <p className="text-2xl font-extrabold text-black">{kase.savings}</p>
                         </div>
                       </div>
 

@@ -36,15 +36,15 @@ export default {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: '#10B981',
-          foreground: '#FFFFFF',
+          DEFAULT: '#FCD34D',
+          foreground: '#000000',
         },
         secondary: {
           DEFAULT: '#000000',
           foreground: '#FFFFFF',
         },
         accent: {
-          DEFAULT: '#FCD34D',
+          DEFAULT: '#F1F5F9',
           foreground: '#000000',
         },
         destructive: {
@@ -64,11 +64,11 @@ export default {
           foreground: 'hsl(var(--card-foreground))',
         },
         chart: {
-          1: '#10B981',
-          2: '#FCD34D',
-          3: '#000000',
-          4: '#6B7280',
-          5: '#e5e7eb',
+          1: '#FCD34D',
+          2: '#000000',
+          3: '#6B7280',
+          4: '#e5e7eb',
+          5: '#10B981',
         },
       },
       borderRadius: {
