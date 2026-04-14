@@ -36,16 +36,16 @@ export default {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: '#0F172A', // Deep Navy Blue
+          DEFAULT: '#1E40AF',
           foreground: '#FFFFFF',
         },
         secondary: {
-          DEFAULT: '#166534', // Professional Forest Green
+          DEFAULT: '#10B981',
           foreground: '#FFFFFF',
         },
         accent: {
-          DEFAULT: '#B59410', // Gold/Metallic
-          foreground: '#FFFFFF',
+          DEFAULT: '#FCD34D',
+          foreground: '#000000',
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
@@ -64,11 +64,11 @@ export default {
           foreground: 'hsl(var(--card-foreground))',
         },
         chart: {
-          1: '#0F172A',
-          2: '#166534',
-          3: '#B59410',
-          4: '#475569',
-          5: '#94A3B8',
+          1: '#1E40AF',
+          2: '#10B981',
+          3: '#FCD34D',
+          4: '#6B7280',
+          5: '#000000',
         },
       },
       borderRadius: {

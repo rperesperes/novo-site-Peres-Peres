@@ -10,30 +10,32 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import { SERVICES, CASES } from '@/lib/data'
+import logoIcon from '@/assets/logo-pp-google-workspace-13730.png'
 
 export default function Index() {
   return (
     <div className="flex flex-col w-full">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-primary">
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-black mt-20">
         <div className="absolute inset-0 z-0">
           <img
             src="https://img.usecurling.com/p/1920/1080?q=modern%20law%20office&color=black"
             alt="Escritório"
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-40 mix-blend-overlay"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-accent text-sm font-semibold border border-accent/30">
-              <ShieldCheck className="h-4 w-4" /> E-E-A-T Certified Authority
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary-foreground text-sm font-semibold border border-primary/30">
+              <img src={logoIcon} alt="PP" className="h-5 w-auto rounded-sm" />
+              E-E-A-T Certified Authority
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
               Contabilidade Tributária em Brasília:
               <br />
-              <span className="text-accent">Expertise e Segurança</span> para o seu Negócio.
+              <span className="text-primary">Expertise e Segurança</span> para o seu Negócio.
             </h1>
             <p className="text-lg text-gray-300 max-w-xl">
               Liderada por Rafael Peres Peres Nunes Altoé, oferecemos soluções jurídicas e contábeis
@@ -42,7 +44,7 @@ export default function Index() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
-                className="bg-accent hover:bg-accent/90 text-white text-base h-12 px-8"
+                className="bg-primary hover:bg-primary/90 text-white text-base h-12 px-8"
                 asChild
               >
                 <Link to="/contato">Agendar Consultoria Gratuita</Link>
@@ -50,7 +52,7 @@ export default function Index() {
               <Button
                 size="lg"
                 variant="outline"
-                className="text-primary border-white bg-white hover:bg-gray-100 text-base h-12 px-8"
+                className="text-black border-white bg-white hover:bg-gray-100 text-base h-12 px-8"
                 asChild
               >
                 <Link to="/sobre">Conhecer a Equipe</Link>
@@ -59,11 +61,11 @@ export default function Index() {
 
             <div className="flex items-center gap-6 pt-4 border-t border-white/10">
               <div className="flex items-center gap-2 text-gray-300">
-                <Award className="h-5 w-5 text-accent" />
+                <Award className="h-5 w-5 text-primary" />
                 <span className="text-sm font-medium">CRC Ativo</span>
               </div>
               <div className="flex items-center gap-2 text-gray-300">
-                <Briefcase className="h-5 w-5 text-accent" />
+                <Briefcase className="h-5 w-5 text-primary" />
                 <span className="text-sm font-medium">+10 Anos de Exp.</span>
               </div>
             </div>
@@ -83,7 +85,7 @@ export default function Index() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 w-full h-full bg-secondary rounded-lg z-0"></div>
+              <div className="absolute -bottom-6 -right-6 w-full h-full bg-primary rounded-lg z-0"></div>
             </div>
             <div className="md:col-span-7 space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold">Liderança Técnica e Acadêmica</h2>
@@ -100,7 +102,7 @@ export default function Index() {
                   'Especialista em CARF',
                   'Articulista Tributário',
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-2 font-medium text-primary">
+                  <li key={i} className="flex items-center gap-2 font-medium text-black">
                     <CheckCircle2 className="h-5 w-5 text-secondary" /> {item}
                   </li>
                 ))}
@@ -108,7 +110,7 @@ export default function Index() {
               <div className="pt-6">
                 <Button
                   variant="link"
-                  className="text-accent hover:text-accent/80 p-0 font-semibold text-lg group"
+                  className="text-primary hover:text-primary/80 p-0 font-semibold text-lg group"
                   asChild
                 >
                   <Link to="/sobre">
@@ -140,8 +142,8 @@ export default function Index() {
                 className="border-none shadow-md hover:shadow-xl transition-shadow duration-300 bg-white group"
               >
                 <CardHeader>
-                  <div className="h-12 w-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary transition-colors">
-                    <ShieldCheck className="h-6 w-6 text-secondary group-hover:text-white transition-colors" />
+                  <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
+                    <ShieldCheck className="h-6 w-6 text-primary group-hover:text-white transition-colors" />
                   </div>
                   <CardTitle className="text-xl">{service.title}</CardTitle>
                 </CardHeader>
@@ -157,19 +159,21 @@ export default function Index() {
       </section>
 
       {/* Success Cases Carousel */}
-      <section className="py-20 bg-primary text-white overflow-hidden">
+      <section className="py-20 bg-black text-white overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-end mb-12">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Casos de Sucesso Reais</h2>
-              <p className="text-primary-foreground/80 max-w-xl text-lg">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+                Casos de Sucesso Reais
+              </h2>
+              <p className="text-gray-400 max-w-xl text-lg">
                 Resultados comprovados (anonimizados por compliance) demonstrando nossa capacidade
                 de gerar caixa via inteligência tributária.
               </p>
             </div>
             <Button
               variant="outline"
-              className="hidden md:flex text-primary bg-white hover:bg-gray-100 border-none"
+              className="hidden md:flex text-black bg-white hover:bg-gray-100 border-none"
               asChild
             >
               <Link to="/casos">Ver Todos os Casos</Link>
@@ -182,7 +186,7 @@ export default function Index() {
                 <CarouselItem key={kase.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
                   <Card className="bg-white/5 border-white/10 text-white h-full flex flex-col">
                     <CardHeader>
-                      <div className="text-xs font-bold text-accent uppercase tracking-wider mb-2">
+                      <div className="text-xs font-bold text-primary uppercase tracking-wider mb-2">
                         {kase.sector}
                       </div>
                       <CardTitle className="text-xl text-white">{kase.title}</CardTitle>
@@ -191,7 +195,7 @@ export default function Index() {
                       <p className="text-white/70 mb-6 line-clamp-3">{kase.description}</p>
                       <div className="bg-white/10 p-4 rounded-md">
                         <div className="text-sm text-white/60 mb-1">Redução de Carga</div>
-                        <div className="text-3xl font-bold text-green-400">{kase.savings}</div>
+                        <div className="text-3xl font-bold text-secondary">{kase.savings}</div>
                       </div>
                     </CardContent>
                   </Card>
@@ -199,8 +203,8 @@ export default function Index() {
               ))}
             </CarouselContent>
             <div className="flex justify-end gap-2 mt-8 md:hidden">
-              <CarouselPrevious className="relative inset-0 translate-x-0 translate-y-0 h-10 w-10 text-primary" />
-              <CarouselNext className="relative inset-0 translate-x-0 translate-y-0 h-10 w-10 text-primary" />
+              <CarouselPrevious className="relative inset-0 translate-x-0 translate-y-0 h-10 w-10 text-black" />
+              <CarouselNext className="relative inset-0 translate-x-0 translate-y-0 h-10 w-10 text-black" />
             </div>
           </Carousel>
         </div>

@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom'
 
 export default function Blog() {
   return (
-    <div className="py-12 bg-background">
+    <div className="py-24 bg-background">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="mb-12 text-center">
-          <h1 className="text-4xl font-bold mb-4">Blog Tributário</h1>
+          <h1 className="text-4xl font-bold mb-4 text-black">Blog Tributário</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Artigos, análises de jurisprudência e conteúdos técnicos produzidos pela nossa equipe
             para manter você atualizado.
@@ -33,7 +33,7 @@ export default function Blog() {
                 <div className="flex items-center justify-between mb-2">
                   <Badge
                     variant="secondary"
-                    className="bg-secondary/10 text-secondary hover:bg-secondary/20"
+                    className="bg-primary/10 text-primary hover:bg-primary/20"
                   >
                     {post.category}
                   </Badge>
@@ -42,7 +42,7 @@ export default function Blog() {
                     {post.date}
                   </span>
                 </div>
-                <CardTitle className="text-xl line-clamp-2 hover:text-accent cursor-pointer transition-colors">
+                <CardTitle className="text-xl line-clamp-2 hover:text-primary text-black cursor-pointer transition-colors">
                   {post.title}
                 </CardTitle>
                 <p className="text-muted-foreground mt-3 line-clamp-3 text-sm">{post.excerpt}</p>

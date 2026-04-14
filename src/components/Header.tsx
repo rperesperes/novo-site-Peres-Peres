@@ -1,9 +1,10 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { Menu, X, Landmark } from 'lucide-react'
+import { Menu } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { cn } from '@/lib/utils'
+import logoNova from '@/assets/logo-nova-800x200-b63d1.png'
 
 const NAV_LINKS = [
   { name: 'Início', path: '/' },
@@ -35,21 +36,13 @@ export function Header() {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b border-transparent',
-        isScrolled ? 'glass-effect py-3 shadow-sm' : 'bg-transparent py-5',
+        'fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b border-transparent bg-black',
+        isScrolled ? 'py-3 shadow-lg' : 'py-5',
       )}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 text-primary">
-          <Landmark className="h-8 w-8 text-accent" />
-          <div className="flex flex-col">
-            <span className="font-serif font-bold text-xl leading-none tracking-tight">
-              Peres & Peres
-            </span>
-            <span className="text-[10px] uppercase tracking-widest text-secondary font-semibold">
-              Contabilidade Tributária
-            </span>
-          </div>
+        <Link to="/" className="flex items-center">
+          <img src={logoNova} alt="Peres & Peres" className="h-10 md:h-12 w-auto object-contain" />
         </Link>
 
         {/* Desktop Nav */}
@@ -59,14 +52,14 @@ export function Header() {
               key={link.path}
               to={link.path}
               className={cn(
-                'text-sm font-medium transition-colors hover:text-accent',
-                location.pathname === link.path ? 'text-accent font-semibold' : 'text-primary/80',
+                'text-sm font-medium transition-colors hover:text-primary',
+                location.pathname === link.path ? 'text-primary font-semibold' : 'text-white/90',
               )}
             >
               {link.name}
             </Link>
           ))}
-          <Button asChild className="bg-accent hover:bg-accent/90 text-white border-none">
+          <Button asChild className="bg-primary hover:bg-primary/90 text-white border-none">
             <Link to="/contato">Agendar Consultoria</Link>
           </Button>
         </nav>
@@ -74,27 +67,30 @@ export function Header() {
         {/* Mobile Nav */}
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon" className="text-primary">
+            <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
               <Menu className="h-6 w-6" />
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+          <SheetContent
+            side="right"
+            className="w-[300px] sm:w-[400px] bg-black border-l-gray-800 text-white"
+          >
             <nav className="flex flex-col gap-4 mt-8">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   className={cn(
-                    'block px-2 py-1 text-lg transition-colors hover:text-accent',
-                    location.pathname === link.path ? 'text-accent font-bold' : 'text-foreground',
+                    'block px-2 py-1 text-lg transition-colors hover:text-primary',
+                    location.pathname === link.path ? 'text-primary font-bold' : 'text-white/90',
                   )}
                 >
                   {link.name}
                 </Link>
               ))}
               <div className="mt-4 flex flex-col gap-2">
-                <Button asChild className="w-full bg-accent hover:bg-accent/90 text-white">
+                <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white">
                   <Link to="/contato">Agendar Consultoria</Link>
                 </Button>
               </div>

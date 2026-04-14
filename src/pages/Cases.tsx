@@ -17,10 +17,10 @@ export default function Cases() {
   }
 
   return (
-    <div className="py-12 bg-gray-50 min-h-screen">
+    <div className="py-24 bg-gray-50 min-h-screen">
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="mb-12">
-          <h1 className="text-4xl font-bold mb-4">Casos de Sucesso</h1>
+        <div className="mb-12 text-center md:text-left">
+          <h1 className="text-4xl font-bold mb-4 text-black">Casos de Sucesso</h1>
           <p className="text-xl text-muted-foreground">
             Resultados tangíveis obtidos através de forte embasamento legal e jurisprudencial.
             <br className="hidden md:block" />
@@ -39,10 +39,10 @@ export default function Cases() {
               <Card key={kase.id} className="overflow-hidden border-none shadow-lg">
                 <div className="grid md:grid-cols-2">
                   <div className="p-8 flex flex-col justify-center bg-white">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold w-fit mb-4">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold w-fit mb-4">
                       {kase.sector}
                     </div>
-                    <CardTitle className="text-2xl mb-4 text-primary leading-tight">
+                    <CardTitle className="text-2xl mb-4 text-black leading-tight">
                       {kase.title}
                     </CardTitle>
                     <CardDescription className="text-base text-gray-600 mb-6">
@@ -50,11 +50,11 @@ export default function Cases() {
                     </CardDescription>
 
                     <div className="space-y-4">
-                      <div className="flex items-center gap-3 bg-green-50 p-4 rounded-lg border border-green-100">
-                        <TrendingDown className="h-8 w-8 text-green-600" />
+                      <div className="flex items-center gap-3 bg-secondary/10 p-4 rounded-lg border border-secondary/20">
+                        <TrendingDown className="h-8 w-8 text-secondary" />
                         <div>
-                          <p className="text-sm font-medium text-green-900">Redução Efetiva</p>
-                          <p className="text-2xl font-bold text-green-700">{kase.savings}</p>
+                          <p className="text-sm font-medium text-black">Redução Efetiva</p>
+                          <p className="text-2xl font-bold text-secondary">{kase.savings}</p>
                         </div>
                       </div>
 

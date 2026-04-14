@@ -12,14 +12,14 @@ export default function Glossary() {
   const sortedGlossary = [...GLOSSARY].sort((a, b) => a.term.localeCompare(b.term))
 
   return (
-    <div className="py-12 bg-white min-h-screen">
+    <div className="py-24 bg-white min-h-screen">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="flex items-center gap-4 mb-8">
-          <div className="p-3 bg-primary/5 rounded-lg">
+          <div className="p-3 bg-primary/10 rounded-lg">
             <BookA className="h-8 w-8 text-primary" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold">Glossário Tributário</h1>
+            <h1 className="text-3xl font-bold text-black">Glossário Tributário</h1>
             <p className="text-muted-foreground">
               Termos técnicos descomplicados para o empresário.
             </p>
@@ -34,7 +34,7 @@ export default function Glossary() {
                 value={`item-${index}`}
                 className="border-b border-gray-200"
               >
-                <AccordionTrigger className="text-lg font-semibold hover:text-accent hover:no-underline">
+                <AccordionTrigger className="text-lg font-semibold hover:text-primary text-black hover:no-underline">
                   {item.term}
                 </AccordionTrigger>
                 <AccordionContent className="text-base text-gray-700 leading-relaxed pb-4">

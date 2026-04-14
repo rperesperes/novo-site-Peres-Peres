@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
 import { SITE_INFO } from '@/lib/data'
-import { Landmark, MapPin, Phone, Mail, Linkedin, Instagram, Youtube } from 'lucide-react'
+import { MapPin, Phone, Mail, Linkedin, Instagram, Youtube } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useToast } from '@/hooks/use-toast'
+import logoPadrao from '@/assets/logo-padrao-oficial-844b7.png'
 
 export function Footer() {
   const { toast } = useToast()
@@ -17,20 +18,19 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-primary text-primary-foreground pt-16 pb-8 border-t border-primary/20">
+    <footer className="bg-black text-white pt-16 pb-8 border-t border-gray-800">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand & NAP */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <Landmark className="h-8 w-8 text-accent" />
-              <span className="font-serif font-bold text-xl">Peres & Peres</span>
+            <div className="flex items-center">
+              <img src={logoPadrao} alt="Peres & Peres" className="h-16 w-auto object-contain" />
             </div>
-            <p className="text-sm text-primary-foreground/70">
+            <p className="text-sm text-gray-400 mt-4">
               Expertise e Segurança para o seu Negócio. Contabilidade Tributária de alta
               performance.
             </p>
-            <div className="space-y-2 text-sm text-primary-foreground/80 mt-6">
+            <div className="space-y-2 text-sm text-gray-300 mt-6">
               <p className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 shrink-0 mt-0.5" />
                 <span>{SITE_INFO.address}</span>
@@ -48,8 +48,8 @@ export function Footer() {
 
           {/* Links */}
           <div>
-            <h4 className="font-serif font-semibold text-lg mb-4 text-accent">Navegação</h4>
-            <ul className="space-y-2 text-sm text-primary-foreground/80">
+            <h4 className="font-serif font-semibold text-lg mb-4 text-primary">Navegação</h4>
+            <ul className="space-y-2 text-sm text-gray-300">
               <li>
                 <Link to="/sobre" className="hover:text-white transition-colors">
                   Sobre o Escritório
@@ -75,10 +75,10 @@ export function Footer() {
 
           {/* Newsletter */}
           <div className="lg:col-span-2">
-            <h4 className="font-serif font-semibold text-lg mb-4 text-accent">
+            <h4 className="font-serif font-semibold text-lg mb-4 text-primary">
               Boletim Tributário
             </h4>
-            <p className="text-sm text-primary-foreground/70 mb-4">
+            <p className="text-sm text-gray-400 mb-4">
               Receba atualizações semanais sobre legislação e jurisprudência do CARF/STF.
             </p>
             <form onSubmit={handleSubscribe} className="flex gap-2">
@@ -86,34 +86,34 @@ export function Footer() {
                 type="email"
                 placeholder="Seu melhor e-mail"
                 required
-                className="bg-primary-foreground/10 border-primary-foreground/20 text-white placeholder:text-primary-foreground/50 focus-visible:ring-accent"
+                className="bg-gray-900 border-gray-700 text-white placeholder:text-gray-500 focus-visible:ring-primary"
               />
-              <Button type="submit" className="bg-accent hover:bg-accent/90 text-white">
+              <Button type="submit" className="bg-primary hover:bg-primary/90 text-white">
                 Assinar
               </Button>
             </form>
             <div className="flex items-center gap-4 mt-8">
-              <a href="#" className="text-primary-foreground/70 hover:text-white transition-colors">
+              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="text-primary-foreground/70 hover:text-white transition-colors">
+              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-primary-foreground/70 hover:text-white transition-colors">
+              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
                 <Youtube className="h-5 w-5" />
               </a>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-primary-foreground/50">
+        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500">
           <p>
             &copy; {new Date().getFullYear()} Peres & Peres Contabilidade. Todos os direitos
             reservados.
           </p>
           <div className="flex items-center gap-4 mt-4 md:mt-0">
-            <span className="font-semibold text-primary-foreground/70">{SITE_INFO.crc}</span>
-            <Link to="/privacidade" className="hover:text-white transition-colors">
+            <span className="font-semibold text-gray-400">{SITE_INFO.crc}</span>
+            <Link to="/privacidade" className="hover:text-primary transition-colors">
               Política de Privacidade
             </Link>
           </div>

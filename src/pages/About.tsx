@@ -1,16 +1,24 @@
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { BookOpen, GraduationCap, Scale, Users } from 'lucide-react'
+import { BookOpen, GraduationCap, Users } from 'lucide-react'
+import logoPadrao from '@/assets/logo-padrao-oficial-844b7.png'
 
 export default function About() {
   return (
-    <div className="py-12 bg-background">
+    <div className="py-24 bg-background">
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="text-center mb-16 animate-fade-in-up">
-          <Badge variant="outline" className="mb-4 border-secondary text-secondary">
+          <div className="flex justify-center mb-8">
+            <div className="bg-black p-6 rounded-xl inline-block">
+              <img src={logoPadrao} alt="Peres & Peres" className="h-16 w-auto" />
+            </div>
+          </div>
+          <Badge variant="outline" className="mb-4 border-primary text-primary">
             Expertise & E-E-A-T
           </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Nossa Autoridade Técnica</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-black">
+            Nossa Autoridade Técnica
+          </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             A Peres & Peres é construída sobre uma fundação sólida de excelência acadêmica e prática
             profissional rigorosa na contabilidade tributária.
@@ -28,10 +36,8 @@ export default function About() {
               />
             </div>
             <div className="md:col-span-3 p-8 lg:p-12 bg-white flex flex-col justify-center">
-              <h2 className="text-3xl font-bold text-primary mb-2">
-                Rafael Peres Peres Nunes Altoé
-              </h2>
-              <p className="text-accent font-semibold mb-6 uppercase tracking-wider text-sm">
+              <h2 className="text-3xl font-bold text-black mb-2">Rafael Peres Peres Nunes Altoé</h2>
+              <p className="text-primary font-semibold mb-6 uppercase tracking-wider text-sm">
                 Contador Responsável • CRC 027704/O
               </p>
 
@@ -55,16 +61,16 @@ export default function About() {
 
               <div className="grid grid-cols-2 gap-4 mt-8 pt-8 border-t">
                 <div className="flex items-start gap-3">
-                  <GraduationCap className="h-6 w-6 text-secondary shrink-0" />
+                  <GraduationCap className="h-6 w-6 text-primary shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-primary">Pós-Graduação</h4>
+                    <h4 className="font-semibold text-black">Pós-Graduação</h4>
                     <p className="text-sm text-muted-foreground">Direito Tributário (CERS)</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <BookOpen className="h-6 w-6 text-secondary shrink-0" />
+                  <BookOpen className="h-6 w-6 text-primary shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-primary">Pesquisa Acadêmica</h4>
+                    <h4 className="font-semibold text-black">Pesquisa Acadêmica</h4>
                     <p className="text-sm text-muted-foreground">UniCEUB & IDP</p>
                   </div>
                 </div>
@@ -76,8 +82,8 @@ export default function About() {
         {/* Team Section */}
         <div className="mt-24">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 flex items-center justify-center gap-3">
-              <Users className="h-8 w-8 text-secondary" /> Equipe Multidisciplinar
+            <h2 className="text-3xl font-bold mb-4 flex items-center justify-center gap-3 text-black">
+              <Users className="h-8 w-8 text-primary" /> Equipe Multidisciplinar
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Contamos com profissionais altamente qualificados, incluindo advogados tributaristas,
@@ -97,7 +103,7 @@ export default function About() {
                   />
                 </div>
                 <h3 className="font-bold text-lg">Membro Equipe {member}</h3>
-                <p className="text-sm text-secondary font-medium mb-3">Auditor Sênior</p>
+                <p className="text-sm text-primary font-medium mb-3">Auditor Sênior</p>
                 <p className="text-sm text-muted-foreground">
                   Especialista na análise de obrigações acessórias e SPED Fiscal.
                 </p>
