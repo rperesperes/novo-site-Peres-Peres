@@ -53,7 +53,7 @@ export default function Resources() {
                 <CardContent>
                   <Button
                     variant="default"
-                    className="w-full mt-2 bg-secondary hover:bg-secondary/90 text-white"
+                    className="w-full mt-2 bg-black hover:bg-gray-800 text-white"
                   >
                     Baixar E-book
                   </Button>
@@ -75,7 +75,7 @@ export default function Resources() {
                 <CardContent>
                   <Button
                     variant="default"
-                    className="w-full mt-2 bg-secondary hover:bg-secondary/90 text-white"
+                    className="w-full mt-2 bg-black hover:bg-gray-800 text-white"
                   >
                     Baixar Planilha
                   </Button>

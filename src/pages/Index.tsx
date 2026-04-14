@@ -30,7 +30,7 @@ export default function Index() {
           <div className="space-y-8 animate-fade-in-up">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary-foreground text-sm font-semibold border border-primary/30">
               <img src={logoIcon} alt="PP" className="h-5 w-auto rounded-sm" />
-              E-E-A-T Certified Authority
+              Autoridade Técnica Certificada
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
               Contabilidade Tributária em Brasília:
@@ -103,7 +103,7 @@ export default function Index() {
                   'Articulista Tributário',
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-2 font-medium text-black">
-                    <CheckCircle2 className="h-5 w-5 text-secondary" /> {item}
+                    <CheckCircle2 className="h-5 w-5 text-primary" /> {item}
                   </li>
                 ))}
               </ul>
@@ -195,7 +195,7 @@ export default function Index() {
                       <p className="text-white/70 mb-6 line-clamp-3">{kase.description}</p>
                       <div className="bg-white/10 p-4 rounded-md">
                         <div className="text-sm text-white/60 mb-1">Redução de Carga</div>
-                        <div className="text-3xl font-bold text-secondary">{kase.savings}</div>
+                        <div className="text-3xl font-bold text-accent">{kase.savings}</div>
                       </div>
                     </CardContent>
                   </Card>

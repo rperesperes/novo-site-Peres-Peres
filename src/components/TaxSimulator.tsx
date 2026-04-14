@@ -35,13 +35,13 @@ export function TaxSimulator() {
   }
 
   return (
-    <Card className="w-full max-w-xl mx-auto border-secondary/20 shadow-lg">
-      <CardHeader className="bg-secondary text-secondary-foreground rounded-t-lg">
+    <Card className="w-full max-w-xl mx-auto border-primary/20 shadow-lg">
+      <CardHeader className="bg-black text-white rounded-t-lg">
         <CardTitle className="flex items-center gap-2">
           <Calculator className="h-5 w-5" />
           Simulador de Eficiência Tributária
         </CardTitle>
-        <CardDescription className="text-secondary-foreground/80">
+        <CardDescription className="text-gray-400">
           Descubra o potencial de redução da sua carga tributária com base em nossa expertise.
         </CardDescription>
       </CardHeader>
@@ -76,12 +76,12 @@ export function TaxSimulator() {
         </form>
 
         {result !== null && (
-          <div className="mt-6 p-4 bg-green-50 rounded-md border border-green-200 animate-fade-in-up">
-            <h4 className="font-semibold text-green-800 text-sm mb-1">
+          <div className="mt-6 p-4 bg-blue-50 rounded-md border border-blue-200 animate-fade-in-up">
+            <h4 className="font-semibold text-blue-800 text-sm mb-1">
               Potencial de Economia Estimado*
             </h4>
-            <p className="text-2xl font-bold text-green-700">{formatCurrency(result)} / ano</p>
-            <p className="text-xs text-green-600 mt-2">
+            <p className="text-2xl font-bold text-blue-700">{formatCurrency(result)} / ano</p>
+            <p className="text-xs text-blue-600 mt-2">
               *Este é um valor estimado baseado em médias do setor. Um planejamento personalizado é
               necessário para dados exatos.
             </p>

@@ -13,7 +13,7 @@ import { Scale, TrendingDown } from 'lucide-react'
 export default function Cases() {
   const chartConfig = {
     before: { label: 'Carga Inicial (R$)', color: 'hsl(var(--chart-4))' },
-    after: { label: 'Após Intervenção (R$)', color: 'hsl(var(--chart-2))' },
+    after: { label: 'Após Intervenção (R$)', color: 'hsl(var(--chart-1))' },
   }
 
   return (
@@ -50,11 +50,11 @@ export default function Cases() {
                     </CardDescription>
 
                     <div className="space-y-4">
-                      <div className="flex items-center gap-3 bg-secondary/10 p-4 rounded-lg border border-secondary/20">
-                        <TrendingDown className="h-8 w-8 text-secondary" />
+                      <div className="flex items-center gap-3 bg-primary/10 p-4 rounded-lg border border-primary/20">
+                        <TrendingDown className="h-8 w-8 text-primary" />
                         <div>
                           <p className="text-sm font-medium text-black">Redução Efetiva</p>
-                          <p className="text-2xl font-bold text-secondary">{kase.savings}</p>
+                          <p className="text-2xl font-bold text-primary">{kase.savings}</p>
                         </div>
                       </div>
 

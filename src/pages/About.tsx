@@ -14,7 +14,7 @@ export default function About() {
             </div>
           </div>
           <Badge variant="outline" className="mb-4 border-primary text-primary">
-            Expertise & E-E-A-T
+            Expertise e Excelência
           </Badge>
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-black">
             Nossa Autoridade Técnica

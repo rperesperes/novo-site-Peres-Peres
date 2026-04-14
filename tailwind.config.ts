@@ -40,7 +40,7 @@ export default {
           foreground: '#FFFFFF',
         },
         secondary: {
-          DEFAULT: '#10B981',
+          DEFAULT: '#000000',
           foreground: '#FFFFFF',
         },
         accent: {
@@ -65,10 +65,10 @@ export default {
         },
         chart: {
           1: '#1E40AF',
-          2: '#10B981',
-          3: '#FCD34D',
+          2: '#FCD34D',
+          3: '#000000',
           4: '#6B7280',
-          5: '#000000',
+          5: '#e5e7eb',
         },
       },
       borderRadius: {
