@@ -28,10 +28,6 @@ export default function Index() {
 
         <div className="container mx-auto px-4 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary-foreground text-sm font-semibold border border-primary/30">
-              <img src={logoIcon} alt="PP" className="h-5 w-auto rounded-sm" />
-              Autoridade Técnica Certificada
-            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
               Contabilidade Tributária em Brasília:
               <br />
