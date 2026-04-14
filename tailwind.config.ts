@@ -36,7 +36,7 @@ export default {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: '#1E40AF',
+          DEFAULT: '#10B981',
           foreground: '#FFFFFF',
         },
         secondary: {
@@ -64,7 +64,7 @@ export default {
           foreground: 'hsl(var(--card-foreground))',
         },
         chart: {
-          1: '#1E40AF',
+          1: '#10B981',
           2: '#FCD34D',
           3: '#000000',
           4: '#6B7280',

@@ -76,12 +76,12 @@ export function TaxSimulator() {
         </form>
 
         {result !== null && (
-          <div className="mt-6 p-4 bg-blue-50 rounded-md border border-blue-200 animate-fade-in-up">
-            <h4 className="font-semibold text-blue-800 text-sm mb-1">
+          <div className="mt-6 p-4 bg-green-50 rounded-md border border-green-200 animate-fade-in-up">
+            <h4 className="font-semibold text-green-800 text-sm mb-1">
               Potencial de Economia Estimado*
             </h4>
-            <p className="text-2xl font-bold text-blue-700">{formatCurrency(result)} / ano</p>
-            <p className="text-xs text-blue-600 mt-2">
+            <p className="text-2xl font-bold text-green-700">{formatCurrency(result)} / ano</p>
+            <p className="text-xs text-green-600 mt-2">
               *Este é um valor estimado baseado em médias do setor. Um planejamento personalizado é
               necessário para dados exatos.
             </p>
