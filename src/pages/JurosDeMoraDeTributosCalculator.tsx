@@ -32,6 +32,7 @@ import {
 } from '@/components/ui/accordion'
 import { CalculatorEmailCapture } from '@/components/CalculatorEmailCapture'
 import {
+  SELIC_SERIE_VIGENCIA,
   OFFICIAL_SELIC_MAP,
   OFFICIAL_SELIC_MONTHLY_SERIES,
   LATEST_OFFICIAL_SELIC_MONTH,
@@ -496,7 +497,7 @@ export default function JurosDeMoraDeTributosCalculator() {
               </div>
               <div>
                 <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 block">
-                  Vigência e Base Legal Consolidada • Parâmetros conferidos em fevereiro/2026
+                  Vigência e Base Legal Consolidada • {SELIC_SERIE_VIGENCIA.rotuloConferencia}
                 </span>
                 <p className="text-sm font-medium text-neutral-900 mt-0.5">
                   Art. 61 da Lei nº 9.430/1996 • Art. 13 da Lei nº 9.065/1995 • Art. 84 da Lei nº
@@ -504,8 +505,11 @@ export default function JurosDeMoraDeTributosCalculator() {
                 </p>
                 <p className="text-xs text-neutral-600 mt-1">
                   Série histórica da Taxa Selic mensal{' '}
-                  <strong>consolidada oficialmente até setembro/2026 (1,08% a.m.)</strong> — dados
-                  oficiais Banco Central do Brasil (Série SGS 4390 / Sicalc RFB).
+                  <strong>
+                    {SELIC_SERIE_VIGENCIA.rotuloConsolidacao.toLowerCase()} (
+                    {SELIC_SERIE_VIGENCIA.taxaMaisRecente.toFixed(2).replace('.', ',')}% a.m.)
+                  </strong>{' '}
+                  — dados oficiais Banco Central do Brasil (Série SGS 4390 / Sicalc RFB).
                 </p>
               </div>
             </div>
@@ -513,7 +517,7 @@ export default function JurosDeMoraDeTributosCalculator() {
             <div className="sm:text-right shrink-0">
               <span className="inline-flex items-center gap-1.5 text-xs font-mono bg-white border border-neutral-200 px-3 py-1.5 rounded-md text-neutral-700 shadow-sm">
                 <Clock className="h-3.5 w-3.5 text-neutral-500" />
-                Consolidada até setembro/2026
+                {SELIC_SERIE_VIGENCIA.rotuloConsolidacao}
               </span>
             </div>
           </div>

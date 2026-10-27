@@ -1,3 +1,10 @@
+import { FOLHA_TRABALHISTA_VIGENCIA } from './folhaData'
+import { IRPF_ANUAL_VIGENCIA } from './irpfData'
+import { SELIC_SERIE_VIGENCIA } from './selicData'
+import { SIMPLES_NACIONAL_VIGENCIA } from './simplesData'
+import { FATOR_R_VIGENCIA } from './fatorRData'
+import { FINANCIAMENTO_VIGENCIA } from './financiamentoData'
+
 export interface CalculatorItem {
   id: string
   slug: string
@@ -25,7 +32,7 @@ export const CALCULATORS: CalculatorItem[] = [
     category: 'Regime Tributário',
     legalBasis:
       'Lei Complementar nº 123/2006 (Anexos I a V), Lei nº 9.249/1995, Lei nº 10.637/2002, Lei nº 10.833/2003 e LC nº 116/2003',
-    updatedAt: 'Fevereiro/2026',
+    updatedAt: SIMPLES_NACIONAL_VIGENCIA.ultimaRevisao,
   },
   {
     id: 'fator-r',
@@ -35,7 +42,7 @@ export const CALCULATORS: CalculatorItem[] = [
       'Cálculo da relação entre folha de pagamento e receita bruta para enquadramento no Anexo III ou Anexo V.',
     category: 'Regime Tributário',
     legalBasis: 'art. 18, §§ 5º e 24, da LC 123/2006',
-    updatedAt: 'Fevereiro/2026',
+    updatedAt: FATOR_R_VIGENCIA.ultimaRevisao,
   },
   {
     id: 'simples-nacional-hibrido',
@@ -45,7 +52,7 @@ export const CALCULATORS: CalculatorItem[] = [
       'Comparativo estimativo entre recolher ICMS e ISS dentro do DAS ou por fora, com apuração de alíquotas efetivas e segregação de receitas.',
     category: 'Regime Tributário',
     legalBasis: 'Lei Complementar nº 123/2006, art. 18 e seguintes, e Resolução CGSN nº 140/2018',
-    updatedAt: 'Fevereiro/2026',
+    updatedAt: SIMPLES_NACIONAL_VIGENCIA.ultimaRevisao,
   },
 
   // Bloco 2: Folha e Trabalhista
@@ -58,7 +65,7 @@ export const CALCULATORS: CalculatorItem[] = [
     category: 'Folha e Trabalhista',
     legalBasis:
       'Portaria Interministerial MPS/MF nº 13/2026, Lei nº 15.270/2025, Lei nº 8.212/1991, Lei nº 8.036/1990 e LC nº 123/2006',
-    updatedAt: 'Fevereiro/2026',
+    updatedAt: FOLHA_TRABALHISTA_VIGENCIA.ultimaConferencia,
   },
   {
     id: 'pj-ou-clt',
@@ -69,7 +76,7 @@ export const CALCULATORS: CalculatorItem[] = [
     category: 'Folha e Trabalhista',
     legalBasis:
       'Portaria Interministerial MPS/MF nº 13/2026, Lei nº 15.270/2025, Lei nº 8.212/1991, Lei nº 8.036/1990 e LC nº 123/2006',
-    updatedAt: 'Fevereiro/2026',
+    updatedAt: FOLHA_TRABALHISTA_VIGENCIA.ultimaConferencia,
   },
   {
     id: 'rescisao-trabalhista',
@@ -79,7 +86,7 @@ export const CALCULATORS: CalculatorItem[] = [
       'Estimativa das verbas rescisórias devidas conforme modalidade de desligamento e tempo de serviço.',
     category: 'Folha e Trabalhista',
     legalBasis: 'Artigos 477 a 486 da CLT e Portaria MTE nº 671/2021',
-    updatedAt: 'Fevereiro/2026',
+    updatedAt: FOLHA_TRABALHISTA_VIGENCIA.ultimaConferencia,
   },
   {
     id: 'pro-labore-ou-dividendos',
@@ -89,7 +96,7 @@ export const CALCULATORS: CalculatorItem[] = [
       'Avaliação de incidência de INSS, IRPF e distribuição isenta de lucros apurados pelos sócios.',
     category: 'Folha e Trabalhista',
     legalBasis: 'Art. 10 da Lei nº 9.249/1995 e Lei nº 8.212/1991',
-    updatedAt: 'Fevereiro/2026',
+    updatedAt: FOLHA_TRABALHISTA_VIGENCIA.ultimaConferencia,
   },
 
   // Bloco 3: Finanças e Tributos
@@ -101,7 +108,7 @@ export const CALCULATORS: CalculatorItem[] = [
       'Estimativa de imposto de renda anual, deduções legais e potencial de restituição (ano-calendário 2025 / exercício 2026).',
     category: 'Finanças e Tributos',
     legalBasis: 'Lei nº 9.250/1995, Tabela Progressiva Anual da Receita Federal (exercício 2026)',
-    updatedAt: 'Fevereiro/2026',
+    updatedAt: IRPF_ANUAL_VIGENCIA.ultimaConferencia,
   },
   {
     id: 'juros-de-mora-de-tributos',
@@ -112,7 +119,7 @@ export const CALCULATORS: CalculatorItem[] = [
     category: 'Finanças e Tributos',
     legalBasis:
       'Art. 61 da Lei nº 9.430/1996, Art. 13 da Lei nº 9.065/1995 e Art. 84 da Lei nº 8.981/1995',
-    updatedAt: 'Fevereiro/2026',
+    updatedAt: SELIC_SERIE_VIGENCIA.ultimaConferencia,
   },
   {
     id: 'juros-de-financiamento',
@@ -122,7 +129,7 @@ export const CALCULATORS: CalculatorItem[] = [
       'Comparativo em tempo real entre os sistemas Price e SAC com projeção de parcelas, juros acumulados e evolução do saldo devedor.',
     category: 'Finanças e Tributos',
     legalBasis: 'Resoluções Bacen nº 3.517/2007 e 4.881/2020 e Código Civil (Lei nº 10.406/2002)',
-    updatedAt: 'Fevereiro/2026',
+    updatedAt: FINANCIAMENTO_VIGENCIA.ultimaRevisao,
   },
 ]
 

@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { SIMPLES_NACIONAL_VIGENCIA } from '@/lib/simplesData'
 import {
   ChevronRight,
   ArrowLeft,
@@ -1526,7 +1527,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
                   Vigência Normativa e Fundamentação Legal Completa
                 </h3>
                 <span className="text-xs font-mono bg-neutral-100 text-neutral-800 px-2 py-0.5 rounded border border-neutral-300">
-                  Parâmetros conferidos em fevereiro/2026
+                  {SIMPLES_NACIONAL_VIGENCIA.rotuloRevisao}
                 </span>
               </div>
               <p className="text-sm text-neutral-700 leading-relaxed">

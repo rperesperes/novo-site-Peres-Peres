@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { FATOR_R_VIGENCIA } from '@/lib/fatorRData'
 import {
   ChevronRight,
   ArrowLeft,
@@ -971,7 +972,7 @@ export default function FatorRCalculator() {
                   Vigência Normativa e Base Legal Aplicada
                 </h3>
                 <span className="text-xs font-mono bg-neutral-100 text-neutral-800 px-2 py-0.5 rounded border border-neutral-300">
-                  Parâmetros conferidos em fevereiro/2026
+                  {FATOR_R_VIGENCIA.rotuloRevisao}
                 </span>
               </div>
               <p className="text-sm text-neutral-700 leading-relaxed">

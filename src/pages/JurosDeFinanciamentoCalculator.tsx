@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { FINANCIAMENTO_VIGENCIA } from '@/lib/financiamentoData'
 import {
   ChevronRight,
   ArrowLeft,
@@ -480,23 +481,14 @@ export default function JurosDeFinanciamentoCalculator() {
                     Premissas Aritméticas e Resoluções CMN/Bacen
                   </span>
                   <span className="text-xs font-mono bg-neutral-100 text-neutral-800 px-2 py-0.5 rounded border border-neutral-300">
-                    Parâmetros conferidos em fevereiro/2026
+                    {FINANCIAMENTO_VIGENCIA.rotuloRevisao}
                   </span>
                 </div>
                 <p className="text-sm font-medium text-neutral-900 mt-0.5">
-                  Sistemas Price (Tabela Francesa) e SAC (Amortização Constante) • Resoluções Bacen
-                  nº 3.517/2007 e 4.881/2020
+                  {FINANCIAMENTO_VIGENCIA.baseLegal}
                 </p>
                 <p className="text-xs text-neutral-600 mt-1">
-                  <strong>Aviso de Vigência e CET:</strong> Esta ferramenta calcula puramente os
-                  juros e a amortização do principal contratado. Ela <strong>não inclui</strong>{' '}
-                  seguros obrigatórios (MIP e DFI), tarifas cadastrais mensais nem tributos (IOF),
-                  de modo que o{' '}
-                  <strong>
-                    Custo Efetivo Total (CET) real da instituição financeira é sempre superior à
-                    taxa contratada
-                  </strong>
-                  .
+                  <strong>Aviso de Vigência e CET:</strong> {FINANCIAMENTO_VIGENCIA.avisoCet}
                 </p>
               </div>
             </div>
@@ -504,7 +496,7 @@ export default function JurosDeFinanciamentoCalculator() {
             <div className="sm:text-right shrink-0">
               <span className="inline-flex items-center gap-1.5 text-xs font-mono bg-white border border-neutral-200 px-3 py-1.5 rounded-md text-neutral-700 shadow-sm">
                 <Clock className="h-3.5 w-3.5 text-neutral-500" />
-                Parâmetros conferidos em fevereiro/2026
+                {FINANCIAMENTO_VIGENCIA.rotuloRevisao}
               </span>
             </div>
           </div>

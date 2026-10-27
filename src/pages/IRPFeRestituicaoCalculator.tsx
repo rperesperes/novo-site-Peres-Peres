@@ -59,12 +59,14 @@ function formatRawInput(value: number): string {
   })
 }
 
-// Parâmetros legais da Tabela Progressiva Anual do IRPF vigente
-// Lei nº 9.250/1995, Lei nº 11.482/2007 e Tabela Progressiva da RFB
-export const DEDUCAO_ANUAL_POR_DEPENDENTE = 2275.08
-export const LIMITE_ANUAL_EDUCACAO_POR_PESSOA = 3561.5
-export const LIMITE_PERCENTUAL_PGBL = 0.12 // 12% dos rendimentos tributáveis
-export const LIMITE_DESCONTO_SIMPLIFICADO = 16754.34 // 20% até R$ 16.754,34
+import {
+  IRPF_ANUAL_VIGENCIA,
+  DEDUCAO_ANUAL_POR_DEPENDENTE,
+  LIMITE_ANUAL_EDUCACAO_POR_PESSOA,
+  LIMITE_PERCENTUAL_PGBL,
+  LIMITE_DESCONTO_SIMPLIFICADO,
+  TABELA_PROGRESSIVA_ANUAL as TABELA_PROGRESSIVA_LIB,
+} from '@/lib/irpfData'
 
 export interface FaixaIRPF {
   faixa: number
@@ -75,48 +77,21 @@ export interface FaixaIRPF {
   parcelaADeduzir: number
 }
 
-export const TABELA_PROGRESSIVA_ANUAL: FaixaIRPF[] = [
-  {
-    faixa: 1,
-    nome: '1ª Faixa',
-    de: 0,
-    ate: 28467.2,
-    aliquota: 0,
-    parcelaADeduzir: 0,
-  },
-  {
-    faixa: 2,
-    nome: '2ª Faixa',
-    de: 28467.2,
-    ate: 33919.8,
-    aliquota: 0.075,
-    parcelaADeduzir: 2135.04,
-  },
-  {
-    faixa: 3,
-    nome: '3ª Faixa',
-    de: 33919.8,
-    ate: 45012.6,
-    aliquota: 0.15,
-    parcelaADeduzir: 4679.03,
-  },
-  {
-    faixa: 4,
-    nome: '4ª Faixa',
-    de: 45012.6,
-    ate: 55976.16,
-    aliquota: 0.225,
-    parcelaADeduzir: 8054.97,
-  },
-  {
-    faixa: 5,
-    nome: '5ª Faixa',
-    de: 55976.16,
-    ate: Infinity,
-    aliquota: 0.275,
-    parcelaADeduzir: 10853.78,
-  },
-]
+export {
+  DEDUCAO_ANUAL_POR_DEPENDENTE,
+  LIMITE_ANUAL_EDUCACAO_POR_PESSOA,
+  LIMITE_PERCENTUAL_PGBL,
+  LIMITE_DESCONTO_SIMPLIFICADO,
+}
+
+export const TABELA_PROGRESSIVA_ANUAL: FaixaIRPF[] = TABELA_PROGRESSIVA_LIB.map((f) => ({
+  faixa: f.numero,
+  nome: f.nome,
+  de: f.limiteInferior,
+  ate: f.limiteSuperior,
+  aliquota: f.aliquota,
+  parcelaADeduzir: f.parcelaDeduzir,
+}))
 
 // Função pura para apurar imposto faixa a faixa
 function calcularImpostoPorFaixas(baseCalculo: number) {
@@ -1663,10 +1638,10 @@ export default function IRPFeRestituicaoCalculator() {
                   Vigência Normativa e Base Legal Aplicada
                 </h3>
                 <span className="text-[11px] font-mono bg-neutral-100 text-neutral-800 px-2 py-0.5 rounded border border-neutral-300 font-semibold">
-                  ano-calendário 2025 / exercício 2026
+                  {IRPF_ANUAL_VIGENCIA.rotuloExercicio}
                 </span>
                 <span className="text-xs font-mono bg-neutral-100 text-neutral-800 px-2 py-0.5 rounded border border-neutral-300">
-                  Parâmetros conferidos em fevereiro/2026
+                  {IRPF_ANUAL_VIGENCIA.rotuloConferencia}
                 </span>
               </div>
               <p className="text-sm text-neutral-700 leading-relaxed">

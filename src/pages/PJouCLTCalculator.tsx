@@ -1,6 +1,11 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import {
+  FOLHA_TRABALHISTA_VIGENCIA,
+  calcularINSSEmpregado,
+  calcularIRRFEmpregado,
+} from '@/lib/folhaData'
+import {
   ChevronRight,
   ArrowLeft,
   ArrowRight,
@@ -50,118 +55,6 @@ function formatRawInput(value: number): string {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })
-}
-
-// Tabela progressiva do INSS do Empregado (Portaria Interministerial MPS/MF nº 13/2026 - teto R$ 8.475,55)
-const INSS_FAIXAS_2026 = [
-  { limite: 1621.0, aliq: 0.075 },
-  { limite: 2902.84, aliq: 0.09 },
-  { limite: 4354.27, aliq: 0.12 },
-  { limite: 8475.55, aliq: 0.14 },
-]
-
-function calcularINSSEmpregado(salario: number): number {
-  if (salario <= 0) return 0
-
-  let inssTotal = 0
-  let faixaAnterior = 0
-
-  for (let i = 0; i < INSS_FAIXAS_2026.length; i++) {
-    const { limite, aliq } = INSS_FAIXAS_2026[i]
-    if (salario > limite) {
-      inssTotal += (limite - faixaAnterior) * aliq
-      faixaAnterior = limite
-    } else {
-      inssTotal += (salario - faixaAnterior) * aliq
-      faixaAnterior = salario
-      break
-    }
-  }
-
-  return inssTotal
-}
-
-// Tabela progressiva mensal do IRRF vigente em 2026 (Lei nº 15.191/2025 / Instrução Normativa RFB)
-// Isenção até R$ 2.428,80 | Desconto simplificado mensal padrão: 25% do limite de isenção = R$ 607,20
-// Dedução por dependente: R$ 189,59
-const IRRF_FAIXAS_2026 = [
-  { limite: 2428.8, aliq: 0, deducao: 0 },
-  { limite: 2826.65, aliq: 0.075, deducao: 182.16 },
-  { limite: 3751.05, aliq: 0.15, deducao: 394.16 },
-  { limite: 4664.68, aliq: 0.225, deducao: 675.49 },
-  { limite: Infinity, aliq: 0.275, deducao: 908.73 },
-]
-const DEDUCAO_DEPENDENTE = 189.59
-const DESCONTO_SIMPLIFICADO_IRRF = 607.2
-
-function calcularRedutorLei15270(rendimentoBruto: number, irrfBruto: number): number {
-  if (rendimentoBruto <= 0 || irrfBruto <= 0) return 0
-
-  // Art. 3º-A da Lei nº 9.250/1995 (incluído pela Lei nº 15.270/2025):
-  // Faixa 1: até R$ 5.000,00 -> redução de até R$ 312,89 (imposto devido igual a zero)
-  if (rendimentoBruto <= 5000) {
-    return Math.min(irrfBruto, 312.89)
-  }
-
-  // Faixa 2: de R$ 5.000,01 até R$ 7.350,00 -> R$ 978,62 - (0,133145 * rendimentos)
-  if (rendimentoBruto <= 7350) {
-    const formulaReducao = 978.62 - 0.133145 * rendimentoBruto
-    const reducaoCalculada = Math.max(0, formulaReducao)
-    return Math.min(irrfBruto, reducaoCalculada)
-  }
-
-  // Acima de R$ 7.350,00 -> sem redução
-  return 0
-}
-
-function calcularIRRFEmpregado(
-  salario: number,
-  inssRetido: number,
-  dependentes: number,
-): {
-  irrfBruto: number
-  redutorLei15270: number
-  irrfFinal: number
-  baseUsada: number
-  faixaAliq: number
-} {
-  if (salario <= 0) {
-    return { irrfBruto: 0, redutorLei15270: 0, irrfFinal: 0, baseUsada: 0, faixaAliq: 0 }
-  }
-
-  // Opção 1: deduções legais (INSS + dependentes)
-  const deducaoLegal = inssRetido + dependentes * DEDUCAO_DEPENDENTE
-  const baseLegal = Math.max(0, salario - deducaoLegal)
-
-  // Opção 2: desconto simplificado legal (R$ 607,20 em 2026)
-  const baseSimplificada = Math.max(0, salario - DESCONTO_SIMPLIFICADO_IRRF)
-
-  // A Receita Federal aplica a mais vantajosa ao contribuinte (menor base tributável)
-  const baseCalculo = Math.min(baseLegal, baseSimplificada)
-
-  let irrfCalculado = 0
-  let faixaAliq = 0
-
-  for (let i = 0; i < IRRF_FAIXAS_2026.length; i++) {
-    const f = IRRF_FAIXAS_2026[i]
-    if (baseCalculo <= f.limite) {
-      faixaAliq = f.aliq
-      irrfCalculado = Math.max(0, baseCalculo * f.aliq - f.deducao)
-      break
-    }
-  }
-
-  // Redutor da Lei 15.270/2025
-  const redutor = calcularRedutorLei15270(salario, irrfCalculado)
-  const irrfFinal = Math.max(0, irrfCalculado - redutor)
-
-  return {
-    irrfBruto: irrfCalculado,
-    redutorLei15270: redutor,
-    irrfFinal,
-    baseUsada: baseCalculo,
-    faixaAliq,
-  }
 }
 
 // Tabelas dos Anexos do Simples Nacional (Lei Complementar nº 123/2006)
@@ -1705,7 +1598,7 @@ export default function PJouCLTCalculator() {
                   Vigência Normativa e Base Legal Aplicada
                 </h3>
                 <span className="text-xs font-mono bg-neutral-100 text-neutral-800 px-2 py-0.5 rounded border border-neutral-300">
-                  Parâmetros conferidos em fevereiro/2026
+                  {FOLHA_TRABALHISTA_VIGENCIA.rotuloConferencia}
                 </span>
               </div>
               <p className="text-sm text-neutral-700 leading-relaxed">
