@@ -21,9 +21,9 @@ export const CALCULATORS: CalculatorItem[] = [
     slug: 'simples-nacional-ou-lucro-presumido',
     name: 'Simples Nacional ou Lucro Presumido',
     shortDescription:
-      'Comparativo estimativo de carga tributária e encargos entre os regimes Simples Nacional e Lucro Presumido.',
+      'Comparativo estimativo de carga tributária e encargos entre os regimes Simples Nacional e Lucro Presumido com apuração de alíquotas efetivas.',
     category: 'Regime Tributário',
-    legalBasis: 'Lei Complementar nº 123/2006 e Lei nº 9.718/1998',
+    legalBasis: 'LC 123/2006, Leis 9.249/1995, 10.637/2002 e LC 116/2003',
     updatedAt: 'Janeiro/2025',
   },
   {

@@ -13,12 +13,17 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import NotFound from './NotFound'
 import FatorRCalculator from './FatorRCalculator'
+import SimplesNacionalOuLucroPresumidoCalculator from './SimplesNacionalOuLucroPresumidoCalculator'
 
 export default function CalculatorDetail() {
   const { slug } = useParams<{ slug: string }>()
 
   if (slug === 'fator-r') {
     return <FatorRCalculator />
+  }
+
+  if (slug === 'simples-nacional-ou-lucro-presumido') {
+    return <SimplesNacionalOuLucroPresumidoCalculator />
   }
 
   const calculator = CALCULATORS.find((c) => c.slug === slug)

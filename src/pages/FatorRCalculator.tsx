@@ -57,14 +57,13 @@ export default function FatorRCalculator() {
   const [folhaInput, setFolhaInput] = useState<string>('33.600,00')
   const [receitaInput, setReceitaInput] = useState<string>('120.000,00')
 
-  // SEO: título da aba (máximo 60 caracteres) e meta description (máximo 155 caracteres)
+  // SEO: título da aba (máximo 60 caracteres) começando por "Calculadora fator r" e meta description (máximo 155 caracteres)
   useEffect(() => {
-    const pageTitle = 'Calculadora Fator R: Anexo III ou Anexo V | PERES PERES' // 55 caracteres
+    const pageTitle = 'Calculadora fator r: Anexo III ou V | PERES PERES' // 49 caracteres, começa por "Calculadora fator r"
     const pageDesc =
       'Calcule o Fator R do Simples Nacional em tempo real e descubra se sua empresa se enquadra no Anexo III ou Anexo V com base na LC 123/2006.' // 139 caracteres
 
     document.title = pageTitle
-
     let metaDescTag = document.querySelector('meta[name="description"]')
     if (!metaDescTag) {
       metaDescTag = document.createElement('meta')
@@ -140,7 +139,7 @@ export default function FatorRCalculator() {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'WebApplication',
+        '@type': 'SoftwareApplication',
         '@id': 'https://peresperes.com.br/calculadoras/fator-r#software',
         name: 'Calculadora de Fator R: Simples Nacional',
         url: 'https://peresperes.com.br/calculadoras/fator-r',
