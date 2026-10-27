@@ -15,7 +15,7 @@ export default function Layout() {
     const titles: Record<string, string> = {
       '/': 'Consultoria e Contabilidade Tributária em Brasília | PERES PERES Consultoria e Contabilidade',
       '/sobre': 'Sobre Nós | PERES PERES Consultoria e Contabilidade',
-      '/servicos': 'Áreas de Atuação | PERES PERES Consultoria e Contabilidade',
+      '/servicos': 'Serviços e Planos Contábeis | PERES PERES Consultoria e Contabilidade',
       '/casos': 'Casos Reais | PERES PERES Consultoria e Contabilidade',
       '/blog': 'Blog Tributário | PERES PERES Consultoria e Contabilidade',
       '/recursos': 'Recursos e Materiais | PERES PERES Consultoria e Contabilidade',
