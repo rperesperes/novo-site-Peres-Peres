@@ -106,10 +106,11 @@ export const CALCULATORS: CalculatorItem[] = [
     slug: 'juros-de-mora-de-tributos',
     name: 'Juros de Mora de Tributos',
     shortDescription:
-      'Cálculo de acréscimos moratórios, multa de mora e taxa Selic acumulada sobre tributos federais em atraso.',
+      'Cálculo em tempo real de juros de mora pela Selic acumulada e multa de 0,33% ao dia sobre tributos federais em atraso com memória aberta.',
     category: 'Finanças e Tributos',
-    legalBasis: 'Art. 61 da Lei nº 9.430/1996 e Art. 161 do Código Tributário Nacional',
-    updatedAt: 'Janeiro/2025',
+    legalBasis:
+      'Art. 61 da Lei nº 9.430/1996, Art. 13 da Lei nº 9.065/1995 e Art. 84 da Lei nº 8.981/1995',
+    updatedAt: 'Fevereiro/2025',
   },
   {
     id: 'juros-de-financiamento',

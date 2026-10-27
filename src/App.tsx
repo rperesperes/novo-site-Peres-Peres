@@ -29,6 +29,7 @@ import SimplesNacionalOuLucroPresumidoCalculator from './pages/SimplesNacionalOu
 import CustoDeFuncionarioCLTCalculator from './pages/CustoDeFuncionarioCLTCalculator'
 import PJouCLTCalculator from './pages/PJouCLTCalculator'
 import SimplesNacionalHibridoCalculator from './pages/SimplesNacionalHibridoCalculator'
+import JurosDeMoraDeTributosCalculator from './pages/JurosDeMoraDeTributosCalculator'
 
 const App = () => (
   <AuthProvider>
@@ -63,6 +64,10 @@ const App = () => (
             <Route
               path="/calculadoras/simples-nacional-hibrido"
               element={<SimplesNacionalHibridoCalculator />}
+            />
+            <Route
+              path="/calculadoras/juros-de-mora-de-tributos"
+              element={<JurosDeMoraDeTributosCalculator />}
             />
             <Route path="/calculadoras/:slug" element={<CalculatorDetail />} />
           </Route>
