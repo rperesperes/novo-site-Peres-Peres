@@ -20,6 +20,7 @@ export default function Layout() {
       '/recursos': 'Recursos e Materiais | PERES PERES Consultoria e Contabilidade',
       '/glossario': 'Glossário Tributário | PERES PERES Consultoria e Contabilidade',
       '/contato': 'Contato | PERES PERES Consultoria e Contabilidade',
+      '/calculadoras': 'Calculadoras | PERES PERES Consultoria e Contabilidade',
     }
 
     document.title = titles[location.pathname] || 'PERES PERES Consultoria e Contabilidade'

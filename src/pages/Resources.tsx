@@ -3,6 +3,7 @@ import { getResources } from '@/services/resources'
 import { useRealtime } from '@/hooks/use-realtime'
 import pb from '@/lib/pocketbase/client'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { FileDown, FileSpreadsheet, Calculator, ArrowRight } from 'lucide-react'
 
@@ -37,76 +38,39 @@ export default function Resources() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Chamada para futura área de calculadoras em endereço próprio */}
-          <div className="space-y-6">
-            <div>
-              <h2 className="text-2xl font-serif font-bold mb-2 text-black">
-                Calculadoras e Ferramentas Práticas
-              </h2>
-              <p className="text-neutral-600 text-sm md:text-base">
-                Ferramentas especializadas para parametrização contábil e fiscal.
+        <div className="space-y-16">
+          {/* Bloco curto de Calculadoras */}
+          <div className="border border-neutral-200 bg-neutral-50/60 rounded-xl p-8 md:p-10 shadow-sm">
+            <div className="max-w-3xl">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 rounded bg-neutral-900 text-white">
+                  <Calculator className="h-5 w-5" />
+                </div>
+                <h2 className="text-2xl md:text-3xl font-serif font-bold text-black">
+                  Calculadoras
+                </h2>
+              </div>
+              <p className="text-neutral-700 text-base md:text-lg leading-relaxed mb-6">
+                As ferramentas interativas e calculadoras técnicas do escritório estão
+                disponibilizadas em endereço próprio para parametrização contábil e fiscal.
               </p>
+              <div>
+                <Button
+                  asChild
+                  className="bg-black hover:bg-neutral-800 text-white font-medium px-6 py-2.5 h-auto inline-flex items-center gap-2"
+                >
+                  <Link to="/calculadoras">
+                    Acessar Calculadoras <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
             </div>
-
-            <Card className="border border-neutral-300 bg-neutral-50/60 shadow-sm overflow-hidden">
-              <CardHeader className="bg-black text-white p-6">
-                <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded bg-neutral-900 border border-neutral-800">
-                    <Calculator className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <CardTitle className="font-serif text-xl text-white">
-                      Área de Calculadoras Fiscais
-                    </CardTitle>
-                    <CardDescription className="text-neutral-400 text-xs">
-                      Será disponibilizada em endereço próprio
-                    </CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="p-6 space-y-5">
-                <p className="text-sm text-neutral-700 leading-relaxed">
-                  A PERES PERES Consultoria e Contabilidade está desenvolvendo uma plataforma
-                  dedicada de ferramentas e calculadoras contábeis e fiscais em endereço eletrônico
-                  próprio, assegurando parâmetros normativos auditáveis e conformidade com a
-                  legislação vigente.
-                </p>
-
-                <div className="space-y-3 pt-2">
-                  <p className="text-xs font-mono text-neutral-500 uppercase tracking-wider">
-                    Módulos previstos para o novo ambiente:
-                  </p>
-                  <ul className="text-sm text-neutral-700 space-y-2">
-                    <li className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-neutral-900" />
-                      Calculadora de Fator R (Simples Nacional)
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-neutral-900" />
-                      Parametrização de Retenções Federais na Fonte (IRRF, CSRF, INSS)
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-neutral-900" />
-                      Comparativo de regimes tributários aplicáveis
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="pt-2">
-                  <div className="p-3 bg-neutral-100 border border-neutral-200 rounded text-xs text-neutral-600 text-center">
-                    Ambiente em fase de homologação técnica. O link de acesso será publicado aqui
-                    assim que disponibilizado.
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
 
-          {/* Downloads Side */}
+          {/* Seção de materiais para download mantida abaixo */}
           <div className="space-y-6">
             <div>
-              <h2 className="text-2xl font-serif font-bold mb-2 text-black">
+              <h2 className="text-2xl md:text-3xl font-serif font-bold mb-2 text-black">
                 Materiais Educativos e Manuais
               </h2>
               <p className="text-neutral-600 text-sm md:text-base">
@@ -114,7 +78,7 @@ export default function Resources() {
               </p>
             </div>
 
-            <div className="grid gap-4">
+            <div className="grid md:grid-cols-2 gap-6">
               {resources.map((res) => {
                 const fileUrl = res.file ? pb.files.getUrl(res, res.file) : res.link
                 const Icon = res.category?.toLowerCase().includes('planilha')
@@ -124,10 +88,10 @@ export default function Resources() {
                 return (
                   <Card
                     key={res.id}
-                    className="border border-neutral-200 hover:border-neutral-400 transition-colors bg-white shadow-sm"
+                    className="border border-neutral-200 hover:border-neutral-400 transition-colors bg-white shadow-sm flex flex-col justify-between"
                   >
                     <CardHeader className="flex flex-row items-center gap-4 pb-2">
-                      <div className="p-3 bg-neutral-100 text-black rounded-lg border border-neutral-200">
+                      <div className="p-3 bg-neutral-100 text-black rounded-lg border border-neutral-200 shrink-0">
                         <Icon className="h-6 w-6" />
                       </div>
                       <div>
@@ -152,7 +116,7 @@ export default function Resources() {
                 )
               })}
               {resources.length === 0 && (
-                <div className="p-8 border border-dashed border-neutral-300 rounded-lg text-center text-neutral-500 text-sm">
+                <div className="col-span-full p-8 border border-dashed border-neutral-300 rounded-lg text-center text-neutral-500 text-sm">
                   Nenhum material adicional disponível para download no momento.
                 </div>
               )}

@@ -35,7 +35,8 @@
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  .font-heading {
     @apply font-serif tracking-tight text-black font-semibold;
   }
 }

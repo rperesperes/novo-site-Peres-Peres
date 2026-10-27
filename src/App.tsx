@@ -38,8 +38,8 @@ const App = () => (
             {/* Simplification: reuse index view for detail or handle inside */}
             <Route path="/glossario" element={<Glossary />} />
             <Route path="/recursos" element={<Resources />} />
-            <Route path="/contato" element={<Resources />} />{' '}
-            {/* Routing Contato to Resources for Simulator demo */}
+            <Route path="/contato" element={<Resources />} /> {/* Routing Contato to Resources */}
+            <Route path="/calculadoras" element={<Resources />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<AdminLayout />}>

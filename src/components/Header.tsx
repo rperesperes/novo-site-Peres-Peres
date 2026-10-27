@@ -40,13 +40,13 @@ export function Header() {
       )}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3 group">
           <img
             src={logoNova}
             alt="PERES PERES Consultoria e Contabilidade"
             className="h-10 md:h-12 w-auto object-contain"
           />
-          <span className="sr-only">PERES PERES Consultoria e Contabilidade</span>
+          <span className="sr-only font-serif">PERES PERES Consultoria e Contabilidade</span>
         </Link>
 
         {/* Desktop Nav */}

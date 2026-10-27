@@ -97,41 +97,49 @@ export default function About() {
           </div>
         </Card>
 
-        {/* Team Section - Espaço preparado para receber nome, função e mini currículo reais, com nota discreta */}
+        {/* Team Section - UM único bloco preparado para receber perfil real */}
         <div className="mt-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-serif font-bold mb-4 flex items-center justify-center gap-3 text-black">
               <Users className="h-7 w-7 text-black" /> Estrutura da Equipe Técnica
             </h2>
             <p className="text-neutral-600 max-w-2xl mx-auto leading-relaxed text-sm md:text-base">
-              Atuação multidisciplinar integrada nas áreas de contabilidade, auditoria e
-              conformidade fiscal, sob a coordenação e responsabilidade técnica do titular.
+              Atuação multidisciplinar integrada nas áreas de contabilidade e conformidade fiscal,
+              sob coordenação do responsável técnico.
             </p>
           </div>
 
           <div className="max-w-2xl mx-auto">
-            <Card className="p-8 border border-neutral-200 bg-neutral-50/60 shadow-sm text-center">
+            <Card className="p-8 border border-neutral-200 bg-white shadow-sm text-center">
               <div
                 className="aspect-square w-24 mx-auto rounded-lg border-2 border-dashed border-neutral-300 bg-neutral-100 flex items-center justify-center mb-6"
-                aria-label="Espaço reservado para foto da equipe"
+                aria-label="Espaço reservado para fotografia do integrante da equipe"
               >
                 <Users className="h-8 w-8 text-neutral-400" />
               </div>
-              <h3 className="font-serif font-semibold text-xl text-black mb-2">
-                Equipe Multidisciplinar
+
+              {/* Espaço para Nome */}
+              <h3 className="font-serif font-semibold text-xl text-black mb-1">
+                Nome do Profissional
               </h3>
-              <p className="text-xs uppercase font-mono tracking-wider text-neutral-500 mb-4">
-                Corpo Técnico e Consultivo
+
+              {/* Espaço para Função */}
+              <p className="text-xs uppercase font-mono tracking-wider text-neutral-600 mb-5">
+                Função / Especialidade Técnica
               </p>
-              <p className="text-sm text-neutral-700 leading-relaxed max-w-lg mx-auto mb-6">
-                Espaço estruturado para apresentação individual dos profissionais integrantes da
-                nossa equipe técnica, detalhando nome, função, registro profissional e mini
-                currículo acadêmico e corporativo.
-              </p>
+
+              {/* Espaço para Resumo de três linhas */}
+              <div className="max-w-lg mx-auto mb-6 text-sm text-neutral-700 leading-relaxed space-y-1">
+                <p>Linha 1: Formação acadêmica e áreas de concentração técnica especializada.</p>
+                <p>Linha 2: Atribuições nas rotinas de governança contábil e consultoria fiscal.</p>
+                <p>Linha 3: Registro no conselho de classe e qualificações setoriais correlatas.</p>
+              </div>
+
+              {/* Nota discreta */}
               <div className="pt-4 border-t border-neutral-200">
-                <span className="text-xs text-neutral-500 italic">
-                  Os perfis completos dos integrantes da equipe técnica serão publicados em breve.
-                </span>
+                <p className="text-xs text-neutral-500">
+                  Os perfis da equipe serão publicados em breve.
+                </p>
               </div>
             </Card>
           </div>
