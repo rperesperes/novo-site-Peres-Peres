@@ -188,7 +188,7 @@ export default function Index() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <div className="inline-flex items-center gap-2 border border-neutral-800 px-3 py-1 rounded text-xs uppercase tracking-wider text-neutral-400 font-mono">
-              <BookOpen className="h-3.5 w-3.5 text-[#FAB319]" />
+              <BookOpen className="h-3.5 w-3.5 text-neutral-300" />
               Manual de Comunicação e Compliance
             </div>
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-white">

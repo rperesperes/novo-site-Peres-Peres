@@ -74,12 +74,18 @@ export default function AdminCases() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-black">Gerenciar Casos de Sucesso</h1>
+        <div>
+          <h1 className="text-2xl font-serif font-bold text-black">Casos e Metodologia (Admin)</h1>
+          <p className="text-xs text-neutral-500 mt-1">
+            Atenção: em cumprimento ao manual de comunicação, não veicular percentuais de redução
+            nem casos sem comprovação documental.
+          </p>
+        </div>
         <Button
           onClick={() => openModal()}
-          className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold"
+          className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold"
         >
-          <Plus className="mr-2 h-4 w-4" /> Novo Caso
+          <Plus className="mr-2 h-4 w-4" /> Novo Registro
         </Button>
       </div>
 
@@ -98,7 +104,7 @@ export default function AdminCases() {
               <TableRow key={item.id}>
                 <TableCell className="font-medium">{item.title}</TableCell>
                 <TableCell>{item.sector}</TableCell>
-                <TableCell>{item.savings}</TableCell>
+                <TableCell>{item.savings || '-'}</TableCell>
                 <TableCell className="text-right">
                   <Button variant="ghost" size="icon" onClick={() => openModal(item)}>
                     <Edit className="h-4 w-4" />
@@ -117,7 +123,7 @@ export default function AdminCases() {
             {cases.length === 0 && (
               <TableRow>
                 <TableCell colSpan={4} className="text-center text-gray-500 py-8">
-                  Nenhum caso encontrado.
+                  Nenhum registro encontrado.
                 </TableCell>
               </TableRow>
             )}
@@ -128,7 +134,9 @@ export default function AdminCases() {
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="max-w-2xl bg-white text-black overflow-y-auto max-h-[90vh]">
           <DialogHeader>
-            <DialogTitle>{editing ? 'Editar Caso' : 'Novo Caso'}</DialogTitle>
+            <DialogTitle className="font-serif font-bold">
+              {editing ? 'Editar Registro' : 'Novo Registro'}
+            </DialogTitle>
           </DialogHeader>
           <form onSubmit={onSubmit} className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
@@ -145,37 +153,40 @@ export default function AdminCases() {
                 <Input name="client_name" defaultValue={editing?.client_name} />
               </div>
               <div className="space-y-2">
-                <Label>Imagem</Label>
+                <Label>Imagem (Opcional)</Label>
                 <Input type="file" name="image" accept="image/*" />
               </div>
             </div>
             <div className="space-y-2">
-              <Label>Descrição</Label>
+              <Label>Descrição Técnica e Fundamento Legal</Label>
               <Textarea name="description" defaultValue={editing?.description} />
             </div>
             <div className="grid grid-cols-3 gap-4">
               <div className="space-y-2">
-                <Label>Carga Inicial (R$)</Label>
+                <Label>Carga Inicial (Opcional)</Label>
                 <Input type="number" name="before" defaultValue={editing?.before} />
               </div>
               <div className="space-y-2">
-                <Label>Após Intervenção (R$)</Label>
+                <Label>Após Intervenção (Opcional)</Label>
                 <Input type="number" name="after" defaultValue={editing?.after} />
               </div>
               <div className="space-y-2">
-                <Label>Redução (%)</Label>
-                <Input name="savings" defaultValue={editing?.savings} placeholder="Ex: 25%" />
+                <Label>Redução / Resultado</Label>
+                <Input name="savings" defaultValue={editing?.savings} />
               </div>
             </div>
             <div className="space-y-2">
-              <Label>Resultado Detalhado</Label>
+              <Label>Resultado Detalhado / Parecer</Label>
               <Textarea name="result" defaultValue={editing?.result} />
             </div>
             <div className="pt-4 flex justify-end gap-2">
               <Button type="button" variant="outline" onClick={() => setIsOpen(false)}>
                 Cancelar
               </Button>
-              <Button type="submit" className="bg-yellow-400 hover:bg-yellow-500 text-black">
+              <Button
+                type="submit"
+                className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold"
+              >
                 Salvar
               </Button>
             </div>

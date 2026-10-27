@@ -23,8 +23,10 @@ export default function AdminLayout() {
     <div className="min-h-screen bg-gray-50 flex flex-col md:flex-row font-sans">
       <aside className="w-full md:w-64 bg-black text-white flex flex-col md:min-h-screen shadow-xl z-10">
         <div className="p-6">
-          <h2 className="text-xl font-bold text-yellow-400 mb-1">Peres & Peres</h2>
-          <p className="text-xs text-gray-400">Admin Panel</p>
+          <h2 className="text-base font-serif font-bold text-white mb-1 leading-snug">
+            PERES PERES
+          </h2>
+          <p className="text-xs text-neutral-400">Consultoria e Contabilidade • Painel</p>
         </div>
         <nav className="flex-1 px-4 space-y-2 mt-4 overflow-y-auto">
           {navItems.map((item) => {
@@ -37,7 +39,7 @@ export default function AdminLayout() {
                 className={cn(
                   'flex items-center gap-3 px-4 py-3 rounded-md transition-colors font-medium text-sm',
                   isActive
-                    ? 'bg-yellow-400 text-black'
+                    ? 'bg-[#FAB319] text-black font-semibold'
                     : 'text-gray-300 hover:bg-gray-800 hover:text-white',
                 )}
               >

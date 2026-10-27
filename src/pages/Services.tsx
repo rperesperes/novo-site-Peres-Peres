@@ -22,13 +22,15 @@ const getIcon = (iconName: string) => {
 
 export default function Services() {
   return (
-    <div className="py-24 bg-gray-50 min-h-screen">
+    <div className="py-24 bg-background min-h-screen">
       <div className="container mx-auto px-4 max-w-5xl">
-        <div className="mb-16 text-center">
-          <h1 className="text-4xl font-bold mb-4 text-black">Nossas Especialidades</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Atuação técnica aprofundada para garantir a conformidade e a eficiência financeira da
-            sua empresa.
+        <div className="mb-16 text-center animate-fade-in-up">
+          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-black">
+            Áreas de Atuação Especializada
+          </h1>
+          <p className="text-lg md:text-xl text-neutral-600 max-w-2xl mx-auto leading-relaxed">
+            Atuação técnica pautada nas normas contábeis brasileiras e na legislação vigente,
+            assegurando higidez e governança fiscal contínua.
           </p>
         </div>
 
@@ -36,25 +38,27 @@ export default function Services() {
           {SERVICES.map((service, i) => (
             <Card
               key={i}
-              className="border-none shadow-md hover:shadow-xl transition-all duration-300"
+              className="border border-neutral-200 bg-white shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between"
             >
               <CardHeader className="flex flex-row items-start gap-4 space-y-0">
-                <div className="p-4 bg-primary rounded-xl border border-yellow-500">
+                <div className="p-3 bg-neutral-100 rounded-lg border border-neutral-200 shrink-0">
                   {getIcon(service.icon)}
                 </div>
                 <div>
-                  <CardTitle className="text-2xl mb-2 text-black">{service.title}</CardTitle>
-                  <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                  <CardTitle className="text-xl font-serif mb-2 text-black">
+                    {service.title}
+                  </CardTitle>
+                  <p className="text-neutral-600 text-sm leading-relaxed">{service.description}</p>
                 </div>
               </CardHeader>
               <CardContent className="pt-0 flex justify-end">
                 <Button
                   variant="link"
-                  className="text-black font-bold hover:text-gray-700 p-0 underline decoration-primary decoration-2 underline-offset-4"
+                  className="text-black font-semibold hover:text-neutral-700 p-0 underline decoration-[#FAB319] decoration-2 underline-offset-4 text-sm"
                   asChild
                 >
                   <Link to="/contato">
-                    Solicitar Análise <ArrowRight className="ml-2 h-4 w-4" />
+                    Solicitar Análise Técnica <ArrowRight className="ml-1.5 h-4 w-4" />
                   </Link>
                 </Button>
               </CardContent>
@@ -62,14 +66,21 @@ export default function Services() {
           ))}
         </div>
 
-        <div className="mt-16 bg-black text-white p-8 md:p-12 rounded-2xl text-center border-t-4 border-primary">
-          <h3 className="text-2xl font-bold mb-4">Precisa de uma solução não listada?</h3>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Nossa equipe está preparada para analisar cenários tributários complexos e específicos
-            do seu setor de atuação.
+        <div className="mt-16 bg-black text-white p-8 md:p-12 rounded-xl text-center border border-neutral-800">
+          <h3 className="text-2xl md:text-3xl font-serif font-bold mb-4 text-white">
+            Demanda técnica específica para seu segmento?
+          </h3>
+          <p className="text-neutral-400 mb-8 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+            Estruturamos pareceres e diagnósticos contábeis e tributários personalizados, com
+            estrita observância ao sigilo e às normas legais aplicáveis.
           </p>
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-black font-bold" asChild>
-            <Link to="/contato">Fale com um Especialista</Link>
+          {/* Ponto focal único da tela: botão primário #FAB319 */}
+          <Button
+            size="lg"
+            className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold px-8 h-12 text-base"
+            asChild
+          >
+            <Link to="/contato">Agendar Análise Preliminar</Link>
           </Button>
         </div>
       </div>

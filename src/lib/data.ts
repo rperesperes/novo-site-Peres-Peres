@@ -1,8 +1,8 @@
 export const SITE_INFO = {
   name: 'PERES PERES Consultoria e Contabilidade',
-  phone: '[Telefone a definir]',
-  whatsapp: '[WhatsApp a definir]',
-  email: '[E-mail a definir]',
+  phone: 'Telefone: [a preencher]',
+  whatsapp: 'WhatsApp: [a preencher]',
+  email: 'E-mail: [a preencher]',
   address: 'SCN Quadra 2 Bloco D, Brasília - DF, 70712-903',
   crc: 'CRC 027704/O',
 }
@@ -11,24 +11,25 @@ export const SERVICES = [
   {
     title: 'Planejamento Tributário',
     description:
-      'Análise aprofundada para escolha do regime mais vantajoso, visando a redução legal da carga tributária.',
+      'Análise aprofundada para escolha do regime mais adequado, visando à conformidade estrita e eficiência fiscal.',
     icon: 'Calculator',
   },
   {
     title: 'Recuperação de Créditos',
     description:
-      'Identificação e restituição de tributos pagos a maior ou indevidamente nos últimos 5 anos.',
+      'Identificação e levantamento técnico de indébitos tributários com base em teses consolidadas e regras da Receita Federal.',
     icon: 'RefreshCcw',
   },
   {
     title: 'Holding Familiar',
     description:
-      'Estruturação societária para proteção patrimonial e eficiência na sucessão hereditária.',
+      'Estruturação societária patrimonial voltada à governança e planejamento sucessório estruturado.',
     icon: 'Shield',
   },
   {
     title: 'Contencioso Administrativo',
-    description: 'Defesa especializada em autos de infração perante o CARF e conselhos regionais.',
+    description:
+      'Atuação técnica e defesas fundamentadas em autos de infração perante órgãos e conselhos fazendários.',
     icon: 'Scale',
   },
 ]
@@ -36,33 +37,24 @@ export const SERVICES = [
 export const CASES = [
   {
     id: '1',
-    title: 'Indústria: Redução via Súmula X do CARF',
+    title: 'Auditoria de Conformidade Tributária no Setor Industrial',
     sector: 'Indústria',
-    before: 1200000,
-    after: 900000,
-    savings: '25%',
     description:
-      'Aplicação de jurisprudência pacificada do CARF resultou em exclusão de rubricas da base de cálculo do PIS/COFINS.',
+      'Revisão fiscal baseada em jurisprudência consolidada do CARF e tribunais superiores para alinhamento da apuração de créditos da não cumulatividade.',
   },
   {
     id: '2',
-    title: 'Varejo: Exclusão do ICMS',
+    title: 'Adequação da Base de Cálculo no Varejo',
     sector: 'Varejo',
-    before: 500000,
-    after: 350000,
-    savings: '30%',
     description:
-      'Recuperação de créditos baseada na "Tese do Século" do STF, ajustando a sistemática de recolhimento.',
+      'Ajuste procedimental em conformidade com o Tema 69 de Repercussão Geral do STF, conferindo higidez aos lançamentos contábeis.',
   },
   {
     id: '3',
-    title: 'Serviços: Reenquadramento Tributário',
-    sector: 'Serviços (TI)',
-    before: 200000,
-    after: 140000,
-    savings: '30%',
+    title: 'Reestruturação e Análise de Regime para Serviços',
+    sector: 'Serviços',
     description:
-      'Transição estratégica do Lucro Presumido para o Simples Nacional com Anexo adequado ao Fator R.',
+      'Diagnóstico comparativo entre regimes tributários com observância às diretrizes normativas e parâmetros legais da folha de pagamento.',
   },
 ]
 

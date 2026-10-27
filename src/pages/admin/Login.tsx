@@ -37,7 +37,9 @@ export default function Login() {
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
       <Card className="w-full max-w-md border-gray-800 bg-white">
         <CardHeader className="text-center pb-8">
-          <CardTitle className="text-2xl font-bold text-black">Peres & Peres Admin</CardTitle>
+          <CardTitle className="text-2xl font-serif font-bold text-black">
+            PERES PERES Consultoria e Contabilidade
+          </CardTitle>
           <CardDescription>Acesso restrito à equipe técnica.</CardDescription>
         </CardHeader>
         <CardContent>
@@ -64,7 +66,7 @@ export default function Login() {
             </div>
             <Button
               type="submit"
-              className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold text-lg h-12"
+              className="w-full bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold text-lg h-12"
               disabled={loading}
             >
               {loading ? 'Entrando...' : 'Acessar Painel'}

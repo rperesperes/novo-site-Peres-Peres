@@ -69,10 +69,10 @@ export default function AdminPosts() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-black">Gerenciar Blog</h1>
+        <h1 className="text-2xl font-serif font-bold text-black">Gerenciar Blog</h1>
         <Button
           onClick={() => openModal()}
-          className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold"
+          className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold"
         >
           <Plus className="mr-2 h-4 w-4" /> Novo Post
         </Button>
@@ -167,7 +167,10 @@ export default function AdminPosts() {
               <Button type="button" variant="outline" onClick={() => setIsOpen(false)}>
                 Cancelar
               </Button>
-              <Button type="submit" className="bg-yellow-400 hover:bg-yellow-500 text-black">
+              <Button
+                type="submit"
+                className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold"
+              >
                 Salvar
               </Button>
             </div>

@@ -7,9 +7,22 @@ import { WhatsAppButton } from './WhatsAppButton'
 export default function Layout() {
   const location = useLocation()
 
-  // Scroll to top on route change
+  // Scroll to top and set document title on route change
   useEffect(() => {
     window.scrollTo(0, 0)
+
+    const titles: Record<string, string> = {
+      '/': 'PERES PERES Consultoria e Contabilidade',
+      '/sobre': 'Sobre Nós | PERES PERES Consultoria e Contabilidade',
+      '/servicos': 'Áreas de Atuação | PERES PERES Consultoria e Contabilidade',
+      '/casos': 'Metodologia e Fundamentação Normativa | PERES PERES Consultoria e Contabilidade',
+      '/blog': 'Blog Tributário | PERES PERES Consultoria e Contabilidade',
+      '/recursos': 'Recursos e Materiais | PERES PERES Consultoria e Contabilidade',
+      '/glossario': 'Glossário Tributário | PERES PERES Consultoria e Contabilidade',
+      '/contato': 'Contato | PERES PERES Consultoria e Contabilidade',
+    }
+
+    document.title = titles[location.pathname] || 'PERES PERES Consultoria e Contabilidade'
   }, [location.pathname])
 
   return (
