@@ -25,7 +25,7 @@ export const CALCULATORS: CalculatorItem[] = [
     category: 'Regime Tributário',
     legalBasis:
       'Lei Complementar nº 123/2006 (Anexos I a V), Lei nº 9.249/1995, Lei nº 10.637/2002, Lei nº 10.833/2003 e LC nº 116/2003',
-    updatedAt: 'Janeiro/2025',
+    updatedAt: 'Fevereiro/2026',
   },
   {
     id: 'fator-r',
@@ -35,7 +35,7 @@ export const CALCULATORS: CalculatorItem[] = [
       'Cálculo da relação entre folha de pagamento e receita bruta para enquadramento no Anexo III ou Anexo V.',
     category: 'Regime Tributário',
     legalBasis: 'art. 18, §§ 5º e 24, da LC 123/2006',
-    updatedAt: 'Janeiro/2025',
+    updatedAt: 'Fevereiro/2026',
   },
   {
     id: 'simples-nacional-hibrido',
@@ -45,7 +45,7 @@ export const CALCULATORS: CalculatorItem[] = [
       'Comparativo estimativo entre recolher ICMS e ISS dentro do DAS ou por fora, com apuração de alíquotas efetivas e segregação de receitas.',
     category: 'Regime Tributário',
     legalBasis: 'Lei Complementar nº 123/2006, art. 18 e seguintes, e Resolução CGSN nº 140/2018',
-    updatedAt: 'Fevereiro/2025',
+    updatedAt: 'Fevereiro/2026',
   },
 
   // Bloco 2: Folha e Trabalhista
@@ -56,8 +56,9 @@ export const CALCULATORS: CalculatorItem[] = [
     shortDescription:
       'Cálculo detalhado do custo real de contratação CLT para a empresa: encargos patronais, FGTS, provisões de férias e 13º salário.',
     category: 'Folha e Trabalhista',
-    legalBasis: 'Lei nº 8.212/1991, Lei nº 8.036/1990, LC nº 123/2006 e CLT',
-    updatedAt: 'Janeiro/2025',
+    legalBasis:
+      'Portaria Interministerial MPS/MF nº 13/2026, Lei nº 15.270/2025, Lei nº 8.212/1991, Lei nº 8.036/1990 e LC nº 123/2006',
+    updatedAt: 'Fevereiro/2026',
   },
   {
     id: 'pj-ou-clt',
@@ -66,8 +67,9 @@ export const CALCULATORS: CalculatorItem[] = [
     shortDescription:
       'Comparativo em tempo real do custo total para a empresa e do valor líquido na mão do profissional nos cenários PJ e CLT.',
     category: 'Folha e Trabalhista',
-    legalBasis: 'Lei nº 8.212/1991, Lei nº 8.036/1990, LC nº 123/2006 e tabela progressiva do IRRF',
-    updatedAt: 'Fevereiro/2025',
+    legalBasis:
+      'Portaria Interministerial MPS/MF nº 13/2026, Lei nº 15.270/2025, Lei nº 8.212/1991, Lei nº 8.036/1990 e LC nº 123/2006',
+    updatedAt: 'Fevereiro/2026',
   },
   {
     id: 'rescisao-trabalhista',
@@ -77,7 +79,7 @@ export const CALCULATORS: CalculatorItem[] = [
       'Estimativa das verbas rescisórias devidas conforme modalidade de desligamento e tempo de serviço.',
     category: 'Folha e Trabalhista',
     legalBasis: 'Artigos 477 a 486 da CLT e Portaria MTE nº 671/2021',
-    updatedAt: 'Janeiro/2025',
+    updatedAt: 'Fevereiro/2026',
   },
   {
     id: 'pro-labore-ou-dividendos',
@@ -87,7 +89,7 @@ export const CALCULATORS: CalculatorItem[] = [
       'Avaliação de incidência de INSS, IRPF e distribuição isenta de lucros apurados pelos sócios.',
     category: 'Folha e Trabalhista',
     legalBasis: 'Art. 10 da Lei nº 9.249/1995 e Lei nº 8.212/1991',
-    updatedAt: 'Janeiro/2025',
+    updatedAt: 'Fevereiro/2026',
   },
 
   // Bloco 3: Finanças e Tributos
@@ -96,21 +98,21 @@ export const CALCULATORS: CalculatorItem[] = [
     slug: 'irpf-e-restituicao',
     name: 'IRPF e Restituição',
     shortDescription:
-      'Estimativa de imposto de renda retido na fonte, faixas de tributação e potencial de restituição anual.',
+      'Estimativa de imposto de renda anual, deduções legais e potencial de restituição (ano-calendário 2025 / exercício 2026).',
     category: 'Finanças e Tributos',
-    legalBasis: 'Instrução Normativa RFB nº 1.500/2014 e Lei nº 14.663/2023',
-    updatedAt: 'Janeiro/2025',
+    legalBasis: 'Lei nº 9.250/1995, Tabela Progressiva Anual da Receita Federal (exercício 2026)',
+    updatedAt: 'Fevereiro/2026',
   },
   {
     id: 'juros-de-mora-de-tributos',
     slug: 'juros-de-mora-de-tributos',
     name: 'Juros de Mora de Tributos',
     shortDescription:
-      'Cálculo em tempo real de juros de mora pela Selic acumulada e multa de 0,33% ao dia sobre tributos federais em atraso com memória aberta.',
+      'Cálculo em tempo real de juros de mora pela Selic acumulada até setembro/2026 e multa de 0,33% ao dia sobre tributos federais em atraso.',
     category: 'Finanças e Tributos',
     legalBasis:
       'Art. 61 da Lei nº 9.430/1996, Art. 13 da Lei nº 9.065/1995 e Art. 84 da Lei nº 8.981/1995',
-    updatedAt: 'Fevereiro/2025',
+    updatedAt: 'Fevereiro/2026',
   },
   {
     id: 'juros-de-financiamento',
@@ -120,7 +122,7 @@ export const CALCULATORS: CalculatorItem[] = [
       'Comparativo em tempo real entre os sistemas Price e SAC com projeção de parcelas, juros acumulados e evolução do saldo devedor.',
     category: 'Finanças e Tributos',
     legalBasis: 'Resoluções Bacen nº 3.517/2007 e 4.881/2020 e Código Civil (Lei nº 10.406/2002)',
-    updatedAt: 'Fevereiro/2025',
+    updatedAt: 'Fevereiro/2026',
   },
 ]
 

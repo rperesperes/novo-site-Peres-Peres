@@ -49,12 +49,12 @@ function formatRawInput(value: number): string {
   })
 }
 
-// Tabela progressiva do INSS do Empregado (Portaria Interministerial MPS/MF nº 2/2025 - teto R$ 8.157,41)
-const INSS_FAIXAS_2025 = [
-  { limite: 1518.0, aliq: 0.075 },
-  { limite: 2793.88, aliq: 0.09 },
-  { limite: 4190.83, aliq: 0.12 },
-  { limite: 8157.41, aliq: 0.14 },
+// Tabela progressiva do INSS do Empregado (Portaria Interministerial MPS/MF nº 13/2026 - teto R$ 8.475,55)
+const INSS_FAIXAS_2026 = [
+  { limite: 1621.0, aliq: 0.075 },
+  { limite: 2902.84, aliq: 0.09 },
+  { limite: 4354.27, aliq: 0.12 },
+  { limite: 8475.55, aliq: 0.14 },
 ]
 
 function calcularINSSEmpregado(salario: number): number {
@@ -63,8 +63,8 @@ function calcularINSSEmpregado(salario: number): number {
   let inssTotal = 0
   let faixaAnterior = 0
 
-  for (let i = 0; i < INSS_FAIXAS_2025.length; i++) {
-    const { limite, aliq } = INSS_FAIXAS_2025[i]
+  for (let i = 0; i < INSS_FAIXAS_2026.length; i++) {
+    const { limite, aliq } = INSS_FAIXAS_2026[i]
     if (salario > limite) {
       inssTotal += (limite - faixaAnterior) * aliq
       faixaAnterior = limite
@@ -78,30 +78,59 @@ function calcularINSSEmpregado(salario: number): number {
   return inssTotal
 }
 
-// Tabela progressiva mensal do IRRF (Lei nº 14.848/2024 / IN RFB nº 1.500)
-// Dedução por dependente: R$ 189,59 | Desconto simplificado alternativo: R$ 564,80
-const IRRF_FAIXAS_2025 = [
-  { limite: 2259.2, aliq: 0, deducao: 0 },
-  { limite: 2826.65, aliq: 0.075, deducao: 169.44 },
-  { limite: 3751.05, aliq: 0.15, deducao: 381.44 },
-  { limite: 4664.68, aliq: 0.225, deducao: 662.77 },
-  { limite: Infinity, aliq: 0.275, deducao: 896.0 },
+// Tabela progressiva mensal do IRRF vigente em 2026 (Lei nº 15.191/2025 / Instrução Normativa RFB)
+// Isenção até R$ 2.428,80 | Desconto simplificado mensal padrão: 25% do limite de isenção = R$ 607,20
+// Dedução por dependente: R$ 189,59
+const IRRF_FAIXAS_2026 = [
+  { limite: 2428.8, aliq: 0, deducao: 0 },
+  { limite: 2826.65, aliq: 0.075, deducao: 182.16 },
+  { limite: 3751.05, aliq: 0.15, deducao: 394.16 },
+  { limite: 4664.68, aliq: 0.225, deducao: 675.49 },
+  { limite: Infinity, aliq: 0.275, deducao: 908.73 },
 ]
 const DEDUCAO_DEPENDENTE = 189.59
-const DESCONTO_SIMPLIFICADO_IRRF = 564.8
+const DESCONTO_SIMPLIFICADO_IRRF = 607.2
+
+function calcularRedutorLei15270(rendimentoBruto: number, irrfBruto: number): number {
+  if (rendimentoBruto <= 0 || irrfBruto <= 0) return 0
+
+  // Art. 3º-A da Lei nº 9.250/1995 (incluído pela Lei nº 15.270/2025):
+  // Faixa 1: até R$ 5.000,00 -> redução de até R$ 312,89 (de modo que o imposto devido seja zero)
+  if (rendimentoBruto <= 5000) {
+    return Math.min(irrfBruto, 312.89)
+  }
+
+  // Faixa 2: de R$ 5.000,01 até R$ 7.350,00 -> R$ 978,62 - (0,133145 * rendimentos)
+  if (rendimentoBruto <= 7350) {
+    const formulaReducao = 978.62 - 0.133145 * rendimentoBruto
+    const reducaoCalculada = Math.max(0, formulaReducao)
+    return Math.min(irrfBruto, reducaoCalculada)
+  }
+
+  // Acima de R$ 7.350,00 -> sem redução
+  return 0
+}
 
 function calcularIRRFEmpregado(
   salario: number,
   inssRetido: number,
   dependentes: number,
-): { irrf: number; baseUsada: number; faixaAliq: number } {
-  if (salario <= 0) return { irrf: 0, baseUsada: 0, faixaAliq: 0 }
+): {
+  irrfBruto: number
+  redutorLei15270: number
+  irrfFinal: number
+  baseUsada: number
+  faixaAliq: number
+} {
+  if (salario <= 0) {
+    return { irrfBruto: 0, redutorLei15270: 0, irrfFinal: 0, baseUsada: 0, faixaAliq: 0 }
+  }
 
   // Opção 1: deduções legais (INSS + dependentes)
   const deducaoLegal = inssRetido + dependentes * DEDUCAO_DEPENDENTE
   const baseLegal = Math.max(0, salario - deducaoLegal)
 
-  // Opção 2: desconto simplificado legal (R$ 564,80)
+  // Opção 2: desconto simplificado legal (R$ 607,20 em 2026)
   const baseSimplificada = Math.max(0, salario - DESCONTO_SIMPLIFICADO_IRRF)
 
   // A Receita Federal aplica a mais vantajosa ao contribuinte (menor base de cálculo)
@@ -110,8 +139,8 @@ function calcularIRRFEmpregado(
   let irrfCalculado = 0
   let faixaAliq = 0
 
-  for (let i = 0; i < IRRF_FAIXAS_2025.length; i++) {
-    const f = IRRF_FAIXAS_2025[i]
+  for (let i = 0; i < IRRF_FAIXAS_2026.length; i++) {
+    const f = IRRF_FAIXAS_2026[i]
     if (baseCalculo <= f.limite) {
       faixaAliq = f.aliq
       irrfCalculado = Math.max(0, baseCalculo * f.aliq - f.deducao)
@@ -119,7 +148,17 @@ function calcularIRRFEmpregado(
     }
   }
 
-  return { irrf: irrfCalculado, baseUsada: baseCalculo, faixaAliq }
+  // Redutor da Lei nº 15.270/2025 aplicado sobre o imposto apurado com base no rendimento
+  const redutor = calcularRedutorLei15270(salario, irrfCalculado)
+  const irrfFinal = Math.max(0, irrfCalculado - redutor)
+
+  return {
+    irrfBruto: irrfCalculado,
+    redutorLei15270: redutor,
+    irrfFinal,
+    baseUsada: baseCalculo,
+    faixaAliq,
+  }
 }
 
 export default function CustoDeFuncionarioCLTCalculator() {
@@ -140,8 +179,8 @@ export default function CustoDeFuncionarioCLTCalculator() {
   const [adicionalNoturnoValor, setAdicionalNoturnoValor] = useState<number>(0)
   const [adicionalNoturnoInput, setAdicionalNoturnoInput] = useState<string>('')
 
-  // Salário mínimo nacional vigente (2025) para cálculo de insalubridade
-  const SALARIO_MINIMO_2025 = 1518
+  // Salário mínimo nacional vigente (2026) para cálculo de insalubridade
+  const SALARIO_MINIMO_2026 = 1621
 
   // SEO: título da aba (máximo 60 caracteres) e meta description (máximo 155 caracteres)
   useEffect(() => {
@@ -187,7 +226,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
     // 1. Adicionais que integram a remuneração bruta
     let valorInsalubridade = 0
     if (hasInsalubridade) {
-      valorInsalubridade = SALARIO_MINIMO_2025 * (grauInsalubridade / 100)
+      valorInsalubridade = SALARIO_MINIMO_2026 * (grauInsalubridade / 100)
     }
 
     let valorPericulosidade = 0
@@ -249,7 +288,9 @@ export default function CustoDeFuncionarioCLTCalculator() {
     // 3. DESCONTOS DO LADO DO EMPREGADO (o que é descontado e salário líquido)
     const inssEmpregado = calcularINSSEmpregado(salarioBrutoTotal)
     const {
-      irrf: irrfEmpregado,
+      irrfBruto: irrfEmpregadoBruto,
+      redutorLei15270: redutorLei15270Empregado,
+      irrfFinal: irrfEmpregado,
       baseUsada: baseIrrfUsada,
       faixaAliq: aliqIrrf,
     } = calcularIRRFEmpregado(salarioBrutoTotal, inssEmpregado, dependentes)
@@ -278,6 +319,8 @@ export default function CustoDeFuncionarioCLTCalculator() {
       percentualCustoAdicional,
       // Empregado
       inssEmpregado,
+      irrfEmpregadoBruto,
+      redutorLei15270Empregado,
       irrfEmpregado,
       baseIrrfUsada,
       aliqIrrf,
@@ -575,13 +618,13 @@ export default function CustoDeFuncionarioCLTCalculator() {
                         className="h-8 px-2 text-xs bg-white border border-neutral-300 rounded font-sans"
                       >
                         <option value={10}>
-                          Mínimo 10% ({formatCurrencyBRL(SALARIO_MINIMO_2025 * 0.1)})
+                          Mínimo 10% ({formatCurrencyBRL(SALARIO_MINIMO_2026 * 0.1)})
                         </option>
                         <option value={20}>
-                          Médio 20% ({formatCurrencyBRL(SALARIO_MINIMO_2025 * 0.2)})
+                          Médio 20% ({formatCurrencyBRL(SALARIO_MINIMO_2026 * 0.2)})
                         </option>
                         <option value={40}>
-                          Máximo 40% ({formatCurrencyBRL(SALARIO_MINIMO_2025 * 0.4)})
+                          Máximo 40% ({formatCurrencyBRL(SALARIO_MINIMO_2026 * 0.4)})
                         </option>
                       </select>
                     </div>
@@ -866,7 +909,8 @@ export default function CustoDeFuncionarioCLTCalculator() {
                       INSS do Empregado (Tabela Progressiva):
                     </span>
                     <span className="text-[11px] text-neutral-500 block font-sans">
-                      Alíquotas progressivas de 7,5% a 14% (Portaria MPS/MF 2025).
+                      Alíquotas progressivas de 7,5% a 14% (Portaria Interministerial MPS/MF nº
+                      13/2026).
                     </span>
                   </div>
                   <span className="font-semibold text-neutral-900">
@@ -874,18 +918,62 @@ export default function CustoDeFuncionarioCLTCalculator() {
                   </span>
                 </div>
 
-                <div className="flex justify-between items-center py-1 border-b border-neutral-200">
-                  <div>
-                    <span className="text-neutral-700">IRRF Retido na Fonte:</span>
-                    <span className="text-[11px] text-neutral-500 block font-sans">
-                      Base apurada: {formatCurrencyBRL(calculation.baseIrrfUsada)} com {dependentes}{' '}
-                      dep. (alíquota: {(calculation.aliqIrrf * 100).toFixed(1)}%).
+                {calculation.redutorLei15270Empregado > 0 ? (
+                  <>
+                    <div className="flex justify-between items-center py-1 border-b border-neutral-200">
+                      <div>
+                        <span className="text-neutral-700">IRRF Tabela Progressiva (Bruto):</span>
+                        <span className="text-[11px] text-neutral-500 block font-sans">
+                          Base apurada: {formatCurrencyBRL(calculation.baseIrrfUsada)} com{' '}
+                          {dependentes} dep. (alíquota: {(calculation.aliqIrrf * 100).toFixed(1)}%).
+                        </span>
+                      </div>
+                      <span className="font-semibold text-neutral-900">
+                        - {formatCurrencyBRL(calculation.irrfEmpregadoBruto)}
+                      </span>
+                    </div>
+
+                    <div className="flex justify-between items-center py-1 border-b border-neutral-200 bg-amber-50/60 px-2 -mx-2 rounded">
+                      <div>
+                        <span className="text-emerald-800 font-semibold">
+                          redutor da Lei 15.270:
+                        </span>
+                        <span className="text-[11px] text-neutral-600 block font-sans">
+                          {calculation.salarioBrutoTotal <= 5000
+                            ? 'Isenção integral garantida até R$ 5.000,00.'
+                            : 'Redução proporcional da Lei nº 15.270/2025.'}
+                        </span>
+                      </div>
+                      <span className="font-semibold text-emerald-700 font-mono">
+                        + {formatCurrencyBRL(calculation.redutorLei15270Empregado)}
+                      </span>
+                    </div>
+
+                    <div className="flex justify-between items-center py-1 border-b border-neutral-200">
+                      <div>
+                        <span className="text-neutral-700 font-medium">
+                          IRRF Efetivo Retido na Fonte:
+                        </span>
+                      </div>
+                      <span className="font-semibold text-neutral-900">
+                        - {formatCurrencyBRL(calculation.irrfEmpregado)}
+                      </span>
+                    </div>
+                  </>
+                ) : (
+                  <div className="flex justify-between items-center py-1 border-b border-neutral-200">
+                    <div>
+                      <span className="text-neutral-700">IRRF Retido na Fonte:</span>
+                      <span className="text-[11px] text-neutral-500 block font-sans">
+                        Base apurada: {formatCurrencyBRL(calculation.baseIrrfUsada)} com{' '}
+                        {dependentes} dep. (alíquota: {(calculation.aliqIrrf * 100).toFixed(1)}%).
+                      </span>
+                    </div>
+                    <span className="font-semibold text-neutral-900">
+                      - {formatCurrencyBRL(calculation.irrfEmpregado)}
                     </span>
                   </div>
-                  <span className="font-semibold text-neutral-900">
-                    - {formatCurrencyBRL(calculation.irrfEmpregado)}
-                  </span>
-                </div>
+                )}
 
                 <div className="flex justify-between items-center pt-2 text-sm">
                   <span className="font-bold text-black">Salário Líquido Efetivo:</span>
@@ -921,7 +1009,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
                 {calculation.valorInsalubridade > 0 && (
                   <p className="text-neutral-700">
                     + Adicional de Insalubridade ({grauInsalubridade}% do Salário Mínimo de{' '}
-                    {formatCurrencyBRL(SALARIO_MINIMO_2025)}) ={' '}
+                    {formatCurrencyBRL(SALARIO_MINIMO_2026)}) ={' '}
                     {formatCurrencyBRL(calculation.valorInsalubridade)}
                   </p>
                 )}
@@ -1003,7 +1091,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
                 </p>
               </div>
 
-              <div>
+              <div className="pb-2 border-b border-neutral-100">
                 <span className="font-semibold text-neutral-900 block font-sans mb-1">
                   Passo 5: Totalização do Custo para a Empresa
                 </span>
@@ -1019,6 +1107,31 @@ export default function CustoDeFuncionarioCLTCalculator() {
                 <p className="font-bold text-black">
                   Custo Anual da Empresa = {formatCurrencyBRL(calculation.custoTotalEmpresaMensal)}{' '}
                   × 12 meses = {formatCurrencyBRL(calculation.custoTotalEmpresaAnual)}
+                </p>
+              </div>
+
+              <div>
+                <span className="font-semibold text-neutral-900 block font-sans mb-1">
+                  Passo 6: Retenções do Empregado e Salário Líquido
+                </span>
+                <p className="text-neutral-700">
+                  - INSS do Empregado (Portaria MPS/MF nº 13/2026):{' '}
+                  {formatCurrencyBRL(calculation.inssEmpregado)}
+                </p>
+                <p className="text-neutral-700">
+                  - IRRF apurado na tabela progressiva:{' '}
+                  {formatCurrencyBRL(calculation.irrfEmpregadoBruto)}
+                </p>
+                <p className="text-emerald-800 font-semibold">
+                  - redutor da Lei 15.270: {formatCurrencyBRL(calculation.redutorLei15270Empregado)}
+                </p>
+                <p className="text-neutral-700">
+                  - IRRF retido na fonte final: {formatCurrencyBRL(calculation.irrfEmpregado)}
+                </p>
+                <p className="font-bold text-black pt-1">
+                  Salário Líquido do Empregado = {formatCurrencyBRL(calculation.salarioBrutoTotal)}{' '}
+                  − {formatCurrencyBRL(calculation.totalDescontosEmpregado)} ={' '}
+                  {formatCurrencyBRL(calculation.salarioLiquidoEmpregado)}
                 </p>
               </div>
             </div>
@@ -1484,14 +1597,31 @@ export default function CustoDeFuncionarioCLTCalculator() {
           <div className="flex items-start gap-3">
             <Scale className="h-5 w-5 text-neutral-800 shrink-0 mt-0.5" />
             <div>
-              <h3 id="vigencia-title" className="font-serif font-bold text-base text-black mb-1">
-                Vigência Normativa e Base Legal Aplicada
-              </h3>
+              <div className="flex items-center gap-2 mb-1 flex-wrap">
+                <h3 id="vigencia-title" className="font-serif font-bold text-base text-black">
+                  Vigência Normativa e Base Legal Aplicada
+                </h3>
+                <span className="text-xs font-mono bg-neutral-100 text-neutral-800 px-2 py-0.5 rounded border border-neutral-300">
+                  Parâmetros conferidos em fevereiro/2026
+                </span>
+              </div>
               <p className="text-sm text-neutral-700 leading-relaxed">
                 As regras de cálculo, alíquotas patronais e tabelas aplicadas nesta calculadora
                 observam rigorosamente os dispositivos vigentes da legislação brasileira:
               </p>
               <ul className="list-disc pl-5 mt-2 space-y-1 text-xs md:text-sm text-neutral-700">
+                <li>
+                  <strong>Portaria Interministerial MPS/MF nº 13/2026:</strong> nova tabela
+                  progressiva de contribuição previdenciária dos segurados empregados (faixas até R$
+                  1.621,00; R$ 2.902,84; R$ 4.354,27 e teto de R$ 8.475,55) e salário mínimo
+                  nacional de R$ 1.621,00 como base da insalubridade;
+                </li>
+                <li>
+                  <strong>Lei nº 15.270/2025:</strong> instituição da redução do imposto de renda
+                  mensal (art. 3º-A da Lei nº 9.250/1995), com isenção total de IRRF para
+                  rendimentos tributáveis de até R$ 5.000,00 e redutor proporcional decrescente até
+                  R$ 7.350,00;
+                </li>
                 <li>
                   <strong>Lei nº 8.212/1991 (Lei Orgânica da Seguridade Social):</strong>{' '}
                   fundamentação da alíquota básica do INSS patronal de 20% e da contribuição
@@ -1510,9 +1640,9 @@ export default function CustoDeFuncionarioCLTCalculator() {
                   empresas optantes pelo Simples Nacional (art. 13, VI, e art. 18);
                 </li>
                 <li>
-                  <strong>Tabela progressiva do IRRF vigente:</strong> apuração mensal com base na
-                  Lei nº 14.848/2024 e Instrução Normativa RFB nº 1.500/2014, observando as deduções
-                  legais por dependente e o desconto simplificado mensal;
+                  <strong>Tabela progressiva do IRRF vigente (exercício 2026):</strong> faixa isenta
+                  até R$ 2.428,80, desconto simplificado mensal de R$ 607,20 (25% do limite de
+                  isenção) e dedução por dependente de R$ 189,59;
                 </li>
                 <li>
                   <strong>Decreto-Lei nº 5.452/1943 (CLT):</strong> artigos 129 a 153 para o regime

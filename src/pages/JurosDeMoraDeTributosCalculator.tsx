@@ -496,19 +496,16 @@ export default function JurosDeMoraDeTributosCalculator() {
               </div>
               <div>
                 <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 block">
-                  Vigência e Base Legal Consolidada
+                  Vigência e Base Legal Consolidada • Parâmetros conferidos em fevereiro/2026
                 </span>
                 <p className="text-sm font-medium text-neutral-900 mt-0.5">
                   Art. 61 da Lei nº 9.430/1996 • Art. 13 da Lei nº 9.065/1995 • Art. 84 da Lei nº
                   8.981/1995
                 </p>
                 <p className="text-xs text-neutral-600 mt-1">
-                  Taxa Selic mensal embutida atualizada oficialmente até:{' '}
-                  <strong className="text-black underline decoration-[#FAB319] decoration-2">
-                    {LATEST_OFFICIAL_SELIC_MONTH.monthLabel} (
-                    {LATEST_OFFICIAL_SELIC_MONTH.rate.toFixed(2)}% a.m.)
-                  </strong>{' '}
-                  — dados oficiais Banco Central do Brasil (Série SGS 4390 / Sicalc RFB).
+                  Série histórica da Taxa Selic mensal{' '}
+                  <strong>consolidada oficialmente até setembro/2026 (1,08% a.m.)</strong> — dados
+                  oficiais Banco Central do Brasil (Série SGS 4390 / Sicalc RFB).
                 </p>
               </div>
             </div>
@@ -516,7 +513,7 @@ export default function JurosDeMoraDeTributosCalculator() {
             <div className="sm:text-right shrink-0">
               <span className="inline-flex items-center gap-1.5 text-xs font-mono bg-white border border-neutral-200 px-3 py-1.5 rounded-md text-neutral-700 shadow-sm">
                 <Clock className="h-3.5 w-3.5 text-neutral-500" />
-                Série mensal auditada
+                Consolidada até setembro/2026
               </span>
             </div>
           </div>

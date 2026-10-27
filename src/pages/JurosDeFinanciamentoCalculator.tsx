@@ -475,9 +475,14 @@ export default function JurosDeFinanciamentoCalculator() {
                 <Scale className="h-4 w-4 text-[#FAB319]" />
               </div>
               <div>
-                <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 block">
-                  Premissas Aritméticas e Resoluções CMN/Bacen
-                </span>
+                <div className="flex items-center gap-2 mb-0.5 flex-wrap">
+                  <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 block">
+                    Premissas Aritméticas e Resoluções CMN/Bacen
+                  </span>
+                  <span className="text-xs font-mono bg-neutral-100 text-neutral-800 px-2 py-0.5 rounded border border-neutral-300">
+                    Parâmetros conferidos em fevereiro/2026
+                  </span>
+                </div>
                 <p className="text-sm font-medium text-neutral-900 mt-0.5">
                   Sistemas Price (Tabela Francesa) e SAC (Amortização Constante) • Resoluções Bacen
                   nº 3.517/2007 e 4.881/2020
@@ -499,7 +504,7 @@ export default function JurosDeFinanciamentoCalculator() {
             <div className="sm:text-right shrink-0">
               <span className="inline-flex items-center gap-1.5 text-xs font-mono bg-white border border-neutral-200 px-3 py-1.5 rounded-md text-neutral-700 shadow-sm">
                 <Clock className="h-3.5 w-3.5 text-neutral-500" />
-                Matemática financeira pura
+                Parâmetros conferidos em fevereiro/2026
               </span>
             </div>
           </div>

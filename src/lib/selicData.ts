@@ -177,7 +177,6 @@ export const OFFICIAL_SELIC_MONTHLY_SERIES: SelicMonthlyEntry[] = [
   { yearMonth: '2026-07', year: 2026, month: 7, monthLabel: 'Julho/2026', rate: 1.22 },
   { yearMonth: '2026-08', year: 2026, month: 8, monthLabel: 'Agosto/2026', rate: 1.09 },
   { yearMonth: '2026-09', year: 2026, month: 9, monthLabel: 'Setembro/2026', rate: 1.08 },
-  { yearMonth: '2026-10', year: 2026, month: 10, monthLabel: 'Outubro/2026', rate: 0.87 },
 ]
 
 // Mês mais recente disponível na série oficial embutida

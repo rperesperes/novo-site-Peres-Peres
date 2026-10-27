@@ -1521,9 +1521,14 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
           <div className="flex items-start gap-3">
             <Scale className="h-5 w-5 text-neutral-800 shrink-0 mt-0.5" />
             <div>
-              <h3 id="vigencia-title" className="font-serif font-bold text-base text-black mb-1">
-                Vigência Normativa e Fundamentação Legal Completa
-              </h3>
+              <div className="flex items-center gap-2 mb-1 flex-wrap">
+                <h3 id="vigencia-title" className="font-serif font-bold text-base text-black">
+                  Vigência Normativa e Fundamentação Legal Completa
+                </h3>
+                <span className="text-xs font-mono bg-neutral-100 text-neutral-800 px-2 py-0.5 rounded border border-neutral-300">
+                  Parâmetros conferidos em fevereiro/2026
+                </span>
+              </div>
               <p className="text-sm text-neutral-700 leading-relaxed">
                 As fórmulas de cálculo, coeficientes analíticos e tabelas progressivas aplicadas
                 nesta ferramenta fundamentam-se estritamente nos seguintes dispositivos legais

@@ -52,12 +52,12 @@ function formatRawInput(value: number): string {
   })
 }
 
-// Tabela progressiva do INSS do Empregado (Portaria Interministerial MPS/MF nº 2/2025 - teto R$ 8.157,41)
-const INSS_FAIXAS_2025 = [
-  { limite: 1518.0, aliq: 0.075 },
-  { limite: 2793.88, aliq: 0.09 },
-  { limite: 4190.83, aliq: 0.12 },
-  { limite: 8157.41, aliq: 0.14 },
+// Tabela progressiva do INSS do Empregado (Portaria Interministerial MPS/MF nº 13/2026 - teto R$ 8.475,55)
+const INSS_FAIXAS_2026 = [
+  { limite: 1621.0, aliq: 0.075 },
+  { limite: 2902.84, aliq: 0.09 },
+  { limite: 4354.27, aliq: 0.12 },
+  { limite: 8475.55, aliq: 0.14 },
 ]
 
 function calcularINSSEmpregado(salario: number): number {
@@ -66,8 +66,8 @@ function calcularINSSEmpregado(salario: number): number {
   let inssTotal = 0
   let faixaAnterior = 0
 
-  for (let i = 0; i < INSS_FAIXAS_2025.length; i++) {
-    const { limite, aliq } = INSS_FAIXAS_2025[i]
+  for (let i = 0; i < INSS_FAIXAS_2026.length; i++) {
+    const { limite, aliq } = INSS_FAIXAS_2026[i]
     if (salario > limite) {
       inssTotal += (limite - faixaAnterior) * aliq
       faixaAnterior = limite
@@ -81,30 +81,59 @@ function calcularINSSEmpregado(salario: number): number {
   return inssTotal
 }
 
-// Tabela progressiva mensal do IRRF (Lei nº 14.848/2024 / IN RFB nº 1.500)
-// Dedução por dependente: R$ 189,59 | Desconto simplificado mensal alternativo: R$ 564,80
-const IRRF_FAIXAS_2025 = [
-  { limite: 2259.2, aliq: 0, deducao: 0 },
-  { limite: 2826.65, aliq: 0.075, deducao: 169.44 },
-  { limite: 3751.05, aliq: 0.15, deducao: 381.44 },
-  { limite: 4664.68, aliq: 0.225, deducao: 662.77 },
-  { limite: Infinity, aliq: 0.275, deducao: 896.0 },
+// Tabela progressiva mensal do IRRF vigente em 2026 (Lei nº 15.191/2025 / Instrução Normativa RFB)
+// Isenção até R$ 2.428,80 | Desconto simplificado mensal padrão: 25% do limite de isenção = R$ 607,20
+// Dedução por dependente: R$ 189,59
+const IRRF_FAIXAS_2026 = [
+  { limite: 2428.8, aliq: 0, deducao: 0 },
+  { limite: 2826.65, aliq: 0.075, deducao: 182.16 },
+  { limite: 3751.05, aliq: 0.15, deducao: 394.16 },
+  { limite: 4664.68, aliq: 0.225, deducao: 675.49 },
+  { limite: Infinity, aliq: 0.275, deducao: 908.73 },
 ]
 const DEDUCAO_DEPENDENTE = 189.59
-const DESCONTO_SIMPLIFICADO_IRRF = 564.8
+const DESCONTO_SIMPLIFICADO_IRRF = 607.2
+
+function calcularRedutorLei15270(rendimentoBruto: number, irrfBruto: number): number {
+  if (rendimentoBruto <= 0 || irrfBruto <= 0) return 0
+
+  // Art. 3º-A da Lei nº 9.250/1995 (incluído pela Lei nº 15.270/2025):
+  // Faixa 1: até R$ 5.000,00 -> redução de até R$ 312,89 (imposto devido igual a zero)
+  if (rendimentoBruto <= 5000) {
+    return Math.min(irrfBruto, 312.89)
+  }
+
+  // Faixa 2: de R$ 5.000,01 até R$ 7.350,00 -> R$ 978,62 - (0,133145 * rendimentos)
+  if (rendimentoBruto <= 7350) {
+    const formulaReducao = 978.62 - 0.133145 * rendimentoBruto
+    const reducaoCalculada = Math.max(0, formulaReducao)
+    return Math.min(irrfBruto, reducaoCalculada)
+  }
+
+  // Acima de R$ 7.350,00 -> sem redução
+  return 0
+}
 
 function calcularIRRFEmpregado(
   salario: number,
   inssRetido: number,
   dependentes: number,
-): { irrf: number; baseUsada: number; faixaAliq: number } {
-  if (salario <= 0) return { irrf: 0, baseUsada: 0, faixaAliq: 0 }
+): {
+  irrfBruto: number
+  redutorLei15270: number
+  irrfFinal: number
+  baseUsada: number
+  faixaAliq: number
+} {
+  if (salario <= 0) {
+    return { irrfBruto: 0, redutorLei15270: 0, irrfFinal: 0, baseUsada: 0, faixaAliq: 0 }
+  }
 
   // Opção 1: deduções legais (INSS + dependentes)
   const deducaoLegal = inssRetido + dependentes * DEDUCAO_DEPENDENTE
   const baseLegal = Math.max(0, salario - deducaoLegal)
 
-  // Opção 2: desconto simplificado legal (R$ 564,80)
+  // Opção 2: desconto simplificado legal (R$ 607,20 em 2026)
   const baseSimplificada = Math.max(0, salario - DESCONTO_SIMPLIFICADO_IRRF)
 
   // A Receita Federal aplica a mais vantajosa ao contribuinte (menor base tributável)
@@ -113,8 +142,8 @@ function calcularIRRFEmpregado(
   let irrfCalculado = 0
   let faixaAliq = 0
 
-  for (let i = 0; i < IRRF_FAIXAS_2025.length; i++) {
-    const f = IRRF_FAIXAS_2025[i]
+  for (let i = 0; i < IRRF_FAIXAS_2026.length; i++) {
+    const f = IRRF_FAIXAS_2026[i]
     if (baseCalculo <= f.limite) {
       faixaAliq = f.aliq
       irrfCalculado = Math.max(0, baseCalculo * f.aliq - f.deducao)
@@ -122,7 +151,17 @@ function calcularIRRFEmpregado(
     }
   }
 
-  return { irrf: irrfCalculado, baseUsada: baseCalculo, faixaAliq }
+  // Redutor da Lei 15.270/2025
+  const redutor = calcularRedutorLei15270(salario, irrfCalculado)
+  const irrfFinal = Math.max(0, irrfCalculado - redutor)
+
+  return {
+    irrfBruto: irrfCalculado,
+    redutorLei15270: redutor,
+    irrfFinal,
+    baseUsada: baseCalculo,
+    faixaAliq,
+  }
 }
 
 // Tabelas dos Anexos do Simples Nacional (Lei Complementar nº 123/2006)
@@ -365,7 +404,9 @@ export default function PJouCLTCalculator() {
     // Descontos do empregado no CLT:
     const inssEmpregadoCLT = calcularINSSEmpregado(bruto)
     const {
-      irrf: irrfEmpregadoCLT,
+      irrfBruto: irrfBrutoCLT,
+      redutorLei15270: redutorLei15270CLT,
+      irrfFinal: irrfEmpregadoCLT,
       baseUsada: baseIrrfCLT,
       faixaAliq: aliqIrrfCLT,
     } = calcularIRRFEmpregado(bruto, inssEmpregadoCLT, dependentes)
@@ -520,6 +561,8 @@ export default function PJouCLTCalculator() {
       percentualEncargosCLT,
       // CLT Empregado
       inssEmpregadoCLT,
+      irrfBrutoCLT,
+      redutorLei15270CLT,
       irrfEmpregadoCLT,
       baseIrrfCLT,
       aliqIrrfCLT,
@@ -1063,6 +1106,12 @@ export default function PJouCLTCalculator() {
                   <div className="text-xs font-mono text-neutral-600 mt-2 pt-2 border-t border-neutral-200">
                     INSS: -{formatCurrencyBRL(calculation.inssEmpregadoCLT)} | IRRF: -
                     {formatCurrencyBRL(calculation.irrfEmpregadoCLT)}
+                    {calculation.redutorLei15270CLT > 0 && (
+                      <span className="text-emerald-700 block mt-0.5">
+                        (redutor da Lei 15.270: +{formatCurrencyBRL(calculation.redutorLei15270CLT)}
+                        )
+                      </span>
+                    )}
                   </div>
                   <p className="text-xs text-neutral-500 mt-1">
                     * Além do líquido mensal, o CLT tem direito anual a 13º salário, férias com 1/3
@@ -1251,13 +1300,21 @@ export default function PJouCLTCalculator() {
                     Descontos na Fonte do Profissional (CLT):
                   </p>
                   <p>
-                    - INSS Empregado (Portaria Interministerial 2025): progressivo por faixas ={' '}
-                    {formatCurrencyBRL(calculation.inssEmpregadoCLT)}
+                    - INSS Empregado (Portaria Interministerial MPS/MF nº 13/2026): progressivo por
+                    faixas = {formatCurrencyBRL(calculation.inssEmpregadoCLT)}
                   </p>
                   <p>
-                    - IRRF na Fonte (Lei 14.848/2024 / IN RFB 1.500): base apurada de{' '}
-                    {formatCurrencyBRL(calculation.baseIrrfCLT)} com {dependentes} dependentes
-                    (alíquota {(calculation.aliqIrrfCLT * 100).toFixed(1)}%) ={' '}
+                    - IRRF Tabela Progressiva (Bruto): {formatCurrencyBRL(calculation.irrfBrutoCLT)}{' '}
+                    (base de {formatCurrencyBRL(calculation.baseIrrfCLT)} com {dependentes} dep.,
+                    alíquota {(calculation.aliqIrrfCLT * 100).toFixed(1)}%)
+                  </p>
+                  {calculation.redutorLei15270CLT > 0 && (
+                    <p className="text-emerald-800 font-semibold">
+                      - redutor da Lei 15.270: {formatCurrencyBRL(calculation.redutorLei15270CLT)}
+                    </p>
+                  )}
+                  <p>
+                    - IRRF Efetivo Retido na Fonte ={' '}
                     {formatCurrencyBRL(calculation.irrfEmpregadoCLT)}
                   </p>
                   <p className="font-bold text-black pt-1">
@@ -1643,14 +1700,29 @@ export default function PJouCLTCalculator() {
           <div className="flex items-start gap-3">
             <Scale className="h-5 w-5 text-neutral-800 shrink-0 mt-0.5" />
             <div>
-              <h3 id="vigencia-title" className="font-serif font-bold text-base text-black mb-1">
-                Vigência Normativa e Base Legal Aplicada
-              </h3>
+              <div className="flex items-center gap-2 mb-1 flex-wrap">
+                <h3 id="vigencia-title" className="font-serif font-bold text-base text-black">
+                  Vigência Normativa e Base Legal Aplicada
+                </h3>
+                <span className="text-xs font-mono bg-neutral-100 text-neutral-800 px-2 py-0.5 rounded border border-neutral-300">
+                  Parâmetros conferidos em fevereiro/2026
+                </span>
+              </div>
               <p className="text-sm text-neutral-700 leading-relaxed">
                 As regras aritméticas, parâmetros tributários e encargos patronais aplicados nesta
                 ferramenta observam com rigor os seguintes diplomas legais vigentes:
               </p>
               <ul className="list-disc pl-5 mt-2 space-y-1.5 text-xs md:text-sm text-neutral-700">
+                <li>
+                  <strong>Portaria Interministerial MPS/MF nº 13/2026:</strong> nova tabela
+                  progressiva de contribuição dos segurados empregados (faixas até R$ 1.621,00; R$
+                  2.902,84; R$ 4.354,27 e teto de R$ 8.475,55);
+                </li>
+                <li>
+                  <strong>Lei nº 15.270/2025:</strong> redução do imposto de renda mensal (art. 3º-A
+                  da Lei nº 9.250/1995), com isenção integral para rendimentos tributáveis até R$
+                  5.000,00 e redutor proporcional até R$ 7.350,00;
+                </li>
                 <li>
                   <strong>Lei nº 8.212 de 1991 (Lei Orgânica da Seguridade Social):</strong>{' '}
                   fundamentação da contribuição previdenciária patronal básica de 20% sobre a folha
@@ -1672,10 +1744,9 @@ export default function PJouCLTCalculator() {
                   no DAS;
                 </li>
                 <li>
-                  <strong>Tabela Progressiva do IRRF Vigente:</strong> parâmetros mensais
-                  estabelecidos pela Lei nº 14.848/2024 e regulamentados pela Instrução Normativa
-                  RFB nº 1.500/2014, considerando deduções de dependentes legais e desconto
-                  simplificado mensal;
+                  <strong>Tabela Progressiva do IRRF Vigente (exercício 2026):</strong> isenção
+                  mensal de R$ 2.428,80, desconto simplificado de R$ 607,20 e dedução de R$ 189,59
+                  por dependente legal;
                 </li>
                 <li>
                   <strong>

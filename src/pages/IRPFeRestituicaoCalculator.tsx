@@ -80,17 +80,17 @@ export const TABELA_PROGRESSIVA_ANUAL: FaixaIRPF[] = [
     faixa: 1,
     nome: '1ª Faixa',
     de: 0,
-    ate: 22847.76,
+    ate: 28467.2,
     aliquota: 0,
     parcelaADeduzir: 0,
   },
   {
     faixa: 2,
     nome: '2ª Faixa',
-    de: 22847.76,
+    de: 28467.2,
     ate: 33919.8,
     aliquota: 0.075,
-    parcelaADeduzir: 1713.58,
+    parcelaADeduzir: 2135.04,
   },
   {
     faixa: 3,
@@ -98,7 +98,7 @@ export const TABELA_PROGRESSIVA_ANUAL: FaixaIRPF[] = [
     de: 33919.8,
     ate: 45012.6,
     aliquota: 0.15,
-    parcelaADeduzir: 4257.57,
+    parcelaADeduzir: 4679.03,
   },
   {
     faixa: 4,
@@ -106,7 +106,7 @@ export const TABELA_PROGRESSIVA_ANUAL: FaixaIRPF[] = [
     de: 45012.6,
     ate: 55976.16,
     aliquota: 0.225,
-    parcelaADeduzir: 7633.51,
+    parcelaADeduzir: 8054.97,
   },
   {
     faixa: 5,
@@ -114,7 +114,7 @@ export const TABELA_PROGRESSIVA_ANUAL: FaixaIRPF[] = [
     de: 55976.16,
     ate: Infinity,
     aliquota: 0.275,
-    parcelaADeduzir: 10432.32,
+    parcelaADeduzir: 10853.78,
   },
 ]
 
@@ -541,7 +541,7 @@ export default function IRPFeRestituicaoCalculator() {
             </div>
             {/* Bloco de vigência destacado no cabeçalho da calculadora */}
             <span className="text-xs font-mono bg-neutral-100 border border-neutral-300 text-neutral-800 px-2.5 py-1 rounded uppercase tracking-wider font-semibold">
-              Ano-base vigente: 2024 / Exercício 2025
+              ano-calendário 2025 / exercício 2026
             </span>
           </div>
 
@@ -1152,9 +1152,9 @@ export default function IRPFeRestituicaoCalculator() {
                 sofre incidência de 15%, e assim sucessivamente até o teto marginal de 27,5%.
               </p>
               <p>
-                Abaixo está a <strong>Tabela Progressiva Anual do IRPF vigente</strong> (ano-base
-                2024 / exercício 2025), com suas cinco faixas, alíquotas nominais e parcelas a
-                deduzir oficiais da Secretaria Especial da Receita Federal do Brasil:
+                Abaixo está a <strong>Tabela Progressiva Anual do IRPF vigente</strong>{' '}
+                (ano-calendário 2025 / exercício 2026), com suas cinco faixas, alíquotas nominais e
+                parcelas a deduzir oficiais da Secretaria Especial da Receita Federal do Brasil:
               </p>
 
               {/* Tabela completa em HTML estático */}
@@ -1177,7 +1177,7 @@ export default function IRPFeRestituicaoCalculator() {
                       <td className="p-3 border-r border-neutral-200 font-sans font-medium">
                         1ª Faixa (Isenção)
                       </td>
-                      <td className="p-3 border-r border-neutral-200">Até R$ 22.847,76</td>
+                      <td className="p-3 border-r border-neutral-200">Até R$ 28.467,20</td>
                       <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">
                         Isento (0,0%)
                       </td>
@@ -1188,12 +1188,12 @@ export default function IRPFeRestituicaoCalculator() {
                         2ª Faixa
                       </td>
                       <td className="p-3 border-r border-neutral-200">
-                        De R$ 22.847,77 até R$ 33.919,80
+                        De R$ 28.467,21 até R$ 33.919,80
                       </td>
                       <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">
                         7,5%
                       </td>
-                      <td className="p-3">R$ 1.713,58</td>
+                      <td className="p-3">R$ 2.135,04</td>
                     </tr>
                     <tr className="hover:bg-neutral-50">
                       <td className="p-3 border-r border-neutral-200 font-sans font-medium">
@@ -1205,7 +1205,7 @@ export default function IRPFeRestituicaoCalculator() {
                       <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">
                         15,0%
                       </td>
-                      <td className="p-3">R$ 4.257,57</td>
+                      <td className="p-3">R$ 4.679,03</td>
                     </tr>
                     <tr className="hover:bg-neutral-50">
                       <td className="p-3 border-r border-neutral-200 font-sans font-medium">
@@ -1217,7 +1217,7 @@ export default function IRPFeRestituicaoCalculator() {
                       <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">
                         22,5%
                       </td>
-                      <td className="p-3">R$ 7.633,51</td>
+                      <td className="p-3">R$ 8.054,97</td>
                     </tr>
                     <tr className="hover:bg-neutral-50">
                       <td className="p-3 border-r border-neutral-200 font-sans font-medium">
@@ -1227,7 +1227,7 @@ export default function IRPFeRestituicaoCalculator() {
                       <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">
                         27,5%
                       </td>
-                      <td className="p-3">R$ 10.432,32</td>
+                      <td className="p-3">R$ 10.853,78</td>
                     </tr>
                   </tbody>
                 </table>
@@ -1658,12 +1658,15 @@ export default function IRPFeRestituicaoCalculator() {
           <div className="flex items-start gap-3">
             <Scale className="h-5 w-5 text-neutral-800 shrink-0 mt-0.5" />
             <div>
-              <div className="flex items-center gap-2 mb-1">
+              <div className="flex items-center gap-2 mb-1 flex-wrap">
                 <h3 id="vigencia-title" className="font-serif font-bold text-base text-black">
                   Vigência Normativa e Base Legal Aplicada
                 </h3>
                 <span className="text-[11px] font-mono bg-neutral-100 text-neutral-800 px-2 py-0.5 rounded border border-neutral-300 font-semibold">
-                  Ano-base 2024 / Exercício 2025
+                  ano-calendário 2025 / exercício 2026
+                </span>
+                <span className="text-xs font-mono bg-neutral-100 text-neutral-800 px-2 py-0.5 rounded border border-neutral-300">
+                  Parâmetros conferidos em fevereiro/2026
                 </span>
               </div>
               <p className="text-sm text-neutral-700 leading-relaxed">
@@ -1671,10 +1674,11 @@ export default function IRPFeRestituicaoCalculator() {
                 <strong>artigo 8º da Lei nº 9.250, de 26 de dezembro de 1995</strong> (com a redação
                 dada pela Lei nº 11.482/2007 e alterações posteriores). A tributação progressiva
                 segue a{' '}
-                <strong>Tabela Progressiva Anual da Receita Federal do Brasil vigente</strong>, com
-                faixa de isenção anual de R$ 22.847,76, dedução anual por dependente fixada em R$
-                2.275,08, teto anual individual de despesas de instrução de R$ 3.561,50 e limite de
-                20% (até R$ 16.754,34) para a opção pelo desconto simplificado.
+                <strong>Tabela Progressiva Anual da Receita Federal do Brasil vigente</strong>{' '}
+                (ano-calendário 2025 / exercício 2026), com faixa de isenção anual de R$ 28.467,20,
+                dedução anual por dependente fixada em R$ 2.275,08, teto anual individual de
+                despesas de instrução de R$ 3.561,50 e limite de 20% (até R$ 16.754,34) para a opção
+                pelo desconto simplificado.
               </p>
             </div>
           </div>
