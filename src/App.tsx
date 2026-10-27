@@ -30,6 +30,7 @@ import CustoDeFuncionarioCLTCalculator from './pages/CustoDeFuncionarioCLTCalcul
 import PJouCLTCalculator from './pages/PJouCLTCalculator'
 import SimplesNacionalHibridoCalculator from './pages/SimplesNacionalHibridoCalculator'
 import JurosDeMoraDeTributosCalculator from './pages/JurosDeMoraDeTributosCalculator'
+import IRPFeRestituicaoCalculator from './pages/IRPFeRestituicaoCalculator'
 
 const App = () => (
   <AuthProvider>
@@ -68,6 +69,10 @@ const App = () => (
             <Route
               path="/calculadoras/juros-de-mora-de-tributos"
               element={<JurosDeMoraDeTributosCalculator />}
+            />
+            <Route
+              path="/calculadoras/irpf-e-restituicao"
+              element={<IRPFeRestituicaoCalculator />}
             />
             <Route path="/calculadoras/:slug" element={<CalculatorDetail />} />
           </Route>
