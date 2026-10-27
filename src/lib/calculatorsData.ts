@@ -50,9 +50,19 @@ export const CALCULATORS: CalculatorItem[] = [
 
   // Bloco 2: Folha e Trabalhista
   {
-    id: 'custo-de-funcionario-clt-pj-ou-clt',
-    slug: 'custo-de-funcionario-clt-pj-ou-clt',
-    name: 'Custo de Funcionário CLT, PJ ou CLT',
+    id: 'custo-de-funcionario-clt',
+    slug: 'custo-de-funcionario-clt',
+    name: 'Custo de Funcionário CLT',
+    shortDescription:
+      'Cálculo detalhado do custo real de contratação CLT para a empresa: encargos patronais, FGTS, provisões de férias e 13º salário.',
+    category: 'Folha e Trabalhista',
+    legalBasis: 'Lei nº 8.212/1991, Lei nº 8.036/1990, LC nº 123/2006 e CLT',
+    updatedAt: 'Janeiro/2025',
+  },
+  {
+    id: 'pj-ou-clt',
+    slug: 'pj-ou-clt',
+    name: 'PJ ou CLT',
     shortDescription:
       'Simulação comparativa entre encargos patronais da CLT e contratos de prestação de serviços por pessoa jurídica.',
     category: 'Folha e Trabalhista',

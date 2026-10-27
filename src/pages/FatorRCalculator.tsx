@@ -1100,7 +1100,7 @@ export default function FatorRCalculator() {
             </Link>
 
             <Link
-              to="/calculadoras/custo-de-funcionario-clt-pj-ou-clt"
+              to="/calculadoras/custo-de-funcionario-clt"
               className="group border border-neutral-200 bg-white hover:border-neutral-400 p-5 rounded-xl transition-all duration-200 flex flex-col justify-between shadow-sm"
             >
               <div>
@@ -1111,7 +1111,7 @@ export default function FatorRCalculator() {
                   Custo de Funcionário CLT
                 </h3>
                 <p className="text-xs text-neutral-600 leading-relaxed">
-                  Simulação comparativa entre encargos patronais da CLT e contratação PJ.
+                  Cálculo dos encargos mensais e anuais, provisões e custo total para a empresa.
                 </p>
               </div>
               <div className="mt-4 pt-3 border-t border-neutral-100 flex items-center text-xs font-medium text-black">

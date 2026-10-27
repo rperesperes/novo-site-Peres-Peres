@@ -26,6 +26,7 @@ import CalculatorsHub from './pages/CalculatorsHub'
 import CalculatorDetail from './pages/CalculatorDetail'
 import FatorRCalculator from './pages/FatorRCalculator'
 import SimplesNacionalOuLucroPresumidoCalculator from './pages/SimplesNacionalOuLucroPresumidoCalculator'
+import CustoDeFuncionarioCLTCalculator from './pages/CustoDeFuncionarioCLTCalculator'
 
 const App = () => (
   <AuthProvider>
@@ -51,6 +52,10 @@ const App = () => (
             <Route
               path="/calculadoras/simples-nacional-ou-lucro-presumido"
               element={<SimplesNacionalOuLucroPresumidoCalculator />}
+            />
+            <Route
+              path="/calculadoras/custo-de-funcionario-clt"
+              element={<CustoDeFuncionarioCLTCalculator />}
             />
             <Route path="/calculadoras/:slug" element={<CalculatorDetail />} />
           </Route>
