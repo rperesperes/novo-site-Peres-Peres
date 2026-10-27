@@ -174,7 +174,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 block mb-0.5">
-                      Telefone
+                      WHATSAPP
                     </span>
                     <a
                       href={`tel:${SITE_INFO.phone.replace(/\D/g, '')}`}
