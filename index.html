@@ -13,12 +13,41 @@
 <link
   href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
   rel="stylesheet"
+  crossorigin="anonymous"
 />    <meta name="author" content="Skip (https://goskip.dev)" />
     <meta property="og:image" content="/og-image.png" />
   </head>
 
   <body>
     <div id="root"></div>
+    <script>
+      // Garante que tentativas de ler cssRules em stylesheets cross-origin não disparem SecurityError não tratada
+      (function() {
+        if (typeof window !== 'undefined' && typeof CSSStyleSheet !== 'undefined') {
+          try {
+            var proto = CSSStyleSheet.prototype;
+            var descriptor = Object.getOwnPropertyDescriptor(proto, 'cssRules');
+            if (descriptor && typeof descriptor.get === 'function') {
+              var origGet = descriptor.get;
+              Object.defineProperty(proto, 'cssRules', {
+                configurable: descriptor.configurable,
+                enumerable: descriptor.enumerable,
+                get: function() {
+                  try {
+                    return origGet.call(this);
+                  } catch (e) {
+                    if (e && (e.name === 'SecurityError' || (e.message && e.message.indexOf('cssRules') !== -1))) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                }
+              });
+            }
+          } catch (err) {}
+        }
+      })();
+    </script>
     <!-- @skip-protected: Do not remove. Required for app features. -->
     <script src="https://goskip.dev/skip.js"></script>
     <!-- @skip-protected: Do not remove. App entrypoint. -->
