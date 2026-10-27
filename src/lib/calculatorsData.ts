@@ -24,7 +24,7 @@ export const CALCULATORS: CalculatorItem[] = [
       'Comparativo estimativo de carga tributária e encargos entre os regimes Simples Nacional e Lucro Presumido com apuração de alíquotas efetivas.',
     category: 'Regime Tributário',
     legalBasis:
-      'LC 123/2006 (Anexos I a V), Leis 9.249/1995, 10.637/2002, 10.833/2003 e LC 116/2003',
+      'Lei Complementar nº 123/2006 (Anexos I a V), Lei nº 9.249/1995, Lei nº 10.637/2002, Lei nº 10.833/2003 e LC nº 116/2003',
     updatedAt: 'Janeiro/2025',
   },
   {

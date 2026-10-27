@@ -40,7 +40,7 @@ export default function Layout() {
         } else if (slug === 'simples-nacional-ou-lucro-presumido') {
           document.title = 'Simples ou Lucro Presumido: qual paga menos | PERES'
         } else {
-          document.title = `${foundCalc.name} — em desenvolvimento | PERES PERES Consultoria e Contabilidade`
+          document.title = `${foundCalc.name}, em desenvolvimento | PERES PERES Consultoria e Contabilidade`
         }
       } else {
         document.title = 'Calculadora | PERES PERES Consultoria e Contabilidade'

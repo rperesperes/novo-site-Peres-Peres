@@ -22,7 +22,7 @@ export default function CalculatorDetail() {
   useEffect(() => {
     if (!calculator) return
 
-    const pageTitle = `${calculator.name} — em desenvolvimento | PERES PERES Consultoria e Contabilidade`
+    const pageTitle = `${calculator.name}, em desenvolvimento | PERES PERES Consultoria e Contabilidade`
     const pageDesc = `${calculator.name}: ferramenta em desenvolvimento pela PERES PERES Consultoria e Contabilidade. Em breve, simulação com memória de cálculo aberta e base legal.`
 
     document.title = pageTitle
@@ -35,10 +35,6 @@ export default function CalculatorDetail() {
     }
     metaDescTag.setAttribute('content', pageDesc)
   }, [calculator])
-
-  if (!calculator) {
-    return <NotFound />
-  }
 
   if (!calculator) {
     return <NotFound />
