@@ -41,15 +41,32 @@ export function Footer() {
               </p>
               <p className="flex items-center gap-2">
                 <Phone className="h-4 w-4 shrink-0 text-neutral-400" />
-                <span>{SITE_INFO.phone}</span>
+                <a
+                  href={`tel:${SITE_INFO.phone.replace(/\D/g, '')}`}
+                  className="hover:text-[#FAB319] transition-colors"
+                >
+                  {SITE_INFO.phone}
+                </a>
               </p>
               <p className="flex items-center gap-2">
                 <Mail className="h-4 w-4 shrink-0 text-neutral-400" />
-                <span>{SITE_INFO.email}</span>
+                <a
+                  href={`mailto:${SITE_INFO.email}`}
+                  className="hover:text-[#FAB319] transition-colors"
+                >
+                  {SITE_INFO.email}
+                </a>
               </p>
               <p className="flex items-center gap-2">
                 <MessageSquare className="h-4 w-4 shrink-0 text-neutral-400" />
-                <span>{SITE_INFO.whatsapp}</span>
+                <a
+                  href={SITE_INFO.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#FAB319] transition-colors"
+                >
+                  WhatsApp: {SITE_INFO.whatsapp}
+                </a>
               </p>
             </div>
           </div>

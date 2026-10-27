@@ -1,8 +1,10 @@
 export const SITE_INFO = {
   name: 'PERES PERES Consultoria e Contabilidade',
-  phone: 'Telefone a definir',
-  whatsapp: 'WhatsApp a definir',
-  email: 'E-mail a definir',
+  phone: '(61) 3686-1689',
+  whatsapp: '(61) 3686-1689',
+  whatsappUrl:
+    'https://wa.me/556136861689?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consultoria%20tribut%C3%A1ria.',
+  email: 'contato@peresperes.com.br',
   address: 'SCN Quadra 2 Bloco D, Brasília - DF, 70712-903',
   crc: 'CRC 027704/O',
 }

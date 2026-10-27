@@ -3,16 +3,15 @@ import { SITE_INFO } from '@/lib/data'
 
 export function WhatsAppButton() {
   const digits = (SITE_INFO.whatsapp || '').replace(/\D/g, '')
-  const isRealNumber = Boolean(
-    digits.length >= 10 && !digits.startsWith('556199999999') && !digits.startsWith('99999999'),
-  )
+  const isRealNumber = Boolean(digits.length >= 10)
 
   if (!isRealNumber) {
     return null
   }
 
-  const message = encodeURIComponent('Olá, gostaria de agendar uma consultoria.')
-  const url = `https://wa.me/${digits}?text=${message}`
+  const url =
+    SITE_INFO.whatsappUrl ||
+    `https://wa.me/${digits}?text=${encodeURIComponent('Olá, gostaria de agendar uma consultoria tributária.')}`
 
   return (
     <a
