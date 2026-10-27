@@ -496,29 +496,41 @@ export default function JurosDeMoraDeTributosCalculator() {
                 <Scale className="h-4 w-4 text-[#FAB319]" />
               </div>
               <div>
-                <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 block">
-                  Vigência e Base Legal Consolidada • {SELIC_SERIE_VIGENCIA.rotuloConferencia}
-                </span>
+                <div className="flex items-center gap-2 mb-1 flex-wrap">
+                  <span className="text-xs font-mono uppercase tracking-wider text-neutral-500">
+                    Vigência Normativa e Base Legal Aplicada
+                  </span>
+                  <span className="text-xs font-mono bg-white border border-neutral-200 text-neutral-800 px-2 py-0.5 rounded shadow-sm">
+                    {SELIC_SERIE_VIGENCIA.rotuloConferencia}
+                  </span>
+                  <span className="text-xs font-mono bg-neutral-100 border border-neutral-200 text-neutral-700 px-2 py-0.5 rounded">
+                    {SELIC_SERIE_VIGENCIA.rotuloConsolidacao}
+                  </span>
+                </div>
                 <p className="text-sm font-medium text-neutral-900 mt-0.5">
                   Art. 61 da Lei nº 9.430/1996 • Art. 13 da Lei nº 9.065/1995 • Art. 84 da Lei nº
                   8.981/1995
                 </p>
-                <p className="text-xs text-neutral-600 mt-1">
-                  Série histórica da Taxa Selic mensal{' '}
-                  <strong>
-                    {SELIC_SERIE_VIGENCIA.rotuloConsolidacao.toLowerCase()} (
-                    {SELIC_SERIE_VIGENCIA.taxaMaisRecente.toFixed(2).replace('.', ',')}% a.m.)
-                  </strong>{' '}
-                  — dados oficiais Banco Central do Brasil (Série SGS 4390 / Sicalc RFB).
+                <p className="text-xs text-neutral-700 mt-1 leading-relaxed">
+                  {SELIC_SERIE_VIGENCIA.rotuloConferencia}.{' '}
+                  <strong>{SELIC_SERIE_VIGENCIA.rotuloSerieConsolidada}</strong> (
+                  {SELIC_SERIE_VIGENCIA.taxaMaisRecente.toFixed(2).replace('.', ',')}% a.m.) —{' '}
+                  {SELIC_SERIE_VIGENCIA.explicacaoFechamentoMes}. Dados oficiais Banco Central do
+                  Brasil (Série SGS 4390) e Receita Federal do Brasil (Sicalc).
                 </p>
               </div>
             </div>
 
             <div className="sm:text-right shrink-0">
-              <span className="inline-flex items-center gap-1.5 text-xs font-mono bg-white border border-neutral-200 px-3 py-1.5 rounded-md text-neutral-700 shadow-sm">
-                <Clock className="h-3.5 w-3.5 text-neutral-500" />
-                {SELIC_SERIE_VIGENCIA.rotuloConsolidacao}
-              </span>
+              <div className="flex sm:flex-col items-start sm:items-end gap-1.5">
+                <span className="inline-flex items-center gap-1.5 text-xs font-mono bg-white border border-neutral-200 px-3 py-1.5 rounded-md text-neutral-700 shadow-sm">
+                  <Clock className="h-3.5 w-3.5 text-neutral-500" />
+                  {SELIC_SERIE_VIGENCIA.rotuloConsolidacao}
+                </span>
+                <span className="text-[11px] font-mono text-neutral-500">
+                  {SELIC_SERIE_VIGENCIA.rotuloConferencia}
+                </span>
+              </div>
             </div>
           </div>
         </div>
