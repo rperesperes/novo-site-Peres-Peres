@@ -87,7 +87,7 @@ export function Footer() {
               </li>
               <li>
                 <Link to="/casos" className="hover:text-[#FAB319] transition-colors">
-                  Casos
+                  Casos de Sucesso
                 </Link>
               </li>
               <li>
