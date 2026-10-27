@@ -2,26 +2,26 @@ import { MessageCircle } from 'lucide-react'
 import { SITE_INFO } from '@/lib/data'
 
 export function WhatsAppButton() {
-  const isDefined = Boolean(
-    SITE_INFO.whatsapp &&
-    !SITE_INFO.whatsapp.includes('[a preencher]') &&
-    !SITE_INFO.whatsapp.includes('a definir') &&
-    /\d{8,}/.test(SITE_INFO.whatsapp.replace(/\D/g, '')),
+  const digits = (SITE_INFO.whatsapp || '').replace(/\D/g, '')
+  const isRealNumber = Boolean(
+    digits.length >= 10 && !digits.startsWith('556199999999') && !digits.startsWith('99999999'),
   )
 
+  if (!isRealNumber) {
+    return null
+  }
+
   const message = encodeURIComponent('Olá, gostaria de agendar uma consultoria.')
-  const url = isDefined
-    ? `https://wa.me/${SITE_INFO.whatsapp.replace(/\D/g, '')}?text=${message}`
-    : '/contato'
+  const url = `https://wa.me/${digits}?text=${message}`
 
   return (
     <a
       href={url}
-      target={isDefined ? '_blank' : '_self'}
-      rel={isDefined ? 'noopener noreferrer' : undefined}
+      target="_blank"
+      rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-black text-white border-2 border-white/20 shadow-xl transition-all hover:scale-105 hover:bg-neutral-900 focus:outline-none focus:ring-2 focus:ring-[#FAB319] focus:ring-offset-2 animate-fade-in-up"
       aria-label="Contato via WhatsApp"
-      title={isDefined ? 'Fale conosco via WhatsApp' : 'Contato WhatsApp pendente de preenchimento'}
+      title="Fale conosco via WhatsApp"
     >
       <MessageCircle className="h-6 w-6 text-white" />
     </a>

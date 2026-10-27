@@ -41,14 +41,14 @@ export function Footer() {
               </p>
               <p className="flex items-center gap-2">
                 <Phone className="h-4 w-4 shrink-0 text-neutral-400" />
-                <span className="font-mono text-xs bg-neutral-900 border border-neutral-700 px-2 py-0.5 rounded text-neutral-300">
-                  {SITE_INFO.phone}
+                <span className="font-mono text-xs bg-neutral-900 border border-neutral-700 px-2 py-0.5 rounded text-neutral-400">
+                  Telefone: pendente de preenchimento
                 </span>
               </p>
               <p className="flex items-center gap-2">
                 <Mail className="h-4 w-4 shrink-0 text-neutral-400" />
-                <span className="font-mono text-xs bg-neutral-900 border border-neutral-700 px-2 py-0.5 rounded text-neutral-300">
-                  {SITE_INFO.email}
+                <span className="font-mono text-xs bg-neutral-900 border border-neutral-700 px-2 py-0.5 rounded text-neutral-400">
+                  E-mail: pendente de preenchimento
                 </span>
               </p>
             </div>
@@ -66,11 +66,6 @@ export function Footer() {
               <li>
                 <Link to="/servicos" className="hover:text-[#FAB319] transition-colors">
                   Áreas de Atuação
-                </Link>
-              </li>
-              <li>
-                <Link to="/casos" className="hover:text-[#FAB319] transition-colors">
-                  Metodologia e Fundamentação
                 </Link>
               </li>
               <li>

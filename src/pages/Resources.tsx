@@ -4,7 +4,7 @@ import { useRealtime } from '@/hooks/use-realtime'
 import pb from '@/lib/pocketbase/client'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { FileDown, FileSpreadsheet, Calculator, Clock, ArrowRight } from 'lucide-react'
+import { FileDown, FileSpreadsheet, Calculator, ArrowRight } from 'lucide-react'
 
 export default function Resources() {
   const [resources, setResources] = useState<any[]>([])
@@ -45,7 +45,7 @@ export default function Resources() {
                 Calculadoras e Ferramentas Práticas
               </h2>
               <p className="text-neutral-600 text-sm md:text-base">
-                Ferramentas de cálculo fiscal com parâmetros oficiais e metodologia transparente.
+                Ferramentas especializadas para parametrização contábil e fiscal.
               </p>
             </div>
 
@@ -60,55 +60,44 @@ export default function Resources() {
                       Área de Calculadoras Fiscais
                     </CardTitle>
                     <CardDescription className="text-neutral-400 text-xs">
-                      Em desenvolvimento para ambiente próprio
+                      Será disponibilizada em endereço próprio
                     </CardDescription>
                   </div>
                 </div>
               </CardHeader>
               <CardContent className="p-6 space-y-5">
-                <div className="flex items-start gap-3 p-4 rounded border border-neutral-200 bg-white">
-                  <Clock className="h-5 w-5 text-neutral-700 shrink-0 mt-0.5" />
-                  <div className="text-xs text-neutral-600 space-y-1 leading-relaxed">
-                    <span className="font-semibold text-black block">
-                      Disponibilização em endereço próprio
-                    </span>
-                    <p>
-                      Em respeito ao nosso manual de comunicação e diretrizes de compliance, as
-                      calculadoras específicas (como apuração de Fator R e parametrizações
-                      operacionais) estão sendo desenvolvidas em ambiente próprio, com fórmulas e
-                      bases legais auditáveis, sem simulações genéricas de redução.
-                    </p>
-                  </div>
-                </div>
+                <p className="text-sm text-neutral-700 leading-relaxed">
+                  A PERES PERES Consultoria e Contabilidade está desenvolvendo uma plataforma
+                  dedicada de ferramentas e calculadoras contábeis e fiscais em endereço eletrônico
+                  próprio, assegurando parâmetros normativos auditáveis e conformidade com a
+                  legislação vigente.
+                </p>
 
-                <div className="space-y-3">
+                <div className="space-y-3 pt-2">
                   <p className="text-xs font-mono text-neutral-500 uppercase tracking-wider">
-                    Módulos previstos:
+                    Módulos previstos para o novo ambiente:
                   </p>
                   <ul className="text-sm text-neutral-700 space-y-2">
                     <li className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-neutral-900" />
-                      Calculadora de Fator R (Anexo III vs. Anexo V - Simples Nacional)
+                      Calculadora de Fator R (Simples Nacional)
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-neutral-900" />
-                      Estimativa de retenções tributárias na fonte (IRRF, CSRF, INSS)
+                      Parametrização de Retenções Federais na Fonte (IRRF, CSRF, INSS)
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-neutral-900" />
-                      Roteiro comparativo de regimes tributários aplicáveis
+                      Comparativo de regimes tributários aplicáveis
                     </li>
                   </ul>
                 </div>
 
                 <div className="pt-2">
-                  <Button
-                    variant="outline"
-                    className="w-full border-neutral-400 text-black hover:bg-neutral-100 font-medium"
-                    disabled
-                  >
-                    Acesso disponível em breve no endereço oficial
-                  </Button>
+                  <div className="p-3 bg-neutral-100 border border-neutral-200 rounded text-xs text-neutral-600 text-center">
+                    Ambiente em fase de homologação técnica. O link de acesso será publicado aqui
+                    assim que disponibilizado.
+                  </div>
                 </div>
               </CardContent>
             </Card>

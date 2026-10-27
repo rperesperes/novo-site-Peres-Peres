@@ -12,10 +12,10 @@ export default function Layout() {
     window.scrollTo(0, 0)
 
     const titles: Record<string, string> = {
-      '/': 'PERES PERES Consultoria e Contabilidade',
+      '/': 'Consultoria e Contabilidade Tributária em Brasília | PERES PERES Consultoria e Contabilidade',
       '/sobre': 'Sobre Nós | PERES PERES Consultoria e Contabilidade',
       '/servicos': 'Áreas de Atuação | PERES PERES Consultoria e Contabilidade',
-      '/casos': 'Metodologia e Fundamentação Normativa | PERES PERES Consultoria e Contabilidade',
+      '/casos': 'Diretrizes e Metodologia | PERES PERES Consultoria e Contabilidade',
       '/blog': 'Blog Tributário | PERES PERES Consultoria e Contabilidade',
       '/recursos': 'Recursos e Materiais | PERES PERES Consultoria e Contabilidade',
       '/glossario': 'Glossário Tributário | PERES PERES Consultoria e Contabilidade',

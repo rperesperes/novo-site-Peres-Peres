@@ -1,8 +1,8 @@
 export const SITE_INFO = {
   name: 'PERES PERES Consultoria e Contabilidade',
-  phone: 'Telefone: [a preencher]',
-  whatsapp: 'WhatsApp: [a preencher]',
-  email: 'E-mail: [a preencher]',
+  phone: 'Telefone: pendente de preenchimento',
+  whatsapp: '',
+  email: 'E-mail: pendente de preenchimento',
   address: 'SCN Quadra 2 Bloco D, Brasília - DF, 70712-903',
   crc: 'CRC 027704/O',
 }
@@ -34,29 +34,7 @@ export const SERVICES = [
   },
 ]
 
-export const CASES = [
-  {
-    id: '1',
-    title: 'Auditoria de Conformidade Tributária no Setor Industrial',
-    sector: 'Indústria',
-    description:
-      'Revisão fiscal baseada em jurisprudência consolidada do CARF e tribunais superiores para alinhamento da apuração de créditos da não cumulatividade.',
-  },
-  {
-    id: '2',
-    title: 'Adequação da Base de Cálculo no Varejo',
-    sector: 'Varejo',
-    description:
-      'Ajuste procedimental em conformidade com o Tema 69 de Repercussão Geral do STF, conferindo higidez aos lançamentos contábeis.',
-  },
-  {
-    id: '3',
-    title: 'Reestruturação e Análise de Regime para Serviços',
-    sector: 'Serviços',
-    description:
-      'Diagnóstico comparativo entre regimes tributários com observância às diretrizes normativas e parâmetros legais da folha de pagamento.',
-  },
-]
+export const CASES = []
 
 export const BLOG_POSTS = [
   {

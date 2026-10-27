@@ -57,12 +57,9 @@ export default function Blog() {
                   {imageUrl ? (
                     <img src={imageUrl} alt={post.title} className="w-full h-full object-cover" />
                   ) : (
-                    <div className="text-center p-4">
-                      <span className="text-[11px] font-mono text-neutral-500 uppercase block">
-                        [Informe Técnico Oficial]
-                      </span>
-                      <span className="text-xs text-neutral-400 mt-1 block">
-                        Proporção 16:9 reservada
+                    <div className="w-full h-full flex items-center justify-center bg-neutral-100 text-neutral-400">
+                      <span className="text-xs font-mono uppercase tracking-wider text-neutral-400">
+                        Publicação Técnica
                       </span>
                     </div>
                   )}
