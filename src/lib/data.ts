@@ -1,8 +1,8 @@
 export const SITE_INFO = {
   name: 'PERES PERES Consultoria e Contabilidade',
-  phone: 'Telefone: pendente de preenchimento',
-  whatsapp: '',
-  email: 'E-mail: pendente de preenchimento',
+  phone: 'Telefone a definir',
+  whatsapp: 'WhatsApp a definir',
+  email: 'E-mail a definir',
   address: 'SCN Quadra 2 Bloco D, Brasília - DF, 70712-903',
   crc: 'CRC 027704/O',
 }

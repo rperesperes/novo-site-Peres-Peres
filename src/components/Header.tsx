@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { name: 'Início', path: '/' },
   { name: 'Sobre Nós', path: '/sobre' },
   { name: 'Serviços', path: '/servicos' },
+  { name: 'Metodologia', path: '/casos' },
   { name: 'Blog', path: '/blog' },
   { name: 'Recursos', path: '/recursos' },
 ]
@@ -39,12 +40,13 @@ export function Header() {
       )}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center">
+        <Link to="/" className="flex items-center gap-3">
           <img
             src={logoNova}
             alt="PERES PERES Consultoria e Contabilidade"
             className="h-10 md:h-12 w-auto object-contain"
           />
+          <span className="sr-only">PERES PERES Consultoria e Contabilidade</span>
         </Link>
 
         {/* Desktop Nav */}

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { SITE_INFO } from '@/lib/data'
-import { MapPin, Phone, Mail, Linkedin, Instagram, Youtube } from 'lucide-react'
+import { MapPin, Phone, Mail, MessageSquare, Linkedin, Instagram, Youtube } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useToast } from '@/hooks/use-toast'
@@ -41,15 +41,15 @@ export function Footer() {
               </p>
               <p className="flex items-center gap-2">
                 <Phone className="h-4 w-4 shrink-0 text-neutral-400" />
-                <span className="font-mono text-xs bg-neutral-900 border border-neutral-700 px-2 py-0.5 rounded text-neutral-400">
-                  Telefone: pendente de preenchimento
-                </span>
+                <span>{SITE_INFO.phone}</span>
               </p>
               <p className="flex items-center gap-2">
                 <Mail className="h-4 w-4 shrink-0 text-neutral-400" />
-                <span className="font-mono text-xs bg-neutral-900 border border-neutral-700 px-2 py-0.5 rounded text-neutral-400">
-                  E-mail: pendente de preenchimento
-                </span>
+                <span>{SITE_INFO.email}</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <MessageSquare className="h-4 w-4 shrink-0 text-neutral-400" />
+                <span>{SITE_INFO.whatsapp}</span>
               </p>
             </div>
           </div>
@@ -66,6 +66,11 @@ export function Footer() {
               <li>
                 <Link to="/servicos" className="hover:text-[#FAB319] transition-colors">
                   Áreas de Atuação
+                </Link>
+              </li>
+              <li>
+                <Link to="/casos" className="hover:text-[#FAB319] transition-colors">
+                  Metodologia
                 </Link>
               </li>
               <li>
