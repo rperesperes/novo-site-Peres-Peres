@@ -31,6 +31,7 @@ import PJouCLTCalculator from './pages/PJouCLTCalculator'
 import SimplesNacionalHibridoCalculator from './pages/SimplesNacionalHibridoCalculator'
 import JurosDeMoraDeTributosCalculator from './pages/JurosDeMoraDeTributosCalculator'
 import IRPFeRestituicaoCalculator from './pages/IRPFeRestituicaoCalculator'
+import JurosDeFinanciamentoCalculator from './pages/JurosDeFinanciamentoCalculator'
 
 const App = () => (
   <AuthProvider>
@@ -73,6 +74,10 @@ const App = () => (
             <Route
               path="/calculadoras/irpf-e-restituicao"
               element={<IRPFeRestituicaoCalculator />}
+            />
+            <Route
+              path="/calculadoras/juros-de-financiamento"
+              element={<JurosDeFinanciamentoCalculator />}
             />
             <Route path="/calculadoras/:slug" element={<CalculatorDetail />} />
           </Route>

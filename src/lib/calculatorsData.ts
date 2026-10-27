@@ -117,10 +117,10 @@ export const CALCULATORS: CalculatorItem[] = [
     slug: 'juros-de-financiamento',
     name: 'Juros de Financiamento',
     shortDescription:
-      'Projeção das parcelas, amortização e custo efetivo total pelo sistema Price e Tabela SAC.',
+      'Comparativo em tempo real entre os sistemas Price e SAC com projeção de parcelas, juros acumulados e evolução do saldo devedor.',
     category: 'Finanças e Tributos',
-    legalBasis: 'Resoluções do Banco Central do Brasil e Código Civil (Lei nº 10.406/2002)',
-    updatedAt: 'Janeiro/2025',
+    legalBasis: 'Resoluções Bacen nº 3.517/2007 e 4.881/2020 e Código Civil (Lei nº 10.406/2002)',
+    updatedAt: 'Fevereiro/2025',
   },
 ]
 
