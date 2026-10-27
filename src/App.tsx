@@ -27,6 +27,7 @@ import CalculatorDetail from './pages/CalculatorDetail'
 import FatorRCalculator from './pages/FatorRCalculator'
 import SimplesNacionalOuLucroPresumidoCalculator from './pages/SimplesNacionalOuLucroPresumidoCalculator'
 import CustoDeFuncionarioCLTCalculator from './pages/CustoDeFuncionarioCLTCalculator'
+import PJouCLTCalculator from './pages/PJouCLTCalculator'
 
 const App = () => (
   <AuthProvider>
@@ -57,6 +58,7 @@ const App = () => (
               path="/calculadoras/custo-de-funcionario-clt"
               element={<CustoDeFuncionarioCLTCalculator />}
             />
+            <Route path="/calculadoras/pj-ou-clt" element={<PJouCLTCalculator />} />
             <Route path="/calculadoras/:slug" element={<CalculatorDetail />} />
           </Route>
           <Route path="/login" element={<Login />} />

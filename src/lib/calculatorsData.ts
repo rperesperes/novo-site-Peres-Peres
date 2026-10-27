@@ -64,10 +64,10 @@ export const CALCULATORS: CalculatorItem[] = [
     slug: 'pj-ou-clt',
     name: 'PJ ou CLT',
     shortDescription:
-      'Simulação comparativa entre encargos patronais da CLT e contratos de prestação de serviços por pessoa jurídica.',
+      'Comparativo em tempo real do custo total para a empresa e do valor líquido na mão do profissional nos cenários PJ e CLT.',
     category: 'Folha e Trabalhista',
-    legalBasis: 'Decreto-Lei nº 5.452/1943 (CLT) e Lei nº 13.429/2017',
-    updatedAt: 'Janeiro/2025',
+    legalBasis: 'Lei nº 8.212/1991, Lei nº 8.036/1990, LC nº 123/2006 e tabela progressiva do IRRF',
+    updatedAt: 'Fevereiro/2025',
   },
   {
     id: 'rescisao-trabalhista',
