@@ -17,6 +17,7 @@ import AdminCases from './pages/admin/Cases'
 import About from './pages/About'
 import Services from './pages/Services'
 import Cases from './pages/Cases'
+import CaseDetail from './pages/CaseDetail'
 import Blog from './pages/Blog'
 import Glossary from './pages/Glossary'
 import Resources from './pages/Resources'
@@ -33,6 +34,7 @@ const App = () => (
             <Route path="/sobre" element={<About />} />
             <Route path="/servicos" element={<Services />} />
             <Route path="/casos" element={<Cases />} />
+            <Route path="/casos/:slug" element={<CaseDetail />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<Blog />} />{' '}
             {/* Simplification: reuse index view for detail or handle inside */}

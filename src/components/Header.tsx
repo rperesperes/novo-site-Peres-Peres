@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { name: 'Início', path: '/' },
   { name: 'Sobre Nós', path: '/sobre' },
   { name: 'Serviços', path: '/servicos' },
-  { name: 'Metodologia', path: '/casos' },
+  { name: 'Casos', path: '/casos' },
   { name: 'Blog', path: '/blog' },
   { name: 'Recursos', path: '/recursos' },
 ]
@@ -57,7 +57,8 @@ export function Header() {
               to={link.path}
               className={cn(
                 'text-sm transition-colors',
-                location.pathname === link.path
+                location.pathname === link.path ||
+                  (link.path === '/casos' && location.pathname.startsWith('/casos'))
                   ? 'text-white font-medium underline decoration-[#FAB319] decoration-2 underline-offset-8'
                   : 'text-neutral-300 hover:text-white',
               )}
@@ -92,7 +93,8 @@ export function Header() {
                   to={link.path}
                   className={cn(
                     'block px-2 py-2 text-base transition-colors',
-                    location.pathname === link.path
+                    location.pathname === link.path ||
+                      (link.path === '/casos' && location.pathname.startsWith('/casos'))
                       ? 'text-white font-semibold border-l-2 border-[#FAB319] pl-3'
                       : 'text-neutral-300 hover:text-white',
                   )}

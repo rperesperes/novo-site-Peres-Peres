@@ -15,7 +15,7 @@ export default function Layout() {
       '/': 'Consultoria e Contabilidade Tributária em Brasília | PERES PERES Consultoria e Contabilidade',
       '/sobre': 'Sobre Nós | PERES PERES Consultoria e Contabilidade',
       '/servicos': 'Áreas de Atuação | PERES PERES Consultoria e Contabilidade',
-      '/casos': 'Diretrizes e Metodologia | PERES PERES Consultoria e Contabilidade',
+      '/casos': 'Casos Reais | PERES PERES Consultoria e Contabilidade',
       '/blog': 'Blog Tributário | PERES PERES Consultoria e Contabilidade',
       '/recursos': 'Recursos e Materiais | PERES PERES Consultoria e Contabilidade',
       '/glossario': 'Glossário Tributário | PERES PERES Consultoria e Contabilidade',
@@ -23,7 +23,12 @@ export default function Layout() {
       '/calculadoras': 'Calculadoras | PERES PERES Consultoria e Contabilidade',
     }
 
-    document.title = titles[location.pathname] || 'PERES PERES Consultoria e Contabilidade'
+    if (location.pathname.startsWith('/casos/')) {
+      // Título da aba seguindo o padrão "Nome da página | PERES PERES Consultoria e Contabilidade"
+      document.title = 'Caso Real | PERES PERES Consultoria e Contabilidade'
+    } else {
+      document.title = titles[location.pathname] || 'PERES PERES Consultoria e Contabilidade'
+    }
   }, [location.pathname])
 
   return (
