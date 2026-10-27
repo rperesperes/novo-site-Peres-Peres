@@ -12,9 +12,15 @@ import {
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import NotFound from './NotFound'
+import FatorRCalculator from './FatorRCalculator'
 
 export default function CalculatorDetail() {
   const { slug } = useParams<{ slug: string }>()
+
+  if (slug === 'fator-r') {
+    return <FatorRCalculator />
+  }
+
   const calculator = CALCULATORS.find((c) => c.slug === slug)
 
   if (!calculator) {

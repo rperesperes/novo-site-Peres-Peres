@@ -23,6 +23,7 @@ import Glossary from './pages/Glossary'
 import Resources from './pages/Resources'
 import CalculatorsHub from './pages/CalculatorsHub'
 import CalculatorDetail from './pages/CalculatorDetail'
+import FatorRCalculator from './pages/FatorRCalculator'
 
 const App = () => (
   <AuthProvider>
@@ -44,6 +45,7 @@ const App = () => (
             <Route path="/recursos" element={<Resources />} />
             <Route path="/contato" element={<Resources />} /> {/* Routing Contato to Resources */}
             <Route path="/calculadoras" element={<CalculatorsHub />} />
+            <Route path="/calculadoras/fator-r" element={<FatorRCalculator />} />
             <Route path="/calculadoras/:slug" element={<CalculatorDetail />} />
           </Route>
           <Route path="/login" element={<Login />} />

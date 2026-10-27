@@ -338,9 +338,7 @@ export default function FatorRCalculator() {
                 {/* 1 e 2: Fator R percentual e Anexo resultante */}
                 <div className="grid sm:grid-cols-2 gap-4 pb-6 border-b border-neutral-200">
                   <div className="bg-white p-4 rounded-lg border border-neutral-200">
-                    <span className="text-xs text-neutral-600 block mb-1">
-                      1. Fator R apurado
-                    </span>
+                    <span className="text-xs text-neutral-600 block mb-1">1. Fator R apurado</span>
                     <div className="flex items-baseline gap-2">
                       <span className="text-3xl md:text-4xl font-mono font-bold text-black">
                         {calculation.fatorRPercent.toFixed(2)}%
@@ -355,9 +353,7 @@ export default function FatorRCalculator() {
                   </div>
 
                   <div className="bg-white p-4 rounded-lg border border-neutral-200">
-                    <span className="text-xs text-neutral-600 block mb-1">
-                      2. Anexo resultante
-                    </span>
+                    <span className="text-xs text-neutral-600 block mb-1">2. Anexo resultante</span>
                     <div className="flex items-center gap-2">
                       {/* Ponto focal 1: Destaque sutil com #FAB319 na identificação do enquadramento */}
                       <span className="inline-block bg-[#FAB319] text-black font-serif font-bold text-2xl md:text-3xl px-3 py-0.5 rounded">
@@ -406,7 +402,8 @@ export default function FatorRCalculator() {
                         <span className="font-mono font-bold text-base text-black">15,50%</span>
                       </div>
                       <p className="text-xs text-neutral-600">
-                        Aplicável com Fator R &lt; 28%. Incidência padrão inicial sem atingir a razão mínima.
+                        Aplicável com Fator R &lt; 28%. Incidência padrão inicial sem atingir a
+                        razão mínima.
                       </p>
                     </div>
                   </div>
@@ -491,9 +488,7 @@ export default function FatorRCalculator() {
                 <span className="font-semibold text-black">{formatCurrencyBRL(receita)}</span>
               </div>
               <div className="flex flex-col sm:flex-row sm:justify-between py-1 border-b border-neutral-100">
-                <span className="text-neutral-500">
-                  Fórmula do quociente (Folha ÷ Receita):
-                </span>
+                <span className="text-neutral-500">Fórmula do quociente (Folha ÷ Receita):</span>
                 <span className="font-semibold text-black">
                   {formatCurrencyBRL(folha)} ÷ {formatCurrencyBRL(receita)} ={' '}
                   {calculation.hasValidReceita ? calculation.fatorR.toFixed(4) : '0,0000'}
@@ -528,12 +523,12 @@ export default function FatorRCalculator() {
                 <span className="font-semibold text-black">
                   {calculation.isAnexoIII
                     ? `${formatCurrencyBRL(folha)} − ${formatCurrencyBRL(
-                        calculation.folhaNecessariaPara28
+                        calculation.folhaNecessariaPara28,
                       )} = ${formatCurrencyBRL(calculation.margemFolha)}`
                     : `${formatCurrencyBRL(
-                        calculation.folhaNecessariaPara28
+                        calculation.folhaNecessariaPara28,
                       )} − ${formatCurrencyBRL(folha)} = ${formatCurrencyBRL(
-                        calculation.folhaAdicionalNecessaria
+                        calculation.folhaAdicionalNecessaria,
                       )}`}
                 </span>
               </div>
@@ -564,8 +559,8 @@ export default function FatorRCalculator() {
                 serviços que geram empregos diretos ou que remuneram seus sócios por meio de
                 pró-labore formal submetido à incidência previdenciária. Quando os gastos com
                 pessoal atingem ou superam a marca de 28% do faturamento, a legislação autoriza a
-                migração do cálculo tributário para o Anexo III, cujas alíquotas são substancialmente
-                menores do que as estipuladas no Anexo V.
+                migração do cálculo tributário para o Anexo III, cujas alíquotas são
+                substancialmente menores do que as estipuladas no Anexo V.
               </p>
             </div>
           </section>
@@ -590,9 +585,7 @@ export default function FatorRCalculator() {
                 bruta dos últimos 12 meses
               </div>
 
-              <p>
-                Representado algebricamente pela fórmula simplificada:
-              </p>
+              <p>Representado algebricamente pela fórmula simplificada:</p>
 
               <div className="my-3 p-3 bg-neutral-50 border border-neutral-200 rounded text-center font-mono text-sm text-neutral-800">
                 Fator R = FS12 ÷ RBT12
@@ -751,51 +744,97 @@ export default function FatorRCalculator() {
                   </thead>
                   <tbody className="divide-y divide-neutral-200 font-mono text-neutral-800">
                     <tr className="hover:bg-neutral-50">
-                      <td className="p-3 border-r border-neutral-200 font-sans font-medium">1ª Faixa</td>
+                      <td className="p-3 border-r border-neutral-200 font-sans font-medium">
+                        1ª Faixa
+                      </td>
                       <td className="p-3 border-r border-neutral-200">Até 180.000,00</td>
-                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">6,00%</td>
+                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">
+                        6,00%
+                      </td>
                       <td className="p-3 border-r border-neutral-200">R$ 0,00</td>
-                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">15,50%</td>
+                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">
+                        15,50%
+                      </td>
                       <td className="p-3">R$ 0,00</td>
                     </tr>
                     <tr className="hover:bg-neutral-50">
-                      <td className="p-3 border-r border-neutral-200 font-sans font-medium">2ª Faixa</td>
-                      <td className="p-3 border-r border-neutral-200">De 180.000,01 a 360.000,00</td>
-                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">11,20%</td>
+                      <td className="p-3 border-r border-neutral-200 font-sans font-medium">
+                        2ª Faixa
+                      </td>
+                      <td className="p-3 border-r border-neutral-200">
+                        De 180.000,01 a 360.000,00
+                      </td>
+                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">
+                        11,20%
+                      </td>
                       <td className="p-3 border-r border-neutral-200">R$ 9.360,00</td>
-                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">18,00%</td>
+                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">
+                        18,00%
+                      </td>
                       <td className="p-3">R$ 4.500,00</td>
                     </tr>
                     <tr className="hover:bg-neutral-50">
-                      <td className="p-3 border-r border-neutral-200 font-sans font-medium">3ª Faixa</td>
-                      <td className="p-3 border-r border-neutral-200">De 360.000,01 a 720.000,00</td>
-                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">13,50%</td>
+                      <td className="p-3 border-r border-neutral-200 font-sans font-medium">
+                        3ª Faixa
+                      </td>
+                      <td className="p-3 border-r border-neutral-200">
+                        De 360.000,01 a 720.000,00
+                      </td>
+                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">
+                        13,50%
+                      </td>
                       <td className="p-3 border-r border-neutral-200">R$ 17.640,00</td>
-                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">19,50%</td>
+                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">
+                        19,50%
+                      </td>
                       <td className="p-3">R$ 9.900,00</td>
                     </tr>
                     <tr className="hover:bg-neutral-50">
-                      <td className="p-3 border-r border-neutral-200 font-sans font-medium">4ª Faixa</td>
-                      <td className="p-3 border-r border-neutral-200">De 720.000,01 a 1.800.000,00</td>
-                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">16,00%</td>
+                      <td className="p-3 border-r border-neutral-200 font-sans font-medium">
+                        4ª Faixa
+                      </td>
+                      <td className="p-3 border-r border-neutral-200">
+                        De 720.000,01 a 1.800.000,00
+                      </td>
+                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">
+                        16,00%
+                      </td>
                       <td className="p-3 border-r border-neutral-200">R$ 35.640,00</td>
-                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">20,50%</td>
+                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">
+                        20,50%
+                      </td>
                       <td className="p-3">R$ 17.100,00</td>
                     </tr>
                     <tr className="hover:bg-neutral-50">
-                      <td className="p-3 border-r border-neutral-200 font-sans font-medium">5ª Faixa</td>
-                      <td className="p-3 border-r border-neutral-200">De 1.800.000,01 a 3.600.000,00</td>
-                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">21,00%</td>
+                      <td className="p-3 border-r border-neutral-200 font-sans font-medium">
+                        5ª Faixa
+                      </td>
+                      <td className="p-3 border-r border-neutral-200">
+                        De 1.800.000,01 a 3.600.000,00
+                      </td>
+                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">
+                        21,00%
+                      </td>
                       <td className="p-3 border-r border-neutral-200">R$ 125.640,00</td>
-                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">23,00%</td>
+                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">
+                        23,00%
+                      </td>
                       <td className="p-3">R$ 62.100,00</td>
                     </tr>
                     <tr className="hover:bg-neutral-50">
-                      <td className="p-3 border-r border-neutral-200 font-sans font-medium">6ª Faixa</td>
-                      <td className="p-3 border-r border-neutral-200">De 3.600.000,01 a 4.800.000,00</td>
-                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">33,00%</td>
+                      <td className="p-3 border-r border-neutral-200 font-sans font-medium">
+                        6ª Faixa
+                      </td>
+                      <td className="p-3 border-r border-neutral-200">
+                        De 3.600.000,01 a 4.800.000,00
+                      </td>
+                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">
+                        33,00%
+                      </td>
                       <td className="p-3 border-r border-neutral-200">R$ 648.000,00</td>
-                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">30,50%</td>
+                      <td className="p-3 border-r border-neutral-200 font-semibold bg-neutral-50">
+                        30,50%
+                      </td>
                       <td className="p-3">R$ 540.000,00</td>
                     </tr>
                   </tbody>
@@ -880,14 +919,14 @@ export default function FatorRCalculator() {
                     </h3>
                   </div>
                   <p className="text-sm text-neutral-700 leading-relaxed mb-2">
-                    Lançar retiradas de lucros isentos de sócios ou contratos de prestação de serviços
-                    terceirizados (notas de PJ) no cômputo da folha de pagamento.
+                    Lançar retiradas de lucros isentos de sócios ou contratos de prestação de
+                    serviços terceirizados (notas de PJ) no cômputo da folha de pagamento.
                   </p>
                   <p className="text-xs text-neutral-600 bg-neutral-50 p-2.5 rounded border border-neutral-200">
                     <strong>Efeito no enquadramento:</strong> Infla indevidamente a folha, gerando
-                    um Fator R fictício acima de 28%. A empresa recolhe os tributos pelo Anexo III de
-                    forma ilegítima, gerando passivo de tributos retroativos com multa de mora e juros
-                    Selic.
+                    um Fator R fictício acima de 28%. A empresa recolhe os tributos pelo Anexo III
+                    de forma ilegítima, gerando passivo de tributos retroativos com multa de mora e
+                    juros Selic.
                   </p>
                 </div>
 
@@ -902,13 +941,13 @@ export default function FatorRCalculator() {
                     </h3>
                   </div>
                   <p className="text-sm text-neutral-700 leading-relaxed mb-2">
-                    Dividir a folha mensal pelo faturamento mensal individual, desconsiderando a regra
-                    legal expressa do acumulado dos 12 meses anteriores.
+                    Dividir a folha mensal pelo faturamento mensal individual, desconsiderando a
+                    regra legal expressa do acumulado dos 12 meses anteriores.
                   </p>
                   <p className="text-xs text-neutral-600 bg-neutral-50 p-2.5 rounded border border-neutral-200">
-                    <strong>Efeito no enquadramento:</strong> Cria oscilações artificiais severas. Em
-                    meses com menor faturamento pontual, o fator dispara, enquanto em meses com pico
-                    de emissão de notas o fator desaba, violando as regras da Receita Federal.
+                    <strong>Efeito no enquadramento:</strong> Cria oscilações artificiais severas.
+                    Em meses com menor faturamento pontual, o fator dispara, enquanto em meses com
+                    pico de emissão de notas o fator desaba, violando as regras da Receita Federal.
                   </p>
                 </div>
               </div>
@@ -953,10 +992,10 @@ export default function FatorRCalculator() {
                 Aviso de Conformidade Legal
               </h3>
               <p className="text-sm text-neutral-700 leading-relaxed">
-                O resultado gerado por esta ferramenta é uma estimativa matemática orientativa e
-                não substitui a análise formal e o parecer técnico de um profissional habilitado
-                perante o Conselho Regional de Contabilidade. Para estruturação de planejamento
-                tributário e conferência de suas obrigações acessórias, acesse a nossa página de{' '}
+                O resultado gerado por esta ferramenta é uma estimativa matemática orientativa e não
+                substitui a análise formal e o parecer técnico de um profissional habilitado perante
+                o Conselho Regional de Contabilidade. Para estruturação de planejamento tributário e
+                conferência de suas obrigações acessórias, acesse a nossa página de{' '}
                 <Link
                   to="/contato"
                   className="font-semibold text-black underline underline-offset-2 hover:text-neutral-700 transition-colors"
@@ -1035,7 +1074,8 @@ export default function FatorRCalculator() {
                 </p>
               </div>
               <div className="mt-4 pt-3 border-t border-neutral-100 flex items-center text-xs font-medium text-black">
-                Acessar simulador <ArrowRight className="h-3 w-3 ml-1 transition-transform group-hover:translate-x-1" />
+                Acessar simulador{' '}
+                <ArrowRight className="h-3 w-3 ml-1 transition-transform group-hover:translate-x-1" />
               </div>
             </Link>
 
@@ -1055,7 +1095,8 @@ export default function FatorRCalculator() {
                 </p>
               </div>
               <div className="mt-4 pt-3 border-t border-neutral-100 flex items-center text-xs font-medium text-black">
-                Acessar simulador <ArrowRight className="h-3 w-3 ml-1 transition-transform group-hover:translate-x-1" />
+                Acessar simulador{' '}
+                <ArrowRight className="h-3 w-3 ml-1 transition-transform group-hover:translate-x-1" />
               </div>
             </Link>
 
@@ -1075,7 +1116,8 @@ export default function FatorRCalculator() {
                 </p>
               </div>
               <div className="mt-4 pt-3 border-t border-neutral-100 flex items-center text-xs font-medium text-black">
-                Acessar simulador <ArrowRight className="h-3 w-3 ml-1 transition-transform group-hover:translate-x-1" />
+                Acessar simulador{' '}
+                <ArrowRight className="h-3 w-3 ml-1 transition-transform group-hover:translate-x-1" />
               </div>
             </Link>
           </div>
