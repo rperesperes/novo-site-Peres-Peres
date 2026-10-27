@@ -42,10 +42,10 @@ export const CALCULATORS: CalculatorItem[] = [
     slug: 'simples-nacional-hibrido',
     name: 'Simples Nacional Híbrido',
     shortDescription:
-      'Estimativa de recolhimento segregado para atividades mistas de comércio, indústria e prestação de serviços.',
+      'Comparativo estimativo entre recolher ICMS e ISS dentro do DAS ou por fora, com apuração de alíquotas efetivas e segregação de receitas.',
     category: 'Regime Tributário',
-    legalBasis: 'Resolução CGSN nº 140/2018 e LC nº 123/2006',
-    updatedAt: 'Janeiro/2025',
+    legalBasis: 'Lei Complementar nº 123/2006, art. 18 e seguintes, e Resolução CGSN nº 140/2018',
+    updatedAt: 'Fevereiro/2025',
   },
 
   // Bloco 2: Folha e Trabalhista

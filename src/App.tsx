@@ -28,6 +28,7 @@ import FatorRCalculator from './pages/FatorRCalculator'
 import SimplesNacionalOuLucroPresumidoCalculator from './pages/SimplesNacionalOuLucroPresumidoCalculator'
 import CustoDeFuncionarioCLTCalculator from './pages/CustoDeFuncionarioCLTCalculator'
 import PJouCLTCalculator from './pages/PJouCLTCalculator'
+import SimplesNacionalHibridoCalculator from './pages/SimplesNacionalHibridoCalculator'
 
 const App = () => (
   <AuthProvider>
@@ -59,6 +60,10 @@ const App = () => (
               element={<CustoDeFuncionarioCLTCalculator />}
             />
             <Route path="/calculadoras/pj-ou-clt" element={<PJouCLTCalculator />} />
+            <Route
+              path="/calculadoras/simples-nacional-hibrido"
+              element={<SimplesNacionalHibridoCalculator />}
+            />
             <Route path="/calculadoras/:slug" element={<CalculatorDetail />} />
           </Route>
           <Route path="/login" element={<Login />} />
