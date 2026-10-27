@@ -13,6 +13,7 @@ const NAV_LINKS = [
   { name: 'Casos de Sucesso', path: '/casos' },
   { name: 'Blog', path: '/blog' },
   { name: 'Recursos', path: '/recursos' },
+  { name: 'Calculadoras', path: '/calculadoras' },
 ]
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -58,7 +59,8 @@ export function Header() {
               className={cn(
                 'text-sm transition-colors',
                 location.pathname === link.path ||
-                  (link.path === '/casos' && location.pathname.startsWith('/casos'))
+                  (link.path === '/casos' && location.pathname.startsWith('/casos')) ||
+                  (link.path === '/calculadoras' && location.pathname.startsWith('/calculadoras'))
                   ? 'text-white font-medium underline decoration-[#FAB319] decoration-2 underline-offset-8'
                   : 'text-neutral-300 hover:text-white',
               )}
@@ -94,7 +96,9 @@ export function Header() {
                   className={cn(
                     'block px-2 py-2 text-base transition-colors',
                     location.pathname === link.path ||
-                      (link.path === '/casos' && location.pathname.startsWith('/casos'))
+                      (link.path === '/casos' && location.pathname.startsWith('/casos')) ||
+                      (link.path === '/calculadoras' &&
+                        location.pathname.startsWith('/calculadoras'))
                       ? 'text-white font-semibold border-l-2 border-[#FAB319] pl-3'
                       : 'text-neutral-300 hover:text-white',
                   )}

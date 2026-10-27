@@ -21,6 +21,8 @@ import CaseDetail from './pages/CaseDetail'
 import Blog from './pages/Blog'
 import Glossary from './pages/Glossary'
 import Resources from './pages/Resources'
+import CalculatorsHub from './pages/CalculatorsHub'
+import CalculatorDetail from './pages/CalculatorDetail'
 
 const App = () => (
   <AuthProvider>
@@ -41,7 +43,8 @@ const App = () => (
             <Route path="/glossario" element={<Glossary />} />
             <Route path="/recursos" element={<Resources />} />
             <Route path="/contato" element={<Resources />} /> {/* Routing Contato to Resources */}
-            <Route path="/calculadoras" element={<Resources />} />
+            <Route path="/calculadoras" element={<CalculatorsHub />} />
+            <Route path="/calculadoras/:slug" element={<CalculatorDetail />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<AdminLayout />}>

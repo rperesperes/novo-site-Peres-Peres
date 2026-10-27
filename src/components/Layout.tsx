@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { Header } from './Header'
 import { Footer } from './Footer'
 import { WhatsAppButton } from './WhatsAppButton'
+import { CALCULATORS } from '@/lib/calculatorsData'
 
 export default function Layout() {
   const location = useLocation()
@@ -26,6 +27,14 @@ export default function Layout() {
     if (location.pathname.startsWith('/casos/')) {
       // Título da aba seguindo o padrão "Nome da página | PERES PERES Consultoria e Contabilidade"
       document.title = 'Caso Real | PERES PERES Consultoria e Contabilidade'
+    } else if (location.pathname.startsWith('/calculadoras/')) {
+      const slug = location.pathname.replace('/calculadoras/', '').trim()
+      const foundCalc = CALCULATORS.find((c) => c.slug === slug)
+      if (foundCalc) {
+        document.title = `${foundCalc.name} | PERES PERES Consultoria e Contabilidade`
+      } else {
+        document.title = 'Calculadora | PERES PERES Consultoria e Contabilidade'
+      }
     } else {
       document.title = titles[location.pathname] || 'PERES PERES Consultoria e Contabilidade'
     }

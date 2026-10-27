@@ -101,6 +101,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/calculadoras" className="hover:text-[#FAB319] transition-colors">
+                  Calculadoras Tributárias
+                </Link>
+              </li>
+              <li>
                 <Link to="/glossario" className="hover:text-[#FAB319] transition-colors">
                   Glossário Tributário
                 </Link>
