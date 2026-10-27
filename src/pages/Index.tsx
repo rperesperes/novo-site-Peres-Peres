@@ -1,117 +1,144 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, CheckCircle2, ShieldCheck, Award, Briefcase } from 'lucide-react'
+import { ArrowRight, CheckCircle2, ShieldCheck, Award, BookOpen, Scale } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel'
-import { SERVICES, CASES } from '@/lib/data'
-import logoIcon from '@/assets/logo-pp-google-workspace-13730.png'
+import { SERVICES } from '@/lib/data'
 
 export default function Index() {
   return (
     <div className="flex flex-col w-full">
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-black mt-20">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://img.usecurling.com/p/1920/1080?q=modern%20law%20office&color=black"
-            alt="Escritório"
-            className="w-full h-full object-cover opacity-40 mix-blend-overlay"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
-        </div>
+      {/* Hero Section - Arquitetura monocromática elegante com ponto focal único no botão */}
+      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-black text-white mt-20 border-b border-neutral-800">
+        <div className="container mx-auto px-4 py-20 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-7 space-y-8 animate-fade-in-up">
+            <div className="inline-block border border-neutral-700 px-3 py-1 rounded text-xs tracking-wider uppercase text-neutral-300">
+              PERES PERES Consultoria e Contabilidade
+            </div>
 
-        <div className="container mx-auto px-4 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8 animate-fade-in-up">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Contabilidade Tributária em Brasília:
-              <br />
-              <span className="text-primary">Expertise e Segurança</span> para o seu Negócio.
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight">
+              Consultoria e Contabilidade Tributária em Brasília:{' '}
+              <span className="underline decoration-[#FAB319] decoration-4 underline-offset-8">
+                Rigor Técnico
+              </span>{' '}
+              e Segurança Jurídica.
             </h1>
-            <p className="text-lg text-gray-300 max-w-xl">
-              Liderada por Rafael Peres Peres Nunes Altoé, oferecemos soluções jurídicas e contábeis
-              de alto nível em planejamento e recuperação tributária em todo o Brasil.
+
+            <p className="text-lg text-neutral-300 max-w-xl leading-relaxed">
+              Sob a responsabilidade de Rafael Peres Peres Nunes Altoé, atuamos na estruturação,
+              governança fiscal e contabilidade consultiva em conformidade com o ordenamento
+              vigente.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+
+            {/* Ponto focal único da tela: Botão com #FAB319 */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <Button
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-black font-semibold text-base h-12 px-8"
+                className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold text-base h-12 px-8 border-none"
                 asChild
               >
-                <Link to="/contato">Agendar Consultoria Gratuita</Link>
+                <Link to="/contato">Agendar Consultoria</Link>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="text-black border-white bg-white hover:bg-gray-100 text-base h-12 px-8"
+                className="text-white border-neutral-700 bg-transparent hover:bg-neutral-900 text-base h-12 px-8"
                 asChild
               >
-                <Link to="/sobre">Conhecer a Equipe</Link>
+                <Link to="/casos">Conhecer a Metodologia</Link>
               </Button>
             </div>
 
-            <div className="flex items-center gap-6 pt-4 border-t border-white/10">
-              <div className="flex items-center gap-2 text-gray-300">
-                <Award className="h-5 w-5 text-primary" />
-                <span className="text-sm font-medium">CRC Ativo</span>
+            <div className="flex items-center gap-8 pt-6 border-t border-neutral-800">
+              <div className="flex items-center gap-2 text-neutral-300">
+                <Award className="h-5 w-5 text-neutral-400" />
+                <span className="text-sm font-medium">CRC 027704/O Ativo</span>
               </div>
-              <div className="flex items-center gap-2 text-gray-300">
-                <Briefcase className="h-5 w-5 text-primary" />
-                <span className="text-sm font-medium">+10 Anos de Exp.</span>
+              <div className="flex items-center gap-2 text-neutral-300">
+                <Scale className="h-5 w-5 text-neutral-400" />
+                <span className="text-sm font-medium">Atuação Nacional</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Placeholder neutro no Hero sem fotos genéricas de banco */}
+          <div className="lg:col-span-5">
+            <div className="aspect-[4/3] rounded-lg border border-neutral-800 bg-neutral-950 p-8 flex flex-col justify-between shadow-2xl">
+              <div className="space-y-4">
+                <span className="text-xs uppercase tracking-widest text-neutral-400 font-mono">
+                  [Espaço reservado para foto institucional da sede]
+                </span>
+                <div className="h-px bg-neutral-800 w-full" />
+                <p className="font-serif text-xl text-white font-medium">
+                  Atendimento estratégico em governança e contabilidade de alta precisão.
+                </p>
+                <p className="text-xs text-neutral-400 leading-relaxed">
+                  Placeholder reservado na proporção 4:3 para inserção da fotografia oficial do
+                  escritório em Brasília.
+                </p>
+              </div>
+              <div className="pt-6 border-t border-neutral-800 flex justify-between items-center text-xs text-neutral-400">
+                <span>SCN Quadra 2, Brasília - DF</span>
+                <span>Dimensão: 16:9 / 4:3</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Authority Profile Section */}
-      <section className="py-20 bg-background">
+      {/* Authority Profile Section - Com placeholder neutro proporcional no lugar do retrato ilustrado */}
+      <section className="py-20 bg-white border-b border-neutral-200">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-12 gap-12 items-center">
-            <div className="md:col-span-5 relative">
-              <div className="aspect-[4/5] rounded-lg overflow-hidden shadow-2xl relative z-10 border-4 border-white">
-                <img
-                  src="https://img.usecurling.com/ppl/large?gender=male&seed=rafael"
-                  alt="Rafael Peres Peres"
-                  className="w-full h-full object-cover"
-                />
+            <div className="md:col-span-5">
+              {/* Placeholder neutro na proporção 4:5 para fotografia real */}
+              <div className="aspect-[4/5] rounded-lg border-2 border-dashed border-neutral-300 bg-neutral-100 flex flex-col items-center justify-center p-8 text-center text-neutral-600 shadow-sm">
+                <div className="w-16 h-16 rounded-full bg-neutral-200 flex items-center justify-center mb-4 text-neutral-500">
+                  <Award className="h-8 w-8" />
+                </div>
+                <p className="font-serif font-semibold text-lg text-black mb-1">
+                  Rafael Peres Peres Nunes Altoé
+                </p>
+                <p className="text-xs font-mono text-neutral-500 mb-3">[Foto oficial a inserir]</p>
+                <p className="text-xs text-neutral-500 max-w-xs">
+                  Proporção 4:5 reservada para o retrato fotográfico oficial do responsável técnico.
+                </p>
               </div>
-              <div className="absolute -bottom-6 -right-6 w-full h-full bg-primary rounded-lg z-0"></div>
             </div>
+
             <div className="md:col-span-7 space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold">Liderança Técnica e Acadêmica</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-black">
+                Liderança Técnica e Acadêmica
+              </h2>
+              <p className="text-lg text-neutral-700 leading-relaxed font-sans">
                 Sob a responsabilidade técnica de <strong>Rafael Peres Peres Nunes Altoé</strong>{' '}
-                (CRC 027704/O), nosso escritório combina rigor técnico e inovação. Pós-graduado em
-                Direito Tributário (CERS), com atuação destacada em grupos de pesquisa acadêmica
-                (UniCEUB, IDP) e participação em fóruns internacionais.
+                (CRC 027704/O), a <strong>PERES PERES Consultoria e Contabilidade</strong> une o
+                rigor da prática contábil à densidade teórica do Direito Tributário. Pós-graduado em
+                Direito Tributário (CERS), possui participação ativa em grupos de pesquisa acadêmica
+                (UniCEUB, IDP) e congressos especializados.
               </p>
-              <ul className="grid sm:grid-cols-2 gap-4 mt-8">
+
+              <ul className="grid sm:grid-cols-2 gap-4 mt-6">
                 {[
                   'Membro CDESCMAT/DF',
                   'Jornadas de Finanças Públicas (BA)',
-                  'Especialista em CARF',
-                  'Articulista Tributário',
+                  'Atuação perante órgãos fazendários',
+                  'Articulista e pesquisador em Direito Tributário',
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-2 font-medium text-black">
-                    <CheckCircle2 className="h-5 w-5 text-green-600" /> {item}
+                  <li key={i} className="flex items-center gap-2 text-sm text-neutral-800">
+                    <CheckCircle2 className="h-4 w-4 text-neutral-900 shrink-0" />
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
-              <div className="pt-6">
+
+              <div className="pt-4">
                 <Button
-                  variant="link"
-                  className="text-black hover:text-gray-700 p-0 font-semibold text-lg group underline decoration-primary decoration-2 underline-offset-4"
+                  variant="outline"
+                  className="border-neutral-900 text-black hover:bg-neutral-100 text-sm font-medium"
                   asChild
                 >
                   <Link to="/sobre">
-                    Ler biografia completa{' '}
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    Conhecer histórico profissional completo <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
@@ -121,13 +148,15 @@ export default function Index() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 bg-gray-50 border-y border-gray-200">
+      <section className="py-20 bg-neutral-50 border-b border-neutral-200">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Áreas de Atuação Especializada</h2>
-            <p className="text-muted-foreground text-lg">
-              Foco em resultados mensuráveis e segurança jurídica para o seu patrimônio corporativo
-              e familiar.
+            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-black">
+              Áreas de Atuação Especializada
+            </h2>
+            <p className="text-neutral-600 text-lg leading-relaxed">
+              Atuação técnica orientada estritamente às normas contábeis brasileiras e à legislação
+              tributária aplicável a cada setor.
             </p>
           </div>
 
@@ -135,16 +164,16 @@ export default function Index() {
             {SERVICES.map((service, index) => (
               <Card
                 key={index}
-                className="border-none shadow-md hover:shadow-xl transition-shadow duration-300 bg-white group"
+                className="border border-neutral-200 shadow-sm hover:shadow-md transition-shadow duration-300 bg-white"
               >
                 <CardHeader>
-                  <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
-                    <ShieldCheck className="h-6 w-6 text-black transition-colors" />
+                  <div className="h-10 w-10 rounded-md bg-neutral-100 border border-neutral-200 flex items-center justify-center mb-3">
+                    <ShieldCheck className="h-5 w-5 text-black" />
                   </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                  <CardTitle className="text-xl font-serif text-black">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-base text-gray-600">
+                  <CardDescription className="text-sm text-neutral-600 leading-relaxed">
                     {service.description}
                   </CardDescription>
                 </CardContent>
@@ -154,55 +183,34 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Success Cases Carousel */}
-      <section className="py-20 bg-black text-white overflow-hidden">
+      {/* Seção Institucional de Metodologia em substituição ao carrossel de casos */}
+      <section className="py-20 bg-neutral-950 text-white">
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-end mb-12">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-                Casos de Sucesso Reais
-              </h2>
-              <p className="text-gray-400 max-w-xl text-lg">
-                Resultados comprovados (anonimizados por compliance) demonstrando nossa capacidade
-                de gerar caixa via inteligência tributária.
-              </p>
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            <div className="inline-flex items-center gap-2 border border-neutral-800 px-3 py-1 rounded text-xs uppercase tracking-wider text-neutral-400 font-mono">
+              <BookOpen className="h-3.5 w-3.5 text-[#FAB319]" />
+              Manual de Comunicação e Compliance
             </div>
-            <Button
-              variant="outline"
-              className="hidden md:flex text-black bg-white hover:bg-gray-100 border-none"
-              asChild
-            >
-              <Link to="/casos">Ver Todos os Casos</Link>
-            </Button>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
+              Metodologia de Trabalho e Embasamento Normativo
+            </h2>
+            <p className="text-neutral-400 text-base md:text-lg leading-relaxed">
+              A <strong>PERES PERES Consultoria e Contabilidade</strong> adota postura estritamente
+              conservadora e fundamentada. Não veiculamos promessas de resultado ou percentuais de
+              economia genéricos: cada diagnóstico decorre de auditoria documental detalhada,
+              lastreada nas regras da Receita Federal e decisões consolidadas dos tribunais
+              superiores.
+            </p>
+            <div className="pt-4 flex justify-center">
+              <Button
+                size="lg"
+                className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold text-base h-12 px-8"
+                asChild
+              >
+                <Link to="/casos">Conhecer Diretrizes e Metodologia</Link>
+              </Button>
+            </div>
           </div>
-
-          <Carousel className="w-full" opts={{ align: 'start' }}>
-            <CarouselContent className="-ml-4">
-              {CASES.map((kase) => (
-                <CarouselItem key={kase.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                  <Card className="bg-white/5 border-white/10 text-white h-full flex flex-col">
-                    <CardHeader>
-                      <div className="text-xs font-bold text-primary uppercase tracking-wider mb-2">
-                        {kase.sector}
-                      </div>
-                      <CardTitle className="text-xl text-white">{kase.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="flex-grow flex flex-col justify-between">
-                      <p className="text-white/70 mb-6 line-clamp-3">{kase.description}</p>
-                      <div className="bg-primary/20 p-4 rounded-md border border-primary/30">
-                        <div className="text-sm text-white/80 mb-1">Redução de Carga</div>
-                        <div className="text-3xl font-bold text-primary">{kase.savings}</div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="flex justify-end gap-2 mt-8 md:hidden">
-              <CarouselPrevious className="relative inset-0 translate-x-0 translate-y-0 h-10 w-10 text-black" />
-              <CarouselNext className="relative inset-0 translate-x-0 translate-y-0 h-10 w-10 text-black" />
-            </div>
-          </Carousel>
         </div>
       </section>
     </div>

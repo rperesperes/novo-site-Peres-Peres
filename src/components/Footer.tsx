@@ -24,49 +24,67 @@ export function Footer() {
           {/* Brand & NAP */}
           <div className="space-y-4">
             <div className="flex items-center">
-              <img src={logoPadrao} alt="Peres & Peres" className="h-16 w-auto object-contain" />
+              <img
+                src={logoPadrao}
+                alt="PERES PERES Consultoria e Contabilidade"
+                className="h-16 w-auto object-contain"
+              />
             </div>
-            <p className="text-sm text-gray-400 mt-4">
-              Expertise e Segurança para o seu Negócio. Contabilidade Tributária de alta
-              performance.
+            <p className="text-sm text-neutral-400 mt-4 leading-relaxed">
+              Expertise e segurança para o seu negócio. Consultoria e contabilidade tributária de
+              alto rigor técnico.
             </p>
-            <div className="space-y-2 text-sm text-gray-300 mt-6">
+            <div className="space-y-2 text-sm text-neutral-300 mt-6">
               <p className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 shrink-0 mt-0.5" />
+                <MapPin className="h-4 w-4 shrink-0 mt-0.5 text-neutral-400" />
                 <span>{SITE_INFO.address}</span>
               </p>
               <p className="flex items-center gap-2">
-                <Phone className="h-4 w-4 shrink-0" />
-                <span>{SITE_INFO.phone}</span>
+                <Phone className="h-4 w-4 shrink-0 text-neutral-400" />
+                <span className="font-mono text-xs bg-neutral-900 border border-neutral-700 px-2 py-0.5 rounded text-neutral-300">
+                  {SITE_INFO.phone}
+                </span>
               </p>
               <p className="flex items-center gap-2">
-                <Mail className="h-4 w-4 shrink-0" />
-                <span>{SITE_INFO.email}</span>
+                <Mail className="h-4 w-4 shrink-0 text-neutral-400" />
+                <span className="font-mono text-xs bg-neutral-900 border border-neutral-700 px-2 py-0.5 rounded text-neutral-300">
+                  {SITE_INFO.email}
+                </span>
               </p>
             </div>
           </div>
 
           {/* Links */}
           <div>
-            <h4 className="font-serif font-semibold text-lg mb-4 text-primary">Navegação</h4>
-            <ul className="space-y-2 text-sm text-gray-300">
+            <h4 className="font-serif font-semibold text-lg mb-4 text-white">Navegação</h4>
+            <ul className="space-y-2 text-sm text-neutral-300">
               <li>
-                <Link to="/sobre" className="hover:text-white transition-colors">
+                <Link to="/sobre" className="hover:text-[#FAB319] transition-colors">
                   Sobre o Escritório
                 </Link>
               </li>
               <li>
-                <Link to="/servicos" className="hover:text-white transition-colors">
+                <Link to="/servicos" className="hover:text-[#FAB319] transition-colors">
                   Áreas de Atuação
                 </Link>
               </li>
               <li>
-                <Link to="/casos" className="hover:text-white transition-colors">
-                  Casos de Sucesso
+                <Link to="/casos" className="hover:text-[#FAB319] transition-colors">
+                  Metodologia e Fundamentação
                 </Link>
               </li>
               <li>
-                <Link to="/glossario" className="hover:text-white transition-colors">
+                <Link to="/blog" className="hover:text-[#FAB319] transition-colors">
+                  Blog Tributário
+                </Link>
+              </li>
+              <li>
+                <Link to="/recursos" className="hover:text-[#FAB319] transition-colors">
+                  Recursos e Materiais
+                </Link>
+              </li>
+              <li>
+                <Link to="/glossario" className="hover:text-[#FAB319] transition-colors">
                   Glossário Tributário
                 </Link>
               </li>
@@ -75,45 +93,59 @@ export function Footer() {
 
           {/* Newsletter */}
           <div className="lg:col-span-2">
-            <h4 className="font-serif font-semibold text-lg mb-4 text-primary">
-              Boletim Tributário
-            </h4>
-            <p className="text-sm text-gray-400 mb-4">
-              Receba atualizações semanais sobre legislação e jurisprudência do CARF/STF.
+            <h4 className="font-serif font-semibold text-lg mb-4 text-white">Boletim Tributário</h4>
+            <p className="text-sm text-neutral-400 mb-4 leading-relaxed">
+              Receba atualizações técnicas sobre legislação e jurisprudência dos tribunais e órgãos
+              fiscais.
             </p>
             <form onSubmit={handleSubscribe} className="flex gap-2">
               <Input
                 type="email"
-                placeholder="Seu melhor e-mail"
+                placeholder="Seu e-mail profissional"
                 required
-                className="bg-gray-900 border-gray-700 text-white placeholder:text-gray-500 focus-visible:ring-primary"
+                className="bg-neutral-900 border-neutral-700 text-white placeholder:text-neutral-500 focus-visible:ring-[#FAB319]"
               />
-              <Button type="submit" className="bg-primary hover:bg-primary/90 text-black font-bold">
+              <Button
+                type="submit"
+                className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold shrink-0"
+              >
                 Assinar
               </Button>
             </form>
             <div className="flex items-center gap-4 mt-8">
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+              <a
+                href="#"
+                className="text-neutral-400 hover:text-white transition-colors"
+                aria-label="LinkedIn"
+              >
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+              <a
+                href="#"
+                className="text-neutral-400 hover:text-white transition-colors"
+                aria-label="Instagram"
+              >
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+              <a
+                href="#"
+                className="text-neutral-400 hover:text-white transition-colors"
+                aria-label="YouTube"
+              >
                 <Youtube className="h-5 w-5" />
               </a>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500">
+        <div className="border-t border-neutral-800 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-neutral-400">
           <p>
-            &copy; {new Date().getFullYear()} Peres & Peres Contabilidade. Todos os direitos
-            reservados.
+            &copy; {new Date().getFullYear()} PERES PERES Consultoria e Contabilidade. Todos os
+            direitos reservados.
           </p>
           <div className="flex items-center gap-4 mt-4 md:mt-0">
-            <span className="font-semibold text-gray-400">{SITE_INFO.crc}</span>
-            <Link to="/privacidade" className="hover:text-primary transition-colors">
+            <span className="font-semibold text-neutral-300">{SITE_INFO.crc}</span>
+            <Link to="/privacidade" className="hover:text-white transition-colors">
               Política de Privacidade
             </Link>
           </div>

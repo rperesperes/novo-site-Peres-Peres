@@ -26,17 +26,17 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        serif: ['"Playfair Display"', 'serif'],
+        sans: ['Lora', 'Georgia', 'serif'],
+        serif: ['"Playfair Display"', 'Didot', '"Bodoni MT"', 'serif'],
       },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
+        ring: '#FAB319',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: '#FCD34D',
+          DEFAULT: '#FAB319',
           foreground: '#000000',
         },
         secondary: {
@@ -44,7 +44,7 @@ export default {
           foreground: '#FFFFFF',
         },
         accent: {
-          DEFAULT: '#F1F5F9',
+          DEFAULT: '#F3F4F6',
           foreground: '#000000',
         },
         destructive: {
@@ -64,11 +64,11 @@ export default {
           foreground: 'hsl(var(--card-foreground))',
         },
         chart: {
-          1: '#FCD34D',
+          1: '#FAB319',
           2: '#000000',
-          3: '#6B7280',
-          4: '#e5e7eb',
-          5: '#10B981',
+          3: '#4B5563',
+          4: '#D1D5DB',
+          5: '#111827',
         },
       },
       borderRadius: {

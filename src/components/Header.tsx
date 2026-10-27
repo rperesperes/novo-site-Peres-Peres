@@ -10,11 +10,10 @@ const NAV_LINKS = [
   { name: 'Início', path: '/' },
   { name: 'Sobre Nós', path: '/sobre' },
   { name: 'Serviços', path: '/servicos' },
-  { name: 'Casos de Sucesso', path: '/casos' },
+  { name: 'Metodologia', path: '/casos' },
   { name: 'Blog', path: '/blog' },
   { name: 'Recursos', path: '/recursos' },
 ]
-
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const location = useLocation()
@@ -42,7 +41,11 @@ export function Header() {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link to="/" className="flex items-center">
-          <img src={logoNova} alt="Peres & Peres" className="h-10 md:h-12 w-auto object-contain" />
+          <img
+            src={logoNova}
+            alt="PERES PERES Consultoria e Contabilidade"
+            className="h-10 md:h-12 w-auto object-contain"
+          />
         </Link>
 
         {/* Desktop Nav */}
@@ -52,8 +55,10 @@ export function Header() {
               key={link.path}
               to={link.path}
               className={cn(
-                'text-sm font-medium transition-colors hover:text-primary',
-                location.pathname === link.path ? 'text-primary font-semibold' : 'text-white/90',
+                'text-sm transition-colors',
+                location.pathname === link.path
+                  ? 'text-white font-medium underline decoration-[#FAB319] decoration-2 underline-offset-8'
+                  : 'text-neutral-300 hover:text-white',
               )}
             >
               {link.name}
@@ -61,7 +66,7 @@ export function Header() {
           ))}
           <Button
             asChild
-            className="bg-primary hover:bg-primary/90 text-black font-bold border-none"
+            className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold border-none px-5 py-2 shadow-sm transition-colors"
           >
             <Link to="/contato">Agendar Consultoria</Link>
           </Button>
@@ -85,8 +90,10 @@ export function Header() {
                   key={link.path}
                   to={link.path}
                   className={cn(
-                    'block px-2 py-1 text-lg transition-colors hover:text-primary',
-                    location.pathname === link.path ? 'text-primary font-bold' : 'text-white/90',
+                    'block px-2 py-2 text-base transition-colors',
+                    location.pathname === link.path
+                      ? 'text-white font-semibold border-l-2 border-[#FAB319] pl-3'
+                      : 'text-neutral-300 hover:text-white',
                   )}
                 >
                   {link.name}
@@ -95,7 +102,7 @@ export function Header() {
               <div className="mt-4 flex flex-col gap-2">
                 <Button
                   asChild
-                  className="w-full bg-primary hover:bg-primary/90 text-black font-bold"
+                  className="w-full bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold"
                 >
                   <Link to="/contato">Agendar Consultoria</Link>
                 </Button>

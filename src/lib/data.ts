@@ -1,7 +1,8 @@
 export const SITE_INFO = {
-  name: 'Peres & Peres Contabilidade',
-  phone: '+55 61 9999-9999',
-  email: 'contato@peres-peres.com.br',
+  name: 'PERES PERES Consultoria e Contabilidade',
+  phone: '[Telefone a definir]',
+  whatsapp: '[WhatsApp a definir]',
+  email: '[E-mail a definir]',
   address: 'SCN Quadra 2 Bloco D, Brasília - DF, 70712-903',
   crc: 'CRC 027704/O',
 }
@@ -106,7 +107,7 @@ export const GLOSSARY = [
   {
     term: 'Evasão Fiscal',
     definition:
-      'Prática ilícita de sonegação de impostos. Totalmente contrária aos princípios da Peres & Peres.',
+      'Prática ilícita de sonegação de impostos. Totalmente contrária aos princípios da PERES PERES Consultoria e Contabilidade.',
   },
   {
     term: 'Fator R',
