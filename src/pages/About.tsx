@@ -2,6 +2,38 @@ import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { BookOpen, GraduationCap, Users } from 'lucide-react'
 import logoPadrao from '@/assets/logo-padrao-oficial-844b7.png'
+import rafaelImg from '@/assets/foto-melhorada-por-ia-892a9.png'
+import williamImg from '@/assets/copia-de-img8757-182f8.jpg'
+import gabrielaImg from '@/assets/copia-de-img8782-9b4d0.jpg'
+
+interface TeamMember {
+  name: string
+  role: string
+  photo?: string
+  initials?: string
+  alt: string
+}
+
+const TEAM_MEMBERS: TeamMember[] = [
+  {
+    name: 'Clarissa Lebeis',
+    role: 'Graduanda em Ciências Contábeis - UnB',
+    initials: 'CL',
+    alt: 'Clarissa Lebeis - Graduanda em Ciências Contábeis na Universidade de Brasília (UnB)',
+  },
+  {
+    name: 'William Lisboa',
+    role: 'Graduando em Ciências Contábeis - UnB',
+    photo: williamImg,
+    alt: 'William Lisboa - Graduando em Ciências Contábeis na Universidade de Brasília (UnB)',
+  },
+  {
+    name: 'Gabriela Feitosa',
+    role: 'Contadora e Perita Contábil',
+    photo: gabrielaImg,
+    alt: 'Gabriela Feitosa - Contadora e Perita Contábil',
+  },
+]
 
 export default function About() {
   return (
@@ -33,26 +65,37 @@ export default function About() {
           </p>
         </div>
 
-        {/* Bio Section com moldura neutra sem texto explicativo dentro */}
+        {/* Bio Section do Responsável Técnico com Fotografia */}
         <Card className="mb-16 border border-neutral-200 shadow-sm overflow-hidden bg-white">
           <div className="grid md:grid-cols-5 gap-0">
-            <div className="md:col-span-2 bg-neutral-100 p-8 flex flex-col items-center justify-center text-center border-b md:border-b-0 md:border-r border-neutral-200">
-              <div
-                className="aspect-[4/5] w-full max-w-[240px] rounded-lg border-2 border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center"
-                aria-label="Espaço reservado para retrato fotográfico"
-              >
-                <div className="w-14 h-14 rounded-full bg-neutral-200 flex items-center justify-center text-neutral-400">
-                  <GraduationCap className="h-7 w-7" />
-                </div>
+            <div className="md:col-span-2 bg-neutral-900 p-6 sm:p-8 flex flex-col items-center justify-center text-center border-b md:border-b-0 md:border-r border-neutral-200">
+              <div className="relative aspect-[4/5] w-full max-w-[260px] rounded-lg overflow-hidden border border-neutral-800 shadow-md bg-neutral-950">
+                <img
+                  src={rafaelImg}
+                  alt="Rafael Peres Peres Nunes Altoé - Contador Responsável Técnico CRC 027704/O"
+                  loading="lazy"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <p className="text-xs uppercase tracking-wider text-neutral-400 font-mono">
+                  Responsável Técnico
+                </p>
+                <p className="text-xs text-[#FAB319] font-semibold mt-0.5">CRC 027704/O</p>
               </div>
             </div>
             <div className="md:col-span-3 p-8 lg:p-12 bg-white flex flex-col justify-center">
               <h2 className="text-3xl font-serif font-bold text-black mb-2">
                 Rafael Peres Peres Nunes Altoé
               </h2>
-              <p className="text-black font-semibold mb-6 uppercase tracking-wider text-xs border border-neutral-300 bg-neutral-100 inline-block px-3 py-1 rounded self-start">
-                Contador Responsável • CRC 027704/O
-              </p>
+              <div className="flex flex-wrap items-center gap-2 mb-6">
+                <span className="text-black font-semibold uppercase tracking-wider text-xs border border-neutral-300 bg-neutral-100 inline-block px-3 py-1 rounded">
+                  Contador Responsável Técnico
+                </span>
+                <span className="text-neutral-900 font-mono text-xs border border-[#FAB319] bg-[#FAB319]/15 inline-block px-3 py-1 rounded font-bold">
+                  CRC 027704/O
+                </span>
+              </div>
 
               <div className="space-y-4 text-neutral-700 leading-relaxed font-sans text-sm md:text-base">
                 <p>
@@ -97,53 +140,77 @@ export default function About() {
           </div>
         </Card>
 
-        {/* Team Section - UM único bloco preparado para receber perfil real */}
-        <div className="mt-20">
+        {/* Seção da Equipe Técnica */}
+        <section className="mt-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-serif font-bold mb-4 flex items-center justify-center gap-3 text-black">
-              <Users className="h-7 w-7 text-black" /> Estrutura da Equipe Técnica
+            <div className="inline-flex items-center gap-2 border border-neutral-300 bg-neutral-100 px-3 py-1 rounded text-xs uppercase tracking-wider text-neutral-800 font-mono mb-3">
+              <Users className="h-3.5 w-3.5 text-neutral-700" />
+              Corpo Técnico
+            </div>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-black mb-3">
+              Nossa Equipe
             </h2>
             <p className="text-neutral-600 max-w-2xl mx-auto leading-relaxed text-sm md:text-base">
-              Atuação multidisciplinar integrada nas áreas de contabilidade e conformidade fiscal,
-              sob coordenação do responsável técnico.
+              Profissionais dedicados à governança fiscal, contabilidade consultiva e auditoria,
+              atuando de forma integrada sob a coordenação do responsável técnico.
             </p>
           </div>
 
-          <div className="max-w-2xl mx-auto">
-            <Card className="p-8 border border-neutral-200 bg-white shadow-sm text-center">
-              <div
-                className="aspect-square w-24 mx-auto rounded-lg border-2 border-dashed border-neutral-300 bg-neutral-100 flex items-center justify-center mb-6"
-                aria-label="Espaço reservado para fotografia do integrante da equipe"
+          <div className="grid md:grid-cols-3 gap-8">
+            {TEAM_MEMBERS.map((member) => (
+              <Card
+                key={member.name}
+                className="overflow-hidden border border-neutral-200 bg-white shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group"
               >
-                <Users className="h-8 w-8 text-neutral-400" />
-              </div>
+                {/* Área de Retrato Padronizada (proporção retrato 4:5 consistente) */}
+                <div className="relative aspect-[4/5] w-full bg-neutral-100 overflow-hidden border-b border-neutral-200">
+                  {member.photo ? (
+                    <img
+                      src={member.photo}
+                      alt={member.alt}
+                      loading="lazy"
+                      className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    /* Placeholder elegante e institucional para quem ainda não possui foto */
+                    <div
+                      className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-neutral-900 via-neutral-950 to-black text-white p-6 relative overflow-hidden"
+                      aria-label={`Representação de ${member.name}`}
+                    >
+                      {/* Detalhe de fundo decorativo com o amarelo institucional */}
+                      <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#FAB319]/10 rounded-full blur-2xl" />
+                      <div className="relative z-10 flex flex-col items-center">
+                        <div className="w-20 h-20 rounded-full border-2 border-[#FAB319] bg-neutral-900 flex items-center justify-center mb-4 shadow-inner">
+                          <span className="font-serif font-bold text-2xl tracking-wider text-[#FAB319]">
+                            {member.initials}
+                          </span>
+                        </div>
+                        <span className="text-xs uppercase font-mono tracking-widest text-neutral-400">
+                          PERES PERES
+                        </span>
+                      </div>
+                    </div>
+                  )}
 
-              {/* Espaço para Nome */}
-              <h3 className="font-serif font-semibold text-xl text-black mb-1">
-                Nome do Profissional
-              </h3>
+                  {/* Linha de acento amarela institucional sutil no rodapé da imagem */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#FAB319] opacity-80" />
+                </div>
 
-              {/* Espaço para Função */}
-              <p className="text-xs uppercase font-mono tracking-wider text-neutral-600 mb-5">
-                Função / Especialidade Técnica
-              </p>
-
-              {/* Espaço para Resumo de três linhas */}
-              <div className="max-w-lg mx-auto mb-6 text-sm text-neutral-700 leading-relaxed space-y-1">
-                <p>Linha 1: Formação acadêmica e áreas de concentração técnica especializada.</p>
-                <p>Linha 2: Atribuições nas rotinas de governança contábil e consultoria fiscal.</p>
-                <p>Linha 3: Registro no conselho de classe e qualificações setoriais correlatas.</p>
-              </div>
-
-              {/* Nota discreta */}
-              <div className="pt-4 border-t border-neutral-200">
-                <p className="text-xs text-neutral-500">
-                  Os perfis da equipe serão publicados em breve.
-                </p>
-              </div>
-            </Card>
+                {/* Conteúdo do Card */}
+                <div className="p-6 flex-1 flex flex-col justify-between text-center">
+                  <div>
+                    <h3 className="font-serif font-semibold text-xl text-black mb-1.5 group-hover:text-neutral-900 transition-colors">
+                      {member.name}
+                    </h3>
+                    <p className="text-xs md:text-sm text-neutral-600 leading-snug">
+                      {member.role}
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            ))}
           </div>
-        </div>
+        </section>
       </div>
     </div>
   )

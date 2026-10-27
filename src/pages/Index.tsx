@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, CheckCircle2, ShieldCheck, Award, Scale, Building2 } from 'lucide-react'
+import rafaelImg from '@/assets/foto-melhorada-por-ia-892a9.png'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { SERVICES } from '@/lib/data'
@@ -92,18 +93,22 @@ export default function Index() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-12 gap-12 items-center">
             <div className="md:col-span-5">
-              {/* Moldura neutra na proporção 4:5 */}
-              <div
-                className="aspect-[4/5] rounded-lg border-2 border-dashed border-neutral-300 bg-neutral-100 flex flex-col items-center justify-center p-8 text-center text-neutral-600 shadow-sm"
-                aria-label="Espaço reservado para fotografia oficial"
-              >
-                <div className="w-16 h-16 rounded-full bg-neutral-200 flex items-center justify-center mb-4 text-neutral-500">
-                  <Award className="h-8 w-8" />
+              {/* Retrato oficial do responsável técnico */}
+              <div className="relative aspect-[4/5] rounded-lg overflow-hidden border border-neutral-200 shadow-md bg-neutral-100 group">
+                <img
+                  src={rafaelImg}
+                  alt="Rafael Peres Peres Nunes Altoé - Contador Responsável CRC 027704/O"
+                  loading="lazy"
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+                  <div className="inline-block border-l-2 border-[#FAB319] pl-3 mb-1">
+                    <p className="font-serif font-bold text-lg text-white">
+                      Rafael Peres Peres Nunes Altoé
+                    </p>
+                    <p className="text-xs text-neutral-300 font-mono">Contador • CRC 027704/O</p>
+                  </div>
                 </div>
-                <p className="font-serif font-semibold text-lg text-black mb-1">
-                  Rafael Peres Peres Nunes Altoé
-                </p>
-                <p className="text-xs text-neutral-500 font-mono">CRC 027704/O</p>
               </div>
             </div>
 
