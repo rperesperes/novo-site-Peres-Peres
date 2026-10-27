@@ -25,6 +25,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import { CalculatorEmailCapture } from '@/components/CalculatorEmailCapture'
 
 // Formatador monetário BRL
 function formatCurrencyBRL(value: number): string {
@@ -1338,6 +1339,9 @@ export default function PJouCLTCalculator() {
               </div>
             </div>
           </div>
+
+          {/* Captura de e-mail */}
+          <CalculatorEmailCapture calculatorName="Calculadora PJ ou CLT" />
         </section>
 
         {/* 4. TEXTO DE APROFUNDAMENTO EM HTML ESTÁTICO (NÃO gerado por script) */}

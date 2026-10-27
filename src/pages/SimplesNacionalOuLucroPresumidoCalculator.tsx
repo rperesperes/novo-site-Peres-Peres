@@ -24,6 +24,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import { CalculatorEmailCapture } from '@/components/CalculatorEmailCapture'
 
 // Tipos de atividade
 type ActivityType = 'comercio' | 'industria' | 'servico'
@@ -1092,6 +1093,9 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
               </div>
             </div>
           </div>
+
+          {/* Captura de e-mail */}
+          <CalculatorEmailCapture calculatorName="Calculadora Simples Nacional ou Lucro Presumido" />
         </section>
 
         {/* 7. TEXTO DE APROFUNDAMENTO ESTÁTICO EM HTML COM SUBTÍTULOS EXIGIDOS */}

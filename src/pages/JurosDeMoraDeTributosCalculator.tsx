@@ -30,6 +30,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import { CalculatorEmailCapture } from '@/components/CalculatorEmailCapture'
 import {
   OFFICIAL_SELIC_MAP,
   OFFICIAL_SELIC_MONTHLY_SERIES,
@@ -929,6 +930,9 @@ export default function JurosDeMoraDeTributosCalculator() {
               </table>
             </div>
           </div>
+
+          {/* Captura de e-mail */}
+          <CalculatorEmailCapture calculatorName="Calculadora Juros de Mora de Tributos" />
         </section>
 
         {/* TEXTO DE APROFUNDAMENTO EM HTML ESTÁTICO (NÃO GERADO POR SCRIPT) */}

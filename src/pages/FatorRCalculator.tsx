@@ -22,6 +22,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import { CalculatorEmailCapture } from '@/components/CalculatorEmailCapture'
 
 // Formatador numérico monetário para moeda BRL
 function formatCurrencyBRL(value: number): string {
@@ -533,6 +534,9 @@ export default function FatorRCalculator() {
               </div>
             </div>
           </div>
+
+          {/* Captura de e-mail */}
+          <CalculatorEmailCapture calculatorName="Calculadora Fator R" />
         </section>
 
         {/* 3. TEXTO DE APROFUNDAMENTO (HTML estático renderizado no markup) */}

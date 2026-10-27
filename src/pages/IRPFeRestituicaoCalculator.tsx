@@ -32,6 +32,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import { CalculatorEmailCapture } from '@/components/CalculatorEmailCapture'
 
 // Formatador monetário BRL
 function formatCurrencyBRL(value: number): string {
@@ -1120,6 +1121,9 @@ export default function IRPFeRestituicaoCalculator() {
               </div>
             </div>
           </div>
+
+          {/* Captura de e-mail */}
+          <CalculatorEmailCapture calculatorName="Calculadora IRPF e Restituição" />
         </section>
 
         {/* 6. TEXTO DE APROFUNDAMENTO EM HTML ESTÁTICO COM SUBTÍTULOS EXATOS NESSA ORDEM */}

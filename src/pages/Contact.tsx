@@ -1,16 +1,30 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronRight, Mail, Phone, MessageSquare, MapPin, Send, UserCheck } from 'lucide-react'
+import {
+  ChevronRight,
+  Mail,
+  Phone,
+  MessageSquare,
+  MapPin,
+  Send,
+  UserCheck,
+  CheckCircle2,
+  AlertCircle,
+  Loader2,
+} from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { SITE_INFO } from '@/lib/data'
+import { createContactRequest } from '@/services/contact_requests'
 
 export default function Contact() {
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [telefone, setTelefone] = useState('')
   const [mensagem, setMensagem] = useState('')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
   useEffect(() => {
     const pageTitle = 'Fale com o Escritório | PERES PERES Consultoria e Contabilidade'
@@ -28,20 +42,31 @@ export default function Contact() {
     metaDescTag.setAttribute('content', pageDesc)
   }, [])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setStatus('loading')
+    setErrorMessage('')
 
-    const subject = encodeURIComponent(`Contato pelo site - ${nome || 'Novo Interessado'}`)
-    const bodyLines = [
-      `Nome: ${nome}`,
-      `E-mail: ${email}`,
-      `Telefone: ${telefone}`,
-      '',
-      'Mensagem:',
-      mensagem,
-    ]
-    const body = encodeURIComponent(bodyLines.join('\n'))
-    window.location.href = `mailto:${SITE_INFO.email}?subject=${subject}&body=${body}`
+    try {
+      await createContactRequest({
+        name: nome.trim(),
+        email: email.trim(),
+        phone: telefone.trim(),
+        message: mensagem.trim(),
+        source_page: 'Página de Contato (/contato)',
+      })
+      setStatus('success')
+      setNome('')
+      setEmail('')
+      setTelefone('')
+      setMensagem('')
+    } catch (err) {
+      console.error('Erro ao enviar contato:', err)
+      setStatus('error')
+      setErrorMessage(
+        'Não foi possível enviar sua mensagem no momento devido a uma falha de conexão. Por favor, tente novamente ou entre em contato diretamente conosco pelo WhatsApp ou e-mail.',
+      )
+    }
   }
 
   const structuredData = {
@@ -224,11 +249,72 @@ export default function Contact() {
                   Envie sua mensagem
                 </h2>
                 <p className="text-sm text-neutral-600 leading-relaxed">
-                  Preencha os campos abaixo. Ao clicar em enviar, seu aplicativo de e-mail será
-                  aberto com os dados organizados para envio direto a{' '}
-                  <span className="font-medium text-black">{SITE_INFO.email}</span>.
+                  Preencha os campos abaixo para solicitar atendimento ou esclarecer dúvidas. Nossa
+                  equipe entrará em contato prontamente.
                 </p>
               </div>
+
+              {status === 'success' && (
+                <div
+                  role="status"
+                  className="mb-6 p-5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-950 flex items-start gap-3"
+                >
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
+                  <div className="space-y-1">
+                    <p className="font-semibold text-sm">
+                      Recebemos sua mensagem, entraremos em contato em breve!
+                    </p>
+                    <p className="text-xs text-emerald-800 leading-relaxed">
+                      Seus dados foram enviados com sucesso à nossa equipe consultiva. Caso
+                      necessite de retorno imediato, utilize também nosso canal direto de WhatsApp.
+                    </p>
+                    <div className="pt-2">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setStatus('idle')}
+                        className="bg-white hover:bg-neutral-50 text-emerald-900 border-emerald-300 text-xs h-8"
+                      >
+                        Enviar outra mensagem
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {status === 'error' && (
+                <div
+                  role="alert"
+                  className="mb-6 p-5 rounded-xl bg-red-50 border border-red-200 text-red-950 flex items-start gap-3"
+                >
+                  <AlertCircle className="h-5 w-5 text-red-600 shrink-0 mt-0.5" />
+                  <div className="space-y-1 text-xs">
+                    <p className="font-semibold text-sm text-red-900">
+                      Não foi possível enviar sua mensagem
+                    </p>
+                    <p className="text-red-800 leading-relaxed">{errorMessage}</p>
+                    <div className="pt-2 flex flex-wrap gap-2">
+                      <a
+                        href="https://wa.me/556136861689?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consultoria%20tribut%C3%A1ria"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold text-xs transition-colors"
+                      >
+                        <MessageSquare className="h-3.5 w-3.5" />
+                        Chamar no WhatsApp
+                      </a>
+                      <a
+                        href={`mailto:${SITE_INFO.email}`}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white hover:bg-neutral-100 text-neutral-800 border border-neutral-300 text-xs transition-colors"
+                      >
+                        <Mail className="h-3.5 w-3.5" />
+                        {SITE_INFO.email}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
@@ -242,6 +328,7 @@ export default function Contact() {
                     id="nome"
                     type="text"
                     required
+                    disabled={status === 'loading'}
                     value={nome}
                     onChange={(e) => setNome(e.target.value)}
                     placeholder="Seu nome ou razão social"
@@ -261,6 +348,7 @@ export default function Contact() {
                       id="email"
                       type="email"
                       required
+                      disabled={status === 'loading'}
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="nome@empresa.com.br"
@@ -278,6 +366,7 @@ export default function Contact() {
                     <Input
                       id="telefone"
                       type="tel"
+                      disabled={status === 'loading'}
                       value={telefone}
                       onChange={(e) => setTelefone(e.target.value)}
                       placeholder="(61) 90000-0000"
@@ -297,6 +386,7 @@ export default function Contact() {
                     id="mensagem"
                     required
                     rows={5}
+                    disabled={status === 'loading'}
                     value={mensagem}
                     onChange={(e) => setMensagem(e.target.value)}
                     placeholder="Descreva brevemente a sua demanda ou dúvida tributária..."
@@ -307,14 +397,24 @@ export default function Contact() {
                 <div className="pt-2">
                   <Button
                     type="submit"
+                    disabled={status === 'loading'}
                     className="w-full bg-black hover:bg-neutral-800 text-white font-semibold h-11 text-sm shadow-sm flex items-center justify-center gap-2"
                   >
-                    <Send className="h-4 w-4" />
-                    Abrir e-mail com a mensagem preenchida
+                    {status === 'loading' ? (
+                      <>
+                        <Loader2 className="h-4 w-4 animate-spin text-[#FAB319]" />
+                        Enviando mensagem...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="h-4 w-4" />
+                        Enviar mensagem
+                      </>
+                    )}
                   </Button>
                   <p className="text-[11px] text-neutral-500 text-center mt-2">
-                    Não gravamos dados em servidores externos neste formulário. Seu próprio cliente
-                    de e-mail será acionado.
+                    Seus dados são protegidos e tratados sob sigilo profissional estrito (CRC
+                    027704/O).
                   </p>
                 </div>
               </form>

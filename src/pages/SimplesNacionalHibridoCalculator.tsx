@@ -27,6 +27,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import { CalculatorEmailCapture } from '@/components/CalculatorEmailCapture'
 
 // Tipos de Anexo do Simples Nacional suportados
 type AnexoSimples = 'anexoI' | 'anexoII' | 'anexoIII' | 'anexoIV' | 'anexoV'
@@ -1267,6 +1268,9 @@ export default function SimplesNacionalHibridoCalculator() {
               </div>
             </div>
           </div>
+
+          {/* Captura de e-mail */}
+          <CalculatorEmailCapture calculatorName="Calculadora Simples Nacional Híbrido" />
         </section>
 
         {/* 7. TEXTO DE APROFUNDAMENTO em HTML estático com os subtítulos exigidos na ORDEM EXATA */}
