@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { CALCULATORS } from '@/lib/calculatorsData'
 import {
@@ -12,21 +13,32 @@ import {
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import NotFound from './NotFound'
-import FatorRCalculator from './FatorRCalculator'
-import SimplesNacionalOuLucroPresumidoCalculator from './SimplesNacionalOuLucroPresumidoCalculator'
 
 export default function CalculatorDetail() {
   const { slug } = useParams<{ slug: string }>()
 
-  if (slug === 'fator-r') {
-    return <FatorRCalculator />
-  }
-
-  if (slug === 'simples-nacional-ou-lucro-presumido') {
-    return <SimplesNacionalOuLucroPresumidoCalculator />
-  }
-
   const calculator = CALCULATORS.find((c) => c.slug === slug)
+
+  useEffect(() => {
+    if (!calculator) return
+
+    const pageTitle = `${calculator.name} — em desenvolvimento | PERES PERES Consultoria e Contabilidade`
+    const pageDesc = `${calculator.name}: ferramenta em desenvolvimento pela PERES PERES Consultoria e Contabilidade. Em breve, simulação com memória de cálculo aberta e base legal.`
+
+    document.title = pageTitle
+
+    let metaDescTag = document.querySelector('meta[name="description"]')
+    if (!metaDescTag) {
+      metaDescTag = document.createElement('meta')
+      metaDescTag.setAttribute('name', 'description')
+      document.head.appendChild(metaDescTag)
+    }
+    metaDescTag.setAttribute('content', pageDesc)
+  }, [calculator])
+
+  if (!calculator) {
+    return <NotFound />
+  }
 
   if (!calculator) {
     return <NotFound />

@@ -20,18 +20,28 @@ export default function Layout() {
       '/blog': 'Blog Tributário | PERES PERES Consultoria e Contabilidade',
       '/recursos': 'Recursos e Materiais | PERES PERES Consultoria e Contabilidade',
       '/glossario': 'Glossário Tributário | PERES PERES Consultoria e Contabilidade',
-      '/contato': 'Contato | PERES PERES Consultoria e Contabilidade',
-      '/calculadoras': 'Calculadoras | PERES PERES Consultoria e Contabilidade',
+      '/contato': 'Fale com o Escritório | PERES PERES Consultoria e Contabilidade',
+      '/calculadoras':
+        'Calculadoras Tributárias e Trabalhistas Gratuitas | PERES PERES Consultoria e Contabilidade',
     }
 
     if (location.pathname.startsWith('/casos/')) {
       // Título da aba seguindo o padrão "Nome da página | PERES PERES Consultoria e Contabilidade"
       document.title = 'Caso Real | PERES PERES Consultoria e Contabilidade'
+    } else if (location.pathname === '/calculadoras') {
+      document.title = titles['/calculadoras']
     } else if (location.pathname.startsWith('/calculadoras/')) {
       const slug = location.pathname.replace('/calculadoras/', '').trim()
       const foundCalc = CALCULATORS.find((c) => c.slug === slug)
       if (foundCalc) {
-        document.title = `${foundCalc.name} | PERES PERES Consultoria e Contabilidade`
+        // Se for uma das calculadoras funcionais, seus próprios componentes definem seu title otimizado
+        if (slug === 'fator-r') {
+          document.title = 'Calculadora fator r: Anexo III ou V | PERES PERES'
+        } else if (slug === 'simples-nacional-ou-lucro-presumido') {
+          document.title = 'Simples ou Lucro Presumido: qual paga menos | PERES'
+        } else {
+          document.title = `${foundCalc.name} — em desenvolvimento | PERES PERES Consultoria e Contabilidade`
+        }
       } else {
         document.title = 'Calculadora | PERES PERES Consultoria e Contabilidade'
       }

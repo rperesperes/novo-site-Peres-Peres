@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { CALCULATOR_CATEGORIES, CALCULATORS, CALCULATORS_FAQS } from '@/lib/calculatorsData'
 import {
@@ -21,6 +22,23 @@ import {
 } from '@/components/ui/accordion'
 
 export default function CalculatorsHub() {
+  useEffect(() => {
+    const pageTitle =
+      'Calculadoras Tributárias e Trabalhistas Gratuitas | PERES PERES Consultoria e Contabilidade'
+    const pageDesc =
+      'Simuladores tributários e trabalhistas gratuitos com memória de cálculo aberta e fundamentação legal: Fator R, Simples Nacional, Lucro Presumido e encargos.'
+
+    document.title = pageTitle
+
+    let metaDescTag = document.querySelector('meta[name="description"]')
+    if (!metaDescTag) {
+      metaDescTag = document.createElement('meta')
+      metaDescTag.setAttribute('name', 'description')
+      document.head.appendChild(metaDescTag)
+    }
+    metaDescTag.setAttribute('content', pageDesc)
+  }, [])
+
   // Dados estruturados Schema.org: ItemList (Coleção das 9 calculadoras), FAQPage e BreadcrumbList
   const jsonLdData = {
     '@context': 'https://schema.org',

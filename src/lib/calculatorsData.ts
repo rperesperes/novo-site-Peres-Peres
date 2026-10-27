@@ -23,7 +23,8 @@ export const CALCULATORS: CalculatorItem[] = [
     shortDescription:
       'Comparativo estimativo de carga tributária e encargos entre os regimes Simples Nacional e Lucro Presumido com apuração de alíquotas efetivas.',
     category: 'Regime Tributário',
-    legalBasis: 'LC 123/2006, Leis 9.249/1995, 10.637/2002 e LC 116/2003',
+    legalBasis:
+      'LC 123/2006 (Anexos I a V), Leis 9.249/1995, 10.637/2002, 10.833/2003 e LC 116/2003',
     updatedAt: 'Janeiro/2025',
   },
   {
@@ -33,7 +34,7 @@ export const CALCULATORS: CalculatorItem[] = [
     shortDescription:
       'Cálculo da relação entre folha de pagamento e receita bruta para enquadramento no Anexo III ou Anexo V.',
     category: 'Regime Tributário',
-    legalBasis: 'Art. 18, §§ 5º-J, 5º-K e 5º-M da Lei Complementar nº 123/2006',
+    legalBasis: 'art. 18, §§ 5º e 24, da LC 123/2006',
     updatedAt: 'Janeiro/2025',
   },
   {

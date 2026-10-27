@@ -110,6 +110,11 @@ export function Footer() {
                   Glossário Tributário
                 </Link>
               </li>
+              <li>
+                <Link to="/contato" className="hover:text-[#FAB319] transition-colors">
+                  Fale Conosco
+                </Link>
+              </li>
             </ul>
           </div>
 
