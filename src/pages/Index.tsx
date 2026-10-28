@@ -105,7 +105,7 @@ export default function Index() {
                 className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold text-base h-12 px-8 border-none"
                 asChild
               >
-                <Link to="/contato">Agendar Consultoria</Link>
+                <Link to="/contato">Agendar Reunião</Link>
               </Button>
               <Button
                 size="lg"
@@ -137,7 +137,7 @@ export default function Index() {
             >
               <div className="flex items-center justify-between">
                 <span className="text-xs uppercase tracking-widest text-neutral-500 font-mono">
-                  SCN Quadra 2, Brasília - DF
+                  Sede em Brasília/DF
                 </span>
                 <Building2 className="h-5 w-5 text-neutral-600" />
               </div>

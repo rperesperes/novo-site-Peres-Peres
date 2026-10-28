@@ -165,13 +165,14 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-neutral-800 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-neutral-400">
-          <p>
-            &copy; {new Date().getFullYear()} PERES PERES Consultoria e Contabilidade. Todos os
-            direitos reservados.
+        <div className="border-t border-neutral-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
+          <p className="leading-relaxed">
+            &copy; 2022-2026. Todos os direitos reservados. Escritório PERES PERES CONSULTORIA &
+            CONTABILIDADE LTDA, CNPJ 44.961.875/0001-25, CF/DF 0810995100100, www.peresperes.com.br,
+            registrado como sociedade limitada perante o Conselho Federal de Contabilidade sob o no
+            DF-003366.
           </p>
-          <div className="flex items-center gap-4 mt-4 md:mt-0">
-            <span className="font-semibold text-neutral-300">{SITE_INFO.crc}</span>
+          <div className="flex items-center gap-4 shrink-0">
             <Link to="/privacidade" className="hover:text-white transition-colors">
               Política de Privacidade
             </Link>

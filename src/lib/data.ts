@@ -5,7 +5,7 @@ export const SITE_INFO = {
   whatsappUrl:
     'https://wa.me/556136861689?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consultoria%20tribut%C3%A1ria.',
   email: 'contato@peresperes.com.br',
-  address: 'SCN Quadra 2 Bloco D, Brasília - DF, 70712-903',
+  address: 'Sede em Brasília/DF',
   crc: 'CRC 027704/O',
 }
 
