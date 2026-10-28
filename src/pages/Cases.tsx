@@ -1,23 +1,18 @@
 import { Link } from 'react-router-dom'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import {
-  ShieldCheck,
-  Briefcase,
-  Building2,
-  AlertTriangle,
-  Wrench,
-  Trophy,
-  ArrowRight,
-} from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { ShieldCheck, Briefcase, ArrowRight, TrendingUp } from 'lucide-react'
+import { SUCCESS_CASES } from '@/lib/successCasesData'
 import { REAL_CASES } from '@/lib/casesData'
+import { ShareButtons } from '@/components/ShareButtons'
 
 export default function Cases() {
   return (
     <div className="bg-black text-neutral-100 min-h-screen py-16 md:py-24 font-sans selection:bg-[#FAB319] selection:text-black">
       <div className="container mx-auto px-4 max-w-5xl">
         {/* Cabeçalho da Seção de Casos */}
-        <header className="mb-14 text-center max-w-3xl mx-auto animate-fade-in-up">
+        <header className="mb-12 text-center max-w-3xl mx-auto animate-fade-in-up">
           <div className="inline-flex items-center gap-2 border border-neutral-700 bg-neutral-900/80 px-3.5 py-1.5 rounded text-xs font-mono text-neutral-300 uppercase tracking-wider mb-5">
             <Briefcase className="h-3.5 w-3.5 text-[#FAB319]" />
             Atuação Técnica Comprovada
@@ -41,225 +36,105 @@ export default function Cases() {
               <span>Responsabilidade Técnica: Rafael Peres Peres Nunes Altoé (CRC 027704/O)</span>
             </div>
           </div>
+
+          {/* Botões de compartilhamento no topo da página de lista */}
+          <div className="mt-6 flex justify-center">
+            <ShareButtons
+              title="Casos de Sucesso | PERES PERES Consultoria e Contabilidade"
+              url="https://peresperes.com.br/casos"
+            />
+          </div>
         </header>
 
-        {/* Lista de Casos em Destaque (Cartões Próprios com 4 seções) */}
-        <div className="space-y-12">
-          {/* =========================================================
-              CASO 1
-             ========================================================= */}
-          <Card className="border border-neutral-800 bg-neutral-900/95 text-neutral-100 shadow-xl overflow-hidden">
-            <CardHeader className="p-6 md:p-8 border-b border-neutral-800 bg-neutral-950/60">
-              <div className="flex flex-wrap items-center gap-3 mb-3">
-                <Badge className="bg-[#FAB319] text-black hover:bg-[#e0a116] text-xs font-bold font-mono px-3 py-1 uppercase tracking-wider">
-                  CASO 1
-                </Badge>
-                <span className="text-xs text-neutral-400 font-mono">
-                  Negociação e parcelamento de débitos tributários
-                </span>
-              </div>
+        {/* Lista de Casos em Destaque: 1 Cartão por caso com Resumo, Benefícios e Botão para ler tudo */}
+        <div className="space-y-8">
+          {SUCCESS_CASES.map((item) => (
+            <Card
+              key={item.id}
+              className="border border-neutral-800 bg-neutral-900/95 text-neutral-100 shadow-xl overflow-hidden hover:border-neutral-700 transition-colors"
+            >
+              <CardHeader className="p-6 md:p-8 border-b border-neutral-800 bg-neutral-950/60">
+                <div className="flex flex-wrap items-center gap-3 mb-3">
+                  <Badge className="bg-[#FAB319] text-black hover:bg-[#e0a116] text-xs font-bold font-mono px-3 py-1 uppercase tracking-wider">
+                    {item.badgeText}
+                  </Badge>
+                  <span className="text-xs text-neutral-400 font-mono">{item.badgeSubtext}</span>
+                </div>
 
-              <CardTitle className="text-2xl md:text-3xl font-bold text-white leading-snug">
-                CASO 1 — Negociação e parcelamento de débitos tributários
-              </CardTitle>
+                <CardTitle className="text-2xl md:text-3xl font-bold text-white leading-snug">
+                  <Link
+                    to={`/casos/${item.slug}`}
+                    className="hover:text-[#FAB319] transition-colors"
+                  >
+                    {item.title}
+                  </Link>
+                </CardTitle>
 
-              <div className="mt-3 p-3.5 rounded-lg border border-neutral-800 bg-neutral-900/80 text-sm text-neutral-300">
-                <span className="font-semibold text-white">Segmento:</span> clínica de estética e
-                procedimentos estéticos, em operação desde 2008, com 15 colaboradores e prestadores
-                — caso aplicável a qualquer segmento com passivo tributário acumulado.
-              </div>
-            </CardHeader>
+                <div className="mt-3 p-3.5 rounded-lg border border-neutral-800 bg-neutral-900/80 text-sm text-neutral-300">
+                  <span className="font-semibold text-white">Segmento:</span> {item.segment}
+                </div>
+              </CardHeader>
 
-            <CardContent className="p-6 md:p-8 space-y-8">
-              {/* Contexto */}
-              <section className="space-y-2.5">
-                <div className="flex items-center gap-2.5 border-l-2 border-[#FAB319] pl-3">
-                  <Building2 className="h-4 w-4 text-[#FAB319] shrink-0" />
-                  <h2 className="text-lg md:text-xl font-bold text-white tracking-tight uppercase">
-                    Contexto
+              <CardContent className="p-6 md:p-8 space-y-6">
+                {/* Resumo do Caso (2-4 linhas) */}
+                <div className="space-y-2">
+                  <h2 className="text-xs font-mono uppercase tracking-wider text-neutral-400">
+                    Resumo do Caso
                   </h2>
+                  <p className="text-base text-neutral-200 leading-relaxed">{item.summary}</p>
                 </div>
-                <p className="text-neutral-300 leading-relaxed text-base pl-3 md:pl-5">
-                  Empresa em operação há mais de 15 anos, no Simples Nacional desde a fundação, sem
-                  revisão periódica de enquadramento e sem acompanhamento financeiro, tributário e
-                  de precificação. Operava sem análise comparativa de alternativas e recolhia
-                  tributos por alíquota efetiva superior à necessária ao seu porte e à sua
-                  atividade.
-                </p>
-              </section>
 
-              {/* Desafio */}
-              <section className="space-y-2.5 pt-4 border-t border-neutral-800/80">
-                <div className="flex items-center gap-2.5 border-l-2 border-[#FAB319] pl-3">
-                  <AlertTriangle className="h-4 w-4 text-[#FAB319] shrink-0" />
-                  <h2 className="text-lg md:text-xl font-bold text-white tracking-tight uppercase">
-                    Desafio
-                  </h2>
-                </div>
-                <p className="text-neutral-300 leading-relaxed text-base pl-3 md:pl-5">
-                  A empresa acumulou passivo tributário perante a União e o Distrito Federal, sem
-                  qualquer renegociação ou parcelamento em curso. Somavam-se a isso declarações
-                  atrasadas, com risco de exclusão de ofício do Simples Nacional (LC 123/2006, arts.
-                  25 e 29), e três pendências de malha fiscal geradas por inconsistências entre o
-                  declarado e o recolhido. O cenário elevava o risco de inscrição em dívida ativa e
-                  de constrição patrimonial.
-                </p>
-              </section>
+                {/* Benefícios / Resultados Principais em Destaque */}
+                <div className="pt-4 border-t border-neutral-800/80 space-y-3">
+                  <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#FAB319]">
+                    <TrendingUp className="h-3.5 w-3.5" />
+                    <span>Benefícios e Resultados em Destaque</span>
+                  </div>
 
-              {/* O que foi feito */}
-              <section className="space-y-2.5 pt-4 border-t border-neutral-800/80">
-                <div className="flex items-center gap-2.5 border-l-2 border-[#FAB319] pl-3">
-                  <Wrench className="h-4 w-4 text-[#FAB319] shrink-0" />
-                  <h2 className="text-lg md:text-xl font-bold text-white tracking-tight uppercase">
-                    O que foi feito
-                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+                    {item.highlightBenefits.map((benefit, bIdx) => (
+                      <div
+                        key={bIdx}
+                        className="p-4 rounded-lg border border-neutral-800 bg-neutral-950/70 space-y-1.5"
+                      >
+                        <span className="text-xs text-neutral-400 font-mono block">
+                          {benefit.label}
+                        </span>
+                        <div className="text-xl md:text-2xl font-bold text-[#FAB319] tracking-tight">
+                          {benefit.value}
+                        </div>
+                        {benefit.description && (
+                          <p className="text-xs text-neutral-400 leading-relaxed">
+                            {benefit.description}
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <p className="text-neutral-300 leading-relaxed text-base pl-3 md:pl-5">
-                  Levantamento completo da situação fiscal, com análise de documentos contábeis,
-                  guias de recolhimento e declarações apresentadas. Regularização integral das
-                  declarações pendentes e solução das pendências de malha fiscal. Estruturação da
-                  renegociação e do parcelamento dos débitos junto aos governos federal e distrital,
-                  com prazo e valor de parcela compatibilizados ao fluxo de caixa da empresa, de
-                  modo que a regularização não comprometesse a operação.
-                </p>
-              </section>
 
-              {/* Resultado */}
-              <section className="space-y-3 pt-4 border-t border-neutral-800/80">
-                <div className="flex items-center gap-2.5 border-l-2 border-[#FAB319] pl-3">
-                  <Trophy className="h-4 w-4 text-[#FAB319] shrink-0" />
-                  <h2 className="text-lg md:text-xl font-bold text-white tracking-tight uppercase">
-                    Resultado
-                  </h2>
-                </div>
-                <div className="pl-3 md:pl-5 space-y-4">
-                  <p className="text-neutral-300 leading-relaxed text-base">
-                    Passivo de aproximadamente{' '}
-                    <span className="inline-block font-bold text-black bg-[#FAB319] px-2.5 py-0.5 rounded shadow-sm">
-                      R$ 4.000.000
-                    </span>{' '}
-                    convertido em parcelas compatíveis com o caixa, afastando o risco de inscrição
-                    em dívida ativa e de constrição patrimonial. Eliminação das três pendências de
-                    malha fiscal e do risco de exclusão de ofício. Emissão de guias mensais
-                    regularizada, sem atrasos e sem multas.
-                  </p>
-                </div>
-              </section>
-            </CardContent>
-          </Card>
+                {/* Rodapé do Cartão: Botão para ler o caso completo */}
+                <div className="pt-4 border-t border-neutral-800/80 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+                  <Button
+                    asChild
+                    className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold h-11 px-6 shadow-md transition-all group"
+                  >
+                    <Link to={`/casos/${item.slug}`}>
+                      <span>Ler o caso completo</span>
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </Button>
 
-          {/* =========================================================
-              CASO 2
-             ========================================================= */}
-          <Card className="border border-neutral-800 bg-neutral-900/95 text-neutral-100 shadow-xl overflow-hidden">
-            <CardHeader className="p-6 md:p-8 border-b border-neutral-800 bg-neutral-950/60">
-              <div className="flex flex-wrap items-center gap-3 mb-3">
-                <Badge className="bg-[#FAB319] text-black hover:bg-[#e0a116] text-xs font-bold font-mono px-3 py-1 uppercase tracking-wider">
-                  CASO 2
-                </Badge>
-                <span className="text-xs text-neutral-400 font-mono">Planejamento tributário</span>
-              </div>
-
-              <CardTitle className="text-2xl md:text-3xl font-bold text-white leading-snug">
-                CASO 2 — Planejamento tributário: por que o Simples não era o regime mais barato
-              </CardTitle>
-
-              <div className="mt-3 p-3.5 rounded-lg border border-neutral-800 bg-neutral-900/80 text-sm text-neutral-300">
-                <span className="font-semibold text-white">Segmento:</span> clínicas médicas e de
-                procedimentos na área da saúde. Caso exclusivo para esse setor.
-              </div>
-            </CardHeader>
-
-            <CardContent className="p-6 md:p-8 space-y-8">
-              {/* Contexto */}
-              <section className="space-y-2.5">
-                <div className="flex items-center gap-2.5 border-l-2 border-[#FAB319] pl-3">
-                  <Building2 className="h-4 w-4 text-[#FAB319] shrink-0" />
-                  <h2 className="text-lg md:text-xl font-bold text-white tracking-tight uppercase">
-                    Contexto
-                  </h2>
+                  <Link
+                    to={`/casos/${item.slug}`}
+                    className="text-xs text-neutral-400 hover:text-neutral-200 underline underline-offset-4 text-center sm:text-right"
+                  >
+                    Ver detalhes técnicos, contexto e fundamentos
+                  </Link>
                 </div>
-                <p className="text-neutral-300 leading-relaxed text-base pl-3 md:pl-5">
-                  Clínica de saúde que operava no Simples Nacional desde a fundação, por escolha
-                  nunca revisada. A ausência de análise comparativa impedia saber se o regime
-                  efetivamente correspondia à menor carga tributária possível para a atividade e o
-                  porte da empresa.
-                </p>
-              </section>
-
-              {/* Desafio */}
-              <section className="space-y-2.5 pt-4 border-t border-neutral-800/80">
-                <div className="flex items-center gap-2.5 border-l-2 border-[#FAB319] pl-3">
-                  <AlertTriangle className="h-4 w-4 text-[#FAB319] shrink-0" />
-                  <h2 className="text-lg md:text-xl font-bold text-white tracking-tight uppercase">
-                    Desafio
-                  </h2>
-                </div>
-                <p className="text-neutral-300 leading-relaxed text-base pl-3 md:pl-5">
-                  A premissa comum no mercado é que o Simples Nacional é sempre o regime mais
-                  econômico para pequenos negócios. Para clínicas, essa premissa falha por dois
-                  motivos: a segregação de receitas e o fator R alteram significativamente a
-                  alíquota efetiva (LC 123/2006, art. 18, §§ 5º-A e 5º-B), e o setor tem acesso a
-                  benefício fiscal específico que o Simples não aproveita.
-                </p>
-              </section>
-
-              {/* O que foi feito */}
-              <section className="space-y-4 pt-4 border-t border-neutral-800/80">
-                <div className="flex items-center gap-2.5 border-l-2 border-[#FAB319] pl-3">
-                  <Wrench className="h-4 w-4 text-[#FAB319] shrink-0" />
-                  <h2 className="text-lg md:text-xl font-bold text-white tracking-tight uppercase">
-                    O que foi feito
-                  </h2>
-                </div>
-                <div className="pl-3 md:pl-5 space-y-3.5 text-neutral-300 leading-relaxed text-base">
-                  <p>
-                    Simulação comparativa completa entre Simples Nacional, Lucro Presumido e Lucro
-                    Real. O resultado apontou o Lucro Presumido como regime mais vantajoso.
-                  </p>
-                  <p>
-                    A chave do caso foi identificar que a atividade da clínica se enquadra na
-                    equiparação hospitalar, que autoriza presunção reduzida de 8% sobre a receita de
-                    hospitalização, cirurgia e procedimentos ambulatoriais, com fundamento no art.
-                    2º da Lei 7.450/1982, na Lei 12.101/2009 e na IN RFB 1.115/2012. Essa combinação
-                    — Lucro Presumido mais equiparação hospitalar — é o que produz a economia, e não
-                    o Lucro Presumido isolado.
-                  </p>
-                  <p>
-                    Estruturação do plano de transição de regime, com segregação correta das
-                    receitas e apuração da alíquota efetiva conforme a legislação do Simples no
-                    período anterior à mudança.
-                  </p>
-                </div>
-              </section>
-
-              {/* Resultado */}
-              <section className="space-y-4 pt-4 border-t border-neutral-800/80">
-                <div className="flex items-center gap-2.5 border-l-2 border-[#FAB319] pl-3">
-                  <Trophy className="h-4 w-4 text-[#FAB319] shrink-0" />
-                  <h2 className="text-lg md:text-xl font-bold text-white tracking-tight uppercase">
-                    Resultado
-                  </h2>
-                </div>
-                <div className="pl-3 md:pl-5 space-y-3.5 text-neutral-300 leading-relaxed text-base">
-                  <p>
-                    Redução de aproximadamente{' '}
-                    <span className="inline-block font-bold text-black bg-[#FAB319] px-2.5 py-0.5 rounded shadow-sm">
-                      50%
-                    </span>{' '}
-                    da carga tributária em relação ao que vinha sendo recolhido no Simples Nacional,
-                    com efeito direto na margem de lucro.
-                  </p>
-                  <p>
-                    E o que o caso comprova, além do número: o regime mais barato é o que resulta da
-                    simulação, não o mais popular. Para clínicas com receita e estrutura
-                    compatíveis, o Lucro Presumido com equiparação hospitalar pode superar o Simples
-                    com folga.
-                  </p>
-                </div>
-              </section>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
         {/* Seção Adicional: Outros Casos de Atuação Técnica (mantendo o acervo existente) */}

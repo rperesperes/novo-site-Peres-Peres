@@ -27,6 +27,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://peresperes.com.br/casos/parcelamento-debitos-tributarios</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://peresperes.com.br/casos/planejamento-tributario-clinicas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://peresperes.com.br/casos/revisao-enquadramento-tributario-distribuidora</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
