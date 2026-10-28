@@ -1,6 +1,7 @@
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { BookOpen, GraduationCap, Users } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { BookOpen, GraduationCap, Users, CheckCircle2 } from 'lucide-react'
 import logoPadrao from '@/assets/logo-padrao-oficial-844b7.png'
 import rafaelImg from '@/assets/foto-melhorada-por-ia-892a9.png'
 import williamImg from '@/assets/copia-de-img8757-182f8.jpg'
@@ -91,31 +92,57 @@ export default function About() {
               </div>
             </div>
             <div className="md:col-span-3 p-8 lg:p-12 bg-white flex flex-col justify-center">
-              <h2 className="text-3xl font-bold text-black mb-2">Rafael Peres Peres Nunes Altoé</h2>
-              <div className="flex flex-wrap items-center gap-2 mb-6">
-                <span className="text-black font-semibold uppercase tracking-wider text-xs border border-neutral-300 bg-neutral-100 inline-block px-3 py-1 rounded">
-                  Contador Responsável Técnico
-                </span>
-                <span className="text-neutral-900 font-mono text-xs border border-[#FAB319] bg-[#FAB319]/15 inline-block px-3 py-1 rounded font-bold">
-                  CRC 027704/O
-                </span>
-              </div>
+              <h2 className="text-3xl font-bold text-black mb-1">Rafael Peres Peres Nunes Altoé</h2>
+              <p className="text-sm md:text-base font-medium text-neutral-700 mb-6">
+                Contador • Advogado • Perito • Auditor • Professor
+              </p>
 
               <div className="space-y-4 text-neutral-700 leading-relaxed font-sans text-sm md:text-base">
                 <p>
-                  Com trajetória pautada pela integração entre a contabilidade consultiva e o rigor
-                  do Direito Tributário, atua diretamente no Distrito Federal e em âmbito nacional.
+                  Sob a responsabilidade técnica de Rafael Peres Peres Nunes Altoé, a PERES PERES
+                  Consultoria e Contabilidade une a prática da contabilidade ao Direito, em especial
+                  o Direito Tributário, com atuação em Brasília e em âmbito nacional.
                 </p>
                 <p>
-                  Pós-graduado em Direito Tributário pelo CERS, conduz procedimentos administrativos
-                  fiscais, impugnações e defesas perante órgãos fazendários, além de estruturação
-                  societária preventiva e governança contábil.
+                  Contador (CRC 027704), advogado (OAB 87656), perito, auditor (CNAI 10122) e
+                  professor, dedica-se à Consultoria Tributária empresarial há 10 anos. Conduz
+                  procedimentos administrativos fiscais, impugnações e defesas perante órgãos
+                  fazendários, além de estruturação societária preventiva e governança contábil.
                 </p>
                 <p>
-                  Mantém presença em ambientes de debate técnico e pesquisa, integrando o grupo de
-                  estudos CDESCMAT no Distrito Federal e participando de iniciativas acadêmicas
-                  junto a instituições de ensino superior como UniCEUB e IDP.
+                  Pós-graduado em Direito Tributário (CERS) e bacharel em Ciências Contábeis (UCB).
+                  Integrou o Grupo de Pesquisas Tributárias do CDESCMAT da CLDF, o Grupo de Estudos,
+                  Pesquisa e Análise Tributária da UniCEUB e o Grupo de Estudos da Limitação e
+                  Controle da Renúncia Fiscal do IDP. Foi monitor acadêmico das disciplinas de
+                  Direito Tributário I, II e III no IDP, junto aos professores Ivan Allegretti,
+                  Onizia Pignataro e Alberto Medeiros.
                 </p>
+              </div>
+
+              {/* Lista de destaque */}
+              <ul className="grid sm:grid-cols-2 gap-3 mt-6">
+                {[
+                  'Membro da Comissão de Contabilidade Tributária do CRC-DF',
+                  'Membro da Comissão de Assuntos Tributários da OAB-DF',
+                  'Atuação perante órgãos fazendários',
+                  'Pesquisa em Direito Tributário',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-2 text-sm text-neutral-800">
+                    <CheckCircle2 className="h-4 w-4 text-neutral-900 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Botão de navegação para a equipe */}
+              <div className="pt-6">
+                <Button
+                  variant="outline"
+                  className="border-neutral-900 text-black hover:bg-neutral-100 text-sm font-medium"
+                  asChild
+                >
+                  <a href="#equipe">Conheça a equipe e a trajetória profissional</a>
+                </Button>
               </div>
 
               <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-neutral-200">
@@ -143,7 +170,7 @@ export default function About() {
         </Card>
 
         {/* Seção da Equipe Técnica */}
-        <section className="mt-20">
+        <section id="equipe" className="mt-20 scroll-mt-24">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 border border-neutral-300 bg-neutral-100 px-3 py-1 rounded text-xs uppercase tracking-wider text-neutral-800 font-mono mb-3">
               <Users className="h-3.5 w-3.5 text-neutral-700" />
