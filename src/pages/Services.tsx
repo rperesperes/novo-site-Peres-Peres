@@ -19,6 +19,7 @@ import {
   Scale,
   Sparkles,
   ShieldCheck,
+  Wallet,
 } from 'lucide-react'
 
 // Itens da Consultoria Tributária
@@ -190,9 +191,15 @@ const SERVICOS_AVULSOS = [
   },
   {
     icon: Scale,
-    title: 'Perícias Extrajudiciais',
+    title: 'Perícias Judiciais e Extrajudiciais',
     description:
       'Elaboração de laudos e pareceres contábeis independentes para conciliações societárias, apuração de haveres e liquidação de quotas.',
+  },
+  {
+    icon: Wallet,
+    title: 'BPO Financeiro',
+    description:
+      'Assessoria na gestão operacional das rotinas financeiras da empresa, com conciliação de contas, controle de recebimentos e pagamentos e organização do fluxo financeiro.',
   },
 ]
 

@@ -174,6 +174,47 @@ export default function About() {
           </div>
         </Card>
 
+        {/* Nossa História */}
+        <section className="mt-20 mb-20 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">Nossa História</h2>
+          <div className="space-y-4 text-neutral-700 leading-relaxed font-sans text-sm md:text-base">
+            <p>
+              Em 2017, nasce em Brasília a PERES PERES Consultoria &amp; Contabilidade com uma
+              proposta que segue a mesma desde o primeiro dia: fazer contabilidade de um jeito
+              diferente do convencional.
+            </p>
+            <p>
+              Acreditamos na contabilidade que vai além das exigências mínimas previstas em lei —
+              calcular os tributos devidos no mês e preencher as declarações obrigatórias é o começo
+              do trabalho, não o fim. O que entregamos é a leitura técnica desses números: o que
+              eles revelam sobre a margem, sobre o risco fiscal e sobre as decisões que a empresa
+              precisa tomar.
+            </p>
+            <p>
+              Acompanhamos as mudanças constantes da legislação e as novas ferramentas disponíveis
+              no mercado para oferecer soluções ajustadas à realidade de cada cliente — tecnicamente
+              corretas e compatíveis com a estrutura e o porte do negócio.
+            </p>
+          </div>
+        </section>
+
+        {/* Nosso Diferencial */}
+        <section className="mb-20 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">Nosso Diferencial</h2>
+          <div className="space-y-4 text-neutral-700 leading-relaxed font-sans text-sm md:text-base">
+            <p>
+              A PERES PERES une a prática da contabilidade ao Direito, em especial o tributário. O
+              escritório é conduzido por profissional com registro duplo: contador (CRC 027704) e
+              advogado (OAB 87656), com atuação como perito, auditor (CNAI 10122) e professor.
+            </p>
+            <p>
+              Na prática, isso significa que a norma contábil e a tese jurídica são analisadas pela
+              mesma pessoa — e não por departamentos que não se falam. Quando o fisco autua, essa
+              diferença importa.
+            </p>
+          </div>
+        </section>
+
         {/* Seção da Equipe Técnica */}
         <section id="equipe" className="mt-20 scroll-mt-24">
           <div className="text-center mb-12">
