@@ -109,9 +109,11 @@ export default function Index() {
       <section className="py-16 md:py-20 bg-neutral-50/50 border-b border-neutral-200">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <p className="font-sans text-xl sm:text-2xl md:text-3xl text-neutral-900 leading-relaxed font-normal">
-            E como nenhum profissional e nenhuma empresa é igual a outra, buscamos conhecer a fundo,
-            nos detalhes, a história, os desafios e as oportunidades de negócio de cada um dos
-            nossos clientes. Este é o primeiro passo para o que nos propomos: oferecer o melhor.
+            E como nenhum profissional e nenhuma empresa é igual a outra,{' '}
+            <strong>buscamos conhecer a fundo</strong>, nos detalhes,{' '}
+            <strong>a história, os desafios e as oportunidades de negócio</strong> de cada um dos
+            nossos clientes. Este é o primeiro passo para o que nos propomos:{' '}
+            <strong className="underline">oferecer o melhor</strong>.
           </p>
         </div>
       </section>
@@ -302,8 +304,10 @@ export default function Index() {
       <section className="py-16 md:py-20 bg-white border-b border-neutral-200">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <p className="font-sans text-xl sm:text-2xl md:text-3xl text-neutral-900 leading-relaxed font-normal">
-            Assim, realizando um bom trabalho, construímos verdadeiros relacionamentos de longo
-            prazo, de confiança e prosperidade com os nossos clientes.
+            Assim, realizando um bom trabalho, construímos{' '}
+            <span className="underline">verdadeiros relacionamentos</span> de{' '}
+            <strong>longo prazo</strong>, de <strong>confiança e prosperidade</strong> com os nossos
+            clientes.
           </p>
         </div>
       </section>

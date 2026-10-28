@@ -167,6 +167,8 @@ const SERVICOS_AVULSOS = [
     title: 'Registro e Acompanhamento de Marcas',
     description:
       'Assessoria na busca prévia, depósito e monitoramento de processos de registro de marca perante o INPI com proteção jurídica.',
+    link: '/servicos/registro-de-marcas',
+    linkText: 'Ver mais sobre Registro de Marcas',
   },
   {
     icon: UserCheck,
