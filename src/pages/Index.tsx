@@ -346,12 +346,32 @@ export default function Index() {
               <h2 className="text-3xl md:text-4xl font-bold text-black">
                 Liderança Técnica e Acadêmica
               </h2>
-              <p className="text-lg text-neutral-700 leading-relaxed font-sans">
-                Sob a responsabilidade técnica de <strong>Rafael Peres Peres Nunes Altoé</strong>{' '}
-                (CRC 027704/O), a <strong>PERES PERES Consultoria e Contabilidade</strong> une a
-                prática contábil ao Direito Tributário. Pós-graduado em Direito Tributário (CERS),
-                possui participação em grupos de pesquisa acadêmica (UniCEUB, IDP) e atuação
-                consultiva contínua perante órgãos fazendários.
+              <p className="text-lg text-neutral-700 leading-relaxed font-sans text-justify">
+                Sob a responsabilidade técnica de <strong>Rafael Peres Peres Nunes Altoé</strong>, a{' '}
+                <strong>PERES PERES Consultoria e Contabilidade</strong> une a prática da
+                contabilidade ao direito, em especial o tributário.
+                <div>
+                  <span>
+                    <br />
+                  </span>
+                </div>
+                <div>
+                  <span>
+                    Contador, advogado e professor, se dedica a demandas de Consultoria Tributária
+                    empresarial há 10 anos.
+                  </span>
+                </div>
+                <div>
+                  <br />
+                </div>
+                <div>
+                  Pós-graduado em Direito Tributário (CERS) e Bacharel em Ciências Contábeis (UCB).
+                  Integrou o Grupo de Pesquisas Tributárias (CDESCMAT, da CLDF), o Grupo de Estudos,
+                  Pesquisa e Análise Tributária (UniCEUB) e o Grupo de Estudos da Limitação e
+                  Controle da Renúncia Fiscal (IDP). Foi monitor acadêmico das disciplinas de
+                  Direito Tributário I, II e III no IDP junto aos professores e advogados Ivan
+                  Allegretti, Onizia Pignataro e Alberto Medeiros
+                </div>
               </p>
 
               <ul className="grid sm:grid-cols-2 gap-4 mt-6">
