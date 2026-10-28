@@ -20,6 +20,9 @@ export default function Layout() {
       '/recursos': 'Recursos e Materiais | PERES PERES Consultoria e Contabilidade',
       '/glossario': 'Glossário Tributário | PERES PERES Consultoria e Contabilidade',
       '/contato': 'Fale com o Escritório | PERES PERES Consultoria e Contabilidade',
+      '/politica-de-privacidade':
+        'Política de Privacidade | PERES PERES Consultoria e Contabilidade',
+      '/privacidade': 'Política de Privacidade | PERES PERES Consultoria e Contabilidade',
       '/calculadoras':
         'Calculadoras Tributárias e Trabalhistas Gratuitas | PERES PERES Consultoria e Contabilidade',
     }

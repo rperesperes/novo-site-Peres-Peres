@@ -32,6 +32,7 @@ import SimplesNacionalHibridoCalculator from './pages/SimplesNacionalHibridoCalc
 import JurosDeMoraDeTributosCalculator from './pages/JurosDeMoraDeTributosCalculator'
 import IRPFeRestituicaoCalculator from './pages/IRPFeRestituicaoCalculator'
 import JurosDeFinanciamentoCalculator from './pages/JurosDeFinanciamentoCalculator'
+import PrivacyPolicy from './pages/PrivacyPolicy'
 
 const App = () => (
   <AuthProvider>
@@ -49,6 +50,8 @@ const App = () => (
             <Route path="/glossario" element={<Glossary />} />
             <Route path="/recursos" element={<Resources />} />
             <Route path="/contato" element={<Contact />} />
+            <Route path="/politica-de-privacidade" element={<PrivacyPolicy />} />
+            <Route path="/privacidade" element={<PrivacyPolicy />} />
             <Route path="/calculadoras" element={<CalculatorsHub />} />
             <Route path="/calculadoras/fator-r" element={<FatorRCalculator />} />
             <Route

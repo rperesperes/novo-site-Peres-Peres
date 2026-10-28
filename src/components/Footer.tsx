@@ -164,7 +164,7 @@ export function Footer() {
             DF-003366.
           </p>
           <div className="flex items-center gap-4 shrink-0">
-            <Link to="/privacidade" className="hover:text-white transition-colors">
+            <Link to="/politica-de-privacidade" className="hover:text-white transition-colors">
               Política de Privacidade
             </Link>
           </div>
