@@ -39,15 +39,7 @@ export function Footer() {
                 <MapPin className="h-4 w-4 shrink-0 mt-0.5 text-neutral-400" />
                 <span>{SITE_INFO.address}</span>
               </p>
-              <p className="flex items-center gap-2">
-                <Phone className="h-4 w-4 shrink-0 text-neutral-400" />
-                <a
-                  href={`tel:${SITE_INFO.phone.replace(/\D/g, '')}`}
-                  className="hover:text-[#FAB319] transition-colors"
-                >
-                  {SITE_INFO.phone}
-                </a>
-              </p>
+              <p className="flex items-center gap-2"></p>
               <p className="flex items-center gap-2">
                 <Mail className="h-4 w-4 shrink-0 text-neutral-400" />
                 <a
@@ -120,7 +112,7 @@ export function Footer() {
 
           {/* Newsletter */}
           <div className="lg:col-span-2">
-            <h4 className="font-semibold text-lg mb-4 text-white">Boletim Tributário</h4>
+            <h4 className="font-semibold text-lg mb-4 text-white">Boletim Informativo</h4>
             <p className="text-sm text-neutral-400 mb-4 leading-relaxed">
               Receba atualizações técnicas sobre legislação e jurisprudência dos tribunais e órgãos
               fiscais.

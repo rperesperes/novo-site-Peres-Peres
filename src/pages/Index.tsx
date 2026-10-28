@@ -82,11 +82,13 @@ export default function Index() {
         <div className="container mx-auto px-4 py-20 relative z-10 w-full">
           <div className="w-full space-y-8 animate-fade-in-up">
             <div className="inline-block border border-neutral-700 px-3 py-1 rounded text-xs tracking-wider uppercase text-neutral-300">
-              PERES PERES Consultoria e Contabilidade
+              PERES PERES Consultoria &amp; Contabilidade
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white leading-tight max-w-4xl">
-              Consultoria e Contabilidade de Brasília para todo o Brasil
+              Consultoria e Contabilidade
+              <br />
+              de Brasília para todo o Brasil
             </h1>
 
             <p className="text-lg text-neutral-300 max-w-2xl leading-relaxed">
@@ -111,17 +113,6 @@ export default function Index() {
               >
                 <Link to="/servicos">Conhecer Serviços</Link>
               </Button>
-            </div>
-
-            <div className="flex items-center gap-8 pt-6 border-t border-neutral-800 max-w-2xl">
-              <div className="flex items-center gap-2 text-neutral-300">
-                <Award className="h-5 w-5 text-neutral-400" />
-                <span className="text-sm font-medium">CRC 027704/O Ativo</span>
-              </div>
-              <div className="flex items-center gap-2 text-neutral-300">
-                <Scale className="h-5 w-5 text-neutral-400" />
-                <span className="text-sm font-medium">Atuação Nacional</span>
-              </div>
             </div>
           </div>
         </div>
@@ -425,7 +416,7 @@ export default function Index() {
                 className="text-white border-neutral-700 bg-transparent hover:bg-neutral-900 text-base h-12 px-8"
                 asChild
               >
-                <Link to="/servicos">Conhecer Serviços Completos</Link>
+                Agendar Reunião
               </Button>
             </div>
           </div>
