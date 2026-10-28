@@ -91,7 +91,7 @@ export function CalculatorEmailCapture({
                 disabled={status === 'loading'}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="seu.email@empresa.com.br"
+                placeholder="Digite aqui seu e-mail principal"
                 className="border-neutral-300 focus-visible:ring-black h-11 text-sm bg-neutral-50 sm:flex-1"
               />
               <Button

@@ -117,13 +117,13 @@ export function Footer() {
           <div className="lg:col-span-2">
             <h4 className="font-semibold text-lg mb-4 text-white">Boletim Informativo</h4>
             <p className="text-sm text-neutral-400 mb-4 leading-relaxed">
-              Receba atualizações técnicas sobre legislação e jurisprudência dos tribunais e órgãos
-              fiscais.
+              Receba algumas das nossas análises e informes sobre as mudanças na legislação
+              pertinente ao seu negócio.
             </p>
             <form onSubmit={handleSubscribe} className="flex gap-2">
               <Input
                 type="email"
-                placeholder="Seu e-mail profissional"
+                placeholder="Digite aqui seu e-mail principal"
                 required
                 className="bg-neutral-900 border-neutral-700 text-white placeholder:text-neutral-500 focus-visible:ring-[#FAB319]"
               />
