@@ -37,7 +37,7 @@
   h5,
   h6,
   .font-heading {
-    @apply font-serif tracking-tight text-black font-semibold;
+    @apply font-sans tracking-tight text-black font-semibold;
   }
 }
 

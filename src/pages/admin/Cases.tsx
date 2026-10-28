@@ -75,7 +75,7 @@ export default function AdminCases() {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-2xl font-serif font-bold text-black">Casos e Metodologia (Admin)</h1>
+          <h1 className="text-2xl font-bold text-black">Casos e Metodologia (Admin)</h1>
           <p className="text-xs text-neutral-500 mt-1">
             Atenção: em cumprimento ao manual de comunicação, não veicular percentuais de redução
             nem casos sem comprovação documental.
@@ -134,7 +134,7 @@ export default function AdminCases() {
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="max-w-2xl bg-white text-black overflow-y-auto max-h-[90vh]">
           <DialogHeader>
-            <DialogTitle className="font-serif font-bold">
+            <DialogTitle className="font-bold">
               {editing ? 'Editar Registro' : 'Novo Registro'}
             </DialogTitle>
           </DialogHeader>

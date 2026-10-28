@@ -69,7 +69,7 @@ export default function AdminResources() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-serif font-bold text-black">Gerenciar Recursos</h1>
+        <h1 className="text-2xl font-bold text-black">Gerenciar Recursos</h1>
         <Button
           onClick={() => openModal()}
           className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold"

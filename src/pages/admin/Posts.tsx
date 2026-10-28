@@ -69,7 +69,7 @@ export default function AdminPosts() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-serif font-bold text-black">Gerenciar Blog</h1>
+        <h1 className="text-2xl font-bold text-black">Gerenciar Blog</h1>
         <Button
           onClick={() => openModal()}
           className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold"

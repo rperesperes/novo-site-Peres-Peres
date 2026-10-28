@@ -55,7 +55,7 @@ export default function About() {
           >
             Governança e Rigor Técnico
           </Badge>
-          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-black">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-black">
             Nossa Atuação e Estrutura Técnica
           </h1>
           <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
@@ -85,9 +85,7 @@ export default function About() {
               </div>
             </div>
             <div className="md:col-span-3 p-8 lg:p-12 bg-white flex flex-col justify-center">
-              <h2 className="text-3xl font-serif font-bold text-black mb-2">
-                Rafael Peres Peres Nunes Altoé
-              </h2>
+              <h2 className="text-3xl font-bold text-black mb-2">Rafael Peres Peres Nunes Altoé</h2>
               <div className="flex flex-wrap items-center gap-2 mb-6">
                 <span className="text-black font-semibold uppercase tracking-wider text-xs border border-neutral-300 bg-neutral-100 inline-block px-3 py-1 rounded">
                   Contador Responsável Técnico
@@ -120,7 +118,7 @@ export default function About() {
                     <GraduationCap className="h-5 w-5 text-black" />
                   </div>
                   <div>
-                    <h4 className="font-serif font-semibold text-black text-sm">Pós-Graduação</h4>
+                    <h4 className="font-semibold text-black text-sm">Pós-Graduação</h4>
                     <p className="text-xs text-neutral-600">Direito Tributário (CERS)</p>
                   </div>
                 </div>
@@ -129,9 +127,7 @@ export default function About() {
                     <BookOpen className="h-5 w-5 text-black" />
                   </div>
                   <div>
-                    <h4 className="font-serif font-semibold text-black text-sm">
-                      Pesquisa Acadêmica
-                    </h4>
+                    <h4 className="font-semibold text-black text-sm">Pesquisa Acadêmica</h4>
                     <p className="text-xs text-neutral-600">UniCEUB & IDP</p>
                   </div>
                 </div>
@@ -147,9 +143,7 @@ export default function About() {
               <Users className="h-3.5 w-3.5 text-neutral-700" />
               Corpo Técnico
             </div>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-black mb-3">
-              Nossa Equipe
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-3">Nossa Equipe</h2>
             <p className="text-neutral-600 max-w-2xl mx-auto leading-relaxed text-sm md:text-base">
               Profissionais dedicados à governança fiscal, contabilidade consultiva e auditoria,
               atuando de forma integrada sob a coordenação do responsável técnico.
@@ -181,7 +175,7 @@ export default function About() {
                       <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#FAB319]/10 rounded-full blur-2xl" />
                       <div className="relative z-10 flex flex-col items-center">
                         <div className="w-20 h-20 rounded-full border-2 border-[#FAB319] bg-neutral-900 flex items-center justify-center mb-4 shadow-inner">
-                          <span className="font-serif font-bold text-2xl tracking-wider text-[#FAB319]">
+                          <span className="font-bold text-2xl tracking-wider text-[#FAB319]">
                             {member.initials}
                           </span>
                         </div>
@@ -199,7 +193,7 @@ export default function About() {
                 {/* Conteúdo do Card */}
                 <div className="p-6 flex-1 flex flex-col justify-between text-center">
                   <div>
-                    <h3 className="font-serif font-semibold text-xl text-black mb-1.5 group-hover:text-neutral-900 transition-colors">
+                    <h3 className="font-semibold text-xl text-black mb-1.5 group-hover:text-neutral-900 transition-colors">
                       {member.name}
                     </h3>
                     <p className="text-xs md:text-sm text-neutral-600 leading-snug">

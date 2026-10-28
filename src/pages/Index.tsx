@@ -179,7 +179,7 @@ export default function Index() {
                     <div className="h-12 w-12 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center mb-4">
                       <Icon className="h-6 w-6 text-black" />
                     </div>
-                    <CardTitle className="text-xl font-serif text-black leading-snug">
+                    <CardTitle className="text-xl text-black leading-snug">
                       {servico.title}
                     </CardTitle>
                   </CardHeader>
@@ -213,9 +213,7 @@ export default function Index() {
             <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block">
               Formatos de Contratação
             </span>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-black">
-              Planos de Acompanhamento
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-black">Planos de Acompanhamento</h2>
             <p className="text-neutral-600 text-base leading-relaxed">
               Estruturas de assessoria desenhadas para acompanhar a evolução e as demandas fiscais
               da sua operação.
@@ -245,7 +243,7 @@ export default function Index() {
                     </span>
                     <Layers className="h-4 w-4 text-neutral-400" />
                   </div>
-                  <h3 className="text-2xl font-serif font-bold text-black mb-2">{plano.name}</h3>
+                  <h3 className="text-2xl font-bold text-black mb-2">{plano.name}</h3>
                   <p className="text-sm text-neutral-600 leading-relaxed mb-6">{plano.tagline}</p>
                 </div>
 
@@ -284,7 +282,7 @@ export default function Index() {
             <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block">
               Expertise Setorial em Brasília
             </span>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-black">
+            <h2 className="text-3xl md:text-4xl font-bold text-black">
               Segmentos e Áreas de Atuação
             </h2>
             <p className="text-neutral-600 text-base leading-relaxed">
@@ -346,9 +344,7 @@ export default function Index() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
                   <div className="inline-block border-l-2 border-[#FAB319] pl-3 mb-1">
-                    <p className="font-serif font-bold text-lg text-white">
-                      Rafael Peres Peres Nunes Altoé
-                    </p>
+                    <p className="font-bold text-lg text-white">Rafael Peres Peres Nunes Altoé</p>
                     <p className="text-xs text-neutral-300 font-mono">Contador • CRC 027704/O</p>
                   </div>
                 </div>
@@ -356,7 +352,7 @@ export default function Index() {
             </div>
 
             <div className="md:col-span-7 space-y-6">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-black">
+              <h2 className="text-3xl md:text-4xl font-bold text-black">
                 Liderança Técnica e Acadêmica
               </h2>
               <p className="text-lg text-neutral-700 leading-relaxed font-sans">
@@ -405,7 +401,7 @@ export default function Index() {
               <Scale className="h-3.5 w-3.5 text-neutral-300" />
               Diretrizes de Atuação
             </div>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
               Metodologia de Trabalho e Embasamento Normativo
             </h2>
             <p className="text-neutral-400 text-base md:text-lg leading-relaxed">

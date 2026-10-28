@@ -23,7 +23,7 @@ export default function AdminLayout() {
     <div className="min-h-screen bg-gray-50 flex flex-col md:flex-row font-sans">
       <aside className="w-full md:w-64 bg-black text-white flex flex-col md:min-h-screen shadow-xl z-10">
         <div className="p-6">
-          <h2 className="text-sm font-serif font-bold text-white mb-1 leading-snug">
+          <h2 className="text-sm font-bold text-white mb-1 leading-snug">
             PERES PERES Consultoria e Contabilidade
           </h2>
           <p className="text-xs text-neutral-400">Painel Administrativo</p>

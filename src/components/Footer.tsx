@@ -73,7 +73,7 @@ export function Footer() {
 
           {/* Links */}
           <div>
-            <h4 className="font-serif font-semibold text-lg mb-4 text-white">Navegação</h4>
+            <h4 className="font-semibold text-lg mb-4 text-white">Navegação</h4>
             <ul className="space-y-2 text-sm text-neutral-300">
               <li>
                 <Link to="/sobre" className="hover:text-[#FAB319] transition-colors">
@@ -120,7 +120,7 @@ export function Footer() {
 
           {/* Newsletter */}
           <div className="lg:col-span-2">
-            <h4 className="font-serif font-semibold text-lg mb-4 text-white">Boletim Tributário</h4>
+            <h4 className="font-semibold text-lg mb-4 text-white">Boletim Tributário</h4>
             <p className="text-sm text-neutral-400 mb-4 leading-relaxed">
               Receba atualizações técnicas sobre legislação e jurisprudência dos tribunais e órgãos
               fiscais.

@@ -27,7 +27,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Lora', 'Georgia', 'serif'],
-        serif: ['"Bodoni Moda"', '"Playfair Display"', 'Didot', '"Bodoni MT"', 'serif'],
+        serif: ['Lora', 'Georgia', 'serif'],
       },
       colors: {
         border: 'hsl(var(--border))',

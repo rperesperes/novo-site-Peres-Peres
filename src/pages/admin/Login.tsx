@@ -37,7 +37,7 @@ export default function Login() {
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
       <Card className="w-full max-w-md border-gray-800 bg-white">
         <CardHeader className="text-center pb-8">
-          <CardTitle className="text-2xl font-serif font-bold text-black">
+          <CardTitle className="text-2xl font-bold text-black">
             PERES PERES Consultoria e Contabilidade
           </CardTitle>
           <CardDescription>Acesso restrito à equipe técnica.</CardDescription>

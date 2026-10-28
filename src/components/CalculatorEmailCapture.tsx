@@ -51,7 +51,7 @@ export function CalculatorEmailCapture({
           <div className="p-2 rounded bg-neutral-900 text-[#FAB319] shrink-0">
             <Mail className="h-4 w-4" />
           </div>
-          <h3 className="font-serif font-bold text-xl md:text-2xl text-black">
+          <h3 className="font-bold text-xl md:text-2xl text-black">
             Receba esta análise por e-mail
           </h3>
         </div>

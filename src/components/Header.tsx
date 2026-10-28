@@ -47,7 +47,7 @@ export function Header() {
             alt="PERES PERES Consultoria e Contabilidade"
             className="h-10 md:h-12 w-auto object-contain"
           />
-          <span className="sr-only font-serif">PERES PERES Consultoria e Contabilidade</span>
+          <span className="sr-only">PERES PERES Consultoria e Contabilidade</span>
         </Link>
 
         {/* Desktop Nav */}
