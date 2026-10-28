@@ -544,21 +544,13 @@ export default function Services() {
               <strong>Rafael Peres Peres Nunes Altoé (CRC 027704/O)</strong>, com sigilo
               profissional estrito e fundamentação legal.
             </p>
-            <div className="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+            <div className="pt-4 flex justify-center">
               <Button
                 size="lg"
                 className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold px-8 h-12 text-base shadow-sm"
                 asChild
               >
-                <Link to="/contato">Fale com Nossos Especialistas</Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-white border-neutral-700 bg-transparent hover:bg-neutral-900 text-base h-12 px-8"
-                asChild
-              >
-                <Link to="/contato">Solicitar Proposta Técnica</Link>
+                <Link to="/contato">Agendar Reunião</Link>
               </Button>
             </div>
           </div>

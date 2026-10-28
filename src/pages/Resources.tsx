@@ -4,8 +4,9 @@ import { useRealtime } from '@/hooks/use-realtime'
 import pb from '@/lib/pocketbase/client'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Link } from 'react-router-dom'
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { FileDown, FileSpreadsheet, Calculator, ArrowRight } from 'lucide-react'
+import { FileDown, FileSpreadsheet, Calculator, ArrowRight, Clock } from 'lucide-react'
 
 export default function Resources() {
   const [resources, setResources] = useState<any[]>([])
@@ -99,16 +100,16 @@ export default function Resources() {
                         </CardDescription>
                       </div>
                     </CardHeader>
-                    <CardContent>
-                      <Button
-                        asChild
-                        variant="default"
-                        className="w-full mt-2 bg-black hover:bg-neutral-800 text-white font-medium"
-                      >
-                        <a href={fileUrl || '#'} target="_blank" rel="noreferrer">
-                          Baixar Documento <ArrowRight className="ml-2 h-4 w-4" />
-                        </a>
-                      </Button>
+                    <CardContent className="pt-2">
+                      <div className="flex items-center justify-between border-t border-neutral-100 pt-3">
+                        <Badge
+                          variant="secondary"
+                          className="bg-neutral-100 text-neutral-600 border border-neutral-200 font-normal px-2.5 py-1 text-xs flex items-center gap-1.5"
+                        >
+                          <Clock className="h-3 w-3 text-neutral-400" />
+                          Em breve
+                        </Badge>
+                      </div>
                     </CardContent>
                   </Card>
                 )

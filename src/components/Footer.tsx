@@ -39,7 +39,6 @@ export function Footer() {
                 <MapPin className="h-4 w-4 shrink-0 mt-0.5 text-neutral-400" />
                 <span>{SITE_INFO.address}</span>
               </p>
-              <p className="flex items-center gap-2"></p>
               <p className="flex items-center gap-2">
                 <Mail className="h-4 w-4 shrink-0 text-neutral-400" />
                 <a

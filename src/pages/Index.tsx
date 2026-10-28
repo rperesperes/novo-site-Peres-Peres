@@ -63,9 +63,9 @@ const HOME_SEGMENTOS_ATUACAO = [
   'Clínicas e Profissionais da Saúde',
   'Profissões Regulamentadas',
   'Holdings Familiares e Patrimoniais',
-  'E-commerce',
+  'E-commerces',
   'Agências de Viagem',
-  'Educação e Treinamento',
+  'Educação e Treinamentos',
   'Publicidade e Comunicação',
 ]
 
@@ -265,6 +265,7 @@ export default function Index() {
             </h2>
             <p className="text-neutral-600 text-base leading-relaxed">
               Atendimento com domínio das peculiaridades tributárias, trabalhistas e regulatórias,
+              <br />
               especialmente dos seguintes nichos:
             </p>
           </div>
@@ -410,18 +411,10 @@ export default function Index() {
               lastreada nas regras da Receita Federal e decisões consolidadas dos tribunais
               superiores.
             </p>
-            <div className="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+            <div className="pt-4 flex justify-center">
               <Button
                 size="lg"
                 className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold text-base h-12 px-8"
-                asChild
-              >
-                <Link to="/contato">Agendar Consulta Inicial</Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-white border-neutral-700 bg-transparent hover:bg-neutral-900 text-base h-12 px-8"
                 asChild
               >
                 <Link to="/contato">Agendar Reunião</Link>
