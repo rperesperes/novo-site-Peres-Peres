@@ -2,94 +2,161 @@ const fs = require('fs')
 const path = require('path')
 const zlib = require('zlib')
 
-// Generates a valid 180x180 PNG file for apple-touch-icon.png using Node.js built-in modules (zlib)
-// Design: Black rounded background with gold (#FAB319) double-P monogram matching PERES PERES brand
-const WIDTH = 180
-const HEIGHT = 180
+// Parse PNG image from favicon.ico
+const icoPath = path.resolve(__dirname, '../public/favicon.ico')
+const icoBuf = fs.readFileSync(icoPath)
 
-// Create raw uncompressed image data (RGBA): each scanline starts with filter byte 0
-const rawData = Buffer.alloc(HEIGHT * (1 + WIDTH * 4))
+const size = icoBuf.readUInt32LE(6 + 8)
+const offset = icoBuf.readUInt32LE(6 + 12)
+const pngBuf = icoBuf.subarray(offset, offset + size)
 
-const BG_COLOR = [10, 10, 10, 255] // #0A0A0A
-const GOLD_COLOR = [250, 179, 25, 255] // #FAB319
+// Parse PNG chunks
+let pos = 8 // skip PNG signature
+let width = 0
+let height = 0
+let bitDepth = 0
+let colorType = 0
+const idatChunks = []
 
-// Monogram check on coordinate (x, y)
-function isP1(x, y) {
-  // P1 box: x: 42 to 102, y: 45 to 135
-  const inStem = x >= 42 && x <= 58 && y >= 45 && y <= 135
-  const inTopBar = x >= 42 && x <= 95 && y >= 45 && y <= 60
-  const inMidBar = x >= 42 && x <= 95 && y >= 82 && y <= 97
-  // Loop curve: outer circle centered around (80, 71) radius 26, inner radius 11
-  const dx = x - 80
-  const dy = y - 71
-  const distSq = dx * dx + dy * dy
-  const inLoopRight = x >= 78 && distSq <= 26 * 26 && distSq >= 11 * 11
+while (pos < pngBuf.length) {
+  const length = pngBuf.readUInt32BE(pos)
+  const type = pngBuf.toString('ascii', pos + 4, pos + 8)
+  const data = pngBuf.subarray(pos + 8, pos + 8 + length)
+  pos += 12 + length // length (4) + type (4) + data (length) + crc (4)
 
-  return inStem || inTopBar || inMidBar || inLoopRight
+  if (type === 'IHDR') {
+    width = data.readUInt32BE(0)
+    height = data.readUInt32BE(4)
+    bitDepth = data[8]
+    colorType = data[9]
+  } else if (type === 'IDAT') {
+    idatChunks.push(data)
+  }
 }
 
-function isP2(x, y) {
-  // P2 box: shifted right by 40px: x: 82 to 142, y: 45 to 135
-  const inStem = x >= 84 && x <= 100 && y >= 45 && y <= 135
-  const inTopBar = x >= 84 && x <= 137 && y >= 45 && y <= 60
-  const inMidBar = x >= 84 && x <= 137 && y >= 82 && y <= 97
-  const dx = x - 122
-  const dy = y - 71
-  const distSq = dx * dx + dy * dy
-  const inLoopRight = x >= 120 && distSq <= 26 * 26 && distSq >= 11 * 11
+const compressedIdat = Buffer.concat(idatChunks)
+const decompressed = zlib.inflateSync(compressedIdat)
 
-  return inStem || inTopBar || inMidBar || inLoopRight
+// Deconstruct uncompressed scanlines:
+// width x height, 4 bytes per pixel (RGBA, bitDepth 8, colorType 6)
+// Each scanline has 1 filter byte + width * 4 bytes
+const srcPixels = Buffer.alloc(width * height * 4)
+const bytesPerPixel = 4
+const stride = width * bytesPerPixel
+
+let prevRow = Buffer.alloc(stride)
+
+function paethPredictor(a, b, c) {
+  const p = a + b - c
+  const pa = Math.abs(p - a)
+  const pb = Math.abs(p - b)
+  const pc = Math.abs(p - c)
+  if (pa <= pb && pa <= pc) return a
+  if (pb <= pc) return b
+  return c
 }
 
-for (let y = 0; y < HEIGHT; y++) {
-  const lineOffset = y * (1 + WIDTH * 4)
-  rawData[lineOffset] = 0 // Filter type: None
+let srcOffset = 0
+for (let y = 0; y < height; y++) {
+  const filterType = decompressed[srcOffset++]
+  const currentRow = Buffer.alloc(stride)
 
-  for (let x = 0; x < WIDTH; x++) {
-    const pixelOffset = lineOffset + 1 + x * 4
+  for (let x = 0; x < stride; x++) {
+    const rawVal = decompressed[srcOffset++]
+    const a = x >= bytesPerPixel ? currentRow[x - bytesPerPixel] : 0
+    const b = prevRow[x]
+    const c = x >= bytesPerPixel ? prevRow[x - bytesPerPixel] : 0
 
-    // Check if in P1 or P2
-    if (isP1(x, y) || isP2(x, y)) {
-      rawData[pixelOffset] = GOLD_COLOR[0]
-      rawData[pixelOffset + 1] = GOLD_COLOR[1]
-      rawData[pixelOffset + 2] = GOLD_COLOR[2]
-      rawData[pixelOffset + 3] = GOLD_COLOR[3]
-    } else {
-      rawData[pixelOffset] = BG_COLOR[0]
-      rawData[pixelOffset + 1] = BG_COLOR[1]
-      rawData[pixelOffset + 2] = BG_COLOR[2]
-      rawData[pixelOffset + 3] = BG_COLOR[3]
+    let reconVal = 0
+    if (filterType === 0) {
+      // None
+      reconVal = rawVal
+    } else if (filterType === 1) {
+      // Sub
+      reconVal = (rawVal + a) & 0xff
+    } else if (filterType === 2) {
+      // Up
+      reconVal = (rawVal + b) & 0xff
+    } else if (filterType === 3) {
+      // Average
+      reconVal = (rawVal + Math.floor((a + b) / 2)) & 0xff
+    } else if (filterType === 4) {
+      // Paeth
+      reconVal = (rawVal + paethPredictor(a, b, c)) & 0xff
+    }
+    currentRow[x] = reconVal
+  }
+
+  currentRow.copy(srcPixels, y * stride)
+  prevRow = currentRow
+}
+
+// Check sample pixels to understand colors and background
+const cornerPixel = [srcPixels[0], srcPixels[1], srcPixels[2], srcPixels[3]]
+console.log('Original dimensions:', width, height, 'BitDepth:', bitDepth, 'ColorType:', colorType)
+console.log('Corner pixel (RGBA):', cornerPixel)
+
+// Write SVG using Base64 data URI of the original PNG (256x256) embedded in <image>
+const base64Png = pngBuf.toString('base64')
+const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}">
+  <image width="${width}" height="${height}" href="data:image/png;base64,${base64Png}" />
+</svg>
+`
+
+fs.writeFileSync(path.resolve(__dirname, '../public/favicon.svg'), svgContent, 'utf8')
+console.log('Saved public/favicon.svg')
+
+// Generate 180x180 apple-touch-icon.png with bilinear interpolation
+const DST_W = 180
+const DST_H = 180
+const dstPixels = Buffer.alloc(DST_W * DST_H * 4)
+
+for (let dy = 0; dy < DST_H; dy++) {
+  // map dy to sy
+  const sy = (dy + 0.5) * (height / DST_H) - 0.5
+  const y0 = Math.max(0, Math.min(height - 1, Math.floor(sy)))
+  const y1 = Math.max(0, Math.min(height - 1, y0 + 1))
+  const fy = Math.max(0, Math.min(1, sy - y0))
+
+  for (let dx = 0; dx < DST_W; dx++) {
+    const sx = (dx + 0.5) * (width / DST_W) - 0.5
+    const x0 = Math.max(0, Math.min(width - 1, Math.floor(sx)))
+    const x1 = Math.max(0, Math.min(width - 1, x0 + 1))
+    const fx = Math.max(0, Math.min(1, sx - x0))
+
+    const dstIdx = (dy * DST_W + dx) * 4
+
+    for (let c = 0; c < 4; c++) {
+      const p00 = srcPixels[(y0 * width + x0) * 4 + c]
+      const p10 = srcPixels[(y0 * width + x1) * 4 + c]
+      const p01 = srcPixels[(y1 * width + x0) * 4 + c]
+      const p11 = srcPixels[(y1 * width + x1) * 4 + c]
+
+      const top = p00 * (1 - fx) + p10 * fx
+      const bot = p01 * (1 - fx) + p11 * fx
+      const val = Math.round(top * (1 - fy) + bot * fy)
+      dstPixels[dstIdx + c] = Math.max(0, Math.min(255, val))
     }
   }
 }
 
-// Compress image data with zlib deflate
-const compressedData = zlib.deflateSync(rawData)
-
-// Helper to create PNG chunk with CRC32
-function createChunk(type, data) {
-  const length = data.length
-  const buffer = Buffer.alloc(12 + length)
-  buffer.writeUInt32BE(length, 0)
-  buffer.write(type, 4, 4, 'ascii')
-  data.copy(buffer, 8)
-
-  const crcData = buffer.subarray(4, 8 + length)
-  const crc = crc32(crcData)
-  buffer.writeInt32BE(crc, 8 + length)
-  return buffer
+// Encode dstPixels into standard PNG (180x180 RGBA)
+const dstScanlines = Buffer.alloc(DST_H * (1 + DST_W * 4))
+for (let y = 0; y < DST_H; y++) {
+  const lineOffset = y * (1 + DST_W * 4)
+  dstScanlines[lineOffset] = 0 // Filter: None
+  dstPixels.copy(dstScanlines, lineOffset + 1, y * DST_W * 4, (y + 1) * DST_W * 4)
 }
 
-// Standard PNG CRC32 table
+const compressedDst = zlib.deflateSync(dstScanlines)
+
+// Helper to create PNG chunk with CRC32
 const crcTable = new Int32Array(256)
 for (let n = 0; n < 256; n++) {
   let c = n
   for (let k = 0; k < 8; k++) {
-    if (c & 1) {
-      c = 0xedb88320 ^ (c >>> 1)
-    } else {
-      c = c >>> 1
-    }
+    if (c & 1) c = 0xedb88320 ^ (c >>> 1)
+    else c = c >>> 1
   }
   crcTable[n] = c
 }
@@ -102,28 +169,33 @@ function crc32(buf) {
   return c ^ -1
 }
 
-// PNG Signature: 89 50 4E 47 0D 0A 1A 0A
+function createChunk(type, data) {
+  const buf = Buffer.alloc(12 + data.length)
+  buf.writeUInt32BE(data.length, 0)
+  buf.write(type, 4, 4, 'ascii')
+  data.copy(buf, 8)
+  const crc = crc32(buf.subarray(4, 8 + data.length))
+  buf.writeInt32BE(crc, 8 + data.length)
+  return buf
+}
+
 const signature = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10])
-
-// IHDR Chunk: 13 bytes
 const ihdrData = Buffer.alloc(13)
-ihdrData.writeUInt32BE(WIDTH, 0)
-ihdrData.writeUInt32BE(HEIGHT, 4)
-ihdrData[8] = 8 // bit depth: 8 bits/channel
-ihdrData[9] = 6 // color type: 6 (RGBA)
-ihdrData[10] = 0 // compression: deflate
-ihdrData[11] = 0 // filter: standard
-ihdrData[12] = 0 // interlace: none
+ihdrData.writeUInt32BE(DST_W, 0)
+ihdrData.writeUInt32BE(DST_H, 4)
+ihdrData[8] = 8 // bit depth: 8
+ihdrData[9] = 6 // color type: RGBA
+ihdrData[10] = 0
+ihdrData[11] = 0
+ihdrData[12] = 0
+
 const ihdrChunk = createChunk('IHDR', ihdrData)
-
-// IDAT Chunk
-const idatChunk = createChunk('IDAT', compressedData)
-
-// IEND Chunk
+const idatChunk = createChunk('IDAT', compressedDst)
 const iendChunk = createChunk('IEND', Buffer.alloc(0))
 
-const finalPng = Buffer.concat([signature, ihdrChunk, idatChunk, iendChunk])
-
-const outPath = path.resolve(__dirname, '../public/apple-touch-icon.png')
-fs.writeFileSync(outPath, finalPng)
-console.log(`Successfully generated ${outPath} (${finalPng.length} bytes, ${WIDTH}x${HEIGHT})`)
+const finalApplePng = Buffer.concat([signature, ihdrChunk, idatChunk, iendChunk])
+const appleTouchPath = path.resolve(__dirname, '../public/apple-touch-icon.png')
+fs.writeFileSync(appleTouchPath, finalApplePng)
+console.log(
+  `Successfully generated ${appleTouchPath} (${finalApplePng.length} bytes, ${DST_W}x${DST_H})`,
+)
