@@ -1339,7 +1339,7 @@ export default function SimplesNacionalHibridoCalculator() {
               id="quem-costuma-ganhar-e-perder"
               className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
-              quem costuma ganhar e quem costuma perder com essa opção
+              quem costuma ganhar e quem costuma perder
             </h2>
             <div className="space-y-4 text-neutral-700 text-base leading-relaxed">
               <p>
@@ -1402,7 +1402,7 @@ export default function SimplesNacionalHibridoCalculator() {
               id="creditos-de-icms-para-o-cliente"
               className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
-              o que acontece com os créditos de ICMS para o cliente da empresa
+              o efeito no crédito de ICMS do cliente da empresa
             </h2>
             <div className="space-y-4 text-neutral-700 text-base leading-relaxed">
               <p>
@@ -1437,7 +1437,7 @@ export default function SimplesNacionalHibridoCalculator() {
               id="erros-comuns-avaliacao-hibrido"
               className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
-              erros comuns na avaliação do Simples Híbrido
+              erros comuns na avaliação do híbrido
             </h2>
             <div className="space-y-4 text-neutral-700 text-base leading-relaxed">
               <p>
@@ -1732,14 +1732,14 @@ export default function SimplesNacionalHibridoCalculator() {
           </div>
         </section>
 
-        {/* Bloco de chamada para contato com o escritório */}
+        {/* Bloco de chamada final apontando para a seção Consultoria Tributária em /servicos */}
         <section
           aria-labelledby="cta-final-hibrido-title"
           className="bg-neutral-950 text-white rounded-2xl p-8 md:p-12 text-center"
         >
           <div className="max-w-2xl mx-auto space-y-5">
             <div className="inline-block border border-neutral-800 px-3 py-1 rounded text-xs uppercase tracking-wider text-neutral-400 font-mono">
-              PERES PERES Consultoria e Contabilidade
+              Consultoria Tributária • PERES PERES
             </div>
 
             <h2
@@ -1750,18 +1750,29 @@ export default function SimplesNacionalHibridoCalculator() {
             </h2>
 
             <p className="text-neutral-400 text-sm md:text-base leading-relaxed">
-              Nossa equipe tributária analisa créditos acumulados de ICMS, sublimites estaduais e
-              estrutura pareceres formais para assegurar conformidade sem pagamento em duplicidade.
+              Nossa equipe estrutura pareceres formais de enquadramento, auditoria de créditos
+              acumulados de ICMS, sublimites estaduais e planejamento tributário personalizado para
+              garantir eficiência e conformidade fiscal sem recolhimento em duplicidade.
             </p>
 
-            {/* Ponto focal com amarelo #FAB319 */}
-            <div className="pt-3 flex justify-center">
+            {/* Ponto focal com amarelo #FAB319 apontando para a seção Consultoria Tributária na página de serviços */}
+            <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button
                 asChild
                 size="lg"
-                className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold text-base h-12 px-8 shadow-sm"
+                className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold text-base h-12 px-8 shadow-sm w-full sm:w-auto"
               >
-                <Link to="/contato">Agendar Análise com a Equipe Técnica</Link>
+                <Link to="/servicos#consultoria-tributaria">
+                  Conhecer Nossa Consultoria Tributária
+                </Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="border-neutral-700 bg-transparent text-white hover:bg-neutral-900 hover:text-white font-medium text-base h-12 px-6 w-full sm:w-auto"
+              >
+                <Link to="/contato">Fale com um Especialista</Link>
               </Button>
             </div>
           </div>

@@ -39,6 +39,18 @@ export default function Layout() {
           document.title = 'Calculadora fator r: Anexo III ou V | PERES PERES'
         } else if (slug === 'simples-nacional-ou-lucro-presumido') {
           document.title = 'Simples ou Lucro Presumido: qual paga menos | PERES'
+        } else if (slug === 'simples-nacional-hibrido') {
+          document.title = 'calculadora simples nacional hibrido: icms e iss | PERES'
+        } else if (slug === 'custo-de-funcionario-clt') {
+          document.title = 'calculadora custo funcionário clt: encargos | PERES'
+        } else if (slug === 'pj-ou-clt') {
+          document.title = 'calculadora pj ou clt: comparativo | PERES PERES'
+        } else if (slug === 'juros-de-mora-de-tributos') {
+          document.title = 'calculadora juros de mora selic: tributos | PERES'
+        } else if (slug === 'irpf-e-restituicao') {
+          document.title = 'calculadora irpf e restituição: 2026 | PERES PERES'
+        } else if (slug === 'juros-de-financiamento') {
+          document.title = 'calculadora juros financiamento: price e sac | PERES'
         } else {
           document.title = `${foundCalc.name}, em desenvolvimento | PERES PERES Consultoria e Contabilidade`
         }
