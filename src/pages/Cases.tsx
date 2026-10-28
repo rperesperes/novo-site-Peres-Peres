@@ -100,7 +100,7 @@ export default function Cases() {
               to="/contato"
               className="inline-flex items-center justify-center rounded-md text-sm font-semibold h-11 px-8 bg-[#FAB319] hover:bg-[#e0a116] text-black transition-colors"
             >
-              Agendar Consultoria Técnica
+              Agendar Reunião
             </Link>
           </div>
         </div>

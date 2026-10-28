@@ -11,7 +11,7 @@ export function WhatsAppButton() {
 
   const url =
     SITE_INFO.whatsappUrl ||
-    `https://wa.me/${digits}?text=${encodeURIComponent('Olá, gostaria de agendar uma consultoria tributária.')}`
+    `https://wa.me/${digits}?text=${encodeURIComponent('Olá, gostaria de agendar uma reunião.')}`
 
   return (
     <a

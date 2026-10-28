@@ -1,1 +1,3 @@
+/blog https://blog.peresperes.com.br 301!
+/blog/* https://blog.peresperes.com.br 301!
 /* /index.html 200

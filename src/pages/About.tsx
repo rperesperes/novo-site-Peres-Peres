@@ -12,26 +12,32 @@ interface TeamMember {
   photo?: string
   initials?: string
   alt: string
+  description?: string[]
 }
 
 const TEAM_MEMBERS: TeamMember[] = [
   {
-    name: 'Clarissa Lebeis',
-    role: 'Graduanda em Ciências Contábeis - UnB',
-    initials: 'CL',
-    alt: 'Clarissa Lebeis - Graduanda em Ciências Contábeis na Universidade de Brasília (UnB)',
+    name: 'Gabriela Feitosa',
+    role: 'Contadora e Perita Contábil',
+    photo: gabrielaImg,
+    alt: 'Gabriela Feitosa - Contadora e Perita Contábil',
   },
   {
     name: 'William Lisboa',
     role: 'Graduando em Ciências Contábeis - UnB',
     photo: williamImg,
     alt: 'William Lisboa - Graduando em Ciências Contábeis na Universidade de Brasília (UnB)',
+    description: [
+      'Estudante de contabilidade e profissional da área contábil, com atuação no departamento contábil e experiência em Contabilidade Gerencial e Análise de Dados aplicada à gestão financeira e administrativa.',
+      'Graduando em Ciências Contábeis pela Universidade de Brasília (UnB), com previsão de conclusão em 2026, possui também formação profissional em Análise de Dados pelo Google.',
+      'Ao longo de sua trajetória profissional, desenvolveu habilidades em análise de dados, produção de relatórios contábeis e liderança, que lhe conferem perfil analítico, domínio de ferramentas de organização e tratamento de dados, além de sólida compreensão dos princípios contábeis.',
+    ],
   },
   {
-    name: 'Gabriela Feitosa',
-    role: 'Contadora e Perita Contábil',
-    photo: gabrielaImg,
-    alt: 'Gabriela Feitosa - Contadora e Perita Contábil',
+    name: 'Clarissa Lebeis',
+    role: 'Graduanda em Ciências Contábeis - UnB',
+    initials: 'CL',
+    alt: 'Clarissa Lebeis - Graduanda em Ciências Contábeis na Universidade de Brasília (UnB)',
   },
 ]
 
@@ -199,6 +205,13 @@ export default function About() {
                     <p className="text-xs md:text-sm text-neutral-600 leading-snug">
                       {member.role}
                     </p>
+                    {member.description && (
+                      <div className="mt-4 pt-4 border-t border-neutral-100 text-left space-y-2.5 text-xs text-neutral-600 leading-relaxed">
+                        {member.description.map((paragraph, pIdx) => (
+                          <p key={pIdx}>{paragraph}</p>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               </Card>

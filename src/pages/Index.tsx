@@ -376,8 +376,8 @@ export default function Index() {
 
               <ul className="grid sm:grid-cols-2 gap-4 mt-6">
                 {[
-                  'Membro CDESCMAT/DF',
-                  'Jornadas de Finanças Públicas (BA)',
+                  'Membro da Comissão de Contabilidade Tributária do CRC-DF',
+                  'Membro da Comissão de Assuntos Tributários da OAB-DF',
                   'Atuação perante órgãos fazendários',
                   'Pesquisa em Direito Tributário',
                 ].map((item, i) => (
@@ -395,7 +395,8 @@ export default function Index() {
                   asChild
                 >
                   <Link to="/sobre">
-                    Conhecer histórico profissional completo <ArrowRight className="ml-2 h-4 w-4" />
+                    Conheça a equipe e a trajetória profissional{' '}
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>

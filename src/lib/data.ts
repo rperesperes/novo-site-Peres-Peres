@@ -3,10 +3,13 @@ export const SITE_INFO = {
   phone: '(61) 3686-1689',
   whatsapp: '(61) 3686-1689',
   whatsappUrl:
-    'https://wa.me/556136861689?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consultoria%20tribut%C3%A1ria.',
+    'https://wa.me/556136861689?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20reuni%C3%A3o.',
   email: 'contato@peresperes.com.br',
   address: 'Sede em Brasília/DF',
   crc: 'CRC 027704/O',
+  instagramUrl: 'https://www.instagram.com/peresperes.com.br',
+  linkedinUrl: 'https://www.linkedin.com/company/peresperes',
+  blogUrl: 'https://blog.peresperes.com.br',
 }
 
 export const SERVICES = [

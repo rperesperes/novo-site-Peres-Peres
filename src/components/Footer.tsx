@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { SITE_INFO } from '@/lib/data'
-import { MapPin, Phone, Mail, MessageSquare, Linkedin, Instagram, Youtube } from 'lucide-react'
+import { MapPin, Mail, MessageSquare, Linkedin, Instagram } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useToast } from '@/hooks/use-toast'
@@ -83,9 +83,14 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="hover:text-[#FAB319] transition-colors">
-                  Blog Tributário
-                </Link>
+                <a
+                  href="https://blog.peresperes.com.br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#FAB319] transition-colors"
+                >
+                  Blog
+                </a>
               </li>
               <li>
                 <Link to="/recursos" className="hover:text-[#FAB319] transition-colors">
@@ -133,25 +138,22 @@ export function Footer() {
             </form>
             <div className="flex items-center gap-4 mt-8">
               <a
-                href="#"
-                className="text-neutral-400 hover:text-white transition-colors"
+                href="https://www.linkedin.com/company/peresperes"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-neutral-400 hover:text-[#FAB319] transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
-                href="#"
-                className="text-neutral-400 hover:text-white transition-colors"
+                href="https://www.instagram.com/peresperes.com.br"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-neutral-400 hover:text-[#FAB319] transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="text-neutral-400 hover:text-white transition-colors"
-                aria-label="YouTube"
-              >
-                <Youtube className="h-5 w-5" />
               </a>
             </div>
           </div>

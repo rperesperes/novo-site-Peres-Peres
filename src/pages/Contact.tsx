@@ -19,6 +19,7 @@ import { SITE_INFO } from '@/lib/data'
 import { createContactRequest } from '@/services/contact_requests'
 
 export default function Contact() {
+  const whatsappUrl = SITE_INFO.whatsappUrl
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [telefone, setTelefone] = useState('')
@@ -96,12 +97,13 @@ export default function Contact() {
         url: 'https://peresperes.com.br/contato',
         name: 'Fale com o escritório | PERES PERES Consultoria e Contabilidade',
         description:
-          'Canal de contato da PERES PERES Consultoria e Contabilidade em Brasília. Agende consultoria tributária especializada.',
+          'Canal de contato da PERES PERES Consultoria e Contabilidade em Brasília. Agende uma reunião especializada.',
         mainEntity: {
           '@type': 'AccountingService',
           name: SITE_INFO.name,
           telephone: '+55-61-3686-1689',
           email: SITE_INFO.email,
+          sameAs: [SITE_INFO.instagramUrl, SITE_INFO.linkedinUrl],
           address: {
             '@type': 'PostalAddress',
             addressLocality: 'Brasília',
@@ -204,11 +206,7 @@ export default function Contact() {
                   asChild
                   className="w-full bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold h-12 text-sm shadow-sm flex items-center justify-center gap-2"
                 >
-                  <a
-                    href="https://wa.me/556136861689?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consultoria%20tribut%C3%A1ria"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                     <MessageSquare className="h-4 w-4" />
                     Conversar pelo WhatsApp
                   </a>
@@ -294,7 +292,7 @@ export default function Contact() {
                     <p className="text-red-800 leading-relaxed">{errorMessage}</p>
                     <div className="pt-2 flex flex-wrap gap-2">
                       <a
-                        href="https://wa.me/556136861689?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consultoria%20tribut%C3%A1ria"
+                        href={whatsappUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold text-xs transition-colors"

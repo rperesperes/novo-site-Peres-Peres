@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { name: 'Sobre Nós', path: '/sobre' },
   { name: 'Serviços', path: '/servicos' },
   { name: 'Casos de Sucesso', path: '/casos' },
-  { name: 'Blog', path: '/blog' },
+  { name: 'Blog', path: 'https://blog.peresperes.com.br', external: true },
   { name: 'Recursos', path: '/recursos' },
   { name: 'Calculadoras', path: '/calculadoras' },
 ]
@@ -52,27 +52,39 @@ export function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-6">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={cn(
-                'text-sm transition-colors',
-                location.pathname === link.path ||
-                  (link.path === '/casos' && location.pathname.startsWith('/casos')) ||
-                  (link.path === '/calculadoras' && location.pathname.startsWith('/calculadoras'))
-                  ? 'text-white font-medium underline decoration-[#FAB319] decoration-2 underline-offset-8'
-                  : 'text-neutral-300 hover:text-white',
-              )}
-            >
-              {link.name}
-            </Link>
-          ))}
+          {NAV_LINKS.map((link) =>
+            link.external ? (
+              <a
+                key={link.path}
+                href={link.path}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm transition-colors text-neutral-300 hover:text-white"
+              >
+                {link.name}
+              </a>
+            ) : (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={cn(
+                  'text-sm transition-colors',
+                  location.pathname === link.path ||
+                    (link.path === '/casos' && location.pathname.startsWith('/casos')) ||
+                    (link.path === '/calculadoras' && location.pathname.startsWith('/calculadoras'))
+                    ? 'text-white font-medium underline decoration-[#FAB319] decoration-2 underline-offset-8'
+                    : 'text-neutral-300 hover:text-white',
+                )}
+              >
+                {link.name}
+              </Link>
+            ),
+          )}
           <Button
             asChild
             className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold border-none px-5 py-2 shadow-sm transition-colors"
           >
-            <Link to="/contato">Agendar Consultoria</Link>
+            <Link to="/contato">Agendar Reunião</Link>
           </Button>
         </nav>
 
@@ -89,29 +101,41 @@ export function Header() {
             className="w-[300px] sm:w-[400px] bg-black border-l-gray-800 text-white"
           >
             <nav className="flex flex-col gap-4 mt-8">
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={cn(
-                    'block px-2 py-2 text-base transition-colors',
-                    location.pathname === link.path ||
-                      (link.path === '/casos' && location.pathname.startsWith('/casos')) ||
-                      (link.path === '/calculadoras' &&
-                        location.pathname.startsWith('/calculadoras'))
-                      ? 'text-white font-semibold border-l-2 border-[#FAB319] pl-3'
-                      : 'text-neutral-300 hover:text-white',
-                  )}
-                >
-                  {link.name}
-                </Link>
-              ))}
+              {NAV_LINKS.map((link) =>
+                link.external ? (
+                  <a
+                    key={link.path}
+                    href={link.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-2 py-2 text-base transition-colors text-neutral-300 hover:text-white"
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className={cn(
+                      'block px-2 py-2 text-base transition-colors',
+                      location.pathname === link.path ||
+                        (link.path === '/casos' && location.pathname.startsWith('/casos')) ||
+                        (link.path === '/calculadoras' &&
+                          location.pathname.startsWith('/calculadoras'))
+                        ? 'text-white font-semibold border-l-2 border-[#FAB319] pl-3'
+                        : 'text-neutral-300 hover:text-white',
+                    )}
+                  >
+                    {link.name}
+                  </Link>
+                ),
+              )}
               <div className="mt-4 flex flex-col gap-2">
                 <Button
                   asChild
                   className="w-full bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold"
                 >
-                  <Link to="/contato">Agendar Consultoria</Link>
+                  <Link to="/contato">Agendar Reunião</Link>
                 </Button>
               </div>
             </nav>

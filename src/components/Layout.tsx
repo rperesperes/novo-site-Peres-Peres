@@ -17,7 +17,6 @@ export default function Layout() {
       '/sobre': 'Sobre Nós | PERES PERES Consultoria e Contabilidade',
       '/servicos': 'Serviços e Planos Contábeis | PERES PERES Consultoria e Contabilidade',
       '/casos': 'Casos Reais | PERES PERES Consultoria e Contabilidade',
-      '/blog': 'Blog Tributário | PERES PERES Consultoria e Contabilidade',
       '/recursos': 'Recursos e Materiais | PERES PERES Consultoria e Contabilidade',
       '/glossario': 'Glossário Tributário | PERES PERES Consultoria e Contabilidade',
       '/contato': 'Fale com o Escritório | PERES PERES Consultoria e Contabilidade',
