@@ -57,8 +57,6 @@ export function Header() {
               <a
                 key={link.path}
                 href={link.path}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="text-sm transition-colors text-neutral-300 hover:text-white"
               >
                 {link.name}
@@ -106,8 +104,6 @@ export function Header() {
                   <a
                     key={link.path}
                     href={link.path}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="block px-2 py-2 text-base transition-colors text-neutral-300 hover:text-white"
                   >
                     {link.name}

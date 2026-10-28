@@ -85,8 +85,6 @@ export function Footer() {
               <li>
                 <a
                   href="https://blog.peresperes.com.br"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="hover:text-[#FAB319] transition-colors"
                 >
                   Blog
