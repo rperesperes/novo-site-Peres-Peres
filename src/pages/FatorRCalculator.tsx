@@ -240,7 +240,7 @@ export default function FatorRCalculator() {
           </div>
 
           {/* Título principal (H1) exatamente como solicitado */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-black mb-5 leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-5 leading-tight">
             Calculadora de Fator R: seu serviço cai no Anexo III ou Anexo V
           </h1>
 
@@ -263,7 +263,7 @@ export default function FatorRCalculator() {
               <Calculator className="h-5 w-5 text-neutral-900" />
               <h2
                 id="calculadora-interativa-heading"
-                className="text-xl md:text-2xl font-serif font-bold text-black"
+                className="text-xl md:text-2xl font-bold text-black"
               >
                 Simulação em Tempo Real
               </h2>
@@ -357,7 +357,7 @@ export default function FatorRCalculator() {
                     <span className="text-xs text-neutral-600 block mb-1">2. Anexo resultante</span>
                     <div className="flex items-center gap-2">
                       {/* Ponto focal 1: Destaque sutil com #FAB319 na identificação do enquadramento */}
-                      <span className="inline-block bg-[#FAB319] text-black font-serif font-bold text-2xl md:text-3xl px-3 py-0.5 rounded">
+                      <span className="inline-block bg-[#FAB319] text-black font-bold text-2xl md:text-3xl px-3 py-0.5 rounded">
                         {calculation.isAnexoIII ? 'Anexo III' : 'Anexo V'}
                       </span>
                     </div>
@@ -470,7 +470,7 @@ export default function FatorRCalculator() {
           <div className="border border-neutral-200 rounded-lg p-5 bg-neutral-50">
             <div className="flex items-center gap-2 mb-3">
               <FileCheck2 className="h-4 w-4 text-neutral-800" />
-              <h3 className="text-sm font-serif font-bold text-black uppercase tracking-wider">
+              <h3 className="text-sm font-bold text-black uppercase tracking-wider">
                 Memória de Cálculo Aberta
               </h3>
             </div>
@@ -546,7 +546,7 @@ export default function FatorRCalculator() {
           <section aria-labelledby="o-que-e-fator-r">
             <h2
               id="o-que-e-fator-r"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               O que é o Fator R
             </h2>
@@ -573,7 +573,7 @@ export default function FatorRCalculator() {
           <section aria-labelledby="como-fator-r-e-calculado">
             <h2
               id="como-fator-r-e-calculado"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               Como o Fator R é calculado
             </h2>
@@ -622,7 +622,7 @@ export default function FatorRCalculator() {
           <section aria-labelledby="o-que-entra-e-nao-entra">
             <h2
               id="o-que-entra-e-nao-entra"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               O que entra e o que não entra no cálculo da folha de salários
             </h2>
@@ -637,7 +637,7 @@ export default function FatorRCalculator() {
               <div className="grid md:grid-cols-2 gap-6 my-6">
                 {/* Entra */}
                 <div className="border border-neutral-300 bg-white rounded-lg p-5">
-                  <h3 className="font-serif font-bold text-lg text-black mb-3 pb-2 border-b border-neutral-200">
+                  <h3 className="font-bold text-lg text-black mb-3 pb-2 border-b border-neutral-200">
                     O que entra no cálculo da folha (FS12)
                   </h3>
                   <ul className="space-y-2 text-sm text-neutral-700 list-disc pl-5">
@@ -670,7 +670,7 @@ export default function FatorRCalculator() {
 
                 {/* Não entra */}
                 <div className="border border-neutral-300 bg-white rounded-lg p-5">
-                  <h3 className="font-serif font-bold text-lg text-black mb-3 pb-2 border-b border-neutral-200">
+                  <h3 className="font-bold text-lg text-black mb-3 pb-2 border-b border-neutral-200">
                     O que NÃO entra no cálculo da folha
                   </h3>
                   <ul className="space-y-2 text-sm text-neutral-700 list-disc pl-5">
@@ -708,7 +708,7 @@ export default function FatorRCalculator() {
           <section aria-labelledby="diferenca-pratica-anexo-iii-v">
             <h2
               id="diferenca-pratica-anexo-iii-v"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               A diferença prática entre o Anexo III e o Anexo V
             </h2>
@@ -729,7 +729,7 @@ export default function FatorRCalculator() {
               <div className="my-6 border border-neutral-300 rounded-lg overflow-x-auto bg-white shadow-sm">
                 <table className="w-full text-left text-xs md:text-sm border-collapse">
                   <thead>
-                    <tr className="bg-neutral-100 border-b border-neutral-300 text-neutral-900 font-serif">
+                    <tr className="bg-neutral-100 border-b border-neutral-300 text-neutral-900">
                       <th className="p-3 border-r border-neutral-200 font-bold">Faixa</th>
                       <th className="p-3 border-r border-neutral-200 font-bold">
                         Receita Bruta em 12 Meses (R$)
@@ -856,7 +856,7 @@ export default function FatorRCalculator() {
           <section aria-labelledby="erros-comuns-fator-r">
             <h2
               id="erros-comuns-fator-r"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               Erros comuns ao calcular o Fator R
             </h2>
@@ -874,7 +874,7 @@ export default function FatorRCalculator() {
                     <span className="font-mono text-xs bg-neutral-100 border border-neutral-300 px-2 py-0.5 rounded font-semibold text-neutral-800">
                       Erro 01
                     </span>
-                    <h3 className="font-serif font-bold text-base text-black">
+                    <h3 className="font-bold text-base text-black">
                       Desconsiderar o pró-labore na soma da folha de salários
                     </h3>
                   </div>
@@ -897,7 +897,7 @@ export default function FatorRCalculator() {
                     <span className="font-mono text-xs bg-neutral-100 border border-neutral-300 px-2 py-0.5 rounded font-semibold text-neutral-800">
                       Erro 02
                     </span>
-                    <h3 className="font-serif font-bold text-base text-black">
+                    <h3 className="font-bold text-base text-black">
                       Utilizar a receita de período fiscal divergente (ano-calendário)
                     </h3>
                   </div>
@@ -918,7 +918,7 @@ export default function FatorRCalculator() {
                     <span className="font-mono text-xs bg-neutral-100 border border-neutral-300 px-2 py-0.5 rounded font-semibold text-neutral-800">
                       Erro 03
                     </span>
-                    <h3 className="font-serif font-bold text-base text-black">
+                    <h3 className="font-bold text-base text-black">
                       Incluir distribuição de lucros ou pagamentos a PJ como folha de pagamento
                     </h3>
                   </div>
@@ -940,7 +940,7 @@ export default function FatorRCalculator() {
                     <span className="font-mono text-xs bg-neutral-100 border border-neutral-300 px-2 py-0.5 rounded font-semibold text-neutral-800">
                       Erro 04
                     </span>
-                    <h3 className="font-serif font-bold text-base text-black">
+                    <h3 className="font-bold text-base text-black">
                       Calcular a proporção com o faturamento isolado do mês corrente
                     </h3>
                   </div>
@@ -968,7 +968,7 @@ export default function FatorRCalculator() {
             <Scale className="h-5 w-5 text-neutral-800 shrink-0 mt-0.5" />
             <div>
               <div className="flex items-center gap-2 mb-1 flex-wrap">
-                <h3 id="vigencia-title" className="font-serif font-bold text-base text-black">
+                <h3 id="vigencia-title" className="font-bold text-base text-black">
                   Vigência Normativa e Base Legal Aplicada
                 </h3>
                 <span className="text-xs font-mono bg-neutral-100 text-neutral-800 px-2 py-0.5 rounded border border-neutral-300">
@@ -997,7 +997,7 @@ export default function FatorRCalculator() {
           <div className="flex items-start gap-3">
             <AlertCircle className="h-5 w-5 text-neutral-700 shrink-0 mt-0.5" />
             <div>
-              <h3 id="aviso-legal-title" className="font-serif font-bold text-base text-black mb-1">
+              <h3 id="aviso-legal-title" className="font-bold text-base text-black mb-1">
                 Aviso de Conformidade Legal
               </h3>
               <p className="text-sm text-neutral-700 leading-relaxed">
@@ -1024,10 +1024,7 @@ export default function FatorRCalculator() {
               <HelpCircle className="h-3.5 w-3.5 text-black" />
               Perguntas Frequentes
             </div>
-            <h2
-              id="faq-fator-r-title"
-              className="text-2xl md:text-3xl font-serif font-bold text-black"
-            >
+            <h2 id="faq-fator-r-title" className="text-2xl md:text-3xl font-bold text-black">
               Dúvidas Técnicas sobre o Fator R
             </h2>
           </div>
@@ -1040,7 +1037,7 @@ export default function FatorRCalculator() {
                   value={`item-${index}`}
                   className="border-b border-neutral-200 last:border-b-0 pb-2"
                 >
-                  <AccordionTrigger className="text-left font-serif font-semibold text-base md:text-lg text-black hover:no-underline hover:text-neutral-700 py-3">
+                  <AccordionTrigger className="text-left font-semibold text-base md:text-lg text-black hover:no-underline hover:text-neutral-700 py-3">
                     {faq.q}
                   </AccordionTrigger>
                   <AccordionContent className="text-neutral-700 text-sm md:text-base leading-relaxed pt-2 pb-4">
@@ -1060,7 +1057,7 @@ export default function FatorRCalculator() {
             </span>
             <h2
               id="calculadoras-relacionadas-title"
-              className="text-xl md:text-2xl font-serif font-bold text-black"
+              className="text-xl md:text-2xl font-bold text-black"
             >
               Calculadoras Relacionadas
             </h2>
@@ -1075,7 +1072,7 @@ export default function FatorRCalculator() {
                 <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-1">
                   Regime Tributário
                 </span>
-                <h3 className="font-serif font-bold text-base text-black mb-2 group-hover:underline">
+                <h3 className="font-bold text-base text-black mb-2 group-hover:underline">
                   Simples Nacional ou Lucro Presumido
                 </h3>
                 <p className="text-xs text-neutral-600 leading-relaxed">
@@ -1096,7 +1093,7 @@ export default function FatorRCalculator() {
                 <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-1">
                   Folha e Trabalhista
                 </span>
-                <h3 className="font-serif font-bold text-base text-black mb-2 group-hover:underline">
+                <h3 className="font-bold text-base text-black mb-2 group-hover:underline">
                   Pró-labore ou Dividendos
                 </h3>
                 <p className="text-xs text-neutral-600 leading-relaxed">
@@ -1117,7 +1114,7 @@ export default function FatorRCalculator() {
                 <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-1">
                   Folha e Trabalhista
                 </span>
-                <h3 className="font-serif font-bold text-base text-black mb-2 group-hover:underline">
+                <h3 className="font-bold text-base text-black mb-2 group-hover:underline">
                   Custo de Funcionário CLT
                 </h3>
                 <p className="text-xs text-neutral-600 leading-relaxed">
@@ -1144,7 +1141,7 @@ export default function FatorRCalculator() {
 
             <h2
               id="cta-final-title"
-              className="text-2xl md:text-3xl font-serif font-bold text-white leading-tight"
+              className="text-2xl md:text-3xl font-bold text-white leading-tight"
             >
               Precisa de um diagnóstico tributário formal para sua empresa?
             </h2>

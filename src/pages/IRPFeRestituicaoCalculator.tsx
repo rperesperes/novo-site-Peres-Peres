@@ -488,7 +488,7 @@ export default function IRPFeRestituicaoCalculator() {
           </div>
 
           {/* Título principal (H1) exatamente como solicitado */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-black mb-5 leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-5 leading-tight">
             Calculadora de IRPF, quanto você vai pagar ou receber de restituição
           </h1>
 
@@ -509,7 +509,7 @@ export default function IRPFeRestituicaoCalculator() {
               <Calculator className="h-5 w-5 text-neutral-900" />
               <h2
                 id="calculadora-irpf-heading"
-                className="text-xl md:text-2xl font-serif font-bold text-black"
+                className="text-xl md:text-2xl font-bold text-black"
               >
                 Simulação de IRPF e Restituição Anual
               </h2>
@@ -617,9 +617,7 @@ export default function IRPFeRestituicaoCalculator() {
                 <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 block">
                   Deduções Legais do Modelo Completo
                 </span>
-                <h3 className="font-serif font-bold text-base text-black">
-                  Despesas dedutíveis comprovadas
-                </h3>
+                <h3 className="font-bold text-base text-black">Despesas dedutíveis comprovadas</h3>
               </div>
 
               <div className="grid md:grid-cols-3 gap-5">
@@ -774,21 +772,21 @@ export default function IRPFeRestituicaoCalculator() {
                   <div className="flex items-center gap-3">
                     {calculation.statusResultado === 'restituicao' && (
                       <>
-                        <span className="inline-block bg-[#FAB319] text-black font-serif font-bold text-2xl md:text-3xl px-3.5 py-1 rounded">
+                        <span className="inline-block bg-[#FAB319] text-black font-bold text-2xl md:text-3xl px-3.5 py-1 rounded">
                           RESTITUIÇÃO A RECEBER
                         </span>
                       </>
                     )}
                     {calculation.statusResultado === 'pagar' && (
                       <>
-                        <span className="inline-block bg-neutral-900 text-white font-serif font-bold text-2xl md:text-3xl px-3.5 py-1 rounded">
+                        <span className="inline-block bg-neutral-900 text-white font-bold text-2xl md:text-3xl px-3.5 py-1 rounded">
                           IMPOSTO A PAGAR
                         </span>
                       </>
                     )}
                     {calculation.statusResultado === 'zerado' && (
                       <>
-                        <span className="inline-block bg-neutral-200 text-black font-serif font-bold text-2xl md:text-3xl px-3.5 py-1 rounded">
+                        <span className="inline-block bg-neutral-200 text-black font-bold text-2xl md:text-3xl px-3.5 py-1 rounded">
                           SALDO ZERADO
                         </span>
                       </>
@@ -913,7 +911,7 @@ export default function IRPFeRestituicaoCalculator() {
           <div className="border border-neutral-200 rounded-lg p-5 bg-neutral-50">
             <div className="flex items-center gap-2 mb-3">
               <FileCheck2 className="h-4 w-4 text-neutral-800" />
-              <h3 className="text-sm font-serif font-bold text-black uppercase tracking-wider">
+              <h3 className="text-sm font-bold text-black uppercase tracking-wider">
                 Memória de Cálculo Aberta Faixa por Faixa
               </h3>
             </div>
@@ -1107,7 +1105,7 @@ export default function IRPFeRestituicaoCalculator() {
           <section aria-labelledby="como-funciona-a-tabela-progressiva-do-irpf">
             <h2
               id="como-funciona-a-tabela-progressiva-do-irpf"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               como funciona a tabela progressiva do IRPF
             </h2>
@@ -1136,7 +1134,7 @@ export default function IRPFeRestituicaoCalculator() {
               <div className="my-6 border border-neutral-300 rounded-lg overflow-x-auto bg-white shadow-sm">
                 <table className="w-full text-left text-xs md:text-sm border-collapse">
                   <thead>
-                    <tr className="bg-neutral-100 border-b border-neutral-300 text-neutral-900 font-serif">
+                    <tr className="bg-neutral-100 border-b border-neutral-300 text-neutral-900">
                       <th className="p-3 border-r border-neutral-200 font-bold">Faixa</th>
                       <th className="p-3 border-r border-neutral-200 font-bold">
                         Base de Cálculo Anual (R$)
@@ -1222,7 +1220,7 @@ export default function IRPFeRestituicaoCalculator() {
           <section aria-labelledby="o-que-pode-ser-deduzido-e-o-que-nao-pode">
             <h2
               id="o-que-pode-ser-deduzido-e-o-que-nao-pode"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               o que pode ser deduzido e o que não pode
             </h2>
@@ -1238,7 +1236,7 @@ export default function IRPFeRestituicaoCalculator() {
               <div className="grid md:grid-cols-2 gap-6 my-6">
                 {/* O que PODE ser deduzido */}
                 <div className="border border-neutral-300 bg-white rounded-lg p-5">
-                  <h3 className="font-serif font-bold text-lg text-black mb-3 pb-2 border-b border-neutral-200">
+                  <h3 className="font-bold text-lg text-black mb-3 pb-2 border-b border-neutral-200">
                     O que PODE ser deduzido
                   </h3>
                   <ul className="space-y-2.5 text-sm text-neutral-700 list-disc pl-5">
@@ -1284,7 +1282,7 @@ export default function IRPFeRestituicaoCalculator() {
 
                 {/* O que NÃO PODE ser deduzido */}
                 <div className="border border-neutral-300 bg-white rounded-lg p-5">
-                  <h3 className="font-serif font-bold text-lg text-black mb-3 pb-2 border-b border-neutral-200">
+                  <h3 className="font-bold text-lg text-black mb-3 pb-2 border-b border-neutral-200">
                     O que NÃO PODE ser deduzido
                   </h3>
                   <ul className="space-y-2.5 text-sm text-neutral-700 list-disc pl-5">
@@ -1332,7 +1330,7 @@ export default function IRPFeRestituicaoCalculator() {
           <section aria-labelledby="modelo-simplificado-contra-completo">
             <h2
               id="modelo-simplificado-contra-completo"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               modelo simplificado contra completo, e quais os limites de cada um
             </h2>
@@ -1353,9 +1351,7 @@ export default function IRPFeRestituicaoCalculator() {
                   <div className="inline-block bg-neutral-900 text-white text-xs font-mono uppercase px-2.5 py-0.5 rounded mb-2">
                     Modelo Simplificado
                   </div>
-                  <h3 className="font-serif font-bold text-lg text-black mb-2">
-                    Desconto Padrão de 20%
-                  </h3>
+                  <h3 className="font-bold text-lg text-black mb-2">Desconto Padrão de 20%</h3>
                   <p className="text-sm text-neutral-700 leading-relaxed mb-3">
                     Substitui todas as deduções legais permitidas por um desconto padrão fixado em{' '}
                     <strong>20% sobre a soma dos rendimentos tributáveis</strong>, independentemente
@@ -1379,9 +1375,7 @@ export default function IRPFeRestituicaoCalculator() {
                   <div className="inline-block bg-neutral-900 text-white text-xs font-mono uppercase px-2.5 py-0.5 rounded mb-2">
                     Modelo Completo
                   </div>
-                  <h3 className="font-serif font-bold text-lg text-black mb-2">
-                    Deduções Legais Comprovadas
-                  </h3>
+                  <h3 className="font-bold text-lg text-black mb-2">Deduções Legais Comprovadas</h3>
                   <p className="text-sm text-neutral-700 leading-relaxed mb-3">
                     Aplica integralmente todas as deduções admitidas pela legislação (dependentes,
                     despesas médicas, instrução, previdência oficial e PGBL), exigindo guarda dos
@@ -1418,7 +1412,7 @@ export default function IRPFeRestituicaoCalculator() {
           <section aria-labelledby="quem-e-obrigado-a-entregar-a-declaracao">
             <h2
               id="quem-e-obrigado-a-entregar-a-declaracao"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               quem é obrigado a entregar a declaração
             </h2>
@@ -1511,7 +1505,7 @@ export default function IRPFeRestituicaoCalculator() {
           <section aria-labelledby="erros-comuns-na-declaracao">
             <h2
               id="erros-comuns-na-declaracao"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               erros comuns na declaração
             </h2>
@@ -1534,7 +1528,7 @@ export default function IRPFeRestituicaoCalculator() {
                     <span className="font-mono text-xs bg-neutral-100 border border-neutral-300 px-2 py-0.5 rounded font-semibold text-neutral-800">
                       Erro 01
                     </span>
-                    <h3 className="font-serif font-bold text-base text-black">
+                    <h3 className="font-bold text-base text-black">
                       Omitir rendimentos auferidos pelos dependentes incluídos na declaração
                     </h3>
                   </div>
@@ -1557,7 +1551,7 @@ export default function IRPFeRestituicaoCalculator() {
                     <span className="font-mono text-xs bg-neutral-100 border border-neutral-300 px-2 py-0.5 rounded font-semibold text-neutral-800">
                       Erro 02
                     </span>
-                    <h3 className="font-serif font-bold text-base text-black">
+                    <h3 className="font-bold text-base text-black">
                       Lançar despesas médicas sem recibo idôneo ou com divergência na DMED
                     </h3>
                   </div>
@@ -1581,7 +1575,7 @@ export default function IRPFeRestituicaoCalculator() {
                     <span className="font-mono text-xs bg-neutral-100 border border-neutral-300 px-2 py-0.5 rounded font-semibold text-neutral-800">
                       Erro 03
                     </span>
-                    <h3 className="font-serif font-bold text-base text-black">
+                    <h3 className="font-bold text-base text-black">
                       Classificar plano VGBL como PGBL para tentar deduzir na base de cálculo
                     </h3>
                   </div>
@@ -1604,7 +1598,7 @@ export default function IRPFeRestituicaoCalculator() {
                     <span className="font-mono text-xs bg-neutral-100 border border-neutral-300 px-2 py-0.5 rounded font-semibold text-neutral-800">
                       Erro 04
                     </span>
-                    <h3 className="font-serif font-bold text-base text-black">
+                    <h3 className="font-bold text-base text-black">
                       Perder o prazo de transmissão da declaração anual de ajuste
                     </h3>
                   </div>
@@ -1634,7 +1628,7 @@ export default function IRPFeRestituicaoCalculator() {
             <Scale className="h-5 w-5 text-neutral-800 shrink-0 mt-0.5" />
             <div>
               <div className="flex items-center gap-2 mb-1 flex-wrap">
-                <h3 id="vigencia-title" className="font-serif font-bold text-base text-black">
+                <h3 id="vigencia-title" className="font-bold text-base text-black">
                   Vigência Normativa e Base Legal Aplicada
                 </h3>
                 <span className="text-[11px] font-mono bg-neutral-100 text-neutral-800 px-2 py-0.5 rounded border border-neutral-300 font-semibold">
@@ -1667,7 +1661,7 @@ export default function IRPFeRestituicaoCalculator() {
           <div className="flex items-start gap-3">
             <AlertCircle className="h-5 w-5 text-neutral-700 shrink-0 mt-0.5" />
             <div>
-              <h3 id="aviso-legal-title" className="font-serif font-bold text-base text-black mb-1">
+              <h3 id="aviso-legal-title" className="font-bold text-base text-black mb-1">
                 Aviso de Estimativa e Conformidade Técnica
               </h3>
               <p className="text-sm text-neutral-700 leading-relaxed">
@@ -1695,10 +1689,7 @@ export default function IRPFeRestituicaoCalculator() {
               <HelpCircle className="h-3.5 w-3.5 text-black" />
               Perguntas Frequentes
             </div>
-            <h2
-              id="faq-irpf-title"
-              className="text-2xl md:text-3xl font-serif font-bold text-black"
-            >
+            <h2 id="faq-irpf-title" className="text-2xl md:text-3xl font-bold text-black">
               Dúvidas Técnicas sobre IRPF e Restituição
             </h2>
           </div>
@@ -1711,7 +1702,7 @@ export default function IRPFeRestituicaoCalculator() {
                   value={`item-${index}`}
                   className="border-b border-neutral-200 last:border-b-0 pb-2"
                 >
-                  <AccordionTrigger className="text-left font-serif font-semibold text-base md:text-lg text-black hover:no-underline hover:text-neutral-700 py-3">
+                  <AccordionTrigger className="text-left font-semibold text-base md:text-lg text-black hover:no-underline hover:text-neutral-700 py-3">
                     {faq.q}
                   </AccordionTrigger>
                   <AccordionContent className="text-neutral-700 text-sm md:text-base leading-relaxed pt-2 pb-4">
@@ -1731,7 +1722,7 @@ export default function IRPFeRestituicaoCalculator() {
             </span>
             <h2
               id="calculadoras-relacionadas-title"
-              className="text-xl md:text-2xl font-serif font-bold text-black"
+              className="text-xl md:text-2xl font-bold text-black"
             >
               Calculadoras Relacionadas
             </h2>
@@ -1747,7 +1738,7 @@ export default function IRPFeRestituicaoCalculator() {
                 <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-1">
                   Folha e Trabalhista
                 </span>
-                <h3 className="font-serif font-bold text-base text-black mb-2 group-hover:underline">
+                <h3 className="font-bold text-base text-black mb-2 group-hover:underline">
                   Pró-labore ou Dividendos
                 </h3>
                 <p className="text-xs text-neutral-600 leading-relaxed">
@@ -1770,7 +1761,7 @@ export default function IRPFeRestituicaoCalculator() {
                 <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-1">
                   Finanças e Tributos
                 </span>
-                <h3 className="font-serif font-bold text-base text-black mb-2 group-hover:underline">
+                <h3 className="font-bold text-base text-black mb-2 group-hover:underline">
                   Juros de Mora de Tributos
                 </h3>
                 <p className="text-xs text-neutral-600 leading-relaxed">
@@ -1793,7 +1784,7 @@ export default function IRPFeRestituicaoCalculator() {
                 <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-1">
                   Folha e Trabalhista
                 </span>
-                <h3 className="font-serif font-bold text-base text-black mb-2 group-hover:underline">
+                <h3 className="font-bold text-base text-black mb-2 group-hover:underline">
                   PJ ou CLT
                 </h3>
                 <p className="text-xs text-neutral-600 leading-relaxed">
@@ -1821,7 +1812,7 @@ export default function IRPFeRestituicaoCalculator() {
 
             <h2
               id="cta-final-title"
-              className="text-2xl md:text-3xl font-serif font-bold text-white leading-tight"
+              className="text-2xl md:text-3xl font-bold text-white leading-tight"
             >
               Precisa de auxílio contábil para sua Declaração de IRPF?
             </h2>

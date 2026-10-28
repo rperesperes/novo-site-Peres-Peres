@@ -116,7 +116,7 @@ export default function CalculatorsHub() {
             Ferramentas Técnicas Abertas
           </div>
 
-          <h1 className="text-3xl md:text-5xl font-serif font-bold text-black mb-6 leading-tight">
+          <h1 className="text-3xl md:text-5xl font-bold text-black mb-6 leading-tight">
             Calculadoras tributárias, trabalhistas e contábeis gratuitas
           </h1>
 
@@ -157,7 +157,7 @@ export default function CalculatorsHub() {
                 </div>
                 <h2
                   id={`categoria-${catIdx}`}
-                  className="text-2xl md:text-3xl font-serif font-bold text-black mb-2"
+                  className="text-2xl md:text-3xl font-bold text-black mb-2"
                 >
                   {category.title}
                 </h2>
@@ -177,7 +177,7 @@ export default function CalculatorsHub() {
                           {calc.updatedAt}
                         </span>
                       </div>
-                      <CardTitle className="text-lg md:text-xl font-serif font-bold text-black leading-snug">
+                      <CardTitle className="text-lg md:text-xl font-bold text-black leading-snug">
                         {calc.name}
                       </CardTitle>
                       <CardDescription className="text-xs md:text-sm text-neutral-600 leading-relaxed pt-2">
@@ -223,7 +223,7 @@ export default function CalculatorsHub() {
             </span>
             <h2
               id="confiabilidade-title"
-              className="text-2xl md:text-4xl font-serif font-bold text-black mb-4"
+              className="text-2xl md:text-4xl font-bold text-black mb-4"
             >
               Por que os números daqui são confiáveis
             </h2>
@@ -239,9 +239,7 @@ export default function CalculatorsHub() {
               <div className="p-3 bg-neutral-100 rounded-lg w-fit mb-4">
                 <Scale className="h-5 w-5 text-black" />
               </div>
-              <h3 className="font-serif font-semibold text-lg text-black mb-2">
-                Citação da base legal
-              </h3>
+              <h3 className="font-semibold text-lg text-black mb-2">Citação da base legal</h3>
               <p className="text-xs md:text-sm text-neutral-600 leading-relaxed">
                 Cada cálculo é fundamentado no dispositivo normativo correspondente (Leis
                 Complementares, Decretos, Instruções Normativas da RFB e resoluções vigentes),
@@ -253,9 +251,7 @@ export default function CalculatorsHub() {
               <div className="p-3 bg-neutral-100 rounded-lg w-fit mb-4">
                 <Calendar className="h-5 w-5 text-black" />
               </div>
-              <h3 className="font-serif font-semibold text-lg text-black mb-2">
-                Atualização das tabelas
-              </h3>
+              <h3 className="font-semibold text-lg text-black mb-2">Atualização das tabelas</h3>
               <p className="text-xs md:text-sm text-neutral-600 leading-relaxed">
                 Informamos expressamente o mês e ano de revisão das alíquotas, faixas e
                 coeficientes. Mudanças legislativas e novas tabelas são refletidas periodicamente em
@@ -267,9 +263,7 @@ export default function CalculatorsHub() {
               <div className="p-3 bg-neutral-100 rounded-lg w-fit mb-4">
                 <FileSpreadsheet className="h-5 w-5 text-black" />
               </div>
-              <h3 className="font-serif font-semibold text-lg text-black mb-2">
-                Memória de cálculo aberta
-              </h3>
+              <h3 className="font-semibold text-lg text-black mb-2">Memória de cálculo aberta</h3>
               <p className="text-xs md:text-sm text-neutral-600 leading-relaxed">
                 Exibição integral das etapas da operação aritmética, dedução de parcelas a deduzir e
                 alíquotas efetivas, viabilizando a auditoria e a conferência por qualquer contador
@@ -286,10 +280,7 @@ export default function CalculatorsHub() {
               <HelpCircle className="h-3.5 w-3.5 text-black" />
               Dúvidas Técnicas Frequentes
             </div>
-            <h2
-              id="faq-title"
-              className="text-3xl md:text-4xl font-serif font-bold text-black mb-3"
-            >
+            <h2 id="faq-title" className="text-3xl md:text-4xl font-bold text-black mb-3">
               Perguntas Frequentes sobre as Calculadoras
             </h2>
             <p className="text-neutral-600 text-sm md:text-base">
@@ -305,7 +296,7 @@ export default function CalculatorsHub() {
                   value={`item-${index}`}
                   className="border-b border-neutral-200 last:border-b-0 pb-2"
                 >
-                  <AccordionTrigger className="text-left font-serif font-semibold text-base md:text-lg text-black hover:no-underline hover:text-neutral-700 py-3">
+                  <AccordionTrigger className="text-left font-semibold text-base md:text-lg text-black hover:no-underline hover:text-neutral-700 py-3">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-neutral-700 text-sm md:text-base leading-relaxed pt-2 pb-4">
@@ -330,7 +321,7 @@ export default function CalculatorsHub() {
 
             <h2
               id="contato-callout-title"
-              className="text-2xl md:text-4xl font-serif font-bold text-white leading-tight"
+              className="text-2xl md:text-4xl font-bold text-white leading-tight"
             >
               Deseja validar seus cenários com um tributarista?
             </h2>

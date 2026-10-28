@@ -456,7 +456,7 @@ export default function JurosDeFinanciamentoCalculator() {
           </div>
 
           {/* TÍTULO PRINCIPAL (H1 EXATO DO USUÁRIO): Calculadora de financiamento, veja quanto você paga de juros */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-black mb-5 leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-5 leading-tight">
             Calculadora de financiamento, veja quanto você paga de juros
           </h1>
 
@@ -512,7 +512,7 @@ export default function JurosDeFinanciamentoCalculator() {
               <Calculator className="h-5 w-5 text-neutral-900" />
               <h2
                 id="calculadora-financiamento-heading"
-                className="text-xl md:text-2xl font-serif font-bold text-black"
+                className="text-xl md:text-2xl font-bold text-black"
               >
                 Parâmetros do Financiamento
               </h2>
@@ -635,7 +635,7 @@ export default function JurosDeFinanciamentoCalculator() {
           <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-lg text-emerald-950 text-sm mb-8 flex items-start gap-3">
             <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
             <div>
-              <strong className="font-serif text-base text-emerald-950 block">
+              <strong className="text-base text-emerald-950 block">
                 {calculations.textoMenorCusto}
               </strong>
               <p className="text-xs text-emerald-800 mt-1">
@@ -673,7 +673,7 @@ export default function JurosDeFinanciamentoCalculator() {
                     <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 block">
                       Sistema Francês
                     </span>
-                    <h3 className="text-xl font-serif font-bold text-black">Tabela Price</h3>
+                    <h3 className="text-xl font-bold text-black">Tabela Price</h3>
                   </div>
                   <span className="text-xs font-mono bg-neutral-100 px-2.5 py-1 rounded border border-neutral-200 text-neutral-700">
                     Parcelas Fixas
@@ -732,7 +732,7 @@ export default function JurosDeFinanciamentoCalculator() {
                     <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 block">
                       Amortização Constante
                     </span>
-                    <h3 className="text-xl font-serif font-bold text-black">Sistema SAC</h3>
+                    <h3 className="text-xl font-bold text-black">Sistema SAC</h3>
                   </div>
                   <span className="text-xs font-mono bg-emerald-100 text-emerald-900 px-2.5 py-1 rounded border border-emerald-200 font-semibold">
                     Menor Juro Total
@@ -825,7 +825,7 @@ export default function JurosDeFinanciamentoCalculator() {
               <div>
                 <div className="flex items-center gap-2">
                   <FileSpreadsheet className="h-5 w-5 text-neutral-900" />
-                  <h3 className="font-serif font-bold text-lg text-black">
+                  <h3 className="font-bold text-lg text-black">
                     Evolução do Saldo Devedor ({selectedSystem === 'price' ? 'Price' : 'SAC'})
                   </h3>
                 </div>
@@ -909,7 +909,7 @@ export default function JurosDeFinanciamentoCalculator() {
             <div className="flex items-center justify-between pb-4 border-b border-neutral-200 mb-4">
               <div className="flex items-center gap-2">
                 <Receipt className="h-5 w-5 text-neutral-900" />
-                <h3 className="font-serif font-bold text-lg text-black">
+                <h3 className="font-bold text-lg text-black">
                   Memória de Cálculo Aberta (Fórmulas e Números Digitados)
                 </h3>
               </div>
@@ -928,7 +928,7 @@ export default function JurosDeFinanciamentoCalculator() {
               {/* Memória Price */}
               <div className="p-4 border border-neutral-200 rounded-lg bg-neutral-50 space-y-3 font-mono text-xs">
                 <div className="flex items-center justify-between border-b border-neutral-200 pb-2">
-                  <span className="font-serif font-bold text-sm text-black">
+                  <span className="font-bold text-sm text-black">
                     1. Sistema Price (Prestação Fixa)
                   </span>
                   <span className="bg-neutral-200 px-2 py-0.5 rounded text-[11px]">
@@ -937,7 +937,7 @@ export default function JurosDeFinanciamentoCalculator() {
                 </div>
                 <div className="p-3 bg-white border border-neutral-200 rounded text-neutral-800">
                   <strong>Fórmula geral:</strong>
-                  <div className="mt-1 font-serif text-sm">
+                  <div className="mt-1 text-sm font-sans">
                     PMT = PV × [ i × (1 + i)<sup>n</sup> ] / [ (1 + i)<sup>n</sup> − 1 ]
                   </div>
                 </div>
@@ -995,7 +995,7 @@ export default function JurosDeFinanciamentoCalculator() {
               {/* Memória SAC */}
               <div className="p-4 border border-neutral-200 rounded-lg bg-neutral-50 space-y-3 font-mono text-xs">
                 <div className="flex items-center justify-between border-b border-neutral-200 pb-2">
-                  <span className="font-serif font-bold text-sm text-black">
+                  <span className="font-bold text-sm text-black">
                     2. Sistema SAC (Amortização Constante)
                   </span>
                   <span className="bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded text-[11px] font-semibold">
@@ -1004,7 +1004,7 @@ export default function JurosDeFinanciamentoCalculator() {
                 </div>
                 <div className="p-3 bg-white border border-neutral-200 rounded text-neutral-800">
                   <strong>Fórmulas gerais:</strong>
-                  <div className="mt-1 font-serif text-sm">
+                  <div className="mt-1 text-sm font-sans">
                     A = PV / n &nbsp;|&nbsp; J<sub>k</sub> = Saldo<sub>k−1</sub> × i &nbsp;|&nbsp;
                     PMT<sub>k</sub> = A + J<sub>k</sub>
                   </div>
@@ -1082,7 +1082,7 @@ export default function JurosDeFinanciamentoCalculator() {
             <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 block mb-2">
               Doutrina Financeira e Engenharia de Crédito
             </span>
-            <h2 className="text-2xl md:text-3xl font-serif font-bold text-black mb-3">
+            <h2 className="text-2xl md:text-3xl font-bold text-black mb-3">
               Guia Técnico sobre Sistemas de Amortização e Custo Real de Financiamentos
             </h2>
             <p className="text-sm text-neutral-600">
@@ -1096,7 +1096,7 @@ export default function JurosDeFinanciamentoCalculator() {
             <section aria-labelledby="subtitulo-price-sac">
               <h3
                 id="subtitulo-price-sac"
-                className="text-xl md:text-2xl font-serif font-bold text-black mb-3"
+                className="text-xl md:text-2xl font-bold text-black mb-3"
               >
                 1. A diferença entre Price e SAC
               </h3>
@@ -1141,7 +1141,7 @@ export default function JurosDeFinanciamentoCalculator() {
             >
               <h3
                 id="subtitulo-sac-juros"
-                className="text-xl md:text-2xl font-serif font-bold text-black mb-3"
+                className="text-xl md:text-2xl font-bold text-black mb-3"
               >
                 2. Por que o SAC tem parcela inicial maior e total de juros menor
               </h3>
@@ -1158,7 +1158,7 @@ export default function JurosDeFinanciamentoCalculator() {
               </p>
               <div className="grid sm:grid-cols-2 gap-4 my-4 font-mono text-xs">
                 <div className="p-4 bg-neutral-100 rounded-lg border border-neutral-200">
-                  <span className="font-serif font-bold text-sm text-black block mb-2">
+                  <span className="font-bold text-sm text-black block mb-2">
                     Cenário Price (Prestação R$ 2.544)
                   </span>
                   <p className="text-neutral-700">
@@ -1170,7 +1170,7 @@ export default function JurosDeFinanciamentoCalculator() {
                   </p>
                 </div>
                 <div className="p-4 bg-emerald-50 rounded-lg border border-emerald-200">
-                  <span className="font-serif font-bold text-sm text-emerald-950 block mb-2">
+                  <span className="font-bold text-sm text-emerald-950 block mb-2">
                     Cenário SAC (1ª Prestação R$ 3.233)
                   </span>
                   <p className="text-emerald-900">• Juros no 1º mês: R$ 2.400,00</p>
@@ -1193,10 +1193,7 @@ export default function JurosDeFinanciamentoCalculator() {
 
             {/* 3. o que é o CET e por que ele importa mais que a taxa contratada */}
             <section aria-labelledby="subtitulo-cet" className="pt-6 border-t border-neutral-200">
-              <h3
-                id="subtitulo-cet"
-                className="text-xl md:text-2xl font-serif font-bold text-black mb-3"
-              >
+              <h3 id="subtitulo-cet" className="text-xl md:text-2xl font-bold text-black mb-3">
                 3. O que é o CET e por que ele importa mais que a taxa contratada
               </h3>
               <p>
@@ -1214,7 +1211,7 @@ export default function JurosDeFinanciamentoCalculator() {
                 de garantia desproporcionais, custos mensais de manutenção de conta e apólices de
                 seguro com prêmios superfaturados.
               </p>
-              <div className="p-4 bg-neutral-100 rounded-lg border-l-4 border-neutral-900 my-4 text-sm font-serif italic text-neutral-900">
+              <div className="p-4 bg-neutral-100 rounded-lg border-l-4 border-neutral-900 my-4 text-sm italic text-neutral-900">
                 &ldquo;O CET representa a taxa interna de retorno (TIR) que iguala o valor líquido
                 disponibilizado ao tomador à soma de todas as prestações e encargos exigidos ao
                 longo do contrato.&rdquo;
@@ -1235,7 +1232,7 @@ export default function JurosDeFinanciamentoCalculator() {
             >
               <h3
                 id="subtitulo-seguros-tarifas"
-                className="text-xl md:text-2xl font-serif font-bold text-black mb-3"
+                className="text-xl md:text-2xl font-bold text-black mb-3"
               >
                 4. Como seguros e tarifas entram no custo real do financiamento
               </h3>
@@ -1246,7 +1243,7 @@ export default function JurosDeFinanciamentoCalculator() {
               </p>
               <div className="space-y-4 my-4">
                 <div className="p-4 border border-neutral-200 rounded-lg bg-neutral-50">
-                  <h4 className="font-serif font-bold text-black text-base mb-1">
+                  <h4 className="font-bold text-black text-base mb-1">
                     A. Seguro MIP (Morte e Invalidez Permanente)
                   </h4>
                   <p className="text-sm text-neutral-700">
@@ -1258,7 +1255,7 @@ export default function JurosDeFinanciamentoCalculator() {
                 </div>
 
                 <div className="p-4 border border-neutral-200 rounded-lg bg-neutral-50">
-                  <h4 className="font-serif font-bold text-black text-base mb-1">
+                  <h4 className="font-bold text-black text-base mb-1">
                     B. Seguro DFI (Danos Físicos ao Imóvel)
                   </h4>
                   <p className="text-sm text-neutral-700">
@@ -1269,7 +1266,7 @@ export default function JurosDeFinanciamentoCalculator() {
                 </div>
 
                 <div className="p-4 border border-neutral-200 rounded-lg bg-neutral-50">
-                  <h4 className="font-serif font-bold text-black text-base mb-1">
+                  <h4 className="font-bold text-black text-base mb-1">
                     C. Taxa de Administração de Contrato (TAC / Manutenção Mensal)
                   </h4>
                   <p className="text-sm text-neutral-700">
@@ -1281,7 +1278,7 @@ export default function JurosDeFinanciamentoCalculator() {
                 </div>
 
                 <div className="p-4 border border-neutral-200 rounded-lg bg-neutral-50">
-                  <h4 className="font-serif font-bold text-black text-base mb-1">
+                  <h4 className="font-bold text-black text-base mb-1">
                     D. Tributos (IOF) e Tarifas de Avaliação Inicial
                   </h4>
                   <p className="text-sm text-neutral-700">
@@ -1302,7 +1299,7 @@ export default function JurosDeFinanciamentoCalculator() {
             >
               <h3
                 id="subtitulo-erros-comuns"
-                className="text-xl md:text-2xl font-serif font-bold text-black mb-3"
+                className="text-xl md:text-2xl font-bold text-black mb-3"
               >
                 5. Erros comuns ao comparar financiamentos
               </h3>
@@ -1319,7 +1316,7 @@ export default function JurosDeFinanciamentoCalculator() {
                     <span className="text-xs font-mono font-bold bg-neutral-900 text-white px-2 py-0.5 rounded">
                       Exemplo Prático 01
                     </span>
-                    <h4 className="font-serif font-bold text-black text-base">
+                    <h4 className="font-bold text-black text-base">
                       Olhar apenas a primeira parcela e escolher Price sem avaliar o custo total
                     </h4>
                   </div>
@@ -1344,7 +1341,7 @@ export default function JurosDeFinanciamentoCalculator() {
                     <span className="text-xs font-mono font-bold bg-neutral-900 text-white px-2 py-0.5 rounded">
                       Exemplo Prático 02
                     </span>
-                    <h4 className="font-serif font-bold text-black text-base">
+                    <h4 className="font-bold text-black text-base">
                       Ignorar a venda casada de seguros do banco e não cotar apólice avulsa
                     </h4>
                   </div>
@@ -1370,7 +1367,7 @@ export default function JurosDeFinanciamentoCalculator() {
                     <span className="text-xs font-mono font-bold bg-neutral-900 text-white px-2 py-0.5 rounded">
                       Exemplo Prático 03
                     </span>
-                    <h4 className="font-serif font-bold text-black text-base">
+                    <h4 className="font-bold text-black text-base">
                       Comparar taxas nominais sem confrontar o Custo Efetivo Total (CET)
                     </h4>
                   </div>
@@ -1395,7 +1392,7 @@ export default function JurosDeFinanciamentoCalculator() {
                     <span className="text-xs font-mono font-bold bg-neutral-900 text-white px-2 py-0.5 rounded">
                       Exemplo Prático 04
                     </span>
-                    <h4 className="font-serif font-bold text-black text-base">
+                    <h4 className="font-bold text-black text-base">
                       Amortizar prazo versus amortizar valor da prestação sem estratégia
                     </h4>
                   </div>
@@ -1429,7 +1426,7 @@ export default function JurosDeFinanciamentoCalculator() {
             <div>
               <h3
                 id="aviso-legal-financiamento-title"
-                className="font-serif font-semibold text-base text-black mb-1"
+                className="font-semibold text-base text-black mb-1"
               >
                 Aviso Legal de Estimativa e Simulação Financeira
               </h3>
@@ -1468,7 +1465,7 @@ export default function JurosDeFinanciamentoCalculator() {
             </div>
             <h2
               id="faq-financiamento-title"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-2"
             >
               Dúvidas Frequentes sobre Juros de Financiamento
             </h2>
@@ -1486,7 +1483,7 @@ export default function JurosDeFinanciamentoCalculator() {
                   value={`item-${index}`}
                   className="border-b border-neutral-200 last:border-b-0 pb-2"
                 >
-                  <AccordionTrigger className="text-left font-serif font-semibold text-base md:text-lg text-black hover:no-underline hover:text-neutral-700 py-3">
+                  <AccordionTrigger className="text-left font-semibold text-base md:text-lg text-black hover:no-underline hover:text-neutral-700 py-3">
                     {faq.q}
                   </AccordionTrigger>
                   <AccordionContent className="text-neutral-700 text-sm md:text-base leading-relaxed pt-2 pb-4">
@@ -1508,10 +1505,7 @@ export default function JurosDeFinanciamentoCalculator() {
             <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 block mb-1">
               Ferramentas Complementares
             </span>
-            <h2
-              id="relacionadas-financiamento-title"
-              className="text-2xl font-serif font-bold text-black"
-            >
+            <h2 id="relacionadas-financiamento-title" className="text-2xl font-bold text-black">
               Calculadoras Relacionadas
             </h2>
           </div>
@@ -1523,7 +1517,7 @@ export default function JurosDeFinanciamentoCalculator() {
                 <span className="text-xs font-mono text-neutral-500 uppercase">
                   Finanças e Tributos
                 </span>
-                <CardTitle className="text-lg font-serif font-bold text-black pt-1">
+                <CardTitle className="text-lg font-bold text-black pt-1">
                   Juros de Mora de Tributos
                 </CardTitle>
                 <p className="text-xs text-neutral-600 pt-2 leading-relaxed">
@@ -1552,9 +1546,7 @@ export default function JurosDeFinanciamentoCalculator() {
                 <span className="text-xs font-mono text-neutral-500 uppercase">
                   Folha e Trabalhista
                 </span>
-                <CardTitle className="text-lg font-serif font-bold text-black pt-1">
-                  PJ ou CLT
-                </CardTitle>
+                <CardTitle className="text-lg font-bold text-black pt-1">PJ ou CLT</CardTitle>
                 <p className="text-xs text-neutral-600 pt-2 leading-relaxed">
                   Comparativo do custo total para a empresa e do valor líquido na mão do
                   profissional nos cenários de contratação PJ e CLT.
@@ -1581,7 +1573,7 @@ export default function JurosDeFinanciamentoCalculator() {
                 <span className="text-xs font-mono text-neutral-500 uppercase">
                   Regime Tributário
                 </span>
-                <CardTitle className="text-lg font-serif font-bold text-black pt-1">
+                <CardTitle className="text-lg font-bold text-black pt-1">
                   Simples Nacional ou Lucro Presumido
                 </CardTitle>
                 <p className="text-xs text-neutral-600 pt-2 leading-relaxed">
@@ -1619,7 +1611,7 @@ export default function JurosDeFinanciamentoCalculator() {
 
             <h2
               id="contato-financiamento-callout-title"
-              className="text-2xl md:text-4xl font-serif font-bold text-white leading-tight"
+              className="text-2xl md:text-4xl font-bold text-white leading-tight"
             >
               Precisa avaliar custos bancários ou reestruturar dívidas?
             </h2>

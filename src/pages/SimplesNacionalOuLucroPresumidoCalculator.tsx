@@ -479,7 +479,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
             Regime Tributário • Planejamento Fiscal
           </div>
 
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-black mb-5 leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-5 leading-tight">
             Simples Nacional ou Lucro Presumido: qual paga menos imposto
           </h1>
 
@@ -499,10 +499,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
           <div className="flex items-center justify-between pb-6 border-b border-neutral-200 mb-6">
             <div className="flex items-center gap-2">
               <Calculator className="h-5 w-5 text-neutral-900" />
-              <h2
-                id="calculadora-heading"
-                className="text-xl md:text-2xl font-serif font-bold text-black"
-              >
+              <h2 id="calculadora-heading" className="text-xl md:text-2xl font-bold text-black">
                 Simulação em Tempo Real
               </h2>
             </div>
@@ -692,7 +689,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
                       <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 block mb-1">
                         4. Veredito Comparativo e Economia
                       </span>
-                      <h3 className="text-xl md:text-2xl font-serif font-bold text-black flex items-center gap-2">
+                      <h3 className="text-xl md:text-2xl font-bold text-black flex items-center gap-2">
                         {calculation.regimeVencedor === 'simples' ? (
                           <>
                             O {/* Ponto focal #FAB319 número 1 */}
@@ -899,7 +896,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
           <div className="border border-neutral-200 rounded-lg p-5 bg-neutral-50">
             <div className="flex items-center gap-2 mb-3">
               <FileCheck2 className="h-4 w-4 text-neutral-800" />
-              <h3 className="text-sm font-serif font-bold text-black uppercase tracking-wider">
+              <h3 className="text-sm font-bold text-black uppercase tracking-wider">
                 Memória de Cálculo Aberta
               </h3>
             </div>
@@ -1105,7 +1102,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
           <section aria-labelledby="como-simples-e-calculado">
             <h2
               id="como-simples-e-calculado"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               Como o Simples Nacional é calculado
             </h2>
@@ -1152,7 +1149,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
           <section aria-labelledby="como-lucro-presumido-e-calculado">
             <h2
               id="como-lucro-presumido-e-calculado"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               Como o Lucro Presumido é calculado
             </h2>
@@ -1188,7 +1185,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
               <div className="my-6 border border-neutral-300 rounded-lg overflow-x-auto bg-white shadow-sm">
                 <table className="w-full text-left text-xs md:text-sm border-collapse">
                   <thead>
-                    <tr className="bg-neutral-100 border-b border-neutral-300 text-neutral-900 font-serif">
+                    <tr className="bg-neutral-100 border-b border-neutral-300 text-neutral-900">
                       <th className="p-3 border-r border-neutral-200 font-bold">
                         Atividade Econômica
                       </th>
@@ -1284,7 +1281,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
           <section aria-labelledby="comparacao-lado-a-lado">
             <h2
               id="comparacao-lado-a-lado"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               Comparação lado a lado em tabela
             </h2>
@@ -1298,7 +1295,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
               <div className="my-6 border border-neutral-300 rounded-lg overflow-x-auto bg-white shadow-sm">
                 <table className="w-full text-left text-xs md:text-sm border-collapse">
                   <thead>
-                    <tr className="bg-neutral-100 border-b border-neutral-300 text-neutral-900 font-serif">
+                    <tr className="bg-neutral-100 border-b border-neutral-300 text-neutral-900">
                       <th className="p-3 border-r border-neutral-200 font-bold">
                         Critério Avaliado
                       </th>
@@ -1393,7 +1390,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
           <section aria-labelledby="quando-lucro-presumido-vence">
             <h2
               id="quando-lucro-presumido-vence"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               Quando o Lucro Presumido costuma vencer
             </h2>
@@ -1407,7 +1404,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
 
               <div className="space-y-4 my-6">
                 <div className="border border-neutral-200 rounded-lg p-5 bg-white">
-                  <h3 className="font-serif font-bold text-base text-black mb-2">
+                  <h3 className="font-bold text-base text-black mb-2">
                     1. Serviços com folha de salários reduzida (Fator R &lt; 28%)
                   </h3>
                   <p className="text-sm text-neutral-700 leading-relaxed mb-2">
@@ -1427,7 +1424,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
                 </div>
 
                 <div className="border border-neutral-200 rounded-lg p-5 bg-white">
-                  <h3 className="font-serif font-bold text-base text-black mb-2">
+                  <h3 className="font-bold text-base text-black mb-2">
                     2. Empresas nas faixas finais do Simples Nacional (acima de R$ 1,8 milhão anual)
                   </h3>
                   <p className="text-sm text-neutral-700 leading-relaxed mb-2">
@@ -1444,7 +1441,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
                 </div>
 
                 <div className="border border-neutral-200 rounded-lg p-5 bg-white">
-                  <h3 className="font-serif font-bold text-base text-black mb-2">
+                  <h3 className="font-bold text-base text-black mb-2">
                     3. Margens de lucro reais muito superiores à presunção legal
                   </h3>
                   <p className="text-sm text-neutral-700 leading-relaxed mb-2">
@@ -1462,7 +1459,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
           <section aria-labelledby="limites-do-simples-nacional">
             <h2
               id="limites-do-simples-nacional"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               Limites do Simples Nacional e regras de exclusão
             </h2>
@@ -1484,7 +1481,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
               </ul>
 
               <div className="my-6 p-5 bg-neutral-50 border border-neutral-200 rounded-lg space-y-3">
-                <h3 className="font-serif font-bold text-base text-black">
+                <h3 className="font-bold text-base text-black">
                   O que acontece ao ultrapassar os limites legais:
                 </h3>
                 <div className="space-y-2 text-sm text-neutral-700">
@@ -1523,7 +1520,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
             <Scale className="h-5 w-5 text-neutral-800 shrink-0 mt-0.5" />
             <div>
               <div className="flex items-center gap-2 mb-1 flex-wrap">
-                <h3 id="vigencia-title" className="font-serif font-bold text-base text-black">
+                <h3 id="vigencia-title" className="font-bold text-base text-black">
                   Vigência Normativa e Fundamentação Legal Completa
                 </h3>
                 <span className="text-xs font-mono bg-neutral-100 text-neutral-800 px-2 py-0.5 rounded border border-neutral-300">
@@ -1567,7 +1564,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
           <div className="flex items-start gap-3">
             <AlertCircle className="h-5 w-5 text-neutral-700 shrink-0 mt-0.5" />
             <div>
-              <h3 id="aviso-legal-title" className="font-serif font-bold text-base text-black mb-1">
+              <h3 id="aviso-legal-title" className="font-bold text-base text-black mb-1">
                 Aviso Legal de Estimativa e Responsabilidade Técnica
               </h3>
               <p className="text-sm text-neutral-700 leading-relaxed">
@@ -1597,10 +1594,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
               <HelpCircle className="h-3.5 w-3.5 text-black" />
               Perguntas Frequentes
             </div>
-            <h2
-              id="faq-section-title"
-              className="text-2xl md:text-3xl font-serif font-bold text-black"
-            >
+            <h2 id="faq-section-title" className="text-2xl md:text-3xl font-bold text-black">
               Dúvidas Técnicas sobre a Comparação Tributária
             </h2>
           </div>
@@ -1613,7 +1607,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
                   value={`item-${index}`}
                   className="border-b border-neutral-200 last:border-b-0 pb-2"
                 >
-                  <AccordionTrigger className="text-left font-serif font-semibold text-base md:text-lg text-black hover:no-underline hover:text-neutral-700 py-3">
+                  <AccordionTrigger className="text-left font-semibold text-base md:text-lg text-black hover:no-underline hover:text-neutral-700 py-3">
                     {faq.q}
                   </AccordionTrigger>
                   <AccordionContent className="text-neutral-700 text-sm md:text-base leading-relaxed pt-2 pb-4">
@@ -1633,7 +1627,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
             </span>
             <h2
               id="calculadoras-relacionadas-title"
-              className="text-xl md:text-2xl font-serif font-bold text-black"
+              className="text-xl md:text-2xl font-bold text-black"
             >
               Calculadoras Relacionadas
             </h2>
@@ -1649,7 +1643,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
                 <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-1">
                   Regime Tributário
                 </span>
-                <h3 className="font-serif font-bold text-base text-black mb-2 group-hover:underline">
+                <h3 className="font-bold text-base text-black mb-2 group-hover:underline">
                   Fator R
                 </h3>
                 <p className="text-xs text-neutral-600 leading-relaxed">
@@ -1672,7 +1666,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
                 <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-1">
                   Regime Tributário
                 </span>
-                <h3 className="font-serif font-bold text-base text-black mb-2 group-hover:underline">
+                <h3 className="font-bold text-base text-black mb-2 group-hover:underline">
                   Simples Nacional Híbrido
                 </h3>
                 <p className="text-xs text-neutral-600 leading-relaxed">
@@ -1695,7 +1689,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
                 <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-1">
                   Folha e Trabalhista
                 </span>
-                <h3 className="font-serif font-bold text-base text-black mb-2 group-hover:underline">
+                <h3 className="font-bold text-base text-black mb-2 group-hover:underline">
                   Pró-labore ou Dividendos
                 </h3>
                 <p className="text-xs text-neutral-600 leading-relaxed">
@@ -1723,7 +1717,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
 
             <h2
               id="cta-escritorio-title"
-              className="text-2xl md:text-3xl font-serif font-bold text-white leading-tight"
+              className="text-2xl md:text-3xl font-bold text-white leading-tight"
             >
               Deseja um estudo tributário comparativo formal para sua empresa?
             </h2>

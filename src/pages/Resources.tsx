@@ -29,7 +29,7 @@ export default function Resources() {
     <div className="py-24 bg-background min-h-screen">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="mb-16 text-center animate-fade-in-up">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-black">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black">
             Recursos e Materiais Técnicos
           </h1>
           <p className="text-lg md:text-xl text-neutral-600 max-w-2xl mx-auto leading-relaxed">
@@ -46,9 +46,7 @@ export default function Resources() {
                 <div className="p-2 rounded bg-neutral-900 text-white">
                   <Calculator className="h-5 w-5" />
                 </div>
-                <h2 className="text-2xl md:text-3xl font-serif font-bold text-black">
-                  Calculadoras
-                </h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-black">Calculadoras</h2>
               </div>
               <p className="text-neutral-700 text-base md:text-lg leading-relaxed mb-6">
                 As ferramentas interativas e calculadoras técnicas do escritório estão
@@ -70,7 +68,7 @@ export default function Resources() {
           {/* Seção de materiais para download mantida abaixo */}
           <div className="space-y-6">
             <div>
-              <h2 className="text-2xl md:text-3xl font-serif font-bold mb-2 text-black">
+              <h2 className="text-2xl md:text-3xl font-bold mb-2 text-black">
                 Materiais Educativos e Manuais
               </h2>
               <p className="text-neutral-600 text-sm md:text-base">
@@ -95,7 +93,7 @@ export default function Resources() {
                         <Icon className="h-6 w-6" />
                       </div>
                       <div>
-                        <CardTitle className="text-lg font-serif text-black">{res.title}</CardTitle>
+                        <CardTitle className="text-lg text-black">{res.title}</CardTitle>
                         <CardDescription className="text-xs text-neutral-500">
                           {res.description}
                         </CardDescription>

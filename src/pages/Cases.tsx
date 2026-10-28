@@ -21,7 +21,7 @@ export default function Cases() {
             Atuação Técnica Comprovada
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-5 text-black">Casos Reais</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-5 text-black">Casos Reais</h1>
 
           {/* Introdução curta de 2-3 linhas explicando o sigilo e anonimização */}
           <p className="text-base md:text-lg text-neutral-700 leading-relaxed font-sans">
@@ -54,7 +54,7 @@ export default function Cases() {
                     {caseItem.dateFormatted}
                   </span>
                 </div>
-                <CardTitle className="font-serif text-xl font-bold text-black leading-snug line-clamp-2">
+                <CardTitle className="text-xl font-bold text-black leading-snug line-clamp-2">
                   <Link
                     to={`/casos/${caseItem.slug}`}
                     className="hover:text-neutral-700 transition-colors"
@@ -87,7 +87,7 @@ export default function Cases() {
         {/* Bloco de Atendimento com ponto focal amarelo #FAB319 */}
         <div className="mt-20 p-8 md:p-12 rounded-xl bg-black text-white text-center space-y-6 border border-neutral-800">
           <div className="space-y-2 max-w-2xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-serif font-bold text-white">
+            <h2 className="text-2xl md:text-3xl font-bold text-white">
               Submeta sua operação a uma avaliação técnica
             </h2>
             <p className="text-neutral-400 text-sm md:text-base leading-relaxed">

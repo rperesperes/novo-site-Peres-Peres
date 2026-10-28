@@ -19,9 +19,7 @@ export default function Glossary() {
             <BookA className="h-8 w-8 text-black" />
           </div>
           <div>
-            <h1 className="text-3xl md:text-4xl font-serif font-bold text-black">
-              Glossário Tributário
-            </h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-black">Glossário Tributário</h1>
             <p className="text-neutral-600 text-sm md:text-base">
               Conceitos fundamentais da legislação tributária e contabilidade consultiva.
             </p>
@@ -36,7 +34,7 @@ export default function Glossary() {
                 value={`item-${index}`}
                 className="border-b border-neutral-200 py-1"
               >
-                <AccordionTrigger className="text-lg font-serif font-semibold hover:text-neutral-600 text-black hover:no-underline">
+                <AccordionTrigger className="text-lg font-semibold hover:text-neutral-600 text-black hover:no-underline">
                   {item.term}
                 </AccordionTrigger>
                 <AccordionContent className="text-sm md:text-base text-neutral-700 leading-relaxed pb-4">

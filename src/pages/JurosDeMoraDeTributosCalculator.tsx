@@ -476,7 +476,7 @@ export default function JurosDeMoraDeTributosCalculator() {
           </div>
 
           {/* TÍTULO PRINCIPAL (H1 EXATO): Calculadora de juros de mora e multa de tributo em atraso */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-black mb-5 leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-5 leading-tight">
             Calculadora de juros de mora e multa de tributo em atraso
           </h1>
 
@@ -545,7 +545,7 @@ export default function JurosDeMoraDeTributosCalculator() {
               <Calculator className="h-5 w-5 text-neutral-900" />
               <h2
                 id="calculadora-juros-heading"
-                className="text-xl md:text-2xl font-serif font-bold text-black"
+                className="text-xl md:text-2xl font-bold text-black"
               >
                 Parâmetros do Débito Fiscal
               </h2>
@@ -745,7 +745,7 @@ export default function JurosDeMoraDeTributosCalculator() {
                   <AlertCircle className="h-5 w-5 text-amber-700 shrink-0 mt-0.5" />
                   <div className="space-y-2">
                     <p>
-                      <strong className="text-black font-serif">Nota Explícita (a):</strong>{' '}
+                      <strong className="text-black">Nota Explícita (a):</strong>{' '}
                       <strong>A Selic do mês do pagamento não é incluída no cálculo.</strong> Por
                       expressa determinação do art. 61, § 3º da Lei nº 9.430/1996 e do art. 13 da
                       Lei nº 9.065/1995, a taxa Selic incide a partir do primeiro dia do mês
@@ -754,7 +754,7 @@ export default function JurosDeMoraDeTributosCalculator() {
                       valor só é fechado pelo Banco Central no primeiro dia útil do mês seguinte.
                     </p>
                     <p>
-                      <strong className="text-black font-serif">Nota Explícita (b):</strong>{' '}
+                      <strong className="text-black">Nota Explícita (b):</strong>{' '}
                       <strong>
                         A Selic já embute a correção monetária, portanto NÃO se soma outra correção
                         monetária ao resultado.
@@ -778,7 +778,7 @@ export default function JurosDeMoraDeTributosCalculator() {
               <div>
                 <div className="flex items-center gap-2">
                   <FileSpreadsheet className="h-5 w-5 text-neutral-900" />
-                  <h3 className="font-serif font-bold text-lg text-black">
+                  <h3 className="font-bold text-lg text-black">
                     Tabela da Selic do Período Apurado (Editável)
                   </h3>
                 </div>
@@ -890,7 +890,7 @@ export default function JurosDeMoraDeTributosCalculator() {
             <div className="flex items-center justify-between pb-4 border-b border-neutral-200 mb-4">
               <div className="flex items-center gap-2">
                 <Receipt className="h-5 w-5 text-neutral-900" />
-                <h3 className="font-serif font-bold text-lg text-black">
+                <h3 className="font-bold text-lg text-black">
                   Memória de Cálculo Aberta (Passo a Passo)
                 </h3>
               </div>
@@ -961,7 +961,7 @@ export default function JurosDeMoraDeTributosCalculator() {
             <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 block mb-2">
               Doutrina e Prática Tributária
             </span>
-            <h2 className="text-2xl md:text-3xl font-serif font-bold text-black mb-3">
+            <h2 className="text-2xl md:text-3xl font-bold text-black mb-3">
               Guia Técnico sobre Acréscimos Moratórios Federais
             </h2>
             <p className="text-sm text-neutral-600">
@@ -973,10 +973,7 @@ export default function JurosDeMoraDeTributosCalculator() {
           <div className="space-y-10 text-neutral-800 leading-relaxed text-sm md:text-base">
             {/* 1. o que são juros de mora e multa de mora */}
             <section aria-labelledby="subtitulo-1">
-              <h3
-                id="subtitulo-1"
-                className="text-xl md:text-2xl font-serif font-bold text-black mb-3"
-              >
+              <h3 id="subtitulo-1" className="text-xl md:text-2xl font-bold text-black mb-3">
                 1. O que são juros de mora e multa de mora
               </h3>
               <p>
@@ -1014,17 +1011,14 @@ export default function JurosDeMoraDeTributosCalculator() {
 
             {/* 2. a regra da Selic e por que o mês do pagamento fica de fora */}
             <section aria-labelledby="subtitulo-2" className="pt-6 border-t border-neutral-200">
-              <h3
-                id="subtitulo-2"
-                className="text-xl md:text-2xl font-serif font-bold text-black mb-3"
-              >
+              <h3 id="subtitulo-2" className="text-xl md:text-2xl font-bold text-black mb-3">
                 2. A regra da Selic e por que o mês do pagamento fica de fora
               </h3>
               <p>
                 A cobrança de juros de mora sobre tributos federais segue uma regra temporal estrita
                 inscrita no art. 61, § 3º da Lei nº 9.430/1996 e no art. 13 da Lei nº 9.065/1995:
               </p>
-              <div className="p-4 bg-neutral-100 rounded-lg border-l-4 border-neutral-900 my-4 text-sm font-serif italic text-neutral-900">
+              <div className="p-4 bg-neutral-100 rounded-lg border-l-4 border-neutral-900 my-4 text-sm italic text-neutral-900">
                 &ldquo;Sobre os débitos a que se refere este artigo incidirão juros de mora
                 calculados à taxa a que se refere o § 3º do art. 5º, a partir do primeiro dia do mês
                 subsequente ao vencimento do prazo até o mês anterior ao do pagamento e de um por
@@ -1050,10 +1044,7 @@ export default function JurosDeMoraDeTributosCalculator() {
 
             {/* 3. por que não se soma correção monetária mais Selic */}
             <section aria-labelledby="subtitulo-3" className="pt-6 border-t border-neutral-200">
-              <h3
-                id="subtitulo-3"
-                className="text-xl md:text-2xl font-serif font-bold text-black mb-3"
-              >
+              <h3 id="subtitulo-3" className="text-xl md:text-2xl font-bold text-black mb-3">
                 3. Por que não se soma correção monetária mais Selic
               </h3>
               <p>
@@ -1069,7 +1060,7 @@ export default function JurosDeMoraDeTributosCalculator() {
                 capital e pela taxa de inflação apurada na economia). Nas palavras do Superior
                 Tribunal de Justiça (STJ, Recurso Especial repetitivo nº 1.111.175/SP e Tema 99):
               </p>
-              <div className="p-4 bg-neutral-100 rounded-lg border-l-4 border-[#FAB319] my-4 text-sm font-serif italic text-neutral-900">
+              <div className="p-4 bg-neutral-100 rounded-lg border-l-4 border-[#FAB319] my-4 text-sm italic text-neutral-900">
                 &ldquo;A taxa Selic é calculada de forma a englobar juros e correção monetária, não
                 podendo ser cumulada com qualquer outro índice que expresse a recomposição do poder
                 de compra da moeda, sob pena de caracterizar bis in idem.&rdquo;
@@ -1083,10 +1074,7 @@ export default function JurosDeMoraDeTributosCalculator() {
 
             {/* 4. como funciona no parcelamento e na denúncia espontânea */}
             <section aria-labelledby="subtitulo-4" className="pt-6 border-t border-neutral-200">
-              <h3
-                id="subtitulo-4"
-                className="text-xl md:text-2xl font-serif font-bold text-black mb-3"
-              >
+              <h3 id="subtitulo-4" className="text-xl md:text-2xl font-bold text-black mb-3">
                 4. Como funciona no parcelamento e na denúncia espontânea
               </h3>
               <p>
@@ -1095,7 +1083,7 @@ export default function JurosDeMoraDeTributosCalculator() {
               </p>
               <div className="space-y-4 mt-4">
                 <div className="p-4 border border-neutral-200 rounded-lg bg-neutral-50">
-                  <h4 className="font-serif font-bold text-black text-base mb-1">
+                  <h4 className="font-bold text-black text-base mb-1">
                     A. Parcelamentos Ordinários e Especiais (Lei nº 10.522/2002)
                   </h4>
                   <p className="text-sm text-neutral-700">
@@ -1111,7 +1099,7 @@ export default function JurosDeMoraDeTributosCalculator() {
                 </div>
 
                 <div className="p-4 border border-neutral-200 rounded-lg bg-neutral-50">
-                  <h4 className="font-serif font-bold text-black text-base mb-1">
+                  <h4 className="font-bold text-black text-base mb-1">
                     B. Denúncia Espontânea (Art. 138 do Código Tributário Nacional)
                   </h4>
                   <p className="text-sm text-neutral-700">
@@ -1132,10 +1120,7 @@ export default function JurosDeMoraDeTributosCalculator() {
 
             {/* 5. erros comuns no cálculo de débito tributário — com pelo menos 4 exemplos práticos */}
             <section aria-labelledby="subtitulo-5" className="pt-6 border-t border-neutral-200">
-              <h3
-                id="subtitulo-5"
-                className="text-xl md:text-2xl font-serif font-bold text-black mb-3"
-              >
+              <h3 id="subtitulo-5" className="text-xl md:text-2xl font-bold text-black mb-3">
                 5. Erros comuns no cálculo de débito tributário
               </h3>
               <p className="mb-4">
@@ -1152,7 +1137,7 @@ export default function JurosDeMoraDeTributosCalculator() {
                     <span className="text-xs font-mono font-bold bg-neutral-900 text-white px-2 py-0.5 rounded">
                       Exemplo Prático 01
                     </span>
-                    <h4 className="font-serif font-bold text-black text-base">
+                    <h4 className="font-bold text-black text-base">
                       Não travar a multa de mora no teto de 20%
                     </h4>
                   </div>
@@ -1176,7 +1161,7 @@ export default function JurosDeMoraDeTributosCalculator() {
                     <span className="text-xs font-mono font-bold bg-neutral-900 text-white px-2 py-0.5 rounded">
                       Exemplo Prático 02
                     </span>
-                    <h4 className="font-serif font-bold text-black text-base">
+                    <h4 className="font-bold text-black text-base">
                       Somar correção monetária (IPCA/IGP-M) sobre a taxa Selic
                     </h4>
                   </div>
@@ -1200,7 +1185,7 @@ export default function JurosDeMoraDeTributosCalculator() {
                     <span className="text-xs font-mono font-bold bg-neutral-900 text-white px-2 py-0.5 rounded">
                       Exemplo Prático 03
                     </span>
-                    <h4 className="font-serif font-bold text-black text-base">
+                    <h4 className="font-bold text-black text-base">
                       Incluir a taxa Selic do mês do vencimento ou do pagamento
                     </h4>
                   </div>
@@ -1224,7 +1209,7 @@ export default function JurosDeMoraDeTributosCalculator() {
                     <span className="text-xs font-mono font-bold bg-neutral-900 text-white px-2 py-0.5 rounded">
                       Exemplo Prático 04
                     </span>
-                    <h4 className="font-serif font-bold text-black text-base">
+                    <h4 className="font-bold text-black text-base">
                       Calcular multa de mora sobre juros Selic (efeito cascata)
                     </h4>
                   </div>
@@ -1254,10 +1239,7 @@ export default function JurosDeMoraDeTributosCalculator() {
           <div className="flex items-start gap-3">
             <AlertCircle className="h-5 w-5 text-neutral-700 shrink-0 mt-0.5" />
             <div>
-              <h3
-                id="aviso-legal-title"
-                className="font-serif font-semibold text-base text-black mb-1"
-              >
+              <h3 id="aviso-legal-title" className="font-semibold text-base text-black mb-1">
                 Aviso Legal de Estimativa e Conformidade Tributária
               </h3>
               <p className="text-xs md:text-sm text-neutral-700 leading-relaxed">
@@ -1291,10 +1273,7 @@ export default function JurosDeMoraDeTributosCalculator() {
               <HelpCircle className="h-3.5 w-3.5 text-black" />
               Perguntas e Respostas
             </div>
-            <h2
-              id="faq-title"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-2"
-            >
+            <h2 id="faq-title" className="text-2xl md:text-3xl font-bold text-black mb-2">
               Dúvidas Frequentes sobre Juros e Multa de Tributos
             </h2>
             <p className="text-neutral-600 text-sm">
@@ -1311,7 +1290,7 @@ export default function JurosDeMoraDeTributosCalculator() {
                   value={`item-${index}`}
                   className="border-b border-neutral-200 last:border-b-0 pb-2"
                 >
-                  <AccordionTrigger className="text-left font-serif font-semibold text-base md:text-lg text-black hover:no-underline hover:text-neutral-700 py-3">
+                  <AccordionTrigger className="text-left font-semibold text-base md:text-lg text-black hover:no-underline hover:text-neutral-700 py-3">
                     {faq.q}
                   </AccordionTrigger>
                   <AccordionContent className="text-neutral-700 text-sm md:text-base leading-relaxed pt-2 pb-4">
@@ -1334,7 +1313,7 @@ export default function JurosDeMoraDeTributosCalculator() {
             <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 block mb-1">
               Ferramentas Complementares
             </span>
-            <h2 id="relacionadas-title" className="text-2xl font-serif font-bold text-black">
+            <h2 id="relacionadas-title" className="text-2xl font-bold text-black">
               Calculadoras Relacionadas
             </h2>
           </div>
@@ -1345,7 +1324,7 @@ export default function JurosDeMoraDeTributosCalculator() {
                 <span className="text-xs font-mono text-neutral-500 uppercase">
                   Regime Tributário
                 </span>
-                <CardTitle className="text-lg font-serif font-bold text-black pt-1">
+                <CardTitle className="text-lg font-bold text-black pt-1">
                   Simples Nacional ou Lucro Presumido
                 </CardTitle>
                 <p className="text-xs text-neutral-600 pt-2 leading-relaxed">
@@ -1373,7 +1352,7 @@ export default function JurosDeMoraDeTributosCalculator() {
                 <span className="text-xs font-mono text-neutral-500 uppercase">
                   Finanças e Tributos
                 </span>
-                <CardTitle className="text-lg font-serif font-bold text-black pt-1">
+                <CardTitle className="text-lg font-bold text-black pt-1">
                   Juros de Financiamento
                 </CardTitle>
                 <p className="text-xs text-neutral-600 pt-2 leading-relaxed">
@@ -1401,7 +1380,7 @@ export default function JurosDeMoraDeTributosCalculator() {
                 <span className="text-xs font-mono text-neutral-500 uppercase">
                   Folha e Trabalhista
                 </span>
-                <CardTitle className="text-lg font-serif font-bold text-black pt-1">
+                <CardTitle className="text-lg font-bold text-black pt-1">
                   Custo de Funcionário CLT
                 </CardTitle>
                 <p className="text-xs text-neutral-600 pt-2 leading-relaxed">
@@ -1439,7 +1418,7 @@ export default function JurosDeMoraDeTributosCalculator() {
 
             <h2
               id="contato-callout-title"
-              className="text-2xl md:text-4xl font-serif font-bold text-white leading-tight"
+              className="text-2xl md:text-4xl font-bold text-white leading-tight"
             >
               Precisa regularizar débitos fiscais com segurança jurídica?
             </h2>

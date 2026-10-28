@@ -357,7 +357,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
           </div>
 
           {/* Título principal EXATO exigido na especificação */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-black mb-5 leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-5 leading-tight">
             Quanto custa um funcionário CLT para a empresa
           </h1>
 
@@ -379,7 +379,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
               <Calculator className="h-5 w-5 text-neutral-900" />
               <h2
                 id="calculadora-custo-heading"
-                className="text-xl md:text-2xl font-serif font-bold text-black"
+                className="text-xl md:text-2xl font-bold text-black"
               >
                 Simulação em Tempo Real
               </h2>
@@ -581,7 +581,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
                 <div>
                   <div className="flex items-center gap-2">
                     <Building2 className="h-5 w-5 text-neutral-900" />
-                    <h3 className="text-lg md:text-xl font-serif font-bold text-black">
+                    <h3 className="text-lg md:text-xl font-bold text-black">
                       O que sai do bolso da empresa
                     </h3>
                   </div>
@@ -757,7 +757,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
               <div className="flex items-center gap-2 pb-4 border-b border-neutral-200 mb-5">
                 <Users className="h-5 w-5 text-neutral-900" />
                 <div>
-                  <h3 className="text-lg md:text-xl font-serif font-bold text-black">
+                  <h3 className="text-lg md:text-xl font-bold text-black">
                     O que é descontado do empregado (Holerite / Salário Líquido)
                   </h3>
                   <p className="text-xs text-neutral-600 mt-0.5">
@@ -880,7 +880,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
           <div className="mt-8 border border-neutral-200 rounded-lg p-5 bg-neutral-50">
             <div className="flex items-center gap-2 mb-3">
               <FileCheck2 className="h-4 w-4 text-neutral-800" />
-              <h3 className="font-serif font-bold text-base text-black">
+              <h3 className="font-bold text-base text-black">
                 Memória de Cálculo Aberta (Conferência Passo a Passo)
               </h3>
             </div>
@@ -1038,7 +1038,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
           <section aria-labelledby="o-que-compoe-o-custo">
             <h2
               id="o-que-compoe-o-custo"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               O que compõe o custo de um funcionário
             </h2>
@@ -1057,9 +1057,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
                     <span className="font-mono text-xs bg-neutral-100 border border-neutral-300 px-2 py-0.5 rounded font-semibold text-neutral-800">
                       Bloco 01
                     </span>
-                    <h3 className="font-serif font-bold text-base text-black">
-                      Remuneração Direta
-                    </h3>
+                    <h3 className="font-bold text-base text-black">Remuneração Direta</h3>
                   </div>
                   <p className="text-sm text-neutral-700 leading-relaxed">
                     Composta pelo salário base mensal contratado e eventuais adicionais de natureza
@@ -1073,9 +1071,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
                     <span className="font-mono text-xs bg-neutral-100 border border-neutral-300 px-2 py-0.5 rounded font-semibold text-neutral-800">
                       Bloco 02
                     </span>
-                    <h3 className="font-serif font-bold text-base text-black">
-                      Encargos Sociais Básicos
-                    </h3>
+                    <h3 className="font-bold text-base text-black">Encargos Sociais Básicos</h3>
                   </div>
                   <p className="text-sm text-neutral-700 leading-relaxed">
                     Valores depositados mensalmente pela empresa sem desconto no contracheque do
@@ -1090,9 +1086,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
                     <span className="font-mono text-xs bg-neutral-100 border border-neutral-300 px-2 py-0.5 rounded font-semibold text-neutral-800">
                       Bloco 03
                     </span>
-                    <h3 className="font-serif font-bold text-base text-black">
-                      Provisões Trabalhistas
-                    </h3>
+                    <h3 className="font-bold text-base text-black">Provisões Trabalhistas</h3>
                   </div>
                   <p className="text-sm text-neutral-700 leading-relaxed">
                     Valores diferidos que devem ser reservados mês a mês para fazer frente aos
@@ -1107,9 +1101,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
                     <span className="font-mono text-xs bg-neutral-100 border border-neutral-300 px-2 py-0.5 rounded font-semibold text-neutral-800">
                       Bloco 04
                     </span>
-                    <h3 className="font-serif font-bold text-base text-black">
-                      Provisão Rescisória
-                    </h3>
+                    <h3 className="font-bold text-base text-black">Provisão Rescisória</h3>
                   </div>
                   <p className="text-sm text-neutral-700 leading-relaxed">
                     Reserva correspondente à multa indenizatória de 40% sobre os depósitos
@@ -1132,7 +1124,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
           <section aria-labelledby="quais-encargos-incidem">
             <h2
               id="quais-encargos-incidem"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               Quais encargos incidem sobre a folha e quais não incidem
             </h2>
@@ -1282,7 +1274,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
           <section aria-labelledby="como-funciona-no-simples">
             <h2
               id="como-funciona-no-simples"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               Como funciona o custo no Simples Nacional e por que o INSS patronal não aparece na
               folha
@@ -1325,7 +1317,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
           <section aria-labelledby="por-que-provisao-mensal">
             <h2
               id="por-que-provisao-mensal"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               Por que a provisão de férias e décimo terceiro precisa ser reservada todo mês
             </h2>
@@ -1368,7 +1360,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
           <section aria-labelledby="erros-comuns-custo-funcionario">
             <h2
               id="erros-comuns-custo-funcionario"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               Erros comuns ao calcular custo de funcionário
             </h2>
@@ -1386,7 +1378,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
                     <span className="font-mono text-xs bg-neutral-100 border border-neutral-300 px-2 py-0.5 rounded font-semibold text-neutral-800">
                       Exemplo 01
                     </span>
-                    <h3 className="font-serif font-bold text-base text-black">
+                    <h3 className="font-bold text-base text-black">
                       Ignorar o terço constitucional e os encargos na provisão de férias
                     </h3>
                   </div>
@@ -1410,7 +1402,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
                     <span className="font-mono text-xs bg-neutral-100 border border-neutral-300 px-2 py-0.5 rounded font-semibold text-neutral-800">
                       Exemplo 02
                     </span>
-                    <h3 className="font-serif font-bold text-base text-black">
+                    <h3 className="font-bold text-base text-black">
                       Aplicar multiplicador genérico de 100% sem verificar o regime tributário da
                       empresa
                     </h3>
@@ -1434,7 +1426,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
                     <span className="font-mono text-xs bg-neutral-100 border border-neutral-300 px-2 py-0.5 rounded font-semibold text-neutral-800">
                       Exemplo 03
                     </span>
-                    <h3 className="font-serif font-bold text-base text-black">
+                    <h3 className="font-bold text-base text-black">
                       Não provisionar a multa rescisória de 40% do FGTS mês a mês
                     </h3>
                   </div>
@@ -1458,7 +1450,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
                     <span className="font-mono text-xs bg-neutral-100 border border-neutral-300 px-2 py-0.5 rounded font-semibold text-neutral-800">
                       Exemplo 04
                     </span>
-                    <h3 className="font-serif font-bold text-base text-black">
+                    <h3 className="font-bold text-base text-black">
                       Calcular encargos sobre o salário base excluindo adicionais habituais
                       (noturno, periculosidade, insalubridade)
                     </h3>
@@ -1489,7 +1481,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
             <Scale className="h-5 w-5 text-neutral-800 shrink-0 mt-0.5" />
             <div>
               <div className="flex items-center gap-2 mb-1 flex-wrap">
-                <h3 id="vigencia-title" className="font-serif font-bold text-base text-black">
+                <h3 id="vigencia-title" className="font-bold text-base text-black">
                   Vigência Normativa e Base Legal Aplicada
                 </h3>
                 <span className="text-xs font-mono bg-neutral-100 text-neutral-800 px-2 py-0.5 rounded border border-neutral-300">
@@ -1552,7 +1544,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
           <div className="flex items-start gap-3">
             <AlertCircle className="h-5 w-5 text-neutral-700 shrink-0 mt-0.5" />
             <div>
-              <h3 id="aviso-legal-title" className="font-serif font-bold text-base text-black mb-1">
+              <h3 id="aviso-legal-title" className="font-bold text-base text-black mb-1">
                 Aviso Legal de Estimativa
               </h3>
               <p className="text-sm text-neutral-700 leading-relaxed">
@@ -1584,7 +1576,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
             </div>
             <h2
               id="faq-custo-funcionario-title"
-              className="text-2xl md:text-3xl font-serif font-bold text-black"
+              className="text-2xl md:text-3xl font-bold text-black"
             >
               Perguntas Frequentes sobre Custo de Funcionário CLT
             </h2>
@@ -1602,7 +1594,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
                   value={`item-${index}`}
                   className="border-b border-neutral-200 last:border-b-0 pb-2"
                 >
-                  <AccordionTrigger className="text-left font-serif font-semibold text-base md:text-lg text-black hover:no-underline hover:text-neutral-700 py-3">
+                  <AccordionTrigger className="text-left font-semibold text-base md:text-lg text-black hover:no-underline hover:text-neutral-700 py-3">
                     {faq.q}
                   </AccordionTrigger>
                   <AccordionContent className="text-neutral-700 text-sm md:text-base leading-relaxed pt-2 pb-4">
@@ -1622,7 +1614,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
             </span>
             <h2
               id="calculadoras-relacionadas-title"
-              className="text-xl md:text-2xl font-serif font-bold text-black"
+              className="text-xl md:text-2xl font-bold text-black"
             >
               Calculadoras Relacionadas
             </h2>
@@ -1638,7 +1630,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
                 <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-1">
                   Folha e Trabalhista
                 </span>
-                <h3 className="font-serif font-bold text-base text-black mb-2 group-hover:underline">
+                <h3 className="font-bold text-base text-black mb-2 group-hover:underline">
                   Pró-labore ou Dividendos
                 </h3>
                 <p className="text-xs text-neutral-600 leading-relaxed">
@@ -1661,7 +1653,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
                 <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-1">
                   Folha e Trabalhista
                 </span>
-                <h3 className="font-serif font-bold text-base text-black mb-2 group-hover:underline">
+                <h3 className="font-bold text-base text-black mb-2 group-hover:underline">
                   PJ ou CLT
                 </h3>
                 <p className="text-xs text-neutral-600 leading-relaxed">
@@ -1684,7 +1676,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
                 <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-1">
                   Folha e Trabalhista
                 </span>
-                <h3 className="font-serif font-bold text-base text-black mb-2 group-hover:underline">
+                <h3 className="font-bold text-base text-black mb-2 group-hover:underline">
                   Rescisão Trabalhista
                 </h3>
                 <p className="text-xs text-neutral-600 leading-relaxed">
@@ -1712,7 +1704,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
 
             <h2
               id="cta-escritorio-title"
-              className="text-2xl md:text-3xl font-serif font-bold text-white leading-tight"
+              className="text-2xl md:text-3xl font-bold text-white leading-tight"
             >
               Deseja estruturar o planejamento de folha e encargos da sua empresa?
             </h2>

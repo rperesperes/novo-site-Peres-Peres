@@ -114,7 +114,7 @@ export default function CalculatorDetail() {
             {calculator.category}
           </div>
 
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-black mb-4 leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4 leading-tight">
             {calculator.name}
           </h1>
 
@@ -129,7 +129,7 @@ export default function CalculatorDetail() {
                 <Wrench className="h-4 w-4 text-[#FAB319]" />
               </div>
               <div>
-                <h2 className="font-serif font-semibold text-base text-black mb-1">
+                <h2 className="font-semibold text-base text-black mb-1">
                   Ferramenta em desenvolvimento
                 </h2>
                 <p className="text-sm text-neutral-600 leading-relaxed">
@@ -179,7 +179,7 @@ export default function CalculatorDetail() {
               <div className="flex items-start gap-3">
                 <FileCheck2 className="h-5 w-5 text-neutral-800 shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-serif font-semibold text-base text-black mb-1">
+                  <h3 className="font-semibold text-base text-black mb-1">
                     Memória de cálculo aberta
                   </h3>
                   <p className="text-xs text-neutral-600 leading-relaxed">
@@ -197,9 +197,7 @@ export default function CalculatorDetail() {
               <div className="flex items-start gap-3">
                 <ShieldAlert className="h-5 w-5 text-neutral-800 shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-serif font-semibold text-base text-black mb-1">
-                    Estimativa preliminar
-                  </h3>
+                  <h3 className="font-semibold text-base text-black mb-1">Estimativa preliminar</h3>
                   <p className="text-xs text-neutral-600 leading-relaxed">
                     Resultados calculados são referenciais e não substituem a análise formal de um
                     profissional habilitado perante o Conselho Regional de Contabilidade.
@@ -212,7 +210,7 @@ export default function CalculatorDetail() {
 
         {/* Chamada para atendimento técnico imediato */}
         <div className="bg-neutral-950 text-white rounded-xl p-8 text-center space-y-4">
-          <h2 className="text-xl md:text-2xl font-serif font-bold text-white">
+          <h2 className="text-xl md:text-2xl font-bold text-white">
             Necessita dessa análise tributária imediatamente?
           </h2>
           <p className="text-sm text-neutral-400 max-w-xl mx-auto leading-relaxed">

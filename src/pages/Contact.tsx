@@ -135,7 +135,7 @@ export default function Contact() {
 
         {/* Cabeçalho */}
         <header className="mb-12 max-w-3xl">
-          <h1 className="text-3xl md:text-5xl font-serif font-bold text-black mb-4 leading-tight">
+          <h1 className="text-3xl md:text-5xl font-bold text-black mb-4 leading-tight">
             Fale com o escritório
           </h1>
           <p className="text-base md:text-lg text-neutral-700 leading-relaxed">
@@ -148,7 +148,7 @@ export default function Contact() {
           {/* Informações de contato do escritório */}
           <div className="lg:col-span-5 space-y-6">
             <div className="border border-neutral-200 bg-white rounded-xl p-6 md:p-8 shadow-sm space-y-6">
-              <h2 className="font-serif font-bold text-xl text-black">Canais de Atendimento</h2>
+              <h2 className="font-bold text-xl text-black">Canais de Atendimento</h2>
 
               <div className="space-y-5 text-sm">
                 <div className="flex items-start gap-3">
@@ -226,9 +226,7 @@ export default function Contact() {
                   <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 block mb-0.5">
                     Responsabilidade Técnica
                   </span>
-                  <h3 className="font-serif font-bold text-base text-black">
-                    Rafael Peres Peres Nunes Altoé
-                  </h3>
+                  <h3 className="font-bold text-base text-black">Rafael Peres Peres Nunes Altoé</h3>
                   <p className="text-xs text-neutral-600 mt-1">
                     Contador Responsável • <strong>CRC 027704/O</strong>
                   </p>
@@ -245,7 +243,7 @@ export default function Contact() {
           <div className="lg:col-span-7">
             <div className="border border-neutral-200 bg-white rounded-xl p-6 md:p-8 shadow-sm">
               <div className="mb-6">
-                <h2 className="font-serif font-bold text-xl md:text-2xl text-black mb-2">
+                <h2 className="font-bold text-xl md:text-2xl text-black mb-2">
                   Envie sua mensagem
                 </h2>
                 <p className="text-sm text-neutral-600 leading-relaxed">

@@ -32,7 +32,7 @@ export default function Blog() {
     <div className="py-24 bg-background min-h-screen">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="mb-14 text-center animate-fade-in-up">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-black">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black">
             Artigos e Informes Tributários
           </h1>
           <p className="text-lg md:text-xl text-neutral-600 max-w-2xl mx-auto leading-relaxed">
@@ -79,7 +79,7 @@ export default function Blog() {
                       </span>
                     )}
                   </div>
-                  <CardTitle className="text-lg font-serif line-clamp-2 text-black leading-snug">
+                  <CardTitle className="text-lg line-clamp-2 text-black leading-snug">
                     {post.title}
                   </CardTitle>
                   <p className="text-neutral-600 mt-3 line-clamp-3 text-xs md:text-sm leading-relaxed">

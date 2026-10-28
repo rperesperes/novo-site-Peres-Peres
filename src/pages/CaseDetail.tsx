@@ -109,7 +109,7 @@ export default function CaseDetail() {
             </div>
           </div>
 
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-black leading-tight mb-6">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight mb-6">
             {caseItem.title}
           </h1>
 
@@ -140,13 +140,11 @@ export default function CaseDetail() {
                     <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-500 block">
                       Bloco 0{idx + 1}
                     </span>
-                    <h2 className="text-xl md:text-2xl font-serif font-bold text-black">
-                      {section.title}
-                    </h2>
+                    <h2 className="text-xl md:text-2xl font-bold text-black">{section.title}</h2>
                   </div>
                 </div>
 
-                <div className="prose prose-neutral max-w-none text-neutral-800 text-base leading-relaxed font-serif">
+                <div className="prose prose-neutral max-w-none text-neutral-800 text-base leading-relaxed">
                   <p>{section.content}</p>
                 </div>
               </section>

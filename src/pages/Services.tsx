@@ -220,7 +220,7 @@ export default function Services() {
           >
             PERES PERES Consultoria e Contabilidade • CRC 027704/O
           </Badge>
-          <h1 className="text-3xl md:text-5xl font-serif font-bold mb-6 text-white leading-tight">
+          <h1 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
             Nossos Serviços e Planos de Atuação
           </h1>
           <p className="text-base md:text-xl text-neutral-300 max-w-3xl mx-auto leading-relaxed">
@@ -253,9 +253,7 @@ export default function Services() {
             <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block mb-1">
               Pilar 01 • Estratégia Fiscal
             </span>
-            <h2 className="text-2xl md:text-4xl font-serif font-bold text-black">
-              Consultoria Tributária
-            </h2>
+            <h2 className="text-2xl md:text-4xl font-bold text-black">Consultoria Tributária</h2>
           </div>
 
           <div className="bg-white border border-neutral-200 rounded-xl p-6 md:p-8 shadow-sm space-y-6">
@@ -271,7 +269,7 @@ export default function Services() {
             </p>
 
             <div className="pt-4 border-t border-neutral-100">
-              <h3 className="font-serif font-semibold text-lg text-black mb-4">O que inclui:</h3>
+              <h3 className="font-semibold text-lg text-black mb-4">O que inclui:</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 {TRIBUTARIA_ITEMS.map((item, idx) => (
                   <div
@@ -283,9 +281,7 @@ export default function Services() {
                         <FileText className="h-4 w-4" />
                       </div>
                       <div>
-                        <h4 className="font-serif font-semibold text-black text-sm mb-1">
-                          {item.title}
-                        </h4>
+                        <h4 className="font-semibold text-black text-sm mb-1">{item.title}</h4>
                         <p className="text-xs md:text-sm text-neutral-600 leading-relaxed">
                           {item.desc}
                         </p>
@@ -306,9 +302,7 @@ export default function Services() {
             <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block mb-1">
               Pilar 02 • Ativo Financeiro e Regularidade
             </span>
-            <h2 className="text-2xl md:text-4xl font-serif font-bold text-black">
-              Recuperação de Créditos
-            </h2>
+            <h2 className="text-2xl md:text-4xl font-bold text-black">Recuperação de Créditos</h2>
           </div>
 
           <div className="bg-white border border-neutral-200 rounded-xl p-6 md:p-8 shadow-sm space-y-6">
@@ -324,9 +318,7 @@ export default function Services() {
             </p>
 
             <div className="pt-4 border-t border-neutral-100 space-y-4">
-              <h3 className="font-serif font-semibold text-lg text-black mb-4">
-                Como conduzimos o processo:
-              </h3>
+              <h3 className="font-semibold text-lg text-black mb-4">Como conduzimos o processo:</h3>
               <div className="grid md:grid-cols-3 gap-5">
                 {RECUPERACAO_STEPS.map((step, idx) => (
                   <div
@@ -340,9 +332,7 @@ export default function Services() {
                         </span>
                         <RefreshCcw className="h-4 w-4 text-neutral-400" />
                       </div>
-                      <h4 className="font-serif font-semibold text-black text-base mb-2">
-                        {step.title}
-                      </h4>
+                      <h4 className="font-semibold text-black text-base mb-2">{step.title}</h4>
                       <p className="text-xs md:text-sm text-neutral-600 leading-relaxed">
                         {step.desc}
                       </p>
@@ -362,9 +352,7 @@ export default function Services() {
             <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block mb-1">
               Pilar 03 • Relações de Trabalho e Previdência
             </span>
-            <h2 className="text-2xl md:text-4xl font-serif font-bold text-black">
-              Consultoria Trabalhista
-            </h2>
+            <h2 className="text-2xl md:text-4xl font-bold text-black">Consultoria Trabalhista</h2>
           </div>
 
           <div className="bg-white border border-neutral-200 rounded-xl p-6 md:p-8 shadow-sm space-y-6">
@@ -380,7 +368,7 @@ export default function Services() {
             </p>
 
             <div className="pt-4 border-t border-neutral-100">
-              <h3 className="font-serif font-semibold text-lg text-black mb-4">O que inclui:</h3>
+              <h3 className="font-semibold text-lg text-black mb-4">O que inclui:</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 {TRABALHISTA_ITEMS.map((item, idx) => (
                   <div
@@ -392,9 +380,7 @@ export default function Services() {
                         <Users2 className="h-4 w-4" />
                       </div>
                       <div>
-                        <h4 className="font-serif font-semibold text-black text-sm mb-1">
-                          {item.title}
-                        </h4>
+                        <h4 className="font-semibold text-black text-sm mb-1">{item.title}</h4>
                         <p className="text-xs md:text-sm text-neutral-600 leading-relaxed">
                           {item.desc}
                         </p>
@@ -415,9 +401,7 @@ export default function Services() {
             <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block">
               Modalidades de Atendimento Contínuo
             </span>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-black">
-              Planos de Acompanhamento
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-black">Planos de Acompanhamento</h2>
             <p className="text-neutral-600 text-sm md:text-base leading-relaxed">
               Modelos estruturados de assessoria contábil, fiscal e trabalhista dimensionados para
               as diferentes fases de maturidade e complexidade da sua empresa.
@@ -447,9 +431,7 @@ export default function Services() {
                         {plano.badge}
                       </span>
                     </div>
-                    <CardTitle className="text-2xl font-serif font-bold text-black">
-                      {plano.name}
-                    </CardTitle>
+                    <CardTitle className="text-2xl font-bold text-black">{plano.name}</CardTitle>
                     <p className="text-xs font-medium text-neutral-600 min-h-[32px]">
                       {plano.subtitle}
                     </p>
@@ -510,9 +492,7 @@ export default function Services() {
             <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block">
               Demandas Pontuais e Especializadas
             </span>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-black">
-              Serviços Avulsos
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-black">Serviços Avulsos</h2>
             <p className="text-neutral-600 text-sm md:text-base leading-relaxed">
               Atendimentos específicos contratados de forma individual para solucionar necessidades
               técnicas, societárias e documentais sem exigência de contrato mensal.
@@ -531,7 +511,7 @@ export default function Services() {
                     <div className="h-10 w-10 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center mb-3">
                       <Icon className="h-5 w-5 text-black" />
                     </div>
-                    <CardTitle className="text-base font-serif font-semibold text-black leading-snug">
+                    <CardTitle className="text-base font-semibold text-black leading-snug">
                       {servico.title}
                     </CardTitle>
                   </CardHeader>
@@ -555,7 +535,7 @@ export default function Services() {
               <ShieldCheck className="h-3.5 w-3.5 text-[#FAB319]" />
               Atendimento Consultivo em Brasília
             </div>
-            <h3 className="text-2xl md:text-4xl font-serif font-bold text-white">
+            <h3 className="text-2xl md:text-4xl font-bold text-white">
               Demanda técnica específica para o seu negócio?
             </h3>
             <p className="text-neutral-300 text-sm md:text-base leading-relaxed">

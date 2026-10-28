@@ -624,7 +624,7 @@ export default function PJouCLTCalculator() {
           </div>
 
           {/* Título principal solicitado */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-black mb-5 leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-5 leading-tight">
             PJ ou CLT, quanto custa cada opção
           </h1>
 
@@ -645,7 +645,7 @@ export default function PJouCLTCalculator() {
               <Calculator className="h-5 w-5 text-neutral-900" />
               <h2
                 id="calculadora-pj-clt-heading"
-                className="text-xl md:text-2xl font-serif font-bold text-black"
+                className="text-xl md:text-2xl font-bold text-black"
               >
                 Simulação Comparativa em Tempo Real
               </h2>
@@ -890,7 +890,7 @@ export default function PJouCLTCalculator() {
               <div className="flex items-center gap-2 pb-4 border-b border-neutral-200 mb-5">
                 <Building2 className="h-5 w-5 text-neutral-900" />
                 <div>
-                  <h3 className="text-lg md:text-xl font-serif font-bold text-black">
+                  <h3 className="text-lg md:text-xl font-bold text-black">
                     1. Custo Total para a Empresa Contratante
                   </h3>
                   <p className="text-xs text-neutral-600 mt-0.5">
@@ -969,7 +969,7 @@ export default function PJouCLTCalculator() {
               <div className="flex items-center gap-2 pb-4 border-b border-neutral-200 mb-5">
                 <Users className="h-5 w-5 text-neutral-900" />
                 <div>
-                  <h3 className="text-lg md:text-xl font-serif font-bold text-black">
+                  <h3 className="text-lg md:text-xl font-bold text-black">
                     2. Valor Líquido Recebido pelo Profissional
                   </h3>
                   <p className="text-xs text-neutral-600 mt-0.5">
@@ -1050,7 +1050,7 @@ export default function PJouCLTCalculator() {
               <div className="flex items-center gap-2 pb-4 border-b border-neutral-200 mb-5">
                 <Scale className="h-5 w-5 text-neutral-900" />
                 <div>
-                  <h3 className="text-lg md:text-xl font-serif font-bold text-black">
+                  <h3 className="text-lg md:text-xl font-bold text-black">
                     3. Comparativo de Vantagem Financeira e Diferença
                   </h3>
                   <p className="text-xs text-neutral-600 mt-0.5">
@@ -1124,7 +1124,7 @@ export default function PJouCLTCalculator() {
           <div className="mt-8 border border-neutral-200 rounded-lg p-5 bg-neutral-50">
             <div className="flex items-center gap-2 mb-3">
               <FileCheck2 className="h-4 w-4 text-neutral-800" />
-              <h3 className="font-serif font-bold text-base text-black">
+              <h3 className="font-bold text-base text-black">
                 Memória de Cálculo Aberta (Passo a Passo com Tributos Aplicados)
               </h3>
             </div>
@@ -1300,7 +1300,7 @@ export default function PJouCLTCalculator() {
           <section aria-labelledby="o-que-muda-na-pratica">
             <h2
               id="o-que-muda-na-pratica"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               O que muda entre PJ e CLT na prática
             </h2>
@@ -1339,7 +1339,7 @@ export default function PJouCLTCalculator() {
           <section aria-labelledby="o-que-a-empresa-deixa-de-pagar">
             <h2
               id="o-que-a-empresa-deixa-de-pagar"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               O que a empresa deixa de pagar contratando PJ e o que ela assume de risco
             </h2>
@@ -1389,7 +1389,7 @@ export default function PJouCLTCalculator() {
           <section aria-labelledby="o-que-o-profissional-ganha-e-perde">
             <h2
               id="o-que-o-profissional-ganha-e-perde"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               O que o profissional ganha e perde em cada modelo
             </h2>
@@ -1406,9 +1406,7 @@ export default function PJouCLTCalculator() {
                     <span className="font-mono text-xs bg-neutral-100 border border-neutral-300 px-2 py-0.5 rounded font-semibold text-neutral-800">
                       Cenário CLT
                     </span>
-                    <h3 className="font-serif font-bold text-base text-black">
-                      Vantagens e Limitações
-                    </h3>
+                    <h3 className="font-bold text-base text-black">Vantagens e Limitações</h3>
                   </div>
                   <div className="space-y-2 text-xs md:text-sm text-neutral-700">
                     <p>
@@ -1432,9 +1430,7 @@ export default function PJouCLTCalculator() {
                     <span className="font-mono text-xs bg-neutral-100 border border-neutral-300 px-2 py-0.5 rounded font-semibold text-neutral-800">
                       Cenário PJ
                     </span>
-                    <h3 className="font-serif font-bold text-base text-black">
-                      Vantagens e Limitações
-                    </h3>
+                    <h3 className="font-bold text-base text-black">Vantagens e Limitações</h3>
                   </div>
                   <div className="space-y-2 text-xs md:text-sm text-neutral-700">
                     <p>
@@ -1461,7 +1457,7 @@ export default function PJouCLTCalculator() {
           <section aria-labelledby="por-que-margem-e-anexo-mudam">
             <h2
               id="por-que-margem-e-anexo-mudam"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               Por que margem e anexo do Simples mudam a resposta
             </h2>
@@ -1509,7 +1505,7 @@ export default function PJouCLTCalculator() {
           <section aria-labelledby="riscos-de-pejotizacao">
             <h2
               id="riscos-de-pejotizacao"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               Riscos de pejotização, com menção a precedentes do TST sobre subordinação e a nota de
               que a análise deve ser feita caso a caso
@@ -1594,7 +1590,7 @@ export default function PJouCLTCalculator() {
             <Scale className="h-5 w-5 text-neutral-800 shrink-0 mt-0.5" />
             <div>
               <div className="flex items-center gap-2 mb-1 flex-wrap">
-                <h3 id="vigencia-title" className="font-serif font-bold text-base text-black">
+                <h3 id="vigencia-title" className="font-bold text-base text-black">
                   Vigência Normativa e Base Legal Aplicada
                 </h3>
                 <span className="text-xs font-mono bg-neutral-100 text-neutral-800 px-2 py-0.5 rounded border border-neutral-300">
@@ -1662,7 +1658,7 @@ export default function PJouCLTCalculator() {
           <div className="flex items-start gap-3">
             <AlertCircle className="h-5 w-5 text-neutral-700 shrink-0 mt-0.5" />
             <div>
-              <h3 id="aviso-legal-title" className="font-serif font-bold text-base text-black mb-1">
+              <h3 id="aviso-legal-title" className="font-bold text-base text-black mb-1">
                 Aviso Legal de Estimativa e Risco Trabalhista
               </h3>
               <p className="text-sm text-neutral-700 leading-relaxed">
@@ -1696,10 +1692,7 @@ export default function PJouCLTCalculator() {
               <HelpCircle className="h-3.5 w-3.5 text-black" />
               Dúvidas Técnicas Frequentes
             </div>
-            <h2
-              id="faq-pj-clt-title"
-              className="text-2xl md:text-3xl font-serif font-bold text-black"
-            >
+            <h2 id="faq-pj-clt-title" className="text-2xl md:text-3xl font-bold text-black">
               Perguntas Frequentes sobre PJ ou CLT
             </h2>
             <p className="text-neutral-600 text-sm md:text-base">
@@ -1716,7 +1709,7 @@ export default function PJouCLTCalculator() {
                   value={`item-${index}`}
                   className="border-b border-neutral-200 last:border-b-0 pb-2"
                 >
-                  <AccordionTrigger className="text-left font-serif font-semibold text-base md:text-lg text-black hover:no-underline hover:text-neutral-700 py-3">
+                  <AccordionTrigger className="text-left font-semibold text-base md:text-lg text-black hover:no-underline hover:text-neutral-700 py-3">
                     {faq.q}
                   </AccordionTrigger>
                   <AccordionContent className="text-neutral-700 text-sm md:text-base leading-relaxed pt-2 pb-4">
@@ -1739,7 +1732,7 @@ export default function PJouCLTCalculator() {
             </span>
             <h2
               id="calculadoras-relacionadas-title"
-              className="text-xl md:text-2xl font-serif font-bold text-black"
+              className="text-xl md:text-2xl font-bold text-black"
             >
               Calculadoras Relacionadas
             </h2>
@@ -1755,7 +1748,7 @@ export default function PJouCLTCalculator() {
                 <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-1">
                   Folha e Trabalhista
                 </span>
-                <h3 className="font-serif font-bold text-base text-black mb-2 group-hover:underline">
+                <h3 className="font-bold text-base text-black mb-2 group-hover:underline">
                   Custo de Funcionário CLT
                 </h3>
                 <p className="text-xs text-neutral-600 leading-relaxed">
@@ -1778,7 +1771,7 @@ export default function PJouCLTCalculator() {
                 <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-1">
                   Folha e Trabalhista
                 </span>
-                <h3 className="font-serif font-bold text-base text-black mb-2 group-hover:underline">
+                <h3 className="font-bold text-base text-black mb-2 group-hover:underline">
                   Pró-labore ou Dividendos
                 </h3>
                 <p className="text-xs text-neutral-600 leading-relaxed">
@@ -1801,7 +1794,7 @@ export default function PJouCLTCalculator() {
                 <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-1">
                   Regime Tributário
                 </span>
-                <h3 className="font-serif font-bold text-base text-black mb-2 group-hover:underline">
+                <h3 className="font-bold text-base text-black mb-2 group-hover:underline">
                   Fator R
                 </h3>
                 <p className="text-xs text-neutral-600 leading-relaxed">
@@ -1829,7 +1822,7 @@ export default function PJouCLTCalculator() {
 
             <h2
               id="cta-escritorio-title"
-              className="text-2xl md:text-3xl font-serif font-bold text-white leading-tight"
+              className="text-2xl md:text-3xl font-bold text-white leading-tight"
             >
               Deseja estruturar contratos PJ ou planejar a folha da sua empresa?
             </h2>

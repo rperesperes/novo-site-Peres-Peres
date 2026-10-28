@@ -731,7 +731,7 @@ export default function SimplesNacionalHibridoCalculator() {
           </div>
 
           {/* 2. TÍTULO PRINCIPAL (H1, EXATO): "Simples Nacional híbrido, vale a pena tirar ICMS e ISS do DAS" */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-black mb-5 leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-5 leading-tight">
             Simples Nacional híbrido, vale a pena tirar ICMS e ISS do DAS
           </h1>
 
@@ -753,7 +753,7 @@ export default function SimplesNacionalHibridoCalculator() {
               <Calculator className="h-5 w-5 text-neutral-900" />
               <h2
                 id="calculadora-hibrido-heading"
-                className="text-xl md:text-2xl font-serif font-bold text-black"
+                className="text-xl md:text-2xl font-bold text-black"
               >
                 Simulação em Tempo Real
               </h2>
@@ -971,7 +971,7 @@ export default function SimplesNacionalHibridoCalculator() {
                 </span>
                 <div className="flex items-center gap-2">
                   {/* Ponto focal com amarelo #FAB319 */}
-                  <span className="inline-block bg-[#FAB319] text-black font-serif font-bold text-lg md:text-xl px-3 py-1 rounded">
+                  <span className="inline-block bg-[#FAB319] text-black font-bold text-lg md:text-xl px-3 py-1 rounded">
                     {calculation.cenarioMaisVantajoso === 'dentro'
                       ? 'Mais vantajoso: Manter ICMS e ISS DENTRO do DAS'
                       : calculation.cenarioMaisVantajoso === 'fora'
@@ -1020,9 +1020,7 @@ export default function SimplesNacionalHibridoCalculator() {
                     </span>
                   )}
                 </div>
-                <h3 className="font-serif font-bold text-lg text-black mb-1">
-                  ICMS e ISS Dentro do DAS
-                </h3>
+                <h3 className="font-bold text-lg text-black mb-1">ICMS e ISS Dentro do DAS</h3>
                 <p className="text-xs text-neutral-600 mb-4">
                   Recolhimento integral e simplificado pela guia única do Simples Nacional.
                 </p>
@@ -1069,9 +1067,7 @@ export default function SimplesNacionalHibridoCalculator() {
                     </span>
                   )}
                 </div>
-                <h3 className="font-serif font-bold text-lg text-black mb-1">
-                  ICMS e ISS Por Fora do DAS
-                </h3>
+                <h3 className="font-bold text-lg text-black mb-1">ICMS e ISS Por Fora do DAS</h3>
                 <p className="text-xs text-neutral-600 mb-4">
                   DAS apenas com tributos federais + guias estaduais e municipais por fora.
                 </p>
@@ -1145,7 +1141,7 @@ export default function SimplesNacionalHibridoCalculator() {
           <div className="border border-neutral-200 rounded-xl p-6 bg-white">
             <div className="flex items-center gap-2 mb-4">
               <FileCheck2 className="h-5 w-5 text-neutral-900" />
-              <h3 className="font-serif font-bold text-lg text-black">
+              <h3 className="font-bold text-lg text-black">
                 Memória de Cálculo Aberta (Passo a Passo Auditável)
               </h3>
             </div>
@@ -1280,7 +1276,7 @@ export default function SimplesNacionalHibridoCalculator() {
           <section aria-labelledby="o-que-e-simples-hibrido">
             <h2
               id="o-que-e-simples-hibrido"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               o que é o Simples Nacional híbrido e por que ele existe
             </h2>
@@ -1309,7 +1305,7 @@ export default function SimplesNacionalHibridoCalculator() {
           <section aria-labelledby="o-que-mudou-com-a-segregacao">
             <h2
               id="o-que-mudou-com-a-segregacao"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               o que mudou com a segregação de receitas de ICMS e ISS
             </h2>
@@ -1337,7 +1333,7 @@ export default function SimplesNacionalHibridoCalculator() {
           <section aria-labelledby="quem-costuma-ganhar-e-perder">
             <h2
               id="quem-costuma-ganhar-e-perder"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               quem costuma ganhar e quem costuma perder
             </h2>
@@ -1348,7 +1344,7 @@ export default function SimplesNacionalHibridoCalculator() {
               </p>
               <div className="grid sm:grid-cols-2 gap-4 my-4">
                 <div className="p-4 rounded-lg bg-neutral-50 border border-neutral-200">
-                  <h3 className="font-serif font-bold text-base text-black mb-2 flex items-center gap-1.5">
+                  <h3 className="font-bold text-base text-black mb-2 flex items-center gap-1.5">
                     <CheckCircle2 className="h-4 w-4 text-neutral-800" />
                     Quem costuma ganhar
                   </h3>
@@ -1370,7 +1366,7 @@ export default function SimplesNacionalHibridoCalculator() {
                 </div>
 
                 <div className="p-4 rounded-lg bg-neutral-50 border border-neutral-200">
-                  <h3 className="font-serif font-bold text-base text-black mb-2 flex items-center gap-1.5">
+                  <h3 className="font-bold text-base text-black mb-2 flex items-center gap-1.5">
                     <AlertCircle className="h-4 w-4 text-neutral-800" />
                     Quem costuma perder
                   </h3>
@@ -1400,7 +1396,7 @@ export default function SimplesNacionalHibridoCalculator() {
           <section aria-labelledby="creditos-de-icms-para-o-cliente">
             <h2
               id="creditos-de-icms-para-o-cliente"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               o efeito no crédito de ICMS do cliente da empresa
             </h2>
@@ -1435,7 +1431,7 @@ export default function SimplesNacionalHibridoCalculator() {
           <section aria-labelledby="erros-comuns-avaliacao-hibrido">
             <h2
               id="erros-comuns-avaliacao-hibrido"
-              className="text-2xl md:text-3xl font-serif font-bold text-black mb-4 border-b border-neutral-200 pb-2"
+              className="text-2xl md:text-3xl font-bold text-black mb-4 border-b border-neutral-200 pb-2"
             >
               erros comuns na avaliação do híbrido
             </h2>
@@ -1454,7 +1450,7 @@ export default function SimplesNacionalHibridoCalculator() {
                     <span className="font-mono text-xs bg-neutral-100 border border-neutral-300 px-2 py-0.5 rounded font-semibold text-neutral-800">
                       Erro 01
                     </span>
-                    <h3 className="font-serif font-bold text-base text-black">
+                    <h3 className="font-bold text-base text-black">
                       Comparar a alíquota cheia do ICMS (18%) sem contabilizar créditos de entrada
                     </h3>
                   </div>
@@ -1477,7 +1473,7 @@ export default function SimplesNacionalHibridoCalculator() {
                     <span className="font-mono text-xs bg-neutral-100 border border-neutral-300 px-2 py-0.5 rounded font-semibold text-neutral-800">
                       Erro 02
                     </span>
-                    <h3 className="font-serif font-bold text-base text-black">
+                    <h3 className="font-bold text-base text-black">
                       Ignorar o custo das obrigações acessórias do regime normal
                     </h3>
                   </div>
@@ -1501,7 +1497,7 @@ export default function SimplesNacionalHibridoCalculator() {
                     <span className="font-mono text-xs bg-neutral-100 border border-neutral-300 px-2 py-0.5 rounded font-semibold text-neutral-800">
                       Erro 03
                     </span>
-                    <h3 className="font-serif font-bold text-base text-black">
+                    <h3 className="font-bold text-base text-black">
                       Subestimar o impacto do sublimite estadual de R$ 3,6 milhões
                     </h3>
                   </div>
@@ -1525,7 +1521,7 @@ export default function SimplesNacionalHibridoCalculator() {
                     <span className="font-mono text-xs bg-neutral-100 border border-neutral-300 px-2 py-0.5 rounded font-semibold text-neutral-800">
                       Erro 04
                     </span>
-                    <h3 className="font-serif font-bold text-base text-black">
+                    <h3 className="font-bold text-base text-black">
                       Esquecer a bitributação em mercadorias sujeitas à Substituição Tributária
                       (ICMS-ST)
                     </h3>
@@ -1556,10 +1552,7 @@ export default function SimplesNacionalHibridoCalculator() {
             <Scale className="h-5 w-5 text-neutral-800 shrink-0 mt-0.5" />
             <div>
               <div className="flex items-center gap-2 mb-1 flex-wrap">
-                <h3
-                  id="vigencia-hibrido-title"
-                  className="font-serif font-bold text-base text-black"
-                >
+                <h3 id="vigencia-hibrido-title" className="font-bold text-base text-black">
                   Vigência Normativa e Base Legal Aplicada
                 </h3>
                 <span className="text-xs font-mono bg-neutral-100 text-neutral-800 px-2 py-0.5 rounded border border-neutral-300">
@@ -1588,10 +1581,7 @@ export default function SimplesNacionalHibridoCalculator() {
           <div className="flex items-start gap-3">
             <AlertCircle className="h-5 w-5 text-neutral-700 shrink-0 mt-0.5" />
             <div>
-              <h3
-                id="aviso-legal-hibrido-title"
-                className="font-serif font-bold text-base text-black mb-1"
-              >
+              <h3 id="aviso-legal-hibrido-title" className="font-bold text-base text-black mb-1">
                 Aviso de Conformidade Legal
               </h3>
               <p className="text-sm text-neutral-700 leading-relaxed">
@@ -1618,10 +1608,7 @@ export default function SimplesNacionalHibridoCalculator() {
               <HelpCircle className="h-3.5 w-3.5 text-black" />
               Perguntas Frequentes
             </div>
-            <h2
-              id="faq-hibrido-title"
-              className="text-2xl md:text-3xl font-serif font-bold text-black"
-            >
+            <h2 id="faq-hibrido-title" className="text-2xl md:text-3xl font-bold text-black">
               Dúvidas Técnicas sobre o Simples Nacional Híbrido
             </h2>
           </div>
@@ -1634,7 +1621,7 @@ export default function SimplesNacionalHibridoCalculator() {
                   value={`item-${index}`}
                   className="border-b border-neutral-200 last:border-b-0 pb-2"
                 >
-                  <AccordionTrigger className="text-left font-serif font-semibold text-base md:text-lg text-black hover:no-underline hover:text-neutral-700 py-3">
+                  <AccordionTrigger className="text-left font-semibold text-base md:text-lg text-black hover:no-underline hover:text-neutral-700 py-3">
                     {faq.q}
                   </AccordionTrigger>
                   <AccordionContent className="text-neutral-700 text-sm md:text-base leading-relaxed pt-2 pb-4">
@@ -1654,7 +1641,7 @@ export default function SimplesNacionalHibridoCalculator() {
             </span>
             <h2
               id="calculadoras-relacionadas-title"
-              className="text-xl md:text-2xl font-serif font-bold text-black"
+              className="text-xl md:text-2xl font-bold text-black"
             >
               Calculadoras Relacionadas
             </h2>
@@ -1670,7 +1657,7 @@ export default function SimplesNacionalHibridoCalculator() {
                 <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-1">
                   Regime Tributário
                 </span>
-                <h3 className="font-serif font-bold text-base text-black mb-2 group-hover:underline">
+                <h3 className="font-bold text-base text-black mb-2 group-hover:underline">
                   Simples Nacional ou Lucro Presumido
                 </h3>
                 <p className="text-xs text-neutral-600 leading-relaxed">
@@ -1693,7 +1680,7 @@ export default function SimplesNacionalHibridoCalculator() {
                 <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-1">
                   Regime Tributário
                 </span>
-                <h3 className="font-serif font-bold text-base text-black mb-2 group-hover:underline">
+                <h3 className="font-bold text-base text-black mb-2 group-hover:underline">
                   Fator R
                 </h3>
                 <p className="text-xs text-neutral-600 leading-relaxed">
@@ -1716,7 +1703,7 @@ export default function SimplesNacionalHibridoCalculator() {
                 <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider block mb-1">
                   Folha e Trabalhista
                 </span>
-                <h3 className="font-serif font-bold text-base text-black mb-2 group-hover:underline">
+                <h3 className="font-bold text-base text-black mb-2 group-hover:underline">
                   Custo de Funcionário CLT
                 </h3>
                 <p className="text-xs text-neutral-600 leading-relaxed">
@@ -1744,7 +1731,7 @@ export default function SimplesNacionalHibridoCalculator() {
 
             <h2
               id="cta-final-hibrido-title"
-              className="text-2xl md:text-3xl font-serif font-bold text-white leading-tight"
+              className="text-2xl md:text-3xl font-bold text-white leading-tight"
             >
               Deseja auditar sua segregação de receitas com um especialista?
             </h2>
