@@ -84,11 +84,16 @@ export default function About() {
                   className="w-full h-full object-cover object-top"
                 />
               </div>
-              <div className="mt-4 text-center">
+              <div className="mt-5 w-full max-w-[260px] text-center border-t border-neutral-800/80 pt-3">
                 <p className="text-xs uppercase tracking-wider text-neutral-400 font-mono">
                   Responsável Técnico
                 </p>
-                <p className="text-xs text-[#FAB319] font-semibold mt-0.5">CRC 027704/O</p>
+                <p className="text-sm font-semibold text-white mt-1">
+                  Rafael Peres Peres Nunes Altoé
+                </p>
+                <p className="text-xs text-[#FAB319] font-semibold mt-1 leading-snug">
+                  CRC 027704, OAB 87656 e CNAI 10122
+                </p>
               </div>
             </div>
             <div className="md:col-span-3 p-8 lg:p-12 bg-white flex flex-col justify-center">
