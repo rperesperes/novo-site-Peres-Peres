@@ -129,33 +129,7 @@ export default function Index() {
           </div>
 
           {/* Moldura neutra no Hero sem texto explicativo interno */}
-          <div className="lg:col-span-5">
-            <div
-              className="aspect-[4/3] rounded-lg border border-neutral-800 bg-neutral-950 p-8 flex flex-col justify-between shadow-2xl"
-              aria-label="Espaço institucional"
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-xs uppercase tracking-widest text-neutral-500 font-mono">
-                  Sede em Brasília/DF
-                </span>
-                <Building2 className="h-5 w-5 text-neutral-600" />
-              </div>
-              <div className="h-px bg-neutral-800 w-full my-6" />
-              <div className="space-y-3">
-                <p className="font-serif text-xl text-white font-medium">
-                  Atendimento em governança e contabilidade tributária.
-                </p>
-                <p className="text-xs text-neutral-400 leading-relaxed">
-                  Planejamento tributário, recuperação de indébitos e contencioso administrativo com
-                  responsabilidade formal.
-                </p>
-              </div>
-              <div className="pt-6 border-t border-neutral-800 flex justify-between items-center text-xs text-neutral-500">
-                <span>Distrito Federal</span>
-                <span>Atendimento Presencial e Nacional</span>
-              </div>
-            </div>
-          </div>
+          <div className="lg:col-span-5"></div>
         </div>
       </section>
 
