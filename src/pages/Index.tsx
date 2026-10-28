@@ -87,8 +87,8 @@ export default function Index() {
             </h1>
 
             <p className="text-lg text-neutral-300 max-w-2xl leading-relaxed">
-              Trabalhamos para que nossos clientes, empresas e donos de negócios, cresçam com
-              segurança através de uma contabilidade de excelência.
+              Desde 2017, trabalhamos para que nossos clientes, empresas e donos de negócios,
+              cresçam com segurança através de uma contabilidade de excelência.
             </p>
 
             {/* Ponto focal único da tela no Hero: Botão com #FAB319 centralizado */}

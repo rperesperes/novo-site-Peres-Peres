@@ -184,8 +184,8 @@ export default function About() {
               diferente do convencional.
             </p>
             <p>
-              Acreditamos na contabilidade que vai além das exigências mínimas previstas em lei —
-              calcular os tributos devidos no mês e preencher as declarações obrigatórias é o começo
+              Acreditamos na contabilidade que vai além das exigências mínimas previstas em lei.
+              Calcular os tributos devidos no mês e preencher as declarações obrigatórias é o começo
               do trabalho, não o fim. O que entregamos é a leitura técnica desses números: o que
               eles revelam sobre a margem, sobre o risco fiscal e sobre as decisões que a empresa
               precisa tomar.
