@@ -336,7 +336,9 @@ export default function Index() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
                   <div className="inline-block border-l-2 border-[#FAB319] pl-3 mb-1">
                     <p className="font-bold text-lg text-white">Rafael Peres Peres Nunes Altoé</p>
-                    <p className="text-xs text-neutral-300 font-mono">Contador • CRC 027704/O</p>
+                    <p className="text-xs text-neutral-300 font-mono">
+                      Contador Tributarista • CRC 027704 CNAI 10122
+                    </p>
                   </div>
                 </div>
               </div>
@@ -356,10 +358,8 @@ export default function Index() {
                   </span>
                 </div>
                 <div>
-                  <span>
-                    Contador, advogado e professor, se dedica a demandas de Consultoria Tributária
-                    empresarial há 10 anos.
-                  </span>
+                  Contador (CRC 027704), advogado (OAB 87656), perito, auditor (CNAI 10122) e
+                  professor, se dedica a demandas de Consultoria Tributária empresarial há 10 anos.
                 </div>
                 <div>
                   <br />
