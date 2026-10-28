@@ -5,10 +5,10 @@ const SECTIONS_NAV = [
   { id: 'secao-2', number: '2', title: 'Dados que Coletamos e os Motivos da Coleta' },
   { id: 'secao-3', number: '3', title: 'Compartilhamento de Dados Pessoais com Terceiros' },
   { id: 'secao-4', number: '4', title: 'Transferência Internacional de Dados' },
-  { id: 'secao-5', number: '5', title: 'Quanto Tempo Seus Dados Serão Armazenados' },
+  { id: 'secao-5', number: '5', title: 'Por Quanto Tempo Seus Dados Pessoais Serão Armazenados' },
   { id: 'secao-6', number: '6', title: 'Bases Legais para o Tratamento de Dados Pessoais' },
   { id: 'secao-7', number: '7', title: 'Direitos do Usuário' },
-  { id: 'secao-8', number: '8', title: 'Medidas de Segurança' },
+  { id: 'secao-8', number: '8', title: 'Medidas de Segurança no Tratamento de Dados Pessoais' },
   { id: 'secao-9', number: '9', title: 'Menores de Idade' },
   { id: 'secao-10', number: '10', title: 'Reclamação a uma Autoridade de Controle' },
   { id: 'secao-11', number: '11', title: 'Alterações nesta Política' },
@@ -359,7 +359,7 @@ export default function PrivacyPolicy() {
           </section>
 
           {/* =========================================================
-              SEÇÃO 5 (CONFORME ESPECIFICAÇÃO LGPD)
+              SEÇÃO 5 (VERBATIM)
              ========================================================= */}
           <section
             id="secao-5"
@@ -370,27 +370,32 @@ export default function PrivacyPolicy() {
                 Seção 5
               </span>
               <h2 className="text-xl md:text-2xl font-bold text-white tracking-tight">
-                QUANTO TEMPO SEUS DADOS SERÃO ARMAZENADOS
+                POR QUANTO TEMPO SEUS DADOS PESSOAIS SERÃO ARMAZENADOS
               </h2>
             </div>
 
             <p className="text-neutral-300 leading-relaxed">
-              Os dados pessoais coletados são armazenados apenas pelo tempo estritamente necessário
-              para o alcance das finalidades informadas nesta Política de Privacidade e para o
-              cumprimento de obrigações legais e regulatórias às quais o controlador está vinculado,
-              em especial as obrigações fiscais, tributárias, contábeis e trabalhistas previstas na
-              legislação brasileira.
+              Os dados pessoais coletados são armazenados e utilizados por período correspondente ao
+              necessário para atingir as finalidades elencadas neste documento, considerando os
+              direitos dos titulares, os direitos do controlador e as disposições legais ou
+              regulatórias aplicáveis.
             </p>
             <p className="text-neutral-300 leading-relaxed">
-              Encerrada a finalidade que justificou o tratamento ou expirados os prazos legais e
-              regulatórios de guarda obrigatória, os dados pessoais serão devidamente descartados
-              por meios seguros ou anonimizados para fins estatísticos internos, nos termos da Lei
-              Geral de Proteção de Dados Pessoais (LGPD).
+              Dados de formulário de contato são mantidos pelo prazo necessário ao atendimento e
+              eventual relação comercial. Dados de assinantes do Boletim são mantidos enquanto
+              perdurar a assinatura. Dados de clientes são mantidos pelos prazos legais de guarda de
+              documentos contábeis, fiscais e trabalhistas e pelo prazo de prescrição de eventuais
+              pretensões.
+            </p>
+            <p className="text-neutral-300 leading-relaxed">
+              Uma vez expirados os períodos de armazenamento, os dados são removidos de nossas bases
+              ou anonimizados, salvo nos casos em que houver possibilidade ou necessidade de
+              armazenamento em virtude de disposição legal ou regulatória.
             </p>
           </section>
 
           {/* =========================================================
-              SEÇÃO 6 (CONFORME ESPECIFICAÇÃO)
+              SEÇÃO 6 (VERBATIM)
              ========================================================= */}
           <section
             id="secao-6"
@@ -406,24 +411,70 @@ export default function PrivacyPolicy() {
             </div>
 
             <p className="text-neutral-300 leading-relaxed">
-              O tratamento de dados pessoais realizado pelo escritório ocorre em estrita
-              conformidade com as hipóteses autorizadoras previstas na LGPD e com as normas que
-              regem o exercício da contabilidade:
+              Cada operação de tratamento de dados pessoais precisa ter uma base legal
+              correspondente. Tratamos dados pessoais nas seguintes hipóteses:
             </p>
 
-            <div className="space-y-4 pl-2 sm:pl-4">
+            <ul className="space-y-2.5 pl-2 sm:pl-4">
+              <li className="flex items-start gap-2.5">
+                <span className="font-mono text-sm font-semibold text-[#FAB319] shrink-0 mt-0.5">
+                  a)
+                </span>
+                <span>
+                  Consentimento do titular, para o envio do Boletim Tributário e para os cookies de
+                  análise e de marketing;
+                </span>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <span className="font-mono text-sm font-semibold text-[#FAB319] shrink-0 mt-0.5">
+                  b)
+                </span>
+                <span>
+                  Execução de contrato ou de procedimentos preliminares, para o atendimento de
+                  solicitações e a prestação dos serviços contratados;
+                </span>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <span className="font-mono text-sm font-semibold text-[#FAB319] shrink-0 mt-0.5">
+                  c)
+                </span>
+                <span>
+                  Cumprimento de obrigação legal ou regulatória, para o cumprimento das normas
+                  contábeis, fiscais, trabalhistas e previdenciárias aplicáveis à atividade;
+                </span>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <span className="font-mono text-sm font-semibold text-[#FAB319] shrink-0 mt-0.5">
+                  d)
+                </span>
+                <span>
+                  Exercício regular de direitos, inclusive em processos administrativos e judiciais;
+                </span>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <span className="font-mono text-sm font-semibold text-[#FAB319] shrink-0 mt-0.5">
+                  e)
+                </span>
+                <span>
+                  Legítimo interesse do controlador, para a segurança do site e a melhoria dos
+                  serviços, sempre limitado ao necessário.
+                </span>
+              </li>
+            </ul>
+
+            <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base md:text-lg font-semibold text-neutral-100">
                   6.1. Sigilo profissional
                 </h3>
                 <p className="text-neutral-300 leading-relaxed">
-                  Os dados pessoais de clientes recebidos em razão da prestação de serviços
-                  contábeis e de consultoria são igualmente protegidos e tratados sob o dever de
-                  sigilo profissional do contador, previsto expressamente no Código de Ética
-                  Profissional do Contador (NBC PG 01) e no art. 1.177 do Código Civil. As
-                  informações obtidas em razão da atividade contábil somente podem ser reveladas nas
-                  hipóteses taxativamente autorizadas por lei, por determinação expressa de
-                  autoridade competente ou mediante autorização prévia e escrita do cliente.
+                  Além das bases acima, os dados de clientes são tratados com fundamento no dever de
+                  sigilo profissional do contador, previsto no Código de Ética Profissional do
+                  Contador (NBC PG 01) e no art. 1.177 do Código Civil. Esse dever é anterior e
+                  independente da LGPD e não admite relativização por conveniência comercial:
+                  informações obtidas em razão da atividade profissional somente podem ser reveladas
+                  nas hipóteses autorizadas por lei, por determinação de autoridade competente ou
+                  por autorização expressa do cliente.
                 </p>
               </div>
 
@@ -432,10 +483,13 @@ export default function PrivacyPolicy() {
                   6.2. Consentimento
                 </h3>
                 <p className="text-neutral-300 leading-relaxed">
-                  O consentimento livre, informado e inequívoco do titular constitui a base legal
-                  para o uso de cookies de análise e de marketing e para a inscrição no recebimento
-                  de boletins informativos e comunicações de conteúdo técnico. O consentimento pode
-                  ser revogado a qualquer tempo pelo titular.
+                  Determinadas operações dependerão da prévia concordância do usuário, manifestada
+                  de forma livre, informada e inequívoca. O usuário poderá revogar seu consentimento
+                  a qualquer momento e, não havendo hipótese legal que permita ou demande o
+                  armazenamento, os dados fornecidos mediante consentimento serão excluídos. Se
+                  desejar, o usuário poderá não concordar com alguma operação baseada no
+                  consentimento; nesse caso, porém, é possível que não possa utilizar alguma
+                  funcionalidade do site que dependa daquela operação.
                 </p>
               </div>
 
@@ -444,17 +498,16 @@ export default function PrivacyPolicy() {
                   6.3. Cumprimento de obrigação legal ou regulatória
                 </h3>
                 <p className="text-neutral-300 leading-relaxed">
-                  O cumprimento de obrigação legal ou regulatória imposta por lei ou por órgãos
-                  fiscalizadores e arrecadadores serve de base legal para o tratamento e conservação
-                  dos dados necessários ao atendimento das obrigações contábeis, fiscais,
-                  previdenciárias e trabalhistas inerentes à atuação do escritório.
+                  Algumas operações, sobretudo o armazenamento de dados, são realizadas para cumprir
+                  obrigações previstas em lei ou em outras disposições normativas aplicáveis às
+                  nossas atividades.
                 </p>
               </div>
             </div>
           </section>
 
           {/* =========================================================
-              SEÇÃO 7 (CONFORME ESPECIFICAÇÃO)
+              SEÇÃO 7 (VERBATIM)
              ========================================================= */}
           <section
             id="secao-7"
@@ -470,79 +523,108 @@ export default function PrivacyPolicy() {
             </div>
 
             <p className="text-neutral-300 leading-relaxed">
-              Nos termos do art. 18 da Lei Geral de Proteção de Dados Pessoais (LGPD), o titular dos
-              dados pessoais tem direito de obter do controlador, a qualquer momento e mediante
-              requisição expressa:
+              O usuário possui os seguintes direitos, conferidos pela LGPD:
             </p>
 
             <ul className="space-y-2.5 pl-2 sm:pl-4">
               <li className="flex items-start gap-2.5">
-                <span className="text-[#FAB319] font-bold mt-0.5">•</span>
-                <span>Confirmação da existência de tratamento;</span>
+                <span className="font-mono text-sm font-semibold text-[#FAB319] shrink-0 mt-0.5">
+                  a)
+                </span>
+                <span>confirmação da existência de tratamento;</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="text-[#FAB319] font-bold mt-0.5">•</span>
-                <span>Acesso aos dados pessoais tratados;</span>
+                <span className="font-mono text-sm font-semibold text-[#FAB319] shrink-0 mt-0.5">
+                  b)
+                </span>
+                <span>acesso aos dados;</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="text-[#FAB319] font-bold mt-0.5">•</span>
-                <span>Correção de dados incompletos, inexatos ou desatualizados;</span>
+                <span className="font-mono text-sm font-semibold text-[#FAB319] shrink-0 mt-0.5">
+                  c)
+                </span>
+                <span>correção de dados incompletos, inexatos ou desatualizados;</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="text-[#FAB319] font-bold mt-0.5">•</span>
+                <span className="font-mono text-sm font-semibold text-[#FAB319] shrink-0 mt-0.5">
+                  d)
+                </span>
                 <span>
-                  Anonimização, bloqueio ou eliminação de dados desnecessários, excessivos ou
-                  tratados em desconformidade com o disposto na LGPD;
+                  anonimização, bloqueio ou eliminação de dados desnecessários, excessivos ou
+                  tratados em desconformidade com a lei;
                 </span>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="text-[#FAB319] font-bold mt-0.5">•</span>
+                <span className="font-mono text-sm font-semibold text-[#FAB319] shrink-0 mt-0.5">
+                  e)
+                </span>
                 <span>
-                  Portabilidade dos dados a outro fornecedor de serviço ou produto, observados os
-                  segredos comercial e industrial;
+                  portabilidade dos dados a outro fornecedor de serviço ou produto, mediante
+                  requisição expressa e de acordo com a regulamentação da autoridade nacional,
+                  observados os segredos comercial e industrial;
                 </span>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="text-[#FAB319] font-bold mt-0.5">•</span>
+                <span className="font-mono text-sm font-semibold text-[#FAB319] shrink-0 mt-0.5">
+                  f)
+                </span>
                 <span>
-                  Eliminação dos dados pessoais tratados com o consentimento do titular, ressalvadas
-                  as hipóteses legais de conservação previstas na LGPD;
+                  eliminação dos dados pessoais tratados com o consentimento do titular, exceto nos
+                  casos previstos em lei;
                 </span>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="text-[#FAB319] font-bold mt-0.5">•</span>
+                <span className="font-mono text-sm font-semibold text-[#FAB319] shrink-0 mt-0.5">
+                  g)
+                </span>
                 <span>
-                  Informação das entidades públicas e privadas com as quais o controlador realizou
+                  informação das entidades públicas e privadas com as quais o controlador realizou
                   uso compartilhado de dados;
                 </span>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="text-[#FAB319] font-bold mt-0.5">•</span>
+                <span className="font-mono text-sm font-semibold text-[#FAB319] shrink-0 mt-0.5">
+                  h)
+                </span>
                 <span>
-                  Informação sobre a possibilidade de não fornecer consentimento e sobre as
+                  informação sobre a possibilidade de não fornecer consentimento e sobre as
                   consequências da negativa;
                 </span>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="text-[#FAB319] font-bold mt-0.5">•</span>
-                <span>Revogação do consentimento, nos termos da legislação aplicável.</span>
+                <span className="font-mono text-sm font-semibold text-[#FAB319] shrink-0 mt-0.5">
+                  i)
+                </span>
+                <span>revogação do consentimento.</span>
               </li>
             </ul>
 
-            <div className="pt-2">
-              <h3 className="text-base md:text-lg font-semibold text-neutral-100 mb-2">
+            <p className="text-neutral-300 leading-relaxed">
+              Nos termos da LGPD, não existe direito à eliminação de dados tratados com fundamento
+              em bases legais distintas do consentimento, a menos que os dados sejam desnecessários,
+              excessivos ou tratados em desconformidade com a lei.
+            </p>
+
+            <div className="space-y-3 pt-2">
+              <h3 className="text-base md:text-lg font-semibold text-neutral-100">
                 7.1. Como o titular pode exercer seus direitos
               </h3>
               <p className="text-neutral-300 leading-relaxed">
-                O titular pode exercer quaisquer dos seus direitos de forma gratuita e simplificada,
-                bastando enviar sua solicitação pelos canais de contato indicados no item 12 desta
-                Política.
+                O titular pode exercer seus direitos entrando em contato com o encarregado pelos
+                canais indicados no item 12.
+              </p>
+              <p className="text-neutral-300 leading-relaxed">
+                Para garantir que o requerente é, de fato, o titular dos dados objeto da requisição,
+                poderemos solicitar documentos ou outras informações que possam auxiliar em sua
+                correta identificação, a fim de resguardar nossos direitos e os direitos de
+                terceiros. Isso somente será feito quando absolutamente necessário, e o requerente
+                receberá todas as informações cabíveis.
               </p>
             </div>
           </section>
 
           {/* =========================================================
-              SEÇÃO 8 (CONFORME ESPECIFICAÇÃO)
+              SEÇÃO 8 (VERBATIM)
              ========================================================= */}
           <section
             id="secao-8"
@@ -553,26 +635,26 @@ export default function PrivacyPolicy() {
                 Seção 8
               </span>
               <h2 className="text-xl md:text-2xl font-bold text-white tracking-tight">
-                MEDIDAS DE SEGURANÇA
+                MEDIDAS DE SEGURANÇA NO TRATAMENTO DE DADOS PESSOAIS
               </h2>
             </div>
 
             <p className="text-neutral-300 leading-relaxed">
-              Adotamos medidas técnicas e organizacionais razoáveis e adequadas aos padrões do
-              mercado para proteger os dados pessoais contra acessos não autorizados, situações
-              acidentais ou ilícitas de destruição, perda, alteração, comunicação ou qualquer forma
-              de tratamento inadequado ou ilícito.
+              Empregamos medidas técnicas e organizativas aptas a proteger os dados pessoais de
+              acessos não autorizados e de situações de destruição, perda, extravio ou alteração. As
+              medidas levam em consideração a natureza dos dados, o contexto e a finalidade do
+              tratamento, os riscos que uma eventual violação geraria para os direitos e liberdades
+              do usuário e os padrões atualmente empregados no mercado por empresas semelhantes.
             </p>
             <p className="text-neutral-300 leading-relaxed">
-              Embora o controlador empenhe esforços constantes para resguardar a privacidade e a
-              integridade das informações tratadas, nenhum sistema ou transmissão de dados pela
-              internet é integralmente inviolável, razão pela qual não é possível garantir segurança
-              absoluta contra todas as ameaças possíveis.
+              Caso ocorra incidente de segurança que possa gerar risco ou dano relevante a qualquer
+              de nossos usuários, comunicaremos os afetados e a Autoridade Nacional de Proteção de
+              Dados acerca do ocorrido, em conformidade com a LGPD.
             </p>
           </section>
 
           {/* =========================================================
-              SEÇÃO 9 (CONFORME ESPECIFICAÇÃO)
+              SEÇÃO 9 (VERBATIM)
              ========================================================= */}
           <section
             id="secao-9"
@@ -588,16 +670,10 @@ export default function PrivacyPolicy() {
             </div>
 
             <p className="text-neutral-300 leading-relaxed">
-              O site da PERES PERES é voltado precipuamente ao público empresarial e profissional.
-              Não coletamos intencionalmente dados pessoais de crianças ou adolescentes por meio do
-              site.
-            </p>
-            <p className="text-neutral-300 leading-relaxed">
-              Eventual tratamento de dados pessoais de crianças e adolescentes indispensável à
-              execução de contratos contábeis ou de rotinas trabalhistas e previdenciárias de
-              clientes será realizado em estrita conformidade com os arts. 14 e seguintes da LGPD,
-              no melhor interesse do menor e com o consentimento específico de pelo menos um dos
-              pais ou responsável legal, quando legalmente aplicável.
+              O site é destinado a maiores de 18 anos e a pessoas jurídicas. Não coletamos
+              intencionalmente dados de menores de idade. Caso identifiquemos coleta de dados de
+              menor sem o consentimento específico de pelo menos um dos pais ou do responsável
+              legal, os dados serão eliminados.
             </p>
           </section>
 
