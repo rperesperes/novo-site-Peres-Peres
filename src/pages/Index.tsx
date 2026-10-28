@@ -2,15 +2,12 @@ import { Link } from 'react-router-dom'
 import {
   ArrowRight,
   CheckCircle2,
-  ShieldCheck,
   Award,
   Scale,
-  Building2,
   FileText,
   RefreshCcw,
   Users2,
   Layers,
-  Sparkles,
 } from 'lucide-react'
 import rafaelImg from '@/assets/foto-melhorada-por-ia-892a9.png'
 import { Button } from '@/components/ui/button'
@@ -82,17 +79,17 @@ export default function Index() {
     <div className="flex flex-col w-full">
       {/* Hero Section - Arquitetura monocromática elegante com ponto focal restrito no botão */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-black text-white border-b border-neutral-800">
-        <div className="container mx-auto px-4 py-20 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7 space-y-8 animate-fade-in-up">
+        <div className="container mx-auto px-4 py-20 relative z-10 w-full">
+          <div className="w-full space-y-8 animate-fade-in-up">
             <div className="inline-block border border-neutral-700 px-3 py-1 rounded text-xs tracking-wider uppercase text-neutral-300">
               PERES PERES Consultoria e Contabilidade
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight max-w-4xl">
               Consultoria e Contabilidade de Brasília para todo o Brasil
             </h1>
 
-            <p className="text-lg text-neutral-300 max-w-xl leading-relaxed">
+            <p className="text-lg text-neutral-300 max-w-2xl leading-relaxed">
               Trabalhamos para que nossos clientes, empresas e donos de negócios, cresçam com
               segurança através de uma contabilidade de excelência.
             </p>
@@ -116,7 +113,7 @@ export default function Index() {
               </Button>
             </div>
 
-            <div className="flex items-center gap-8 pt-6 border-t border-neutral-800">
+            <div className="flex items-center gap-8 pt-6 border-t border-neutral-800 max-w-2xl">
               <div className="flex items-center gap-2 text-neutral-300">
                 <Award className="h-5 w-5 text-neutral-400" />
                 <span className="text-sm font-medium">CRC 027704/O Ativo</span>
@@ -127,9 +124,6 @@ export default function Index() {
               </div>
             </div>
           </div>
-
-          {/* Moldura neutra no Hero sem texto explicativo interno */}
-          <div className="lg:col-span-5"></div>
         </div>
       </section>
 
