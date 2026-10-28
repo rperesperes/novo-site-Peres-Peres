@@ -149,9 +149,13 @@ export default function Entrar() {
               ) : (
                 /* Estado não autenticado: botão Entrar com Google */
                 <div className="space-y-6">
-                  <p className="text-sm text-neutral-400 text-center leading-relaxed">
-                    Utilize sua conta Google institucional ou corporativa para autenticar.
-                  </p>
+                  <div className="p-3.5 rounded-lg bg-neutral-900/80 border border-neutral-800 text-neutral-300 text-xs text-center leading-relaxed">
+                    Acesso restrito exclusivamente à equipe e gestão interna da{' '}
+                    <strong className="text-white font-medium">
+                      PERES PERES Consultoria & Contabilidade
+                    </strong>
+                    .
+                  </div>
 
                   <Button
                     type="button"

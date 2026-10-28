@@ -23,8 +23,28 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     const unsubscribe = pb.authStore.onChange((_token, record) => {
+      if (record) {
+        const email = (record.email || '').trim().toLowerCase()
+        const allowedEmail = 'rafael@peresperes.com.br'
+        if (email && email !== allowedEmail) {
+          pb.authStore.clear()
+          setUser(null)
+          return
+        }
+      }
       setUser(record)
     })
+
+    // Checagem defensiva de inicialização caso haja resquício de outro usuário no authStore
+    if (pb.authStore.record) {
+      const email = (pb.authStore.record.email || '').trim().toLowerCase()
+      const allowedEmail = 'rafael@peresperes.com.br'
+      if (email && email !== allowedEmail) {
+        pb.authStore.clear()
+        setUser(null)
+      }
+    }
+
     setLoading(false)
     return () => {
       unsubscribe()
@@ -43,7 +63,21 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const signInWithOAuth2 = async (provider = 'google') => {
     try {
       const authData = await pb.collection('users').authWithOAuth2({ provider })
-      return { error: null, record: authData.record }
+      const record = authData.record
+      const email = (record?.email || '').trim().toLowerCase()
+      const allowedEmail = 'rafael@peresperes.com.br'
+
+      if (email && email !== allowedEmail) {
+        // Encerra imediatamente a sessão não autorizada
+        pb.authStore.clear()
+        setUser(null)
+        const restrictedError = new Error(
+          'Acesso restrito. Este ambiente é exclusivo para a administração da PERES PERES Consultoria e Contabilidade (rafael@peresperes.com.br).',
+        )
+        return { error: restrictedError, record: null }
+      }
+
+      return { error: null, record }
     } catch (error) {
       return { error, record: null }
     }
