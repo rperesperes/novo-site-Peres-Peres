@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://peresperes.com.br/sitemap.xml

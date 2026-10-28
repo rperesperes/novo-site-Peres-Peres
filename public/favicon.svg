@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#0A0A0A" />
+  <g fill="#FAB319">
+    <!-- Primeira letra P -->
+    <path d="M 120 128 L 220 128 C 265 128 295 155 295 195 C 295 235 265 262 220 262 L 168 262 L 168 384 L 120 384 Z M 168 172 L 168 218 L 216 218 C 238 218 250 208 250 195 C 250 182 238 172 216 172 Z" />
+    <!-- Segunda letra P sobreposta / deslocada em estilo monograma -->
+    <path d="M 245 128 L 345 128 C 390 128 420 155 420 195 C 420 235 390 262 345 262 L 293 262 L 293 384 L 245 384 Z M 293 172 L 293 218 L 341 218 C 363 218 375 208 375 195 C 375 182 363 172 341 172 Z" opacity="0.92" />
+  </g>
+</svg>
