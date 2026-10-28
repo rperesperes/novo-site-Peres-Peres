@@ -114,7 +114,7 @@ export default function PrivacyPolicy() {
               Consultoria e Contabilidade LTDA, CNPJ 44.961.875/0001-25, inscrita no CF/DF sob o n.
               0810995100100, registrada como sociedade limitada perante o Conselho Federal de
               Contabilidade sob o n. DF-003366, com sede em Brasília, Distrito Federal, e
-              responsabilidade técnica do contador Rafael Peres Peres Nunes Altoé, CRC 027704/O. O
+              responsabilidade técnica do contador Rafael Peres Peres Nunes Altoé, CRC 027704. O
               site institucional está disponível em www.peresperes.com.br e o blog em
               blog.peresperes.com.br.
             </p>

@@ -123,7 +123,7 @@ export default function CaseDetail() {
                 </p>
               </div>
               <div className="pt-2 border-t border-neutral-800/80 text-[11px] text-neutral-400 font-mono">
-                Responsabilidade Técnica: Rafael Peres Peres Nunes Altoé (CRC 027704/O)
+                Responsabilidade Técnica: Rafael Peres Peres Nunes Altoé (CRC 027704)
               </div>
             </div>
 

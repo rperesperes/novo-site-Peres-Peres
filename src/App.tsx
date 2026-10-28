@@ -27,6 +27,7 @@ import CalculatorDetail from './pages/CalculatorDetail'
 import FatorRCalculator from './pages/FatorRCalculator'
 import SimplesNacionalOuLucroPresumidoCalculator from './pages/SimplesNacionalOuLucroPresumidoCalculator'
 import CustoDeFuncionarioCLTCalculator from './pages/CustoDeFuncionarioCLTCalculator'
+import CertificadoDigital from './pages/CertificadoDigital'
 import PJouCLTCalculator from './pages/PJouCLTCalculator'
 import SimplesNacionalHibridoCalculator from './pages/SimplesNacionalHibridoCalculator'
 import JurosDeMoraDeTributosCalculator from './pages/JurosDeMoraDeTributosCalculator'
@@ -45,6 +46,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/sobre" element={<About />} />
             <Route path="/servicos" element={<Services />} />
+            <Route path="/servicos/certificado-digital" element={<CertificadoDigital />} />
             <Route path="/casos" element={<Cases />} />
             <Route path="/casos/:slug" element={<CaseDetail />} />
             <Route path="/glossario" element={<Glossary />} />

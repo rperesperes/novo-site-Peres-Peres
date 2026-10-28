@@ -79,7 +79,7 @@ export default function About() {
               <div className="relative aspect-[4/5] w-full max-w-[260px] rounded-lg overflow-hidden border border-neutral-800 shadow-md bg-neutral-950">
                 <img
                   src={rafaelImg}
-                  alt="Rafael Peres Peres Nunes Altoé - Contador Responsável Técnico CRC 027704/O"
+                  alt="Rafael Peres Peres Nunes Altoé - Contador Responsável Técnico CRC 027704"
                   loading="lazy"
                   className="w-full h-full object-cover object-top"
                 />

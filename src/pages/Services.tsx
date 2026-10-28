@@ -159,6 +159,8 @@ const SERVICOS_AVULSOS = [
     title: 'Certificado Digital',
     description:
       'Suporte na emissão e renovação segura de certificados e-CNPJ e e-CPF para sócios e representantes legais da sua empresa.',
+    link: '/servicos/certificado-digital',
+    linkText: 'Ver mais sobre Certificado Digital',
   },
   {
     icon: Award,
@@ -196,7 +198,7 @@ export default function Services() {
   useEffect(() => {
     const pageTitle = 'Serviços Contábeis e Tributários | PERES PERES Consultoria e Contabilidade'
     const pageDesc =
-      'Conheça os serviços da PERES PERES em Brasília: Consultoria Tributária, Recuperação de Créditos, Consultoria Trabalhista, Planos Essential, Premium e On Demand, além de serviços avulsos especializados sob CRC 027704/O.'
+      'Conheça os serviços da PERES PERES em Brasília: Consultoria Tributária, Recuperação de Créditos, Consultoria Trabalhista, Planos Essential, Premium e On Demand, além de serviços avulsos especializados sob CRC 027704.'
 
     document.title = pageTitle
 
@@ -261,7 +263,7 @@ export default function Services() {
               A <strong>Consultoria Tributária</strong> da <strong>PERES PERES</strong> é orientada
               por rigor técnico, visão preventiva e estrita aderência à legislação fiscal brasileira
               e aos entendimentos dos tribunais superiores e órgãos fazendários. Sob a liderança do
-              responsável técnico <strong>Rafael Peres Peres Nunes Altoé (CRC 027704/O)</strong>,
+              responsável técnico <strong>Rafael Peres Peres Nunes Altoé (CRC 027704)</strong>,
               nossa metodologia afasta teses arriscadas ou soluções mágicas: realizamos uma imersão
               estruturada na cadeia produtiva do cliente para identificar oportunidades lícitas de
               elisão fiscal, sanear passivos potenciais e preparar a corporação para os impactos
@@ -515,10 +517,21 @@ export default function Services() {
                       {servico.title}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="p-5 pt-0">
-                    <p className="text-xs text-neutral-600 leading-relaxed">
+                  <CardContent className="p-5 pt-0 flex-1 flex flex-col justify-between">
+                    <p className="text-xs text-neutral-600 leading-relaxed mb-3">
                       {servico.description}
                     </p>
+                    {servico.link && (
+                      <div className="pt-2 border-t border-neutral-100">
+                        <Link
+                          to={servico.link}
+                          className="inline-flex items-center text-xs font-semibold text-black hover:text-[#FAB319] transition-colors group"
+                        >
+                          <span>{servico.linkText}</span>
+                          <ArrowRight className="ml-1 h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                        </Link>
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               )
@@ -541,8 +554,8 @@ export default function Services() {
             <p className="text-neutral-300 text-sm md:text-base leading-relaxed">
               Estruturamos pareceres, diagnósticos contábeis e planejamentos tributários
               personalizados sob a responsabilidade técnica direta de{' '}
-              <strong>Rafael Peres Peres Nunes Altoé (CRC 027704/O)</strong>, com sigilo
-              profissional estrito e fundamentação legal.
+              <strong>Rafael Peres Peres Nunes Altoé (CRC 027704)</strong>, com sigilo profissional
+              estrito e fundamentação legal.
             </p>
             <div className="pt-4 flex justify-center">
               <Button

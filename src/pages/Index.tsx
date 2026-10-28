@@ -317,7 +317,7 @@ export default function Index() {
               <div className="relative aspect-[4/5] rounded-lg overflow-hidden border border-neutral-200 shadow-md bg-neutral-100 group">
                 <img
                   src={rafaelImg}
-                  alt="Rafael Peres Peres Nunes Altoé - Contador Responsável CRC 027704/O"
+                  alt="Rafael Peres Peres Nunes Altoé - Contador Responsável CRC 027704"
                   loading="lazy"
                   className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />

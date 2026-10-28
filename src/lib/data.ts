@@ -6,7 +6,7 @@ export const SITE_INFO = {
     'https://wa.me/556136861689?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20reuni%C3%A3o.',
   email: 'contato@peresperes.com.br',
   address: 'Sede em Brasília/DF',
-  crc: 'CRC 027704/O',
+  crc: 'CRC 027704',
   instagramUrl: 'https://www.instagram.com/peresperes.com.br',
   linkedinUrl: 'https://www.linkedin.com/company/peresperes',
   blogUrl: 'https://blog.peresperes.com.br',

@@ -33,7 +33,7 @@ export default function Cases() {
             </p>
             <div className="pt-2 border-t border-neutral-800/80 flex items-center justify-center gap-2 text-xs text-neutral-400">
               <ShieldCheck className="h-4 w-4 text-[#FAB319] shrink-0" />
-              <span>Responsabilidade Técnica: Rafael Peres Peres Nunes Altoé (CRC 027704/O)</span>
+              <span>Responsabilidade Técnica: Rafael Peres Peres Nunes Altoé (CRC 027704)</span>
             </div>
           </div>
 
@@ -201,7 +201,7 @@ export default function Cases() {
             </h2>
             <p className="text-neutral-400 text-sm md:text-base leading-relaxed">
               Análise preliminar individualizada sob responsabilidade formal de contador habilitado
-              (CRC 027704/O), com foco estrito em conformidade e segurança jurídica.
+              (CRC 027704), com foco estrito em conformidade e segurança jurídica.
             </p>
           </div>
           <div>

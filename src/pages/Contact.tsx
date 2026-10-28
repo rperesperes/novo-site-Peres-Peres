@@ -30,7 +30,7 @@ export default function Contact() {
   useEffect(() => {
     const pageTitle = 'Fale com o Escritório | PERES PERES Consultoria e Contabilidade'
     const pageDesc =
-      'Entre em contato com a PERES PERES Consultoria e Contabilidade em Brasília. Atendimento tributário e contábil consultivo sob responsabilidade técnica CRC 027704/O.'
+      'Entre em contato com a PERES PERES Consultoria e Contabilidade em Brasília. Atendimento tributário e contábil consultivo sob responsabilidade técnica CRC 027704.'
 
     document.title = pageTitle
 
@@ -226,7 +226,7 @@ export default function Contact() {
                   </span>
                   <h3 className="font-bold text-base text-black">Rafael Peres Peres Nunes Altoé</h3>
                   <p className="text-xs text-neutral-600 mt-1">
-                    Contador Responsável • <strong>CRC 027704/O</strong>
+                    Contador Responsável • <strong>CRC 027704</strong>
                   </p>
                   <p className="text-xs text-neutral-500 mt-2 leading-relaxed">
                     Atuação em conformidade estrita com as normas do Conselho Federal de
@@ -410,7 +410,7 @@ export default function Contact() {
                   </Button>
                   <p className="text-[11px] text-neutral-500 text-center mt-2">
                     Seus dados são protegidos e tratados sob sigilo profissional estrito (CRC
-                    027704/O).
+                    027704).
                   </p>
                 </div>
               </form>
