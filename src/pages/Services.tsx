@@ -20,6 +20,7 @@ import {
   Sparkles,
   ShieldCheck,
   Wallet,
+  TrendingUp,
 } from 'lucide-react'
 
 // Itens da Consultoria Tributária
@@ -82,6 +83,34 @@ const TRABALHISTA_ITEMS = [
   {
     title: 'Apoio Técnico em Rescisões Contratuais',
     desc: 'Auditoria e cálculo minucioso de verbas rescisórias, estabilidades, homologações e documentos comprobatórios, prevenindo litígios perante a Justiça do Trabalho.',
+  },
+]
+
+// Itens de Inteligência Financeira e Fluxo de Caixa
+const INTELIGENCIA_FINANCEIRA_ITEMS = [
+  {
+    title: 'Modelagem de Cenários e Projeção de Caixa',
+    desc: 'Projeção de entradas e saídas para os próximos meses, com cenários conservador e otimista, antecipando capital de giro ou identificando excedente.',
+  },
+  {
+    title: 'Dashboards de Indicadores',
+    desc: 'Painéis com margem bruta, ponto de equilíbrio, ticket médio, inadimplência e concentração de receita a partir dos dados contábeis.',
+  },
+  {
+    title: 'Análise de Margem por Produto ou Serviço',
+    desc: 'Identificação do que efetivamente dá lucro e do que consome estrutura sem retorno, com base na alocação de custos e despesas.',
+  },
+  {
+    title: 'Revisão de Precificação e Margem',
+    desc: 'Reconstrução de preços com base no custo real, carga tributária e margem pretendida, avaliando o impacto do regime tributário.',
+  },
+  {
+    title: 'Planejamento de Distribuição de Lucros',
+    desc: 'Simulação do impacto fiscal das diferentes formas de retirada (pró-labore, lucros, aluguel, serviços) para máxima eficiência.',
+  },
+  {
+    title: 'Acompanhamento Periódico e Ajuste de Rota',
+    desc: 'Reuniões de alinhamento com análise comparativa entre projetado e realizado, fundamentando decisões de negócio.',
   },
 ]
 
@@ -400,6 +429,71 @@ export default function Services() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================
+            BLOCO: INTELIGÊNCIA FINANCEIRA E FLUXO DE CAIXA
+           ========================================================= */}
+        <section id="inteligencia-financeira" className="scroll-mt-24 space-y-8">
+          <div className="border-l-4 border-[#FAB319] pl-4 md:pl-6">
+            <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block mb-1">
+              Pilar 04 • Decisão de Negócio e Caixa
+            </span>
+            <h2 className="text-2xl md:text-4xl font-bold text-black">
+              Inteligência Financeira e Fluxo de Caixa
+            </h2>
+          </div>
+
+          <div className="bg-white border border-neutral-200 rounded-xl p-6 md:p-8 shadow-sm space-y-6">
+            <p className="text-base md:text-lg text-neutral-700 leading-relaxed font-sans">
+              Modelagem de cenários, dashboards de indicadores e projeção de caixa que traduzem a
+              apuração contábil em decisão de negócio. Inclui revisão de precificação, análise de
+              margem por serviço e planejamento de distribuição de lucros com eficiência tributária.
+            </p>
+
+            <div className="pt-4 border-t border-neutral-100">
+              <h3 className="font-semibold text-lg text-black mb-4">O que inclui:</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                {INTELIGENCIA_FINANCEIRA_ITEMS.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="p-4 rounded-lg bg-neutral-50 border border-neutral-200/80 hover:border-neutral-300 transition-colors"
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="p-1.5 rounded bg-black text-[#FAB319] shrink-0 mt-0.5">
+                        <TrendingUp className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-black text-sm mb-1">{item.title}</h4>
+                        <p className="text-xs md:text-sm text-neutral-600 leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-neutral-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <p className="text-sm text-neutral-600">
+                Conheça a metodologia completa, o problema que este serviço resolve e o que você
+                recebe.
+              </p>
+              <Button
+                asChild
+                className="bg-black hover:bg-neutral-800 text-white font-semibold text-sm shrink-0"
+              >
+                <Link
+                  to="/servicos/inteligencia-financeira"
+                  className="inline-flex items-center gap-1.5"
+                >
+                  <span>Saiba mais sobre Inteligência Financeira</span>
+                  <ArrowRight className="h-4 w-4 text-[#FAB319]" />
+                </Link>
+              </Button>
             </div>
           </div>
         </section>

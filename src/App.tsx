@@ -29,6 +29,7 @@ import SimplesNacionalOuLucroPresumidoCalculator from './pages/SimplesNacionalOu
 import CustoDeFuncionarioCLTCalculator from './pages/CustoDeFuncionarioCLTCalculator'
 import CertificadoDigital from './pages/CertificadoDigital'
 import RegistroDeMarcas from './pages/RegistroDeMarcas'
+import InteligenciaFinanceira from './pages/InteligenciaFinanceira'
 import PJouCLTCalculator from './pages/PJouCLTCalculator'
 import SimplesNacionalHibridoCalculator from './pages/SimplesNacionalHibridoCalculator'
 import JurosDeMoraDeTributosCalculator from './pages/JurosDeMoraDeTributosCalculator'
@@ -49,6 +50,7 @@ const App = () => (
             <Route path="/servicos" element={<Services />} />
             <Route path="/servicos/certificado-digital" element={<CertificadoDigital />} />
             <Route path="/servicos/registro-de-marcas" element={<RegistroDeMarcas />} />
+            <Route path="/servicos/inteligencia-financeira" element={<InteligenciaFinanceira />} />
             <Route path="/casos" element={<Cases />} />
             <Route path="/casos/:slug" element={<CaseDetail />} />
             <Route path="/glossario" element={<Glossary />} />

@@ -8,31 +8,46 @@ import {
   RefreshCcw,
   Users2,
   Layers,
+  TrendingUp,
 } from 'lucide-react'
 import rafaelImg from '@/assets/foto-melhorada-por-ia-892a9.png'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 
-// Três pilares de serviços (resumo curto para a Home)
+// Quatro pilares de serviços (resumo para a Home)
 const HOME_SERVICOS_PILARES = [
   {
     title: 'Consultoria Tributária',
     shortDesc:
       'Planejamento fiscal estratégico, enquadramento de regime, Fator R e orientação técnica na Reforma Tributária.',
     icon: FileText,
+    link: '/servicos',
+    linkText: 'Saiba mais sobre Consultoria Tributária',
   },
   {
     title: 'Recuperação de Créditos',
     shortDesc:
       'Diagnóstico minucioso dos últimos 5 anos, aplicação de teses consolidadas e restituição ou compensação administrativa.',
     icon: RefreshCcw,
+    link: '/servicos',
+    linkText: 'Saiba mais sobre Recuperação de Créditos',
   },
   {
     title: 'Consultoria Trabalhista',
     shortDesc:
       'Planejamento de folha de pagamento, adequação de pró-labore, conformidade no eSocial e apoio em rescisões.',
     icon: Users2,
+    link: '/servicos',
+    linkText: 'Saiba mais sobre Consultoria Trabalhista',
+  },
+  {
+    title: 'Inteligência Financeira e Fluxo de Caixa',
+    shortDesc:
+      'Modelagem de cenários, dashboards de indicadores e projeção de caixa que traduzem a apuração contábil em decisão de negócio. Inclui revisão de precificação, análise de margem por serviço e planejamento de distribuição de lucros com eficiência tributária.',
+    icon: TrendingUp,
+    link: '/servicos/inteligencia-financeira',
+    linkText: 'Saiba mais sobre Inteligência Financeira',
   },
 ]
 
@@ -147,7 +162,7 @@ export default function Index() {
             </Button>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {HOME_SERVICOS_PILARES.map((servico, idx) => {
               const Icon = servico.icon
               return (
@@ -163,17 +178,16 @@ export default function Index() {
                       {servico.title}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-4">
+                  <CardContent className="space-y-4 flex-1 flex flex-col justify-between">
                     <CardDescription className="text-sm text-neutral-600 leading-relaxed">
                       {servico.shortDesc}
                     </CardDescription>
                     <div className="pt-2 border-t border-neutral-100">
                       <Link
-                        to="/servicos"
+                        to={servico.link}
                         className="inline-flex items-center text-xs font-semibold text-black hover:text-neutral-700 underline decoration-[#FAB319] decoration-2 underline-offset-4"
                       >
-                        Saiba mais sobre {servico.title}
-                        <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                        {servico.linkText} →
                       </Link>
                     </div>
                   </CardContent>

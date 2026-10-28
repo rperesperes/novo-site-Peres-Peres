@@ -74,9 +74,9 @@ export default function About() {
 
         {/* Bio Section do Responsável Técnico com Fotografia */}
         <Card className="mb-16 border border-neutral-200 shadow-sm overflow-hidden bg-white">
-          <div className="grid md:grid-cols-5 gap-0">
-            <div className="md:col-span-2 bg-neutral-900 p-6 sm:p-8 flex flex-col items-center justify-center text-center border-b md:border-b-0 md:border-r border-neutral-200">
-              <div className="relative aspect-[4/5] w-full max-w-[260px] rounded-lg overflow-hidden border border-neutral-800 shadow-md bg-neutral-950">
+          <div className="grid md:grid-cols-12 gap-0">
+            <div className="md:col-span-4 bg-neutral-900 p-6 sm:p-7 flex flex-col items-center justify-center text-center border-b md:border-b-0 md:border-r border-neutral-200">
+              <div className="relative aspect-[4/5] w-full max-w-[210px] rounded-lg overflow-hidden border border-neutral-800 shadow-md bg-neutral-950">
                 <img
                   src={rafaelImg}
                   alt="Rafael Peres Peres Nunes Altoé - Contador Responsável Técnico CRC 027704"
@@ -84,7 +84,7 @@ export default function About() {
                   className="w-full h-full object-cover object-top"
                 />
               </div>
-              <div className="mt-5 w-full max-w-[260px] text-center border-t border-neutral-800/80 pt-3">
+              <div className="mt-4 w-full max-w-[210px] text-center border-t border-neutral-800/80 pt-3">
                 <p className="text-xs uppercase tracking-wider text-neutral-400 font-mono">
                   Responsável Técnico
                 </p>
@@ -96,13 +96,13 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <div className="md:col-span-3 p-8 lg:p-12 bg-white flex flex-col justify-center">
+            <div className="md:col-span-8 p-6 sm:p-8 lg:p-10 bg-white flex flex-col justify-center">
               <h2 className="text-3xl font-bold text-black mb-1">Rafael Peres Peres Nunes Altoé</h2>
-              <p className="text-sm md:text-base font-medium text-neutral-700 mb-6">
+              <p className="text-sm md:text-base font-medium text-neutral-700 mb-5">
                 Contador • Advogado • Perito • Auditor • Professor
               </p>
 
-              <div className="space-y-4 text-neutral-700 leading-relaxed font-sans text-sm md:text-base">
+              <div className="space-y-3.5 text-neutral-700 leading-relaxed font-sans text-sm md:text-base">
                 <p>
                   Sob a responsabilidade técnica de Rafael Peres Peres Nunes Altoé, a PERES PERES
                   Consultoria e Contabilidade une a prática da contabilidade ao Direito, em especial
@@ -125,7 +125,7 @@ export default function About() {
               </div>
 
               {/* Lista de destaque */}
-              <ul className="grid sm:grid-cols-2 gap-3 mt-6">
+              <ul className="grid sm:grid-cols-2 gap-2.5 mt-5">
                 {[
                   'Membro da Comissão de Contabilidade Tributária do CRC-DF',
                   'Membro da Comissão de Assuntos Tributários da OAB-DF',
@@ -139,18 +139,7 @@ export default function About() {
                 ))}
               </ul>
 
-              {/* Botão de navegação para a equipe */}
-              <div className="pt-6">
-                <Button
-                  variant="outline"
-                  className="border-neutral-900 text-black hover:bg-neutral-100 text-sm font-medium"
-                  asChild
-                >
-                  <a href="#equipe">Conheça a equipe e a trajetória profissional</a>
-                </Button>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-neutral-200">
+              <div className="grid grid-cols-2 gap-4 mt-6 pt-5 border-t border-neutral-200">
                 <div className="flex items-start gap-3">
                   <div className="p-2 border border-neutral-200 bg-neutral-100 rounded shrink-0">
                     <GraduationCap className="h-5 w-5 text-black" />
@@ -192,7 +181,7 @@ export default function About() {
             </p>
             <p>
               Acompanhamos as mudanças constantes da legislação e as novas ferramentas disponíveis
-              no mercado para oferecer soluções ajustadas à realidade de cada cliente — tecnicamente
+              no mercado para oferecer soluções ajustadas à realidade de cada cliente, tecnicamente
               corretas e compatíveis com a estrutura e o porte do negócio.
             </p>
           </div>
@@ -209,8 +198,8 @@ export default function About() {
             </p>
             <p>
               Na prática, isso significa que a norma contábil e a tese jurídica são analisadas pela
-              mesma pessoa — e não por departamentos que não se falam. Quando o fisco autua, essa
-              diferença importa.
+              mesma pessoa, e não por departamentos diferentes que não se falam. Quando o fisco
+              autua, essa diferença importa.
             </p>
           </div>
         </section>
