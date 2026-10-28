@@ -218,7 +218,7 @@ export default function Services() {
             variant="outline"
             className="mb-4 border-neutral-700 text-neutral-300 bg-neutral-900 font-mono text-xs uppercase tracking-wider"
           >
-            PERES PERES Consultoria e Contabilidade • CRC 027704/O
+            PERES PERES Consultoria e Contabilidade • CRC 003366
           </Badge>
           <h1 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
             Nossos Serviços e Planos de Atuação

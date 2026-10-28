@@ -39,10 +39,7 @@ export default function Cases() {
 
           {/* Botões de compartilhamento no topo da página de lista */}
           <div className="mt-6 flex justify-center">
-            <ShareButtons
-              title="Casos de Sucesso | PERES PERES Consultoria e Contabilidade"
-              url="https://peresperes.com.br/casos"
-            />
+            Responsabilidade Técnica: Rafael Peres Peres Nunes Altoé (CRC 027704)
           </div>
         </header>
 

@@ -158,10 +158,14 @@ export function Footer() {
 
         <div className="border-t border-neutral-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
           <p className="leading-relaxed">
-            &copy; 2022-2026. Todos os direitos reservados. Escritório PERES PERES CONSULTORIA &
-            CONTABILIDADE LTDA, CNPJ 44.961.875/0001-25, CF/DF 0810995100100, www.peresperes.com.br,
-            registrado como sociedade limitada perante o Conselho Federal de Contabilidade sob o no
-            DF-003366.
+            Copyright 2017 a 2026 - Todos os conteúdos deste site, inclusive textos, imagens,
+            vídeos, executáveis e arquivos baixáveis estão protegidos pela legislação brasileira
+            sobre direito autoral. Para compartilha-los é obrigatório citar a fonte.
+            <br />
+            <br />
+            Escritório PERES PERES CONSULTORIA &amp; CONTABILIDADE LTDA, CNPJ 44.961.875/0001-25,
+            CF/DF 0810995100100, www.peresperes.com.br, registrado como sociedade limitada perante o
+            Conselho Federal de Contabilidade sob o no DF-003366.
           </p>
           <div className="flex items-center gap-4 shrink-0">
             <Link to="/politica-de-privacidade" className="hover:text-white transition-colors">

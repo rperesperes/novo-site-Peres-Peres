@@ -121,7 +121,7 @@ export function CalculatorEmailCapture({
             )}
 
             <p className="text-[11px] text-neutral-500">
-              Respeitamos a LGPD e o sigilo profissional (CRC 027704/O). Não enviamos spam.
+              Respeitamos a LGPD e o sigilo profissional (CRC 027704). Não enviamos spam.
             </p>
           </form>
         )}
