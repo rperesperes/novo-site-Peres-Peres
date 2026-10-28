@@ -89,7 +89,7 @@ export default function Index() {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight">
-              Consultoria e Contabilidade Tributária em Brasília
+              Consultoria e Contabilidade de Brasília para todo o Brasil
             </h1>
 
             <p className="text-lg text-neutral-300 max-w-xl leading-relaxed">
@@ -153,72 +153,6 @@ export default function Index() {
               <div className="pt-6 border-t border-neutral-800 flex justify-between items-center text-xs text-neutral-500">
                 <span>Distrito Federal</span>
                 <span>Atendimento Presencial e Nacional</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Authority Profile Section - Liderança Técnica */}
-      <section className="py-20 bg-white border-b border-neutral-200">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-12 gap-12 items-center">
-            <div className="md:col-span-5">
-              {/* Retrato oficial do responsável técnico */}
-              <div className="relative aspect-[4/5] rounded-lg overflow-hidden border border-neutral-200 shadow-md bg-neutral-100 group">
-                <img
-                  src={rafaelImg}
-                  alt="Rafael Peres Peres Nunes Altoé - Contador Responsável CRC 027704/O"
-                  loading="lazy"
-                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
-                  <div className="inline-block border-l-2 border-[#FAB319] pl-3 mb-1">
-                    <p className="font-serif font-bold text-lg text-white">
-                      Rafael Peres Peres Nunes Altoé
-                    </p>
-                    <p className="text-xs text-neutral-300 font-mono">Contador • CRC 027704/O</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="md:col-span-7 space-y-6">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-black">
-                Liderança Técnica e Acadêmica
-              </h2>
-              <p className="text-lg text-neutral-700 leading-relaxed font-sans">
-                Sob a responsabilidade técnica de <strong>Rafael Peres Peres Nunes Altoé</strong>{' '}
-                (CRC 027704/O), a <strong>PERES PERES Consultoria e Contabilidade</strong> une a
-                prática contábil ao Direito Tributário. Pós-graduado em Direito Tributário (CERS),
-                possui participação em grupos de pesquisa acadêmica (UniCEUB, IDP) e atuação
-                consultiva contínua perante órgãos fazendários.
-              </p>
-
-              <ul className="grid sm:grid-cols-2 gap-4 mt-6">
-                {[
-                  'Membro CDESCMAT/DF',
-                  'Jornadas de Finanças Públicas (BA)',
-                  'Atuação perante órgãos fazendários',
-                  'Pesquisa em Direito Tributário',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm text-neutral-800">
-                    <CheckCircle2 className="h-4 w-4 text-neutral-900 shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="pt-4">
-                <Button
-                  variant="outline"
-                  className="border-neutral-900 text-black hover:bg-neutral-100 text-sm font-medium"
-                  asChild
-                >
-                  <Link to="/sobre">
-                    Conhecer histórico profissional completo <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
               </div>
             </div>
           </div>
@@ -426,6 +360,72 @@ export default function Index() {
             Assim, realizando um bom trabalho, construímos verdadeiros relacionamentos de longo
             prazo, de confiança e prosperidade com os nossos clientes.
           </p>
+        </div>
+      </section>
+
+      {/* Authority Profile Section - Liderança Técnica */}
+      <section className="py-20 bg-white border-b border-neutral-200">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-12 gap-12 items-center">
+            <div className="md:col-span-5">
+              {/* Retrato oficial do responsável técnico */}
+              <div className="relative aspect-[4/5] rounded-lg overflow-hidden border border-neutral-200 shadow-md bg-neutral-100 group">
+                <img
+                  src={rafaelImg}
+                  alt="Rafael Peres Peres Nunes Altoé - Contador Responsável CRC 027704/O"
+                  loading="lazy"
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+                  <div className="inline-block border-l-2 border-[#FAB319] pl-3 mb-1">
+                    <p className="font-serif font-bold text-lg text-white">
+                      Rafael Peres Peres Nunes Altoé
+                    </p>
+                    <p className="text-xs text-neutral-300 font-mono">Contador • CRC 027704/O</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="md:col-span-7 space-y-6">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-black">
+                Liderança Técnica e Acadêmica
+              </h2>
+              <p className="text-lg text-neutral-700 leading-relaxed font-sans">
+                Sob a responsabilidade técnica de <strong>Rafael Peres Peres Nunes Altoé</strong>{' '}
+                (CRC 027704/O), a <strong>PERES PERES Consultoria e Contabilidade</strong> une a
+                prática contábil ao Direito Tributário. Pós-graduado em Direito Tributário (CERS),
+                possui participação em grupos de pesquisa acadêmica (UniCEUB, IDP) e atuação
+                consultiva contínua perante órgãos fazendários.
+              </p>
+
+              <ul className="grid sm:grid-cols-2 gap-4 mt-6">
+                {[
+                  'Membro CDESCMAT/DF',
+                  'Jornadas de Finanças Públicas (BA)',
+                  'Atuação perante órgãos fazendários',
+                  'Pesquisa em Direito Tributário',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-2 text-sm text-neutral-800">
+                    <CheckCircle2 className="h-4 w-4 text-neutral-900 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="pt-4">
+                <Button
+                  variant="outline"
+                  className="border-neutral-900 text-black hover:bg-neutral-100 text-sm font-medium"
+                  asChild
+                >
+                  <Link to="/sobre">
+                    Conhecer histórico profissional completo <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
