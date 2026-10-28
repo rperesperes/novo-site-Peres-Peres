@@ -4,7 +4,6 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { ShieldCheck, Briefcase, ArrowRight, TrendingUp } from 'lucide-react'
 import { SUCCESS_CASES } from '@/lib/successCasesData'
-import { REAL_CASES } from '@/lib/casesData'
 import { ShareButtons } from '@/components/ShareButtons'
 
 export default function Cases() {
@@ -39,7 +38,10 @@ export default function Cases() {
 
           {/* Botões de compartilhamento no topo da página de lista */}
           <div className="mt-6 flex justify-center">
-            Responsabilidade Técnica: Rafael Peres Peres Nunes Altoé (CRC 027704)
+            <ShareButtons
+              title="Casos de Sucesso | PERES PERES Consultoria e Contabilidade"
+              url="https://peresperes.com.br/casos"
+            />
           </div>
         </header>
 
@@ -133,65 +135,6 @@ export default function Cases() {
             </Card>
           ))}
         </div>
-
-        {/* Seção Adicional: Outros Casos de Atuação Técnica (mantendo o acervo existente) */}
-        {REAL_CASES.length > 0 && (
-          <div className="mt-20 pt-12 border-t border-neutral-800 space-y-8">
-            <div className="text-center max-w-2xl mx-auto space-y-2">
-              <h2 className="text-2xl md:text-3xl font-bold text-white">
-                Outros Casos e Áreas de Atuação
-              </h2>
-              <p className="text-neutral-400 text-sm md:text-base leading-relaxed">
-                Exemplos de diagnósticos, levantamentos e reorganizações societárias conduzidos pela
-                equipe técnica.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {REAL_CASES.map((caseItem) => (
-                <Card
-                  key={caseItem.id}
-                  className="flex flex-col justify-between border border-neutral-800 bg-neutral-900/90 text-neutral-100 shadow-md hover:border-neutral-700 transition-colors"
-                >
-                  <CardHeader className="pb-3">
-                    <div className="flex items-center justify-between gap-2 mb-2">
-                      <Badge className="bg-neutral-800 text-neutral-200 border border-neutral-700 hover:bg-neutral-700 text-xs font-normal">
-                        {caseItem.category}
-                      </Badge>
-                      <span className="text-[11px] text-neutral-400 font-mono">
-                        {caseItem.dateFormatted}
-                      </span>
-                    </div>
-                    <CardTitle className="text-lg font-bold text-white leading-snug line-clamp-2">
-                      <Link
-                        to={`/casos/${caseItem.slug}`}
-                        className="hover:text-[#FAB319] transition-colors"
-                      >
-                        {caseItem.title}
-                      </Link>
-                    </CardTitle>
-                  </CardHeader>
-
-                  <CardContent className="pb-4">
-                    <p className="text-xs md:text-sm text-neutral-400 leading-relaxed line-clamp-2">
-                      {caseItem.summary}
-                    </p>
-                  </CardContent>
-
-                  <div className="p-6 pt-2 border-t border-neutral-800/80">
-                    <Link
-                      to={`/casos/${caseItem.slug}`}
-                      className="inline-flex items-center text-xs font-semibold text-[#FAB319] hover:underline group"
-                    >
-                      Ver detalhes
-                      <ArrowRight className="ml-1 h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
-        )}
 
         {/* Bloco de Atendimento com ponto focal amarelo #FAB319 */}
         <div className="mt-20 p-8 md:p-12 rounded-xl bg-neutral-950 text-white text-center space-y-6 border border-neutral-800 shadow-xl">
