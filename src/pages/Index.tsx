@@ -416,7 +416,7 @@ export default function Index() {
                 className="text-white border-neutral-700 bg-transparent hover:bg-neutral-900 text-base h-12 px-8"
                 asChild
               >
-                Agendar Reunião
+                <Link to="/contato">Agendar Reunião</Link>
               </Button>
             </div>
           </div>
