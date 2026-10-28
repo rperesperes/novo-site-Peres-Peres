@@ -93,9 +93,8 @@ export default function Index() {
             </h1>
 
             <p className="text-lg text-neutral-300 max-w-xl leading-relaxed">
-              Sob a responsabilidade técnica de Rafael Peres Peres Nunes Altoé (CRC 027704/O),
-              oferecemos governança fiscal, planejamento contábil e consultoria tributária em
-              estrita conformidade com a legislação brasileira.
+              Trabalhamos para que nossos clientes, empresas e donos de negócios, cresçam com
+              segurança através de uma contabilidade de excelência.
             </p>
 
             {/* Ponto focal único da tela no Hero: Botão com #FAB319 */}
@@ -223,6 +222,17 @@ export default function Index() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Bloco Institucional 1 - Transição personalizada antes de Serviços */}
+      <section className="py-16 md:py-20 bg-neutral-50/50 border-b border-neutral-200">
+        <div className="container mx-auto px-4 max-w-4xl text-center">
+          <p className="font-serif text-xl sm:text-2xl md:text-3xl text-neutral-900 leading-relaxed font-normal">
+            E como nenhum profissional e nenhuma empresa é igual a outra, buscamos conhecer a fundo,
+            nos detalhes, a história, os desafios e as oportunidades de negócio de cada um dos
+            nossos clientes. Este é o primeiro passo para o que nos propomos: oferecer o melhor.
+          </p>
         </div>
       </section>
 
@@ -409,6 +419,16 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Bloco Institucional 2 - Relacionamento de longo prazo antes da chamada final */}
+      <section className="py-16 md:py-20 bg-white border-b border-neutral-200">
+        <div className="container mx-auto px-4 max-w-4xl text-center">
+          <p className="font-serif text-xl sm:text-2xl md:text-3xl text-neutral-900 leading-relaxed font-normal">
+            Assim, realizando um bom trabalho, construímos verdadeiros relacionamentos de longo
+            prazo, de confiança e prosperidade com os nossos clientes.
+          </p>
+        </div>
+      </section>
+
       {/* Seção Institucional de Diretrizes e Embasamento */}
       <section className="py-20 bg-neutral-950 text-white">
         <div className="container mx-auto px-4">
@@ -427,13 +447,21 @@ export default function Index() {
               lastreada nas regras da Receita Federal e decisões consolidadas dos tribunais
               superiores.
             </p>
-            <div className="pt-4 flex justify-center">
+            <div className="pt-4 flex flex-col sm:flex-row justify-center gap-4">
               <Button
                 size="lg"
                 className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold text-base h-12 px-8"
                 asChild
               >
-                <Link to="/servicos">Conhecer Nossos Serviços Completos</Link>
+                <Link to="/contato">Agendar Consulta Inicial</Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-white border-neutral-700 bg-transparent hover:bg-neutral-900 text-base h-12 px-8"
+                asChild
+              >
+                <Link to="/servicos">Conhecer Serviços Completos</Link>
               </Button>
             </div>
           </div>
