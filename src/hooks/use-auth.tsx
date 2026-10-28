@@ -4,6 +4,7 @@ import pb from '@/lib/pocketbase/client'
 interface AuthContextType {
   user: any
   signIn: (email: string, password: string) => Promise<{ error: any }>
+  signInWithOAuth2: (provider?: string) => Promise<{ error: any; record?: any }>
   signOut: () => void
   loading: boolean
 }
@@ -39,12 +40,21 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   }
 
+  const signInWithOAuth2 = async (provider = 'google') => {
+    try {
+      const authData = await pb.collection('users').authWithOAuth2({ provider })
+      return { error: null, record: authData.record }
+    } catch (error) {
+      return { error, record: null }
+    }
+  }
+
   const signOut = () => {
     pb.authStore.clear()
   }
 
   return (
-    <AuthContext.Provider value={{ user, signIn, signOut, loading }}>
+    <AuthContext.Provider value={{ user, signIn, signInWithOAuth2, signOut, loading }}>
       {children}
     </AuthContext.Provider>
   )

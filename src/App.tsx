@@ -36,6 +36,7 @@ import JurosDeMoraDeTributosCalculator from './pages/JurosDeMoraDeTributosCalcul
 import IRPFeRestituicaoCalculator from './pages/IRPFeRestituicaoCalculator'
 import JurosDeFinanciamentoCalculator from './pages/JurosDeFinanciamentoCalculator'
 import PrivacyPolicy from './pages/PrivacyPolicy'
+import Entrar from './pages/Entrar'
 
 const App = () => (
   <AuthProvider>
@@ -56,6 +57,7 @@ const App = () => (
             <Route path="/glossario" element={<Glossary />} />
             <Route path="/recursos" element={<Resources />} />
             <Route path="/contato" element={<Contact />} />
+            <Route path="/entrar" element={<Entrar />} />
             <Route path="/politica-de-privacidade" element={<PrivacyPolicy />} />
             <Route path="/privacidade" element={<PrivacyPolicy />} />
             <Route path="/calculadoras" element={<CalculatorsHub />} />
