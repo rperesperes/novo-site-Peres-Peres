@@ -85,7 +85,7 @@ export default function Index() {
               PERES PERES Consultoria e Contabilidade
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight max-w-4xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white leading-tight max-w-4xl">
               Consultoria e Contabilidade de Brasília para todo o Brasil
             </h1>
 
@@ -130,7 +130,7 @@ export default function Index() {
       {/* Bloco Institucional 1 - Transição personalizada antes de Serviços */}
       <section className="py-16 md:py-20 bg-neutral-50/50 border-b border-neutral-200">
         <div className="container mx-auto px-4 max-w-4xl text-center">
-          <p className="font-serif text-xl sm:text-2xl md:text-3xl text-neutral-900 leading-relaxed font-normal">
+          <p className="font-sans text-xl sm:text-2xl md:text-3xl text-neutral-900 leading-relaxed font-normal">
             E como nenhum profissional e nenhuma empresa é igual a outra, buscamos conhecer a fundo,
             nos detalhes, a história, os desafios e as oportunidades de negócio de cada um dos
             nossos clientes. Este é o primeiro passo para o que nos propomos: oferecer o melhor.
@@ -148,7 +148,7 @@ export default function Index() {
               <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block mb-2">
                 Nossos Pilares Técnicos
               </span>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-black">
+              <h2 className="text-3xl md:text-4xl font-sans font-bold text-black">
                 Soluções Estratégicas em Consultoria
               </h2>
               <p className="text-neutral-600 text-base md:text-lg mt-3 leading-relaxed">
@@ -324,7 +324,7 @@ export default function Index() {
       {/* Bloco Institucional 2 - Relacionamento de longo prazo antes da chamada final */}
       <section className="py-16 md:py-20 bg-white border-b border-neutral-200">
         <div className="container mx-auto px-4 max-w-4xl text-center">
-          <p className="font-serif text-xl sm:text-2xl md:text-3xl text-neutral-900 leading-relaxed font-normal">
+          <p className="font-sans text-xl sm:text-2xl md:text-3xl text-neutral-900 leading-relaxed font-normal">
             Assim, realizando um bom trabalho, construímos verdadeiros relacionamentos de longo
             prazo, de confiança e prosperidade com os nossos clientes.
           </p>
