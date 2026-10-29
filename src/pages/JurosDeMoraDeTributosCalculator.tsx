@@ -38,6 +38,7 @@ import {
   LATEST_OFFICIAL_SELIC_MONTH,
   DEFAULT_SELIC_FALLBACK_RATE,
 } from '@/lib/selicData'
+import { getIndexEntries, IndexEntryRecord } from '@/services/indices'
 
 // Formatador monetário BRL
 function formatCurrencyBRL(value: number): string {
@@ -104,6 +105,19 @@ export default function JurosDeMoraDeTributosCalculator() {
   // Taxas Selic customizadas pelo usuário (permite editar qualquer mês)
   const [customSelicRates, setCustomSelicRates] = useState<Record<string, number>>({})
 
+  // Série histórica de vigências do índice no backend
+  const [dbEntries, setDbEntries] = useState<IndexEntryRecord[]>([])
+
+  useEffect(() => {
+    getIndexEntries('taxa-selic')
+      .then((res) => {
+        if (res && res.length > 0) {
+          setDbEntries(res)
+        }
+      })
+      .catch((e) => console.log('Uso de série local Selic:', e))
+  }, [])
+
   // SEO: título da aba (máx 60 carac. começando por "calculadora juros de mora")
   // e descrição (máx 155 carac.)
   useEffect(() => {
@@ -156,6 +170,8 @@ export default function JurosDeMoraDeTributosCalculator() {
     if (!dataVencimento || !dataPagamento || valorOriginal <= 0) {
       return {
         isValid: false,
+        isPeriodoSemDados: false,
+        primeiraVigencia: '',
         diasAtraso: 0,
         multaPercent: 0,
         valorMulta: 0,
@@ -184,6 +200,44 @@ export default function JurosDeMoraDeTributosCalculator() {
 
     const dtVenc = new Date(Date.UTC(vAno, vMes - 1, vDia))
     const dtPag = new Date(Date.UTC(pAno, pMes - 1, pDia))
+
+    // Verificação de vigência histórica: data consultada anterior à primeira vigência cadastrada
+    // Conforme requisito: "antes de ter data de vigência, a calculadora precisa avisar que se trata de período sem dados no sistema"
+    let primeiraDataStr = '1995-01-01' // Início histórico oficial da Selic para tributos (Lei 8.981/1995)
+    if (dbEntries.length > 0) {
+      // Ordena crescente para achar a data mais antiga
+      const sorted = [...dbEntries].sort((a, b) =>
+        (a.effective_date || '').localeCompare(b.effective_date || ''),
+      )
+      if (sorted[0]?.effective_date) {
+        primeiraDataStr = sorted[0].effective_date
+      }
+    }
+
+    const primeiraParts = primeiraDataStr.includes('/')
+      ? primeiraDataStr.split('/').reverse().map(Number)
+      : primeiraDataStr.split('-').map(Number)
+    const dtPrimeiraVigencia = new Date(
+      Date.UTC(primeiraParts[0], (primeiraParts[1] || 1) - 1, primeiraParts[2] || 1),
+    )
+
+    const isPeriodoSemDados = dtVenc.getTime() < dtPrimeiraVigencia.getTime()
+    if (isPeriodoSemDados) {
+      return {
+        isValid: false,
+        isPeriodoSemDados: true,
+        primeiraVigencia: primeiraDataStr,
+        diasAtraso: 0,
+        multaPercent: 0,
+        valorMulta: 0,
+        selicPercent: 0,
+        valorJuros: 0,
+        totalAtualizado: valorOriginal,
+        isSemAtraso: false,
+        mesesSelicAplicados: [],
+        memoLinhas: [],
+      }
+    }
 
     // Diferença em dias corridos
     const diffMs = dtPag.getTime() - dtVenc.getTime()
@@ -341,6 +395,8 @@ export default function JurosDeMoraDeTributosCalculator() {
 
     return {
       isValid: true,
+      isPeriodoSemDados: false,
+      primeiraVigencia: primeiraDataStr,
       diasAtraso,
       multaPercent,
       valorMulta,
@@ -351,7 +407,7 @@ export default function JurosDeMoraDeTributosCalculator() {
       mesesSelicAplicados,
       memoLinhas,
     }
-  }, [valorOriginal, dataVencimento, dataPagamento, customSelicRates])
+  }, [valorOriginal, dataVencimento, dataPagamento, customSelicRates, dbEntries])
 
   // FAQ com 5 perguntas curtas e diretas
   const faqs = [
@@ -641,6 +697,30 @@ export default function JurosDeMoraDeTributosCalculator() {
                 anterior ou coincide com o vencimento legal. Não há incidência de multa de mora nem
                 de juros moratórios. O valor a recolher é exatamente o principal original de{' '}
                 <strong>{formatCurrencyBRL(valorOriginal)}</strong>.
+              </div>
+            </div>
+          )}
+
+          {/* SITUAÇÃO: DATA CONSULTADA ANTERIOR À PRIMEIRA VIGÊNCIA CADASTRADA (PERÍODO SEM DADOS NO SISTEMA) */}
+          {calculation.isPeriodoSemDados && (
+            <div className="p-5 bg-amber-50 border-2 border-[#FAB319] rounded-xl text-neutral-900 text-sm mb-8 flex items-start gap-3 shadow-sm">
+              <AlertTriangle className="h-6 w-6 text-amber-700 shrink-0 mt-0.5" />
+              <div className="space-y-1.5">
+                <h3 className="font-bold text-base text-black flex items-center gap-2">
+                  Período sem dados no sistema para este índice
+                </h3>
+                <p className="text-neutral-800 leading-relaxed">
+                  A data de vencimento consultada (<strong>{formatDateBR(dataVencimento)}</strong>)
+                  é anterior à primeira data de vigência cadastrada na série histórica deste índice
+                  no sistema (vigência inicial:{' '}
+                  <strong>{formatDateBR(calculation.primeiraVigencia)}</strong>).
+                </p>
+                <p className="text-xs text-neutral-600">
+                  Para resguardar a precisão contábil e a conformidade legal, a calculadora não
+                  realiza estimativas automatizadas para períodos desprovidos de série histórica
+                  oficial no sistema. Cadastre a vigência correspondente no painel ou informe uma
+                  competência a partir de {formatDateBR(calculation.primeiraVigencia)}.
+                </p>
               </div>
             </div>
           )}

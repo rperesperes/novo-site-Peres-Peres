@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T13:30:46.321Z",
+  "generatedAt": "2026-10-29T14:06:42.567Z",
   "collections": [
     {
       "name": "users",
@@ -571,6 +571,77 @@
       "indexes": [
         "CREATE INDEX idx_calc_acc_slug ON calculator_accesses (calculator_slug)",
         "CREATE INDEX idx_calc_acc_created ON calculator_accesses (created DESC)"
+      ]
+    },
+    {
+      "name": "index_entries",
+      "type": "base",
+      "apiRules": {
+        "list": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
+        "view": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
+        "create": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
+        "update": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
+        "delete": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'"
+      },
+      "fields": [
+        {
+          "name": "index_id",
+          "type": "relation",
+          "required": true,
+          "system": false,
+          "collectionRef": "indices"
+        },
+        {
+          "name": "index_slug",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "effective_date",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "value",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "source",
+          "type": "select",
+          "required": false,
+          "system": false,
+          "selectValues": ["manual", "automatica"]
+        },
+        {
+          "name": "notes",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": [
+        "CREATE INDEX idx_entries_index_id ON index_entries (index_id)",
+        "CREATE INDEX idx_entries_index_slug ON index_entries (index_slug)",
+        "CREATE INDEX idx_entries_effective_date ON index_entries (effective_date DESC)",
+        "CREATE UNIQUE INDEX idx_entries_slug_date ON index_entries (index_slug, effective_date)"
       ]
     }
   ]

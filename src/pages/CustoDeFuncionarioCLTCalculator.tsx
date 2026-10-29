@@ -135,6 +135,9 @@ export default function CustoDeFuncionarioCLTCalculator() {
     // Salário bruto total mensal (base de incidência para encargos e verbas)
     const salarioBrutoTotal = salarioBase + valorInsalubridade + valorPericulosidade + valorNoturno
 
+    // Validação de piso nacional
+    const isAbaixoSalarioMinimo = salarioBase > 0 && salarioBase < SALARIO_MINIMO_2026
+
     // 2. ENCARGOS E PROVISÕES DO LADO DA EMPRESA
     // - INSS Patronal: 20% ou ZERO quando Simples Nacional
     const aliqInssPatronal = isSimplesNacional ? 0 : 0.2

@@ -204,6 +204,45 @@ cronAdd('monthly_indices_update', '0 8 1 * *', () => {
     }
   }
 
+  function recordIndexEntry(indexRec, formattedVal, effectiveDate, notesText) {
+    var slug = indexRec.getString('slug')
+    var entriesCol = $app.findCollectionByNameOrId('index_entries')
+    var existingEntry = null
+    try {
+      existingEntry = $app.findFirstRecordByFilter(
+        'index_entries',
+        "index_slug = '" + slug + "' && effective_date = '" + effectiveDate + "'",
+      )
+    } catch (_) {}
+
+    if (existingEntry) {
+      // Já existe vigência registrada para essa data: mantém histórico ou atualiza se for automática
+      if (existingEntry.getString('source') === 'automatica') {
+        existingEntry.set('value', formattedVal)
+        existingEntry.set('notes', notesText)
+        $app.save(existingEntry)
+      }
+    } else {
+      // Cria nova vigência no histórico (nunca apaga ou sobrescreve vigências de outras datas)
+      var newEntry = new Record(entriesCol)
+      newEntry.set('index_id', indexRec.id)
+      newEntry.set('index_slug', slug)
+      newEntry.set('effective_date', effectiveDate)
+      newEntry.set('value', formattedVal)
+      newEntry.set('source', 'automatica')
+      newEntry.set('notes', notesText)
+      $app.save(newEntry)
+    }
+
+    // Atualiza o resumo da vigência mais recente na coleção indices
+    indexRec.set('current_value', formattedVal)
+    indexRec.set('effective_date', effectiveDate)
+    indexRec.set('update_source', 'automatica')
+    indexRec.set('last_updated_at', nowIso)
+    indexRec.set('notes', notesText)
+    $app.save(indexRec)
+  }
+
   console.log('[Cron Indices] Executando rotina mensal de atualização dos índices...')
   var results = []
   var nowIso = new Date().toISOString()
@@ -214,12 +253,8 @@ cronAdd('monthly_indices_update', '0 8 1 * *', () => {
     try {
       var selicRec = $app.findFirstRecordByData('indices', 'slug', 'taxa-selic')
       var formattedVal = selicRes.value.replace('.', ',') + '%'
-      selicRec.set('current_value', formattedVal)
-      selicRec.set('effective_date', selicRes.date)
-      selicRec.set('update_source', 'automatica')
-      selicRec.set('last_updated_at', nowIso)
-      selicRec.set('notes', 'Atualizado automaticamente via API SGS/Banco Central (Série 1178)')
-      $app.save(selicRec)
+      var notes = 'Atualizado automaticamente via API SGS/Banco Central (Série 1178)'
+      recordIndexEntry(selicRec, formattedVal, selicRes.date, notes)
       results.push({
         name: 'Taxa Selic',
         slug: 'taxa-selic',
@@ -251,12 +286,8 @@ cronAdd('monthly_indices_update', '0 8 1 * *', () => {
     try {
       var trRec = $app.findFirstRecordByData('indices', 'slug', 'taxa-referencial')
       var formattedTr = trRes.value.replace('.', ',') + '%'
-      trRec.set('current_value', formattedTr)
-      trRec.set('effective_date', trRes.date)
-      trRec.set('update_source', 'automatica')
-      trRec.set('last_updated_at', nowIso)
-      trRec.set('notes', 'Atualizado automaticamente via API SGS/Banco Central (Série 226)')
-      $app.save(trRec)
+      var trNotes = 'Atualizado automaticamente via API SGS/Banco Central (Série 226)'
+      recordIndexEntry(trRec, formattedTr, trRes.date, trNotes)
       results.push({
         name: 'Taxa Referencial (TR)',
         slug: 'taxa-referencial',
@@ -288,15 +319,8 @@ cronAdd('monthly_indices_update', '0 8 1 * *', () => {
     try {
       var ipcaRec = $app.findFirstRecordByData('indices', 'slug', 'ipca')
       var formattedIpca = ipcaRes.value.replace('.', ',') + '%'
-      ipcaRec.set('current_value', formattedIpca)
-      ipcaRec.set('effective_date', ipcaRes.date)
-      ipcaRec.set('update_source', 'automatica')
-      ipcaRec.set('last_updated_at', nowIso)
-      ipcaRec.set(
-        'notes',
-        'Atualizado automaticamente via API SGS/Banco Central (Série 433 - IBGE/BCB)',
-      )
-      $app.save(ipcaRec)
+      var ipcaNotes = 'Atualizado automaticamente via API SGS/Banco Central (Série 433 - IBGE/BCB)'
+      recordIndexEntry(ipcaRec, formattedIpca, ipcaRes.date, ipcaNotes)
       results.push({
         name: 'IPCA',
         slug: 'ipca',
@@ -328,15 +352,8 @@ cronAdd('monthly_indices_update', '0 8 1 * *', () => {
     try {
       var inpcRec = $app.findFirstRecordByData('indices', 'slug', 'inpc')
       var formattedInpc = inpcRes.value.replace('.', ',') + '%'
-      inpcRec.set('current_value', formattedInpc)
-      inpcRec.set('effective_date', inpcRes.date)
-      inpcRec.set('update_source', 'automatica')
-      inpcRec.set('last_updated_at', nowIso)
-      inpcRec.set(
-        'notes',
-        'Atualizado automaticamente via API SGS/Banco Central (Série 188 - IBGE/BCB)',
-      )
-      $app.save(inpcRec)
+      var inpcNotes = 'Atualizado automaticamente via API SGS/Banco Central (Série 188 - IBGE/BCB)'
+      recordIndexEntry(inpcRec, formattedInpc, inpcRes.date, inpcNotes)
       results.push({
         name: 'INPC',
         slug: 'inpc',
@@ -576,18 +593,50 @@ routerAdd('POST', '/backend/v1/indices/sync-now', (e) => {
     var results = []
     var nowIso = new Date().toISOString()
 
+    function recordIndexEntry(indexRec, formattedVal, effectiveDate, notesText) {
+      var slug = indexRec.getString('slug')
+      var entriesCol = $app.findCollectionByNameOrId('index_entries')
+      var existingEntry = null
+      try {
+        existingEntry = $app.findFirstRecordByFilter(
+          'index_entries',
+          "index_slug = '" + slug + "' && effective_date = '" + effectiveDate + "'",
+        )
+      } catch (_) {}
+
+      if (existingEntry) {
+        if (existingEntry.getString('source') === 'automatica') {
+          existingEntry.set('value', formattedVal)
+          existingEntry.set('notes', notesText)
+          $app.save(existingEntry)
+        }
+      } else {
+        var newEntry = new Record(entriesCol)
+        newEntry.set('index_id', indexRec.id)
+        newEntry.set('index_slug', slug)
+        newEntry.set('effective_date', effectiveDate)
+        newEntry.set('value', formattedVal)
+        newEntry.set('source', 'automatica')
+        newEntry.set('notes', notesText)
+        $app.save(newEntry)
+      }
+
+      indexRec.set('current_value', formattedVal)
+      indexRec.set('effective_date', effectiveDate)
+      indexRec.set('update_source', 'automatica')
+      indexRec.set('last_updated_at', nowIso)
+      indexRec.set('notes', notesText)
+      $app.save(indexRec)
+    }
+
     // 1. Selic
     var selicRes = fetchBcbSeries(1178)
     if (selicRes.success) {
       try {
         var selicRec = $app.findFirstRecordByData('indices', 'slug', 'taxa-selic')
         var formattedVal = selicRes.value.replace('.', ',') + '%'
-        selicRec.set('current_value', formattedVal)
-        selicRec.set('effective_date', selicRes.date)
-        selicRec.set('update_source', 'automatica')
-        selicRec.set('last_updated_at', nowIso)
-        selicRec.set('notes', 'Atualizado automaticamente via API SGS/Banco Central (Série 1178)')
-        $app.save(selicRec)
+        var notes = 'Atualizado automaticamente via API SGS/Banco Central (Série 1178)'
+        recordIndexEntry(selicRec, formattedVal, selicRes.date, notes)
         results.push({
           name: 'Taxa Selic',
           slug: 'taxa-selic',
@@ -619,12 +668,8 @@ routerAdd('POST', '/backend/v1/indices/sync-now', (e) => {
       try {
         var trRec = $app.findFirstRecordByData('indices', 'slug', 'taxa-referencial')
         var formattedTr = trRes.value.replace('.', ',') + '%'
-        trRec.set('current_value', formattedTr)
-        trRec.set('effective_date', trRes.date)
-        trRec.set('update_source', 'automatica')
-        trRec.set('last_updated_at', nowIso)
-        trRec.set('notes', 'Atualizado automaticamente via API SGS/Banco Central (Série 226)')
-        $app.save(trRec)
+        var trNotes = 'Atualizado automaticamente via API SGS/Banco Central (Série 226)'
+        recordIndexEntry(trRec, formattedTr, trRes.date, trNotes)
         results.push({
           name: 'Taxa Referencial (TR)',
           slug: 'taxa-referencial',
@@ -656,15 +701,9 @@ routerAdd('POST', '/backend/v1/indices/sync-now', (e) => {
       try {
         var ipcaRec = $app.findFirstRecordByData('indices', 'slug', 'ipca')
         var formattedIpca = ipcaRes.value.replace('.', ',') + '%'
-        ipcaRec.set('current_value', formattedIpca)
-        ipcaRec.set('effective_date', ipcaRes.date)
-        ipcaRec.set('update_source', 'automatica')
-        ipcaRec.set('last_updated_at', nowIso)
-        ipcaRec.set(
-          'notes',
-          'Atualizado automaticamente via API SGS/Banco Central (Série 433 - IBGE/BCB)',
-        )
-        $app.save(ipcaRec)
+        var ipcaNotes =
+          'Atualizado automaticamente via API SGS/Banco Central (Série 433 - IBGE/BCB)'
+        recordIndexEntry(ipcaRec, formattedIpca, ipcaRes.date, ipcaNotes)
         results.push({
           name: 'IPCA',
           slug: 'ipca',
@@ -686,15 +725,9 @@ routerAdd('POST', '/backend/v1/indices/sync-now', (e) => {
       try {
         var inpcRec = $app.findFirstRecordByData('indices', 'slug', 'inpc')
         var formattedInpc = inpcRes.value.replace('.', ',') + '%'
-        inpcRec.set('current_value', formattedInpc)
-        inpcRec.set('effective_date', inpcRes.date)
-        inpcRec.set('update_source', 'automatica')
-        inpcRec.set('last_updated_at', nowIso)
-        inpcRec.set(
-          'notes',
-          'Atualizado automaticamente via API SGS/Banco Central (Série 188 - IBGE/BCB)',
-        )
-        $app.save(inpcRec)
+        var inpcNotes =
+          'Atualizado automaticamente via API SGS/Banco Central (Série 188 - IBGE/BCB)'
+        recordIndexEntry(inpcRec, formattedInpc, inpcRes.date, inpcNotes)
         results.push({
           name: 'INPC',
           slug: 'inpc',

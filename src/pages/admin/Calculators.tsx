@@ -1,5 +1,13 @@
 import { useState, useEffect, useMemo } from 'react'
-import { getIndices, updateIndex, IndexRecord, checkIndexExpiration } from '@/services/indices'
+import {
+  getIndices,
+  updateIndex,
+  IndexRecord,
+  checkIndexExpiration,
+  getIndexEntries,
+  IndexEntryRecord,
+} from '@/services/indices'
+import { IndexSeriesCard } from './IndexSeriesCard'
 import { getCalculatorAccesses, CalculatorAccessRecord } from '@/services/calculator_accesses'
 import { CALCULATORS, CalculatorItem } from '@/lib/calculatorsData'
 import { useRealtime } from '@/hooks/use-realtime'
@@ -50,6 +58,7 @@ export default function AdminCalculators() {
 
   // Aba Índices
   const [indices, setIndices] = useState<IndexRecord[]>([])
+  const [indexEntriesMap, setIndexEntriesMap] = useState<Record<string, IndexEntryRecord[]>>({})
   const [loadingIndices, setLoadingIndices] = useState(true)
   const [editingValues, setEditingValues] = useState<
     Record<
@@ -57,7 +66,6 @@ export default function AdminCalculators() {
       { current_value: string; effective_date: string; validity_months: number; notes: string }
     >
   >({})
-  const [savingIndexId, setSavingIndexId] = useState<string | null>(null)
   const [savedSuccessId, setSavedSuccessId] = useState<string | null>(null)
 
   const { toast } = useToast()
@@ -80,12 +88,31 @@ export default function AdminCalculators() {
     }
   }
 
-  // Carrega índices
+  // Carrega índices e série histórica de cada um
   const loadIndices = async () => {
     try {
       setLoadingIndices(true)
-      const data = await getIndices()
+      const [data, entries] = await Promise.all([getIndices(), getIndexEntries()])
       setIndices(data)
+
+      // Agrupa entradas de vigências por slug do índice
+      const entriesMap: Record<string, IndexEntryRecord[]> = {}
+      for (const item of data) {
+        entriesMap[item.slug] = []
+      }
+      for (const entry of entries) {
+        if (!entriesMap[entry.index_slug]) {
+          entriesMap[entry.index_slug] = []
+        }
+        entriesMap[entry.index_slug].push(entry)
+      }
+      // Ordena vigências decrescentes por data de início
+      for (const slug in entriesMap) {
+        entriesMap[slug].sort((a, b) => {
+          return (b.effective_date || '').localeCompare(a.effective_date || '')
+        })
+      }
+      setIndexEntriesMap(entriesMap)
 
       // Inicializa mapa de edição
       const initialMap: Record<
@@ -123,6 +150,10 @@ export default function AdminCalculators() {
   })
 
   useRealtime('indices', () => {
+    loadIndices()
+  })
+
+  useRealtime('index_entries', () => {
     loadIndices()
   })
 
@@ -550,188 +581,24 @@ export default function AdminCalculators() {
             </div>
           )}
 
-          {/* Lista de Índices em Cards de Edição Rápida */}
+          {/* Lista de Índices com Série Histórica de Vigências */}
           <div className="space-y-4">
             {loadingIndices ? (
               <div className="py-20 text-center text-neutral-400 flex flex-col items-center justify-center gap-2">
                 <Loader2 className="h-6 w-6 animate-spin text-[#FAB319]" />
-                <p className="text-sm">Carregando índices cadastrados...</p>
+                <p className="text-sm">Carregando índices e séries históricas...</p>
               </div>
             ) : (
               indicesStatus.list.map((item) => {
-                const draft = editingValues[item.id] || {
-                  current_value: '',
-                  effective_date: '',
-                  validity_months: 12,
-                  notes: '',
-                }
-                const isSaving = savingIndexId === item.id
-                const isSaved = savedSuccessId === item.id
-                const isExpired = item.isExpired
-                const isMissing = item.isMissing
-
+                const entries = indexEntriesMap[item.slug] || []
                 return (
-                  <div
+                  <IndexSeriesCard
                     key={item.id}
-                    className={`rounded-xl p-5 border transition-all ${
-                      isExpired
-                        ? 'bg-red-950/30 border-red-700/80 shadow-md shadow-red-950/30'
-                        : isMissing
-                          ? 'bg-neutral-900 border-neutral-800'
-                          : 'bg-neutral-900/90 border-neutral-800'
-                    }`}
-                  >
-                    <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-neutral-800/80">
-                      <div>
-                        <div className="flex items-center gap-2.5">
-                          <h3 className="text-base font-bold text-white tracking-tight">
-                            {item.name}
-                          </h3>
-                          {isExpired ? (
-                            <Badge className="bg-red-600 text-white border-0 text-[10px] font-sans font-bold flex items-center gap-1">
-                              <AlertTriangle className="h-3 w-3" /> VENCIDO / DESATUALIZADO
-                            </Badge>
-                          ) : isMissing ? (
-                            <Badge className="bg-neutral-800 text-neutral-400 border border-neutral-700 text-[10px] font-sans">
-                              Aguardando Cadastro
-                            </Badge>
-                          ) : (
-                            <Badge className="bg-emerald-950 text-emerald-400 border border-emerald-800 text-[10px] font-sans flex items-center gap-1">
-                              <CheckCircle2 className="h-3 w-3" /> Vigente ({item.monthsRemaining}{' '}
-                              meses restantes)
-                            </Badge>
-                          )}
-                        </div>
-                        <p className="text-xs text-neutral-400 mt-1 font-sans">
-                          Identificador interno:{' '}
-                          <span className="font-mono text-[#FAB319]">{item.slug}</span>
-                          <span className="ml-3 text-neutral-500 font-mono">
-                            Última atualização: {formatDate(item.last_updated_at || item.updated)}
-                          </span>
-                          <span className="ml-3 inline-flex items-center gap-1">
-                            {item.update_source === 'automatica' ? (
-                              <Badge className="bg-blue-950/80 text-blue-300 border border-blue-800 text-[10px] font-sans">
-                                <Bot className="h-3 w-3 mr-1" /> Automática (Sistema)
-                              </Badge>
-                            ) : (
-                              <Badge className="bg-neutral-800 text-neutral-300 border border-neutral-700 text-[10px] font-sans">
-                                <UserCheck className="h-3 w-3 mr-1" /> Manual (Painel)
-                              </Badge>
-                            )}
-                          </span>
-                        </p>
-                      </div>
-
-                      <div className="flex items-center gap-2">
-                        {isSaved && (
-                          <span className="text-xs text-emerald-400 font-medium flex items-center gap-1 bg-emerald-950/80 border border-emerald-800 px-2.5 py-1 rounded-md animate-fade-in">
-                            <CheckCircle2 className="h-3.5 w-3.5" /> Salvo no banco!
-                          </span>
-                        )}
-                        <Button
-                          type="button"
-                          disabled={isSaving}
-                          onClick={() => handleSaveIndex(item.id)}
-                          className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold text-xs h-9 px-4 shrink-0 shadow-md"
-                        >
-                          {isSaving ? (
-                            <>
-                              <Loader2 className="h-3.5 w-3.5 animate-spin mr-1.5" /> Salvando...
-                            </>
-                          ) : (
-                            <>
-                              <Save className="h-3.5 w-3.5 mr-1.5" /> Salvar Índice
-                            </>
-                          )}
-                        </Button>
-                      </div>
-                    </div>
-
-                    {/* Campos de Edição */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
-                      {/* Valor Atual */}
-                      <div className="space-y-1">
-                        <label className="text-[11px] font-mono text-neutral-300 uppercase tracking-wider block">
-                          Valor Atual / Alíquota
-                        </label>
-                        <Input
-                          value={draft.current_value}
-                          onChange={(e) =>
-                            setEditingValues((prev) => ({
-                              ...prev,
-                              [item.id]: { ...draft, current_value: e.target.value },
-                            }))
-                          }
-                          placeholder="Ex.: R$ 1.621,00 ou 10,75%"
-                          className={`bg-neutral-950 border-neutral-800 text-white text-xs h-9 focus:border-[#FAB319] ${
-                            isExpired ? 'border-red-800/80 bg-red-950/20' : ''
-                          }`}
-                        />
-                      </div>
-
-                      {/* Data de Vigência */}
-                      <div className="space-y-1">
-                        <label className="text-[11px] font-mono text-neutral-300 uppercase tracking-wider block">
-                          Data de Vigência
-                        </label>
-                        <Input
-                          value={draft.effective_date}
-                          onChange={(e) =>
-                            setEditingValues((prev) => ({
-                              ...prev,
-                              [item.id]: { ...draft, effective_date: e.target.value },
-                            }))
-                          }
-                          placeholder="AAAA-MM-DD ou DD/MM/AAAA"
-                          className={`bg-neutral-950 border-neutral-800 text-white text-xs h-9 focus:border-[#FAB319] ${
-                            isExpired ? 'border-red-800/80 bg-red-950/20' : ''
-                          }`}
-                        />
-                      </div>
-
-                      {/* Prazo de Validade (Meses) */}
-                      <div className="space-y-1">
-                        <label className="text-[11px] font-mono text-neutral-300 uppercase tracking-wider block">
-                          Validade (meses)
-                        </label>
-                        <Input
-                          type="number"
-                          min={1}
-                          max={60}
-                          value={draft.validity_months}
-                          onChange={(e) =>
-                            setEditingValues((prev) => ({
-                              ...prev,
-                              [item.id]: {
-                                ...draft,
-                                validity_months: parseInt(e.target.value, 10) || 12,
-                              },
-                            }))
-                          }
-                          placeholder="Padrão: 12"
-                          className="bg-neutral-950 border-neutral-800 text-white text-xs h-9 focus:border-[#FAB319]"
-                        />
-                      </div>
-
-                      {/* Observações / Norma */}
-                      <div className="space-y-1">
-                        <label className="text-[11px] font-mono text-neutral-300 uppercase tracking-wider block">
-                          Fundamento / Referência
-                        </label>
-                        <Input
-                          value={draft.notes}
-                          onChange={(e) =>
-                            setEditingValues((prev) => ({
-                              ...prev,
-                              [item.id]: { ...draft, notes: e.target.value },
-                            }))
-                          }
-                          placeholder="Ex.: Medida Provisória, Copom nº..."
-                          className="bg-neutral-950 border-neutral-800 text-white text-xs h-9 focus:border-[#FAB319]"
-                        />
-                      </div>
-                    </div>
-                  </div>
+                    item={item}
+                    entries={entries}
+                    onRefresh={loadIndices}
+                    formatDate={formatDate}
+                  />
                 )
               })
             )}
