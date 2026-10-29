@@ -195,12 +195,13 @@ export default function TrabalheConosco() {
                   <Users className="h-6 w-6" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2.5">
-                  Ambiente acolhedor e transparente
+                  Organização e profissionalismo
                 </h3>
                 <p className="text-sm text-neutral-400 leading-relaxed">
-                  Eliminamos a hierarquia engessada e o tom corporativo artificial. As portas estão
-                  sempre abertas para debater teses, tirar dúvidas e propor melhorias nos processos.
-                  Aqui você é ouvido desde o primeiro dia.
+                  Nossa rotina é estruturada: prioridades definidas no início do dia, pendências
+                  registradas no sistema e documentação padronizada. A hierarquia é horizontal e o
+                  acesso à direção é direto, mas cada nível tem responsabilidade clara — e quem
+                  atende o cliente conhece o caso dele inteiro, sem repasse entre setores.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-neutral-900">
@@ -216,12 +217,13 @@ export default function TrabalheConosco() {
                   <GraduationCap className="h-6 w-6" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2.5">
-                  Incentivo genuíno aos estudos
+                  Crescimento por mérito, com erro virando método
                 </h3>
                 <p className="text-sm text-neutral-400 leading-relaxed">
-                  Contabilidade e legislação tributária mudam todos os dias. Estimulamos e
-                  respeitamos o calendário acadêmico, graduações, pós-graduações e exames de
-                  certificação (CFC, OAB, peritagem e auditoria).
+                  A progressão é por competência demonstrada, não por tempo de casa. Aqui, cada erro
+                  gera um checklist para não se repetir e cada dúvida resolvida vira um guia para o
+                  time. Apoiamos a formação contínua — treinamentos do CRC-DF, cursos e
+                  desenvolvimento interno — respeitando a jornada acadêmica de quem estuda.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-neutral-900">
@@ -236,8 +238,9 @@ export default function TrabalheConosco() {
             <div className="space-y-1">
               <p className="text-sm font-semibold text-white">Nossos valores fundamentais</p>
               <p className="text-xs text-neutral-400 leading-relaxed max-w-2xl">
-                Ética intransigente, respeito ao tempo e aos negócios dos clientes, clareza na
-                comunicação e paixão pelo detalhe que faz a diferença.
+                Somos contra o modelo de escritório de massa. Nossos pilares: comunicação clara,
+                confiança, conhecimento técnico, organização e profissionalismo. Erro aqui não é
+                escondido — é transformado em método para não acontecer de novo.
               </p>
             </div>
             <Button
