@@ -106,7 +106,7 @@ export default function Contact() {
         '@type': 'ContactPage',
         '@id': 'https://peresperes.com.br/contato#webpage',
         url: 'https://peresperes.com.br/contato',
-        name: 'Fale com o escritório | PERES PERES Consultoria & Contabilidade',
+        name: 'Fale conosco | PERES PERES Consultoria & Contabilidade',
         description:
           'Canal de contato da PERES PERES Consultoria & Contabilidade em Brasília. Agende uma reunião especializada.',
         mainEntity: {
@@ -149,7 +149,7 @@ export default function Contact() {
         {/* Cabeçalho */}
         <header className="mb-12 max-w-3xl">
           <h1 className="text-3xl md:text-5xl font-bold text-black mb-4 leading-tight">
-            Fale com o escritório
+            Fale conosco
           </h1>
           <p className="text-base md:text-lg text-neutral-700 leading-relaxed">
             Estamos à disposição para entender o momento da sua empresa e propor soluções
@@ -170,7 +170,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 block mb-0.5">
-                      E-mail direto
+                      E-MAIL
                     </span>
                     <a
                       href={`mailto:${SITE_INFO.email}`}
@@ -376,7 +376,7 @@ export default function Contact() {
                       disabled={status === 'loading'}
                       value={telefone}
                       onChange={(e) => setTelefone(e.target.value)}
-                      placeholder="(61) 90000-0000"
+                      placeholder="(00) 90000-0000"
                       className="border-neutral-300 focus-visible:ring-black"
                     />
                   </div>
@@ -396,7 +396,7 @@ export default function Contact() {
                     disabled={status === 'loading'}
                     value={mensagem}
                     onChange={(e) => setMensagem(e.target.value)}
-                    placeholder="Descreva brevemente a sua demanda ou dúvida tributária..."
+                    placeholder="Descreva brevemente a sua demanda ou dúvida..."
                     className="border-neutral-300 focus-visible:ring-black resize-y"
                   />
                 </div>

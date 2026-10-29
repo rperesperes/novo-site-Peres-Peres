@@ -145,11 +145,6 @@ export default function CalculatorsHub() {
               className="border-t border-neutral-200 pt-10"
             >
               <div className="mb-8">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xs font-mono font-semibold uppercase tracking-widest text-neutral-500">
-                    Bloco 0{catIdx + 1}
-                  </span>
-                </div>
                 <h2
                   id={`categoria-${catIdx}`}
                   className="text-2xl md:text-3xl font-bold text-black mb-2"

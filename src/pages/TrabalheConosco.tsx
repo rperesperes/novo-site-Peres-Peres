@@ -124,21 +124,25 @@ export default function TrabalheConosco() {
   }
 
   return (
-    <div className="bg-white text-neutral-900 min-h-screen py-16 md:py-24 font-sans selection:bg-[#FAB319] selection:text-black">
-      <div className="container mx-auto px-4 max-w-5xl">
-        {/* Header institucional da página */}
-        <div className="text-center mb-16 md:mb-20 animate-fade-in-up">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black tracking-tight">
-            Trabalhe na PERES PERES
-          </h1>
-          <p className="text-lg md:text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-            Somos um escritório de contabilidade e consultoria tributária em Brasília, com equipe
-            enxuta e organização por cliente. Procuramos gente que gosta de entender o caso a fundo,
-            de investigar o problema antes de responder, e que quer crescer pelo que entrega, não
-            necessariamente pelo tempo de casa.
-          </p>
+    <div className="bg-white text-neutral-900 min-h-screen font-sans selection:bg-[#FAB319] selection:text-black">
+      {/* Seção inicial (hero, ANTES do bloco Nossa Identidade) com fundo PRETO */}
+      <section className="bg-black text-white pt-16 pb-20 md:pt-24 md:pb-28 border-b border-neutral-900">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="text-center animate-fade-in-up">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white tracking-tight">
+              Trabalhe na <span className="text-[#FAB319]">PERES PERES</span>
+            </h1>
+            <p className="text-lg md:text-xl text-neutral-300 max-w-3xl mx-auto leading-relaxed">
+              Somos um escritório de contabilidade e consultoria tributária em Brasília, com equipe
+              enxuta e organização por cliente. Procuramos gente que gosta de entender o caso a
+              fundo, de investigar o problema antes de responder, e que quer crescer pelo que
+              entrega, não necessariamente pelo tempo de casa.
+            </p>
+          </div>
         </div>
+      </section>
 
+      <div className="container mx-auto px-4 max-w-5xl py-16 md:py-24">
         {/* ========================================================================= */}
         {/* BLOCO 1: NOSSA IDENTIDADE                                                 */}
         {/* ========================================================================= */}
@@ -148,9 +152,6 @@ export default function TrabalheConosco() {
               <Target className="h-5 w-5 text-[#FAB319]" />
             </div>
             <div>
-              <span className="text-xs uppercase font-mono tracking-widest text-neutral-500 block">
-                Diretrizes Estratégicas
-              </span>
               <h2 className="text-2xl md:text-3xl font-bold text-black">Nossa Identidade</h2>
             </div>
           </div>
@@ -158,10 +159,16 @@ export default function TrabalheConosco() {
           <div className="bg-white border border-neutral-200 rounded-2xl p-6 sm:p-8 shadow-sm">
             <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
               <div className="p-5 rounded-xl bg-neutral-50/80 border border-neutral-200/80 hover:border-neutral-300 transition-all flex flex-col justify-start">
-                <div className="flex items-center gap-2 mb-2">
+                <div className="flex items-center gap-2 mb-2 flex-wrap">
                   <span className="w-2 h-2 rounded-full bg-[#FAB319]" />
                   <span className="text-xs font-mono uppercase tracking-wider font-bold text-black bg-[#FAB319]/20 text-[#855d00] px-2.5 py-0.5 rounded border border-[#FAB319]/30">
                     Propósito
+                  </span>
+                  <span className="text-xs text-neutral-600 font-sans">
+                    <span className="underline decoration-[#FAB319] decoration-2 underline-offset-2 font-medium text-neutral-900">
+                      porque
+                    </span>{' '}
+                    a PP foi criada e existe
                   </span>
                 </div>
                 <p className="text-sm md:text-base text-neutral-800 leading-relaxed font-sans">
@@ -171,10 +178,16 @@ export default function TrabalheConosco() {
               </div>
 
               <div className="p-5 rounded-xl bg-neutral-50/80 border border-neutral-200/80 hover:border-neutral-300 transition-all flex flex-col justify-start">
-                <div className="flex items-center gap-2 mb-2">
+                <div className="flex items-center gap-2 mb-2 flex-wrap">
                   <span className="w-2 h-2 rounded-full bg-[#FAB319]" />
                   <span className="text-xs font-mono uppercase tracking-wider font-bold text-black bg-[#FAB319]/20 text-[#855d00] px-2.5 py-0.5 rounded border border-[#FAB319]/30">
                     Visão
+                  </span>
+                  <span className="text-xs text-neutral-600 font-sans">
+                    <span className="underline decoration-[#FAB319] decoration-2 underline-offset-2 font-medium text-neutral-900">
+                      onde
+                    </span>{' '}
+                    queremos chegar
                   </span>
                 </div>
                 <p className="text-sm md:text-base text-neutral-800 leading-relaxed font-sans">
@@ -183,10 +196,16 @@ export default function TrabalheConosco() {
               </div>
 
               <div className="p-5 rounded-xl bg-neutral-50/80 border border-neutral-200/80 hover:border-neutral-300 transition-all flex flex-col justify-start">
-                <div className="flex items-center gap-2 mb-2">
+                <div className="flex items-center gap-2 mb-2 flex-wrap">
                   <span className="w-2 h-2 rounded-full bg-[#FAB319]" />
                   <span className="text-xs font-mono uppercase tracking-wider font-bold text-black bg-[#FAB319]/20 text-[#855d00] px-2.5 py-0.5 rounded border border-[#FAB319]/30">
                     Valores
+                  </span>
+                  <span className="text-xs text-neutral-600 font-sans">
+                    <span className="underline decoration-[#FAB319] decoration-2 underline-offset-2 font-medium text-neutral-900">
+                      como
+                    </span>{' '}
+                    queremos ser lembrados
                   </span>
                 </div>
                 <p className="text-sm md:text-base text-neutral-800 leading-relaxed font-sans">
@@ -196,8 +215,18 @@ export default function TrabalheConosco() {
               </div>
 
               <div className="p-5 rounded-xl bg-neutral-50/80 border border-neutral-200/80 hover:border-neutral-300 transition-all flex flex-col justify-start">
-                <div className="flex items-center gap-2 mb-2">
+                <div className="flex items-center gap-2 mb-2 flex-wrap">
                   <span className="w-2 h-2 rounded-full bg-[#FAB319]" />
+                  <span className="text-xs font-mono uppercase tracking-wider font-bold text-black bg-[#FAB319]/20 text-[#855d00] px-2.5 py-0.5 rounded border border-[#FAB319]/30">
+                    Missão
+                  </span>
+                  <span className="text-xs text-neutral-600 font-sans">
+                    o{' '}
+                    <span className="underline decoration-[#FAB319] decoration-2 underline-offset-2 font-medium text-neutral-900">
+                      que
+                    </span>{' '}
+                    devemos fazer para atingir nossa visão
+                  </span>
                 </div>
                 <p className="text-sm md:text-base text-neutral-800 leading-relaxed font-sans">
                   Ouvir os empreendedores e estudar as melhores soluções.
@@ -205,11 +234,17 @@ export default function TrabalheConosco() {
               </div>
             </div>
 
-            <div className="mt-6 pt-5 border-t border-neutral-200 text-center sm:text-left bg-neutral-50 rounded-xl p-4 sm:p-5 border border-neutral-200 flex items-center gap-3">
-              <span className="w-2 h-2 rounded-full bg-[#FAB319] shrink-0" />
-              <p className="text-sm md:text-base font-semibold text-black tracking-tight">
-                Quanto maior for o nosso objetivo, mais importante será o nosso time.
-              </p>
+            {/* Conclusão em destaque visual, separada dos quatro itens */}
+            <div className="mt-8 relative overflow-hidden rounded-2xl bg-neutral-900 text-white p-6 sm:p-7 border border-neutral-800 shadow-md">
+              <div className="absolute top-0 left-0 w-2 h-full bg-[#FAB319]" />
+              <div className="pl-3 sm:pl-4">
+                <span className="text-[11px] font-mono uppercase tracking-widest text-[#FAB319] font-bold block mb-1.5">
+                  Conclusão
+                </span>
+                <p className="text-base md:text-lg font-semibold text-white tracking-tight leading-relaxed">
+                  Quanto maior for o nosso objetivo, mais importante será o nosso time.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -218,23 +253,16 @@ export default function TrabalheConosco() {
         {/* BLOCO 2: COMPORTAMENTOS ESSENCIAIS                                        */}
         {/* ========================================================================= */}
         <section className="mb-20 md:mb-28">
-          <div className="flex items-center gap-3 mb-3">
+          <div className="flex items-center gap-3 mb-6">
             <div className="p-2.5 rounded-lg bg-neutral-100 border border-neutral-200 text-black">
               <CheckCircle2 className="h-5 w-5 text-[#FAB319]" />
             </div>
             <div>
-              <span className="text-xs uppercase font-mono tracking-widest text-neutral-500 block">
-                Critérios de Atuação
-              </span>
               <h2 className="text-2xl md:text-3xl font-bold text-black">
                 Comportamentos essenciais
               </h2>
             </div>
           </div>
-
-          <p className="text-sm md:text-base text-neutral-600 mb-8 max-w-3xl leading-relaxed">
-            São quatro, e é por eles que você será avaliado aqui.
-          </p>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {ESSENTIAL_BEHAVIORS.map((behavior) => {
