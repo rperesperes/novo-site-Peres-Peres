@@ -234,13 +234,10 @@ export default function TrabalheConosco() {
               </div>
             </div>
 
-            {/* Conclusão em destaque visual, separada dos quatro itens */}
+            {/* Frase final em destaque visual, separada dos quatro itens */}
             <div className="mt-8 relative overflow-hidden rounded-2xl bg-neutral-900 text-white p-6 sm:p-7 border border-neutral-800 shadow-md">
               <div className="absolute top-0 left-0 w-2 h-full bg-[#FAB319]" />
               <div className="pl-3 sm:pl-4">
-                <span className="text-[11px] font-mono uppercase tracking-widest text-[#FAB319] font-bold block mb-1.5">
-                  Conclusão
-                </span>
                 <p className="text-base md:text-lg font-semibold text-white tracking-tight leading-relaxed">
                   Quanto maior for o nosso objetivo, mais importante será o nosso time.
                 </p>
