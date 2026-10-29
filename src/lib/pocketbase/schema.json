@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T17:55:12.790Z",
+  "generatedAt": "2026-10-29T18:07:37.190Z",
   "collections": [
     {
       "name": "users",
@@ -643,6 +643,52 @@
         "CREATE INDEX idx_entries_effective_date ON index_entries (effective_date DESC)",
         "CREATE UNIQUE INDEX idx_entries_slug_date ON index_entries (index_slug, effective_date)"
       ]
+    },
+    {
+      "name": "system_settings",
+      "type": "base",
+      "apiRules": {
+        "list": null,
+        "view": null,
+        "create": null,
+        "update": null,
+        "delete": null
+      },
+      "fields": [
+        {
+          "name": "key",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "value",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": ["CREATE UNIQUE INDEX idx_system_settings_key ON system_settings (key)"]
     }
   ]
 }

@@ -38,16 +38,45 @@ onRecordAfterCreateSuccess((e) => {
       if (typeof $secrets !== 'undefined' && $secrets.get) {
         if (!apiKey && $secrets.has && $secrets.has('RESEND_API_KEY')) {
           apiKey = ($secrets.get('RESEND_API_KEY') || '').trim()
-        } else if (!apiKey) {
-          apiKey = ($secrets.get('RESEND_API_KEY') || '').trim()
         }
         if (!from && $secrets.has && $secrets.has('MAIL_FROM')) {
-          from = ($secrets.get('MAIL_FROM') || '').trim()
-        } else if (!from) {
           from = ($secrets.get('MAIL_FROM') || '').trim()
         }
       }
     } catch (_) {}
+
+    // Fallback via coleção interna system_settings (armazenamento seguro no backend)
+    if (!apiKey || !from) {
+      try {
+        var appInstance = typeof $app !== 'undefined' ? $app : null
+        if (appInstance && appInstance.findFirstRecordByData) {
+          if (!apiKey) {
+            try {
+              var keyRecord = appInstance.findFirstRecordByData(
+                'system_settings',
+                'key',
+                'RESEND_API_KEY',
+              )
+              if (keyRecord) {
+                apiKey = (keyRecord.getString('value') || '').trim()
+              }
+            } catch (_) {}
+          }
+          if (!from) {
+            try {
+              var fromRecord = appInstance.findFirstRecordByData(
+                'system_settings',
+                'key',
+                'MAIL_FROM',
+              )
+              if (fromRecord) {
+                from = (fromRecord.getString('value') || '').trim()
+              }
+            } catch (_) {}
+          }
+        }
+      } catch (_) {}
+    }
 
     if (!from) {
       from = 'PERES PERES Consultoria & Contabilidade <contato@peresperes.com.br>'
@@ -320,16 +349,45 @@ onRecordAfterCreateSuccess((e) => {
       if (typeof $secrets !== 'undefined' && $secrets.get) {
         if (!apiKey && $secrets.has && $secrets.has('RESEND_API_KEY')) {
           apiKey = ($secrets.get('RESEND_API_KEY') || '').trim()
-        } else if (!apiKey) {
-          apiKey = ($secrets.get('RESEND_API_KEY') || '').trim()
         }
         if (!from && $secrets.has && $secrets.has('MAIL_FROM')) {
-          from = ($secrets.get('MAIL_FROM') || '').trim()
-        } else if (!from) {
           from = ($secrets.get('MAIL_FROM') || '').trim()
         }
       }
     } catch (_) {}
+
+    // Fallback via coleção interna system_settings (armazenamento seguro no backend)
+    if (!apiKey || !from) {
+      try {
+        var appInstance = typeof $app !== 'undefined' ? $app : null
+        if (appInstance && appInstance.findFirstRecordByData) {
+          if (!apiKey) {
+            try {
+              var keyRecord = appInstance.findFirstRecordByData(
+                'system_settings',
+                'key',
+                'RESEND_API_KEY',
+              )
+              if (keyRecord) {
+                apiKey = (keyRecord.getString('value') || '').trim()
+              }
+            } catch (_) {}
+          }
+          if (!from) {
+            try {
+              var fromRecord = appInstance.findFirstRecordByData(
+                'system_settings',
+                'key',
+                'MAIL_FROM',
+              )
+              if (fromRecord) {
+                from = (fromRecord.getString('value') || '').trim()
+              }
+            } catch (_) {}
+          }
+        }
+      } catch (_) {}
+    }
 
     if (!from) {
       from = 'PERES PERES Consultoria & Contabilidade <contato@peresperes.com.br>'
