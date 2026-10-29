@@ -67,31 +67,3 @@ export const BLOG_POSTS = [
       'Entenda os passos legais para recuperar impostos pagos indevidamente sem risco de autuação.',
   },
 ]
-
-export const GLOSSARY = [
-  {
-    term: 'CARF',
-    definition:
-      'Conselho Administrativo de Recursos Fiscais. Órgão colegiado do Ministério da Fazenda que julga recursos de ofício e voluntários de decisão de primeira instância.',
-  },
-  {
-    term: 'Elisão Fiscal',
-    definition:
-      'Prática lícita de planejamento tributário, buscando a menor carga tributária possível dentro da lei.',
-  },
-  {
-    term: 'Evasão Fiscal',
-    definition:
-      'Prática ilícita de sonegação de impostos. Totalmente contrária aos princípios da PERES PERES Consultoria & Contabilidade.',
-  },
-  {
-    term: 'Fator R',
-    definition:
-      'Cálculo utilizado no Simples Nacional para determinar se uma empresa de serviços será tributada pelo Anexo III ou V.',
-  },
-  {
-    term: 'RCT',
-    definition:
-      'Recuperação de Créditos Tributários. Processo administrativo ou judicial para reaver impostos pagos indevidamente.',
-  },
-]

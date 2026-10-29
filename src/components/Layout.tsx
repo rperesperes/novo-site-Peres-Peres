@@ -18,7 +18,6 @@ export default function Layout() {
       '/servicos': 'Serviços e Planos Contábeis | PERES PERES Consultoria & Contabilidade',
       '/casos': 'Casos Reais | PERES PERES Consultoria & Contabilidade',
       '/recursos': 'Recursos e Materiais | PERES PERES Consultoria & Contabilidade',
-      '/glossario': 'Glossário Tributário | PERES PERES Consultoria & Contabilidade',
       '/contato': 'Fale com o Escritório | PERES PERES Consultoria & Contabilidade',
       '/politica-de-privacidade':
         'Política de Privacidade | PERES PERES Consultoria & Contabilidade',

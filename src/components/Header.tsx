@@ -11,8 +11,8 @@ const NAV_LINKS = [
   { name: 'Sobre Nós', path: '/sobre' },
   { name: 'Serviços', path: '/servicos' },
   { name: 'Casos de Sucesso', path: '/casos' },
-  { name: 'Blog', path: 'https://blog.peresperes.com.br', external: true },
   { name: 'Calculadoras', path: '/calculadoras' },
+  { name: 'Blog', path: 'https://blog.peresperes.com.br', external: true },
 ]
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)

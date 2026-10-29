@@ -21,7 +21,6 @@ import Services from './pages/Services'
 import Cases from './pages/Cases'
 import CaseDetail from './pages/CaseDetail'
 
-import Glossary from './pages/Glossary'
 import Resources from './pages/Resources'
 import Contact from './pages/Contact'
 import CalculatorsHub from './pages/CalculatorsHub'
@@ -57,7 +56,6 @@ const App = () => (
             <Route path="/servicos/inteligencia-financeira" element={<InteligenciaFinanceira />} />
             <Route path="/casos" element={<Cases />} />
             <Route path="/casos/:slug" element={<CaseDetail />} />
-            <Route path="/glossario" element={<Glossary />} />
             <Route path="/recursos" element={<Resources />} />
             <Route path="/contato" element={<Contact />} />
             <Route path="/entrar" element={<Entrar />} />

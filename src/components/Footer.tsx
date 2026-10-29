@@ -129,6 +129,16 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/recursos" className="hover:text-[#FAB319] transition-colors">
+                  Recursos e Materiais
+                </Link>
+              </li>
+              <li>
+                <Link to="/calculadoras" className="hover:text-[#FAB319] transition-colors">
+                  Calculadoras
+                </Link>
+              </li>
+              <li>
                 <a
                   href="https://blog.peresperes.com.br"
                   className="hover:text-[#FAB319] transition-colors"
@@ -139,21 +149,6 @@ export function Footer() {
               <li>
                 <Link to="/trabalhe-conosco" className="hover:text-[#FAB319] transition-colors">
                   Trabalhe Conosco
-                </Link>
-              </li>
-              <li>
-                <Link to="/recursos" className="hover:text-[#FAB319] transition-colors">
-                  Recursos e Materiais
-                </Link>
-              </li>
-              <li>
-                <Link to="/calculadoras" className="hover:text-[#FAB319] transition-colors">
-                  Calculadoras Tributárias
-                </Link>
-              </li>
-              <li>
-                <Link to="/glossario" className="hover:text-[#FAB319] transition-colors">
-                  Glossário Tributário
                 </Link>
               </li>
               <li>

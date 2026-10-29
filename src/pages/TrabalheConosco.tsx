@@ -25,30 +25,30 @@ import { getPublicJobVacancies, type JobVacancyRecord } from '@/services/job_vac
 const CAREER_LEVELS = [
   {
     level: 'Assistente',
-    role: 'Assistente Contábil / Fiscal / Jurídico',
+    role: '- Contador(a), Analista ou Estagiário(a)',
     description:
-      'Imersão técnica rigorosa na rotina operacional e fiscal. Espera-se curiosidade intelectual, atenção aos detalhes na conciliação e apuração de tributos, e compromisso absoluto com a qualidade documental.',
+      'Executa as atividades de um ou mais clientes, em conjunto com o responsável supervisor pelo cliente ou pelo projeto. Imersão técnica na rotina contábil, fiscal e no atendimento.',
     expectations:
-      'Bases sólidas de escrituração, apuração nos regimes do Simples Nacional e Lucro Presumido, e postura investigativa diante de inconsistências.',
-    badge: 'Nível I — Formação e Execução',
+      'bases sólidas de escrituração e apuração, atenção na conciliação, organização documental e postura investigativa diante de inconsistências.',
+    badge: 'Nível I',
   },
   {
-    level: 'Analista',
-    role: 'Analista Sênior / Consultor Tributário',
+    level: 'Responsável pelo cliente ou projeto',
+    role: '- Contador(a) ou Analista',
     description:
-      'Autonomia técnica, condução de auditorias, elaboração de pareceres consultivos e interface direta com clientes e órgãos fazendários. Espera-se pensamento estratégico e capacidade de conectar norma contábil a teses jurídicas.',
+      'Assume a supervisão direta de um ou mais clientes ou projetos. Conduz o trabalho do assistente, responde tecnicamente pelo caso e é o ponto de contato do cliente.',
     expectations:
-      'Diagnósticos fiscais avançados, planejamento tributário preventivo, revisão de declarações complexas e liderança técnica na orientação de assistentes.',
-    badge: 'Nível II — Autonomia e Estratégia',
+      'autonomia técnica, capacidade de conectar norma contábil à tese jurídica, comunicação clara com o cliente e iniciativa para destravar pendências sem sair do combinado.',
+    badge: 'Nível II',
   },
   {
-    level: 'Diretor',
-    role: 'Diretor Técnico / Sócio de Área',
+    level: 'Diretor(a)',
+    role: '- Contador(a) responsável supervisor pelo escritório',
     description:
-      'Liderança de equipes, governança de clientes estratégicos, condução de reestruturações societárias e representação institucional do escritório. Espera-se visão de longo prazo e responsabilidade ética irrestrita.',
+      'Responsabilidade técnica e institucional pelo escritório, supervisão geral dos clientes e dos projetos, e decisão sobre as diretrizes de atuação.',
     expectations:
-      'Tomada de decisão de alta complexidade, representação em procedimentos fiscais de grande porte, mentoria contínua da equipe e expansão da autoridade técnica da PERES PERES.',
-    badge: 'Nível III — Liderança e Governança',
+      'rigor técnico exemplar, responsabilidade ética irrestrita e construção do padrão de qualidade que o time segue.',
+    badge: 'Nível III',
   },
 ]
 
@@ -195,13 +195,13 @@ export default function TrabalheConosco() {
                   <Users className="h-6 w-6" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2.5">
-                  Organização e profissionalismo
+                  Organização e comunicação clara
                 </h3>
                 <p className="text-sm text-neutral-400 leading-relaxed">
-                  Nossa rotina é estruturada: prioridades definidas no início do dia, pendências
-                  registradas no sistema e documentação padronizada. A hierarquia é horizontal e o
-                  acesso à direção é direto, mas cada nível tem responsabilidade clara — e quem
-                  atende o cliente conhece o caso dele inteiro, sem repasse entre setores.
+                  Aqui a rotina é estruturada: prioridades definidas no início do dia, pendências
+                  registradas no sistema e documentos no Drive compartilhado com nomenclatura
+                  padrão. O organograma é horizontal, em três níveis: direção, responsável pelo
+                  cliente e assistente. Iniciativa é agir para destravar, sem sair do combinado.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-neutral-900">
@@ -221,9 +221,10 @@ export default function TrabalheConosco() {
                 </h3>
                 <p className="text-sm text-neutral-400 leading-relaxed">
                   A progressão é por competência demonstrada, não por tempo de casa. Aqui, cada erro
-                  gera um checklist para não se repetir e cada dúvida resolvida vira um guia para o
-                  time. Apoiamos a formação contínua — treinamentos do CRC-DF, cursos e
-                  desenvolvimento interno — respeitando a jornada acadêmica de quem estuda.
+                  gera um checklist pessoal para não repetir e cada dúvida resolvida vira modelo ou
+                  guia para o time. Valorizamos proatividade e capacidade prática de entrega mais do
+                  que o currículo formal, inclusive aceitamos graduações em andamento e de outras
+                  áreas.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-neutral-900">
@@ -238,9 +239,10 @@ export default function TrabalheConosco() {
             <div className="space-y-1">
               <p className="text-sm font-semibold text-white">Nossos valores fundamentais</p>
               <p className="text-xs text-neutral-400 leading-relaxed max-w-2xl">
-                Somos contra o modelo de escritório de massa. Nossos pilares: comunicação clara,
-                confiança, conhecimento técnico, organização e profissionalismo. Erro aqui não é
-                escondido — é transformado em método para não acontecer de novo.
+                Comunicação clara, Confiança, Conhecimento técnico, Organização e Profissionalismo.
+                E o que não queremos ser: escritório de massa, que cobra barato para entregar o
+                mínimo; escritório que ignora decisões relevantes para o cliente; e empresa onde as
+                pessoas não são reconhecidas nem crescem junto.
               </p>
             </div>
             <Button
@@ -265,7 +267,7 @@ export default function TrabalheConosco() {
             </div>
             <div>
               <span className="text-xs uppercase font-mono tracking-widest text-neutral-400 block">
-                Plano de Carreira
+                PLANO DE CARREIRA
               </span>
               <h2 className="text-2xl md:text-3xl font-bold text-white">
                 Evolução por competência demonstrada, não por tempo de casa
@@ -274,9 +276,9 @@ export default function TrabalheConosco() {
           </div>
 
           <p className="text-sm md:text-base text-neutral-400 mb-10 max-w-3xl leading-relaxed">
-            Na PERES PERES, você não precisa esperar anos na mesma cadeira para dar o próximo passo.
-            A progressão técnica é orientada pelo domínio das matérias, autonomia na entrega, rigor
-            de análise e postura de liderança.
+            Na PERES PERES, você não precisa esperar anos na mesma cadeira. A progressão é orientada
+            pelo domínio das matérias, pela autonomia na entrega e pela postura de responsabilidade.
+            Somos um escritório enxuto e horizontal, em três níveis.
           </p>
 
           {/* Linha do tempo visual dos 3 níveis */}
@@ -321,11 +323,17 @@ export default function TrabalheConosco() {
             </div>
           </div>
 
-          <div className="mt-8 text-center bg-neutral-900/40 border border-neutral-800/80 rounded-xl p-4">
-            <p className="text-xs md:text-sm text-neutral-400">
-              ⭐ <strong className="text-white">Premissa inegociável:</strong> Avaliações periódicas
-              focadas em entregas reais, feedback contínuo estruturado e plano de estudo
-              individualizado para cada membro do time.
+          <div className="mt-8 bg-neutral-900/40 border border-neutral-800/80 rounded-xl p-5 sm:p-6 text-left">
+            <h4 className="text-sm md:text-base font-bold text-white mb-2">
+              Avaliamos capacidade de entrega antes de formação
+            </h4>
+            <p className="text-xs md:text-sm text-neutral-400 leading-relaxed">
+              Trabalhamos com um time enxuto, organizado por clientes e projetos, não por
+              departamentos. Na prática, isso significa que o que conta aqui é a capacidade de
+              resolver: rigor na apuração, organização documental, comunicação clara e vontade de
+              estudar. Aceitamos graduação em andamento e formações de outras áreas, porque
+              repertório diverso melhora a análise. O que não é negociável é o padrão técnico da
+              entrega.
             </p>
           </div>
         </section>
