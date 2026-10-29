@@ -5,7 +5,7 @@
 // 1. contact_requests (Formulário de contato / Simulações):
 //    (a) Notificação interna ao escritório em contato@peresperes.com.br
 //    (b) Confirmação/agradecimento ao visitante
-// 2. newsletter_subscribers (Assinatura do Boletim Tributário):
+// 2. newsletter_subscribers (Assinatura do Boletim Informativo):
 //    Confirmação e boas-vindas ao assinante
 //
 // Regras de resiliência e runtime goja/PocketBase:
@@ -285,7 +285,7 @@ onRecordAfterCreateSuccess((e) => {
 }, 'contact_requests')
 
 // ============================================================================
-// Gatilho 2: Assinatura do Boletim Tributário (newsletter_subscribers)
+// Gatilho 2: Assinatura do Boletim Informativo (newsletter_subscribers)
 // ============================================================================
 onRecordAfterCreateSuccess((e) => {
   function escapeHtml(text) {
@@ -400,12 +400,13 @@ onRecordAfterCreateSuccess((e) => {
     }
 
     // E-mail de confirmação e boas-vindas ao assinante
-    var welcomeSubject = 'Bem-vindo ao Boletim Tributário | PERES PERES Consultoria e Contabilidade'
+    var welcomeSubject =
+      'Bem-vindo ao Boletim Informativo | PERES PERES Consultoria e Contabilidade'
 
     var welcomeText = [
       'Olá!',
       '',
-      'Agradecemos pelo seu interesse em assinar o Boletim Tributário da PERES PERES Consultoria e Contabilidade.',
+      'Agradecemos pelo seu interesse em assinar o Boletim Informativo da PERES PERES Consultoria e Contabilidade.',
       '',
       'Sua inscrição foi confirmada com sucesso. A partir de agora, você receberá periodicamente nossas análises técnicas, informativos e atualizações sobre as principais alterações da legislação tributária e contábil brasileira aplicáveis ao seu negócio.',
       '',
@@ -433,12 +434,12 @@ onRecordAfterCreateSuccess((e) => {
       '    <tr>',
       '      <td style="background-color: #000000; padding: 24px; border-bottom: 3px solid #FAB319;">',
       '        <h1 style="margin: 0; font-size: 20px; font-weight: 700; color: #ffffff; letter-spacing: 0.5px;">PERES PERES</h1>',
-      '        <p style="margin: 4px 0 0 0; font-size: 13px; color: #d4d4d4;">Consultoria e Contabilidade • Boletim Tributário</p>',
+      '        <p style="margin: 4px 0 0 0; font-size: 13px; color: #d4d4d4;">Consultoria e Contabilidade • Boletim Informativo</p>',
       '      </td>',
       '    </tr>',
       '    <tr>',
       '      <td style="padding: 28px 24px;">',
-      '        <h2 style="font-size: 18px; font-weight: 700; color: #111; margin: 0 0 16px 0;">Inscrição confirmada no Boletim Tributário</h2>',
+      '        <h2 style="font-size: 18px; font-weight: 700; color: #111; margin: 0 0 16px 0;">Inscrição confirmada no Boletim Informativo</h2>',
       '        <p style="margin: 0 0 14px 0; font-size: 14px; color: #333; line-height: 1.6;">Agradecemos pelo seu interesse. Confirmamos a sua assinatura em nosso boletim informativo.</p>',
       '        <p style="margin: 0 0 20px 0; font-size: 14px; color: #333; line-height: 1.6;">Você receberá periodicamente nossas análises técnicas, atualizações normativas e diretrizes práticas para a gestão tributária e societária do seu negócio, sempre com foco em segurança jurídica e conformidade fiscal.</p>',
       '        <div style="background: #fafafa; border: 1px solid #eaeaea; border-radius: 6px; padding: 16px; margin: 20px 0;">',

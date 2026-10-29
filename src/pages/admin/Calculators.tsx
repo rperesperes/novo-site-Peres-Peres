@@ -33,6 +33,8 @@ import {
   Filter,
   BarChart3,
   Layers,
+  Bot,
+  UserCheck,
 } from 'lucide-react'
 
 export default function AdminCalculators() {
@@ -215,6 +217,8 @@ export default function AdminCalculators() {
         effective_date: draft.effective_date.trim(),
         validity_months: Number(draft.validity_months) || 12,
         notes: draft.notes.trim(),
+        update_source: 'manual',
+        last_updated_at: new Date().toISOString(),
       })
 
       setSavedSuccessId(id)
@@ -601,11 +605,20 @@ export default function AdminCalculators() {
                         <p className="text-xs text-neutral-400 mt-1 font-sans">
                           Identificador interno:{' '}
                           <span className="font-mono text-[#FAB319]">{item.slug}</span>
-                          {item.updated && (
-                            <span className="ml-3 text-neutral-500 font-mono">
-                              Última alteração: {formatDate(item.updated)}
-                            </span>
-                          )}
+                          <span className="ml-3 text-neutral-500 font-mono">
+                            Última atualização: {formatDate(item.last_updated_at || item.updated)}
+                          </span>
+                          <span className="ml-3 inline-flex items-center gap-1">
+                            {item.update_source === 'automatica' ? (
+                              <Badge className="bg-blue-950/80 text-blue-300 border border-blue-800 text-[10px] font-sans">
+                                <Bot className="h-3 w-3 mr-1" /> Automática (Sistema)
+                              </Badge>
+                            ) : (
+                              <Badge className="bg-neutral-800 text-neutral-300 border border-neutral-700 text-[10px] font-sans">
+                                <UserCheck className="h-3 w-3 mr-1" /> Manual (Painel)
+                              </Badge>
+                            )}
+                          </span>
                         </p>
                       </div>
 

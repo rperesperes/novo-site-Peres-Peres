@@ -1,10 +1,14 @@
 import pb from '@/lib/pocketbase/client'
 
+export type SubscriberStatus = 'ativo' | 'desativado'
+
 export interface NewsletterSubscriberRecord {
   id: string
   email: string
   source?: string
   archived?: boolean
+  status?: SubscriberStatus
+  status_updated_at?: string
   created: string
   updated: string
 }
@@ -13,6 +17,8 @@ export interface NewsletterSubscriberInput {
   email: string
   source?: string
   archived?: boolean
+  status?: SubscriberStatus
+  status_updated_at?: string
 }
 
 export interface SubscribeNewsletterResult {
@@ -29,7 +35,7 @@ export function isValidEmail(email: string): boolean {
 }
 
 /**
- * Inscreve no Boletim Tributário.
+ * Inscreve no Boletim Informativo.
  * - Valida formato de e-mail.
  * - Trata duplicatas: se o e-mail já estiver cadastrado, retorna `{ alreadySubscribed: true }` sem erro na tela
  *   e sem criar registro repetido.
@@ -67,8 +73,12 @@ export async function subscribeNewsletter(
   try {
     const created = await pb.collection('newsletter_subscribers').create({
       email: normalizedEmail,
-      source: data.source || window.location.href,
+      source:
+        data.source ||
+        (typeof window !== 'undefined' ? window.location.href : 'Rodapé (Boletim Informativo)'),
       archived: false,
+      status: 'ativo',
+      status_updated_at: new Date().toISOString(),
     })
     return {
       record: created as unknown as NewsletterSubscriberRecord,
@@ -101,5 +111,19 @@ export async function archiveNewsletterSubscriber(
   archived: boolean = true,
 ): Promise<NewsletterSubscriberRecord> {
   const res = await pb.collection('newsletter_subscribers').update(id, { archived })
+  return res as unknown as NewsletterSubscriberRecord
+}
+
+/**
+ * Atualiza o status do assinante (ativo / desativado) e registra data/hora da alteração.
+ */
+export async function updateSubscriberStatus(
+  id: string,
+  status: SubscriberStatus,
+): Promise<NewsletterSubscriberRecord> {
+  const res = await pb.collection('newsletter_subscribers').update(id, {
+    status,
+    status_updated_at: new Date().toISOString(),
+  })
   return res as unknown as NewsletterSubscriberRecord
 }

@@ -23,6 +23,8 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { NewsletterSubscribersTab } from './NewsletterSubscribersTab'
 import {
   Mail,
   Search,
@@ -37,6 +39,7 @@ import {
   Loader2,
   Calendar,
   ExternalLink,
+  Users,
 } from 'lucide-react'
 
 export type UnifiedEmailItem = {
@@ -64,6 +67,7 @@ export default function AdminEmails() {
   const [sortOrder, setSortOrder] = useState<'desc' | 'asc'>('desc')
   const [selectedItem, setSelectedItem] = useState<UnifiedEmailItem | null>(null)
   const [actionLoadingId, setActionLoadingId] = useState<string | null>(null)
+  const [activeTab, setActiveTab] = useState<'all' | 'subscribers'>('all')
 
   const { toast } = useToast()
 
@@ -237,7 +241,7 @@ export default function AdminEmails() {
     if (kind === 'newsletter') {
       return (
         <Badge className="bg-neutral-800 text-[#FAB319] border border-neutral-700 text-[11px] font-sans">
-          Boletim Tributário
+          Boletim Informativo
         </Badge>
       )
     }
@@ -284,252 +288,293 @@ export default function AdminEmails() {
         </div>
       </div>
 
-      {/* Cards de Resumo */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="bg-neutral-900/90 border border-neutral-800 rounded-xl p-4">
-          <span className="text-[11px] font-mono text-neutral-400 block uppercase tracking-wider">
-            Ativos na Caixa
-          </span>
-          <span className="text-2xl font-bold text-white mt-1 block">{stats.totalActive}</span>
-          <span className="text-[11px] text-neutral-500 font-sans mt-0.5 block">
-            aguardando ou em atendimento
-          </span>
-        </div>
-
-        <div className="bg-neutral-900/90 border border-neutral-800 rounded-xl p-4">
-          <span className="text-[11px] font-mono text-neutral-400 block uppercase tracking-wider">
-            Fale Conosco
-          </span>
-          <span className="text-2xl font-bold text-blue-400 mt-1 block">{stats.totalContact}</span>
-          <span className="text-[11px] text-neutral-500 font-sans mt-0.5 block">
-            mensagens e solicitações
-          </span>
-        </div>
-
-        <div className="bg-neutral-900/90 border border-neutral-800 rounded-xl p-4">
-          <span className="text-[11px] font-mono text-neutral-400 block uppercase tracking-wider">
-            Boletim Tributário
-          </span>
-          <span className="text-2xl font-bold text-[#FAB319] mt-1 block">
-            {stats.totalNewsletter}
-          </span>
-          <span className="text-[11px] text-neutral-500 font-sans mt-0.5 block">
-            assinantes inscritos
-          </span>
-        </div>
-
-        <div className="bg-neutral-900/90 border border-neutral-800 rounded-xl p-4">
-          <span className="text-[11px] font-mono text-neutral-400 block uppercase tracking-wider">
-            Arquivados
-          </span>
-          <span className="text-2xl font-bold text-neutral-400 mt-1 block">
-            {stats.totalArchived}
-          </span>
-          <span className="text-[11px] text-neutral-500 font-sans mt-0.5 block">
-            fora da lista principal
-          </span>
-        </div>
-      </div>
-
-      {/* Barra de Filtros, Busca e Ordenação */}
-      <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-4 space-y-3 shadow-lg">
-        <div className="flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
-          {/* Busca por e-mail ou dados */}
-          <div className="relative flex-1 max-w-md">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
-            <Input
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Buscar por e-mail, nome, telefone ou mensagem..."
-              className="bg-neutral-950 border-neutral-800 text-white pl-9 h-10 text-xs focus:border-[#FAB319] placeholder:text-neutral-500"
-            />
-          </div>
-
-          {/* Filtro por Origem */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0">
-            <span className="text-xs text-neutral-400 flex items-center gap-1 font-mono uppercase tracking-wider shrink-0">
-              <Filter className="h-3 w-3 text-[#FAB319]" /> Origem:
-            </span>
-            <select
-              value={sourceFilter}
-              onChange={(e) => setSourceFilter(e.target.value as any)}
-              className="h-9 px-3 rounded-md bg-neutral-950 border border-neutral-800 text-xs text-neutral-200 focus:outline-none focus:border-[#FAB319]"
+      {/* Abas de Navegação */}
+      <Tabs value={activeTab} onValueChange={(val) => setActiveTab(val as any)} className="w-full">
+        <div className="flex items-center justify-between">
+          <TabsList className="bg-neutral-900 border border-neutral-800 p-1">
+            <TabsTrigger
+              value="all"
+              className="data-[state=active]:bg-[#FAB319] data-[state=active]:text-black text-xs font-semibold"
             >
-              <option value="all">Todas as origens</option>
-              <option value="contact">Fale Conosco</option>
-              <option value="newsletter">Boletim Tributário</option>
-              <option value="calculator">Simulações de Calculadoras</option>
-            </select>
-
-            {/* Alternar Ordenação */}
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setSortOrder((prev) => (prev === 'desc' ? 'asc' : 'desc'))}
-              className="border-neutral-800 bg-neutral-950 text-neutral-300 hover:bg-neutral-800 text-xs h-9 shrink-0"
-              title="Alternar ordenação"
+              <Mail className="h-3.5 w-3.5 mr-1.5" />
+              Todos os E-mails Recebidos ({unifiedItems.length})
+            </TabsTrigger>
+            <TabsTrigger
+              value="subscribers"
+              className="data-[state=active]:bg-[#FAB319] data-[state=active]:text-black text-xs font-semibold"
             >
-              <ArrowUpDown className="h-3.5 w-3.5 mr-1 text-[#FAB319]" />
-              {sortOrder === 'desc' ? 'Mais recentes primeiro' : 'Mais antigos primeiro'}
-            </Button>
-
-            {/* Alternar Caixa de Entrada vs Arquivados */}
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setShowArchived((prev) => !prev)}
-              className={`text-xs h-9 shrink-0 border-neutral-800 ${
-                showArchived
-                  ? 'bg-[#FAB319] text-black font-semibold hover:bg-[#e0a116]'
-                  : 'bg-neutral-950 text-neutral-300 hover:bg-neutral-800'
-              }`}
-            >
-              {showArchived ? (
-                <>
-                  <ArchiveRestore className="h-3.5 w-3.5 mr-1" /> Ver Ativos ({stats.totalActive})
-                </>
-              ) : (
-                <>
-                  <Archive className="h-3.5 w-3.5 mr-1" /> Ver Arquivados ({stats.totalArchived})
-                </>
-              )}
-            </Button>
-          </div>
+              <Users className="h-3.5 w-3.5 mr-1.5" />
+              Assinantes do Boletim ({subscribers.length})
+            </TabsTrigger>
+          </TabsList>
         </div>
 
-        {searchQuery && (
-          <div className="flex items-center justify-between text-xs text-neutral-400 pt-1 border-t border-neutral-800">
-            <span>
-              Filtrando por <strong>"{searchQuery}"</strong> ({filteredItems.length} encontrado
-              {filteredItems.length === 1 ? '' : 's'})
-            </span>
-            <button onClick={() => setSearchQuery('')} className="text-[#FAB319] hover:underline">
-              Limpar busca
-            </button>
-          </div>
-        )}
-      </div>
+        <TabsContent value="subscribers" className="mt-6">
+          <NewsletterSubscribersTab
+            subscribers={subscribers}
+            loading={loading}
+            onReload={() => loadData(true)}
+          />
+        </TabsContent>
 
-      {/* Tabela de E-mails Recebidos */}
-      <div className="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden shadow-xl">
-        {loading ? (
-          <div className="py-20 text-center text-neutral-400 flex flex-col items-center justify-center gap-2">
-            <Loader2 className="h-6 w-6 animate-spin text-[#FAB319]" />
-            <p className="text-sm">Carregando registros recebidos...</p>
-          </div>
-        ) : filteredItems.length === 0 ? (
-          <div className="py-16 px-6 text-center space-y-3 max-w-md mx-auto">
-            <div className="w-12 h-12 rounded-full bg-neutral-950 border border-neutral-800 flex items-center justify-center mx-auto text-neutral-500">
-              <Mail className="h-6 w-6" />
+        <TabsContent value="all" className="mt-6 space-y-6">
+          {/* Cards de Resumo */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="bg-neutral-900/90 border border-neutral-800 rounded-xl p-4">
+              <span className="text-[11px] font-mono text-neutral-400 block uppercase tracking-wider">
+                Ativos na Caixa
+              </span>
+              <span className="text-2xl font-bold text-white mt-1 block">{stats.totalActive}</span>
+              <span className="text-[11px] text-neutral-500 font-sans mt-0.5 block">
+                aguardando ou em atendimento
+              </span>
             </div>
-            <h3 className="text-base font-bold text-white">
-              {showArchived ? 'Nenhum registro arquivado' : 'Nenhum e-mail recebido'}
-            </h3>
-            <p className="text-xs text-neutral-400 leading-relaxed font-sans">
-              {showArchived
-                ? 'Os registros arquivados por meio do botão "Arquivar" aparecem aqui.'
-                : searchQuery || sourceFilter !== 'all'
-                  ? 'Nenhum resultado corresponde aos filtros aplicados. Tente ajustar a busca.'
-                  : 'Quando visitantes assinarem o Boletim ou enviarem o Fale Conosco, os dados aparecerão aqui em tempo real.'}
-            </p>
+
+            <div className="bg-neutral-900/90 border border-neutral-800 rounded-xl p-4">
+              <span className="text-[11px] font-mono text-neutral-400 block uppercase tracking-wider">
+                Fale Conosco
+              </span>
+              <span className="text-2xl font-bold text-blue-400 mt-1 block">
+                {stats.totalContact}
+              </span>
+              <span className="text-[11px] text-neutral-500 font-sans mt-0.5 block">
+                mensagens e solicitações
+              </span>
+            </div>
+
+            <div className="bg-neutral-900/90 border border-neutral-800 rounded-xl p-4">
+              <span className="text-[11px] font-mono text-neutral-400 block uppercase tracking-wider">
+                Boletim Informativo
+              </span>
+              <span className="text-2xl font-bold text-[#FAB319] mt-1 block">
+                {stats.totalNewsletter}
+              </span>
+              <span className="text-[11px] text-neutral-500 font-sans mt-0.5 block">
+                assinantes inscritos
+              </span>
+            </div>
+
+            <div className="bg-neutral-900/90 border border-neutral-800 rounded-xl p-4">
+              <span className="text-[11px] font-mono text-neutral-400 block uppercase tracking-wider">
+                Arquivados
+              </span>
+              <span className="text-2xl font-bold text-neutral-400 mt-1 block">
+                {stats.totalArchived}
+              </span>
+              <span className="text-[11px] text-neutral-500 font-sans mt-0.5 block">
+                fora da lista principal
+              </span>
+            </div>
           </div>
-        ) : (
-          <div className="overflow-x-auto">
-            <Table>
-              <TableHeader className="bg-neutral-950/80 border-b border-neutral-800">
-                <TableRow className="border-neutral-800 hover:bg-transparent">
-                  <TableHead className="text-neutral-400 font-mono text-xs">Data e Hora</TableHead>
-                  <TableHead className="text-neutral-400 font-mono text-xs">E-mail</TableHead>
-                  <TableHead className="text-neutral-400 font-mono text-xs">
-                    Remetente / Nome
-                  </TableHead>
-                  <TableHead className="text-neutral-400 font-mono text-xs">Origem</TableHead>
-                  <TableHead className="text-neutral-400 font-mono text-xs">Telefone</TableHead>
-                  <TableHead className="text-neutral-400 font-mono text-xs text-right">
-                    Ações
-                  </TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {filteredItems.map((item) => (
-                  <TableRow
-                    key={`${item.kind}-${item.id}`}
-                    className="border-neutral-800 hover:bg-neutral-800/40 transition-colors"
-                  >
-                    <TableCell className="font-mono text-xs text-neutral-400 whitespace-nowrap">
-                      {formatDate(item.created)}
-                    </TableCell>
-                    <TableCell className="font-medium text-white max-w-xs truncate">
-                      <div className="flex items-center gap-1.5">
-                        <Mail className="h-3.5 w-3.5 text-neutral-400 shrink-0" />
-                        <span className="truncate" title={item.email}>
-                          {item.email}
-                        </span>
-                      </div>
-                    </TableCell>
-                    <TableCell className="text-xs text-neutral-300 max-w-[180px] truncate">
-                      {item.name ? (
-                        item.name
-                      ) : (
-                        <span className="text-neutral-500 italic">Não informado</span>
-                      )}
-                    </TableCell>
-                    <TableCell className="max-w-[200px] truncate">
-                      <div className="flex flex-col gap-1 items-start">
-                        {renderSourceBadge(item.source, item.kind)}
-                        <span
-                          className="text-[10px] text-neutral-400 truncate max-w-[190px] font-mono"
-                          title={item.source}
-                        >
-                          {item.source}
-                        </span>
-                      </div>
-                    </TableCell>
-                    <TableCell className="text-xs font-mono text-neutral-400 whitespace-nowrap">
-                      {item.phone || '-'}
-                    </TableCell>
-                    <TableCell className="text-right">
-                      <div className="flex items-center justify-end gap-1">
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => setSelectedItem(item)}
-                          className="text-neutral-300 hover:text-white hover:bg-neutral-800 h-8 px-2.5 text-xs font-sans"
-                          title="Ver detalhes"
-                        >
-                          <Eye className="h-3.5 w-3.5 mr-1 text-[#FAB319]" /> Detalhes
-                        </Button>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          disabled={actionLoadingId === item.id}
-                          onClick={() => handleToggleArchive(item)}
-                          className="text-neutral-400 hover:text-white hover:bg-neutral-800 h-8 px-2.5 text-xs font-sans"
-                          title={item.archived ? 'Desarquivar' : 'Arquivar'}
-                        >
-                          {actionLoadingId === item.id ? (
-                            <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                          ) : item.archived ? (
-                            <>
-                              <ArchiveRestore className="h-3.5 w-3.5 mr-1 text-emerald-400" />
-                              Desarquivar
-                            </>
+
+          {/* Barra de Filtros, Busca e Ordenação */}
+          <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-4 space-y-3 shadow-lg">
+            <div className="flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
+              {/* Busca por e-mail ou dados */}
+              <div className="relative flex-1 max-w-md">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
+                <Input
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Buscar por e-mail, nome, telefone ou mensagem..."
+                  className="bg-neutral-950 border-neutral-800 text-white pl-9 h-10 text-xs focus:border-[#FAB319] placeholder:text-neutral-500"
+                />
+              </div>
+
+              {/* Filtro por Origem */}
+              <div className="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0">
+                <span className="text-xs text-neutral-400 flex items-center gap-1 font-mono uppercase tracking-wider shrink-0">
+                  <Filter className="h-3 w-3 text-[#FAB319]" /> Origem:
+                </span>
+                <select
+                  value={sourceFilter}
+                  onChange={(e) => setSourceFilter(e.target.value as any)}
+                  className="h-9 px-3 rounded-md bg-neutral-950 border border-neutral-800 text-xs text-neutral-200 focus:outline-none focus:border-[#FAB319]"
+                >
+                  <option value="all">Todas as origens</option>
+                  <option value="contact">Fale Conosco</option>
+                  <option value="newsletter">Boletim Informativo</option>
+                  <option value="calculator">Simulações de Calculadoras</option>
+                </select>
+
+                {/* Alternar Ordenação */}
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setSortOrder((prev) => (prev === 'desc' ? 'asc' : 'desc'))}
+                  className="border-neutral-800 bg-neutral-950 text-neutral-300 hover:bg-neutral-800 text-xs h-9 shrink-0"
+                  title="Alternar ordenação"
+                >
+                  <ArrowUpDown className="h-3.5 w-3.5 mr-1 text-[#FAB319]" />
+                  {sortOrder === 'desc' ? 'Mais recentes primeiro' : 'Mais antigos primeiro'}
+                </Button>
+
+                {/* Alternar Caixa de Entrada vs Arquivados */}
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setShowArchived((prev) => !prev)}
+                  className={`text-xs h-9 shrink-0 border-neutral-800 ${
+                    showArchived
+                      ? 'bg-[#FAB319] text-black font-semibold hover:bg-[#e0a116]'
+                      : 'bg-neutral-950 text-neutral-300 hover:bg-neutral-800'
+                  }`}
+                >
+                  {showArchived ? (
+                    <>
+                      <ArchiveRestore className="h-3.5 w-3.5 mr-1" /> Ver Ativos (
+                      {stats.totalActive})
+                    </>
+                  ) : (
+                    <>
+                      <Archive className="h-3.5 w-3.5 mr-1" /> Ver Arquivados ({stats.totalArchived}
+                      )
+                    </>
+                  )}
+                </Button>
+              </div>
+            </div>
+
+            {searchQuery && (
+              <div className="flex items-center justify-between text-xs text-neutral-400 pt-1 border-t border-neutral-800">
+                <span>
+                  Filtrando por <strong>"{searchQuery}"</strong> ({filteredItems.length} encontrado
+                  {filteredItems.length === 1 ? '' : 's'})
+                </span>
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="text-[#FAB319] hover:underline"
+                >
+                  Limpar busca
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Tabela de E-mails Recebidos */}
+          <div className="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden shadow-xl">
+            {loading ? (
+              <div className="py-20 text-center text-neutral-400 flex flex-col items-center justify-center gap-2">
+                <Loader2 className="h-6 w-6 animate-spin text-[#FAB319]" />
+                <p className="text-sm">Carregando registros recebidos...</p>
+              </div>
+            ) : filteredItems.length === 0 ? (
+              <div className="py-16 px-6 text-center space-y-3 max-w-md mx-auto">
+                <div className="w-12 h-12 rounded-full bg-neutral-950 border border-neutral-800 flex items-center justify-center mx-auto text-neutral-500">
+                  <Mail className="h-6 w-6" />
+                </div>
+                <h3 className="text-base font-bold text-white">
+                  {showArchived ? 'Nenhum registro arquivado' : 'Nenhum e-mail recebido'}
+                </h3>
+                <p className="text-xs text-neutral-400 leading-relaxed font-sans">
+                  {showArchived
+                    ? 'Os registros arquivados por meio do botão "Arquivar" aparecem aqui.'
+                    : searchQuery || sourceFilter !== 'all'
+                      ? 'Nenhum resultado corresponde aos filtros aplicados. Tente ajustar a busca.'
+                      : 'Quando visitantes assinarem o Boletim ou enviarem o Fale Conosco, os dados aparecerão aqui em tempo real.'}
+                </p>
+              </div>
+            ) : (
+              <div className="overflow-x-auto">
+                <Table>
+                  <TableHeader className="bg-neutral-950/80 border-b border-neutral-800">
+                    <TableRow className="border-neutral-800 hover:bg-transparent">
+                      <TableHead className="text-neutral-400 font-mono text-xs">
+                        Data e Hora
+                      </TableHead>
+                      <TableHead className="text-neutral-400 font-mono text-xs">E-mail</TableHead>
+                      <TableHead className="text-neutral-400 font-mono text-xs">
+                        Remetente / Nome
+                      </TableHead>
+                      <TableHead className="text-neutral-400 font-mono text-xs">Origem</TableHead>
+                      <TableHead className="text-neutral-400 font-mono text-xs">Telefone</TableHead>
+                      <TableHead className="text-neutral-400 font-mono text-xs text-right">
+                        Ações
+                      </TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {filteredItems.map((item) => (
+                      <TableRow
+                        key={`${item.kind}-${item.id}`}
+                        className="border-neutral-800 hover:bg-neutral-800/40 transition-colors"
+                      >
+                        <TableCell className="font-mono text-xs text-neutral-400 whitespace-nowrap">
+                          {formatDate(item.created)}
+                        </TableCell>
+                        <TableCell className="font-medium text-white max-w-xs truncate">
+                          <div className="flex items-center gap-1.5">
+                            <Mail className="h-3.5 w-3.5 text-neutral-400 shrink-0" />
+                            <span className="truncate" title={item.email}>
+                              {item.email}
+                            </span>
+                          </div>
+                        </TableCell>
+                        <TableCell className="text-xs text-neutral-300 max-w-[180px] truncate">
+                          {item.name ? (
+                            item.name
                           ) : (
-                            <>
-                              <Archive className="h-3.5 w-3.5 mr-1 text-neutral-400" />
-                              Arquivar
-                            </>
+                            <span className="text-neutral-500 italic">Não informado</span>
                           )}
-                        </Button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+                        </TableCell>
+                        <TableCell className="max-w-[200px] truncate">
+                          <div className="flex flex-col gap-1 items-start">
+                            {renderSourceBadge(item.source, item.kind)}
+                            <span
+                              className="text-[10px] text-neutral-400 truncate max-w-[190px] font-mono"
+                              title={item.source}
+                            >
+                              {item.source}
+                            </span>
+                          </div>
+                        </TableCell>
+                        <TableCell className="text-xs font-mono text-neutral-400 whitespace-nowrap">
+                          {item.phone || '-'}
+                        </TableCell>
+                        <TableCell className="text-right">
+                          <div className="flex items-center justify-end gap-1">
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => setSelectedItem(item)}
+                              className="text-neutral-300 hover:text-white hover:bg-neutral-800 h-8 px-2.5 text-xs font-sans"
+                              title="Ver detalhes"
+                            >
+                              <Eye className="h-3.5 w-3.5 mr-1 text-[#FAB319]" /> Detalhes
+                            </Button>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              disabled={actionLoadingId === item.id}
+                              onClick={() => handleToggleArchive(item)}
+                              className="text-neutral-400 hover:text-white hover:bg-neutral-800 h-8 px-2.5 text-xs font-sans"
+                              title={item.archived ? 'Desarquivar' : 'Arquivar'}
+                            >
+                              {actionLoadingId === item.id ? (
+                                <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                              ) : item.archived ? (
+                                <>
+                                  <ArchiveRestore className="h-3.5 w-3.5 mr-1 text-emerald-400" />
+                                  Desarquivar
+                                </>
+                              ) : (
+                                <>
+                                  <Archive className="h-3.5 w-3.5 mr-1 text-neutral-400" />
+                                  Arquivar
+                                </>
+                              )}
+                            </Button>
+                          </div>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+            )}
           </div>
-        )}
-      </div>
+        </TabsContent>
+      </Tabs>
 
       {/* Modal de Detalhes do Registro */}
       <Dialog open={!!selectedItem} onOpenChange={(open) => !open && setSelectedItem(null)}>

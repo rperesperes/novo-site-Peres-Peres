@@ -1,5 +1,7 @@
 import pb from '@/lib/pocketbase/client'
 
+export type IndexUpdateSource = 'manual' | 'automatica'
+
 export interface IndexRecord {
   id: string
   name: string
@@ -8,6 +10,8 @@ export interface IndexRecord {
   effective_date?: string
   validity_months?: number
   notes?: string
+  update_source?: IndexUpdateSource
+  last_updated_at?: string
   created: string
   updated: string
 }
@@ -17,6 +21,8 @@ export interface IndexUpdateInput {
   effective_date?: string
   validity_months?: number
   notes?: string
+  update_source?: IndexUpdateSource
+  last_updated_at?: string
 }
 
 export async function getIndices(): Promise<IndexRecord[]> {
@@ -27,7 +33,12 @@ export async function getIndices(): Promise<IndexRecord[]> {
 }
 
 export async function updateIndex(id: string, data: IndexUpdateInput): Promise<IndexRecord> {
-  const res = await pb.collection('indices').update(id, data)
+  const payload = {
+    ...data,
+    update_source: data.update_source || 'manual',
+    last_updated_at: data.last_updated_at || new Date().toISOString(),
+  }
+  const res = await pb.collection('indices').update(id, payload)
   return res as unknown as IndexRecord
 }
 

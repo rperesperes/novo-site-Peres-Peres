@@ -157,7 +157,7 @@ export default function PrivacyPolicy() {
                     b)
                   </span>
                   <span>
-                    <strong className="text-white">Assinatura do Boletim Tributário:</strong>{' '}
+                    <strong className="text-white">Assinatura do Boletim Informativo:</strong>{' '}
                     e-mail. Finalidade: envio de informativos técnicos sobre legislação e
                     jurisprudência tributária.
                   </span>
@@ -421,7 +421,7 @@ export default function PrivacyPolicy() {
                   a)
                 </span>
                 <span>
-                  Consentimento do titular, para o envio do Boletim Tributário e para os cookies de
+                  Consentimento do titular, para o envio do Boletim Informativo e para os cookies de
                   análise e de marketing;
                 </span>
               </li>
