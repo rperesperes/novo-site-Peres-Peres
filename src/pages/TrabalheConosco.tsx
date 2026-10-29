@@ -1,57 +1,48 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
   Briefcase,
-  Users,
-  Compass,
   Award,
   ChevronDown,
   ChevronUp,
   Mail,
   Copy,
   Check,
-  Building2,
-  Sparkles,
-  TrendingUp,
-  GraduationCap,
-  ShieldCheck,
-  ArrowRight,
   Target,
   CheckCircle2,
-  Network,
+  FileCheck,
+  Lightbulb,
+  BookOpen,
+  Share2,
 } from 'lucide-react'
 import { getPublicJobVacancies, type JobVacancyRecord } from '@/services/job_vacancies'
 
-const CAREER_LEVELS = [
+const ESSENTIAL_BEHAVIORS = [
   {
-    level: 'Assistente',
-    role: '- Contador(a), Analista ou Estagiário(a)',
-    description:
-      'Executa as atividades de um ou mais clientes, em conjunto com o responsável supervisor pelo cliente ou pelo projeto. Imersão técnica na rotina contábil, fiscal e no atendimento.',
-    expectations:
-      'bases sólidas de escrituração e apuração, atenção na conciliação, organização documental e postura investigativa diante de inconsistências.',
-    badge: 'Nível I',
+    title: 'Organização',
+    description: 'Tarefa registrada, arquivo nomeado e entrega no prazo combinado.',
+    icon: FileCheck,
+    number: '01',
   },
   {
-    level: 'Responsável pelo cliente ou projeto',
-    role: '- Contador(a) ou Analista',
-    description:
-      'Assume a supervisão direta de um ou mais clientes ou projetos. Conduz o trabalho do assistente, responde tecnicamente pelo caso e é o ponto de contato do cliente.',
-    expectations:
-      'autonomia técnica, capacidade de conectar norma contábil à tese jurídica, comunicação clara com o cliente e iniciativa para destravar pendências sem sair do combinado.',
-    badge: 'Nível II',
+    title: 'Iniciativa (não é Autonomia ou Independência)',
+    description: 'Propor soluções A ou B. Nunca apenas apontar o problema.',
+    icon: Lightbulb,
+    number: '02',
   },
   {
-    level: 'Diretor(a)',
-    role: '- Contador(a) responsável supervisor pelo escritório',
-    description:
-      'Responsabilidade técnica e institucional pelo escritório, supervisão geral dos clientes e dos projetos, e decisão sobre as diretrizes de atuação.',
-    expectations:
-      'rigor técnico exemplar, responsabilidade ética irrestrita e construção do padrão de qualidade que o time segue.',
-    badge: 'Nível III',
+    title: 'Conhecimento',
+    description: 'Fundamentação técnica antes da opinião, sempre com fonte.',
+    icon: BookOpen,
+    number: '03',
+  },
+  {
+    title: 'Contribuição (interna e externa)',
+    description: 'Compartilhar o que aprendeu com o caso para o restante da equipe.',
+    icon: Share2,
+    number: '04',
   },
 ]
 
@@ -93,7 +84,6 @@ export default function TrabalheConosco() {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(RECRUITMENT_EMAIL)
       } else {
-        // Fallback clássico
         const textarea = document.createElement('textarea')
         textarea.value = RECRUITMENT_EMAIL
         textarea.style.position = 'fixed'
@@ -138,134 +128,20 @@ export default function TrabalheConosco() {
       <div className="container mx-auto px-4 max-w-5xl">
         {/* Header institucional da página */}
         <div className="text-center mb-16 md:mb-20 animate-fade-in-up">
-          <Badge
-            variant="outline"
-            className="mb-4 border-neutral-300 text-neutral-800 bg-neutral-100 px-3.5 py-1 text-xs tracking-wider uppercase font-mono"
-          >
-            Carreira e Desenvolvimento Técnico
-          </Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black tracking-tight">
+            Trabalhe na PERES PERES
+          </h1>
+          <p className="text-lg md:text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
             Somos um escritório de contabilidade e consultoria tributária em Brasília, com equipe
             enxuta e organização por cliente. Procuramos gente que gosta de entender o caso a fundo,
             de investigar o problema antes de responder, e que quer crescer pelo que entrega, não
             necessariamente pelo tempo de casa.
-          </h1>
-          <p className="text-lg md:text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-            Construímos uma contabilidade consultiva e jurídica de alto rigor em Brasília. Buscamos
-            profissionais apaixonados pela exatidão técnica, pela investigação e pelo crescimento
-            fundamentado no mérito demonstrado.
           </p>
         </div>
 
         {/* ========================================================================= */}
-        {/* BLOCO 1: CULTURA E QUEM SOMOS                                             */}
+        {/* BLOCO 1: NOSSA IDENTIDADE                                                 */}
         {/* ========================================================================= */}
-        <section className="mb-20 md:mb-28">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-2.5 rounded-lg bg-neutral-100 border border-neutral-200 text-black"></div>
-            <div>
-              <span className="text-xs uppercase font-mono tracking-widest text-neutral-500 block">
-                Nossa Cultura
-              </span>
-              <h2 className="text-2xl md:text-3xl font-bold text-black">
-                Como pensamos, trabalhamos e cuidamos das pessoas
-              </h2>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card className="bg-white border-neutral-200 p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-neutral-300 transition-all">
-              <div>
-                <div className="w-12 h-12 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-black mb-5">
-                  <ShieldCheck className="h-6 w-6 text-[#FAB319]" />
-                </div>
-                <h3 className="text-lg font-bold text-black mb-2.5">Rigor técnico sem atalhos</h3>
-                <p className="text-sm text-neutral-600 leading-relaxed">
-                  Não acreditamos em soluções mágicas ou contabilidade que apenas emite guias. Cada
-                  cálculo, enquadramento e parecer passa por fundamentação legal estrita, unindo a
-                  ciência contábil ao Direito Tributário.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-neutral-100">
-                <span className="text-xs text-neutral-900 font-semibold flex items-center gap-1.5">
-                  <Sparkles className="h-3.5 w-3.5 text-[#FAB319]" /> Segurança jurídica real
-                </span>
-              </div>
-            </Card>
-
-            <Card className="bg-white border-neutral-200 p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-neutral-300 transition-all">
-              <div>
-                <div className="w-12 h-12 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-black mb-5">
-                  <Users className="h-6 w-6 text-[#FAB319]" />
-                </div>
-                <h3 className="text-lg font-bold text-black mb-2.5">
-                  Organização e comunicação clara
-                </h3>
-                <p className="text-sm text-neutral-600 leading-relaxed">
-                  Aqui a rotina é estruturada: prioridades definidas no início do dia, pendências
-                  registradas no sistema e documentos no Drive compartilhado com nomenclatura
-                  padrão. O organograma é horizontal, em três níveis: direção, responsável pelo
-                  cliente e assistente. Iniciativa é agir para destravar, sem sair do combinado.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-neutral-100">
-                <span className="text-xs text-neutral-900 font-semibold flex items-center gap-1.5">
-                  <Sparkles className="h-3.5 w-3.5 text-[#FAB319]" /> Cooperação contínua
-                </span>
-              </div>
-            </Card>
-
-            <Card className="bg-white border-neutral-200 p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-neutral-300 transition-all">
-              <div>
-                <div className="w-12 h-12 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-black mb-5">
-                  <GraduationCap className="h-6 w-6 text-[#FAB319]" />
-                </div>
-                <h3 className="text-lg font-bold text-black mb-2.5">
-                  Crescimento por mérito, com erro virando método
-                </h3>
-                <p className="text-sm text-neutral-600 leading-relaxed">
-                  A progressão é por competência demonstrada, não por tempo de casa. Aqui, cada erro
-                  gera um checklist pessoal para não repetir e cada dúvida resolvida vira modelo ou
-                  guia para o time. Valorizamos proatividade e capacidade prática de entrega mais do
-                  que o currículo formal, inclusive aceitamos graduações em andamento e de outras
-                  áreas.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-neutral-100">
-                <span className="text-xs text-neutral-900 font-semibold flex items-center gap-1.5">
-                  <Sparkles className="h-3.5 w-3.5 text-[#FAB319]" /> Aprendizado permanente
-                </span>
-              </div>
-            </Card>
-          </div>
-
-          <div className="mt-6 p-6 rounded-2xl bg-neutral-50 border border-neutral-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            <div className="space-y-1">
-              <p className="text-sm font-semibold text-black">Nossos valores fundamentais</p>
-              <p className="text-xs text-neutral-600 leading-relaxed max-w-2xl">
-                Comunicação clara, Confiança, Conhecimento técnico, Organização e Profissionalismo.
-                E o que não queremos ser: escritório de massa, que cobra barato para entregar o
-                mínimo; escritório que ignora decisões relevantes para o cliente; e empresa onde as
-                pessoas não são reconhecidas nem crescem junto.
-              </p>
-            </div>
-            <Button
-              asChild
-              variant="outline"
-              className="border-neutral-300 bg-white text-neutral-800 hover:text-black hover:bg-neutral-100 shrink-0 text-xs shadow-sm"
-            >
-              <Link to="/sobre">
-                Conheça nossa história e equipe <ArrowRight className="h-3.5 w-3.5 ml-1.5" />
-              </Link>
-            </Button>
-          </div>
-        </section>
-
-        {/* ========================================================================= */}
-        {/* NOVOS BLOCOS: NOSSA IDENTIDADE, COMPORTAMENTOS E ESTRUTURA HORIZONTAL      */}
-        {/* ========================================================================= */}
-
-        {/* BLOCO 1: Nossa Identidade */}
         <section className="mb-20 md:mb-28">
           <div className="flex items-center gap-3 mb-6">
             <div className="p-2.5 rounded-lg bg-neutral-100 border border-neutral-200 text-black">
@@ -338,7 +214,9 @@ export default function TrabalheConosco() {
           </div>
         </section>
 
-        {/* BLOCO 2: Comportamentos que avaliamos */}
+        {/* ========================================================================= */}
+        {/* BLOCO 2: COMPORTAMENTOS ESSENCIAIS                                        */}
+        {/* ========================================================================= */}
         <section className="mb-20 md:mb-28">
           <div className="flex items-center gap-3 mb-3">
             <div className="p-2.5 rounded-lg bg-neutral-100 border border-neutral-200 text-black">
@@ -349,7 +227,7 @@ export default function TrabalheConosco() {
                 Critérios de Atuação
               </span>
               <h2 className="text-2xl md:text-3xl font-bold text-black">
-                Comportamentos que avaliamos
+                Comportamentos essenciais
               </h2>
             </div>
           </div>
@@ -357,134 +235,42 @@ export default function TrabalheConosco() {
           <p className="text-sm md:text-base text-neutral-600 mb-8 max-w-3xl leading-relaxed">
             São quatro, e é por eles que você será avaliado aqui.
           </p>
-        </section>
 
-        {/* BLOCO 3: Estrutura horizontal, organizada por cliente */}
-        <section className="mb-20 md:mb-28">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-2.5 rounded-lg bg-neutral-100 border border-neutral-200 text-black">
-              <Network className="h-5 w-5 text-[#FAB319]" />
-            </div>
-            <div>
-              <span className="text-xs uppercase font-mono tracking-widest text-neutral-500 block">
-                Modelo Operacional
-              </span>
-              <h2 className="text-2xl md:text-3xl font-bold text-black">
-                Estrutura horizontal, organizada por cliente
-              </h2>
-            </div>
-          </div>
-
-          <div className="bg-white border border-neutral-200 rounded-2xl p-6 sm:p-8 shadow-sm space-y-5">
-            <div className="p-5 rounded-xl bg-neutral-50 border border-neutral-200">
-              <p className="text-sm md:text-base text-neutral-800 leading-relaxed">
-                O organograma tem três níveis, sem camadas intermediárias: Diretor(a), responsável
-                pelo cliente ou projeto, e assistente. Você fala direto com quem decide.
-              </p>
-            </div>
-            <div className="p-5 rounded-xl bg-neutral-50 border border-neutral-200">
-              <p className="text-sm md:text-base text-neutral-800 leading-relaxed">
-                Mas horizontal não significa sem dono. Cada cliente tem um responsável técnico
-                definido, e cada entrega tem alguém que responde por ela.
-              </p>
-            </div>
-            <div className="p-5 rounded-xl bg-neutral-50 border border-neutral-200">
-              <p className="text-sm md:text-base text-neutral-800 leading-relaxed">
-                E o que mais muda: não somos organizados por departamento. Você não vai passar o ano
-                só emitindo guias de um tipo. Quem atende um cliente acompanha as demandas
-                contábeis, fiscais, trabalhistas e financeiras dele — e por isso entende o negócio
-                inteiro, não só a tarefa. A divisão por área existe para organizar documentos, não
-                para separar pessoas.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================================= */}
-        {/* BLOCO: PLANO DE CARREIRA E CRESCIMENTO                                    */}
-        {/* ========================================================================= */}
-        <section className="mb-20 md:mb-28">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="p-2.5 rounded-lg bg-neutral-100 border border-neutral-200 text-black">
-              <TrendingUp className="h-5 w-5 text-[#FAB319]" />
-            </div>
-            <div>
-              <span className="text-xs uppercase font-mono tracking-widest text-neutral-500 block">
-                PLANO DE CARREIRA
-              </span>
-              <h2 className="text-2xl md:text-3xl font-bold text-black">
-                Evolução por competência demonstrada, não por tempo de casa
-              </h2>
-            </div>
-          </div>
-
-          <p className="text-sm md:text-base text-neutral-600 mb-10 max-w-3xl leading-relaxed">
-            Na PERES PERES, você não precisa esperar anos na mesma cadeira. A progressão é orientada
-            pelo domínio das matérias, pela autonomia na entrega e pela postura de responsabilidade.
-            Somos um escritório enxuto e horizontal, em três níveis.
-          </p>
-
-          {/* Linha do tempo visual dos 3 níveis */}
-          <div className="relative">
-            {/* Linha conectora vertical em telas menores, horizontal em desktop */}
-            <div className="hidden lg:block absolute top-1/2 left-8 right-8 h-0.5 bg-gradient-to-r from-neutral-200 via-[#FAB319] to-neutral-200 -translate-y-1/2 z-0" />
-
-            <div className="grid lg:grid-cols-3 gap-8 relative z-10">
-              {CAREER_LEVELS.map((career, index) => (
-                <div
-                  key={career.level}
-                  className="bg-white border border-neutral-200 rounded-2xl p-6 sm:p-7 flex flex-col justify-between hover:border-[#FAB319] transition-all shadow-sm hover:shadow-md group"
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {ESSENTIAL_BEHAVIORS.map((behavior) => {
+              const Icon = behavior.icon
+              return (
+                <Card
+                  key={behavior.title}
+                  className="bg-white border-neutral-200 p-6 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-neutral-300 transition-all group"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-xs font-mono uppercase tracking-widest text-black font-semibold bg-[#FAB319] px-2.5 py-1 rounded shadow-sm">
-                        {career.badge}
-                      </span>
-                      <span className="text-2xl font-bold font-mono text-neutral-400 group-hover:text-black transition-colors">
-                        0{index + 1}
+                      <div className="w-10 h-10 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center text-black group-hover:border-[#FAB319] transition-colors">
+                        <Icon className="h-5 w-5 text-[#FAB319]" />
+                      </div>
+                      <span className="text-xs font-mono font-bold text-neutral-400 group-hover:text-black transition-colors">
+                        {behavior.number}
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-bold text-black mb-1">{career.level}</h3>
-                    <p className="text-xs text-neutral-500 font-medium mb-4">{career.role}</p>
-
-                    <div className="space-y-3 text-xs md:text-sm text-neutral-700 leading-relaxed">
-                      <p>{career.description}</p>
-                    </div>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-neutral-200 bg-neutral-50 -mx-6 -mb-6 p-6 rounded-b-2xl">
-                    <p className="text-[11px] font-mono uppercase tracking-wider text-neutral-600 font-semibold mb-1">
-                      O que se espera:
-                    </p>
-                    <p className="text-xs text-neutral-700 leading-relaxed font-sans">
-                      {career.expectations}
+                    <h3 className="text-base font-bold text-black mb-2 leading-snug">
+                      {behavior.title}
+                    </h3>
+                    <p className="text-xs md:text-sm text-neutral-600 leading-relaxed">
+                      {behavior.description}
                     </p>
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-8 bg-neutral-50 border border-neutral-200 rounded-xl p-5 sm:p-6 text-left">
-            <h4 className="text-sm md:text-base font-bold text-black mb-2">
-              Avaliamos capacidade de entrega antes de formação
-            </h4>
-            <p className="text-xs md:text-sm text-neutral-600 leading-relaxed">
-              Trabalhamos com um time enxuto, organizado por clientes e projetos, não por
-              departamentos. Na prática, isso significa que o que conta aqui é a capacidade de
-              resolver: rigor na apuração, organização documental, comunicação clara e vontade de
-              estudar. Aceitamos graduação em andamento e formações de outras áreas, porque
-              repertório diverso melhora a análise. O que não é negociável é o padrão técnico da
-              entrega.
-            </p>
+                </Card>
+              )
+            })}
           </div>
         </section>
 
         {/* ========================================================================= */}
         {/* BLOCO 3: VAGAS ABERTAS E BANCO DE TALENTOS                                */}
         {/* ========================================================================= */}
-        <section id="vagas" className="scroll-mt-24">
+        <section id="vagas" className="scroll-mt-24 mb-16 md:mb-20">
           <div className="flex items-center justify-between flex-wrap gap-4 mb-8">
             <div className="flex items-center gap-3">
               <div className="p-2.5 rounded-lg bg-neutral-100 border border-neutral-200 text-black">
@@ -735,6 +521,22 @@ export default function TrabalheConosco() {
               </div>
             </div>
           )}
+        </section>
+
+        {/* ========================================================================= */}
+        {/* BLOCO DE ENCERRAMENTO                                                     */}
+        {/* ========================================================================= */}
+        <section className="bg-neutral-50 border border-neutral-200 rounded-2xl p-6 sm:p-8 text-left shadow-sm">
+          <h3 className="text-lg md:text-xl font-bold text-black mb-3">
+            Avaliamos capacidade de entrega antes de formação
+          </h3>
+          <p className="text-sm md:text-base text-neutral-700 leading-relaxed">
+            Trabalhamos com um time enxuto, organizado por clientes e projetos, não por
+            departamentos. Na prática, isso significa que o que conta aqui é a capacidade de
+            resolver: rigor na apuração, organização documental, comunicação clara e vontade de
+            estudar. Aceitamos graduação em andamento e formações de outras áreas, porque repertório
+            diverso melhora a análise. O que não é negociável é o padrão técnico da entrega.
+          </p>
         </section>
       </div>
     </div>
