@@ -88,9 +88,9 @@ export default function Index() {
   return (
     <div className="flex flex-col w-full">
       {/* Hero Section - Arquitetura monocromática elegante com ponto focal restrito no botão */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-black text-white border-b border-neutral-800">
-        <div className="container mx-auto px-4 py-20 relative z-10 w-full">
-          <div className="w-full space-y-8 animate-fade-in-up">
+      <section className="relative flex items-center justify-center overflow-hidden bg-black text-white border-b border-neutral-800">
+        <div className="container mx-auto px-4 py-10 md:py-14 relative z-10 w-full">
+          <div className="w-full space-y-5 md:space-y-6 animate-fade-in-up">
             <div className="inline-block border border-neutral-700 px-3 py-1 rounded text-xs tracking-wider uppercase text-neutral-300">
               PERES PERES Consultoria &amp; Contabilidade
             </div>
@@ -101,13 +101,13 @@ export default function Index() {
               de Brasília para todo o Brasil
             </h1>
 
-            <p className="text-lg text-neutral-300 max-w-2xl leading-relaxed">
+            <p className="text-base md:text-lg text-neutral-300 max-w-2xl leading-relaxed">
               Desde 2017, trabalhamos para que nossos clientes, empresas e donos de negócios,
               cresçam com segurança através de uma contabilidade de excelência.
             </p>
 
             {/* Ponto focal único da tela no Hero: Botão com #FAB319 centralizado */}
-            <div className="flex justify-center pt-2">
+            <div className="flex justify-center pt-1">
               <Button
                 size="lg"
                 className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold text-base h-12 px-8 border-none"
@@ -121,7 +121,7 @@ export default function Index() {
       </section>
 
       {/* Bloco Institucional 1 - Transição personalizada antes de Serviços */}
-      <section className="py-16 md:py-20 bg-neutral-50/50 border-b border-neutral-200">
+      <section className="py-8 md:py-10 bg-neutral-50/50 border-b border-neutral-200">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <p className="font-sans text-xl sm:text-2xl md:text-3xl text-neutral-900 leading-relaxed font-normal">
             E como nenhum profissional e nenhuma empresa é igual a outra,{' '}
@@ -136,9 +136,9 @@ export default function Index() {
       {/* =========================================================
           PARTE 2.1: BLOCO DE SERVIÇOS (Três Pilares Resumidos)
          ========================================================= */}
-      <section className="py-20 bg-neutral-50 border-b border-neutral-200">
+      <section className="py-10 md:py-12 bg-neutral-50 border-b border-neutral-200">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
             <div className="max-w-2xl">
               <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block mb-2">
                 Nossos Pilares Técnicos
@@ -201,9 +201,9 @@ export default function Index() {
       {/* =========================================================
           PARTE 2.2: BLOCO DE PLANOS (Essential, Premium, On Demand)
          ========================================================= */}
-      <section className="py-20 bg-white border-b border-neutral-200">
+      <section className="py-10 md:py-12 bg-white border-b border-neutral-200">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+          <div className="text-center max-w-3xl mx-auto mb-8 md:mb-10 space-y-2">
             <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block">
               Formatos de Contratação
             </span>
@@ -254,7 +254,7 @@ export default function Index() {
             ))}
           </div>
 
-          <div className="mt-10 text-center">
+          <div className="mt-8 text-center">
             <Button
               className="bg-black hover:bg-neutral-800 text-white font-semibold text-sm px-6 h-11"
               asChild
@@ -270,9 +270,9 @@ export default function Index() {
       {/* =========================================================
           PARTE 2.3: BLOCO DE ÁREAS DE ATUAÇÃO (Tags/Chips de Segmentos)
          ========================================================= */}
-      <section className="py-20 bg-neutral-50 border-b border-neutral-200">
+      <section className="py-10 md:py-12 bg-neutral-50 border-b border-neutral-200">
         <div className="container mx-auto px-4 max-w-5xl">
-          <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
+          <div className="text-center max-w-3xl mx-auto mb-7 md:mb-8 space-y-2">
             <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block">
               Expertise Setorial em Brasília
             </span>
@@ -300,7 +300,7 @@ export default function Index() {
             ))}
           </div>
 
-          <div className="mt-12 text-center">
+          <div className="mt-8 md:mt-10 text-center">
             <Button
               variant="outline"
               className="border-neutral-900 text-black hover:bg-neutral-100 text-sm font-medium px-6 h-11"
@@ -315,7 +315,7 @@ export default function Index() {
       </section>
 
       {/* Bloco Institucional 2 - Relacionamento de longo prazo antes da chamada final */}
-      <section className="py-16 md:py-20 bg-white border-b border-neutral-200">
+      <section className="py-8 md:py-10 bg-white border-b border-neutral-200">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <p className="font-sans text-xl sm:text-2xl md:text-3xl text-neutral-900 leading-relaxed font-normal">
             Assim, realizando um bom trabalho, construímos{' '}
@@ -327,9 +327,9 @@ export default function Index() {
       </section>
 
       {/* Authority Profile Section - Liderança Técnica */}
-      <section className="py-20 bg-white border-b border-neutral-200">
+      <section className="py-10 md:py-14 bg-white border-b border-neutral-200">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-12 gap-12 items-center">
+          <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
             <div className="md:col-span-5">
               {/* Retrato oficial do responsável técnico */}
               <div className="relative aspect-[4/5] rounded-lg overflow-hidden border border-neutral-200 shadow-md bg-neutral-100 group">
@@ -350,37 +350,31 @@ export default function Index() {
               </div>
             </div>
 
-            <div className="md:col-span-7 space-y-6">
+            <div className="md:col-span-7 space-y-4 md:space-y-5">
               <h2 className="text-3xl md:text-4xl font-bold text-black">
                 Liderança Técnica e Acadêmica
               </h2>
-              <p className="text-lg text-neutral-700 leading-relaxed font-sans text-justify">
-                Sob a responsabilidade técnica de <strong>Rafael Peres Peres Nunes Altoé</strong>, a{' '}
-                <strong>PERES PERES Consultoria e Contabilidade</strong> une a prática da
-                contabilidade ao direito, em especial o tributário.
-                <div>
-                  <span>
-                    <br />
-                  </span>
-                </div>
-                <div>
+              <div className="text-base md:text-lg text-neutral-700 leading-relaxed font-sans text-justify space-y-3">
+                <p>
+                  Sob a responsabilidade técnica de <strong>Rafael Peres Peres Nunes Altoé</strong>,
+                  a <strong>PERES PERES Consultoria e Contabilidade</strong> une a prática da
+                  contabilidade ao direito, em especial o tributário.
+                </p>
+                <p>
                   Contador (CRC 027704), advogado (OAB 87656), perito, auditor (CNAI 10122) e
                   professor, se dedica a demandas de Consultoria Tributária empresarial há 10 anos.
-                </div>
-                <div>
-                  <br />
-                </div>
-                <div>
+                </p>
+                <p>
                   Pós-graduado em Direito Tributário (CERS) e Bacharel em Ciências Contábeis (UCB).
                   Integrou o Grupo de Pesquisas Tributárias (CDESCMAT, da CLDF), o Grupo de Estudos,
                   Pesquisa e Análise Tributária (UniCEUB) e o Grupo de Estudos da Limitação e
                   Controle da Renúncia Fiscal (IDP). Foi monitor acadêmico das disciplinas de
                   Direito Tributário I, II e III no IDP junto aos professores e advogados Ivan
                   Allegretti, Onizia Pignataro e Alberto Medeiros
-                </div>
-              </p>
+                </p>
+              </div>
 
-              <ul className="grid sm:grid-cols-2 gap-4 mt-6">
+              <ul className="grid sm:grid-cols-2 gap-3 mt-4">
                 {[
                   'Membro da Comissão de Contabilidade Tributária do CRC-DF',
                   'Membro da Comissão de Assuntos Tributários da OAB-DF',
@@ -394,7 +388,7 @@ export default function Index() {
                 ))}
               </ul>
 
-              <div className="pt-4">
+              <div className="pt-2">
                 <Button
                   variant="outline"
                   className="border-neutral-900 text-black hover:bg-neutral-100 text-sm font-medium"
@@ -412,9 +406,9 @@ export default function Index() {
       </section>
 
       {/* Seção Institucional de Diretrizes e Embasamento */}
-      <section className="py-20 bg-neutral-950 text-white">
+      <section className="py-10 md:py-14 bg-neutral-950 text-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-6">
+          <div className="max-w-4xl mx-auto text-center space-y-5">
             <div className="inline-flex items-center gap-2 border border-neutral-800 px-3 py-1 rounded text-xs uppercase tracking-wider text-neutral-400 font-mono">
               <Scale className="h-3.5 w-3.5 text-neutral-300" />
               Diretrizes de Atuação
@@ -429,7 +423,7 @@ export default function Index() {
               lastreada nas regras da Receita Federal e decisões consolidadas dos tribunais
               superiores.
             </p>
-            <div className="pt-4 flex justify-center">
+            <div className="pt-2 flex justify-center">
               <Button
                 size="lg"
                 className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold text-base h-12 px-8"
