@@ -19,6 +19,9 @@ import {
   GraduationCap,
   ShieldCheck,
   ArrowRight,
+  Target,
+  CheckCircle2,
+  Network,
 } from 'lucide-react'
 import { getPublicJobVacancies, type JobVacancyRecord } from '@/services/job_vacancies'
 
@@ -258,7 +261,215 @@ export default function TrabalheConosco() {
         </section>
 
         {/* ========================================================================= */}
-        {/* BLOCO 2: PLANO DE CARREIRA E CRESCIMENTO                                   */}
+        {/* NOVOS BLOCOS: NOSSA IDENTIDADE, COMPORTAMENTOS E ESTRUTURA HORIZONTAL      */}
+        {/* ========================================================================= */}
+
+        {/* BLOCO 1: Nossa Identidade */}
+        <section className="mb-20 md:mb-28">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-2.5 rounded-lg bg-neutral-100 border border-neutral-200 text-black">
+              <Target className="h-5 w-5 text-[#FAB319]" />
+            </div>
+            <div>
+              <span className="text-xs uppercase font-mono tracking-widest text-neutral-500 block">
+                Diretrizes Estratégicas
+              </span>
+              <h2 className="text-2xl md:text-3xl font-bold text-black">Nossa Identidade</h2>
+            </div>
+          </div>
+
+          <div className="bg-white border border-neutral-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+            <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
+              <div className="p-5 rounded-xl bg-neutral-50/80 border border-neutral-200/80 hover:border-neutral-300 transition-all flex flex-col justify-start">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="w-2 h-2 rounded-full bg-[#FAB319]" />
+                  <span className="text-xs font-mono uppercase tracking-wider font-bold text-black bg-[#FAB319]/20 text-[#855d00] px-2.5 py-0.5 rounded border border-[#FAB319]/30">
+                    Propósito
+                  </span>
+                </div>
+                <p className="text-sm md:text-base text-neutral-800 leading-relaxed font-sans">
+                  Contribuir para o crescimento sustentável das empresas e dos sonhos por trás
+                  delas.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-xl bg-neutral-50/80 border border-neutral-200/80 hover:border-neutral-300 transition-all flex flex-col justify-start">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="w-2 h-2 rounded-full bg-[#FAB319]" />
+                  <span className="text-xs font-mono uppercase tracking-wider font-bold text-black bg-[#FAB319]/20 text-[#855d00] px-2.5 py-0.5 rounded border border-[#FAB319]/30">
+                    Visão
+                  </span>
+                </div>
+                <p className="text-sm md:text-base text-neutral-800 leading-relaxed font-sans">
+                  Ser escritório referência em consultoria contábil em nível Brasil até 2028.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-xl bg-neutral-50/80 border border-neutral-200/80 hover:border-neutral-300 transition-all flex flex-col justify-start">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="w-2 h-2 rounded-full bg-[#FAB319]" />
+                  <span className="text-xs font-mono uppercase tracking-wider font-bold text-black bg-[#FAB319]/20 text-[#855d00] px-2.5 py-0.5 rounded border border-[#FAB319]/30">
+                    Valores
+                  </span>
+                </div>
+                <p className="text-sm md:text-base text-neutral-800 leading-relaxed font-sans">
+                  Comunicação clara, Confiança, Conhecimento técnico, Organização e
+                  Profissionalismo.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-xl bg-neutral-50/80 border border-neutral-200/80 hover:border-neutral-300 transition-all flex flex-col justify-start">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="w-2 h-2 rounded-full bg-[#FAB319]" />
+                  <span className="text-xs font-mono uppercase tracking-wider font-bold text-black bg-[#FAB319]/20 text-[#855d00] px-2.5 py-0.5 rounded border border-[#FAB319]/30">
+                    Missão
+                  </span>
+                </div>
+                <p className="text-sm md:text-base text-neutral-800 leading-relaxed font-sans">
+                  Ouvir os empreendedores e estudar as melhores soluções.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-6 pt-5 border-t border-neutral-200 text-center sm:text-left bg-neutral-50 rounded-xl p-4 sm:p-5 border border-neutral-200 flex items-center gap-3">
+              <span className="w-2 h-2 rounded-full bg-[#FAB319] shrink-0" />
+              <p className="text-sm md:text-base font-semibold text-black tracking-tight">
+                Quanto maior for o nosso objetivo, mais importante será o nosso time.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* BLOCO 2: Comportamentos que avaliamos */}
+        <section className="mb-20 md:mb-28">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="p-2.5 rounded-lg bg-neutral-100 border border-neutral-200 text-black">
+              <CheckCircle2 className="h-5 w-5 text-[#FAB319]" />
+            </div>
+            <div>
+              <span className="text-xs uppercase font-mono tracking-widest text-neutral-500 block">
+                Critérios de Atuação
+              </span>
+              <h2 className="text-2xl md:text-3xl font-bold text-black">
+                Comportamentos que avaliamos
+              </h2>
+            </div>
+          </div>
+
+          <p className="text-sm md:text-base text-neutral-600 mb-8 max-w-3xl leading-relaxed">
+            São quatro, e é por eles que você será avaliado aqui.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <Card className="bg-white border-neutral-200 p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-neutral-300 transition-all">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-xs font-mono uppercase tracking-widest text-black font-semibold bg-[#FAB319] px-2.5 py-1 rounded shadow-sm">
+                    Critério 01
+                  </span>
+                </div>
+                <h3 className="text-lg md:text-xl font-bold text-black mb-3">Organização</h3>
+                <p className="text-sm text-neutral-600 leading-relaxed">
+                  Prioridades definidas no início do dia, pendências registradas no sistema e
+                  documentos no Drive compartilhado com nomenclatura padrão. Quem não organiza, não
+                  acompanha.
+                </p>
+              </div>
+            </Card>
+
+            <Card className="bg-white border-neutral-200 p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-neutral-300 transition-all">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-xs font-mono uppercase tracking-widest text-black font-semibold bg-[#FAB319] px-2.5 py-1 rounded shadow-sm">
+                    Critério 02
+                  </span>
+                </div>
+                <h3 className="text-lg md:text-xl font-bold text-black mb-3">Iniciativa</h3>
+                <p className="text-sm text-neutral-600 leading-relaxed">
+                  Não é autonomia nem independência: é agir para destravar, dentro do combinado.
+                  Faltou documento do cliente? Já solicita com cópia ao responsável e registra a
+                  pendência com prazo. Encontrou inconsistência? Aponta o problema, sugere dois
+                  caminhos e pergunta qual prefere.
+                </p>
+              </div>
+            </Card>
+
+            <Card className="bg-white border-neutral-200 p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-neutral-300 transition-all">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-xs font-mono uppercase tracking-widest text-black font-semibold bg-[#FAB319] px-2.5 py-1 rounded shadow-sm">
+                    Critério 03
+                  </span>
+                </div>
+                <h3 className="text-lg md:text-xl font-bold text-black mb-3">Conhecimento</h3>
+                <p className="text-sm text-neutral-600 leading-relaxed">
+                  Estudar o caso antes de responder. Dúvida recorrente vira guia para o time; caso
+                  novo vira checklist para o próximo.
+                </p>
+              </div>
+            </Card>
+
+            <Card className="bg-white border-neutral-200 p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-neutral-300 transition-all">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-xs font-mono uppercase tracking-widest text-black font-semibold bg-[#FAB319] px-2.5 py-1 rounded shadow-sm">
+                    Critério 04
+                  </span>
+                </div>
+                <h3 className="text-lg md:text-xl font-bold text-black mb-3">Contribuição</h3>
+                <p className="text-sm text-neutral-600 leading-relaxed">
+                  Cada erro gera um padrão para não repetir. Cada dúvida resolvida vira material
+                  para o colega. Ver risco e ficar calado porque 'não é minha responsabilidade' é o
+                  que não existe aqui.
+                </p>
+              </div>
+            </Card>
+          </div>
+        </section>
+
+        {/* BLOCO 3: Estrutura horizontal, organizada por cliente */}
+        <section className="mb-20 md:mb-28">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-2.5 rounded-lg bg-neutral-100 border border-neutral-200 text-black">
+              <Network className="h-5 w-5 text-[#FAB319]" />
+            </div>
+            <div>
+              <span className="text-xs uppercase font-mono tracking-widest text-neutral-500 block">
+                Modelo Operacional
+              </span>
+              <h2 className="text-2xl md:text-3xl font-bold text-black">
+                Estrutura horizontal, organizada por cliente
+              </h2>
+            </div>
+          </div>
+
+          <div className="bg-white border border-neutral-200 rounded-2xl p-6 sm:p-8 shadow-sm space-y-5">
+            <div className="p-5 rounded-xl bg-neutral-50 border border-neutral-200">
+              <p className="text-sm md:text-base text-neutral-800 leading-relaxed">
+                O organograma tem três níveis, sem camadas intermediárias: Diretor(a), responsável
+                pelo cliente ou projeto, e assistente. Você fala direto com quem decide.
+              </p>
+            </div>
+            <div className="p-5 rounded-xl bg-neutral-50 border border-neutral-200">
+              <p className="text-sm md:text-base text-neutral-800 leading-relaxed">
+                Mas horizontal não significa sem dono. Cada cliente tem um responsável técnico
+                definido, e cada entrega tem alguém que responde por ela.
+              </p>
+            </div>
+            <div className="p-5 rounded-xl bg-neutral-50 border border-neutral-200">
+              <p className="text-sm md:text-base text-neutral-800 leading-relaxed">
+                E o que mais muda: não somos organizados por departamento. Você não vai passar o ano
+                só emitindo guias de um tipo. Quem atende um cliente acompanha as demandas
+                contábeis, fiscais, trabalhistas e financeiras dele — e por isso entende o negócio
+                inteiro, não só a tarefa. A divisão por área existe para organizar documentos, não
+                para separar pessoas.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ========================================================================= */}
+        {/* BLOCO: PLANO DE CARREIRA E CRESCIMENTO                                    */}
         {/* ========================================================================= */}
         <section className="mb-20 md:mb-28">
           <div className="flex items-center gap-3 mb-4">
