@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Mail, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { createContactRequest } from '@/services/contact_requests'
+import { createContactRequest, isValidEmail } from '@/services/contact_requests'
 
 interface CalculatorEmailCaptureProps {
   calculatorName: string
@@ -19,23 +19,32 @@ export function CalculatorEmailCapture({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!email || !email.trim()) return
+    const trimmedEmail = email.trim()
+    if (!trimmedEmail) return
+
+    if (!isValidEmail(trimmedEmail)) {
+      setStatus('error')
+      setErrorMessage('Por favor, informe um endereço de e-mail válido.')
+      return
+    }
 
     setStatus('loading')
     setErrorMessage('')
 
     try {
+      const currentUrl = typeof window !== 'undefined' ? window.location.href : calculatorName
       await createContactRequest({
-        email: email.trim(),
-        source_page: calculatorName,
+        email: trimmedEmail,
+        source_page: `${calculatorName} (${currentUrl})`,
       })
       setStatus('success')
       setEmail('')
-    } catch (err) {
+    } catch (err: any) {
       console.error('Erro ao enviar análise por e-mail:', err)
       setStatus('error')
       setErrorMessage(
-        'Não foi possível registrar seu e-mail no momento. Por favor, tente novamente ou fale conosco diretamente pelo WhatsApp.',
+        err?.message ||
+          'Não foi possível registrar seu e-mail no momento. Por favor, tente novamente ou fale conosco diretamente pelo WhatsApp.',
       )
     }
   }

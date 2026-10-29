@@ -189,6 +189,11 @@ export default function IRPFeRestituicaoCalculator() {
       document.head.appendChild(metaDescTag)
     }
     metaDescTag.setAttribute('content', pageDesc)
+
+    // Registra contagem de acesso no painel administrativo
+    import('@/services/calculator_accesses').then(({ trackCalculatorAccess }) => {
+      trackCalculatorAccess('irpf-e-restituicao', 'IRPF e Restituição')
+    })
   }, [])
 
   // Handlers dos campos com máscara BRL

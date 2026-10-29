@@ -112,7 +112,6 @@ export default function JurosDeMoraDeTributosCalculator() {
       'Calcule juros de mora pela taxa Selic e multa de mora de tributos em atraso em tempo real. Memória de cálculo aberta segundo a Lei 9.430/1996.' // 142 caracteres
 
     document.title = pageTitle
-
     let metaDescTag = document.querySelector('meta[name="description"]')
     if (!metaDescTag) {
       metaDescTag = document.createElement('meta')
@@ -120,6 +119,14 @@ export default function JurosDeMoraDeTributosCalculator() {
       document.head.appendChild(metaDescTag)
     }
     metaDescTag.setAttribute('content', pageDesc)
+
+    // Registra contagem de acesso no painel administrativo
+    import('@/services/calculator_accesses').then(({ trackCalculatorAccess }) => {
+      trackCalculatorAccess(
+        'juros-de-mora-de-tributos',
+        'Juros de Mora de Tributos (Selic e Multa)',
+      )
+    })
   }, [])
 
   const handleValorChange = (e: React.ChangeEvent<HTMLInputElement>) => {

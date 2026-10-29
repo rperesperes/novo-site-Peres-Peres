@@ -34,6 +34,11 @@ export default function CalculatorDetail() {
       document.head.appendChild(metaDescTag)
     }
     metaDescTag.setAttribute('content', pageDesc)
+
+    // Registra contagem de acesso no painel administrativo
+    import('@/services/calculator_accesses').then(({ trackCalculatorAccess }) => {
+      trackCalculatorAccess(calculator.slug, calculator.name)
+    })
   }, [calculator])
 
   if (!calculator) {

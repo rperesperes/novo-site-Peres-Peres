@@ -205,6 +205,11 @@ export default function PJouCLTCalculator() {
       document.head.appendChild(metaDescTag)
     }
     metaDescTag.setAttribute('content', pageDesc)
+
+    // Registra contagem de acesso no painel administrativo
+    import('@/services/calculator_accesses').then(({ trackCalculatorAccess }) => {
+      trackCalculatorAccess('pj-ou-clt', 'PJ ou CLT')
+    })
   }, [])
 
   // Handlers para os campos numéricos

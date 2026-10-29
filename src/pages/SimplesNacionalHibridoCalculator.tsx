@@ -392,6 +392,11 @@ export default function SimplesNacionalHibridoCalculator() {
       document.head.appendChild(metaDescTag)
     }
     metaDescTag.setAttribute('content', pageDesc)
+
+    // Registra contagem de acesso no painel administrativo
+    import('@/services/calculator_accesses').then(({ trackCalculatorAccess }) => {
+      trackCalculatorAccess('simples-nacional-hibrido', 'Simples Nacional Híbrido')
+    })
   }, [])
 
   // Handlers

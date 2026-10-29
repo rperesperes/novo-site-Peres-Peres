@@ -16,7 +16,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { SITE_INFO } from '@/lib/data'
-import { createContactRequest } from '@/services/contact_requests'
+import { createContactRequest, isValidEmail } from '@/services/contact_requests'
 
 export default function Contact() {
   const whatsappUrl = SITE_INFO.whatsappUrl
@@ -45,27 +45,38 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    const trimmedEmail = email.trim()
+    if (!isValidEmail(trimmedEmail)) {
+      setStatus('error')
+      setErrorMessage('Por favor, informe um endereço de e-mail válido.')
+      return
+    }
+
     setStatus('loading')
     setErrorMessage('')
 
     try {
+      const currentUrl =
+        typeof window !== 'undefined' ? window.location.href : 'Página de Contato (/contato)'
+
       await createContactRequest({
         name: nome.trim(),
-        email: email.trim(),
+        email: trimmedEmail,
         phone: telefone.trim(),
         message: mensagem.trim(),
-        source_page: 'Página de Contato (/contato)',
+        source_page: currentUrl,
       })
       setStatus('success')
       setNome('')
       setEmail('')
       setTelefone('')
       setMensagem('')
-    } catch (err) {
+    } catch (err: any) {
       console.error('Erro ao enviar contato:', err)
       setStatus('error')
       setErrorMessage(
-        'Não foi possível enviar sua mensagem no momento devido a uma falha de conexão. Por favor, tente novamente ou entre em contato diretamente conosco pelo WhatsApp ou e-mail.',
+        err?.message ||
+          'Não foi possível enviar sua mensagem no momento devido a uma falha de conexão. Por favor, tente novamente ou entre em contato diretamente conosco pelo WhatsApp ou e-mail.',
       )
     }
   }

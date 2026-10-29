@@ -73,6 +73,11 @@ export default function FatorRCalculator() {
       document.head.appendChild(metaDescTag)
     }
     metaDescTag.setAttribute('content', pageDesc)
+
+    // Registra contagem de acesso no painel administrativo
+    import('@/services/calculator_accesses').then(({ trackCalculatorAccess }) => {
+      trackCalculatorAccess('fator-r', 'Fator R')
+    })
   }, [])
 
   const handleFolhaChange = (e: React.ChangeEvent<HTMLInputElement>) => {

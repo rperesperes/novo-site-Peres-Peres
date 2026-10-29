@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T12:56:18.400Z",
+  "generatedAt": "2026-10-29T13:05:31.347Z",
   "collections": [
     {
       "name": "users",
@@ -326,11 +326,11 @@
       "name": "contact_requests",
       "type": "base",
       "apiRules": {
-        "list": null,
-        "view": null,
+        "list": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
+        "view": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
         "create": "",
-        "update": null,
-        "delete": null
+        "update": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
+        "delete": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'"
       },
       "fields": [
         {
@@ -376,6 +376,12 @@
           "required": false,
           "system": false,
           "autodateTriggers": ["onCreate", "onUpdate"]
+        },
+        {
+          "name": "archived",
+          "type": "bool",
+          "required": false,
+          "system": false
         }
       ],
       "indexes": ["CREATE INDEX idx_contact_requests_created ON contact_requests (created DESC)"]
@@ -384,11 +390,11 @@
       "name": "newsletter_subscribers",
       "type": "base",
       "apiRules": {
-        "list": null,
-        "view": null,
+        "list": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
+        "view": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
         "create": "",
-        "update": null,
-        "delete": null
+        "update": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
+        "delete": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'"
       },
       "fields": [
         {
@@ -416,10 +422,129 @@
           "required": false,
           "system": false,
           "autodateTriggers": ["onCreate", "onUpdate"]
+        },
+        {
+          "name": "archived",
+          "type": "bool",
+          "required": false,
+          "system": false
         }
       ],
       "indexes": [
         "CREATE INDEX idx_newsletter_subscribers_created ON newsletter_subscribers (created DESC)"
+      ]
+    },
+    {
+      "name": "indices",
+      "type": "base",
+      "apiRules": {
+        "list": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
+        "view": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
+        "create": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
+        "update": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
+        "delete": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'"
+      },
+      "fields": [
+        {
+          "name": "name",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "slug",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "current_value",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "effective_date",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "validity_months",
+          "type": "number",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "notes",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": ["CREATE UNIQUE INDEX idx_indices_slug ON indices (slug)"]
+    },
+    {
+      "name": "calculator_accesses",
+      "type": "base",
+      "apiRules": {
+        "list": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
+        "view": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
+        "create": "",
+        "update": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
+        "delete": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'"
+      },
+      "fields": [
+        {
+          "name": "calculator_slug",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "calculator_name",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "accessed_at",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": [
+        "CREATE INDEX idx_calc_acc_slug ON calculator_accesses (calculator_slug)",
+        "CREATE INDEX idx_calc_acc_created ON calculator_accesses (created DESC)"
       ]
     }
   ]

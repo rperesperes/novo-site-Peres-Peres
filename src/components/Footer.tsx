@@ -14,27 +14,51 @@ export function Footer() {
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!email || !email.trim()) return
+    const trimmedEmail = email.trim()
+    if (!trimmedEmail) return
 
     setLoading(true)
     try {
-      const { subscribeNewsletter } = await import('@/services/newsletter_subscribers')
-      await subscribeNewsletter({
-        email: email.trim(),
-        source: 'Rodapé (Boletim Informativo)',
+      const { subscribeNewsletter, isValidEmail } =
+        await import('@/services/newsletter_subscribers')
+
+      if (!isValidEmail(trimmedEmail)) {
+        toast({
+          title: 'E-mail inválido',
+          description: 'Por favor, insira um endereço de e-mail válido.',
+          variant: 'destructive',
+        })
+        setLoading(false)
+        return
+      }
+
+      // Captura a URL/página de origem exata onde o usuário está no momento
+      const currentUrl = typeof window !== 'undefined' ? window.location.href : 'Rodapé (Boletim)'
+
+      const result = await subscribeNewsletter({
+        email: trimmedEmail,
+        source: currentUrl,
       })
-      toast({
-        title: 'Inscrição realizada!',
-        description: 'Você receberá nossas atualizações tributárias.',
-      })
+
+      if (result.alreadySubscribed) {
+        toast({
+          title: 'Você já está cadastrado!',
+          description: 'Seu e-mail já consta em nossa base e continuará recebendo o boletim.',
+        })
+      } else {
+        toast({
+          title: 'Inscrição realizada com sucesso!',
+          description: 'Você receberá nossas análises tributárias e informativos.',
+        })
+      }
       setEmail('')
-    } catch (err) {
+    } catch (err: any) {
       console.error('Erro ao assinar boletim:', err)
       toast({
-        title: 'Inscrição registrada',
-        description: 'Obrigado pelo interesse. Entraremos em contato com nossas análises.',
+        title: 'Não foi possível concluir a inscrição',
+        description: err?.message || 'Por favor, verifique o e-mail digitado e tente novamente.',
+        variant: 'destructive',
       })
-      setEmail('')
     } finally {
       setLoading(false)
     }

@@ -11,6 +11,8 @@ import { AuthProvider } from './hooks/use-auth'
 import Login from './pages/admin/Login'
 import AdminLayout from './components/AdminLayout'
 import AdminCases from './pages/admin/Cases'
+import AdminEmails from './pages/admin/Emails'
+import AdminCalculators from './pages/admin/Calculators'
 import AdminPlaceholderSection from './pages/admin/AdminPlaceholderSection'
 import About from './pages/About'
 import Services from './pages/Services'
@@ -91,30 +93,14 @@ const App = () => (
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<AdminCases />} />
             <Route path="cases" element={<AdminCases />} />
-            <Route
-              path="emails"
-              element={
-                <AdminPlaceholderSection
-                  title="E-mails Recebidos"
-                  description="Histórico de mensagens de contato e inscrições capturadas pelo site"
-                />
-              }
-            />
-            <Route
-              path="calculators"
-              element={
-                <AdminPlaceholderSection
-                  title="Calculadoras e Índices"
-                  description="Gestão de parâmetros de simulação, tabelas fiscais e índices de correção"
-                />
-              }
-            />
+            <Route path="emails" element={<AdminEmails />} />
+            <Route path="calculators" element={<AdminCalculators />} />
             <Route
               path="settings"
               element={
                 <AdminPlaceholderSection
                   title="Configurações"
-                  description="Parâmetros institucionais, chaves de integração e dados de contato"
+                  description="Parâmetros institucionais, chaves de integração e dados do escritório"
                 />
               }
             />
