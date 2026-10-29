@@ -6,11 +6,11 @@ import logoPadrao from '@/assets/logo-padrao-oficial-844b7.png'
 import rafaelImg from '@/assets/foto-melhorada-por-ia-892a9.png'
 import williamImg from '@/assets/copia-de-img8757-182f8.jpg'
 import gabrielaImg from '@/assets/copia-de-img8782-9b4d0.jpg'
-import clarissaImg from '@/assets/image-c2d56.png'
+import clarissaImg from '@/assets/whatsapp-image-2026-10-29-at-15.24.44-54004.jpeg'
 
 interface TeamMember {
   name: string
-  role: string
+  role?: string
   photo?: string
   initials?: string
   alt: string
@@ -26,13 +26,10 @@ const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     name: 'William Lisboa',
-    role: 'Graduando em Ciências Contábeis - UnB',
     photo: williamImg,
     alt: 'William Lisboa - Graduando em Ciências Contábeis na Universidade de Brasília (UnB)',
     description: [
-      'Estudante de contabilidade e profissional da área contábil, com atuação no departamento contábil e experiência em Contabilidade Gerencial e Análise de Dados aplicada à gestão financeira e administrativa.',
-      'Graduando em Ciências Contábeis pela Universidade de Brasília (UnB), com previsão de conclusão em 2026, possui também formação profissional em Análise de Dados pelo Google.',
-      'Ao longo de sua trajetória profissional, desenvolveu habilidades em análise de dados, produção de relatórios contábeis e liderança, que lhe conferem perfil analítico, domínio de ferramentas de organização e tratamento de dados, além de sólida compreensão dos princípios contábeis.',
+      'Graduando em Ciências Contábeis pela Universidade de Brasília (UnB) e com formação profissional em Análise de Dados pelo Google.',
     ],
   },
   {
@@ -265,11 +262,13 @@ export default function About() {
                     <h3 className="font-semibold text-xl text-black mb-1.5 group-hover:text-neutral-900 transition-colors">
                       {member.name}
                     </h3>
-                    <p className="text-xs md:text-sm text-neutral-600 leading-snug">
-                      {member.role}
-                    </p>
+                    {member.role && (
+                      <p className="text-xs md:text-sm text-neutral-600 leading-snug">
+                        {member.role}
+                      </p>
+                    )}
                     {member.description && (
-                      <div className="mt-4 pt-4 border-t border-neutral-100 text-left space-y-2.5 text-xs text-neutral-600 leading-relaxed">
+                      <div className="mt-3 text-xs md:text-sm text-neutral-600 leading-relaxed space-y-2">
                         {member.description.map((paragraph, pIdx) => (
                           <p key={pIdx}>{paragraph}</p>
                         ))}
