@@ -131,20 +131,20 @@ export default function TrabalheConosco() {
   }
 
   return (
-    <div className="bg-black text-neutral-100 min-h-screen py-16 md:py-24 font-sans selection:bg-[#FAB319] selection:text-black">
+    <div className="bg-white text-neutral-900 min-h-screen py-16 md:py-24 font-sans selection:bg-[#FAB319] selection:text-black">
       <div className="container mx-auto px-4 max-w-5xl">
         {/* Header institucional da página */}
         <div className="text-center mb-16 md:mb-20 animate-fade-in-up">
           <Badge
             variant="outline"
-            className="mb-4 border-[#FAB319]/40 text-[#FAB319] bg-[#FAB319]/10 px-3.5 py-1 text-xs tracking-wider uppercase font-mono"
+            className="mb-4 border-neutral-300 text-neutral-800 bg-neutral-100 px-3.5 py-1 text-xs tracking-wider uppercase font-mono"
           >
             Carreira e Desenvolvimento Técnico
           </Badge>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white tracking-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black tracking-tight">
             Trabalhe na <span className="text-[#FAB319]">PERES PERES</span>
           </h1>
-          <p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
             Construímos uma contabilidade consultiva e jurídica de alto rigor em Brasília. Buscamos
             profissionais apaixonados pela exatidão técnica, pela investigação e pelo crescimento
             fundamentado no mérito demonstrado.
@@ -156,70 +156,70 @@ export default function TrabalheConosco() {
         {/* ========================================================================= */}
         <section className="mb-20 md:mb-28">
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-[#FAB319]">
-              <Compass className="h-5 w-5" />
+            <div className="p-2.5 rounded-lg bg-neutral-100 border border-neutral-200 text-black">
+              <Compass className="h-5 w-5 text-[#FAB319]" />
             </div>
             <div>
-              <span className="text-xs uppercase font-mono tracking-widest text-neutral-400 block">
+              <span className="text-xs uppercase font-mono tracking-widest text-neutral-500 block">
                 Nossa Cultura
               </span>
-              <h2 className="text-2xl md:text-3xl font-bold text-white">
+              <h2 className="text-2xl md:text-3xl font-bold text-black">
                 Como pensamos, trabalhamos e cuidamos das pessoas
               </h2>
             </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="bg-neutral-950 border-neutral-800 p-6 sm:p-7 flex flex-col justify-between hover:border-neutral-700 transition-colors">
+            <Card className="bg-white border-neutral-200 p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-neutral-300 transition-all">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-[#FAB319] mb-5">
-                  <ShieldCheck className="h-6 w-6" />
+                <div className="w-12 h-12 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-black mb-5">
+                  <ShieldCheck className="h-6 w-6 text-[#FAB319]" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2.5">Rigor técnico sem atalhos</h3>
-                <p className="text-sm text-neutral-400 leading-relaxed">
+                <h3 className="text-lg font-bold text-black mb-2.5">Rigor técnico sem atalhos</h3>
+                <p className="text-sm text-neutral-600 leading-relaxed">
                   Não acreditamos em soluções mágicas ou contabilidade que apenas emite guias. Cada
                   cálculo, enquadramento e parecer passa por fundamentação legal estrita, unindo a
                   ciência contábil ao Direito Tributário.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-neutral-900">
-                <span className="text-xs text-[#FAB319] font-medium flex items-center gap-1.5">
-                  <Sparkles className="h-3.5 w-3.5" /> Segurança jurídica real
+              <div className="mt-6 pt-4 border-t border-neutral-100">
+                <span className="text-xs text-neutral-900 font-semibold flex items-center gap-1.5">
+                  <Sparkles className="h-3.5 w-3.5 text-[#FAB319]" /> Segurança jurídica real
                 </span>
               </div>
             </Card>
 
-            <Card className="bg-neutral-950 border-neutral-800 p-6 sm:p-7 flex flex-col justify-between hover:border-neutral-700 transition-colors">
+            <Card className="bg-white border-neutral-200 p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-neutral-300 transition-all">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-[#FAB319] mb-5">
-                  <Users className="h-6 w-6" />
+                <div className="w-12 h-12 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-black mb-5">
+                  <Users className="h-6 w-6 text-[#FAB319]" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2.5">
+                <h3 className="text-lg font-bold text-black mb-2.5">
                   Organização e comunicação clara
                 </h3>
-                <p className="text-sm text-neutral-400 leading-relaxed">
+                <p className="text-sm text-neutral-600 leading-relaxed">
                   Aqui a rotina é estruturada: prioridades definidas no início do dia, pendências
                   registradas no sistema e documentos no Drive compartilhado com nomenclatura
                   padrão. O organograma é horizontal, em três níveis: direção, responsável pelo
                   cliente e assistente. Iniciativa é agir para destravar, sem sair do combinado.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-neutral-900">
-                <span className="text-xs text-[#FAB319] font-medium flex items-center gap-1.5">
-                  <Sparkles className="h-3.5 w-3.5" /> Cooperação contínua
+              <div className="mt-6 pt-4 border-t border-neutral-100">
+                <span className="text-xs text-neutral-900 font-semibold flex items-center gap-1.5">
+                  <Sparkles className="h-3.5 w-3.5 text-[#FAB319]" /> Cooperação contínua
                 </span>
               </div>
             </Card>
 
-            <Card className="bg-neutral-950 border-neutral-800 p-6 sm:p-7 flex flex-col justify-between hover:border-neutral-700 transition-colors">
+            <Card className="bg-white border-neutral-200 p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-neutral-300 transition-all">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-[#FAB319] mb-5">
-                  <GraduationCap className="h-6 w-6" />
+                <div className="w-12 h-12 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-black mb-5">
+                  <GraduationCap className="h-6 w-6 text-[#FAB319]" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2.5">
+                <h3 className="text-lg font-bold text-black mb-2.5">
                   Crescimento por mérito, com erro virando método
                 </h3>
-                <p className="text-sm text-neutral-400 leading-relaxed">
+                <p className="text-sm text-neutral-600 leading-relaxed">
                   A progressão é por competência demonstrada, não por tempo de casa. Aqui, cada erro
                   gera um checklist pessoal para não repetir e cada dúvida resolvida vira modelo ou
                   guia para o time. Valorizamos proatividade e capacidade prática de entrega mais do
@@ -227,18 +227,18 @@ export default function TrabalheConosco() {
                   áreas.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-neutral-900">
-                <span className="text-xs text-[#FAB319] font-medium flex items-center gap-1.5">
-                  <Sparkles className="h-3.5 w-3.5" /> Aprendizado permanente
+              <div className="mt-6 pt-4 border-t border-neutral-100">
+                <span className="text-xs text-neutral-900 font-semibold flex items-center gap-1.5">
+                  <Sparkles className="h-3.5 w-3.5 text-[#FAB319]" /> Aprendizado permanente
                 </span>
               </div>
             </Card>
           </div>
 
-          <div className="mt-6 p-6 rounded-2xl bg-gradient-to-r from-neutral-950 via-neutral-900/60 to-neutral-950 border border-neutral-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div className="mt-6 p-6 rounded-2xl bg-neutral-50 border border-neutral-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div className="space-y-1">
-              <p className="text-sm font-semibold text-white">Nossos valores fundamentais</p>
-              <p className="text-xs text-neutral-400 leading-relaxed max-w-2xl">
+              <p className="text-sm font-semibold text-black">Nossos valores fundamentais</p>
+              <p className="text-xs text-neutral-600 leading-relaxed max-w-2xl">
                 Comunicação clara, Confiança, Conhecimento técnico, Organização e Profissionalismo.
                 E o que não queremos ser: escritório de massa, que cobra barato para entregar o
                 mínimo; escritório que ignora decisões relevantes para o cliente; e empresa onde as
@@ -248,7 +248,7 @@ export default function TrabalheConosco() {
             <Button
               asChild
               variant="outline"
-              className="border-neutral-700 bg-neutral-900 text-neutral-200 hover:text-white hover:bg-neutral-800 shrink-0 text-xs"
+              className="border-neutral-300 bg-white text-neutral-800 hover:text-black hover:bg-neutral-100 shrink-0 text-xs shadow-sm"
             >
               <Link to="/sobre">
                 Conheça nossa história e equipe <ArrowRight className="h-3.5 w-3.5 ml-1.5" />
@@ -262,20 +262,20 @@ export default function TrabalheConosco() {
         {/* ========================================================================= */}
         <section className="mb-20 md:mb-28">
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-[#FAB319]">
-              <TrendingUp className="h-5 w-5" />
+            <div className="p-2.5 rounded-lg bg-neutral-100 border border-neutral-200 text-black">
+              <TrendingUp className="h-5 w-5 text-[#FAB319]" />
             </div>
             <div>
-              <span className="text-xs uppercase font-mono tracking-widest text-neutral-400 block">
+              <span className="text-xs uppercase font-mono tracking-widest text-neutral-500 block">
                 PLANO DE CARREIRA
               </span>
-              <h2 className="text-2xl md:text-3xl font-bold text-white">
+              <h2 className="text-2xl md:text-3xl font-bold text-black">
                 Evolução por competência demonstrada, não por tempo de casa
               </h2>
             </div>
           </div>
 
-          <p className="text-sm md:text-base text-neutral-400 mb-10 max-w-3xl leading-relaxed">
+          <p className="text-sm md:text-base text-neutral-600 mb-10 max-w-3xl leading-relaxed">
             Na PERES PERES, você não precisa esperar anos na mesma cadeira. A progressão é orientada
             pelo domínio das matérias, pela autonomia na entrega e pela postura de responsabilidade.
             Somos um escritório enxuto e horizontal, em três níveis.
@@ -284,37 +284,37 @@ export default function TrabalheConosco() {
           {/* Linha do tempo visual dos 3 níveis */}
           <div className="relative">
             {/* Linha conectora vertical em telas menores, horizontal em desktop */}
-            <div className="hidden lg:block absolute top-1/2 left-8 right-8 h-0.5 bg-gradient-to-r from-[#FAB319]/20 via-[#FAB319] to-[#FAB319]/20 -translate-y-1/2 z-0" />
+            <div className="hidden lg:block absolute top-1/2 left-8 right-8 h-0.5 bg-gradient-to-r from-neutral-200 via-[#FAB319] to-neutral-200 -translate-y-1/2 z-0" />
 
             <div className="grid lg:grid-cols-3 gap-8 relative z-10">
               {CAREER_LEVELS.map((career, index) => (
                 <div
                   key={career.level}
-                  className="bg-neutral-950 border border-neutral-800 rounded-2xl p-6 sm:p-7 flex flex-col justify-between hover:border-[#FAB319]/50 transition-all shadow-lg group"
+                  className="bg-white border border-neutral-200 rounded-2xl p-6 sm:p-7 flex flex-col justify-between hover:border-[#FAB319] transition-all shadow-sm hover:shadow-md group"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-xs font-mono uppercase tracking-widest text-[#FAB319] font-semibold bg-[#FAB319]/10 px-2.5 py-1 rounded border border-[#FAB319]/30">
+                      <span className="text-xs font-mono uppercase tracking-widest text-black font-semibold bg-[#FAB319] px-2.5 py-1 rounded shadow-sm">
                         {career.badge}
                       </span>
-                      <span className="text-2xl font-bold font-mono text-neutral-600 group-hover:text-[#FAB319] transition-colors">
+                      <span className="text-2xl font-bold font-mono text-neutral-400 group-hover:text-black transition-colors">
                         0{index + 1}
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-bold text-white mb-1">{career.level}</h3>
-                    <p className="text-xs text-neutral-400 font-medium mb-4">{career.role}</p>
+                    <h3 className="text-xl font-bold text-black mb-1">{career.level}</h3>
+                    <p className="text-xs text-neutral-500 font-medium mb-4">{career.role}</p>
 
-                    <div className="space-y-3 text-xs md:text-sm text-neutral-300 leading-relaxed">
+                    <div className="space-y-3 text-xs md:text-sm text-neutral-700 leading-relaxed">
                       <p>{career.description}</p>
                     </div>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-neutral-900 bg-neutral-900/40 -mx-6 -mb-6 p-6 rounded-b-2xl">
-                    <p className="text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-1">
+                  <div className="mt-6 pt-4 border-t border-neutral-200 bg-neutral-50 -mx-6 -mb-6 p-6 rounded-b-2xl">
+                    <p className="text-[11px] font-mono uppercase tracking-wider text-neutral-600 font-semibold mb-1">
                       O que se espera:
                     </p>
-                    <p className="text-xs text-neutral-300 leading-relaxed font-sans">
+                    <p className="text-xs text-neutral-700 leading-relaxed font-sans">
                       {career.expectations}
                     </p>
                   </div>
@@ -323,11 +323,11 @@ export default function TrabalheConosco() {
             </div>
           </div>
 
-          <div className="mt-8 bg-neutral-900/40 border border-neutral-800/80 rounded-xl p-5 sm:p-6 text-left">
-            <h4 className="text-sm md:text-base font-bold text-white mb-2">
+          <div className="mt-8 bg-neutral-50 border border-neutral-200 rounded-xl p-5 sm:p-6 text-left">
+            <h4 className="text-sm md:text-base font-bold text-black mb-2">
               Avaliamos capacidade de entrega antes de formação
             </h4>
-            <p className="text-xs md:text-sm text-neutral-400 leading-relaxed">
+            <p className="text-xs md:text-sm text-neutral-600 leading-relaxed">
               Trabalhamos com um time enxuto, organizado por clientes e projetos, não por
               departamentos. Na prática, isso significa que o que conta aqui é a capacidade de
               resolver: rigor na apuração, organização documental, comunicação clara e vontade de
@@ -344,14 +344,14 @@ export default function TrabalheConosco() {
         <section id="vagas" className="scroll-mt-24">
           <div className="flex items-center justify-between flex-wrap gap-4 mb-8">
             <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-[#FAB319]">
-                <Briefcase className="h-5 w-5" />
+              <div className="p-2.5 rounded-lg bg-neutral-100 border border-neutral-200 text-black">
+                <Briefcase className="h-5 w-5 text-[#FAB319]" />
               </div>
               <div>
-                <span className="text-xs uppercase font-mono tracking-widest text-neutral-400 block">
+                <span className="text-xs uppercase font-mono tracking-widest text-neutral-500 block">
                   Oportunidades
                 </span>
-                <h2 className="text-2xl md:text-3xl font-bold text-white">
+                <h2 className="text-2xl md:text-3xl font-bold text-black">
                   Posições abertas no escritório
                 </h2>
               </div>
@@ -359,7 +359,7 @@ export default function TrabalheConosco() {
 
             <Badge
               variant="outline"
-              className="border-neutral-700 text-neutral-300 bg-neutral-900 px-3 py-1 text-xs"
+              className="border-neutral-300 text-neutral-800 bg-neutral-100 px-3 py-1 text-xs"
             >
               {loading
                 ? 'Consultando vagas...'
@@ -370,31 +370,31 @@ export default function TrabalheConosco() {
           </div>
 
           {loading ? (
-            <div className="p-12 text-center bg-neutral-950 border border-neutral-800 rounded-2xl">
+            <div className="p-12 text-center bg-white border border-neutral-200 rounded-2xl shadow-sm">
               <div className="h-6 w-6 border-2 border-[#FAB319] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-              <p className="text-sm text-neutral-400">Carregando oportunidades disponíveis...</p>
+              <p className="text-sm text-neutral-600">Carregando oportunidades disponíveis...</p>
             </div>
           ) : vacancies.length === 0 ? (
             /* Estado quando não há vagas abertas: convite espontâneo */
-            <Card className="bg-neutral-950 border-neutral-800 p-8 sm:p-10 text-center">
+            <Card className="bg-white border-neutral-200 p-8 sm:p-10 text-center shadow-sm">
               <div className="max-w-xl mx-auto space-y-4">
-                <div className="w-14 h-14 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-[#FAB319] mx-auto">
-                  <Award className="h-7 w-7" />
+                <div className="w-14 h-14 rounded-2xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-black mx-auto">
+                  <Award className="h-7 w-7 text-[#FAB319]" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white">
+                <h3 className="text-xl md:text-2xl font-bold text-black">
                   Não temos vagas abertas no momento
                 </h3>
-                <p className="text-sm text-neutral-400 leading-relaxed">
+                <p className="text-sm text-neutral-600 leading-relaxed">
                   Mesmo sem posições imediatas divulgadas, estamos sempre atentos a profissionais
                   com brilho nos olhos e sólido rigor técnico para compor nosso banco de talentos.
                   Envie seu currículo com uma breve apresentação.
                 </p>
 
-                <div className="pt-4 border-t border-neutral-900 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <div className="pt-4 border-t border-neutral-100 flex flex-col sm:flex-row items-center justify-center gap-3">
                   <Button
                     type="button"
                     onClick={() => handleApplyMailto()}
-                    className="w-full sm:w-auto bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold px-6"
+                    className="w-full sm:w-auto bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold px-6 shadow-sm"
                   >
                     <Mail className="h-4 w-4 mr-2" />
                     Enviar currículo espontâneo
@@ -403,16 +403,16 @@ export default function TrabalheConosco() {
                     type="button"
                     variant="outline"
                     onClick={() => handleCopyEmail()}
-                    className="w-full sm:w-auto border-neutral-700 bg-neutral-900 text-neutral-200 hover:bg-neutral-800 hover:text-white"
+                    className="w-full sm:w-auto border-neutral-300 bg-white text-neutral-800 hover:bg-neutral-100 hover:text-black"
                   >
                     {generalCopied ? (
                       <>
-                        <Check className="h-4 w-4 mr-2 text-green-400" />
+                        <Check className="h-4 w-4 mr-2 text-green-600" />
                         E-mail copiado!
                       </>
                     ) : (
                       <>
-                        <Copy className="h-4 w-4 mr-2 text-neutral-400" />
+                        <Copy className="h-4 w-4 mr-2 text-neutral-500" />
                         Copiar {RECRUITMENT_EMAIL}
                       </>
                     )}
@@ -430,36 +430,36 @@ export default function TrabalheConosco() {
                 return (
                   <Card
                     key={vacancy.id}
-                    className="bg-neutral-950 border-neutral-800 overflow-hidden transition-all hover:border-neutral-700"
+                    className="bg-white border-neutral-200 overflow-hidden transition-all hover:border-neutral-300 shadow-sm hover:shadow-md"
                   >
                     {/* Cabeçalho da vaga */}
                     <div className="p-6 sm:p-7">
                       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
                         <div>
                           <div className="flex items-center gap-2 mb-2 flex-wrap">
-                            <Badge className="bg-[#FAB319] text-black font-semibold text-[11px] hover:bg-[#FAB319]">
+                            <Badge className="bg-[#FAB319] text-black font-semibold text-[11px] hover:bg-[#FAB319] shadow-sm">
                               Vaga Aberta
                             </Badge>
                             <Badge
                               variant="outline"
-                              className="border-neutral-700 text-neutral-300 text-[11px] bg-neutral-900"
+                              className="border-neutral-300 text-neutral-700 text-[11px] bg-neutral-100"
                             >
                               {vacancy.area}
                             </Badge>
                             <Badge
                               variant="outline"
-                              className="border-neutral-700 text-neutral-300 text-[11px] bg-neutral-900"
+                              className="border-neutral-300 text-neutral-700 text-[11px] bg-neutral-100"
                             >
                               {vacancy.contract_type}
                             </Badge>
                             <Badge
                               variant="outline"
-                              className="border-[#FAB319]/40 text-[#FAB319] text-[11px] bg-[#FAB319]/10"
+                              className="border-[#FAB319] text-neutral-900 font-medium text-[11px] bg-[#FAB319]/15"
                             >
                               {vacancy.modality}
                             </Badge>
                           </div>
-                          <h3 className="text-xl md:text-2xl font-bold text-white">
+                          <h3 className="text-xl md:text-2xl font-bold text-black">
                             {vacancy.title}
                           </h3>
                         </div>
@@ -468,7 +468,7 @@ export default function TrabalheConosco() {
                           type="button"
                           variant="ghost"
                           onClick={() => setExpandedVacancyId(isExpanded ? null : vacancy.id)}
-                          className="text-neutral-300 hover:text-white hover:bg-neutral-900 text-xs shrink-0 self-start md:self-auto"
+                          className="text-neutral-700 hover:text-black hover:bg-neutral-100 text-xs shrink-0 self-start md:self-auto"
                         >
                           {isExpanded ? (
                             <>
@@ -483,21 +483,21 @@ export default function TrabalheConosco() {
                       </div>
 
                       {/* Resumo da descrição (sempre visível) */}
-                      <p className="text-sm text-neutral-300 leading-relaxed font-sans line-clamp-3 md:line-clamp-none">
+                      <p className="text-sm text-neutral-700 leading-relaxed font-sans line-clamp-3 md:line-clamp-none">
                         {vacancy.description}
                       </p>
                     </div>
 
                     {/* Bloco expandido com responsabilidades e requisitos */}
                     {isExpanded && (
-                      <div className="border-t border-neutral-800 bg-neutral-900/30 p-6 sm:p-7 space-y-6 animate-fade-in">
+                      <div className="border-t border-neutral-200 bg-neutral-50/70 p-6 sm:p-7 space-y-6 animate-fade-in">
                         {vacancy.responsibilities && (
                           <div>
-                            <h4 className="text-sm font-semibold text-white mb-2 flex items-center gap-2">
+                            <h4 className="text-sm font-semibold text-black mb-2 flex items-center gap-2">
                               <span className="w-1.5 h-1.5 rounded-full bg-[#FAB319]" />
                               Responsabilidades e Atividades
                             </h4>
-                            <div className="text-xs md:text-sm text-neutral-300 leading-relaxed whitespace-pre-line pl-3.5 border-l border-neutral-800">
+                            <div className="text-xs md:text-sm text-neutral-700 leading-relaxed whitespace-pre-line pl-3.5 border-l-2 border-neutral-300">
                               {vacancy.responsibilities}
                             </div>
                           </div>
@@ -505,29 +505,29 @@ export default function TrabalheConosco() {
 
                         {vacancy.requirements && (
                           <div>
-                            <h4 className="text-sm font-semibold text-white mb-2 flex items-center gap-2">
+                            <h4 className="text-sm font-semibold text-black mb-2 flex items-center gap-2">
                               <span className="w-1.5 h-1.5 rounded-full bg-[#FAB319]" />
                               Requisitos e Qualificações
                             </h4>
-                            <div className="text-xs md:text-sm text-neutral-300 leading-relaxed whitespace-pre-line pl-3.5 border-l border-neutral-800">
+                            <div className="text-xs md:text-sm text-neutral-700 leading-relaxed whitespace-pre-line pl-3.5 border-l-2 border-neutral-300">
                               {vacancy.requirements}
                             </div>
                           </div>
                         )}
 
                         {/* Bloco de Candidatura */}
-                        <div className="mt-8 pt-6 border-t border-neutral-800 bg-black/60 rounded-xl p-5 sm:p-6 border border-neutral-800">
+                        <div className="mt-8 pt-6 border-t border-neutral-200 bg-white rounded-xl p-5 sm:p-6 border border-neutral-200 shadow-sm">
                           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                             <div>
-                              <p className="text-xs font-mono uppercase tracking-wider text-[#FAB319] mb-1">
+                              <p className="text-xs font-mono uppercase tracking-wider text-[#b8800b] font-semibold mb-1">
                                 Candidatura para esta vaga
                               </p>
-                              <p className="text-sm font-semibold text-white mb-1">
+                              <p className="text-sm font-semibold text-black mb-1">
                                 Envie seu currículo diretamente para nossa coordenação
                               </p>
-                              <p className="text-xs text-neutral-400 flex items-center gap-1.5">
-                                <Mail className="h-3.5 w-3.5 text-neutral-400" />
-                                <span className="font-mono text-neutral-200">
+                              <p className="text-xs text-neutral-600 flex items-center gap-1.5">
+                                <Mail className="h-3.5 w-3.5 text-neutral-500" />
+                                <span className="font-mono text-neutral-900 font-semibold">
                                   {RECRUITMENT_EMAIL}
                                 </span>
                               </p>
@@ -547,16 +547,16 @@ export default function TrabalheConosco() {
                                 type="button"
                                 variant="outline"
                                 onClick={() => handleCopyEmail(vacancy.id)}
-                                className="w-full sm:w-auto border-neutral-700 bg-neutral-900 text-neutral-200 hover:bg-neutral-800 hover:text-white text-xs h-10 px-4"
+                                className="w-full sm:w-auto border-neutral-300 bg-white text-neutral-800 hover:bg-neutral-100 hover:text-black text-xs h-10 px-4"
                               >
                                 {isCopied ? (
                                   <>
-                                    <Check className="h-4 w-4 mr-1.5 text-green-400" />
+                                    <Check className="h-4 w-4 mr-1.5 text-green-600" />
                                     E-mail copiado!
                                   </>
                                 ) : (
                                   <>
-                                    <Copy className="h-4 w-4 mr-1.5 text-neutral-400" />
+                                    <Copy className="h-4 w-4 mr-1.5 text-neutral-500" />
                                     Copiar e-mail
                                   </>
                                 )}
@@ -571,21 +571,21 @@ export default function TrabalheConosco() {
               })}
 
               {/* Bloco espontâneo secundário */}
-              <div className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800/80 text-center flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="p-6 rounded-2xl bg-neutral-50 border border-neutral-200 text-center flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
                 <div className="text-left space-y-0.5">
-                  <p className="text-sm font-semibold text-white">
+                  <p className="text-sm font-semibold text-black">
                     Não encontrou a vaga ideal para o seu perfil?
                   </p>
-                  <p className="text-xs text-neutral-400">
+                  <p className="text-xs text-neutral-600">
                     Você pode enviar seu currículo espontaneamente para{' '}
-                    <strong className="text-neutral-200 font-mono">{RECRUITMENT_EMAIL}</strong>.
+                    <strong className="text-neutral-900 font-mono">{RECRUITMENT_EMAIL}</strong>.
                   </p>
                 </div>
                 <Button
                   type="button"
                   variant="outline"
                   onClick={() => handleCopyEmail()}
-                  className="border-neutral-700 bg-neutral-900 text-neutral-200 hover:bg-neutral-800 hover:text-white text-xs shrink-0"
+                  className="border-neutral-300 bg-white text-neutral-800 hover:bg-neutral-100 hover:text-black text-xs shrink-0 shadow-sm"
                 >
                   {generalCopied ? 'E-mail copiado!' : 'Copiar e-mail para contato'}
                 </Button>
