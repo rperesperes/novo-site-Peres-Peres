@@ -88,9 +88,9 @@ export default function Index() {
   return (
     <div className="flex flex-col w-full">
       {/* Hero Section - Arquitetura monocromática elegante com ponto focal restrito no botão */}
-      <section className="relative flex items-center justify-center overflow-hidden bg-black text-white border-b border-neutral-800">
-        <div className="container mx-auto px-4 py-10 md:py-14 relative z-10 w-full">
-          <div className="w-full space-y-5 md:space-y-6 animate-fade-in-up">
+      <section className="relative flex items-center justify-center overflow-hidden bg-black text-white border-b border-neutral-800 min-h-[55vh] md:min-h-[60vh]">
+        <div className="container mx-auto px-4 py-16 md:py-20 relative z-10 w-full">
+          <div className="w-full space-y-6 md:space-y-7 animate-fade-in-up">
             <div className="inline-block border border-neutral-700 px-3 py-1 rounded text-xs tracking-wider uppercase text-neutral-300">
               PERES PERES Consultoria &amp; Contabilidade
             </div>
@@ -107,7 +107,7 @@ export default function Index() {
             </p>
 
             {/* Ponto focal único da tela no Hero: Botão com #FAB319 centralizado */}
-            <div className="flex justify-center pt-1">
+            <div className="flex justify-center pt-2">
               <Button
                 size="lg"
                 className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold text-base h-12 px-8 border-none"
