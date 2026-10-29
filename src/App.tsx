@@ -11,10 +11,12 @@ import { AuthProvider } from './hooks/use-auth'
 import Login from './pages/admin/Login'
 import AdminLayout from './components/AdminLayout'
 import AdminCases from './pages/admin/Cases'
+import AdminJobs from './pages/admin/Jobs'
 import AdminEmails from './pages/admin/Emails'
 import AdminCalculators from './pages/admin/Calculators'
 import AdminPlaceholderSection from './pages/admin/AdminPlaceholderSection'
 import About from './pages/About'
+import TrabalheConosco from './pages/TrabalheConosco'
 import Services from './pages/Services'
 import Cases from './pages/Cases'
 import CaseDetail from './pages/CaseDetail'
@@ -48,6 +50,7 @@ const App = () => (
           <Route element={<Layout />}>
             <Route path="/" element={<Index />} />
             <Route path="/sobre" element={<About />} />
+            <Route path="/trabalhe-conosco" element={<TrabalheConosco />} />
             <Route path="/servicos" element={<Services />} />
             <Route path="/servicos/certificado-digital" element={<CertificadoDigital />} />
             <Route path="/servicos/registro-de-marcas" element={<RegistroDeMarcas />} />
@@ -93,6 +96,8 @@ const App = () => (
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<AdminCases />} />
             <Route path="cases" element={<AdminCases />} />
+            <Route path="jobs" element={<AdminJobs />} />
+            <Route path="vagas" element={<AdminJobs />} />
             <Route path="emails" element={<AdminEmails />} />
             <Route path="calculators" element={<AdminCalculators />} />
             <Route

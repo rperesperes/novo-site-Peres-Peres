@@ -6,6 +6,7 @@ import logoPadrao from '@/assets/logo-padrao-oficial-844b7.png'
 import rafaelImg from '@/assets/foto-melhorada-por-ia-892a9.png'
 import williamImg from '@/assets/copia-de-img8757-182f8.jpg'
 import gabrielaImg from '@/assets/copia-de-img8782-9b4d0.jpg'
+import clarissaImg from '@/assets/image-c2d56.png'
 
 interface TeamMember {
   name: string
@@ -37,7 +38,7 @@ const TEAM_MEMBERS: TeamMember[] = [
   {
     name: 'Clarissa Lebeis',
     role: 'Graduanda em Ciências Contábeis - UnB',
-    initials: 'CL',
+    photo: clarissaImg,
     alt: 'Clarissa Lebeis - Graduanda em Ciências Contábeis na Universidade de Brasília (UnB)',
   },
 ]

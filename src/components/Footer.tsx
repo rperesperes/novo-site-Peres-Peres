@@ -137,6 +137,11 @@ export function Footer() {
                 </a>
               </li>
               <li>
+                <Link to="/trabalhe-conosco" className="hover:text-[#FAB319] transition-colors">
+                  Trabalhe Conosco
+                </Link>
+              </li>
+              <li>
                 <Link to="/recursos" className="hover:text-[#FAB319] transition-colors">
                   Recursos e Materiais
                 </Link>

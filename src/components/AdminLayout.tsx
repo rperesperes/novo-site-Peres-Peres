@@ -20,6 +20,7 @@ import logoNova from '@/assets/logo-nova-800x200-b63d1.png'
 
 export const ADMIN_SECTIONS = [
   { id: 'cases', to: '/admin', icon: Briefcase, label: 'Casos de Sucesso' },
+  { id: 'jobs', to: '/admin/jobs', icon: Briefcase, label: 'Vagas' },
   { id: 'emails', to: '/admin/emails', icon: Mail, label: 'E-mails Recebidos' },
   {
     id: 'calculators',

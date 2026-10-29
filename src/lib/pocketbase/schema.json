@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T18:55:43.624Z",
+  "generatedAt": "2026-10-29T19:13:03.046Z",
   "collections": [
     {
       "name": "users",
@@ -689,6 +689,93 @@
         }
       ],
       "indexes": ["CREATE UNIQUE INDEX idx_system_settings_key ON system_settings (key)"]
+    },
+    {
+      "name": "job_vacancies",
+      "type": "base",
+      "apiRules": {
+        "list": "@request.auth.id != '' || status = 'aberta'",
+        "view": "@request.auth.id != '' || status = 'aberta'",
+        "create": "@request.auth.id != ''",
+        "update": "@request.auth.id != ''",
+        "delete": "@request.auth.id != ''"
+      },
+      "fields": [
+        {
+          "name": "title",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "area",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "contract_type",
+          "type": "select",
+          "required": true,
+          "system": false,
+          "selectValues": ["CLT", "Estágio", "PJ", "Temporário"]
+        },
+        {
+          "name": "modality",
+          "type": "select",
+          "required": true,
+          "system": false,
+          "selectValues": ["Presencial", "Híbrido", "Remoto"]
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "responsibilities",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "requirements",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "status",
+          "type": "select",
+          "required": true,
+          "system": false,
+          "selectValues": ["aberta", "encerrada"]
+        },
+        {
+          "name": "display_order",
+          "type": "number",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": [
+        "CREATE INDEX idx_job_vacancies_status_order ON job_vacancies (status, display_order)"
+      ]
     }
   ]
 }
