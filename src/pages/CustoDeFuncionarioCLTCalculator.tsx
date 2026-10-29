@@ -6,6 +6,7 @@ import {
   calcularIRRFEmpregado,
   SALARIO_MINIMO_2026,
 } from '@/lib/folhaData'
+import { getIndexEntries, IndexEntryRecord, resolveIndexValueForDate } from '@/services/indices'
 import {
   ChevronRight,
   ArrowLeft,
@@ -13,6 +14,7 @@ import {
   Calculator,
   HelpCircle,
   AlertCircle,
+  AlertTriangle,
   FileCheck2,
   Scale,
   Briefcase,
@@ -62,6 +64,10 @@ export default function CustoDeFuncionarioCLTCalculator() {
   const [dependentes, setDependentes] = useState<number>(0)
   const [dependentesInput, setDependentesInput] = useState<string>('0')
   const [isSimplesNacional, setIsSimplesNacional] = useState<boolean>(true)
+  const [dataCompetencia, setDataCompetencia] = useState<string>('2026-01-01')
+
+  // Série histórica de vigências do salário mínimo federal
+  const [dbEntries, setDbEntries] = useState<IndexEntryRecord[]>([])
 
   // Adicionais trabalhistas
   const [hasInsalubridade, setHasInsalubridade] = useState<boolean>(false)
@@ -89,6 +95,15 @@ export default function CustoDeFuncionarioCLTCalculator() {
       document.head.appendChild(metaDescTag)
     }
     metaDescTag.setAttribute('content', pageDesc)
+
+    // Carrega vigências do índice de Salário Mínimo Federal
+    getIndexEntries('salario-minimo-federal')
+      .then((entries) => {
+        if (entries && entries.length > 0) {
+          setDbEntries(entries)
+        }
+      })
+      .catch((err) => console.log('Uso de vigência padrão salário mínimo:', err))
 
     // Registra contagem de acesso no painel administrativo
     import('@/services/calculator_accesses').then(({ trackCalculatorAccess }) => {
@@ -119,10 +134,26 @@ export default function CustoDeFuncionarioCLTCalculator() {
 
   // Cálculos em tempo real
   const calculation = useMemo(() => {
+    // Resolução da vigência do salário mínimo para a competência informada
+    const indexCheck = resolveIndexValueForDate(dbEntries, dataCompetencia)
+    const isPeriodoSemDados = dbEntries.length > 0 ? indexCheck.isBeforeEarliest : false
+    const primeiraVigenciaStr = indexCheck.earliestDate
+      ? indexCheck.earliestDate.toLocaleDateString('pt-BR')
+      : '01/01/2026'
+
+    // Valor do salário mínimo aplicável (se houver entrada cadastrada no banco)
+    let salarioMinimoAplicavel = SALARIO_MINIMO_2026
+    if (indexCheck.found && indexCheck.entry) {
+      const parsedVal = parseFloat(indexCheck.entry.value.replace(/[^\d,.]/g, '').replace(',', '.'))
+      if (!isNaN(parsedVal) && parsedVal > 0) {
+        salarioMinimoAplicavel = parsedVal
+      }
+    }
+
     // 1. Adicionais que integram a remuneração bruta
     let valorInsalubridade = 0
     if (hasInsalubridade) {
-      valorInsalubridade = SALARIO_MINIMO_2026 * (grauInsalubridade / 100)
+      valorInsalubridade = salarioMinimoAplicavel * (grauInsalubridade / 100)
     }
 
     let valorPericulosidade = 0
@@ -198,6 +229,9 @@ export default function CustoDeFuncionarioCLTCalculator() {
     const salarioLiquidoEmpregado = Math.max(0, salarioBrutoTotal - totalDescontosEmpregado)
 
     return {
+      isPeriodoSemDados,
+      primeiraVigencia: primeiraVigenciaStr,
+      salarioMinimoAplicavel,
       salarioBase,
       salarioBrutoTotal,
       valorInsalubridade,
@@ -235,6 +269,8 @@ export default function CustoDeFuncionarioCLTCalculator() {
     adicionalNoturnoValor,
     isSimplesNacional,
     dependentes,
+    dataCompetencia,
+    dbEntries,
   ])
 
   // FAQ com CINCO perguntas e respostas curtas e diretas
@@ -395,6 +431,53 @@ export default function CustoDeFuncionarioCLTCalculator() {
             <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider">
               Atualização Instantânea
             </span>
+          </div>
+
+          {/* Aviso quando período consultado é anterior à primeira vigência do índice */}
+          {calculation.isPeriodoSemDados && (
+            <div className="mb-6 rounded-lg border border-amber-300 bg-amber-50 p-4 text-amber-900 flex items-start gap-3">
+              <AlertTriangle className="h-5 w-5 text-amber-700 shrink-0 mt-0.5" />
+              <div className="text-sm">
+                <p className="font-semibold text-amber-950">
+                  Período sem dados no sistema para este índice
+                </p>
+                <p className="text-amber-800 mt-1">
+                  A competência selecionada (
+                  {calculation.primeiraVigencia
+                    ? `anterior a ${calculation.primeiraVigencia}`
+                    : 'informada'}
+                  ) é anterior à primeira vigência cadastrada do salário mínimo federal no sistema.
+                  O cálculo abaixo utiliza o parâmetro base atual (
+                  {formatCurrencyBRL(calculation.salarioMinimoAplicavel)}) como referência
+                  preventiva.
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* Seletor de Competência da Folha (vigência histórica do Salário Mínimo) */}
+          <div className="mb-6 p-4 bg-neutral-50 rounded-lg border border-neutral-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <label
+                htmlFor="input-competencia"
+                className="block text-sm font-semibold text-neutral-900"
+              >
+                Competência de referência da folha
+              </label>
+              <p className="text-xs text-neutral-500">
+                Determina a vigência oficial aplicável do salário mínimo federal e tabelas da
+                previdência.
+              </p>
+            </div>
+            <div className="w-full sm:w-56">
+              <Input
+                id="input-competencia"
+                type="date"
+                value={dataCompetencia}
+                onChange={(e) => setDataCompetencia(e.target.value)}
+                className="font-mono text-sm border-neutral-300 bg-white"
+              />
+            </div>
           </div>
 
           {/* Campos de entrada */}

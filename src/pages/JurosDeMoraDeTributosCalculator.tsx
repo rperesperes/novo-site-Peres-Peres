@@ -38,7 +38,7 @@ import {
   LATEST_OFFICIAL_SELIC_MONTH,
   DEFAULT_SELIC_FALLBACK_RATE,
 } from '@/lib/selicData'
-import { getIndexEntries, IndexEntryRecord } from '@/services/indices'
+import { getIndexEntries, IndexEntryRecord, resolveIndexValueForDate } from '@/services/indices'
 
 // Formatador monetário BRL
 function formatCurrencyBRL(value: number): string {
@@ -201,27 +201,20 @@ export default function JurosDeMoraDeTributosCalculator() {
     const dtVenc = new Date(Date.UTC(vAno, vMes - 1, vDia))
     const dtPag = new Date(Date.UTC(pAno, pMes - 1, pDia))
 
-    // Verificação de vigência histórica: data consultada anterior à primeira vigência cadastrada
-    // Conforme requisito: "antes de ter data de vigência, a calculadora precisa avisar que se trata de período sem dados no sistema"
-    let primeiraDataStr = '1995-01-01' // Início histórico oficial da Selic para tributos (Lei 8.981/1995)
-    if (dbEntries.length > 0) {
-      // Ordena crescente para achar a data mais antiga
-      const sorted = [...dbEntries].sort((a, b) =>
-        (a.effective_date || '').localeCompare(b.effective_date || ''),
-      )
-      if (sorted[0]?.effective_date) {
-        primeiraDataStr = sorted[0].effective_date
-      }
-    }
+    // Verificação de vigência histórica com resolveIndexValueForDate:
+    // Se a data de vencimento consultada for anterior à primeira vigência cadastrada,
+    // avisa com clareza que se trata de período sem dados no sistema para este índice
+    const indexCheck = resolveIndexValueForDate(dbEntries, dataVencimento)
+    const dtPrimeiraVigencia = indexCheck.earliestDate || new Date(1995, 0, 1) // Início histórico oficial Selic tributos
+    const primeiraDataStr = indexCheck.earliestDate
+      ? indexCheck.earliestDate.toLocaleDateString('pt-BR')
+      : '01/01/1995'
 
-    const primeiraParts = primeiraDataStr.includes('/')
-      ? primeiraDataStr.split('/').reverse().map(Number)
-      : primeiraDataStr.split('-').map(Number)
-    const dtPrimeiraVigencia = new Date(
-      Date.UTC(primeiraParts[0], (primeiraParts[1] || 1) - 1, primeiraParts[2] || 1),
-    )
+    const isPeriodoSemDados =
+      dbEntries.length > 0
+        ? indexCheck.isBeforeEarliest
+        : dtVenc.getTime() < dtPrimeiraVigencia.getTime()
 
-    const isPeriodoSemDados = dtVenc.getTime() < dtPrimeiraVigencia.getTime()
     if (isPeriodoSemDados) {
       return {
         isValid: false,

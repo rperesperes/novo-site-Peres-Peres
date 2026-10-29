@@ -1,7 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import {
   getIndices,
-  updateIndex,
   IndexRecord,
   checkIndexExpiration,
   getIndexEntries,
@@ -9,10 +8,9 @@ import {
 } from '@/services/indices'
 import { IndexSeriesCard } from './IndexSeriesCard'
 import { getCalculatorAccesses, CalculatorAccessRecord } from '@/services/calculator_accesses'
-import { CALCULATORS, CalculatorItem } from '@/lib/calculatorsData'
+import { CALCULATORS } from '@/lib/calculatorsData'
 import { useRealtime } from '@/hooks/use-realtime'
 import { useToast } from '@/hooks/use-toast'
-import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
@@ -29,20 +27,13 @@ import {
   TrendingUp,
   AlertTriangle,
   Clock,
-  Save,
-  CheckCircle2,
   RefreshCw,
-  Search,
-  ArrowUpDown,
-  Calendar,
   ExternalLink,
   ShieldCheck,
   Loader2,
   Filter,
   BarChart3,
   Layers,
-  Bot,
-  UserCheck,
 } from 'lucide-react'
 
 export default function AdminCalculators() {
@@ -60,13 +51,6 @@ export default function AdminCalculators() {
   const [indices, setIndices] = useState<IndexRecord[]>([])
   const [indexEntriesMap, setIndexEntriesMap] = useState<Record<string, IndexEntryRecord[]>>({})
   const [loadingIndices, setLoadingIndices] = useState(true)
-  const [editingValues, setEditingValues] = useState<
-    Record<
-      string,
-      { current_value: string; effective_date: string; validity_months: number; notes: string }
-    >
-  >({})
-  const [savedSuccessId, setSavedSuccessId] = useState<string | null>(null)
 
   const { toast } = useToast()
 
@@ -113,21 +97,6 @@ export default function AdminCalculators() {
         })
       }
       setIndexEntriesMap(entriesMap)
-
-      // Inicializa mapa de edição
-      const initialMap: Record<
-        string,
-        { current_value: string; effective_date: string; validity_months: number; notes: string }
-      > = {}
-      for (const item of data) {
-        initialMap[item.id] = {
-          current_value: item.current_value || '',
-          effective_date: item.effective_date || '',
-          validity_months: item.validity_months || 12,
-          notes: item.notes || '',
-        }
-      }
-      setEditingValues(initialMap)
     } catch (err: any) {
       console.error('Erro ao buscar índices:', err)
       toast({
@@ -234,41 +203,6 @@ export default function AdminCalculators() {
   const handlePeriodChange = (val: 'all' | 'today' | '7days' | '30days' | 'year') => {
     setPeriodFilter(val)
     loadAccesses(val)
-  }
-
-  const handleSaveIndex = async (id: string) => {
-    const draft = editingValues[id]
-    if (!draft) return
-
-    setSavingIndexId(id)
-    setSavedSuccessId(null)
-    try {
-      await updateIndex(id, {
-        current_value: draft.current_value.trim(),
-        effective_date: draft.effective_date.trim(),
-        validity_months: Number(draft.validity_months) || 12,
-        notes: draft.notes.trim(),
-        update_source: 'manual',
-        last_updated_at: new Date().toISOString(),
-      })
-
-      setSavedSuccessId(id)
-      toast({
-        title: 'Índice salvo com sucesso!',
-        description: 'Os parâmetros foram atualizados no banco de dados.',
-      })
-      await loadIndices()
-      setTimeout(() => setSavedSuccessId(null), 3000)
-    } catch (err: any) {
-      console.error('Erro ao salvar índice:', err)
-      toast({
-        title: 'Erro ao salvar índice',
-        description: err?.message || 'Falha ao persistir alterações.',
-        variant: 'destructive',
-      })
-    } finally {
-      setSavingIndexId(null)
-    }
   }
 
   const formatDate = (isoString?: string | null) => {
