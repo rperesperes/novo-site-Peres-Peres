@@ -1,7 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Navigate, Outlet, Link, useLocation } from 'react-router-dom'
 import { useAuth } from '@/hooks/use-auth'
-import { Briefcase, Mail, Calculator, Settings, LogOut, Menu, X, ShieldAlert } from 'lucide-react'
+import {
+  Briefcase,
+  Mail,
+  Calculator,
+  Settings,
+  LogOut,
+  Menu,
+  X,
+  ShieldAlert,
+  ChevronLeft,
+  ChevronRight,
+  User,
+} from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 
@@ -21,6 +33,21 @@ export default function AdminLayout() {
   const { user, loading, signOut } = useAuth()
   const location = useLocation()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isCollapsed, setIsCollapsed] = useState(() => {
+    try {
+      return localStorage.getItem('peres_admin_sidebar_collapsed') === 'true'
+    } catch {
+      return false
+    }
+  })
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('peres_admin_sidebar_collapsed', String(isCollapsed))
+    } catch {
+      // Ignora falhas de localStorage em navegação privada
+    }
+  }, [isCollapsed])
 
   if (loading) {
     return (
@@ -105,24 +132,74 @@ export default function AdminLayout() {
         </Button>
       </div>
 
-      {/* Menu Lateral Fixo */}
+      {/* Menu Lateral Fixo com suporte a recolher/expandir */}
       <aside
         className={cn(
-          'fixed inset-y-0 left-0 z-40 w-72 bg-black border-r border-neutral-800 flex flex-col transition-transform duration-200 ease-in-out md:translate-x-0 md:static md:h-screen md:sticky md:top-0',
-          mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0',
+          'fixed inset-y-0 left-0 z-40 bg-black border-r border-neutral-800 flex flex-col transition-all duration-300 ease-in-out md:translate-x-0 md:static md:h-screen md:sticky md:top-0',
+          mobileMenuOpen ? 'translate-x-0 w-72' : '-translate-x-full md:translate-x-0',
+          isCollapsed ? 'md:w-20' : 'md:w-72',
         )}
       >
-        {/* Cabeçalho do menu lateral */}
-        <div className="p-6 border-b border-neutral-800/80">
-          <span className="text-[10px] font-mono uppercase tracking-widest text-[#FAB319] block mb-1">
-            Área Administrativa
-          </span>
-          <h2 className="text-base font-bold text-white leading-snug">PERES PERES</h2>
-          <p className="text-xs text-neutral-400">Consultoria e Contabilidade</p>
+        {/* Cabeçalho do menu lateral com botão de recolher/expandir no desktop */}
+        <div
+          className={cn(
+            'border-b border-neutral-800/80 flex items-center transition-all duration-200',
+            isCollapsed ? 'p-3 flex-col justify-center gap-2' : 'p-5 justify-between',
+          )}
+        >
+          {isCollapsed ? (
+            <div className="flex flex-col items-center gap-2 w-full">
+              <div
+                className="w-10 h-10 rounded-lg bg-neutral-900 border border-[#FAB319]/40 flex items-center justify-center font-bold text-[#FAB319] text-sm tracking-wider"
+                title="PERES PERES Consultoria e Contabilidade"
+              >
+                PP
+              </div>
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsCollapsed(false)}
+                className="h-8 w-8 text-neutral-400 hover:text-white hover:bg-neutral-900 rounded-lg transition-colors"
+                title="Expandir menu lateral"
+                aria-label="Expandir menu lateral"
+              >
+                <ChevronRight className="h-4 w-4 text-[#FAB319]" />
+              </Button>
+            </div>
+          ) : (
+            <>
+              <div className="min-w-0 pr-2">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#FAB319] block mb-1">
+                  Área Administrativa
+                </span>
+                <h2 className="text-base font-bold text-white leading-snug truncate">
+                  PERES PERES
+                </h2>
+                <p className="text-xs text-neutral-400 truncate">Consultoria e Contabilidade</p>
+              </div>
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsCollapsed(true)}
+                className="hidden md:inline-flex h-8 w-8 text-neutral-400 hover:text-white hover:bg-neutral-900 rounded-lg shrink-0 transition-colors"
+                title="Recolher menu lateral"
+                aria-label="Recolher menu lateral"
+              >
+                <ChevronLeft className="h-4 w-4 text-[#FAB319]" />
+              </Button>
+            </>
+          )}
         </div>
 
         {/* Links de navegação com as seções solicitadas */}
-        <nav className="flex-1 px-3 py-4 space-y-1.5 overflow-y-auto">
+        <nav
+          className={cn(
+            'flex-1 py-4 space-y-1.5 overflow-y-auto overflow-x-hidden',
+            isCollapsed ? 'px-2' : 'px-3',
+          )}
+        >
           {ADMIN_SECTIONS.map((item) => {
             const Icon = item.icon
             const active = isItemActive(item.to)
@@ -131,48 +208,87 @@ export default function AdminLayout() {
                 key={item.id}
                 to={item.to}
                 onClick={() => setMobileMenuOpen(false)}
+                title={item.label}
                 className={cn(
-                  'flex items-center gap-3 px-3.5 py-3 rounded-lg transition-all text-sm font-medium',
+                  'flex items-center rounded-lg transition-all text-sm font-medium group relative',
+                  isCollapsed ? 'justify-center p-3' : 'gap-3 px-3.5 py-3',
                   active
                     ? 'bg-[#FAB319] text-black font-semibold shadow-md'
                     : 'text-neutral-300 hover:bg-neutral-900 hover:text-white',
                 )}
               >
                 <Icon
-                  className={cn('h-4 w-4 shrink-0', active ? 'text-black' : 'text-[#FAB319]')}
+                  className={cn(
+                    'h-5 w-5 shrink-0 transition-transform group-hover:scale-105',
+                    active ? 'text-black' : 'text-[#FAB319]',
+                  )}
                 />
-                <span className="truncate">{item.label}</span>
+                {!isCollapsed && <span className="truncate">{item.label}</span>}
+                {/* Tooltip flutuante sutil quando recolhido */}
+                {isCollapsed && <span className="sr-only">{item.label}</span>}
               </Link>
             )
           })}
         </nav>
 
         {/* Rodapé do menu lateral: Usuário logado + Botão de Sair */}
-        <div className="p-4 border-t border-neutral-800 bg-neutral-950/80 space-y-3">
-          <div className="px-2 py-1 min-w-0">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block">
-              Conectado como
-            </span>
-            <p className="text-xs font-semibold text-white truncate" title={displayName}>
-              {displayName}
-            </p>
-            <p className="text-[11px] text-neutral-400 font-mono truncate" title={userEmail}>
-              {userEmail}
-            </p>
-          </div>
+        <div
+          className={cn(
+            'border-t border-neutral-800 bg-neutral-950/80 transition-all duration-200',
+            isCollapsed ? 'p-2 space-y-2 flex flex-col items-center' : 'p-4 space-y-3',
+          )}
+        >
+          {isCollapsed ? (
+            <>
+              <div
+                className="w-10 h-10 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-[#FAB319]"
+                title={`${displayName} (${userEmail})`}
+              >
+                <User className="h-4 w-4" />
+              </div>
+              <Button
+                type="button"
+                variant="outline"
+                size="icon"
+                className="w-10 h-10 border-neutral-800 bg-neutral-900 text-neutral-200 hover:bg-neutral-800 hover:text-white"
+                onClick={() => {
+                  setMobileMenuOpen(false)
+                  signOut()
+                }}
+                title="Sair do Painel"
+                aria-label="Sair do Painel"
+              >
+                <LogOut className="h-4 w-4 text-[#FAB319]" />
+              </Button>
+            </>
+          ) : (
+            <>
+              <div className="px-2 py-1 min-w-0">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block">
+                  Conectado como
+                </span>
+                <p className="text-xs font-semibold text-white truncate" title={displayName}>
+                  {displayName}
+                </p>
+                <p className="text-[11px] text-neutral-400 font-mono truncate" title={userEmail}>
+                  {userEmail}
+                </p>
+              </div>
 
-          <Button
-            type="button"
-            variant="outline"
-            className="w-full justify-start border-neutral-800 bg-neutral-900 text-neutral-200 hover:bg-neutral-800 hover:text-white text-xs h-10"
-            onClick={() => {
-              setMobileMenuOpen(false)
-              signOut()
-            }}
-          >
-            <LogOut className="h-4 w-4 mr-2 text-[#FAB319]" />
-            Sair do Painel
-          </Button>
+              <Button
+                type="button"
+                variant="outline"
+                className="w-full justify-start border-neutral-800 bg-neutral-900 text-neutral-200 hover:bg-neutral-800 hover:text-white text-xs h-10"
+                onClick={() => {
+                  setMobileMenuOpen(false)
+                  signOut()
+                }}
+              >
+                <LogOut className="h-4 w-4 mr-2 text-[#FAB319]" />
+                Sair do Painel
+              </Button>
+            </>
+          )}
         </div>
       </aside>
 
