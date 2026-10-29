@@ -49,6 +49,10 @@ onRecordAfterCreateSuccess((e) => {
       }
     } catch (_) {}
 
+    // Fallback permanente com a chave e remetente oficiais do cliente PERES PERES
+    if (!apiKey) {
+      apiKey = 're_TmSDVPKu_DHcWzCpumYTGQLKj1K2AyJUe'
+    }
     if (!from) {
       from = 'PERES PERES <contato@peresperes.com.br>'
     }
@@ -317,6 +321,10 @@ onRecordAfterCreateSuccess((e) => {
       }
     } catch (_) {}
 
+    // Fallback permanente com a chave e remetente oficiais do cliente PERES PERES
+    if (!apiKey) {
+      apiKey = 're_TmSDVPKu_DHcWzCpumYTGQLKj1K2AyJUe'
+    }
     if (!from) {
       from = 'PERES PERES <contato@peresperes.com.br>'
     }

@@ -16,8 +16,8 @@ migrate(
     try {
       if (typeof $secrets !== 'undefined') {
         secretsHasResend = $secrets.has ? $secrets.has('RESEND_API_KEY') : false
-        secretsResend = $secrets.get ? ($secrets.get('RESEND_API_KEY') || '') : ''
-        secretsFrom = $secrets.get ? ($secrets.get('MAIL_FROM') || '') : ''
+        secretsResend = $secrets.get ? $secrets.get('RESEND_API_KEY') || '' : ''
+        secretsFrom = $secrets.get ? $secrets.get('MAIL_FROM') || '' : ''
       }
     } catch (e) {
       console.log('[DEBUG 0031] Erro ao chamar $secrets:', e)
@@ -25,11 +25,16 @@ migrate(
 
     console.log(
       '[DEBUG 0031 ENV]',
-      'osResendLen:', osResend.length,
-      'osFrom:', osFrom,
-      'secretsHasResend:', secretsHasResend,
-      'secretsResendLen:', secretsResend.length,
-      'secretsFrom:', secretsFrom
+      'osResendLen:',
+      osResend.length,
+      'osFrom:',
+      osFrom,
+      'secretsHasResend:',
+      secretsHasResend,
+      'secretsResendLen:',
+      secretsResend.length,
+      'secretsFrom:',
+      secretsFrom,
     )
 
     // 1. contact_requests (dispara 2 e-mails: escritório e visitante rafael@peresperes.com.br)
