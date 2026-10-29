@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
-import { useEffect } from 'react'
-import { SUCCESS_CASES } from '@/lib/successCasesData'
+import { useEffect, useState } from 'react'
+import { SUCCESS_CASES, SuccessCase } from '@/lib/successCasesData'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -14,12 +14,84 @@ import { Button } from '@/components/ui/button'
 import { ArrowLeft, ShieldCheck, Building2, AlertTriangle, Wrench, Trophy } from 'lucide-react'
 import { ShareButtons } from '@/components/ShareButtons'
 import NotFound from '@/pages/NotFound'
+import { getPublicSuccessCases, SuccessCaseRecord } from '@/services/success_cases'
 
 export default function CaseDetail() {
   const { slug } = useParams<{ slug: string }>()
+  const staticFallback = SUCCESS_CASES.find((c) => c.slug === slug)
+  const [successCase, setSuccessCase] = useState<SuccessCase | null | undefined>(
+    staticFallback || undefined,
+  )
+  const [loading, setLoading] = useState(!staticFallback)
 
-  // Busca no acervo de casos reais
-  const successCase = SUCCESS_CASES.find((c) => c.slug === slug)
+  useEffect(() => {
+    let isMounted = true
+    const loadCase = async () => {
+      try {
+        const records = await getPublicSuccessCases()
+        if (!isMounted) return
+
+        const matched = records.find(
+          (r: SuccessCaseRecord) =>
+            r.slug === slug ||
+            r.title
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/(^-|-$)+/g, '') === slug,
+        )
+
+        if (matched) {
+          const fallback = SUCCESS_CASES.find((sc) => sc.slug === slug)
+          const actionsParagraphs = matched.actions_taken
+            ? matched.actions_taken.split(/\n\s*\n/).filter(Boolean)
+            : fallback?.actionsTaken || []
+
+          const resultParagraphs = matched.result
+            ? matched.result.split(/\n\s*\n/).filter(Boolean)
+            : fallback?.result.paragraphs || []
+
+          setSuccessCase({
+            id: matched.id,
+            caseNumber: matched.display_order ?? fallback?.caseNumber ?? 1,
+            slug: slug!,
+            badgeText:
+              matched.badge_text || fallback?.badgeText || `CASO ${matched.display_order ?? 1}`,
+            badgeSubtext: matched.badge_subtext || fallback?.badgeSubtext || matched.title,
+            title: matched.title,
+            segment: matched.segment || fallback?.segment || '',
+            summary: matched.highlight_phrase || fallback?.summary || '',
+            highlightBenefits: fallback?.highlightBenefits || [],
+            context: matched.context || fallback?.context || '',
+            challenge: matched.challenge || fallback?.challenge || '',
+            actionsTaken: actionsParagraphs,
+            result: {
+              highlightNumber: matched.highlight_number || fallback?.result.highlightNumber,
+              highlightPrefix: fallback?.result.highlightPrefix,
+              highlightSuffix: fallback?.result.highlightSuffix,
+              paragraphs: resultParagraphs,
+            },
+          })
+        } else if (staticFallback) {
+          setSuccessCase(staticFallback)
+        } else {
+          setSuccessCase(null)
+        }
+      } catch (err) {
+        if (staticFallback) {
+          setSuccessCase(staticFallback)
+        } else {
+          setSuccessCase(null)
+        }
+      } finally {
+        if (isMounted) setLoading(false)
+      }
+    }
+
+    loadCase()
+    return () => {
+      isMounted = false
+    }
+  }, [slug, staticFallback])
 
   useEffect(() => {
     if (successCase) {
@@ -27,9 +99,18 @@ export default function CaseDetail() {
     }
   }, [successCase])
 
+  if (loading) {
+    return (
+      <div className="bg-black text-neutral-100 min-h-screen py-24 flex items-center justify-center font-sans">
+        <p className="text-neutral-400">Carregando caso de sucesso...</p>
+      </div>
+    )
+  }
+
   if (!successCase) {
     return <NotFound />
   }
+
   const currentUrl = `https://peresperes.com.br/casos/${successCase.slug}`
 
   return (

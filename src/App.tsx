@@ -10,10 +10,8 @@ import Index from './pages/Index'
 import { AuthProvider } from './hooks/use-auth'
 import Login from './pages/admin/Login'
 import AdminLayout from './components/AdminLayout'
-import AdminDashboard from './pages/admin/Dashboard'
-import AdminPosts from './pages/admin/Posts'
-import AdminResources from './pages/admin/Resources'
 import AdminCases from './pages/admin/Cases'
+import AdminPlaceholderSection from './pages/admin/AdminPlaceholderSection'
 import About from './pages/About'
 import Services from './pages/Services'
 import Cases from './pages/Cases'
@@ -91,10 +89,35 @@ const App = () => (
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<AdminDashboard />} />
-            <Route path="posts" element={<AdminPosts />} />
-            <Route path="resources" element={<AdminResources />} />
+            <Route index element={<AdminCases />} />
             <Route path="cases" element={<AdminCases />} />
+            <Route
+              path="emails"
+              element={
+                <AdminPlaceholderSection
+                  title="E-mails Recebidos"
+                  description="Histórico de mensagens de contato e inscrições capturadas pelo site"
+                />
+              }
+            />
+            <Route
+              path="calculators"
+              element={
+                <AdminPlaceholderSection
+                  title="Calculadoras e Índices"
+                  description="Gestão de parâmetros de simulação, tabelas fiscais e índices de correção"
+                />
+              }
+            />
+            <Route
+              path="settings"
+              element={
+                <AdminPlaceholderSection
+                  title="Configurações"
+                  description="Parâmetros institucionais, chaves de integração e dados de contato"
+                />
+              }
+            />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

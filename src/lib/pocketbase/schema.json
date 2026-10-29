@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T11:33:59.871Z",
+  "generatedAt": "2026-10-29T12:56:18.400Z",
   "collections": [
     {
       "name": "users",
@@ -177,8 +177,8 @@
       "name": "success_cases",
       "type": "base",
       "apiRules": {
-        "list": "",
-        "view": "",
+        "list": "@request.auth.id != '' || status = 'published' || status = ''",
+        "view": "@request.auth.id != '' || status = 'published' || status = ''",
         "create": "@request.auth.id != ''",
         "update": "@request.auth.id != ''",
         "delete": "@request.auth.id != ''"
@@ -251,6 +251,73 @@
           "required": false,
           "system": false,
           "autodateTriggers": ["onCreate", "onUpdate"]
+        },
+        {
+          "name": "segment",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "context",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "challenge",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "actions_taken",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "highlight_phrase",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "display_order",
+          "type": "number",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "status",
+          "type": "select",
+          "required": false,
+          "system": false,
+          "selectValues": ["published", "hidden"]
+        },
+        {
+          "name": "slug",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "badge_text",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "badge_subtext",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "highlight_number",
+          "type": "text",
+          "required": false,
+          "system": false
         }
       ],
       "indexes": []

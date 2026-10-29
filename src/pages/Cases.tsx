@@ -1,12 +1,83 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { ShieldCheck, Briefcase, ArrowRight, TrendingUp } from 'lucide-react'
-import { SUCCESS_CASES } from '@/lib/successCasesData'
+import { SUCCESS_CASES, SuccessCase } from '@/lib/successCasesData'
 import { ShareButtons } from '@/components/ShareButtons'
+import { getPublicSuccessCases, SuccessCaseRecord } from '@/services/success_cases'
 
 export default function Cases() {
+  const [casesList, setCasesList] = useState<SuccessCase[]>(SUCCESS_CASES)
+
+  useEffect(() => {
+    let isMounted = true
+    const loadFromDb = async () => {
+      try {
+        const records = await getPublicSuccessCases()
+        if (isMounted && records && records.length > 0) {
+          // Converter records da coleção para a estrutura SuccessCase esperada pelo template visual
+          const mapped: SuccessCase[] = records.map((r: SuccessCaseRecord, index: number) => {
+            const fallback = SUCCESS_CASES.find(
+              (sc) => sc.slug === r.slug || sc.id === r.id || sc.caseNumber === index + 1,
+            )
+            const slug =
+              r.slug ||
+              fallback?.slug ||
+              r.title
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/(^-|-$)+/g, '')
+
+            const actionsParagraphs = r.actions_taken
+              ? r.actions_taken.split(/\n\s*\n/).filter(Boolean)
+              : fallback?.actionsTaken || []
+
+            const resultParagraphs = r.result
+              ? r.result.split(/\n\s*\n/).filter(Boolean)
+              : fallback?.result.paragraphs || []
+
+            return {
+              id: r.id,
+              caseNumber: r.display_order ?? index + 1,
+              slug,
+              badgeText:
+                r.badge_text || fallback?.badgeText || `CASO ${r.display_order ?? index + 1}`,
+              badgeSubtext: r.badge_subtext || fallback?.badgeSubtext || r.title,
+              title: r.title,
+              segment: r.segment || fallback?.segment || '',
+              summary: r.highlight_phrase || fallback?.summary || r.context?.slice(0, 200) || '',
+              highlightBenefits: fallback?.highlightBenefits || [
+                {
+                  label: 'Resultado Alcançado',
+                  value: r.highlight_number || 'Comprovado',
+                  description: r.highlight_phrase || 'Conformidade e segurança jurídica',
+                },
+              ],
+              context: r.context || fallback?.context || '',
+              challenge: r.challenge || fallback?.challenge || '',
+              actionsTaken: actionsParagraphs,
+              result: {
+                highlightNumber: r.highlight_number || fallback?.result.highlightNumber,
+                highlightPrefix: fallback?.result.highlightPrefix,
+                highlightSuffix: fallback?.result.highlightSuffix,
+                paragraphs: resultParagraphs,
+              },
+            }
+          })
+          setCasesList(mapped)
+        }
+      } catch (err) {
+        console.warn('Fallback para casos estáticos locais:', err)
+      }
+    }
+    loadFromDb()
+    return () => {
+      isMounted = false
+    }
+  }, [])
+
   return (
     <div className="bg-black text-neutral-100 min-h-screen py-16 md:py-24 font-sans selection:bg-[#FAB319] selection:text-black">
       <div className="container mx-auto px-4 max-w-5xl">
@@ -47,7 +118,7 @@ export default function Cases() {
 
         {/* Lista de Casos em Destaque: 1 Cartão por caso com Resumo, Benefícios e Botão para ler tudo */}
         <div className="space-y-8">
-          {SUCCESS_CASES.map((item) => (
+          {casesList.map((item) => (
             <Card
               key={item.id}
               className="border border-neutral-800 bg-neutral-900/95 text-neutral-100 shadow-xl overflow-hidden hover:border-neutral-700 transition-colors"

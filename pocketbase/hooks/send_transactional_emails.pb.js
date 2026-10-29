@@ -32,22 +32,23 @@ onRecordAfterCreateSuccess((e) => {
 
   function getMailConfig() {
     var apiKey = ($os.getenv('RESEND_API_KEY') || '').trim()
-    if (!apiKey) {
-      try {
-        if (typeof $secrets !== 'undefined' && $secrets.get) {
+    var from = ($os.getenv('MAIL_FROM') || '').trim()
+
+    try {
+      if (typeof $secrets !== 'undefined' && $secrets.get) {
+        if (!apiKey && $secrets.has && $secrets.has('RESEND_API_KEY')) {
+          apiKey = ($secrets.get('RESEND_API_KEY') || '').trim()
+        } else if (!apiKey) {
           apiKey = ($secrets.get('RESEND_API_KEY') || '').trim()
         }
-      } catch (_) {}
-    }
-
-    var from = ($os.getenv('MAIL_FROM') || '').trim()
-    if (!from) {
-      try {
-        if (typeof $secrets !== 'undefined' && $secrets.get) {
+        if (!from && $secrets.has && $secrets.has('MAIL_FROM')) {
+          from = ($secrets.get('MAIL_FROM') || '').trim()
+        } else if (!from) {
           from = ($secrets.get('MAIL_FROM') || '').trim()
         }
-      } catch (_) {}
-    }
+      }
+    } catch (_) {}
+
     if (!from) {
       from = 'PERES PERES <contato@peresperes.com.br>'
     }
@@ -299,22 +300,23 @@ onRecordAfterCreateSuccess((e) => {
 
   function getMailConfig() {
     var apiKey = ($os.getenv('RESEND_API_KEY') || '').trim()
-    if (!apiKey) {
-      try {
-        if (typeof $secrets !== 'undefined' && $secrets.get) {
+    var from = ($os.getenv('MAIL_FROM') || '').trim()
+
+    try {
+      if (typeof $secrets !== 'undefined' && $secrets.get) {
+        if (!apiKey && $secrets.has && $secrets.has('RESEND_API_KEY')) {
+          apiKey = ($secrets.get('RESEND_API_KEY') || '').trim()
+        } else if (!apiKey) {
           apiKey = ($secrets.get('RESEND_API_KEY') || '').trim()
         }
-      } catch (_) {}
-    }
-
-    var from = ($os.getenv('MAIL_FROM') || '').trim()
-    if (!from) {
-      try {
-        if (typeof $secrets !== 'undefined' && $secrets.get) {
+        if (!from && $secrets.has && $secrets.has('MAIL_FROM')) {
+          from = ($secrets.get('MAIL_FROM') || '').trim()
+        } else if (!from) {
           from = ($secrets.get('MAIL_FROM') || '').trim()
         }
-      } catch (_) {}
-    }
+      }
+    } catch (_) {}
+
     if (!from) {
       from = 'PERES PERES <contato@peresperes.com.br>'
     }
