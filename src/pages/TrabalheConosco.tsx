@@ -145,7 +145,10 @@ export default function TrabalheConosco() {
             Carreira e Desenvolvimento Técnico
           </Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black tracking-tight">
-            Trabalhe na <span className="text-[#FAB319]">PERES PERES</span>
+            Somos um escritório de contabilidade e consultoria tributária em Brasília, com equipe
+            enxuta e organização por cliente. Procuramos gente que gosta de entender o caso a fundo,
+            de investigar o problema antes de responder, e que quer crescer pelo que entrega, não
+            necessariamente pelo tempo de casa.
           </h1>
           <p className="text-lg md:text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
             Construímos uma contabilidade consultiva e jurídica de alto rigor em Brasília. Buscamos
@@ -159,9 +162,7 @@ export default function TrabalheConosco() {
         {/* ========================================================================= */}
         <section className="mb-20 md:mb-28">
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-2.5 rounded-lg bg-neutral-100 border border-neutral-200 text-black">
-              <Compass className="h-5 w-5 text-[#FAB319]" />
-            </div>
+            <div className="p-2.5 rounded-lg bg-neutral-100 border border-neutral-200 text-black"></div>
             <div>
               <span className="text-xs uppercase font-mono tracking-widest text-neutral-500 block">
                 Nossa Cultura
@@ -321,9 +322,6 @@ export default function TrabalheConosco() {
               <div className="p-5 rounded-xl bg-neutral-50/80 border border-neutral-200/80 hover:border-neutral-300 transition-all flex flex-col justify-start">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="w-2 h-2 rounded-full bg-[#FAB319]" />
-                  <span className="text-xs font-mono uppercase tracking-wider font-bold text-black bg-[#FAB319]/20 text-[#855d00] px-2.5 py-0.5 rounded border border-[#FAB319]/30">
-                    Missão
-                  </span>
                 </div>
                 <p className="text-sm md:text-base text-neutral-800 leading-relaxed font-sans">
                   Ouvir os empreendedores e estudar as melhores soluções.
@@ -359,72 +357,6 @@ export default function TrabalheConosco() {
           <p className="text-sm md:text-base text-neutral-600 mb-8 max-w-3xl leading-relaxed">
             São quatro, e é por eles que você será avaliado aqui.
           </p>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card className="bg-white border-neutral-200 p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-neutral-300 transition-all">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-mono uppercase tracking-widest text-black font-semibold bg-[#FAB319] px-2.5 py-1 rounded shadow-sm">
-                    Critério 01
-                  </span>
-                </div>
-                <h3 className="text-lg md:text-xl font-bold text-black mb-3">Organização</h3>
-                <p className="text-sm text-neutral-600 leading-relaxed">
-                  Prioridades definidas no início do dia, pendências registradas no sistema e
-                  documentos no Drive compartilhado com nomenclatura padrão. Quem não organiza, não
-                  acompanha.
-                </p>
-              </div>
-            </Card>
-
-            <Card className="bg-white border-neutral-200 p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-neutral-300 transition-all">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-mono uppercase tracking-widest text-black font-semibold bg-[#FAB319] px-2.5 py-1 rounded shadow-sm">
-                    Critério 02
-                  </span>
-                </div>
-                <h3 className="text-lg md:text-xl font-bold text-black mb-3">Iniciativa</h3>
-                <p className="text-sm text-neutral-600 leading-relaxed">
-                  Não é autonomia nem independência: é agir para destravar, dentro do combinado.
-                  Faltou documento do cliente? Já solicita com cópia ao responsável e registra a
-                  pendência com prazo. Encontrou inconsistência? Aponta o problema, sugere dois
-                  caminhos e pergunta qual prefere.
-                </p>
-              </div>
-            </Card>
-
-            <Card className="bg-white border-neutral-200 p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-neutral-300 transition-all">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-mono uppercase tracking-widest text-black font-semibold bg-[#FAB319] px-2.5 py-1 rounded shadow-sm">
-                    Critério 03
-                  </span>
-                </div>
-                <h3 className="text-lg md:text-xl font-bold text-black mb-3">Conhecimento</h3>
-                <p className="text-sm text-neutral-600 leading-relaxed">
-                  Estudar o caso antes de responder. Dúvida recorrente vira guia para o time; caso
-                  novo vira checklist para o próximo.
-                </p>
-              </div>
-            </Card>
-
-            <Card className="bg-white border-neutral-200 p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-neutral-300 transition-all">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-mono uppercase tracking-widest text-black font-semibold bg-[#FAB319] px-2.5 py-1 rounded shadow-sm">
-                    Critério 04
-                  </span>
-                </div>
-                <h3 className="text-lg md:text-xl font-bold text-black mb-3">Contribuição</h3>
-                <p className="text-sm text-neutral-600 leading-relaxed">
-                  Cada erro gera um padrão para não repetir. Cada dúvida resolvida vira material
-                  para o colega. Ver risco e ficar calado porque 'não é minha responsabilidade' é o
-                  que não existe aqui.
-                </p>
-              </div>
-            </Card>
-          </div>
         </section>
 
         {/* BLOCO 3: Estrutura horizontal, organizada por cliente */}

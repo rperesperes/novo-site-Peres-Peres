@@ -111,11 +111,6 @@ export default function CalculatorsHub() {
 
         {/* 2 & 3. Título único (H1) e Parágrafo de apresentação */}
         <header className="mb-14 max-w-4xl animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 border border-neutral-300 bg-neutral-100 px-3 py-1 rounded text-xs font-mono uppercase tracking-wider text-neutral-800 mb-4">
-            <Calculator className="h-3.5 w-3.5 text-black" />
-            Ferramentas Técnicas Abertas
-          </div>
-
           <h1 className="text-3xl md:text-5xl font-bold text-black mb-6 leading-tight">
             Calculadoras tributárias, trabalhistas e contábeis gratuitas
           </h1>

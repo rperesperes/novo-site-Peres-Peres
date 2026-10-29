@@ -254,12 +254,6 @@ export default function Services() {
       {/* Hero da Página de Serviços */}
       <section className="bg-neutral-950 text-white py-16 md:py-24 border-b border-neutral-800">
         <div className="container mx-auto px-4 max-w-5xl text-center">
-          <Badge
-            variant="outline"
-            className="mb-4 border-neutral-700 text-neutral-300 bg-neutral-900 font-mono text-xs uppercase tracking-wider"
-          >
-            PERES PERES Consultoria e Contabilidade • CRC 003366
-          </Badge>
           <h1 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
             Nossos Serviços e Planos de Atuação
           </h1>
@@ -290,9 +284,6 @@ export default function Services() {
            ========================================================= */}
         <section id="consultoria-tributaria" className="scroll-mt-24 space-y-8">
           <div className="border-l-4 border-[#FAB319] pl-4 md:pl-6">
-            <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block mb-1">
-              Pilar 01 • Estratégia Fiscal
-            </span>
             <h2 className="text-2xl md:text-4xl font-bold text-black">Consultoria Tributária</h2>
           </div>
 
@@ -339,9 +330,6 @@ export default function Services() {
            ========================================================= */}
         <section id="recuperacao-de-creditos" className="scroll-mt-24 space-y-8">
           <div className="border-l-4 border-[#FAB319] pl-4 md:pl-6">
-            <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block mb-1">
-              Pilar 02 • Ativo Financeiro e Regularidade
-            </span>
             <h2 className="text-2xl md:text-4xl font-bold text-black">Recuperação de Créditos</h2>
           </div>
 
@@ -389,9 +377,6 @@ export default function Services() {
            ========================================================= */}
         <section id="consultoria-trabalhista" className="scroll-mt-24 space-y-8">
           <div className="border-l-4 border-[#FAB319] pl-4 md:pl-6">
-            <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block mb-1">
-              Pilar 03 • Relações de Trabalho e Previdência
-            </span>
             <h2 className="text-2xl md:text-4xl font-bold text-black">Consultoria Trabalhista</h2>
           </div>
 
@@ -438,9 +423,6 @@ export default function Services() {
            ========================================================= */}
         <section id="inteligencia-financeira" className="scroll-mt-24 space-y-8">
           <div className="border-l-4 border-[#FAB319] pl-4 md:pl-6">
-            <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block mb-1">
-              Pilar 04 • Decisão de Negócio e Caixa
-            </span>
             <h2 className="text-2xl md:text-4xl font-bold text-black">
               Inteligência Financeira e Fluxo de Caixa
             </h2>

@@ -45,21 +45,6 @@ export default function About() {
     <div className="py-24 bg-background">
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="text-center mb-16 animate-fade-in-up">
-          <div className="flex justify-center mb-8">
-            <div className="bg-black p-6 rounded-xl inline-block border border-neutral-800">
-              <img
-                src={logoPadrao}
-                alt="PERES PERES Consultoria & Contabilidade"
-                className="h-16 w-auto object-contain"
-              />
-            </div>
-          </div>
-          <Badge
-            variant="outline"
-            className="mb-4 border-neutral-800 text-neutral-800 bg-neutral-100"
-          >
-            Governança e Rigor Técnico
-          </Badge>
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-black">
             Nossa Atuação e Estrutura Técnica
           </h1>

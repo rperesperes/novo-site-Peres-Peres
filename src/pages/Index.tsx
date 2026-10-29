@@ -140,9 +140,6 @@ export default function Index() {
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
             <div className="max-w-2xl">
-              <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block mb-2">
-                Nossos Pilares Técnicos
-              </span>
               <h2 className="text-3xl md:text-4xl font-sans font-bold text-black">
                 Soluções Estratégicas em Consultoria
               </h2>
@@ -273,9 +270,6 @@ export default function Index() {
       <section className="py-10 md:py-12 bg-neutral-50 border-b border-neutral-200">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="text-center max-w-3xl mx-auto mb-7 md:mb-8 space-y-2">
-            <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block">
-              Expertise Setorial em Brasília
-            </span>
             <h2 className="text-3xl md:text-4xl font-bold text-black">
               Segmentos e Áreas de Atuação
             </h2>
