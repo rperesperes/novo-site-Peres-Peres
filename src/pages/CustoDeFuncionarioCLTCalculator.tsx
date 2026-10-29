@@ -313,7 +313,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
           'Ferramenta para cálculo em tempo real de quanto custa um funcionário CLT para a empresa: INSS patronal, FGTS, provisões de férias, 13º salário e descontos.',
         provider: {
           '@type': 'AccountingService',
-          name: 'PERES PERES Consultoria e Contabilidade',
+          name: 'PERES PERES Consultoria & Contabilidade',
           url: 'https://peresperes.com.br',
         },
       },
@@ -1790,7 +1790,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
         >
           <div className="max-w-2xl mx-auto space-y-5">
             <div className="inline-block border border-neutral-800 px-3 py-1 rounded text-xs uppercase tracking-wider text-neutral-400 font-mono">
-              PERES PERES Consultoria e Contabilidade
+              PERES PERES Consultoria & Contabilidade
             </div>
 
             <h2

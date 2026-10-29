@@ -41,7 +41,7 @@ cronAdd('monthly_indices_update', '0 8 1 * *', () => {
     var subject = 'Atualização Mensal dos Índices Fiscais — PERES PERES'
 
     var textLines = [
-      'Relatório de Atualização Mensal dos Índices — PERES PERES Consultoria e Contabilidade',
+      'Relatório de Atualização Mensal dos Índices — PERES PERES Consultoria & Contabilidade',
       'Data de execução: ' + new Date().toISOString(),
       '',
       '--- RESUMO DOS ÍNDICES ---',
@@ -64,7 +64,7 @@ cronAdd('monthly_indices_update', '0 8 1 * *', () => {
       'Acesse o painel administrativo para conferência: https://www.peresperes.com.br/admin/calculadoras',
     )
     textLines.push('---')
-    textLines.push('PERES PERES Consultoria e Contabilidade')
+    textLines.push('PERES PERES Consultoria & Contabilidade')
 
     var htmlRows = ''
     for (var j = 0; j < results.length; j++) {
@@ -426,7 +426,7 @@ routerAdd('POST', '/backend/v1/indices/sync-now', (e) => {
     var subject = 'Atualização Mensal dos Índices Fiscais — PERES PERES'
 
     var textLines = [
-      'Relatório de Atualização Mensal dos Índices — PERES PERES Consultoria e Contabilidade',
+      'Relatório de Atualização Mensal dos Índices — PERES PERES Consultoria & Contabilidade',
       'Data de execução: ' + new Date().toISOString(),
       '',
       '--- RESUMO DOS ÍNDICES ---',
@@ -449,7 +449,7 @@ routerAdd('POST', '/backend/v1/indices/sync-now', (e) => {
       'Acesse o painel administrativo para conferência: https://www.peresperes.com.br/admin/calculadoras',
     )
     textLines.push('---')
-    textLines.push('PERES PERES Consultoria e Contabilidade')
+    textLines.push('PERES PERES Consultoria & Contabilidade')
 
     var htmlRows = ''
     for (var j = 0; j < results.length; j++) {

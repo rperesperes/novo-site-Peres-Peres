@@ -23,7 +23,7 @@ import {
 
 export default function CertificadoDigital() {
   useEffect(() => {
-    const pageTitle = 'Certificado Digital | PERES PERES Consultoria e Contabilidade'
+    const pageTitle = 'Certificado Digital | PERES PERES Consultoria & Contabilidade'
     const pageDesc =
       'O certificado digital é uma ferramenta que permite assinar documentos, procurações e contratos de forma digital com validade jurídica, emitir notas fiscais, e acessar os principais sistemas do governo.'
 

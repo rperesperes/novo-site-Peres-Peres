@@ -16,6 +16,7 @@ import {
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
+import logoNova from '@/assets/logo-nova-800x200-b63d1.png'
 
 export const ADMIN_SECTIONS = [
   { id: 'cases', to: '/admin', icon: Briefcase, label: 'Casos de Sucesso' },
@@ -113,13 +114,22 @@ export default function AdminLayout() {
     <div className="min-h-screen bg-neutral-950 text-neutral-100 flex flex-col md:flex-row font-sans selection:bg-[#FAB319] selection:text-black">
       {/* Barra superior no celular (menu recolhido) */}
       <div className="md:hidden flex items-center justify-between px-4 py-3 bg-black border-b border-neutral-800 sticky top-0 z-30">
-        <div>
-          <span className="text-xs font-mono uppercase tracking-wider text-[#FAB319] block">
-            Painel Administrativo
-          </span>
-          <span className="text-sm font-bold text-white truncate max-w-[200px] block">
-            PERES PERES
-          </span>
+        <div className="flex items-center gap-3">
+          <Link to="/admin" className="block">
+            <img
+              src="/favicon.svg"
+              alt="PERES PERES Consultoria & Contabilidade"
+              className="h-7 w-7 object-contain"
+            />
+          </Link>
+          <div>
+            <span className="text-[10px] font-mono uppercase tracking-wider text-[#FAB319] block">
+              Painel Administrativo
+            </span>
+            <span className="text-xs font-semibold text-white truncate max-w-[190px] block">
+              PERES PERES Consultoria &amp; Contabilidade
+            </span>
+          </div>
         </div>
         <Button
           variant="ghost"
@@ -149,12 +159,17 @@ export default function AdminLayout() {
         >
           {isCollapsed ? (
             <div className="flex flex-col items-center gap-2 w-full">
-              <div
-                className="w-10 h-10 rounded-lg bg-neutral-900 border border-[#FAB319]/40 flex items-center justify-center font-bold text-[#FAB319] text-sm tracking-wider"
-                title="PERES PERES Consultoria e Contabilidade"
+              <Link
+                to="/admin"
+                className="w-10 h-10 rounded-lg bg-neutral-900/90 border border-[#FAB319]/40 flex items-center justify-center overflow-hidden p-1.5 hover:border-[#FAB319] transition-colors"
+                title="PERES PERES Consultoria & Contabilidade"
               >
-                PP
-              </div>
+                <img
+                  src="/favicon.svg"
+                  alt="PERES PERES Consultoria & Contabilidade"
+                  className="w-full h-full object-contain"
+                />
+              </Link>
               <Button
                 type="button"
                 variant="ghost"
@@ -170,13 +185,16 @@ export default function AdminLayout() {
           ) : (
             <>
               <div className="min-w-0 pr-2">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[#FAB319] block mb-1">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#FAB319] block mb-2">
                   Área Administrativa
                 </span>
-                <h2 className="text-base font-bold text-white leading-snug truncate">
-                  PERES PERES
-                </h2>
-                <p className="text-xs text-neutral-400 truncate">Consultoria e Contabilidade</p>
+                <Link to="/admin" className="block group">
+                  <img
+                    src={logoNova}
+                    alt="PERES PERES Consultoria & Contabilidade"
+                    className="h-8 w-auto max-w-[190px] object-contain group-hover:opacity-90 transition-opacity"
+                  />
+                </Link>
               </div>
               <Button
                 type="button"

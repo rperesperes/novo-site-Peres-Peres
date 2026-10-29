@@ -22,8 +22,8 @@ export default function CalculatorDetail() {
   useEffect(() => {
     if (!calculator) return
 
-    const pageTitle = `${calculator.name}, em desenvolvimento | PERES PERES Consultoria e Contabilidade`
-    const pageDesc = `${calculator.name}: ferramenta em desenvolvimento pela PERES PERES Consultoria e Contabilidade. Em breve, simulação com memória de cálculo aberta e base legal.`
+    const pageTitle = `${calculator.name}, em desenvolvimento | PERES PERES Consultoria & Contabilidade`
+    const pageDesc = `${calculator.name}: ferramenta em desenvolvimento pela PERES PERES Consultoria & Contabilidade. Em breve, simulação com memória de cálculo aberta e base legal.`
 
     document.title = pageTitle
 
@@ -49,7 +49,7 @@ export default function CalculatorDetail() {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: `${calculator.name} | PERES PERES Consultoria e Contabilidade`,
+    name: `${calculator.name} | PERES PERES Consultoria & Contabilidade`,
     description: calculator.shortDescription,
     breadcrumb: {
       '@type': 'BreadcrumbList',
@@ -138,10 +138,10 @@ export default function CalculatorDetail() {
                   Ferramenta em desenvolvimento
                 </h2>
                 <p className="text-sm text-neutral-600 leading-relaxed">
-                  A equipe técnica da <strong>PERES PERES Consultoria e Contabilidade</strong> está
-                  finalizando a parametrização dos coeficientes analíticos e das regras de cálculo
-                  desta ferramenta. Em breve, a simulação interativa com abertura integral da
-                  memória de cálculo e exportação de relatório estará disponível.
+                  A equipe técnica da <strong>PERES PERES Consultoria &amp; Contabilidade</strong>{' '}
+                  está finalizando a parametrização dos coeficientes analíticos e das regras de
+                  cálculo desta ferramenta. Em breve, a simulação interativa com abertura integral
+                  da memória de cálculo e exportação de relatório estará disponível.
                 </p>
               </div>
             </div>

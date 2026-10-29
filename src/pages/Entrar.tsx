@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks/use-auth'
 import { Button } from '@/components/ui/button'
 import { Loader2, LogOut, AlertCircle } from 'lucide-react'
+import logoNova from '@/assets/logo-nova-800x200-b63d1.png'
 
 export default function Entrar() {
   const { user, signInWithOAuth2, signOut, loading: authLoading } = useAuth()
@@ -14,7 +15,7 @@ export default function Entrar() {
   const isAuthorized = user && (user.email || '').trim().toLowerCase() === allowedEmail
 
   useEffect(() => {
-    document.title = 'Entrar | PERES PERES Consultoria e Contabilidade'
+    document.title = 'Entrar | PERES PERES Consultoria & Contabilidade'
     if (user && isAuthorized) {
       navigate('/admin', { replace: true })
     }
@@ -45,7 +46,7 @@ export default function Entrar() {
         navigate('/admin', { replace: true })
       } else {
         setErrorMessage(
-          'Acesso restrito. Este ambiente é exclusivo para a administração da PERES PERES Consultoria e Contabilidade (rafael@peresperes.com.br).',
+          'Acesso restrito. Este ambiente é exclusivo para a administração da PERES PERES Consultoria & Contabilidade (rafael@peresperes.com.br).',
         )
       }
       setSubmitting(false)
@@ -61,8 +62,15 @@ export default function Entrar() {
     return (
       <main className="bg-black text-white min-h-[calc(100vh-80px)] flex items-center justify-center font-sans px-4 py-12 selection:bg-[#FAB319] selection:text-black">
         <div className="w-full max-w-md text-center space-y-6">
+          <div className="flex justify-center mb-2">
+            <img
+              src={logoNova}
+              alt="PERES PERES Consultoria & Contabilidade"
+              className="h-12 w-auto object-contain"
+            />
+          </div>
           <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-            PERES PERES Consultoria e Contabilidade
+            PERES PERES Consultoria &amp; Contabilidade
           </h1>
 
           <div
@@ -96,9 +104,16 @@ export default function Entrar() {
   return (
     <main className="bg-black text-white min-h-[calc(100vh-80px)] flex items-center justify-center font-sans px-4 py-12 selection:bg-[#FAB319] selection:text-black">
       <div className="w-full max-w-md text-center space-y-6">
-        {/* 1. Nome do escritório */}
-        <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-          PERES PERES Consultoria e Contabilidade
+        {/* 1. Logo do escritório */}
+        <div className="flex justify-center mb-2">
+          <img
+            src={logoNova}
+            alt="PERES PERES Consultoria & Contabilidade"
+            className="h-12 w-auto object-contain"
+          />
+        </div>
+        <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+          PERES PERES Consultoria &amp; Contabilidade
         </h1>
 
         {/* 2. Frase curta informando que o acesso é restrito à equipe do escritório */}

@@ -199,3 +199,11 @@ fs.writeFileSync(appleTouchPath, finalApplePng)
 console.log(
   `Successfully generated ${appleTouchPath} (${finalApplePng.length} bytes, ${DST_W}x${DST_H})`,
 )
+
+// Copia a logo horizontal oficial para a pasta public garantindo URL direta /logo-horizontal.png
+const logoSource = path.resolve(__dirname, '../src/assets/logo-nova-800x200-b63d1.png')
+const logoDest = path.resolve(__dirname, '../public/logo-horizontal.png')
+if (fs.existsSync(logoSource)) {
+  fs.copyFileSync(logoSource, logoDest)
+  console.log(`Copied ${logoSource} -> ${logoDest}`)
+}

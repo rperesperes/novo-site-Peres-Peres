@@ -1,5 +1,5 @@
 export const SITE_INFO = {
-  name: 'PERES PERES Consultoria e Contabilidade',
+  name: 'PERES PERES Consultoria & Contabilidade',
   phone: '(61) 3686-1689',
   whatsapp: '(61) 3686-1689',
   whatsappUrl:
@@ -82,7 +82,7 @@ export const GLOSSARY = [
   {
     term: 'Evasão Fiscal',
     definition:
-      'Prática ilícita de sonegação de impostos. Totalmente contrária aos princípios da PERES PERES Consultoria e Contabilidade.',
+      'Prática ilícita de sonegação de impostos. Totalmente contrária aos princípios da PERES PERES Consultoria & Contabilidade.',
   },
   {
     term: 'Fator R',

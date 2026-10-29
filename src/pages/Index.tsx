@@ -417,11 +417,11 @@ export default function Index() {
               Metodologia de Trabalho e Embasamento Normativo
             </h2>
             <p className="text-neutral-400 text-base md:text-lg leading-relaxed">
-              A <strong>PERES PERES Consultoria e Contabilidade</strong> adota postura estritamente
-              conservadora e fundamentada. Não veiculamos promessas de resultado ou percentuais de
-              economia genéricos: cada diagnóstico decorre de auditoria documental detalhada,
-              lastreada nas regras da Receita Federal e decisões consolidadas dos tribunais
-              superiores.
+              A <strong>PERES PERES Consultoria &amp; Contabilidade</strong> adota postura
+              estritamente conservadora e fundamentada. Não veiculamos promessas de resultado ou
+              percentuais de economia genéricos: cada diagnóstico decorre de auditoria documental
+              detalhada, lastreada nas regras da Receita Federal e decisões consolidadas dos
+              tribunais superiores.
             </p>
             <div className="pt-2 flex justify-center">
               <Button

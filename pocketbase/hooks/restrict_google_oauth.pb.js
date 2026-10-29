@@ -7,7 +7,7 @@ onRecordAuthWithOAuth2Request((e) => {
 
   if (userEmail && userEmail !== allowedEmail.toLowerCase()) {
     throw new ForbiddenError(
-      'Acesso restrito. Este ambiente é exclusivo para a administração da PERES PERES Consultoria e Contabilidade (rafael@peresperes.com.br).',
+      'Acesso restrito. Este ambiente é exclusivo para a administração da PERES PERES Consultoria & Contabilidade (rafael@peresperes.com.br).',
     )
   }
 

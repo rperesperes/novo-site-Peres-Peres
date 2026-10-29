@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import logoNova from '@/assets/logo-nova-800x200-b63d1.png'
 import { useToast } from '@/hooks/use-toast'
 
 export default function Login() {
@@ -37,8 +38,15 @@ export default function Login() {
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
       <Card className="w-full max-w-md border-gray-800 bg-white">
         <CardHeader className="text-center pb-8">
-          <CardTitle className="text-2xl font-bold text-black">
-            PERES PERES Consultoria e Contabilidade
+          <div className="flex justify-center mb-4">
+            <img
+              src={logoNova}
+              alt="PERES PERES Consultoria & Contabilidade"
+              className="h-10 w-auto object-contain"
+            />
+          </div>
+          <CardTitle className="text-xl font-bold text-black">
+            PERES PERES Consultoria &amp; Contabilidade
           </CardTitle>
           <CardDescription>Acesso restrito à equipe técnica.</CardDescription>
         </CardHeader>

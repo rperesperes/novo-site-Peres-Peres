@@ -72,7 +72,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         pb.authStore.clear()
         setUser(null)
         const restrictedError = new Error(
-          'Acesso restrito. Este ambiente é exclusivo para a administração da PERES PERES Consultoria e Contabilidade (rafael@peresperes.com.br).',
+          'Acesso restrito. Este ambiente é exclusivo para a administração da PERES PERES Consultoria & Contabilidade (rafael@peresperes.com.br).',
         )
         return { error: restrictedError, record: null }
       }

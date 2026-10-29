@@ -95,7 +95,7 @@ export default function CaseDetail() {
 
   useEffect(() => {
     if (successCase) {
-      document.title = `${successCase.title} | PERES PERES Consultoria e Contabilidade`
+      document.title = `${successCase.title} | PERES PERES Consultoria & Contabilidade`
     }
   }, [successCase])
 

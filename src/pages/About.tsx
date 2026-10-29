@@ -51,7 +51,7 @@ export default function About() {
             <div className="bg-black p-6 rounded-xl inline-block border border-neutral-800">
               <img
                 src={logoPadrao}
-                alt="PERES PERES Consultoria e Contabilidade"
+                alt="PERES PERES Consultoria & Contabilidade"
                 className="h-16 w-auto object-contain"
               />
             </div>
@@ -66,7 +66,7 @@ export default function About() {
             Nossa Atuação e Estrutura Técnica
           </h1>
           <p className="text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-            A <strong>PERES PERES Consultoria e Contabilidade</strong> estrutura suas atividades
+            A <strong>PERES PERES Consultoria &amp; Contabilidade</strong> estrutura suas atividades
             sobre fundamentação jurídica estrita, conformidade regulatória e contabilidade
             estratégica para empresas e grupos familiares.
           </p>
@@ -105,8 +105,8 @@ export default function About() {
               <div className="space-y-3.5 text-neutral-700 leading-relaxed font-sans text-sm md:text-base">
                 <p>
                   Sob a responsabilidade técnica de Rafael Peres Peres Nunes Altoé, a PERES PERES
-                  Consultoria e Contabilidade une a prática da contabilidade ao Direito, em especial
-                  o Direito Tributário, com atuação em Brasília e em âmbito nacional.
+                  Consultoria &amp; Contabilidade une a prática da contabilidade ao Direito, em
+                  especial o Direito Tributário, com atuação em Brasília e em âmbito nacional.
                 </p>
                 <p>
                   Contador (CRC 027704), advogado (OAB 87656), perito, auditor (CNAI 10122) e

@@ -13,23 +13,23 @@ export default function Layout() {
     window.scrollTo(0, 0)
 
     const titles: Record<string, string> = {
-      '/': 'Consultoria e Contabilidade Tributária em Brasília | PERES PERES Consultoria e Contabilidade',
-      '/sobre': 'Sobre Nós | PERES PERES Consultoria e Contabilidade',
-      '/servicos': 'Serviços e Planos Contábeis | PERES PERES Consultoria e Contabilidade',
-      '/casos': 'Casos Reais | PERES PERES Consultoria e Contabilidade',
-      '/recursos': 'Recursos e Materiais | PERES PERES Consultoria e Contabilidade',
-      '/glossario': 'Glossário Tributário | PERES PERES Consultoria e Contabilidade',
-      '/contato': 'Fale com o Escritório | PERES PERES Consultoria e Contabilidade',
+      '/': 'Consultoria & Contabilidade Tributária em Brasília | PERES PERES Consultoria & Contabilidade',
+      '/sobre': 'Sobre Nós | PERES PERES Consultoria & Contabilidade',
+      '/servicos': 'Serviços e Planos Contábeis | PERES PERES Consultoria & Contabilidade',
+      '/casos': 'Casos Reais | PERES PERES Consultoria & Contabilidade',
+      '/recursos': 'Recursos e Materiais | PERES PERES Consultoria & Contabilidade',
+      '/glossario': 'Glossário Tributário | PERES PERES Consultoria & Contabilidade',
+      '/contato': 'Fale com o Escritório | PERES PERES Consultoria & Contabilidade',
       '/politica-de-privacidade':
-        'Política de Privacidade | PERES PERES Consultoria e Contabilidade',
-      '/privacidade': 'Política de Privacidade | PERES PERES Consultoria e Contabilidade',
+        'Política de Privacidade | PERES PERES Consultoria & Contabilidade',
+      '/privacidade': 'Política de Privacidade | PERES PERES Consultoria & Contabilidade',
       '/calculadoras':
-        'Calculadoras Tributárias e Trabalhistas Gratuitas | PERES PERES Consultoria e Contabilidade',
+        'Calculadoras Tributárias e Trabalhistas Gratuitas | PERES PERES Consultoria & Contabilidade',
     }
 
     if (location.pathname.startsWith('/casos/')) {
-      // Título da aba seguindo o padrão "Nome da página | PERES PERES Consultoria e Contabilidade"
-      document.title = 'Caso Real | PERES PERES Consultoria e Contabilidade'
+      // Título da aba seguindo o padrão "Nome da página | PERES PERES Consultoria & Contabilidade"
+      document.title = 'Caso Real | PERES PERES Consultoria & Contabilidade'
     } else if (location.pathname === '/calculadoras') {
       document.title = titles['/calculadoras']
     } else if (location.pathname.startsWith('/calculadoras/')) {
@@ -54,13 +54,13 @@ export default function Layout() {
         } else if (slug === 'juros-de-financiamento') {
           document.title = 'calculadora juros financiamento: price e sac | PERES'
         } else {
-          document.title = `${foundCalc.name}, em desenvolvimento | PERES PERES Consultoria e Contabilidade`
+          document.title = `${foundCalc.name}, em desenvolvimento | PERES PERES Consultoria & Contabilidade`
         }
       } else {
-        document.title = 'Calculadora | PERES PERES Consultoria e Contabilidade'
+        document.title = 'Calculadora | PERES PERES Consultoria & Contabilidade'
       }
     } else {
-      document.title = titles[location.pathname] || 'PERES PERES Consultoria e Contabilidade'
+      document.title = titles[location.pathname] || 'PERES PERES Consultoria & Contabilidade'
     }
   }, [location.pathname])
 

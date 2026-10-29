@@ -73,7 +73,7 @@ export function Footer() {
             <div className="flex items-center">
               <img
                 src={logoPadrao}
-                alt="PERES PERES Consultoria e Contabilidade"
+                alt="PERES PERES Consultoria & Contabilidade"
                 className="h-16 w-auto object-contain"
               />
             </div>

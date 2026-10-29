@@ -1,5 +1,5 @@
 // Hook no backend para envio de e-mails transacionais via Resend ($http.send)
-// PERES PERES Consultoria e Contabilidade (www.peresperes.com.br)
+// PERES PERES Consultoria & Contabilidade (www.peresperes.com.br)
 //
 // Gatilhos:
 // 1. contact_requests (Formulário de contato / Simulações):
@@ -50,7 +50,7 @@ onRecordAfterCreateSuccess((e) => {
     } catch (_) {}
 
     if (!from) {
-      from = 'PERES PERES <contato@peresperes.com.br>'
+      from = 'PERES PERES Consultoria & Contabilidade <contato@peresperes.com.br>'
     }
     return { apiKey: apiKey, from: from }
   }
@@ -135,8 +135,11 @@ onRecordAfterCreateSuccess((e) => {
     // (a) E-mail para o escritório PERES PERES
     var officeSubject = 'Novo contato recebido pelo site — ' + (name ? name : email)
 
+    var logoUrl = 'https://peresperes.com.br/logo-horizontal.png'
+    var logoAlt = 'PERES PERES Consultoria &amp; Contabilidade'
+
     var officeText = [
-      'Novo contato recebido pelo site da PERES PERES Consultoria e Contabilidade.',
+      'Novo contato recebido pelo site da PERES PERES Consultoria & Contabilidade.',
       '',
       'Dados do remetente:',
       '• Nome: ' + (name || 'Não informado'),
@@ -148,7 +151,7 @@ onRecordAfterCreateSuccess((e) => {
       message ? message : '(Nenhuma mensagem adicional informada)',
       '',
       '---',
-      'PERES PERES Consultoria e Contabilidade',
+      'PERES PERES Consultoria & Contabilidade',
       'www.peresperes.com.br',
     ].join('\n')
 
@@ -159,9 +162,15 @@ onRecordAfterCreateSuccess((e) => {
       '<body style="font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #222; background-color: #f7f7f7; padding: 24px; margin: 0;">',
       '  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; border: 1px solid #e5e5e5; overflow: hidden;">',
       '    <tr>',
-      '      <td style="background-color: #000000; padding: 20px 24px; border-bottom: 3px solid #FAB319;">',
-      '        <h1 style="margin: 0; font-size: 18px; font-weight: 700; color: #ffffff; letter-spacing: 0.5px;">PERES PERES</h1>',
-      '        <p style="margin: 4px 0 0 0; font-size: 12px; color: #d4d4d4;">Consultoria e Contabilidade • Novo contato pelo site</p>',
+      '      <td style="background-color: #000000; padding: 22px 24px; border-bottom: 3px solid #FAB319; text-align: left;">',
+      '        <a href="https://peresperes.com.br" target="_blank" style="text-decoration: none; display: inline-block;">',
+      '          <img src="' +
+        logoUrl +
+        '" alt="' +
+        logoAlt +
+        '" width="220" height="55" style="display: block; max-height: 48px; max-width: 240px; width: auto; height: auto; border: 0; outline: none; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif; font-size: 16px; font-weight: 700;" />',
+      '        </a>',
+      '        <p style="margin: 8px 0 0 0; font-size: 12px; color: #d4d4d4; letter-spacing: 0.3px;">Novo contato recebido pelo site</p>',
       '      </td>',
       '    </tr>',
       '    <tr>',
@@ -210,12 +219,12 @@ onRecordAfterCreateSuccess((e) => {
 
     // (b) E-mail de confirmação ao visitante (se informou e-mail válido)
     if (email) {
-      var visitorSubject = 'Recebemos seu contato | PERES PERES Consultoria e Contabilidade'
+      var visitorSubject = 'Recebemos seu contato | PERES PERES Consultoria & Contabilidade'
 
       var visitorText = [
         'Olá, ' + displayName + '.',
         '',
-        'Confirmamos o recebimento da sua mensagem encaminhada à PERES PERES Consultoria e Contabilidade.',
+        'Confirmamos o recebimento da sua mensagem encaminhada à PERES PERES Consultoria & Contabilidade.',
         '',
         'Nossa equipe técnica analisará sua demanda e entrará em contato em breve para dar o devido andamento.',
         '',
@@ -225,7 +234,7 @@ onRecordAfterCreateSuccess((e) => {
         '• Site: www.peresperes.com.br',
         '',
         'Atenciosamente,',
-        'PERES PERES Consultoria e Contabilidade',
+        'PERES PERES Consultoria & Contabilidade',
         'CRC 027704 • Brasília - DF',
         'www.peresperes.com.br',
       ].join('\n')
@@ -237,9 +246,14 @@ onRecordAfterCreateSuccess((e) => {
         '<body style="font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #222; background-color: #f7f7f7; padding: 24px; margin: 0;">',
         '  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; border: 1px solid #e5e5e5; overflow: hidden;">',
         '    <tr>',
-        '      <td style="background-color: #000000; padding: 24px; border-bottom: 3px solid #FAB319; text-align: left;">',
-        '        <h1 style="margin: 0; font-size: 20px; font-weight: 700; color: #ffffff; letter-spacing: 0.5px;">PERES PERES</h1>',
-        '        <p style="margin: 4px 0 0 0; font-size: 13px; color: #d4d4d4;">Consultoria e Contabilidade</p>',
+        '      <td style="background-color: #000000; padding: 22px 24px; border-bottom: 3px solid #FAB319; text-align: left;">',
+        '        <a href="https://peresperes.com.br" target="_blank" style="text-decoration: none; display: inline-block;">',
+        '          <img src="' +
+          logoUrl +
+          '" alt="' +
+          logoAlt +
+          '" width="220" height="55" style="display: block; max-height: 48px; max-width: 240px; width: auto; height: auto; border: 0; outline: none; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif; font-size: 16px; font-weight: 700;" />',
+        '        </a>',
         '      </td>',
         '    </tr>',
         '    <tr>',
@@ -255,7 +269,7 @@ onRecordAfterCreateSuccess((e) => {
         '          <p style="margin: 0 0 4px 0; font-size: 13px; color: #444;">• <strong>E-mail:</strong> contato@peresperes.com.br</p>',
         '          <p style="margin: 0; font-size: 13px; color: #444;">• <strong>Site:</strong> <a href="https://www.peresperes.com.br" style="color: #000; text-decoration: underline;">www.peresperes.com.br</a></p>',
         '        </div>',
-        '        <p style="margin: 24px 0 0 0; font-size: 13px; color: #555;">Atenciosamente,<br/><strong style="color: #111;">Equipe PERES PERES Consultoria e Contabilidade</strong><br/><span style="font-size: 12px; color: #777;">Responsabilidade técnica CRC 027704</span></p>',
+        '        <p style="margin: 24px 0 0 0; font-size: 13px; color: #555;">Atenciosamente,<br/><strong style="color: #111;">Equipe PERES PERES Consultoria &amp; Contabilidade</strong><br/><span style="font-size: 12px; color: #777;">Responsabilidade técnica CRC 027704</span></p>',
         '      </td>',
         '    </tr>',
         '    <tr>',
@@ -318,7 +332,7 @@ onRecordAfterCreateSuccess((e) => {
     } catch (_) {}
 
     if (!from) {
-      from = 'PERES PERES <contato@peresperes.com.br>'
+      from = 'PERES PERES Consultoria & Contabilidade <contato@peresperes.com.br>'
     }
     return { apiKey: apiKey, from: from }
   }
@@ -401,12 +415,15 @@ onRecordAfterCreateSuccess((e) => {
 
     // E-mail de confirmação e boas-vindas ao assinante
     var welcomeSubject =
-      'Bem-vindo ao Boletim Informativo | PERES PERES Consultoria e Contabilidade'
+      'Bem-vindo ao Boletim Informativo | PERES PERES Consultoria & Contabilidade'
+
+    var logoUrl = 'https://peresperes.com.br/logo-horizontal.png'
+    var logoAlt = 'PERES PERES Consultoria &amp; Contabilidade'
 
     var welcomeText = [
       'Olá!',
       '',
-      'Agradecemos pelo seu interesse em assinar o Boletim Informativo da PERES PERES Consultoria e Contabilidade.',
+      'Agradecemos pelo seu interesse em assinar o Boletim Informativo da PERES PERES Consultoria & Contabilidade.',
       '',
       'Sua inscrição foi confirmada com sucesso. A partir de agora, você receberá periodicamente nossas análises técnicas, informativos e atualizações sobre as principais alterações da legislação tributária e contábil brasileira aplicáveis ao seu negócio.',
       '',
@@ -420,7 +437,7 @@ onRecordAfterCreateSuccess((e) => {
       '• WhatsApp: (61) 3686-1689',
       '',
       'Atenciosamente,',
-      'Equipe PERES PERES Consultoria e Contabilidade',
+      'Equipe PERES PERES Consultoria & Contabilidade',
       'Responsabilidade técnica CRC 027704',
       'www.peresperes.com.br',
     ].join('\n')
@@ -432,9 +449,14 @@ onRecordAfterCreateSuccess((e) => {
       '<body style="font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #222; background-color: #f7f7f7; padding: 24px; margin: 0;">',
       '  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; border: 1px solid #e5e5e5; overflow: hidden;">',
       '    <tr>',
-      '      <td style="background-color: #000000; padding: 24px; border-bottom: 3px solid #FAB319;">',
-      '        <h1 style="margin: 0; font-size: 20px; font-weight: 700; color: #ffffff; letter-spacing: 0.5px;">PERES PERES</h1>',
-      '        <p style="margin: 4px 0 0 0; font-size: 13px; color: #d4d4d4;">Consultoria e Contabilidade • Boletim Informativo</p>',
+      '      <td style="background-color: #000000; padding: 22px 24px; border-bottom: 3px solid #FAB319; text-align: left;">',
+      '        <a href="https://peresperes.com.br" target="_blank" style="text-decoration: none; display: inline-block;">',
+      '          <img src="' +
+        logoUrl +
+        '" alt="' +
+        logoAlt +
+        '" width="220" height="55" style="display: block; max-height: 48px; max-width: 240px; width: auto; height: auto; border: 0; outline: none; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif; font-size: 16px; font-weight: 700;" />',
+      '        </a>',
       '      </td>',
       '    </tr>',
       '    <tr>',
@@ -446,9 +468,10 @@ onRecordAfterCreateSuccess((e) => {
       '          <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 600; color: #111;">Acesse nossos conteúdos e ferramentas:</p>',
       '          <p style="margin: 0 0 4px 0; font-size: 13px; color: #444;">• <strong>Calculadoras tributárias:</strong> <a href="https://www.peresperes.com.br/calculadoras" style="color: #000; text-decoration: underline;">peresperes.com.br/calculadoras</a></p>',
       '          <p style="margin: 0 0 4px 0; font-size: 13px; color: #444;">• <strong>Artigos e análises:</strong> <a href="https://blog.peresperes.com.br" style="color: #000; text-decoration: underline;">blog.peresperes.com.br</a></p>',
-      '          <p style="margin: 0; font-size: 13px; color: #444;">• <strong>Atendimento direto:</strong> <a href="mailto:contato@peresperes.com.br" style="color: #000; text-decoration: underline;">contato@peresperes.com.br</a></p>',
+      '          <p style="margin: 0 0 4px 0; font-size: 13px; color: #444;">• <strong>Atendimento direto:</strong> <a href="mailto:contato@peresperes.com.br" style="color: #000; text-decoration: underline;">contato@peresperes.com.br</a></p>',
+      '          <p style="margin: 0; font-size: 13px; color: #444;">• <strong>WhatsApp:</strong> <a href="https://wa.me/556136861689" style="color: #000; text-decoration: underline;">(61) 3686-1689</a></p>',
       '        </div>',
-      '        <p style="margin: 24px 0 0 0; font-size: 13px; color: #555;">Atenciosamente,<br/><strong style="color: #111;">Equipe PERES PERES Consultoria e Contabilidade</strong><br/><span style="font-size: 12px; color: #777;">Responsabilidade técnica CRC 027704</span></p>',
+      '        <p style="margin: 24px 0 0 0; font-size: 13px; color: #555;">Atenciosamente,<br/><strong style="color: #111;">Equipe PERES PERES Consultoria &amp; Contabilidade</strong><br/><span style="font-size: 12px; color: #777;">Responsabilidade técnica CRC 027704</span></p>',
       '      </td>',
       '    </tr>',
       '    <tr>',

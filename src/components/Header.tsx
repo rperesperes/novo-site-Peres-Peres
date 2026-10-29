@@ -44,10 +44,10 @@ export function Header() {
         <Link to="/" className="flex items-center gap-3 group">
           <img
             src={logoNova}
-            alt="PERES PERES Consultoria e Contabilidade"
+            alt="PERES PERES Consultoria & Contabilidade"
             className="h-10 md:h-12 w-auto object-contain"
           />
-          <span className="sr-only">PERES PERES Consultoria e Contabilidade</span>
+          <span className="sr-only">PERES PERES Consultoria & Contabilidade</span>
         </Link>
 
         {/* Desktop Nav */}

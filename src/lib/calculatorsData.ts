@@ -173,7 +173,7 @@ export const CALCULATORS_FAQS: FAQItem[] = [
   {
     question: 'Os dados digitados nas calculadoras ficam salvos nos servidores da PERES PERES?',
     answer:
-      'Não. O processamento dos dados é executado em tempo de execução no próprio navegador do usuário. A PERES PERES Consultoria e Contabilidade não armazena balancetes, faturamentos, valores de salários ou informações fiscais inseridas nos formulários de estimativa.',
+      'Não. O processamento dos dados é executado em tempo de execução no próprio navegador do usuário. A PERES PERES Consultoria & Contabilidade não armazena balancetes, faturamentos, valores de salários ou informações fiscais inseridas nos formulários de estimativa.',
   },
   {
     question: 'Como é calculada a memória de cálculo apresentada nas ferramentas?',

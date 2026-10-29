@@ -28,9 +28,9 @@ export default function Contact() {
   const [errorMessage, setErrorMessage] = useState('')
 
   useEffect(() => {
-    const pageTitle = 'Fale com o Escritório | PERES PERES Consultoria e Contabilidade'
+    const pageTitle = 'Fale com o Escritório | PERES PERES Consultoria & Contabilidade'
     const pageDesc =
-      'Entre em contato com a PERES PERES Consultoria e Contabilidade em Brasília. Atendimento tributário e contábil consultivo sob responsabilidade técnica CRC 027704.'
+      'Entre em contato com a PERES PERES Consultoria & Contabilidade em Brasília. Atendimento tributário e contábil consultivo sob responsabilidade técnica CRC 027704.'
 
     document.title = pageTitle
 
@@ -106,9 +106,9 @@ export default function Contact() {
         '@type': 'ContactPage',
         '@id': 'https://peresperes.com.br/contato#webpage',
         url: 'https://peresperes.com.br/contato',
-        name: 'Fale com o escritório | PERES PERES Consultoria e Contabilidade',
+        name: 'Fale com o escritório | PERES PERES Consultoria & Contabilidade',
         description:
-          'Canal de contato da PERES PERES Consultoria e Contabilidade em Brasília. Agende uma reunião especializada.',
+          'Canal de contato da PERES PERES Consultoria & Contabilidade em Brasília. Agende uma reunião especializada.',
         mainEntity: {
           '@type': 'AccountingService',
           name: SITE_INFO.name,

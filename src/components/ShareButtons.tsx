@@ -48,7 +48,7 @@ export function ShareButtons({
 
   // Deep links padrão:
   // WhatsApp: https://wa.me/?text=<encoded_text>
-  const whatsappText = `${title}\n\nConfira este caso da PERES PERES Consultoria e Contabilidade:\n${shareUrl}`
+  const whatsappText = `${title}\n\nConfira este caso da PERES PERES Consultoria & Contabilidade:\n${shareUrl}`
   const whatsappHref = `https://wa.me/?text=${encodeURIComponent(whatsappText)}`
 
   // LinkedIn: shareOffsite standard URL

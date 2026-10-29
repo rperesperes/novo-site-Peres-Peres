@@ -24,7 +24,7 @@ import {
 export default function CalculatorsHub() {
   useEffect(() => {
     const pageTitle =
-      'Calculadoras Tributárias e Trabalhistas Gratuitas | PERES PERES Consultoria e Contabilidade'
+      'Calculadoras Tributárias e Trabalhistas Gratuitas | PERES PERES Consultoria & Contabilidade'
     const pageDesc =
       'Simuladores tributários e trabalhistas gratuitos com memória de cálculo aberta e fundamentação legal: Fator R, Simples Nacional, Lucro Presumido e encargos.'
 
@@ -230,7 +230,7 @@ export default function CalculatorsHub() {
             <p className="text-neutral-700 text-base md:text-lg leading-relaxed">
               Diferente de simuladores genéricos que ocultam fórmulas e aplicam aproximações
               arbitrárias, nossas ferramentas operam sob as mesmas premissas técnicas aplicadas aos
-              pareceres formais da <strong>PERES PERES Consultoria e Contabilidade</strong>.
+              pareceres formais da <strong>PERES PERES Consultoria &amp; Contabilidade</strong>.
             </p>
           </div>
 
