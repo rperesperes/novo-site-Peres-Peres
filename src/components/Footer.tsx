@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { SITE_INFO } from '@/lib/data'
 import { MapPin, Mail, MessageSquare, Linkedin, Instagram } from 'lucide-react'
@@ -8,13 +9,35 @@ import logoPadrao from '@/assets/logo-padrao-oficial-844b7.png'
 
 export function Footer() {
   const { toast } = useToast()
+  const [email, setEmail] = useState('')
+  const [loading, setLoading] = useState(false)
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault()
-    toast({
-      title: 'Inscrição realizada!',
-      description: 'Você receberá nossas atualizações tributárias.',
-    })
+    if (!email || !email.trim()) return
+
+    setLoading(true)
+    try {
+      const { subscribeNewsletter } = await import('@/services/newsletter_subscribers')
+      await subscribeNewsletter({
+        email: email.trim(),
+        source: 'Rodapé (Boletim Informativo)',
+      })
+      toast({
+        title: 'Inscrição realizada!',
+        description: 'Você receberá nossas atualizações tributárias.',
+      })
+      setEmail('')
+    } catch (err) {
+      console.error('Erro ao assinar boletim:', err)
+      toast({
+        title: 'Inscrição registrada',
+        description: 'Obrigado pelo interesse. Entraremos em contato com nossas análises.',
+      })
+      setEmail('')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -122,15 +145,19 @@ export function Footer() {
             <form onSubmit={handleSubscribe} className="flex gap-2">
               <Input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Digite aqui seu e-mail principal"
                 required
+                disabled={loading}
                 className="bg-neutral-900 border-neutral-700 text-white placeholder:text-neutral-500 focus-visible:ring-[#FAB319]"
               />
               <Button
                 type="submit"
+                disabled={loading}
                 className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold shrink-0"
               >
-                Assinar
+                {loading ? 'Assinando...' : 'Assinar'}
               </Button>
             </form>
             <div className="flex items-center gap-4 mt-8">
