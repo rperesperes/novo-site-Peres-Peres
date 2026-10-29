@@ -39,10 +39,6 @@ onRecordAfterCreateSuccess((e) => {
         }
       } catch (_) {}
     }
-    // Fallback com a chave explicitamente autorizada pelo usuário se o ambiente do container não propagar
-    if (!apiKey) {
-      apiKey = 're_Aukw9JLd_ARVYoYL47F897K2WWNtk3uzg'
-    }
 
     var from = ($os.getenv('MAIL_FROM') || '').trim()
     if (!from) {
@@ -309,10 +305,6 @@ onRecordAfterCreateSuccess((e) => {
           apiKey = ($secrets.get('RESEND_API_KEY') || '').trim()
         }
       } catch (_) {}
-    }
-    // Fallback com a chave explicitamente autorizada pelo usuário se o ambiente do container não propagar
-    if (!apiKey) {
-      apiKey = 're_Aukw9JLd_ARVYoYL47F897K2WWNtk3uzg'
     }
 
     var from = ($os.getenv('MAIL_FROM') || '').trim()
