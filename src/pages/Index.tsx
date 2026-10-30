@@ -43,7 +43,7 @@ const ROTINAS_ACOMPANHAMENTO = [
   },
   {
     title: 'Fechamento e relatórios',
-    desc: 'Fechamento mensal com DRE e balanço, entregues em linguagem que você usa para decidir — não só para o arquivo.',
+    desc: 'Fechamento mensal com DRE e balanço, entregues em linguagem que você usa para decidir, não só para o arquivo.',
     icon: BarChart3,
   },
   {
@@ -235,7 +235,7 @@ export default function Index() {
               Cinco frentes. Uma especialidade.
             </h2>
             <p className="text-neutral-700 text-base md:text-lg mt-3 leading-relaxed font-sans">
-              A consultoria tributária é o nosso eixo técnico — o que nos diferencia no mercado. As
+              A consultoria tributária é o nosso eixo técnico, o que nos diferencia no mercado. As
               frentes contábil, societária, financeira e de gestão e trabalhista completam a leitura
               do negócio.
             </p>
@@ -267,7 +267,7 @@ export default function Index() {
               <div className="bg-white p-4 rounded-lg border border-neutral-200 mb-5">
                 <p className="text-sm md:text-base text-neutral-900 font-sans">
                   <strong>O que você leva:</strong> decisões de regime fundamentadas em números
-                  seus, não em simulação genérica — e um plano de ação com prazo.
+                  seus, não em simulação genérica, e um plano de ação com prazo.
                 </p>
               </div>
 
@@ -309,8 +309,8 @@ export default function Index() {
                   <p className="text-sm text-neutral-600 leading-relaxed font-sans mb-4">
                     Análise de demonstrações, revisão de plano de contas e de critérios de
                     reconhecimento, diagnóstico de distorções no balanço e apoio em decisões
-                    societárias — constituição, alteração contratual, integralização, distribuição
-                    de lucros e reorganização.
+                    societárias, como constituição, alteração contratual, integralização,
+                    distribuição de lucros e reorganização.
                   </p>
                 </div>
                 <div className="bg-neutral-50 p-3 rounded-lg border border-neutral-200">
@@ -448,9 +448,9 @@ export default function Index() {
                     identificados no fechamento; respostas a dúvidas pontuais ao longo do mês.
                   </p>
                   <div className="p-3 bg-neutral-50 rounded border border-neutral-200 text-xs text-neutral-600">
-                    <strong className="text-neutral-900 block mb-0.5">Limite claro:</strong>a
-                    consultoria acontece dentro da rotina mensal. Projetos com escopo próprio —
-                    recuperação de créditos, revisão de teses, perícias — são orçados à parte, com
+                    <strong className="text-neutral-900 block mb-0.5">Limite claro:</strong> a
+                    consultoria acontece dentro da rotina mensal. Projetos com escopo próprio, como
+                    recuperação de créditos, revisão de teses e perícias, são orçados à parte, com
                     desconto para clientes do plano.
                   </div>
                 </div>
@@ -469,7 +469,70 @@ export default function Index() {
 
             {/* Plano Premium */}
             <div className="p-6 md:p-7 rounded-xl border-2 border-black bg-white shadow-md relative flex flex-col justify-between">
-              Falar sobre o <i>Essential</i>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-sans uppercase tracking-wider px-2.5 py-0.5 rounded font-semibold bg-[#FAB319] text-black">
+                    Mais escolhido
+                  </span>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-sans font-bold text-black mb-1">PLANO PREMIUM</h3>
+                  <p className="text-sm text-neutral-600 font-sans leading-relaxed">
+                    O plano completo: acompanhamento próximo, inteligência fiscal e consultorias
+                    periódicas.
+                  </p>
+                </div>
+
+                <div className="pt-2 space-y-3 text-xs md:text-sm text-neutral-700 font-sans leading-relaxed border-t border-neutral-100">
+                  <div>
+                    <strong className="text-black block mb-2">Tudo do Essential, mais:</strong>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-black shrink-0 mt-0.5" />
+                        <span>Reuniões periódicas de acompanhamento com pauta técnica;</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-black shrink-0 mt-0.5" />
+                        <span>Revisão recorrente de regime, Fator R e estrutura de folha;</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-black shrink-0 mt-0.5" />
+                        <span>Análise de cenários e simulações tributárias durante o ano;</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-black shrink-0 mt-0.5" />
+                        <span>
+                          Acompanhamento ativo da Reforma Tributária aplicado ao seu setor;
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-black shrink-0 mt-0.5" />
+                        <span>
+                          Leitura financeira do resultado, com margem, caixa e formação de preço;
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-black shrink-0 mt-0.5" />
+                        <span>Apoio contábil e societário em decisões de crescimento.</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <p className="pt-1">
+                    <strong className="text-black block mb-0.5">Consultoria incluída:</strong>
+                    as cinco frentes, com periodicidade definida em contrato.
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-6 mt-6 border-t border-neutral-100">
+                <Button
+                  className="w-full bg-black hover:bg-neutral-800 text-white font-medium text-sm font-sans"
+                  asChild
+                >
+                  <Link to="/contato">Falar sobre o Premium</Link>
+                </Button>
+              </div>
             </div>
 
             {/* Plano On Demand */}
@@ -518,7 +581,7 @@ export default function Index() {
             <div className="p-5 rounded-lg bg-white border border-neutral-200 shadow-sm">
               <p className="text-base md:text-lg text-neutral-900 font-sans font-semibold leading-relaxed">
                 Se você chegou aqui procurando só &quot;contabilidade&quot;, comece pelo Essential.
-                Ele já inclui consultoria — é assim que trabalhamos.
+                Ele já inclui consultoria, é assim que trabalhamos.
               </p>
             </div>
 
@@ -561,7 +624,7 @@ export default function Index() {
               </p>
               <p>
                 Na prática, isso significa que a nossa recomendação pode ser não fazer nada. Se o
-                estudo não sustenta a tese, dizemos que não a sustenta — e explicamos por quê.
+                estudo não sustenta a tese, dizemos que não a sustenta, e explicamos por quê.
               </p>
             </div>
 
@@ -693,7 +756,7 @@ export default function Index() {
               <p>
                 A substituição de PIS, COFINS, ICMS e ISS pelo IBS e pela CBS altera crédito,
                 precificação e fluxo de caixa de praticamente todo negócio. A transição é longa e
-                cheia de janelas — e quem se antecipa escolhe onde se posicionar.
+                cheia de janelas, e quem se antecipa escolhe onde se posicionar.
               </p>
               <p>
                 Fazemos um diagnóstico do impacto da Reforma no seu setor, com simulação sobre os
@@ -728,7 +791,7 @@ export default function Index() {
             </h2>
             <p className="text-neutral-600 text-base md:text-lg leading-relaxed font-sans">
               Atendimento especializado com domínio das peculiaridades tributárias, trabalhistas e
-              regulatórias de cada nicho — o que muda a leitura de cada frente de consultoria.
+              regulatórias de cada nicho, o que muda a leitura de cada frente de consultoria.
             </p>
           </div>
 
@@ -873,7 +936,7 @@ export default function Index() {
 
           <p className="text-base md:text-lg text-neutral-300 max-w-2xl mx-auto leading-relaxed font-sans">
             Se você já tem contabilidade e quer uma segunda leitura técnica, ou se está começando e
-            precisa de uma estrutura desde o início — a primeira reunião serve para isso. Sem
+            precisa de uma estrutura desde o início, a primeira reunião serve para isso. Sem
             apresentação de vendas: a gente olha o seu caso e diz o que enxerga.
           </p>
 
