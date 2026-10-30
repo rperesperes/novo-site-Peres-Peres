@@ -10,33 +10,36 @@ import clarissaImg from '@/assets/whatsapp-image-2026-10-29-at-15.24.44-54004.jp
 
 interface TeamMember {
   name: string
-  role?: string
-  photo?: string
-  initials?: string
+  role: string
+  photo: string
   alt: string
-  description?: string[]
+  description: string
 }
 
 const TEAM_MEMBERS: TeamMember[] = [
   {
     name: 'Gabriela Feitosa',
-    role: 'Contadora e Perita Contábil',
+    role: 'Contadora (CRC 031776) e Perita Contábil (CNPC 8224)',
     photo: gabrielaImg,
-    alt: 'Gabriela Feitosa - Contadora e Perita Contábil',
-  },
-  {
-    name: 'William Lisboa',
-    photo: williamImg,
-    alt: 'William Lisboa - Graduando em Ciências Contábeis na Universidade de Brasília (UnB)',
-    description: [
-      'Graduando em Ciências Contábeis pela Universidade de Brasília (UnB) e com formação profissional em Análise de Dados pelo Google.',
-    ],
+    alt: 'Gabriela Feitosa - Contadora (CRC 031776) e Perita Contábil (CNPC 8224)',
+    description:
+      'Contadora e perita contábil, com formação complementar voltada à produção de prova técnica. Concluiu o curso Veritas Perícia — Formação completa de Peritos Judiciais e Assistentes Técnicos em Cálculos Trabalhistas, e é pós-graduanda em Perícia Contábil e Financeira pela Faculdade Brasileira de Contabilidade (FBC). Atua na elaboração de laudos e pareceres técnicos, com experiência em protocolo junto a tribunais e em execução financeira de órgãos públicos.',
   },
   {
     name: 'Clarissa Lebeis',
-    role: 'Graduanda em Ciências Contábeis - UnB',
+    role: 'Graduanda em Ciências Contábeis — UnB',
     photo: clarissaImg,
-    alt: 'Clarissa Lebeis - Graduanda em Ciências Contábeis na Universidade de Brasília (UnB)',
+    alt: 'Clarissa Lebeis - Graduanda em Ciências Contábeis — UnB',
+    description:
+      'Graduanda em Ciências Contábeis pela Universidade de Brasília (UnB). Atua na rotina contábil e fiscal do escritório e é responsável pela organização de eventos e encontros técnicos promovidos com clientes e parceiros.',
+  },
+  {
+    name: 'William Lisboa',
+    role: 'Graduando em Ciências Contábeis (UnB) • Formação em Análise de Dados (Google)',
+    photo: williamImg,
+    alt: 'William Lisboa - Graduando em Ciências Contábeis (UnB) • Formação em Análise de Dados (Google)',
+    description:
+      'Graduando em Ciências Contábeis pela Universidade de Brasília (UnB), com formação profissional em Análise de Dados pelo Google. Atua na construção de relatórios e painéis analíticos, com domínio de Power BI e Microsoft Access, e tem experiência em controle de notas fiscais e em assistência de controladoria de mercado.',
   },
 ]
 
@@ -196,8 +199,8 @@ export default function About() {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-black mb-3">Nossa Equipe</h2>
             <p className="text-neutral-600 max-w-2xl mx-auto leading-relaxed text-sm md:text-base">
-              Profissionais dedicados à governança fiscal, contabilidade consultiva e auditoria,
-              atuando de forma integrada sob a coordenação do responsável técnico.
+              Profissionais dedicados à governança fiscal, contabilidade consultiva, auditoria e
+              perícia, atuando de forma integrada sob a coordenação do responsável técnico.
             </p>
           </div>
 
@@ -205,61 +208,32 @@ export default function About() {
             {TEAM_MEMBERS.map((member) => (
               <Card
                 key={member.name}
-                className="overflow-hidden border border-neutral-200 bg-white shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group"
+                className="overflow-hidden border border-neutral-200 bg-white shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full group"
               >
                 {/* Área de Retrato Padronizada (proporção retrato 4:5 consistente) */}
                 <div className="relative aspect-[4/5] w-full bg-neutral-100 overflow-hidden border-b border-neutral-200">
-                  {member.photo ? (
-                    <img
-                      src={member.photo}
-                      alt={member.alt}
-                      loading="lazy"
-                      className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                    />
-                  ) : (
-                    /* Placeholder elegante e institucional para quem ainda não possui foto */
-                    <div
-                      className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-neutral-900 via-neutral-950 to-black text-white p-6 relative overflow-hidden"
-                      aria-label={`Representação de ${member.name}`}
-                    >
-                      {/* Detalhe de fundo decorativo com o amarelo institucional */}
-                      <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#FAB319]/10 rounded-full blur-2xl" />
-                      <div className="relative z-10 flex flex-col items-center">
-                        <div className="w-20 h-20 rounded-full border-2 border-[#FAB319] bg-neutral-900 flex items-center justify-center mb-4 shadow-inner">
-                          <span className="font-bold text-2xl tracking-wider text-[#FAB319]">
-                            {member.initials}
-                          </span>
-                        </div>
-                        <span className="text-xs uppercase font-mono tracking-widest text-neutral-400">
-                          PERES PERES
-                        </span>
-                      </div>
-                    </div>
-                  )}
+                  <img
+                    src={member.photo}
+                    alt={member.alt}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  />
 
                   {/* Linha de acento amarela institucional sutil no rodapé da imagem */}
                   <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#FAB319] opacity-80" />
                 </div>
 
-                {/* Conteúdo do Card */}
-                <div className="p-6 flex-1 flex flex-col justify-between text-center">
-                  <div>
-                    <h3 className="font-semibold text-xl text-black mb-1.5 group-hover:text-neutral-900 transition-colors">
-                      {member.name}
-                    </h3>
-                    {member.role && (
-                      <p className="text-xs md:text-sm text-neutral-600 leading-snug">
-                        {member.role}
-                      </p>
-                    )}
-                    {member.description && (
-                      <div className="mt-3 text-xs md:text-sm text-neutral-600 leading-relaxed space-y-2">
-                        {member.description.map((paragraph, pIdx) => (
-                          <p key={pIdx}>{paragraph}</p>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+                {/* Conteúdo do Card Padronizado */}
+                <div className="p-6 flex-1 flex flex-col text-center">
+                  <h3 className="font-semibold text-xl text-black mb-1.5 group-hover:text-neutral-900 transition-colors">
+                    {member.name}
+                  </h3>
+                  <p className="text-xs md:text-sm font-medium text-neutral-700 leading-snug min-h-[2.5rem] flex items-center justify-center">
+                    {member.role}
+                  </p>
+                  <p className="mt-3 pt-3 border-t border-neutral-100 text-xs md:text-sm text-neutral-600 leading-relaxed text-center flex-1">
+                    {member.description}
+                  </p>
                 </div>
               </Card>
             ))}
