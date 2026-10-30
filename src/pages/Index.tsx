@@ -173,7 +173,7 @@ export default function Index() {
           <div className="mt-10 p-5 rounded-lg bg-neutral-50 border border-neutral-200 max-w-4xl mx-auto text-center">
             <p className="text-sm md:text-base text-neutral-800 font-sans font-medium leading-relaxed">
               E cada uma dessas rotinas é conduzida por quem também faz consultoria. É por isso que
-              o que aparece no fechamento vira conversa — e não só número.
+              o que aparece no fechamento vira conversa, e não só número.
             </p>
           </div>
         </div>
@@ -213,8 +213,8 @@ export default function Index() {
             <div className="pt-4">
               <div className="p-6 rounded-lg bg-white border-l-4 border-l-[#FAB319] border border-neutral-200 shadow-sm">
                 <p className="text-lg md:text-xl font-sans font-bold text-black leading-snug">
-                  Você não contrata quatro consultorias separadas. Contrata uma equipe que olha o
-                  seu negócio por quatro ângulos.
+                  Você não contrata consultorias separadas. Contrata uma equipe que olha o seu
+                  negócio por diferentes ângulos.
                 </p>
               </div>
             </div>
@@ -400,8 +400,7 @@ export default function Index() {
                 <div>
                   <h3 className="text-2xl font-sans font-bold text-black mb-1">Essential</h3>
                   <p className="text-sm text-neutral-600 font-sans leading-relaxed">
-                    Para empresas menores e mais simples, com rotinas fiscais e contábeis
-                    essenciais.
+                    <i>Essential</i>
                   </p>
                 </div>
 
@@ -439,44 +438,7 @@ export default function Index() {
 
             {/* Plano Premium */}
             <div className="p-6 md:p-7 rounded-xl border-2 border-black bg-white shadow-md relative flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-sans uppercase tracking-wider px-2.5 py-0.5 rounded font-semibold bg-[#FAB319] text-black">
-                    Mais escolhido
-                  </span>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-sans font-bold text-black mb-1">Premium</h3>
-                  <p className="text-sm text-neutral-600 font-sans leading-relaxed">
-                    O plano completo: acompanhamento próximo, inteligência fiscal e consultorias
-                    periódicas.
-                  </p>
-                </div>
-
-                <div className="pt-2 space-y-3 text-xs md:text-sm text-neutral-700 font-sans leading-relaxed border-t border-neutral-100">
-                  <p>
-                    <strong className="text-black block mb-0.5">Tudo do Essential, mais:</strong>
-                    reuniões periódicas de acompanhamento com pauta técnica; revisão recorrente de
-                    regime, Fator R e estrutura de folha; análise de cenários e simulações
-                    tributárias durante o ano; acompanhamento ativo da Reforma Tributária aplicado
-                    ao seu setor; leitura financeira do resultado, com margem, caixa e formação de
-                    preço; e apoio contábil e societário em decisões de crescimento.
-                  </p>
-                  <p>
-                    <strong className="text-black block mb-0.5">Consultoria incluída:</strong>
-                    as quatro frentes, com periodicidade definida em contrato.
-                  </p>
-                </div>
-              </div>
-
-              <div className="pt-6 mt-6 border-t border-neutral-100">
-                <Button
-                  className="w-full bg-black hover:bg-neutral-800 text-white font-semibold text-sm font-sans"
-                  asChild
-                >
-                  <Link to="/contato">Falar sobre o Premium</Link>
-                </Button>
-              </div>
+              Falar sobre o <i>Essential</i>
             </div>
 
             {/* Plano On Demand */}
@@ -490,8 +452,7 @@ export default function Index() {
                 <div>
                   <h3 className="text-2xl font-sans font-bold text-black mb-1">On Demand</h3>
                   <p className="text-sm text-neutral-600 font-sans leading-relaxed">
-                    Equipe multidisciplinar sob demanda para projetos pontuais, perícias e alta
-                    complexidade.
+                    <i>On Demand</i>
                   </p>
                 </div>
 
