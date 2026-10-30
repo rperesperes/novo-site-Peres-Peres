@@ -238,7 +238,7 @@ export default function Index() {
               <div className="p-6 rounded-lg bg-white border-l-4 border-l-[#FAB319] border border-neutral-200 shadow-sm">
                 <p className="text-lg md:text-xl font-sans font-bold text-black leading-snug">
                   Você não contrata cinco consultorias separadas. Contrata uma equipe que olha o seu
-                  negócio por cinco ângulos.
+                  negócio por diferentes ângulos complementares.
                 </p>
               </div>
             </div>
@@ -283,17 +283,25 @@ export default function Index() {
 
               <p className="text-neutral-700 text-base md:text-lg leading-relaxed font-sans mb-4">
                 Planejamento fiscal estratégico, escolha e revisão de regime tributário, análise de
-                Fator R, avaliação de teses e recuperação de créditos dos últimos 5 anos.
-                Acompanhamento técnico da Reforma Tributária (EC 132/2023 e leis complementares)
-                para antecipar o impacto no seu setor antes que ele chegue na guia.
+                Fator R (Simples Nacional), avaliação para obtenção de benefícios fiscais e
+                imunidades tributárias conforme cada caso, avaliação de teses e recuperação de
+                créditos dos últimos 5 anos. Acompanhamento técnico da Reforma Tributária (EC
+                132/2023 e leis complementares) para antecipar o impacto no seu setor antes que ele
+                chegue na guia.
               </p>
 
-              <div className="bg-white p-4 rounded-lg border border-neutral-200 mb-5">
+              <div className="bg-white p-4 rounded-lg border border-neutral-200 mb-4">
                 <p className="text-sm md:text-base text-neutral-900 font-sans">
                   <strong>O que você leva:</strong> decisões de regime fundamentadas em números
                   seus, não em simulação genérica, e um plano de ação com prazo.
                 </p>
               </div>
+
+              <p className="text-xs md:text-sm text-neutral-600 font-sans leading-relaxed mb-5">
+                Por que é o nosso eixo principal: os tributos estão entre os maiores gastos de
+                qualquer empresa e de qualquer pessoa física. É onde a decisão técnica errada custa
+                mais caro, e onde a decisão certa libera mais caixa.
+              </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-2 text-sm font-sans font-medium text-black">
                 <Link
@@ -821,7 +829,7 @@ export default function Index() {
             </h2>
             <p className="text-neutral-600 text-base md:text-lg leading-relaxed font-sans">
               Atendimento especializado com domínio das peculiaridades tributárias, trabalhistas e
-              regulatórias de cada nicho, o que muda a leitura de cada frente de consultoria.
+              regulatórias, especialmente dos seguintes nichos:
             </p>
           </div>
 
