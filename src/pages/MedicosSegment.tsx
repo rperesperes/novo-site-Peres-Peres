@@ -43,6 +43,11 @@ const DESAFIOS = [
     text: 'Atender como pessoa física e atender pela PJ não têm o mesmo efeito tributário nem o mesmo efeito previdenciário, e a escolha depende de quem paga, de quanto e de como. Receber de pessoa física, receber de hospital e receber de operadora são situações diferentes, e tratá-las com a mesma regra é erro recorrente.',
   },
   {
+    title: 'MEI não é alternativa para o médico',
+    icon: ShieldCheck,
+    text: 'O MEI é restrito às ocupações expressamente listadas no Anexo XI da Resolução CGSN nº 140/2018, editado com base no art. 18-A da LC 123/2006, e a medicina não está entre elas. Além disso, o art. 18, § 5º-B, VII da LC 123/2006 trata a medicina como atividade de prestação de serviços tributada no Anexo III do Simples quando exercida por pessoa jurídica, hipótese incompatível com o regime unipessoal simplificado do MEI. Os caminhos reais são atuar como pessoa física ou constituir pessoa jurídica própria — sociedade limitada unipessoal ou sociedade de médicos — com enquadramento conforme o Fator R.',
+  },
+  {
     title: 'Plantões, consultório e telemedicina',
     icon: Stethoscope,
     text: 'Plantão em hospital, atendimento em consultório próprio, telemedicina e perícia geram receitas com tratamentos fiscais distintos. Sem escrituração organizada por fonte de receita, o imposto sai errado e o médico perde a capacidade de saber quanto ganha em cada frente.',
@@ -113,6 +118,11 @@ const POR_QUE_PERES_PERES = [
 
 // 5 Perguntas e Respostas do FAQ (textos verbatim)
 const FAQ_ITEMS = [
+  {
+    question: 'Médico pode ser MEI?',
+    answer:
+      'Não. A medicina não consta do Anexo XI da Resolução CGSN nº 140/2018 (editada com base no art. 18-A da LC 123/2006), que é uma lista fechada de ocupações autorizadas ao MEI — quem não está nela não pode. A via correta é a pessoa jurídica: sociedade limitada unipessoal enquadrada no Simples Nacional, em que a medicina é tributada conforme o Fator R, entre os Anexos III e V.',
+  },
   {
     question: 'O que é PJ unipessoal e é a melhor estrutura para o médico?',
     answer:

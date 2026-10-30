@@ -44,7 +44,7 @@ const DESAFIOS = [
   {
     title: 'Sociedade de advogados e opção pelo Simples',
     icon: Building2,
-    text: 'A sociedade de advogados tem registro obrigatório na OAB e não pode assumir forma mercantil (Lei nº 8.906/1994, art. 15). Em regra, essa sociedade não é optante do Simples Nacional. A escolha entre atuar como pessoa física, como sociedade de advogados ou como sociedade limitada muda completamente o regime e a alíquota efetiva, e é decisão que precisa ser tomada antes da constituição.',
+    text: 'A sociedade de advogados tem registro obrigatório na OAB e não pode assumir forma mercantil (Lei nº 8.906/1994, art. 15). Desde a LC nº 147/2014, a sociedade de advogados pode optar pelo Simples Nacional, mas o enquadramento é sempre no Anexo IV (LC 123/2006, art. 18, § 5º-C, VII), em que a contribuição previdenciária patronal fica fora do DAS e precisa ser recolhida separadamente. Não há Fator R na advocacia, e a escolha entre atuar como pessoa física, como sociedade de advogados ou como sociedade limitada muda completamente a alíquota efetiva — decisão que precisa ser tomada antes da constituição, considerando a incidência da contribuição patronal fora do Simples.',
   },
   {
     title: 'Sócios, associados e correspondentes',
@@ -64,7 +64,7 @@ const FRENTES_ATUACAO = [
     frente: 'Tributária',
     destaque: true,
     badge: 'Nossa especialidade',
-    text: 'definição do regime conforme o formato da atuação, análise da viabilidade da opção pelo Simples, tratamento de honorários contratuais e sucumbenciais, e acompanhamento da Reforma Tributária aplicada a serviços advocatícios.',
+    text: 'definição do regime conforme o formato da atuação, enquadramento no Anexo IV do Simples Nacional quando essa for a opção, cálculo do DAS somado à contribuição previdenciária patronal recolhida fora do Simples, tratamento de honorários contratuais e sucumbenciais, e acompanhamento da Reforma Tributária aplicada a serviços advocatícios.',
   },
   {
     frente: 'Contábil',
@@ -121,7 +121,7 @@ const FAQ_ITEMS = [
   {
     question: 'Sociedade de advogados pode optar pelo Simples Nacional?',
     answer:
-      'Em regra, não. A sociedade de advogados tem registro obrigatório na OAB e não pode assumir forma ou características mercantis (Lei nº 8.906/1994, art. 15), o que a exclui da opção pelo Simples. O advogado pessoa física, atuando como profissional liberal, pode ser optante, observados os requisitos. Essa diferença de tratamento costuma ser decisiva na escolha do formato.',
+      'Pode, desde a LC nº 147/2014. A sociedade de advogados é tributada no Anexo IV do Simples Nacional (LC 123/2006, art. 18, § 5º-C, VII), com alíquota inicial de 4,5%, mas a contribuição previdenciária patronal (20% sobre a folha) não está incluída no DAS e é recolhida em guia separada. Isso muda a comparação com o Lucro Presumido — a conta precisa somar o DAS mais o INSS patronal, não apenas a alíquota do anexo.',
   },
   {
     question: 'Como tributar honorários sucumbenciais?',

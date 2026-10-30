@@ -66,12 +66,12 @@ const FRENTES_ATUACAO = [
   {
     frente: 'Societária',
     destaque: false,
-    text: 'Estruturação societária da agência, elaboração e revisão de contratos de agenciamento e regras claras para retirada dos sócios e distribuição de lucros.',
+    text: 'Estruturação da sociedade, definição contratual da relação com agentes de viagem autônomos e cláusulas de responsabilidade entre sócios e correspondentes.',
   },
   {
     frente: 'Financeira e de Gestão',
     destaque: false,
-    text: 'Controle de fluxo de caixa entre recebimento do cliente e repasse a fornecedores, leitura de margem real por pacote e gestão dos reflexos de variação cambial.',
+    text: 'Formação de preço de pacote com comissão e tributos na conta, leitura de margem por produto e por cliente e controle do caixa diante do intervalo entre venda antecipada e repasse a fornecedores.',
   },
 ]
 

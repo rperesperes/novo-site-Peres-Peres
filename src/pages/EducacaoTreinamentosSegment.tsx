@@ -124,7 +124,7 @@ const FAQ_ITEMS = [
       'Não. A imunidade depende do atendimento dos requisitos constitucionais e legais, e precisa ser comprovada e mantida. Entidade beneficente de assistência social que atua em educação tem, adicionalmente, certificação própria com exigências contínuas.',
   },
   {
-    question: 'Quando o instrutor pode ser contratado como MEI, e quando não pode?',
+    question: 'Quando o instrutor pode ser contratado como MEI — e quando não pode?',
     answer:
       'Depende de como a contratação acontece na prática. MEI é figura com limites de faturamento e de atividade, e a contratação de instrutor com pessoalidade, habitualidade e subordinação cria risco de reconhecimento de vínculo, independentemente do documento assinado. O desenho do contrato e a rotina de execução precisam ser compatíveis.',
   },

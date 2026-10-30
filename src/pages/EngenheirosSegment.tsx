@@ -40,7 +40,7 @@ const DESAFIOS = [
   {
     title: 'ART, laudos e responsabilidade técnica',
     icon: FileCheck2,
-    text: 'A emissão de ART, os laudos e os pareceres técnicos têm custo e tratamento fiscal que precisam estar na contabilidade da PJ, e não no bolso do profissional. A responsabilidade técnica do engenheiro também não se transfere com a estrutura societária, e isso precisa estar refletido na forma de contratação.',
+    text: 'A emissão de ART, os laudos e os pareceres técnicos têm custo e tratamento fiscal que precisam estar na contabilidade da PJ, e não no bolso do profissional. A responsabilidade técnica do engenheiro é pessoal e permanece vinculada ao profissional habilitado responsável pela ART, independentemente da estrutura societária adotada, e isso precisa estar refletido na forma de contratação e na definição de quem assina tecnicamente cada projeto.',
   },
   {
     title: 'Obra, medição e receita por etapa',
@@ -116,7 +116,7 @@ const FAQ_ITEMS = [
   {
     question: 'Engenheiro pode ser MEI?',
     answer:
-      'Não. A atividade de engenheiro não consta entre as ocupações permitidas ao MEI (Resolução CGSN nº 140/2018, Anexo XI), que é lista fechada. Abrir MEI com CNAE genérico para depois emitir ART e prestar serviço de engenharia não formaliza a situação e cria risco fiscal e de responsabilidade. Os caminhos possíveis são a atuação como pessoa física, o empresário individual ou a sociedade limitada.',
+      'Não. A engenharia não consta do Anexo XI da Resolução CGSN nº 140/2018 (editada com base no art. 18-A da LC 123/2006), que é uma lista fechada de ocupações autorizadas ao MEI — quem não está nela não pode. A via correta é a pessoa jurídica: sociedade limitada unipessoal enquadrada no Simples Nacional, em que a engenharia é tributada no Anexo V (LC 123/2006, art. 18, § 5º-I, VI) e migra para o Anexo III quando o Fator R alcança 28%.',
   },
   {
     question: 'Engenheiro deve optar pelo Simples Nacional?',
