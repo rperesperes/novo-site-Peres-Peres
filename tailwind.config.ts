@@ -26,8 +26,18 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Lora', 'Georgia', 'serif'],
-        serif: ['Lora', 'Georgia', 'serif'],
+        sans: [
+          'ui-sans-serif',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          'Roboto',
+          '"Helvetica Neue"',
+          'Arial',
+          '"Noto Sans"',
+          'sans-serif',
+        ],
       },
       colors: {
         border: 'hsl(var(--border))',
