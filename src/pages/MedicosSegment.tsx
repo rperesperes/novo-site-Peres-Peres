@@ -1,0 +1,630 @@
+import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { Card } from '@/components/ui/card'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
+import { useSeo } from '@/hooks/use-seo'
+import {
+  Calculator,
+  Coins,
+  Scale,
+  Stethoscope,
+  Receipt,
+  Building,
+  FileCheck,
+  ShieldCheck,
+  ChevronRight,
+  Phone,
+  ArrowRight,
+  UserCheck,
+} from 'lucide-react'
+
+// 6 Desafios do Médico (textos verbatim)
+const DESAFIOS = [
+  {
+    title: 'Fator R na saúde',
+    icon: Calculator,
+    text: 'Folha e pró-labore definem se a atividade é tributada no Anexo III ou no Anexo V do Simples Nacional, e a diferença aparece todo mês. O Fator R é recalculado continuamente, então a decisão de quanto pagar de pró-labore tem efeito direto na alíquota, e quem olha isso apenas uma vez por ano paga mais do que deveria.',
+  },
+  {
+    title: 'Pró-labore, distribuição de lucros e INSS',
+    icon: Coins,
+    text: 'Quanto retirar como pró-labore e quanto distribuir como lucro é decisão técnica, não escolha de conveniência. Ela mexe com imposto, com contribuição previdenciária, com aposentadoria e com o caixa disponível do médico, e as três coisas precisam ser olhadas juntas.',
+  },
+  {
+    title: 'Pessoa física ou pessoa jurídica',
+    icon: UserCheck,
+    text: 'Atender como pessoa física e atender pela PJ não têm o mesmo efeito tributário nem o mesmo efeito previdenciário, e a escolha depende de quem paga, de quanto e de como. Receber de pessoa física, receber de hospital e receber de operadora são situações diferentes, e tratá-las com a mesma regra é erro recorrente.',
+  },
+  {
+    title: 'Plantões, consultório e telemedicina',
+    icon: Stethoscope,
+    text: 'Plantão em hospital, atendimento em consultório próprio, telemedicina e perícia geram receitas com tratamentos fiscais distintos. Sem escrituração organizada por fonte de receita, o imposto sai errado e o médico perde a capacidade de saber quanto ganha em cada frente.',
+  },
+  {
+    title: 'Convênios, glosas e repasses',
+    icon: Receipt,
+    text: 'Prazos de repasse, retenções na fonte e glosas exigem controle financeiro que reflita o caixa real da PJ. O valor faturado não é o valor recebido, e essa diferença precisa estar visível na contabilidade.',
+  },
+  {
+    title: 'Estrutura da PJ desde a abertura',
+    icon: Building,
+    text: 'Sociedade limitada de sócio único, enquadramento de CNAE, atividade registrada no conselho e responsabilidade patrimonial precisam ser desenhados na abertura. Corrigir estrutura depois custa mais caro do que desenhar antes, e alguns erros de constituição não têm solução retroativa.',
+  },
+]
+
+// 5 Frentes de Atuação (textos verbatim na ordem Tributária, Contábil, Societária, Financeira e de Gestão, Trabalhista)
+const FRENTES_ATUACAO = [
+  {
+    frente: 'Tributária',
+    destaque: true,
+    badge: 'Nossa especialidade',
+    text: 'definição e revisão do regime, gestão mensal do Fator R e do enquadramento entre os Anexos III e V do Simples Nacional, comparação com Lucro Presumido e Lucro Real, e análise da fronteira entre pró-labore e distribuição de lucros.',
+  },
+  {
+    frente: 'Contábil',
+    destaque: false,
+    text: 'escrituração separada por fonte de receita, com conciliação de convênio, particular, plantão e telemedicina, e demonstrações que reflitam o resultado real de cada frente.',
+  },
+  {
+    frente: 'Societária',
+    destaque: false,
+    text: 'constituição da sociedade limitada de sócio único, definição do contrato social, adequação de CNAE e estruturação de acordos quando o médico passa a atuar com outros profissionais.',
+  },
+  {
+    frente: 'Financeira e de Gestão',
+    destaque: false,
+    text: 'leitura de quanto o médico efetivamente retira por mês, projeção de caixa considerando prazos de repasse de convênio e formação de preço de consulta e procedimento.',
+  },
+  {
+    frente: 'Trabalhista',
+    destaque: false,
+    text: 'enquadramento das pessoas que atuam no consultório, conformidade no eSocial e revisão de riscos quando o médico contrata equipe própria.',
+  },
+]
+
+// 3 Razões Por Que a PERES PERES (textos verbatim)
+const POR_QUE_PERES_PERES = [
+  {
+    num: '1',
+    title: 'Responsável técnico com dupla formação',
+    icon: Scale,
+    text: 'Rafael Peres Peres Nunes Altoé é contador (CRC 027704), advogado (OAB 87656), auditor (CNAI 10122) e professor. Regime tributário, contrato social e risco trabalhista do consultório são lidos juntos, na mesma mesa.',
+  },
+  {
+    num: '2',
+    title: 'Capacidade de produzir prova técnica',
+    icon: FileCheck,
+    text: 'A equipe conta com perita contábil formada em perícia judicial e em cálculos trabalhistas. Em discussão sobre retenções, repasses de convênio ou relação com profissional contratado, a produção técnica é interna.',
+  },
+  {
+    num: '3',
+    title: 'Postura conservadora',
+    icon: ShieldCheck,
+    text: 'Não veiculamos promessa de percentual de economia. Cada diagnóstico parte de auditoria documental dos números do médico, e quando o regime atual já é o correto, dizemos que é.',
+  },
+]
+
+// 5 Perguntas e Respostas do FAQ (textos verbatim)
+const FAQ_ITEMS = [
+  {
+    question: 'O que é PJ unipessoal e é a melhor estrutura para o médico?',
+    answer:
+      'PJ unipessoal é a sociedade limitada com um único sócio, também chamada de LTDA unipessoal. É a estrutura mais comum para o médico que passa a atuar como pessoa jurídica, porque separa o patrimônio pessoal do negócio e permite enquadramento tributário próprio. Se é a melhor estrutura depende do faturamento, das despesas dedutíveis e de como o médico pretende atuar, e essa resposta só existe com os números na mão.',
+  },
+  {
+    question: 'Simples Nacional ou Lucro Presumido para médico?',
+    answer:
+      'Depende dos números, mas o ponto de partida é que a atividade médica é permitida no Simples Nacional (LC 123/2006, art. 17, V, "e") e é tributada nos Anexos III ou V, conforme o Fator R. Quando a margem é alta e as despesas dedutíveis são relevantes, o Lucro Presumido pode ser comparativamente melhor. A decisão precisa vir de simulação, não de regra geral.',
+  },
+  {
+    question: 'Como funciona o Fator R na prática?',
+    answer:
+      'É a razão entre a folha de pagamento, incluindo o pró-labore, dos últimos 12 meses, e a receita bruta dos últimos 12 meses. Resultado igual ou superior a 28% enquadra no Anexo III, de alíquotas menores. Abaixo disso, no Anexo V. O cálculo é refeito todo mês, então mudanças de pró-labore e contratação alteram a guia do mês seguinte.',
+  },
+  {
+    question: 'Todo valor retirado precisa ser pró-labore?',
+    answer:
+      'Não. O sócio pode receber pró-labore, que tem contribuição previdenciária, e distribuição de lucros, que não tem, desde que a empresa tenha lucro apurado e a distribuição respeite os limites aplicáveis. A definição de quanto vai para cada rubrica é decisão técnica com efeito direto no imposto, na contribuição e na proteção previdenciária do médico.',
+  },
+  {
+    question: 'Vocês atendem médicos fora de Brasília?',
+    answer:
+      'Sim. A sede é em Brasília/DF, com atendimento em todo o Brasil, de forma presencial ou remota.',
+  },
+]
+
+// Outras profissões regulamentadas (páginas planejadas)
+const OUTRAS_PROFISSOES = [
+  { name: 'Psicólogos', link: '/profissoes-regulamentadas/psicologos' },
+  { name: 'Advogados', link: '/profissoes-regulamentadas/advogados' },
+  { name: 'Engenheiros', link: '/profissoes-regulamentadas/engenheiros' },
+]
+
+// Demais segmentos atendidos pelo escritório
+const OUTROS_SEGMENTOS = [
+  { name: 'Clínicas Médicas e Saúde', link: '/contabilidade-para-clinicas-medicas' },
+  { name: 'Startups e Empresas de Tecnologia', link: '/contabilidade-para-startups-e-tech' },
+  { name: 'Holdings Familiares e Patrimoniais', link: '/holdings-familiares-e-patrimoniais' },
+  { name: 'Educação e Treinamentos', link: '/contabilidade-para-educacao-e-treinamentos' },
+  { name: 'Publicidade e Comunicação', link: '/contabilidade-para-agencias-de-publicidade' },
+  { name: 'Agências de Viagem', link: '/contabilidade-para-agencias-de-viagem' },
+  { name: 'E-commerce', link: '/contabilidade-para-ecommerce' },
+  { name: 'MEIs e Profissionais Liberais', link: '/servicos#segmentos' },
+]
+
+export default function MedicosSegment() {
+  useSeo({
+    title: 'Contabilidade para Médicos | PJ, Fator R e Pró-labore | PERES PERES',
+    description:
+      'Contabilidade e consultoria para médicos: PJ unipessoal, Simples Nacional, Fator R, pró-labore e distribuição de lucros. Atendimento em Brasília e no Brasil.',
+    canonical: 'https://peresperes.com.br/profissoes-regulamentadas/medicos',
+  })
+
+  // JSON-LD para Rich Snippet FAQPage e BreadcrumbList
+  useEffect(() => {
+    const scriptId = 'faq-jsonld-medicos'
+    let scriptTag = document.getElementById(scriptId) as HTMLScriptElement | null
+    if (!scriptTag) {
+      scriptTag = document.createElement('script')
+      scriptTag.id = scriptId
+      scriptTag.type = 'application/ld+json'
+      document.head.appendChild(scriptTag)
+    }
+
+    const structuredData = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Início',
+              item: 'https://peresperes.com.br/',
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Segmentos',
+              item: 'https://peresperes.com.br/servicos#segmentos',
+            },
+            {
+              '@type': 'ListItem',
+              position: 3,
+              name: 'Profissões Regulamentadas',
+              item: 'https://peresperes.com.br/servicos#segmentos',
+            },
+            {
+              '@type': 'ListItem',
+              position: 4,
+              name: 'Médicos',
+              item: 'https://peresperes.com.br/profissoes-regulamentadas/medicos',
+            },
+          ],
+        },
+        {
+          '@type': 'FAQPage',
+          mainEntity: FAQ_ITEMS.map((item) => ({
+            '@type': 'Question',
+            name: item.question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: item.answer,
+            },
+          })),
+        },
+      ],
+    }
+
+    scriptTag.textContent = JSON.stringify(structuredData)
+
+    return () => {
+      const el = document.getElementById(scriptId)
+      if (el) {
+        el.remove()
+      }
+    }
+  }, [])
+
+  return (
+    <div className="flex flex-col w-full font-sans bg-white">
+      {/* =========================================================
+          BREADCRUMB & HERO
+         ========================================================= */}
+      <section className="relative bg-black text-white border-b border-neutral-800 pt-8 pb-16 md:pb-20">
+        <div className="container mx-auto px-4 max-w-5xl">
+          {/* Breadcrumb verbatim: Início > Segmentos > Profissões Regulamentadas > Médicos */}
+          <nav
+            aria-label="Breadcrumb"
+            className="flex flex-wrap items-center gap-2 text-xs md:text-sm text-neutral-400 mb-8 font-sans"
+          >
+            <Link to="/" className="hover:text-white transition-colors">
+              Início
+            </Link>
+            <ChevronRight className="h-3.5 w-3.5 text-neutral-600" />
+            <Link to="/servicos#segmentos" className="hover:text-white transition-colors">
+              Segmentos
+            </Link>
+            <ChevronRight className="h-3.5 w-3.5 text-neutral-600" />
+            <Link to="/servicos#segmentos" className="hover:text-white transition-colors">
+              Profissões Regulamentadas
+            </Link>
+            <ChevronRight className="h-3.5 w-3.5 text-neutral-600" />
+            <span className="text-[#FAB319] font-medium">Médicos</span>
+          </nav>
+
+          <div className="space-y-6 animate-fade-in-up">
+            <div className="inline-flex items-center gap-2 border border-neutral-700 bg-neutral-900/60 px-3 py-1 rounded text-xs tracking-wider uppercase text-neutral-300 font-sans">
+              <Stethoscope className="h-3.5 w-3.5 text-[#FAB319]" />
+              Profissões Regulamentadas
+            </div>
+
+            {/* H1 hero verbatim */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white leading-tight max-w-4xl">
+              Contabilidade e consultoria para médicos
+            </h1>
+
+            {/* Parágrafo de abertura verbatim */}
+            <p className="text-base sm:text-lg md:text-xl text-neutral-300 max-w-3xl leading-relaxed font-sans">
+              O médico que abre sua pessoa jurídica, em geral uma sociedade limitada de um único
+              sócio, a chamada PJ unipessoal, descobre que a decisão que mais impacta o bolso não é
+              a abertura em si, e sim o que vem depois: regime tributário, pró-labore e a fronteira
+              entre distribuição de lucros e contribuição previdenciária. A PERES PERES cuida da
+              contabilidade mensal e acompanha essas decisões todos os meses.
+            </p>
+
+            {/* Chamada para ação no Hero */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <Button
+                size="lg"
+                className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold text-base h-12 px-8 border-none font-sans"
+                asChild
+              >
+                <Link to="/contato">Agendar reunião</Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-neutral-700 bg-transparent text-white hover:bg-neutral-900 hover:text-white font-medium text-base h-12 px-8 font-sans"
+                asChild
+              >
+                <Link to="/servicos">Ver planos de acompanhamento</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================
+          BANNER INFORMATIVO DE TRANSIÇÃO: CLÍNICAS MÉDICAS
+         ========================================================= */}
+      <section className="bg-neutral-50 border-b border-neutral-200 py-4">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-sm text-neutral-700 font-sans">
+            <span className="font-medium text-neutral-900">
+              É dono de clínica ou consultório com equipe? Veja a página de Clínicas Médicas.
+            </span>
+            <Link
+              to="/contabilidade-para-clinicas-medicas"
+              className="inline-flex items-center gap-1.5 font-semibold text-black hover:text-neutral-700 underline decoration-[#FAB319] decoration-2 underline-offset-4 shrink-0"
+            >
+              Acessar Clínicas Médicas
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================
+          SEÇÃO 1: DESAFIOS DO MÉDICO (6 cards)
+         ========================================================= */}
+      <section className="py-14 md:py-20 bg-white border-b border-neutral-200">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="max-w-3xl mb-12">
+            <span className="text-xs uppercase tracking-wider text-neutral-500 font-semibold block mb-2 font-sans">
+              Peculiaridades da atividade médica
+            </span>
+            <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
+              Desafios do médico
+            </h2>
+            <p className="text-neutral-700 text-base md:text-lg mt-3 leading-relaxed font-sans">
+              A rotina tributária e societária do médico exige critério técnico contínuo. Estas são
+              as principais questões que impactam diretamente a rentabilidade e o caixa da atividade
+              médica.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+            {DESAFIOS.map((item, idx) => {
+              const Icon = item.icon
+              return (
+                <Card
+                  key={idx}
+                  className="border border-neutral-200 shadow-sm hover:border-neutral-300 transition-colors bg-white flex flex-col h-full p-6"
+                >
+                  <div className="h-10 w-10 rounded-md bg-neutral-100 border border-neutral-200 flex items-center justify-center mb-4 shrink-0">
+                    <Icon className="h-5 w-5 text-black" />
+                  </div>
+                  <h3 className="text-lg font-sans font-bold text-black leading-snug mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-neutral-600 leading-relaxed font-sans">{item.text}</p>
+                </Card>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================
+          SEÇÃO 2: COMO ATUAMOS COM O MÉDICO (5 itens)
+         ========================================================= */}
+      <section className="py-14 md:py-20 bg-neutral-50 border-b border-neutral-200">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="max-w-3xl mb-12">
+            <span className="text-xs uppercase tracking-wider text-neutral-500 font-semibold block mb-2 font-sans">
+              Estrutura de atendimento
+            </span>
+            <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
+              Como atuamos com o médico
+            </h2>
+            <p className="text-neutral-700 text-base md:text-lg mt-3 leading-relaxed font-sans">
+              O acompanhamento contábil mensal integra cinco frentes complementares, com foco na
+              rotina médica, societária e fiscal.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {/* Frente 1: Tributária em Destaque com selo "Nossa especialidade" */}
+            {FRENTES_ATUACAO.filter((f) => f.destaque).map((frente, idx) => (
+              <div
+                key={idx}
+                className="border-2 border-black rounded-xl p-6 md:p-8 bg-white shadow-sm relative"
+              >
+                <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+                  <Badge className="bg-[#FAB319] text-black hover:bg-[#FAB319] font-sans font-semibold text-xs px-3 py-1 uppercase tracking-wider">
+                    {frente.badge}
+                  </Badge>
+                  <span className="text-xs text-neutral-500 font-sans font-medium uppercase tracking-wider">
+                    Eixo principal
+                  </span>
+                </div>
+
+                <h3 className="text-2xl md:text-3xl font-sans font-bold text-black mb-3">
+                  {frente.frente}
+                </h3>
+
+                <p className="text-neutral-700 text-base md:text-lg leading-relaxed font-sans">
+                  {frente.text}
+                </p>
+              </div>
+            ))}
+
+            {/* Frentes 2, 3, 4 e 5: Contábil, Societária, Financeira e de Gestão, Trabalhista */}
+            <div className="grid md:grid-cols-2 gap-6">
+              {FRENTES_ATUACAO.filter((f) => !f.destaque).map((frente, idx) => (
+                <div
+                  key={idx}
+                  className="border border-neutral-200 rounded-xl p-6 bg-white hover:border-neutral-300 transition-colors flex flex-col justify-between"
+                >
+                  <div>
+                    <h3 className="text-xl font-sans font-bold text-black mb-3">{frente.frente}</h3>
+                    <p className="text-sm text-neutral-600 leading-relaxed font-sans">
+                      {frente.text}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Link para /servicos com texto verbatim */}
+          <div className="mt-8 text-center sm:text-left">
+            <Link
+              to="/servicos"
+              className="inline-flex items-center text-sm font-semibold text-black hover:text-neutral-700 underline decoration-[#FAB319] decoration-2 underline-offset-4 font-sans"
+            >
+              Ver planos de acompanhamento →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================
+          SEÇÃO 3: POR QUE A PERES PERES (3 itens)
+         ========================================================= */}
+      <section className="py-14 md:py-20 bg-white border-b border-neutral-200">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="max-w-3xl mb-12">
+            <span className="text-xs uppercase tracking-wider text-neutral-500 font-semibold block mb-2 font-sans">
+              Diferenciais técnicos
+            </span>
+            <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
+              Por que a PERES PERES
+            </h2>
+            <p className="text-neutral-700 text-base md:text-lg mt-3 leading-relaxed font-sans">
+              Critério, formação multidisciplinar e segurança técnica para decisões societárias e
+              fiscais do médico.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 items-stretch">
+            {POR_QUE_PERES_PERES.map((item, idx) => {
+              const Icon = item.icon
+              return (
+                <Card
+                  key={idx}
+                  className="border border-neutral-200 shadow-sm hover:border-neutral-300 transition-colors bg-white flex flex-col h-full p-6 justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="h-10 w-10 rounded-md bg-neutral-100 border border-neutral-200 flex items-center justify-center shrink-0">
+                        <Icon className="h-5 w-5 text-black" />
+                      </div>
+                      <span className="font-mono text-xs font-bold text-neutral-400">
+                        0{item.num}
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-sans font-bold text-black leading-snug mb-3">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-neutral-600 leading-relaxed font-sans">
+                      {item.text}
+                    </p>
+                  </div>
+                </Card>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================
+          SEÇÃO 4: FAQ (5 perguntas e respostas verbatim com rich snippet)
+         ========================================================= */}
+      <section className="py-14 md:py-20 bg-neutral-50 border-b border-neutral-200">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
+            <span className="text-xs uppercase tracking-wider text-neutral-500 font-semibold block font-sans">
+              Perguntas frequentes
+            </span>
+            <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
+              Dúvidas recorrentes sobre contabilidade para médicos
+            </h2>
+          </div>
+
+          <Accordion type="single" collapsible className="w-full space-y-3">
+            {FAQ_ITEMS.map((item, idx) => (
+              <AccordionItem
+                key={idx}
+                value={`item-${idx}`}
+                className="bg-white border border-neutral-200 rounded-lg px-6 py-1 data-[state=open]:border-neutral-300 shadow-sm"
+              >
+                <AccordionTrigger className="text-left font-sans font-semibold text-base sm:text-lg text-black hover:no-underline py-4">
+                  {item.question}
+                </AccordionTrigger>
+                <AccordionContent className="font-sans text-sm sm:text-base text-neutral-700 leading-relaxed pb-4 pt-1">
+                  {item.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      {/* =========================================================
+          SEÇÃO 5: CONHEÇA AS OUTRAS PROFISSÕES REGULAMENTADAS
+         ========================================================= */}
+      <section className="py-12 md:py-16 bg-white border-b border-neutral-200">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="max-w-3xl mb-8 space-y-2">
+            <h3 className="text-2xl md:text-3xl font-sans font-bold text-black leading-tight">
+              Conheça as outras profissões
+            </h3>
+            <p className="text-neutral-600 text-sm md:text-base leading-relaxed font-sans">
+              Além de médicos, a PERES PERES oferece assessoria contábil e consultoria para
+              profissionais regulamentados de diversas áreas:
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+            {OUTRAS_PROFISSOES.map((prof, idx) => (
+              <Link
+                key={idx}
+                to={prof.link}
+                className="bg-neutral-50 border border-neutral-200 hover:border-neutral-300 hover:bg-neutral-100/70 rounded-lg p-3.5 flex items-center justify-between transition-colors group"
+              >
+                <div className="flex items-center gap-2.5">
+                  <span className="h-2 w-2 rounded-full bg-[#FAB319] shrink-0" />
+                  <span className="text-sm font-sans font-medium text-neutral-900 leading-snug">
+                    {prof.name}
+                  </span>
+                </div>
+                <ChevronRight className="h-4 w-4 text-neutral-400 group-hover:text-black transition-colors shrink-0" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================
+          SEÇÃO 6: OUTROS SEGMENTOS ATENDIDOS
+         ========================================================= */}
+      <section className="py-12 md:py-16 bg-neutral-50 border-b border-neutral-200">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="max-w-3xl mb-8 space-y-2">
+            <h3 className="text-2xl md:text-3xl font-sans font-bold text-black leading-tight">
+              Conheça os outros segmentos
+            </h3>
+            <p className="text-neutral-600 text-sm md:text-base leading-relaxed font-sans">
+              A PERES PERES oferece contabilidade mensal e consultoria especializada para diferentes
+              nichos e modelos de negócio:
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+            {OUTROS_SEGMENTOS.map((seg, idx) => (
+              <Link
+                key={idx}
+                to={seg.link}
+                className="bg-white border border-neutral-200 hover:border-neutral-300 hover:bg-neutral-100/70 rounded-lg p-3.5 flex items-center justify-between transition-colors group"
+              >
+                <div className="flex items-center gap-2.5">
+                  <span className="h-2 w-2 rounded-full bg-[#FAB319] shrink-0" />
+                  <span className="text-sm font-sans font-medium text-neutral-900 leading-snug">
+                    {seg.name}
+                  </span>
+                </div>
+                <ChevronRight className="h-4 w-4 text-neutral-400 group-hover:text-black transition-colors shrink-0" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================
+          SEÇÃO 7: CTA FINAL (textos verbatim)
+         ========================================================= */}
+      <section className="py-14 md:py-20 bg-neutral-950 text-white">
+        <div className="container mx-auto px-4 max-w-4xl text-center space-y-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-sans font-bold text-white leading-tight">
+            Conhecer o escritório custa uma conversa.
+          </h2>
+
+          <p className="text-base md:text-lg text-neutral-300 max-w-2xl mx-auto leading-relaxed font-sans">
+            A primeira reunião serve para a gente olhar o seu caso e dizer o que enxerga.
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <Button
+              size="lg"
+              className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold text-base h-12 px-8 border-none font-sans"
+              asChild
+            >
+              <Link to="/contato">Agendar reunião</Link>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-neutral-700 bg-neutral-900 text-white hover:bg-neutral-800 hover:text-white font-medium text-base h-12 px-8 font-sans"
+              asChild
+            >
+              <a href="https://wa.me/556136861689" target="_blank" rel="noopener noreferrer">
+                <Phone className="mr-2 h-4 w-4" />
+                WhatsApp (61) 3686-1689
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}

@@ -44,6 +44,7 @@ import EducacaoTreinamentosSegment from './pages/EducacaoTreinamentosSegment'
 import PublicidadeComunicacaoSegment from './pages/PublicidadeComunicacaoSegment'
 import AgenciasViagemSegment from './pages/AgenciasViagemSegment'
 import EcommerceSegment from './pages/EcommerceSegment'
+import MedicosSegment from './pages/MedicosSegment'
 
 function CaseDetailRedirect() {
   const { slug } = useParams<{ slug: string }>()
@@ -101,6 +102,24 @@ const App = () => (
               element={<AgenciasViagemSegment />}
             />
             <Route path="/contabilidade-para-ecommerce" element={<EcommerceSegment />} />
+            <Route path="/profissoes-regulamentadas/medicos" element={<MedicosSegment />} />
+            {/* Redirecionamentos consistentes para futuras páginas da categoria antes da criação */}
+            <Route
+              path="/profissoes-regulamentadas/psicologos"
+              element={<Navigate to="/servicos#segmentos" replace />}
+            />
+            <Route
+              path="/profissoes-regulamentadas/advogados"
+              element={<Navigate to="/servicos#segmentos" replace />}
+            />
+            <Route
+              path="/profissoes-regulamentadas/engenheiros"
+              element={<Navigate to="/servicos#segmentos" replace />}
+            />
+            <Route
+              path="/profissoes-regulamentadas"
+              element={<Navigate to="/servicos#segmentos" replace />}
+            />
             <Route path="/calculadoras" element={<CalculatorsHub />} />
             <Route path="/calculadoras/fator-r" element={<FatorRCalculator />} />
             <Route

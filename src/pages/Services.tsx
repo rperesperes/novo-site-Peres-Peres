@@ -124,6 +124,13 @@ const INTELIGENCIA_FINANCEIRA_ITEMS = [
 // Segmentos e áreas de atuação
 const SEGMENTOS_ATUACAO = [
   {
+    nome: 'Médicos (Profissões Regulamentadas)',
+    desc: 'Contabilidade e consultoria para médicos: PJ unipessoal, Simples Nacional, Fator R, pró-labore e distribuição de lucros.',
+    link: '/profissoes-regulamentadas/medicos',
+    linkText: 'Saiba mais informações',
+    destaque: true,
+  },
+  {
     nome: 'Clínicas e Profissionais da Saúde',
     desc: 'Gestão contábil e consultoria tributária com domínio do Fator R no Simples Nacional, equiparação hospitalar e segregação de receitas para redução lícita de tributos.',
     link: '/contabilidade-para-clinicas-medicas',

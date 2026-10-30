@@ -143,12 +143,12 @@ const FAQ_ITEMS = [
 
 // Demais segmentos atendidos pelo escritório (todos os demais segmentos com links para a seção de segmentos em /servicos#segmentos)
 const OUTROS_SEGMENTOS = [
+  { name: 'Médicos (Profissões Regulamentadas)', link: '/profissoes-regulamentadas/medicos' },
   { name: 'Startups e Empresas de Tecnologia', link: '/contabilidade-para-startups-e-tech' },
   { name: 'Holdings Familiares e Patrimoniais', link: '/holdings-familiares-e-patrimoniais' },
   { name: 'Educação e Treinamentos', link: '/contabilidade-para-educacao-e-treinamentos' },
   { name: 'Publicidade e Comunicação', link: '/contabilidade-para-agencias-de-publicidade' },
   { name: 'Agências de Viagem', link: '/contabilidade-para-agencias-de-viagem' },
-  { name: 'Profissões Regulamentadas', link: '/servicos#segmentos' },
   { name: 'E-commerce', link: '/contabilidade-para-ecommerce' },
   { name: 'MEIs e Profissionais Liberais', link: '/servicos#segmentos' },
 ]

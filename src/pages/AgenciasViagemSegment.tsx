@@ -143,12 +143,12 @@ const FAQ_ITEMS = [
 
 // Demais segmentos atendidos pelo escritorio
 const OUTROS_SEGMENTOS = [
+  { name: 'Médicos (Profissões Regulamentadas)', link: '/profissoes-regulamentadas/medicos' },
   { name: 'Clínicas Médicas e Saúde', link: '/contabilidade-para-clinicas-medicas' },
   { name: 'Startups e Empresas de Tecnologia', link: '/contabilidade-para-startups-e-tech' },
   { name: 'Holdings Familiares e Patrimoniais', link: '/holdings-familiares-e-patrimoniais' },
   { name: 'Educação e Treinamentos', link: '/contabilidade-para-educacao-e-treinamentos' },
   { name: 'Publicidade e Comunicação', link: '/contabilidade-para-agencias-de-publicidade' },
-  { name: 'Profissões Regulamentadas', link: '/servicos#segmentos' },
   { name: 'E-commerce', link: '/contabilidade-para-ecommerce' },
   { name: 'MEIs e Profissionais Liberais', link: '/servicos#segmentos' },
 ]
