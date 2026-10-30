@@ -162,9 +162,9 @@ const SEGMENTOS_ATUACAO = [
   },
   {
     nome: 'Agências de Viagem',
-    desc: 'Operações de turismo, intermediação de serviços, apuração de tributos sobre margem líquida e conciliação de recebíveis.',
-    link: '/contato',
-    linkText: 'Solicitar atendimento',
+    desc: 'Contabilidade e consultoria especializada em comissão, repasse a fornecedores, câmbio, pacotes antecipados e tratamento de cancelamentos.',
+    link: '/contabilidade-para-agencias-de-viagem',
+    linkText: 'Saiba mais informações',
   },
   {
     nome: 'E-commerces',

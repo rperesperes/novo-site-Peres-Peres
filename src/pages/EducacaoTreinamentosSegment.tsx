@@ -146,8 +146,8 @@ const OUTROS_SEGMENTOS = [
   { name: 'Startups e Empresas de Tecnologia', link: '/contabilidade-para-startups-e-tech' },
   { name: 'Holdings Familiares e Patrimoniais', link: '/holdings-familiares-e-patrimoniais' },
   { name: 'Publicidade e Comunicação', link: '/contabilidade-para-agencias-de-publicidade' },
+  { name: 'Agências de Viagem', link: '/contabilidade-para-agencias-de-viagem' },
   { name: 'Profissões Regulamentadas', link: '/servicos#segmentos' },
-  { name: 'Agências de Viagem', link: '/servicos#segmentos' },
   { name: 'E-commerces', link: '/servicos#segmentos' },
   { name: 'MEIs e Profissionais Liberais', link: '/servicos#segmentos' },
 ]
