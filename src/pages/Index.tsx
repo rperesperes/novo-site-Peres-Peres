@@ -718,7 +718,12 @@ export default function Index() {
                   Pesquisa e Análise Tributária (UniCEUB) e o Grupo de Estudos da Limitação e
                   Controle da Renúncia Fiscal (IDP). Foi monitor acadêmico das disciplinas de
                   Direito Tributário I, II e III no IDP junto aos professores e advogados Ivan
-                  Allegretti, Onizia Pignataro e Alberto Medeiros
+                  Allegretti, Onizia Pignataro e Alberto Medeiros.&nbsp;Foi Intercambista do
+                  Programa de Intercâmbio do Conselho Administrativo de Defesa Econômica
+                  (PINCADE/2019). Painelista na 49ª{' '}
+                  <i>Jornadas Internacionales de Finanzas Públicas</i>, em Buenos Aires/Argentina
+                  (2016). E recebeu certificado de melhor desempenho entre os alunos do 3, 4 e 6
+                  semestres (UCB/2013 e 2014).
                 </p>
               </div>
 
