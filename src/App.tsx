@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useParams } from 'react-router-dom'
 import { Toaster } from '@/components/ui/toaster'
 import { Toaster as Sonner } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
@@ -8,7 +8,6 @@ import NotFound from './pages/NotFound'
 // Pages
 import Index from './pages/Index'
 import { AuthProvider } from './hooks/use-auth'
-import Login from './pages/admin/Login'
 import AdminLayout from './components/AdminLayout'
 import AdminCases from './pages/admin/Cases'
 import AdminJobs from './pages/admin/Jobs'
@@ -40,6 +39,11 @@ import PrivacyPolicy from './pages/PrivacyPolicy'
 import Entrar from './pages/Entrar'
 import ClinicasMedicasSegment from './pages/ClinicasMedicasSegment'
 
+function CaseDetailRedirect() {
+  const { slug } = useParams<{ slug: string }>()
+  return <Navigate to={`/casos/${slug || ''}`} replace />
+}
+
 const App = () => (
   <AuthProvider>
     <BrowserRouter>
@@ -57,13 +61,18 @@ const App = () => (
             <Route path="/servicos/inteligencia-financeira" element={<InteligenciaFinanceira />} />
             <Route path="/casos" element={<Cases />} />
             <Route path="/casos/:slug" element={<CaseDetail />} />
-            <Route path="/casos-de-sucesso" element={<Cases />} />
-            <Route path="/casos-de-sucesso/:slug" element={<CaseDetail />} />
+            <Route path="/casos-de-sucesso" element={<Navigate to="/casos" replace />} />
+            <Route path="/casos-de-sucesso/:slug" element={<CaseDetailRedirect />} />
+            <Route path="/cases" element={<Navigate to="/casos" replace />} />
+            <Route path="/calculators" element={<Navigate to="/calculadoras" replace />} />
             <Route path="/recursos" element={<Resources />} />
             <Route path="/contato" element={<Contact />} />
             <Route path="/entrar" element={<Entrar />} />
             <Route path="/politica-de-privacidade" element={<PrivacyPolicy />} />
-            <Route path="/privacidade" element={<PrivacyPolicy />} />
+            <Route
+              path="/privacidade"
+              element={<Navigate to="/politica-de-privacidade" replace />}
+            />
             <Route
               path="/contabilidade-para-clinicas-medicas"
               element={<ClinicasMedicasSegment />}
@@ -97,7 +106,7 @@ const App = () => (
             />
             <Route path="/calculadoras/:slug" element={<CalculatorDetail />} />
           </Route>
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Navigate to="/entrar" replace />} />
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<AdminCases />} />
             <Route path="cases" element={<AdminCases />} />

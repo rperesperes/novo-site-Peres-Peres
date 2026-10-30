@@ -141,17 +141,16 @@ const FAQ_ITEMS = [
   },
 ]
 
-// Demais segmentos atendidos pelo escritório
+// Demais segmentos atendidos pelo escritório (todos os demais segmentos com links para a seção de segmentos em /servicos#segmentos)
 const OUTROS_SEGMENTOS = [
-  { name: 'Médicos e Profissionais da Saúde', link: '/contabilidade-para-medicos' },
-  { name: 'Startups e Empresas de Tecnologia', link: '/servicos' },
-  { name: 'Profissões Regulamentadas', link: '/servicos' },
-  { name: 'Holdings Familiares e Patrimoniais', link: '/servicos' },
-  { name: 'Educação e Treinamentos', link: '/servicos' },
-  { name: 'Publicidade e Comunicação', link: '/servicos' },
-  { name: 'Agências de Viagem', link: '/servicos' },
-  { name: 'E-commerces', link: '/servicos' },
-  { name: 'MEIs e Profissionais Liberais', link: '/servicos' },
+  { name: 'Startups e Empresas de Tecnologia', link: '/servicos#segmentos' },
+  { name: 'Profissões Regulamentadas', link: '/servicos#segmentos' },
+  { name: 'Holdings Familiares e Patrimoniais', link: '/servicos#segmentos' },
+  { name: 'Educação e Treinamentos', link: '/servicos#segmentos' },
+  { name: 'Publicidade e Comunicação', link: '/servicos#segmentos' },
+  { name: 'Agências de Viagem', link: '/servicos#segmentos' },
+  { name: 'E-commerces', link: '/servicos#segmentos' },
+  { name: 'MEIs e Profissionais Liberais', link: '/servicos#segmentos' },
 ]
 
 export default function ClinicasMedicasSegment() {
@@ -295,14 +294,14 @@ export default function ClinicasMedicasSegment() {
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-sm text-neutral-700 font-sans">
             <span className="font-medium text-neutral-900">
-              É médico atuando em consultório próprio ou como pessoa física? Veja a página de
-              Médicos.
+              É médico atuando em consultório próprio ou como pessoa física? Converse diretamente
+              com nossos especialistas.
             </span>
             <Link
-              to="/contabilidade-para-medicos"
+              to="/contato"
               className="inline-flex items-center gap-1.5 font-semibold text-black hover:text-neutral-700 underline decoration-[#FAB319] decoration-2 underline-offset-4 shrink-0"
             >
-              Acessar página de Médicos
+              Falar com especialista
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

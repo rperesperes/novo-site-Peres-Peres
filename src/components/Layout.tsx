@@ -21,7 +21,6 @@ export default function Layout() {
       '/contato': 'Fale com o Escritório | PERES PERES Consultoria & Contabilidade',
       '/politica-de-privacidade':
         'Política de Privacidade | PERES PERES Consultoria & Contabilidade',
-      '/privacidade': 'Política de Privacidade | PERES PERES Consultoria & Contabilidade',
       '/calculadoras':
         'Calculadoras Tributárias e Trabalhistas Gratuitas | PERES PERES Consultoria & Contabilidade',
     }

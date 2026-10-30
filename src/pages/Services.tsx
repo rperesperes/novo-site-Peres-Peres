@@ -27,6 +27,7 @@ import {
   GitMerge,
   History,
   LineChart,
+  Stethoscope,
 } from 'lucide-react'
 
 // Itens da Consultoria Tributária
@@ -117,6 +118,65 @@ const INTELIGENCIA_FINANCEIRA_ITEMS = [
   {
     title: 'Acompanhamento Periódico e Ajuste de Rota',
     desc: 'Reuniões de alinhamento com análise comparativa entre projetado e realizado, fundamentando decisões de negócio.',
+  },
+]
+
+// Segmentos e áreas de atuação
+const SEGMENTOS_ATUACAO = [
+  {
+    nome: 'Clínicas e Profissionais da Saúde',
+    desc: 'Gestão contábil e consultoria tributária com domínio do Fator R no Simples Nacional, equiparação hospitalar e segregação de receitas para redução lícita de tributos.',
+    link: '/contabilidade-para-clinicas-medicas',
+    linkText: 'Ver página especializada',
+    destaque: true,
+  },
+  {
+    nome: 'Startups e Empresas de Tecnologia',
+    desc: 'Estruturação contábil para negócios digitais, SaaS, captação de investimentos, incentivos fiscais e transição segura de regimes tributários.',
+    link: '/contato',
+    linkText: 'Solicitar atendimento',
+  },
+  {
+    nome: 'Profissões Regulamentadas',
+    desc: 'Atendimento direcionado a sociedades uniprofissionais, escritórios de advocacia, engenharia, arquitetura e consultoria, com apuração correta de ISS e IRPJ.',
+    link: '/contato',
+    linkText: 'Solicitar atendimento',
+  },
+  {
+    nome: 'Holdings Familiares e Patrimoniais',
+    desc: 'Planejamento patrimonial e sucessório, proteção de bens e otimização da carga tributária na locação e na alienação de imóveis.',
+    link: '/contato',
+    linkText: 'Solicitar atendimento',
+  },
+  {
+    nome: 'Educação e Treinamentos',
+    desc: 'Assessoria contábil para instituições de ensino, escolas, cursos livres e infoprodutores, com enquadramento de atividades e aproveitamento de isenções.',
+    link: '/contato',
+    linkText: 'Solicitar atendimento',
+  },
+  {
+    nome: 'Publicidade e Comunicação',
+    desc: 'Contabilidade estratégica para agências de publicidade, marketing digital, produção audiovisual e veículos de comunicação, com tratamento de repasses e retenções.',
+    link: '/contato',
+    linkText: 'Solicitar atendimento',
+  },
+  {
+    nome: 'Agências de Viagem',
+    desc: 'Operações de turismo, intermediação de serviços, apuração de tributos sobre margem líquida e conciliação de recebíveis.',
+    link: '/contato',
+    linkText: 'Solicitar atendimento',
+  },
+  {
+    nome: 'E-commerces',
+    desc: 'Contabilidade para comércio eletrônico com domínio de regras de DIFAL, ICMS interestadual, marketplaces e substituição tributária.',
+    link: '/contato',
+    linkText: 'Solicitar atendimento',
+  },
+  {
+    nome: 'MEIs e Profissionais Liberais',
+    desc: 'Orientação técnica, conformidade cadastral, desenquadramento planejado e migração estruturada para microempresa (ME).',
+    link: '/contato',
+    linkText: 'Solicitar atendimento',
   },
 ]
 
@@ -532,6 +592,83 @@ export default function Services() {
                 </Link>
               </Button>
             </div>
+          </div>
+        </section>
+
+        {/* =========================================================
+            BLOCO: SEGMENTOS E ÁREAS DE ATUAÇÃO
+           ========================================================= */}
+        <section id="segmentos" className="scroll-mt-24 space-y-8">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block">
+              Expertise Setorial
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-black">
+              Segmentos e Áreas de Atuação
+            </h2>
+            <p className="text-neutral-600 text-sm md:text-base leading-relaxed">
+              Soluções contábeis e tributárias desenhadas para as particularidades normativas,
+              societárias e operacionais de cada atividade econômica.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+            {SEGMENTOS_ATUACAO.map((item) => (
+              <Card
+                key={item.nome}
+                className={`flex flex-col justify-between transition-all duration-300 ${
+                  item.destaque
+                    ? 'border-2 border-black bg-white shadow-xl relative ring-1 ring-black/5'
+                    : 'border border-neutral-200 bg-white shadow-sm hover:shadow-md'
+                }`}
+              >
+                <div>
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <div className="h-10 w-10 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center">
+                        {item.destaque ? (
+                          <Stethoscope className="h-5 w-5 text-black" />
+                        ) : (
+                          <Building2 className="h-5 w-5 text-black" />
+                        )}
+                      </div>
+                      {item.destaque && (
+                        <span className="text-[11px] font-mono uppercase tracking-wider px-2.5 py-1 rounded font-semibold bg-[#FAB319] text-black">
+                          Especialidade
+                        </span>
+                      )}
+                    </div>
+                    <CardTitle className="text-xl font-bold text-black font-sans">
+                      {item.nome}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <p className="text-xs md:text-sm text-neutral-600 leading-relaxed font-sans">
+                      {item.desc}
+                    </p>
+                  </CardContent>
+                </div>
+                <div className="p-6 pt-4 border-t border-neutral-100">
+                  <Button
+                    asChild
+                    variant="outline"
+                    className={`w-full font-semibold h-10 text-xs md:text-sm ${
+                      item.destaque
+                        ? 'border-black text-black hover:bg-neutral-100'
+                        : 'border-neutral-200 text-neutral-800 hover:bg-neutral-50'
+                    }`}
+                  >
+                    <Link
+                      to={item.link}
+                      className="inline-flex items-center justify-center gap-1.5"
+                    >
+                      <span>{item.linkText}</span>
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </Card>
+            ))}
           </div>
         </section>
 

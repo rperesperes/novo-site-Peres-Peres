@@ -25,17 +25,19 @@ export default function Cases() {
     const loadFromDb = async () => {
       try {
         const records = await getPublicSuccessCases()
-        if (isMounted && records && records.length > 0) {
-          // Converter records da coleção para a estrutura SuccessCase esperada pelo template visual
-          const mapped: SuccessCase[] = records.map((r: SuccessCaseRecord, index: number) => {
-            const fallback = SUCCESS_CASES.find(
-              (sc) => sc.slug === r.slug || sc.id === r.id || sc.caseNumber === index + 1,
-            )
+        if (!isMounted) return
+
+        // Converter records do banco de dados
+        const dbCases: SuccessCase[] = (records || []).map(
+          (r: SuccessCaseRecord, index: number) => {
+            const fallback = SUCCESS_CASES.find((sc) => sc.slug === r.slug || sc.id === r.id)
             const slug =
               r.slug ||
               fallback?.slug ||
               r.title
                 .toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
                 .replace(/[^a-z0-9]+/g, '-')
                 .replace(/(^-|-$)+/g, '')
 
@@ -74,8 +76,19 @@ export default function Cases() {
                 paragraphs: resultParagraphs,
               },
             }
-          })
-          setCasesList(mapped)
+          },
+        )
+
+        // Preservar casos estáticos que ainda não existam no banco por slug
+        const dbSlugs = new Set(dbCases.map((c) => c.slug))
+        const remainingStatic = SUCCESS_CASES.filter((sc) => !dbSlugs.has(sc.slug))
+
+        const combined = [...dbCases, ...remainingStatic].sort(
+          (a, b) => a.caseNumber - b.caseNumber,
+        )
+
+        if (combined.length > 0) {
+          setCasesList(combined)
         }
       } catch (err) {
         console.warn('Fallback para casos estáticos locais:', err)

@@ -34,8 +34,11 @@ export default function CaseDetail() {
         const matched = records.find(
           (r: SuccessCaseRecord) =>
             r.slug === slug ||
+            r.id === slug ||
             r.title
               .toLowerCase()
+              .normalize('NFD')
+              .replace(/[\u0300-\u036f]/g, '')
               .replace(/[^a-z0-9]+/g, '-')
               .replace(/(^-|-$)+/g, '') === slug,
         )
