@@ -53,20 +53,17 @@ const ROTINAS_ACOMPANHAMENTO = [
   },
 ]
 
-// Bloco 11: Segmentos e áreas de atuação (12 segmentos na ordem estrita do briefing)
+// Bloco 11: Segmentos e áreas de atuação (9 segmentos na ordem estrita do briefing)
 const SEGMENTOS_ATUACAO = [
-  'Empresas de Serviços',
-  'Comércio Varejista e Atacadista',
   'Clínicas e Profissionais da Saúde',
   'Startups e Empresas de Tecnologia',
-  'Engenharia e Construção Civil',
-  'Transporte e Logística',
-  'Profissionais Liberais e PJ',
+  'Profissões Regulamentadas',
   'Holdings Familiares e Patrimoniais',
   'Educação e Treinamentos',
-  'Restaurantes e Alimentação',
-  'Corretoras e Serviços Financeiros',
   'Publicidade e Comunicação',
+  'Agências de Viagem',
+  'E-commerces',
+  'MEIs e Profissionais Liberais',
 ]
 
 export default function Index() {
