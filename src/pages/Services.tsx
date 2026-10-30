@@ -152,6 +152,13 @@ const SEGMENTOS_ATUACAO = [
     destaque: true,
   },
   {
+    nome: 'Arquitetos (Profissões Regulamentadas)',
+    desc: 'Contabilidade e consultoria para arquitetos: PJ unipessoal, Fator R no Simples, retenções de contratantes e receita por projeto.',
+    link: '/profissoes-regulamentadas/arquitetos',
+    linkText: 'Saiba mais informações',
+    destaque: true,
+  },
+  {
     nome: 'Clínicas e Profissionais da Saúde',
     desc: 'Gestão contábil e consultoria tributária com domínio do Fator R no Simples Nacional, equiparação hospitalar e segregação de receitas para redução lícita de tributos.',
     link: '/contabilidade-para-clinicas-medicas',

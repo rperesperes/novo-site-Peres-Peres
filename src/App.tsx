@@ -48,6 +48,7 @@ import MedicosSegment from './pages/MedicosSegment'
 import AdvogadosSegment from './pages/AdvogadosSegment'
 import PsicologosSegment from './pages/PsicologosSegment'
 import EngenheirosSegment from './pages/EngenheirosSegment'
+import ArquitetosSegment from './pages/ArquitetosSegment'
 
 function CaseDetailRedirect() {
   const { slug } = useParams<{ slug: string }>()
@@ -109,11 +110,7 @@ const App = () => (
             <Route path="/profissoes-regulamentadas/advogados" element={<AdvogadosSegment />} />
             <Route path="/profissoes-regulamentadas/psicologos" element={<PsicologosSegment />} />
             <Route path="/profissoes-regulamentadas/engenheiros" element={<EngenheirosSegment />} />
-            {/* Redirecionamentos consistentes para futuras páginas da categoria antes da criação */}
-            <Route
-              path="/profissoes-regulamentadas/arquitetos"
-              element={<Navigate to="/servicos#segmentos" replace />}
-            />
+            <Route path="/profissoes-regulamentadas/arquitetos" element={<ArquitetosSegment />} />
             <Route
               path="/profissoes-regulamentadas"
               element={<Navigate to="/servicos#segmentos" replace />}

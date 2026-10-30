@@ -150,6 +150,10 @@ const OUTROS_SEGMENTOS = [
     name: 'Engenheiros (Profissões Regulamentadas)',
     link: '/profissoes-regulamentadas/engenheiros',
   },
+  {
+    name: 'Arquitetos (Profissões Regulamentadas)',
+    link: '/profissoes-regulamentadas/arquitetos',
+  },
   { name: 'Startups e Empresas de Tecnologia', link: '/contabilidade-para-startups-e-tech' },
   { name: 'Holdings Familiares e Patrimoniais', link: '/holdings-familiares-e-patrimoniais' },
   { name: 'Educação e Treinamentos', link: '/contabilidade-para-educacao-e-treinamentos' },
