@@ -39,6 +39,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy'
 import Entrar from './pages/Entrar'
 import ClinicasMedicasSegment from './pages/ClinicasMedicasSegment'
 import StartupsTechSegment from './pages/StartupsTechSegment'
+import HoldingsFamiliaresSegment from './pages/HoldingsFamiliaresSegment'
 
 function CaseDetailRedirect() {
   const { slug } = useParams<{ slug: string }>()
@@ -79,6 +80,10 @@ const App = () => (
               element={<ClinicasMedicasSegment />}
             />
             <Route path="/contabilidade-para-startups-e-tech" element={<StartupsTechSegment />} />
+            <Route
+              path="/holdings-familiares-e-patrimoniais"
+              element={<HoldingsFamiliaresSegment />}
+            />
             <Route path="/calculadoras" element={<CalculatorsHub />} />
             <Route path="/calculadoras/fator-r" element={<FatorRCalculator />} />
             <Route

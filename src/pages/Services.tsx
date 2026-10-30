@@ -145,8 +145,8 @@ const SEGMENTOS_ATUACAO = [
   {
     nome: 'Holdings Familiares e Patrimoniais',
     desc: 'Planejamento patrimonial e sucessório, proteção de bens e otimização da carga tributária na locação e na alienação de imóveis.',
-    link: '/contato',
-    linkText: 'Solicitar atendimento',
+    link: '/holdings-familiares-e-patrimoniais',
+    linkText: 'Saiba mais informações',
   },
   {
     nome: 'Educação e Treinamentos',

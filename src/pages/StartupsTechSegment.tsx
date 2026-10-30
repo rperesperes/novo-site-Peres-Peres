@@ -144,8 +144,8 @@ const FAQ_ITEMS = [
 // Demais segmentos atendidos pelo escritório
 const OUTROS_SEGMENTOS = [
   { name: 'Clínicas Médicas e Saúde', link: '/contabilidade-para-clinicas-medicas' },
+  { name: 'Holdings Familiares e Patrimoniais', link: '/holdings-familiares-e-patrimoniais' },
   { name: 'Profissões Regulamentadas', link: '/servicos#segmentos' },
-  { name: 'Holdings Familiares e Patrimoniais', link: '/servicos#segmentos' },
   { name: 'Educação e Treinamentos', link: '/servicos#segmentos' },
   { name: 'Publicidade e Comunicação', link: '/servicos#segmentos' },
   { name: 'Agências de Viagem', link: '/servicos#segmentos' },
