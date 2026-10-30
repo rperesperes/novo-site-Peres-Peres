@@ -124,6 +124,13 @@ const INTELIGENCIA_FINANCEIRA_ITEMS = [
 // Segmentos e áreas de atuação
 const SEGMENTOS_ATUACAO = [
   {
+    nome: 'Advogados (Profissões Regulamentadas)',
+    desc: 'Contabilidade e consultoria para advogados: honorários e sucumbência, ISS por município, sociedade de advogados e estrutura da banca.',
+    link: '/profissoes-regulamentadas/advogados',
+    linkText: 'Saiba mais informações',
+    destaque: true,
+  },
+  {
     nome: 'Médicos (Profissões Regulamentadas)',
     desc: 'Contabilidade e consultoria para médicos: PJ unipessoal, Simples Nacional, Fator R, pró-labore e distribuição de lucros.',
     link: '/profissoes-regulamentadas/medicos',

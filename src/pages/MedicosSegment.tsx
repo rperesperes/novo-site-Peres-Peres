@@ -142,8 +142,8 @@ const FAQ_ITEMS = [
 
 // Outras profissões regulamentadas (páginas planejadas)
 const OUTRAS_PROFISSOES = [
-  { name: 'Psicólogos', link: '/profissoes-regulamentadas/psicologos' },
   { name: 'Advogados', link: '/profissoes-regulamentadas/advogados' },
+  { name: 'Psicólogos', link: '/profissoes-regulamentadas/psicologos' },
   { name: 'Engenheiros', link: '/profissoes-regulamentadas/engenheiros' },
 ]
 

@@ -143,6 +143,7 @@ const FAQ_ITEMS = [
 
 // Demais segmentos atendidos pelo escritorio
 const OUTROS_SEGMENTOS = [
+  { name: 'Advogados (Profissões Regulamentadas)', link: '/profissoes-regulamentadas/advogados' },
   { name: 'Médicos (Profissões Regulamentadas)', link: '/profissoes-regulamentadas/medicos' },
   { name: 'Clínicas Médicas e Saúde', link: '/contabilidade-para-clinicas-medicas' },
   { name: 'Startups e Empresas de Tecnologia', link: '/contabilidade-para-startups-e-tech' },
