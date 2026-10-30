@@ -145,6 +145,7 @@ const FAQ_ITEMS = [
 const OUTROS_SEGMENTOS = [
   { name: 'Advogados (Profissões Regulamentadas)', link: '/profissoes-regulamentadas/advogados' },
   { name: 'Médicos (Profissões Regulamentadas)', link: '/profissoes-regulamentadas/medicos' },
+  { name: 'Psicólogos (Profissões Regulamentadas)', link: '/profissoes-regulamentadas/psicologos' },
   { name: 'Clínicas Médicas e Saúde', link: '/contabilidade-para-clinicas-medicas' },
   { name: 'Holdings Familiares e Patrimoniais', link: '/holdings-familiares-e-patrimoniais' },
   { name: 'Educação e Treinamentos', link: '/contabilidade-para-educacao-e-treinamentos' },

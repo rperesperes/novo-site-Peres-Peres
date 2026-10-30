@@ -46,6 +46,7 @@ import AgenciasViagemSegment from './pages/AgenciasViagemSegment'
 import EcommerceSegment from './pages/EcommerceSegment'
 import MedicosSegment from './pages/MedicosSegment'
 import AdvogadosSegment from './pages/AdvogadosSegment'
+import PsicologosSegment from './pages/PsicologosSegment'
 
 function CaseDetailRedirect() {
   const { slug } = useParams<{ slug: string }>()
@@ -105,11 +106,8 @@ const App = () => (
             <Route path="/contabilidade-para-ecommerce" element={<EcommerceSegment />} />
             <Route path="/profissoes-regulamentadas/medicos" element={<MedicosSegment />} />
             <Route path="/profissoes-regulamentadas/advogados" element={<AdvogadosSegment />} />
+            <Route path="/profissoes-regulamentadas/psicologos" element={<PsicologosSegment />} />
             {/* Redirecionamentos consistentes para futuras páginas da categoria antes da criação */}
-            <Route
-              path="/profissoes-regulamentadas/psicologos"
-              element={<Navigate to="/servicos#segmentos" replace />}
-            />
             <Route
               path="/profissoes-regulamentadas/engenheiros"
               element={<Navigate to="/servicos#segmentos" replace />}

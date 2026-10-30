@@ -138,6 +138,13 @@ const SEGMENTOS_ATUACAO = [
     destaque: true,
   },
   {
+    nome: 'Psicólogos (Profissões Regulamentadas)',
+    desc: 'Contabilidade e consultoria para psicólogos: PJ unipessoal, Fator R, pró-labore e atendimento online.',
+    link: '/profissoes-regulamentadas/psicologos',
+    linkText: 'Saiba mais informações',
+    destaque: true,
+  },
+  {
     nome: 'Clínicas e Profissionais da Saúde',
     desc: 'Gestão contábil e consultoria tributária com domínio do Fator R no Simples Nacional, equiparação hospitalar e segregação de receitas para redução lícita de tributos.',
     link: '/contabilidade-para-clinicas-medicas',
