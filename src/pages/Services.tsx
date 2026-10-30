@@ -151,8 +151,8 @@ const SEGMENTOS_ATUACAO = [
   {
     nome: 'Educação e Treinamentos',
     desc: 'Assessoria contábil para instituições de ensino, escolas, cursos livres e infoprodutores, com enquadramento de atividades e aproveitamento de isenções.',
-    link: '/contato',
-    linkText: 'Solicitar atendimento',
+    link: '/contabilidade-para-educacao-e-treinamentos',
+    linkText: 'Saiba mais informações',
   },
   {
     nome: 'Publicidade e Comunicação',
