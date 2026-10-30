@@ -38,6 +38,7 @@ import JurosDeFinanciamentoCalculator from './pages/JurosDeFinanciamentoCalculat
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Entrar from './pages/Entrar'
 import ClinicasMedicasSegment from './pages/ClinicasMedicasSegment'
+import StartupsTechSegment from './pages/StartupsTechSegment'
 
 function CaseDetailRedirect() {
   const { slug } = useParams<{ slug: string }>()
@@ -77,6 +78,7 @@ const App = () => (
               path="/contabilidade-para-clinicas-medicas"
               element={<ClinicasMedicasSegment />}
             />
+            <Route path="/contabilidade-para-startups-e-tech" element={<StartupsTechSegment />} />
             <Route path="/calculadoras" element={<CalculatorsHub />} />
             <Route path="/calculadoras/fator-r" element={<FatorRCalculator />} />
             <Route

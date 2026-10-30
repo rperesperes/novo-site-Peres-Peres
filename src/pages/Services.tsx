@@ -133,8 +133,8 @@ const SEGMENTOS_ATUACAO = [
   {
     nome: 'Startups e Empresas de Tecnologia',
     desc: 'Estruturação contábil para negócios digitais, SaaS, captação de investimentos, incentivos fiscais e transição segura de regimes tributários.',
-    link: '/contato',
-    linkText: 'Solicitar atendimento',
+    link: '/contabilidade-para-startups-e-tech',
+    linkText: 'Saiba mais informações',
   },
   {
     nome: 'Profissões Regulamentadas',

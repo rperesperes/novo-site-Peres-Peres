@@ -143,7 +143,7 @@ const FAQ_ITEMS = [
 
 // Demais segmentos atendidos pelo escritório (todos os demais segmentos com links para a seção de segmentos em /servicos#segmentos)
 const OUTROS_SEGMENTOS = [
-  { name: 'Startups e Empresas de Tecnologia', link: '/servicos#segmentos' },
+  { name: 'Startups e Empresas de Tecnologia', link: '/contabilidade-para-startups-e-tech' },
   { name: 'Profissões Regulamentadas', link: '/servicos#segmentos' },
   { name: 'Holdings Familiares e Patrimoniais', link: '/servicos#segmentos' },
   { name: 'Educação e Treinamentos', link: '/servicos#segmentos' },
