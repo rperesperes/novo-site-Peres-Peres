@@ -157,8 +157,8 @@ const SEGMENTOS_ATUACAO = [
   {
     nome: 'Publicidade e Comunicação',
     desc: 'Contabilidade estratégica para agências de publicidade, marketing digital, produção audiovisual e veículos de comunicação, com tratamento de repasses e retenções.',
-    link: '/contato',
-    linkText: 'Solicitar atendimento',
+    link: '/contabilidade-para-agencias-de-publicidade',
+    linkText: 'Saiba mais informações',
   },
   {
     nome: 'Agências de Viagem',
