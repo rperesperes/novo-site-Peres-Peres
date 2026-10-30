@@ -431,7 +431,8 @@ export default function Index() {
                 <div>
                   <h3 className="text-2xl font-sans font-bold text-black mb-1">Essential</h3>
                   <p className="text-sm text-neutral-600 font-sans leading-relaxed">
-                    <i>Essential</i>
+                    Para empresas menores e mais simples, com rotinas fiscais e contábeis
+                    essenciais.
                   </p>
                 </div>
 
@@ -447,12 +448,12 @@ export default function Index() {
                     faturamento ou atividade; revisão de folha e pró-labore; alertas de risco
                     identificados no fechamento; respostas a dúvidas pontuais ao longo do mês.
                   </p>
-                  <div className="p-3 bg-neutral-50 rounded border border-neutral-200 text-xs text-neutral-600">
-                    <strong className="text-neutral-900 block mb-0.5">Limite claro:</strong> a
-                    consultoria acontece dentro da rotina mensal. Projetos com escopo próprio, como
-                    recuperação de créditos, revisão de teses e perícias, são orçados à parte, com
-                    desconto para clientes do plano.
-                  </div>
+                  <p>
+                    <strong className="text-black block mb-0.5">Limite claro:</strong> a consultoria
+                    acontece dentro da rotina mensal. Projetos com escopo próprio, recuperação de
+                    créditos, revisão de teses, perícias e operações societárias, são orçados à
+                    parte, com desconto para clientes do plano.
+                  </p>
                 </div>
               </div>
 
@@ -476,7 +477,7 @@ export default function Index() {
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-sans font-bold text-black mb-1">PLANO PREMIUM</h3>
+                  <h3 className="text-2xl font-sans font-bold text-black mb-1">Premium</h3>
                   <p className="text-sm text-neutral-600 font-sans leading-relaxed">
                     O plano completo: acompanhamento próximo, inteligência fiscal e consultorias
                     periódicas.
@@ -484,43 +485,27 @@ export default function Index() {
                 </div>
 
                 <div className="pt-2 space-y-3 text-xs md:text-sm text-neutral-700 font-sans leading-relaxed border-t border-neutral-100">
-                  <div>
-                    <strong className="text-black block mb-2">Tudo do Essential, mais:</strong>
-                    <ul className="space-y-2">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-black shrink-0 mt-0.5" />
-                        <span>Reuniões periódicas de acompanhamento com pauta técnica;</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-black shrink-0 mt-0.5" />
-                        <span>Revisão recorrente de regime, Fator R e estrutura de folha;</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-black shrink-0 mt-0.5" />
-                        <span>Análise de cenários e simulações tributárias durante o ano;</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-black shrink-0 mt-0.5" />
-                        <span>
-                          Acompanhamento ativo da Reforma Tributária aplicado ao seu setor;
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-black shrink-0 mt-0.5" />
-                        <span>
-                          Leitura financeira do resultado, com margem, caixa e formação de preço;
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-black shrink-0 mt-0.5" />
-                        <span>Apoio contábil e societário em decisões de crescimento.</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <p className="pt-1">
-                    <strong className="text-black block mb-0.5">Consultoria incluída:</strong>
-                    as cinco frentes, com periodicidade definida em contrato.
+                  <p>
+                    <strong className="text-black block mb-0.5">Contabilidade completa:</strong>
+                    tudo do Essential, escrituração, apuração de tributos, folha e eSocial,
+                    obrigações acessórias, fechamento com DRE e balanço, com acompanhamento próximo
+                    da equipe.
+                  </p>
+                  <p>
+                    <strong className="text-black block mb-0.5">
+                      Consultoria incluída, em maior profundidade e periodicidade:
+                    </strong>
+                    reuniões periódicas de acompanhamento com pauta técnica; revisão recorrente de
+                    regime, Fator R e estrutura de folha; análise de cenários e simulações
+                    tributárias durante o ano; acompanhamento ativo da Reforma Tributária aplicado
+                    ao seu setor; leitura financeira do resultado, com margem, caixa e formação de
+                    preço; e apoio contábil e societário em decisões de crescimento.
+                  </p>
+                  <p>
+                    <strong className="text-black block mb-0.5">
+                      Consultoria nas cinco frentes:
+                    </strong>
+                    com periodicidade definida em contrato.
                   </p>
                 </div>
               </div>
@@ -546,7 +531,8 @@ export default function Index() {
                 <div>
                   <h3 className="text-2xl font-sans font-bold text-black mb-1">On Demand</h3>
                   <p className="text-sm text-neutral-600 font-sans leading-relaxed">
-                    <i>On Demand</i>
+                    Equipe multidisciplinar sob demanda para projetos pontuais, perícias e alta
+                    complexidade.
                   </p>
                 </div>
 
