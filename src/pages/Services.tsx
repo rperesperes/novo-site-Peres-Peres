@@ -21,6 +21,12 @@ import {
   ShieldCheck,
   Wallet,
   TrendingUp,
+  SearchCheck,
+  Building2,
+  Briefcase,
+  GitMerge,
+  History,
+  LineChart,
 } from 'lucide-react'
 
 // Itens da Consultoria Tributária
@@ -161,7 +167,7 @@ const PLANOS = [
       'Modelo sob medida para operações complexas, demandas extraordinárias ou reestruturações societárias e tributárias que exigem a mobilização pontual de profissionais multidisciplinares e pareceres técnicos de alta especialização.',
     includes: [
       'Equipe multidisciplinar alocada para projetos pontuais ou sazonais',
-      'Auditorias contábeis específicas e perícias extrajudiciais especializadas',
+      'Auditorias contábeis específicas e perícias extrajudiciais (ver Serviços Avulsos)',
       'Reestruturação societária, holding patrimonial e planejamento sucessório',
       'Defesas técnicas em contencioso administrativo e resposta a notificações fiscais',
       'Diagnósticos aprofundados para transição e impacto da Reforma Tributária',
@@ -170,8 +176,57 @@ const PLANOS = [
   },
 ]
 
-// Serviços Avulsos
-const SERVICOS_AVULSOS = [
+// Servicos Avulsos: Bloco A: Projetos com escopo proprio
+const SERVICOS_PROJETOS_ESCOPO = [
+  {
+    id: 'auditoria',
+    icon: SearchCheck,
+    title: 'Auditoria',
+    modalidades: ['Contábil', 'Financeira', 'Tributária', 'Operacional'],
+    description:
+      'Exame independente e aprofundado das demonstrações contábeis, controles internos e procedimentos operacionais, com emissão de relatório circunstanciado e recomendações técnicas.',
+    notaEscopo:
+      'Projeto com escopo próprio, cronograma dedicado e equipe multidisciplinar dimensionada à demanda.',
+  },
+  {
+    id: 'abertura-encerramento',
+    icon: Building2,
+    title: 'Abertura e Encerramento de Empresas',
+    description:
+      'Constituição, alteração e baixa de pessoas jurídicas de todos os tipos, inclusive abertura e encerramento de filiais, com verificação prévia do enquadramento tributário e dos requisitos do CNAE.',
+  },
+  {
+    id: 'processos-administrativos-judiciais',
+    icon: Briefcase,
+    title: 'Assistência em Processos Administrativos e Judiciais',
+    description:
+      'Atuação perante processos administrativos fiscais e demandas judiciais que envolvam questões contábeis, fiscais ou trabalhistas: elaboração de manifestações, impugnações, recursos e pareceres técnicos de apoio.',
+  },
+  {
+    id: 'reorganizacao-societaria',
+    icon: GitMerge,
+    title: 'Operações de Reorganização Societária',
+    description:
+      'Assessoria integral em cisão, fusão e incorporação, incluindo assessoria contábil e financeira, due diligence (auditoria prévia), assessoria e planejamento tributário da operação, do desenho inicial ao registro final.',
+  },
+  {
+    id: 'reprocessamento-obrigacoes-folhas',
+    icon: History,
+    title: 'Reprocessamento de Obrigações e Folhas',
+    description:
+      'Reprocessamento de obrigações fiscais e trabalhistas e de folhas de pagamento de períodos anteriores, para correção de apurações, regularização de pendências e saneamento de passivo.',
+  },
+  {
+    id: 'estudos-viabilidade',
+    icon: LineChart,
+    title: 'Estudos de Viabilidade',
+    description:
+      'Estudo de viabilidade para novos negócios, produtos ou serviços, com projeções financeiras, análise de carga tributária, formação de preço, capital de giro necessário e cenários de resultado.',
+  },
+]
+
+// Servicos Avulsos: Bloco B: Servicos operacionais pontuais (itens existentes mantidos)
+const SERVICOS_OPERACIONAIS_PONTUAIS = [
   {
     icon: GraduationCap,
     title: 'Cursos e Treinamentos',
@@ -574,53 +629,154 @@ export default function Services() {
         {/* =========================================================
             BLOCO 5: SERVIÇOS AVULSOS
            ========================================================= */}
-        <section id="servicos-avulsos" className="scroll-mt-24 space-y-8">
+        <section id="servicos-avulsos" className="scroll-mt-24 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block">
               Demandas Pontuais e Especializadas
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-black">Serviços Avulsos</h2>
-            <p className="text-neutral-600 text-sm md:text-base leading-relaxed">
+            <h2 className="text-3xl md:text-4xl font-bold text-black font-sans">
+              Serviços Avulsos
+            </h2>
+            <p className="text-neutral-600 text-sm md:text-base leading-relaxed font-sans">
               Atendimentos específicos contratados de forma individual para solucionar necessidades
               técnicas, societárias e documentais sem exigência de contrato mensal.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {SERVICOS_AVULSOS.map((servico, idx) => {
-              const Icon = servico.icon
-              return (
-                <Card
-                  key={idx}
-                  className="border border-neutral-200 bg-white hover:border-neutral-300 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
-                >
-                  <CardHeader className="p-5 pb-3">
-                    <div className="h-10 w-10 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center mb-3">
-                      <Icon className="h-5 w-5 text-black" />
+          {/* Micro-título Bloco A: Projetos com escopo próprio */}
+          <div className="space-y-6">
+            <div className="border-l-4 border-black pl-4">
+              <h3 className="text-xl md:text-2xl font-bold text-black font-sans">
+                Projetos com escopo próprio
+              </h3>
+              <p className="text-xs md:text-sm text-neutral-600 font-sans mt-1">
+                Demandas estruturadas com diagnóstico prévio, metodologia técnica dedicada e
+                cronograma sob medida.
+              </p>
+            </div>
+
+            {/* Destaque para Auditoria (A1) com as quatro modalidades e nota de escopo próprio */}
+            <Card className="border-2 border-black bg-neutral-50/50 shadow-sm">
+              <CardHeader className="p-5 md:p-6 pb-3">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 rounded-lg bg-black text-[#FAB319] flex items-center justify-center shrink-0">
+                      <SearchCheck className="h-5 w-5" />
                     </div>
-                    <CardTitle className="text-base font-semibold text-black leading-snug">
-                      {servico.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-5 pt-0 flex-1 flex flex-col justify-between">
-                    <p className="text-xs text-neutral-600 leading-relaxed mb-3">
-                      {servico.description}
-                    </p>
-                    {servico.link && (
-                      <div className="pt-2 border-t border-neutral-100">
-                        <Link
-                          to={servico.link}
-                          className="inline-flex items-center text-xs font-semibold text-black hover:text-[#FAB319] transition-colors group"
-                        >
-                          <span>{servico.linkText}</span>
-                          <ArrowRight className="ml-1 h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                        </Link>
+                    <div>
+                      <CardTitle className="text-lg md:text-xl font-bold text-black font-sans">
+                        Auditoria
+                      </CardTitle>
+                      <p className="text-xs text-neutral-600 font-sans">
+                        Contábil, Financeira, Tributária e Operacional
+                      </p>
+                    </div>
+                  </div>
+                  <span className="text-[11px] font-mono uppercase tracking-wider px-2.5 py-1 rounded font-semibold bg-neutral-200 text-neutral-800 self-start sm:self-auto">
+                    Escopo Próprio
+                  </span>
+                </div>
+              </CardHeader>
+              <CardContent className="p-5 md:p-6 pt-0 space-y-4">
+                <p className="text-xs md:text-sm text-neutral-700 leading-relaxed font-sans">
+                  Exame independente e aprofundado das demonstrações contábeis, controles internos e
+                  procedimentos operacionais, com emissão de relatório circunstanciado e
+                  recomendações técnicas.
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
+                  {['Contábil', 'Financeira', 'Tributária', 'Operacional'].map((mod, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-white border border-neutral-200 rounded-md px-3 py-2 text-center text-xs font-semibold text-neutral-800 font-sans"
+                    >
+                      {mod}
+                    </div>
+                  ))}
+                </div>
+                <div className="text-xs text-neutral-500 font-sans pt-1 border-t border-neutral-200">
+                  Nota: Projeto conduzido sob cronograma dedicado, com alocação técnica
+                  multidisciplinar conforme a complexidade e a extensão dos trabalhos.
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Demais itens do Bloco A (A2 a A6) em grade de 3 colunas no desktop */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
+              {SERVICOS_PROJETOS_ESCOPO.filter((s) => s.id !== 'auditoria').map((servico) => {
+                const Icon = servico.icon
+                return (
+                  <Card
+                    key={servico.id}
+                    className="border border-neutral-200 bg-white hover:border-neutral-300 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+                  >
+                    <CardHeader className="p-5 pb-3">
+                      <div className="h-10 w-10 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center mb-3">
+                        <Icon className="h-5 w-5 text-black" />
                       </div>
-                    )}
-                  </CardContent>
-                </Card>
-              )
-            })}
+                      <CardTitle className="text-base font-semibold text-black leading-snug font-sans">
+                        {servico.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-5 pt-0 flex-1 flex flex-col justify-between">
+                      <p className="text-xs text-neutral-600 leading-relaxed font-sans">
+                        {servico.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                )
+              })}
+            </div>
+          </div>
+
+          {/* Micro-título Bloco B: Serviços operacionais pontuais */}
+          <div className="space-y-6 pt-4 border-t border-neutral-200">
+            <div className="border-l-4 border-black pl-4">
+              <h3 className="text-xl md:text-2xl font-bold text-black font-sans">
+                Serviços operacionais pontuais
+              </h3>
+              <p className="text-xs md:text-sm text-neutral-600 font-sans mt-1">
+                Atendimentos focados em rotinas específicas, emissões, regularizações cadastrais e
+                conformidade pontual.
+              </p>
+            </div>
+
+            {/* Itens existentes mantidos, em grade de 3 colunas no desktop */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
+              {SERVICOS_OPERACIONAIS_PONTUAIS.map((servico, idx) => {
+                const Icon = servico.icon
+                return (
+                  <Card
+                    key={idx}
+                    className="border border-neutral-200 bg-white hover:border-neutral-300 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+                  >
+                    <CardHeader className="p-5 pb-3">
+                      <div className="h-10 w-10 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center mb-3">
+                        <Icon className="h-5 w-5 text-black" />
+                      </div>
+                      <CardTitle className="text-base font-semibold text-black leading-snug font-sans">
+                        {servico.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-5 pt-0 flex-1 flex flex-col justify-between">
+                      <p className="text-xs text-neutral-600 leading-relaxed mb-3 font-sans">
+                        {servico.description}
+                      </p>
+                      {servico.link && (
+                        <div className="pt-2 border-t border-neutral-100">
+                          <Link
+                            to={servico.link}
+                            className="inline-flex items-center text-xs font-semibold text-black hover:text-[#FAB319] transition-colors group font-sans"
+                          >
+                            <span>{servico.linkText}</span>
+                            <ArrowRight className="ml-1 h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                          </Link>
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+                )
+              })}
+            </div>
           </div>
         </section>
 
