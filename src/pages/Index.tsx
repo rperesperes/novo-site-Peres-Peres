@@ -854,11 +854,6 @@ export default function Index() {
       </section>
 
       {/* =========================================================
-          BLOCO 12 [NOVO]: PROVA SOCIAL (estritamente com placeholders)
-         ========================================================= */}
-      <section className="py-12 md:py-16 bg-neutral-50 border-b border-neutral-200"></section>
-
-      {/* =========================================================
           BLOCO 13 [NOVO]: FERRAMENTAS E CONTEÚDO TÉCNICO (3 cards)
          ========================================================= */}
       <section className="py-12 md:py-16 bg-white border-b border-neutral-200">
