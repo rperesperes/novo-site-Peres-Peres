@@ -53,6 +53,34 @@ const ROTINAS_ACOMPANHAMENTO = [
   },
 ]
 
+// Bloco 10: Reforma Tributária (6 temas)
+const TEMAS_REFORMA = [
+  {
+    title: 'IBS e CBS',
+    desc: 'A substituição de PIS, COFINS, ICMS e ISS por dois tributos sobre valor agregado, com crédito amplo e alíquotas de referência. O ponto de atenção é o desenho do crédito: o que passa a ser aproveitável e o que deixa de ser.',
+  },
+  {
+    title: 'Imposto Seletivo',
+    desc: 'Incide sobre bens e serviços considerados prejudiciais à saúde ou ao meio ambiente, com alíquota própria e regras específicas de incidência. Empresas desses setores precisam revisar precificação e cadeia de crédito antes de o tributo entrar em vigor.',
+  },
+  {
+    title: 'Split Payment',
+    desc: 'O recolhimento do tributo na liquidação financeira, separando o valor do imposto no momento do pagamento. Impacta diretamente o fluxo de caixa, o capital de giro e a conciliação de recebíveis.',
+  },
+  {
+    title: 'Nova nota fiscal',
+    desc: 'A nota fiscal eletrônica passa a incorporar novos campos e o detalhamento do IBS e da CBS por item. Exige revisão de cadastro de produtos, classificação e integração do sistema de emissão.',
+  },
+  {
+    title: 'Obrigações acessórias',
+    desc: 'Extinção de declarações do regime antigo e criação de novas obrigações de apuração e recolhimento. O cronograma é escalonado e muda o calendário fiscal da empresa por vários anos.',
+  },
+  {
+    title: 'Transição e creditamento',
+    desc: 'Convívio entre o regime atual e o novo, com alíquotas-teste, prazos escalonados e regras específicas de aproveitamento de saldos credores acumulados. É a fase de maior risco de perda financeira por falta de planejamento.',
+  },
+]
+
 // Bloco 11: Segmentos e áreas de atuação (9 segmentos na ordem estrita do briefing)
 const SEGMENTOS_ATUACAO = [
   'Clínicas e Profissionais da Saúde',
@@ -144,27 +172,23 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {ROTINAS_ACOMPANHAMENTO.map((item, idx) => {
               const Icon = item.icon
               return (
                 <Card
                   key={idx}
-                  className="border border-neutral-200 shadow-sm hover:border-neutral-300 transition-colors bg-white flex flex-col justify-between"
+                  className="border border-neutral-200 shadow-sm hover:border-neutral-300 transition-colors bg-white flex flex-col h-full p-6"
                 >
-                  <CardHeader className="pb-3">
-                    <div className="h-10 w-10 rounded-md bg-neutral-100 border border-neutral-200 flex items-center justify-center mb-3">
-                      <Icon className="h-5 w-5 text-black" />
-                    </div>
-                    <CardTitle className="text-lg font-sans font-bold text-black leading-snug">
-                      {item.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-neutral-600 leading-relaxed font-sans">
-                      {item.desc}
-                    </p>
-                  </CardContent>
+                  <div className="h-10 w-10 rounded-md bg-neutral-100 border border-neutral-200 flex items-center justify-center mb-4 shrink-0">
+                    <Icon className="h-5 w-5 text-black" />
+                  </div>
+                  <h3 className="text-lg font-sans font-bold text-black leading-snug min-h-[1.75rem] mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-neutral-600 leading-relaxed font-sans mt-0">
+                    {item.desc}
+                  </p>
                 </Card>
               )
             })}
@@ -728,27 +752,47 @@ export default function Index() {
           BLOCO 10 [NOVO]: REFORMA TRIBUTÁRIA
          ========================================================= */}
       <section className="py-12 md:py-16 bg-neutral-100 border-b border-neutral-200">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="bg-white border-2 border-neutral-900 rounded-2xl p-8 md:p-10 shadow-sm space-y-6">
-            <div className="inline-flex items-center gap-2 bg-[#FAB319]/20 border border-[#FAB319] text-black px-3 py-1 rounded text-xs font-semibold uppercase tracking-wider font-sans">
-              Diagnóstico Setorial
-            </div>
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="bg-white border-2 border-neutral-900 rounded-2xl p-6 sm:p-8 md:p-10 shadow-sm space-y-8">
+            <div className="space-y-3">
+              <div className="inline-flex items-center gap-2 bg-[#FAB319]/20 border border-[#FAB319] text-black px-3 py-1 rounded text-xs font-semibold uppercase tracking-wider font-sans">
+                Diagnóstico Setorial
+              </div>
 
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
-              Reforma Tributária: o que muda para a sua empresa
-            </h2>
+              <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
+                Reforma Tributária: o que muda para a sua empresa
+              </h2>
 
-            <div className="space-y-4 text-base md:text-lg text-neutral-700 leading-relaxed font-sans">
-              <p>
-                A substituição de PIS, COFINS, ICMS e ISS pelo IBS e pela CBS altera crédito,
-                precificação e fluxo de caixa de praticamente todo negócio. A transição é longa e
-                cheia de janelas, e quem se antecipa escolhe onde se posicionar.
-              </p>
-              <p>
-                Fazemos um diagnóstico do impacto da Reforma no seu setor, com simulação sobre os
-                seus próprios números.
+              <p className="text-neutral-700 text-base md:text-lg leading-relaxed font-sans">
+                A Reforma Tributária não se resume à troca de PIS, COFINS, ICMS e ISS pelo IBS e
+                pela CBS. Ela altera a forma de calcular crédito, de precificar, de emitir documento
+                fiscal e de apurar tributo, com regras de transição que convivem com o regime antigo
+                por vários anos. Quem se antecipa escolhe onde se posicionar; quem espera descobre o
+                impacto na primeira nota emitida.
               </p>
             </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
+              {TEMAS_REFORMA.map((tema, idx) => (
+                <div
+                  key={idx}
+                  className="bg-neutral-50 border border-neutral-200 rounded-xl p-5 flex flex-col h-full"
+                >
+                  <h3 className="text-base font-sans font-bold text-black leading-snug min-h-[1.5rem] mb-2">
+                    {tema.title}
+                  </h3>
+                  <p className="text-sm font-sans font-normal text-neutral-600 leading-relaxed mt-0">
+                    {tema.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-neutral-700 text-base md:text-lg leading-relaxed font-sans">
+              Fazemos o diagnóstico do impacto da Reforma no seu setor a partir dos seus próprios
+              números: qual o efeito sobre a carga, o crédito, o preço e o caixa, e o que precisa
+              estar pronto em cada fase da transição.
+            </p>
 
             <div className="pt-2">
               <Button
