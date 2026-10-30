@@ -204,8 +204,8 @@ export default function Index() {
                 tributo real.
               </p>
               <p>
-                Essa leitura acontece em quatro frentes. A tributária é a nossa especialidade e o
-                nosso diferencial. As outras três existem porque um negócio não se decide só pelo
+                Essa leitura acontece em cinco frentes. A tributária é a nossa especialidade e o
+                nosso diferencial. As outras quatro existem porque um negócio não se decide só pelo
                 imposto.
               </p>
             </div>
@@ -213,8 +213,8 @@ export default function Index() {
             <div className="pt-4">
               <div className="p-6 rounded-lg bg-white border-l-4 border-l-[#FAB319] border border-neutral-200 shadow-sm">
                 <p className="text-lg md:text-xl font-sans font-bold text-black leading-snug">
-                  Você não contrata consultorias separadas. Contrata uma equipe que olha o seu
-                  negócio por diferentes ângulos.
+                  Você não contrata cinco consultorias separadas. Contrata uma equipe que olha o seu
+                  negócio por cinco ângulos.
                 </p>
               </div>
             </div>
@@ -223,7 +223,7 @@ export default function Index() {
       </section>
 
       {/* =========================================================
-          BLOCO 5 [NOVO]: AS QUATRO FRENTES DE CONSULTORIA
+          BLOCO 5 [NOVO]: AS CINCO FRENTES DE CONSULTORIA
          ========================================================= */}
       <section className="py-12 md:py-16 bg-white border-b border-neutral-200">
         <div className="container mx-auto px-4 max-w-6xl">
@@ -232,11 +232,12 @@ export default function Index() {
               Estrutura técnica
             </span>
             <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
-              Quatro frentes. Uma especialidade.
+              Cinco frentes. Uma especialidade.
             </h2>
             <p className="text-neutral-700 text-base md:text-lg mt-3 leading-relaxed font-sans">
-              A consultoria tributária é o nosso eixo técnico, o que nos diferencia no mercado. As
-              frentes contábil, financeira e trabalhista completam a leitura do negócio.
+              A consultoria tributária é o nosso eixo técnico — o que nos diferencia no mercado. As
+              frentes contábil, societária, financeira e de gestão e trabalhista completam a leitura
+              do negócio.
             </p>
           </div>
 
@@ -294,8 +295,8 @@ export default function Index() {
               </div>
             </div>
 
-            {/* 5.2, 5.3, 5.4: Cards padrão de mesma altura */}
-            <div className="grid md:grid-cols-3 gap-6">
+            {/* 5.2, 5.3, 5.4, 5.5: Cards padrão de mesma altura */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {/* Consultoria Contábil */}
               <div className="border border-neutral-200 rounded-xl p-6 bg-white hover:border-neutral-300 transition-colors flex flex-col justify-between">
                 <div>
@@ -320,11 +321,37 @@ export default function Index() {
                 </div>
               </div>
 
-              {/* Consultoria Financeira */}
+              {/* Estruturação Societária */}
               <div className="border border-neutral-200 rounded-xl p-6 bg-white hover:border-neutral-300 transition-colors flex flex-col justify-between">
                 <div>
                   <h3 className="text-xl font-sans font-bold text-black mb-1">
-                    Consultoria Financeira
+                    Estruturação Societária
+                  </h3>
+                  <p className="text-xs text-neutral-500 font-sans font-medium uppercase tracking-wider mb-4">
+                    Estrutura, sócios e sucessão
+                  </p>
+                  <p className="text-sm text-neutral-600 leading-relaxed font-sans mb-4">
+                    Desenho e revisão da estrutura societária da empresa e do grupo: escolha do tipo
+                    societário, constituição, alterações contratuais, integralização de capital,
+                    entrada e saída de sócios, acordo de sócios, distribuição de lucros, cisão,
+                    incorporação e fusão. Também abrange a organização de holdings familiares e
+                    patrimoniais e o planejamento sucessório, com leitura conjunta do impacto
+                    tributário de cada arranjo.
+                  </p>
+                </div>
+                <div className="bg-neutral-50 p-3 rounded-lg border border-neutral-200">
+                  <p className="text-xs text-neutral-800 font-sans leading-relaxed">
+                    <strong>O que você leva:</strong> uma estrutura societária que sustenta o
+                    crescimento e a sucessão sem gerar passivo tributário ou conflito entre sócios.
+                  </p>
+                </div>
+              </div>
+
+              {/* Consultoria Financeira e de Gestão */}
+              <div className="border border-neutral-200 rounded-xl p-6 bg-white hover:border-neutral-300 transition-colors flex flex-col justify-between">
+                <div>
+                  <h3 className="text-xl font-sans font-bold text-black mb-1">
+                    Consultoria Financeira e de Gestão
                   </h3>
                   <p className="text-xs text-neutral-500 font-sans font-medium uppercase tracking-wider mb-4">
                     Caixa, margem e decisão
@@ -332,13 +359,17 @@ export default function Index() {
                   <p className="text-sm text-neutral-600 leading-relaxed font-sans mb-4">
                     Estruturação de fluxo de caixa, análise de capital de giro, formação de preço
                     com o tributo dentro da conta, projeções e cenários, e apoio na avaliação de
-                    investimento e de crédito.
+                    investimento e de crédito. Também atua na gestão do negócio: indicadores de
+                    desempenho, orçamento anual, controle de custos, análise de rentabilidade por
+                    produto e por cliente, e apoio na tomada de decisão com base em números
+                    gerenciais.
                   </p>
                 </div>
                 <div className="bg-neutral-50 p-3 rounded-lg border border-neutral-200">
                   <p className="text-xs text-neutral-800 font-sans leading-relaxed">
                     <strong>O que você leva:</strong> clareza sobre quanto o seu negócio realmente
-                    ganha — e quanto pode suportar de despesa, dívida ou expansão.
+                    ganha, onde está perdendo margem e quanto pode suportar de despesa, dívida ou
+                    expansão.
                   </p>
                 </div>
               </div>
@@ -383,8 +414,8 @@ export default function Index() {
               Planos de contabilidade e consultoria mensal
             </h2>
             <p className="text-neutral-700 text-base md:text-lg leading-relaxed font-sans">
-              Todo plano inclui contabilidade completa e consultoria nas quatro frentes. O que muda
-              é a intensidade, a frequência e a profundidade dessa consultoria.
+              Todo plano inclui contabilidade completa e consultoria nas cinco frentes. O que muda é
+              a intensidade, a frequência e a profundidade dessa consultoria.
             </p>
           </div>
 

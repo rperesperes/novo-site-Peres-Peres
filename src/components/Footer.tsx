@@ -79,8 +79,8 @@ export function Footer() {
             </div>
             <p className="text-sm text-neutral-400 mt-4 leading-relaxed">
               PERES PERES Consultoria e Contabilidade — Contabilidade mensal com consultoria
-              tributária, contábil, financeira e trabalhista. Sede em Brasília/DF, atendimento em
-              todo o Brasil.
+              tributária, contábil, societária, financeira e de gestão e trabalhista. Sede em
+              Brasília/DF, atendimento em todo o Brasil.
             </p>
             <div className="space-y-2 text-sm text-neutral-300 mt-6">
               <p className="flex items-start gap-2">
