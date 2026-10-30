@@ -35,9 +35,9 @@ const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     name: 'Clarissa Lebeis',
-    role: 'Graduanda em Ciências Contábeis — UnB',
+    role: 'Graduanda em Ciências Contábeis (UnB)',
     photo: clarissaImg,
-    alt: 'Clarissa Lebeis - Graduanda em Ciências Contábeis — UnB',
+    alt: 'Clarissa Lebeis - Graduanda em Ciências Contábeis (UnB)',
     description: 'Tem experiência na organização de eventos',
   },
 ]
