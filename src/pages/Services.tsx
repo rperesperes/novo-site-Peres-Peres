@@ -145,6 +145,13 @@ const SEGMENTOS_ATUACAO = [
     destaque: true,
   },
   {
+    nome: 'Engenheiros (Profissões Regulamentadas)',
+    desc: 'Contabilidade e consultoria para engenheiros: PJ unipessoal, Fator R no Simples, retenções de contratantes e receita por medição.',
+    link: '/profissoes-regulamentadas/engenheiros',
+    linkText: 'Saiba mais informações',
+    destaque: true,
+  },
+  {
     nome: 'Clínicas e Profissionais da Saúde',
     desc: 'Gestão contábil e consultoria tributária com domínio do Fator R no Simples Nacional, equiparação hospitalar e segregação de receitas para redução lícita de tributos.',
     link: '/contabilidade-para-clinicas-medicas',

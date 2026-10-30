@@ -145,6 +145,7 @@ const OUTRAS_PROFISSOES = [
   { name: 'Médicos', link: '/profissoes-regulamentadas/medicos' },
   { name: 'Psicólogos', link: '/profissoes-regulamentadas/psicologos' },
   { name: 'Engenheiros', link: '/profissoes-regulamentadas/engenheiros' },
+  { name: 'Arquitetos', link: '/profissoes-regulamentadas/arquitetos' },
 ]
 
 // Demais segmentos atendidos pelo escritório
@@ -536,7 +537,7 @@ export default function AdvogadosSegment() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
             {OUTRAS_PROFISSOES.map((prof, idx) => (
               <Link
                 key={idx}
