@@ -149,7 +149,7 @@ const OUTROS_SEGMENTOS = [
   { name: 'Educação e Treinamentos', link: '/contabilidade-para-educacao-e-treinamentos' },
   { name: 'Publicidade e Comunicação', link: '/contabilidade-para-agencias-de-publicidade' },
   { name: 'Profissões Regulamentadas', link: '/servicos#segmentos' },
-  { name: 'E-commerces', link: '/servicos#segmentos' },
+  { name: 'E-commerce', link: '/contabilidade-para-ecommerce' },
   { name: 'MEIs e Profissionais Liberais', link: '/servicos#segmentos' },
 ]
 

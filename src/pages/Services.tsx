@@ -169,8 +169,8 @@ const SEGMENTOS_ATUACAO = [
   {
     nome: 'E-commerces',
     desc: 'Contabilidade para comércio eletrônico com domínio de regras de DIFAL, ICMS interestadual, marketplaces e substituição tributária.',
-    link: '/contato',
-    linkText: 'Solicitar atendimento',
+    link: '/contabilidade-para-ecommerce',
+    linkText: 'Saiba mais informações',
   },
   {
     nome: 'MEIs e Profissionais Liberais',

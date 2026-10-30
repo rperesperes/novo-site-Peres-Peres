@@ -43,6 +43,7 @@ import HoldingsFamiliaresSegment from './pages/HoldingsFamiliaresSegment'
 import EducacaoTreinamentosSegment from './pages/EducacaoTreinamentosSegment'
 import PublicidadeComunicacaoSegment from './pages/PublicidadeComunicacaoSegment'
 import AgenciasViagemSegment from './pages/AgenciasViagemSegment'
+import EcommerceSegment from './pages/EcommerceSegment'
 
 function CaseDetailRedirect() {
   const { slug } = useParams<{ slug: string }>()
@@ -99,6 +100,7 @@ const App = () => (
               path="/contabilidade-para-agencias-de-viagem"
               element={<AgenciasViagemSegment />}
             />
+            <Route path="/contabilidade-para-ecommerce" element={<EcommerceSegment />} />
             <Route path="/calculadoras" element={<CalculatorsHub />} />
             <Route path="/calculadoras/fator-r" element={<FatorRCalculator />} />
             <Route
