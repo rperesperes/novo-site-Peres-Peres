@@ -38,6 +38,7 @@ import IRPFeRestituicaoCalculator from './pages/IRPFeRestituicaoCalculator'
 import JurosDeFinanciamentoCalculator from './pages/JurosDeFinanciamentoCalculator'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Entrar from './pages/Entrar'
+import ClinicasMedicasSegment from './pages/ClinicasMedicasSegment'
 
 const App = () => (
   <AuthProvider>
@@ -63,6 +64,10 @@ const App = () => (
             <Route path="/entrar" element={<Entrar />} />
             <Route path="/politica-de-privacidade" element={<PrivacyPolicy />} />
             <Route path="/privacidade" element={<PrivacyPolicy />} />
+            <Route
+              path="/contabilidade-para-clinicas-medicas"
+              element={<ClinicasMedicasSegment />}
+            />
             <Route path="/calculadoras" element={<CalculatorsHub />} />
             <Route path="/calculadoras/fator-r" element={<FatorRCalculator />} />
             <Route
