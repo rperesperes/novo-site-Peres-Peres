@@ -96,6 +96,16 @@ export default function CaseDetail() {
   useEffect(() => {
     if (successCase) {
       document.title = `${successCase.title} | PERES PERES Consultoria & Contabilidade`
+      let metaDescTag = document.querySelector('meta[name="description"]')
+      if (!metaDescTag) {
+        metaDescTag = document.createElement('meta')
+        metaDescTag.setAttribute('name', 'description')
+        document.head.appendChild(metaDescTag)
+      }
+      metaDescTag.setAttribute(
+        'content',
+        `${successCase.summary} Atuação da PERES PERES Consultoria & Contabilidade em Brasília.`,
+      )
     }
   }, [successCase])
 

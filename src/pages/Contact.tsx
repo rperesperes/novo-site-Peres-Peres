@@ -28,12 +28,11 @@ export default function Contact() {
   const [errorMessage, setErrorMessage] = useState('')
 
   useEffect(() => {
-    const pageTitle = 'Fale com o Escritório | PERES PERES Consultoria & Contabilidade'
+    const pageTitle = 'Fale Conosco | PERES PERES Consultoria & Contabilidade'
     const pageDesc =
-      'Entre em contato com a PERES PERES Consultoria & Contabilidade em Brasília. Atendimento tributário e contábil consultivo sob responsabilidade técnica CRC 027704.'
+      'Entre em contato com a PERES PERES em Brasília. Atendimento contábil, tributário e societário presencial ou 100% online em todo o Brasil via WhatsApp, telefone (61) 3686-1689 e formulário.'
 
     document.title = pageTitle
-
     let metaDescTag = document.querySelector('meta[name="description"]')
     if (!metaDescTag) {
       metaDescTag = document.createElement('meta')

@@ -176,9 +176,9 @@ export default function IRPFeRestituicaoCalculator() {
 
   // SEO: título da aba (máx 60 caracteres começando por "calculadora irpf") e meta description (máx 155 caracteres)
   useEffect(() => {
-    const pageTitle = 'calculadora irpf e restituição | PERES PERES' // 47 caracteres
+    const pageTitle = 'Calculadora IRPF e Restituição | PERES PERES Consultoria & Contabilidade'
     const pageDesc =
-      'Calcule seu IRPF anual e restituição em tempo real. Deduções legais, alíquota efetiva e memória aberta pela tabela progressiva da Receita Federal.' // 149 caracteres
+      'Calcule seu IRPF anual e restituição em tempo real. Deduções legais, alíquota efetiva e memória aberta pela tabela progressiva da Receita Federal.'
 
     document.title = pageTitle
 

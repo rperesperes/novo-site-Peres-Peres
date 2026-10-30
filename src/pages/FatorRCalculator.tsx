@@ -61,9 +61,10 @@ export default function FatorRCalculator() {
 
   // SEO: título da aba (máximo 60 caracteres) começando por "Calculadora fator r" e meta description (máximo 155 caracteres)
   useEffect(() => {
-    const pageTitle = 'Calculadora fator r: Anexo III ou V | PERES PERES' // 49 caracteres, começa por "Calculadora fator r"
+    const pageTitle =
+      'Calculadora Fator R Simples Nacional | PERES PERES Consultoria & Contabilidade'
     const pageDesc =
-      'Calcule o Fator R do Simples Nacional em tempo real e descubra se sua empresa se enquadra no Anexo III ou Anexo V com base na LC 123/2006.' // 139 caracteres
+      'Calculadora Fator R online e gratuita: simule se sua empresa se enquadra no Anexo III ou Anexo V do Simples Nacional com base na LC 123/2006.'
 
     document.title = pageTitle
     let metaDescTag = document.querySelector('meta[name="description"]')

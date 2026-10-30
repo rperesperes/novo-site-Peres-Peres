@@ -240,9 +240,10 @@ export default function JurosDeFinanciamentoCalculator() {
   // SEO: título da aba (máx 60 caracteres começando por "calculadora juros de financiamento")
   // e descrição (máx 155 caracteres)
   useEffect(() => {
-    const pageTitle = 'calculadora juros de financiamento Price e SAC | PERES' // 54 caracteres
+    const pageTitle =
+      'Calculadora de Juros de Financiamento | Price e SAC | PERES PERES Consultoria & Contabilidade'
     const pageDesc =
-      'Compare parcelas, juros e evolução do saldo devedor entre Price e SAC em tempo real. Veja a memória de cálculo aberta e saiba qual custa menos.' // 144 caracteres
+      'Compare parcelas, juros e evolução do saldo devedor entre Price e SAC em tempo real. Veja a memória de cálculo aberta e saiba qual custa menos.'
 
     document.title = pageTitle
 

@@ -82,8 +82,8 @@ export default function CustoDeFuncionarioCLTCalculator() {
   // SEO: título da aba (máximo 60 caracteres) e meta description (máximo 155 caracteres)
   useEffect(() => {
     // 56 caracteres, começa com "calculadora custo funcionário clt"
-    const pageTitle = 'calculadora custo funcionário clt: encargos | PERES'
-    // 147 caracteres
+    const pageTitle =
+      'Calculadora de Custo de Funcionário CLT | PERES PERES Consultoria & Contabilidade'
     const pageDesc =
       'Calcule quanto custa um funcionário CLT para a empresa em tempo real: encargos patronais, FGTS, provisões de férias, 13º e descontos do empregado.'
 

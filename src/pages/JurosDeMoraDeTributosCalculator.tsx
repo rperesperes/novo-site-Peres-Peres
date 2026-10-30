@@ -121,9 +121,10 @@ export default function JurosDeMoraDeTributosCalculator() {
   // SEO: título da aba (máx 60 carac. começando por "calculadora juros de mora")
   // e descrição (máx 155 carac.)
   useEffect(() => {
-    const pageTitle = 'calculadora juros de mora e multa | PERES PERES' // 49 caracteres, começa por "calculadora juros de mora"
+    const pageTitle =
+      'Calculadora de Juros de Mora e Selic em Tributos | PERES PERES Consultoria & Contabilidade'
     const pageDesc =
-      'Calcule juros de mora pela taxa Selic e multa de mora de tributos em atraso em tempo real. Memória de cálculo aberta segundo a Lei 9.430/1996.' // 142 caracteres
+      'Calcule juros de mora pela taxa Selic e multa de mora de tributos em atraso em tempo real com dados oficiais da Receita Federal.'
 
     document.title = pageTitle
     let metaDescTag = document.querySelector('meta[name="description"]')

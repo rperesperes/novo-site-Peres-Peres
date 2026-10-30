@@ -2,6 +2,7 @@ import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { BookOpen, GraduationCap, Users, CheckCircle2, ExternalLink } from 'lucide-react'
+import { useSeo } from '@/hooks/use-seo'
 import logoPadrao from '@/assets/logo-padrao-oficial-844b7.png'
 import rafaelImg from '@/assets/foto-melhorada-por-ia-892a9.png'
 import williamImg from '@/assets/copia-de-img8757-182f8.jpg'
@@ -43,6 +44,13 @@ const TEAM_MEMBERS: TeamMember[] = [
 ]
 
 export default function About() {
+  useSeo({
+    title: 'Sobre Nós e Equipe Técnica | PERES PERES Consultoria & Contabilidade',
+    description:
+      'Conheça a história e o corpo técnico da PERES PERES Consultoria & Contabilidade em Brasília, sob responsabilidade de Rafael Peres Peres Nunes Altoé (CRC 027704).',
+    canonical: 'https://peresperes.com.br/sobre',
+  })
+
   return (
     <div className="py-24 bg-background">
       <div className="container mx-auto px-4 max-w-5xl">

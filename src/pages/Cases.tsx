@@ -8,7 +8,16 @@ import { SUCCESS_CASES, SuccessCase } from '@/lib/successCasesData'
 import { ShareButtons } from '@/components/ShareButtons'
 import { getPublicSuccessCases, SuccessCaseRecord } from '@/services/success_cases'
 
+import { useSeo } from '@/hooks/use-seo'
+
 export default function Cases() {
+  useSeo({
+    title: 'Casos de Sucesso | PERES PERES Consultoria & Contabilidade',
+    description:
+      'Veja casos reais de consultoria tributária, recuperação de créditos e estruturação societária conduzidos pela PERES PERES Consultoria & Contabilidade.',
+    canonical: 'https://peresperes.com.br/casos',
+  })
+
   const [casesList, setCasesList] = useState<SuccessCase[]>(SUCCESS_CASES)
 
   useEffect(() => {

@@ -15,7 +15,16 @@ const SECTIONS_NAV = [
   { id: 'secao-12', number: '12', title: 'Como Entrar em Contato Conosco' },
 ]
 
+import { useSeo } from '@/hooks/use-seo'
+
 export default function PrivacyPolicy() {
+  useSeo({
+    title: 'Política de Privacidade | PERES PERES Consultoria & Contabilidade',
+    description:
+      'Política de Privacidade e proteção de dados pessoais (LGPD) da PERES PERES Consultoria & Contabilidade, com sede em Brasília/DF.',
+    canonical: 'https://peresperes.com.br/politica-de-privacidade',
+  })
+
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault()
     const element = document.getElementById(id)

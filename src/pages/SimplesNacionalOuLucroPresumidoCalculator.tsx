@@ -117,9 +117,10 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
 
   // SEO: Título da aba <= 60 caracteres e meta description <= 155 caracteres
   useEffect(() => {
-    const pageTitle = 'Simples ou Lucro Presumido: qual paga menos | PERES' // 51 caracteres
+    const pageTitle =
+      'Calculadora Simples Nacional ou Lucro Presumido | PERES PERES Consultoria & Contabilidade'
     const pageDesc =
-      'Compare a carga tributária do Simples Nacional e do Lucro Presumido em tempo real. Veja alíquotas efetivas, memória de cálculo e economia anual.' // 145 caracteres
+      'Compare a carga tributária do Simples Nacional e do Lucro Presumido em tempo real. Veja alíquotas efetivas, memória de cálculo e economia anual.'
 
     document.title = pageTitle
 

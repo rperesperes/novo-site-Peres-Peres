@@ -46,7 +46,16 @@ const ESSENTIAL_BEHAVIORS = [
   },
 ]
 
+import { useSeo } from '@/hooks/use-seo'
+
 export default function TrabalheConosco() {
+  useSeo({
+    title: 'Trabalhe Conosco | Oportunidades na PERES PERES Consultoria & Contabilidade',
+    description:
+      'Faça parte da equipe da PERES PERES Consultoria & Contabilidade em Brasília. Vagas abertas para contabilidade, consultoria tributária e área fiscal.',
+    canonical: 'https://peresperes.com.br/trabalhe-conosco',
+  })
+
   const [vacancies, setVacancies] = useState<JobVacancyRecord[]>([])
   const [loading, setLoading] = useState(true)
   const [expandedVacancyId, setExpandedVacancyId] = useState<string | null>(null)

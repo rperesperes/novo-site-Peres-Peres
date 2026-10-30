@@ -378,9 +378,8 @@ export default function SimplesNacionalHibridoCalculator() {
   // SEO: título da aba (máximo 60 caracteres) começando por "calculadora simples nacional hibrido"
   // e meta description (máximo 155 caracteres)
   useEffect(() => {
-    // 59 caracteres
-    const pageTitle = 'calculadora simples nacional hibrido: icms e iss | PERES'
-    // 151 caracteres
+    const pageTitle =
+      'Calculadora Simples Nacional Híbrido | PERES PERES Consultoria & Contabilidade'
     const pageDesc =
       'Compare tributar ICMS e ISS dentro ou fora do Simples Nacional em tempo real. Veja alíquotas efetivas, segregação de receitas e memória de cálculo.'
 

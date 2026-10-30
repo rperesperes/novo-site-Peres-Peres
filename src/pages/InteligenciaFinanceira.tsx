@@ -21,7 +21,7 @@ import {
 export default function InteligenciaFinanceira() {
   useEffect(() => {
     const pageTitle =
-      'Inteligência Financeira e Fluxo de Caixa | PERES PERES Consultoria e Contabilidade'
+      'Inteligência Financeira e Fluxo de Caixa | PERES PERES Consultoria & Contabilidade'
     const pageDesc =
       'Modelagem de cenários, dashboards de indicadores e projeção de caixa que traduzem a apuração contábil em decisão de negócio.'
 

@@ -191,9 +191,8 @@ export default function PJouCLTCalculator() {
 
   // SEO: título da aba (máximo 60 caracteres) começando por "calculadora pj ou clt" e meta description (máximo 155 caracteres)
   useEffect(() => {
-    // 53 caracteres, começa estritamente por "calculadora pj ou clt"
-    const pageTitle = 'calculadora pj ou clt: quanto custa cada | PERES'
-    // 147 caracteres, conciso e com palavras-chave relevantes
+    const pageTitle =
+      'Calculadora PJ ou CLT: Comparativo Líquido | PERES PERES Consultoria & Contabilidade'
     const pageDesc =
       'Compare PJ ou CLT em tempo real: veja o custo total para a empresa, o valor líquido na mão do profissional, memória de cálculo e alíquotas efetivas.'
 

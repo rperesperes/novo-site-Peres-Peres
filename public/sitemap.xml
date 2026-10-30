@@ -1,117 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Páginas Institucionais Principais -->
+  <!-- Página Inicial -->
   <url>
     <loc>https://peresperes.com.br/</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  <url>
-    <loc>https://peresperes.com.br/sobre</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+
+  <!-- Serviços Principais -->
   <url>
     <loc>https://peresperes.com.br/servicos</loc>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://peresperes.com.br/servicos/certificado-digital</loc>
+    <loc>https://peresperes.com.br/servicos/inteligencia-financeira</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://peresperes.com.br/servicos/certificado-digital</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://peresperes.com.br/servicos/registro-de-marcas</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
+
+  <!-- Institucional -->
   <url>
-    <loc>https://peresperes.com.br/servicos/inteligencia-financeira</loc>
+    <loc>https://peresperes.com.br/sobre</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://peresperes.com.br/contato</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://peresperes.com.br/trabalhe-conosco</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://peresperes.com.br/politica-de-privacidade</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Casos de Sucesso -->
+  <url>
+    <loc>https://peresperes.com.br/casos</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://peresperes.com.br/casos</loc>
+    <loc>https://peresperes.com.br/casos/clinica-oftalmologica-recuperacao-tributaria</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://peresperes.com.br/casos/parcelamento-debitos-tributarios</loc>
+    <loc>https://peresperes.com.br/casos/holding-patrimonial-planejamento-sucessorio</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://peresperes.com.br/casos/planejamento-tributario-clinicas</loc>
+    <loc>https://peresperes.com.br/casos/transicao-tributaria-software-saas</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://peresperes.com.br/casos/reestruturacao-societaria-grupo-varejista</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
-    <loc>https://peresperes.com.br/recursos</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Hub de Calculadoras Tributárias e Trabalhistas -->
+  <!-- Calculadoras Tributárias e Financeiras -->
   <url>
     <loc>https://peresperes.com.br/calculadoras</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://peresperes.com.br/calculadoras/fator-r</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://peresperes.com.br/calculadoras/simples-nacional-ou-lucro-presumido</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://peresperes.com.br/calculadoras/custo-de-funcionario-clt</loc>
+    <loc>https://peresperes.com.br/calculadoras/custo-funcionario-clt</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://peresperes.com.br/calculadoras/pj-ou-clt</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://peresperes.com.br/calculadoras/irpf-restituicao</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://peresperes.com.br/calculadoras/simples-nacional-lucro-presumido</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://peresperes.com.br/calculadoras/simples-nacional-hibrido</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://peresperes.com.br/calculadoras/juros-de-mora-de-tributos</loc>
+    <loc>https://peresperes.com.br/calculadoras/juros-financiamento</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://peresperes.com.br/calculadoras/irpf-e-restituicao</loc>
+    <loc>https://peresperes.com.br/calculadoras/juros-mora-tributos</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Materiais e Recursos -->
   <url>
-    <loc>https://peresperes.com.br/calculadoras/juros-de-financiamento</loc>
+    <loc>https://peresperes.com.br/recursos</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://peresperes.com.br/calculadoras/rescisao-trabalhista</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://peresperes.com.br/calculadoras/pro-labore-ou-dividendos</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 </urlset>

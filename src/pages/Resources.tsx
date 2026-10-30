@@ -8,7 +8,16 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { FileDown, FileSpreadsheet, Calculator, ArrowRight, Clock } from 'lucide-react'
 
+import { useSeo } from '@/hooks/use-seo'
+
 export default function Resources() {
+  useSeo({
+    title: 'Recursos e Materiais Gratuitos | PERES PERES Consultoria & Contabilidade',
+    description:
+      'Baixe guias, modelos e materiais técnicos sobre tributação, gestão contábil e obrigações fiscais preparados pela PERES PERES Consultoria & Contabilidade.',
+    canonical: 'https://peresperes.com.br/recursos',
+  })
+
   const [resources, setResources] = useState<any[]>([])
 
   const loadData = async () => {

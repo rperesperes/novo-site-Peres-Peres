@@ -23,12 +23,12 @@ import {
 
 export default function CertificadoDigital() {
   useEffect(() => {
-    const pageTitle = 'Certificado Digital | PERES PERES Consultoria & Contabilidade'
+    const pageTitle =
+      'Certificado Digital em Brasília e Online | PERES PERES Consultoria & Contabilidade'
     const pageDesc =
-      'O certificado digital é uma ferramenta que permite assinar documentos, procurações e contratos de forma digital com validade jurídica, emitir notas fiscais, e acessar os principais sistemas do governo.'
+      'Emissão e renovação de Certificado Digital e-CNPJ, e-CPF e NF-e presencialmente em Brasília ou por videoconferência com suporte contábil especializado.'
 
     document.title = pageTitle
-
     let metaDescTag = document.querySelector('meta[name="description"]')
     if (!metaDescTag) {
       metaDescTag = document.createElement('meta')

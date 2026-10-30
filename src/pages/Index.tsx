@@ -94,7 +94,16 @@ const SEGMENTOS_ATUACAO = [
   'MEIs e Profissionais Liberais',
 ]
 
+import { useSeo } from '@/hooks/use-seo'
+
 export default function Index() {
+  useSeo({
+    title: 'PERES PERES Consultoria & Contabilidade | Escritório Contábil em Brasília',
+    description:
+      'Contabilidade consultiva e estratégica em Brasília para empresas de todo o Brasil. Consultoria tributária, societária, trabalhista e planejamento fiscal com CRC 027704.',
+    canonical: 'https://peresperes.com.br/',
+  })
+
   return (
     <div className="flex flex-col w-full font-sans">
       {/* =========================================================

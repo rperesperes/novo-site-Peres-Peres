@@ -26,7 +26,7 @@ export default function CalculatorsHub() {
     const pageTitle =
       'Calculadoras Tributárias e Trabalhistas Gratuitas | PERES PERES Consultoria & Contabilidade'
     const pageDesc =
-      'Simuladores tributários e trabalhistas gratuitos com memória de cálculo aberta e fundamentação legal: Fator R, Simples Nacional, Lucro Presumido e encargos.'
+      'Calculadoras tributárias e trabalhistas com alíquotas oficiais de 2026: Fator R, Custo de Funcionário CLT, PJ vs CLT, IRPF, Simples Nacional vs Lucro Presumido e mais.'
 
     document.title = pageTitle
 
@@ -38,7 +38,6 @@ export default function CalculatorsHub() {
     }
     metaDescTag.setAttribute('content', pageDesc)
   }, [])
-
   // Dados estruturados Schema.org: ItemList (Coleção das 9 calculadoras), FAQPage e BreadcrumbList
   const jsonLdData = {
     '@context': 'https://schema.org',

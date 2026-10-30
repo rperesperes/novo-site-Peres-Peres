@@ -21,8 +21,7 @@ import {
 
 export default function RegistroDeMarcas() {
   useEffect(() => {
-    const pageTitle =
-      'Registro e Acompanhamento de Marcas | PERES PERES Consultoria e Contabilidade'
+    const pageTitle = 'Registro de Marcas no INPI | PERES PERES Consultoria & Contabilidade'
     const pageDesc =
       'Pedido e acompanhamento do registro da sua marca junto ao INPI (Instituto Nacional da Propriedade Industrial), desde o protocolo até a concessão do registro definitivo.'
 

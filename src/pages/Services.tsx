@@ -289,9 +289,9 @@ const SERVICOS_OPERACIONAIS_PONTUAIS = [
 
 export default function Services() {
   useEffect(() => {
-    const pageTitle = 'Serviços Contábeis e Tributários | PERES PERES Consultoria e Contabilidade'
+    const pageTitle = 'Serviços Contábeis e Tributários | PERES PERES Consultoria & Contabilidade'
     const pageDesc =
-      'Conheça os serviços da PERES PERES em Brasília: Consultoria Tributária, Recuperação de Créditos, Consultoria Trabalhista, Planos Essential, Premium e On Demand, além de serviços avulsos especializados sob CRC 027704.'
+      'Conheça os serviços da PERES PERES Consultoria & Contabilidade em Brasília: consultoria tributária, recuperação de créditos, consultoria trabalhista, societária e planos de acompanhamento mensal.'
 
     document.title = pageTitle
 
