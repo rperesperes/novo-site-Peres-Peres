@@ -433,7 +433,7 @@ export function IndexSeriesCard({ item, entries, onRefresh, formatDate }: IndexS
           <DialogHeader>
             <DialogTitle className="text-base font-bold flex items-center gap-2">
               <Plus className="h-4 w-4 text-[#FAB319]" />
-              Adicionar Nova Vigência — {item.name}
+              Adicionar Nova Vigência: {item.name}
             </DialogTitle>
           </DialogHeader>
 
@@ -513,7 +513,7 @@ export function IndexSeriesCard({ item, entries, onRefresh, formatDate }: IndexS
           <DialogHeader>
             <DialogTitle className="text-base font-bold flex items-center gap-2">
               <Edit2 className="h-4 w-4 text-[#FAB319]" />
-              Corrigir Vigência — {item.name}
+              Corrigir Vigência: {item.name}
             </DialogTitle>
           </DialogHeader>
 

@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import logoNova from '@/assets/logo-nova-800x200-b63d1.png'
+import logoNova from '@/assets/logo-nova-560w.png'
 import { useToast } from '@/hooks/use-toast'
 
 export default function Login() {

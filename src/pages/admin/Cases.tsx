@@ -402,7 +402,7 @@ export default function AdminCases() {
                 <Input
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  placeholder="Ex.: CASO 1 — Negociação e parcelamento de débitos tributários"
+                  placeholder="Ex.: CASO 1, Negociação e parcelamento de débitos tributários"
                   required
                   className="bg-neutral-950 border-neutral-800 text-white focus:border-[#FAB319]"
                 />

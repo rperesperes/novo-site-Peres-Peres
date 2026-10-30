@@ -45,7 +45,7 @@ export default function InteligenciaFinanceira() {
     },
     {
       title: 'Dashboards de indicadores.',
-      text: 'Painéis com os indicadores que importam para a sua operação — margem bruta, ponto de equilíbrio, ticket médio, inadimplência, concentração de receita — atualizados a partir dos seus próprios dados contábeis.',
+      text: 'Painéis com os indicadores que importam para a sua operação, margem bruta, ponto de equilíbrio, ticket médio, inadimplência, concentração de receita, atualizados a partir dos seus próprios dados contábeis.',
     },
     {
       title: 'Análise de margem por produto, serviço ou cliente.',
@@ -53,11 +53,11 @@ export default function InteligenciaFinanceira() {
     },
     {
       title: 'Revisão de precificação.',
-      text: 'Reconstrução do preço a partir do custo real, da carga tributária incidente e da margem pretendida — incluindo o efeito do regime tributário sobre cada faixa de preço.',
+      text: 'Reconstrução do preço a partir do custo real, da carga tributária incidente e da margem pretendida, incluindo o efeito do regime tributário sobre cada faixa de preço.',
     },
     {
       title: 'Planejamento de distribuição de lucros.',
-      text: 'Simulação do impacto tributário das diferentes formas de retirada — pró-labore, distribuição de lucros, aluguel, serviços — com base nas regras vigentes.',
+      text: 'Simulação do impacto tributário das diferentes formas de retirada, pró-labore, distribuição de lucros, aluguel, serviços, com base nas regras vigentes.',
     },
     {
       title: 'Acompanhamento periódico.',

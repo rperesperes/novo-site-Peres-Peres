@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks/use-auth'
 import { Button } from '@/components/ui/button'
 import { Loader2, LogOut, AlertCircle } from 'lucide-react'
-import logoNova from '@/assets/logo-nova-800x200-b63d1.png'
+import logoNova from '@/assets/logo-nova-560w.png'
 
 export default function Entrar() {
   const { user, signInWithOAuth2, signOut, loading: authLoading } = useAuth()

@@ -98,9 +98,9 @@ import { useSeo } from '@/hooks/use-seo'
 
 export default function Index() {
   useSeo({
-    title: 'PERES PERES Consultoria & Contabilidade | Escritório Contábil em Brasília',
+    title: 'PERES PERES Consultoria & Contabilidade em Brasília',
     description:
-      'Contabilidade consultiva e estratégica em Brasília para empresas de todo o Brasil. Consultoria tributária, societária, trabalhista e planejamento fiscal com CRC 027704.',
+      'Contabilidade consultiva e estratégica para empresas, de Brasília para todo o Brasil. Responsável Rafael Peres Peres Nunes Altoé (CRC 027704).',
     canonical: 'https://peresperes.com.br/',
   })
 

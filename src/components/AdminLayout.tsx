@@ -16,7 +16,7 @@ import {
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
-import logoNova from '@/assets/logo-nova-800x200-b63d1.png'
+import logoNova from '@/assets/logo-nova-560w.png'
 
 export const ADMIN_SECTIONS = [
   { id: 'cases', to: '/admin', icon: Briefcase, label: 'Casos de Sucesso' },

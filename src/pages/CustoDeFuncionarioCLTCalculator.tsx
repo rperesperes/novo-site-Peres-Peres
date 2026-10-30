@@ -551,7 +551,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
                     onChange={() => setIsSimplesNacional(true)}
                     className="h-4 w-4 text-black focus:ring-black border-neutral-300"
                   />
-                  <span>Sim (Optante pelo Simples Nacional — INSS patronal 0% na folha)</span>
+                  <span>Sim (Optante pelo Simples Nacional, INSS patronal 0% na folha)</span>
                 </label>
                 <label className="flex items-center gap-2 text-sm cursor-pointer font-medium text-neutral-900">
                   <input
@@ -561,7 +561,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
                     onChange={() => setIsSimplesNacional(false)}
                     className="h-4 w-4 text-black focus:ring-black border-neutral-300"
                   />
-                  <span>Não (Lucro Presumido / Real — INSS patronal 20% sobre folha)</span>
+                  <span>Não (Lucro Presumido / Real, INSS patronal 20% sobre folha)</span>
                 </label>
               </div>
             </div>
@@ -1020,7 +1020,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
                   INSS Patronal = {formatCurrencyBRL(calculation.salarioBrutoTotal)} ×{' '}
                   {(calculation.aliqInssPatronal * 100).toFixed(0)}% ={' '}
                   {formatCurrencyBRL(calculation.inssPatronalValor)}{' '}
-                  {isSimplesNacional ? '(zero na folha — unificado no DAS)' : ''}
+                  {isSimplesNacional ? '(zero na folha, unificado no DAS)' : ''}
                 </p>
                 <p className="text-neutral-700">
                   FGTS Mensal = {formatCurrencyBRL(calculation.salarioBrutoTotal)} × 8,00% ={' '}
@@ -1414,10 +1414,10 @@ export default function CustoDeFuncionarioCLTCalculator() {
             </h2>
             <div className="space-y-4 text-neutral-700 text-base leading-relaxed">
               <p>
-                No regime de competência contábil — exigido pelas Normas Brasileiras de
-                Contabilidade (NBC TG) e pelas práticas de gestão financeira prudencial —, as
-                despesas devem ser reconhecidas no período em que o trabalho foi efetivamente
-                prestado, e não no momento do pagamento monetário.
+                No regime de competência contábil, exigido pelas Normas Brasileiras de Contabilidade
+                (NBC TG) e pelas práticas de gestão financeira prudencial, as despesas devem ser
+                reconhecidas no período em que o trabalho foi efetivamente prestado, e não no
+                momento do pagamento monetário.
               </p>
               <p>A cada mês trabalhado, o empregado adquire por direito legal:</p>
               <ul className="list-disc pl-6 space-y-2 text-neutral-700">

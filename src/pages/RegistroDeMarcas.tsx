@@ -148,7 +148,7 @@ export default function RegistroDeMarcas() {
                 </p>
                 <p>
                   Já estão incluídas as taxas oficiais cobradas pelo INPI referentes ao pedido e ao
-                  primeiro decênio — os primeiros 10 anos de vigência da marca registrada.
+                  primeiro decênio, os primeiros 10 anos de vigência da marca registrada.
                 </p>
               </div>
             </div>
@@ -199,8 +199,8 @@ export default function RegistroDeMarcas() {
                 <p>
                   O processo é conduzido pelo INPI e tem etapas próprias, incluindo exame formal,
                   publicação para oposição de terceiros e exame de mérito. O prazo de concessão
-                  depende do instituto, não do escritório — e acompanhamos cada uma dessas fases
-                  para que você não perca prazo de resposta.
+                  depende do instituto, não do escritório, e acompanhamos cada uma dessas fases para
+                  que você não perca prazo de resposta.
                 </p>
               </div>
             </div>

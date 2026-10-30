@@ -37,9 +37,9 @@ export const SUCCESS_CASES: SuccessCase[] = [
     slug: 'parcelamento-debitos-tributarios',
     badgeText: 'CASO 1',
     badgeSubtext: 'Negociação e parcelamento de débitos tributários',
-    title: 'CASO 1 — Negociação e parcelamento de débitos tributários',
+    title: 'CASO 1, Negociação e parcelamento de débitos tributários',
     segment:
-      'clínica de estética e procedimentos estéticos, em operação desde 2008, com 15 colaboradores e prestadores — caso aplicável a qualquer segmento com passivo tributário acumulado.',
+      'clínica de estética e procedimentos estéticos, em operação desde 2008, com 15 colaboradores e prestadores, caso aplicável a qualquer segmento com passivo tributário acumulado.',
     summary:
       'Estruturação de renegociação fiscal e parcelamento de passivo tributário perante a União e o DF, compatibilizando prazos e parcelas ao fluxo de caixa sem comprometer as operações.',
     highlightBenefits: [
@@ -82,7 +82,7 @@ export const SUCCESS_CASES: SuccessCase[] = [
     slug: 'planejamento-tributario-clinicas',
     badgeText: 'CASO 2',
     badgeSubtext: 'Planejamento tributário',
-    title: 'CASO 2 — Planejamento tributário: por que o Simples não era o regime mais barato',
+    title: 'CASO 2, Planejamento tributário: por que o Simples não era o regime mais barato',
     segment:
       'clínicas médicas e de procedimentos na área da saúde. Caso exclusivo para esse setor.',
     summary:
@@ -110,7 +110,7 @@ export const SUCCESS_CASES: SuccessCase[] = [
       'A premissa comum no mercado é que o Simples Nacional é sempre o regime mais econômico para pequenos negócios. Para clínicas, essa premissa falha por dois motivos: a segregação de receitas e o fator R alteram significativamente a alíquota efetiva (LC 123/2006, art. 18, §§ 5º-A e 5º-B), e o setor tem acesso a benefício fiscal específico que o Simples não aproveita.',
     actionsTaken: [
       'Simulação comparativa completa entre Simples Nacional, Lucro Presumido e Lucro Real. O resultado apontou o Lucro Presumido como regime mais vantajoso.',
-      'A chave do caso foi identificar que a atividade da clínica se enquadra na equiparação hospitalar, que autoriza presunção reduzida de 8% sobre a receita de hospitalização, cirurgia e procedimentos ambulatoriais, com fundamento no art. 2º da Lei 7.450/1982, na Lei 12.101/2009 e na IN RFB 1.115/2012. Essa combinação — Lucro Presumido mais equiparação hospitalar — é o que produz a economia, e não o Lucro Presumido isolado.',
+      'A chave do caso foi identificar que a atividade da clínica se enquadra na equiparação hospitalar, que autoriza presunção reduzida de 8% sobre a receita de hospitalização, cirurgia e procedimentos ambulatoriais, com fundamento no art. 2º da Lei 7.450/1982, na Lei 12.101/2009 e na IN RFB 1.115/2012. Essa combinação, Lucro Presumido mais equiparação hospitalar, é o que produz a economia, e não o Lucro Presumido isolado.',
       'Estruturação do plano de transição de regime, com segregação correta das receitas e apuração da alíquota efetiva conforme a legislação do Simples no período anterior à mudança.',
     ],
     result: {

@@ -220,7 +220,7 @@ onRecordAfterCreateSuccess((e) => {
     var officeEmail = 'contato@peresperes.com.br'
 
     // (a) E-mail para o escritório PERES PERES
-    var officeSubject = 'Novo contato recebido pelo site — ' + (name ? name : email)
+    var officeSubject = 'Novo contato recebido pelo site: ' + (name ? name : email)
 
     var logoUrl = 'https://peresperes.com.br/logo-horizontal.png'
     var logoAlt = 'PERES PERES Consultoria &amp; Contabilidade'

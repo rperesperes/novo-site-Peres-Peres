@@ -183,14 +183,14 @@ export default function CertificadoDigital() {
                     <HardDrive className="h-5 w-5 text-[#FAB319]" />
                   </div>
                   <CardTitle className="text-xl md:text-2xl font-bold text-white leading-snug">
-                    A1 — arquivo no seu computador
+                    A1: arquivo no seu computador
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-6 md:p-8 pt-6 space-y-4">
                   <p className="text-sm md:text-base text-neutral-300 leading-relaxed">
                     O certificado é um arquivo digital que você baixa e guarda onde quiser. Quem
                     tiver o arquivo e a senha pode usar o certificado. Validade de 1 ano.
-                    Recomendamos guardar uma cópia em Google Drive, OneDrive ou Dropbox — perdido o
+                    Recomendamos guardar uma cópia em Google Drive, OneDrive ou Dropbox, perdido o
                     arquivo, é necessário adquirir um novo certificado.
                   </p>
                 </CardContent>
@@ -214,14 +214,14 @@ export default function CertificadoDigital() {
                     <KeyRound className="h-5 w-5 text-[#FAB319]" />
                   </div>
                   <CardTitle className="text-xl md:text-2xl font-bold text-white leading-snug">
-                    A3 — token ou pendrive
+                    A3: token ou pendrive
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-6 md:p-8 pt-6 space-y-4">
                   <p className="text-sm md:text-base text-neutral-300 leading-relaxed">
                     O certificado fica armazenado em uma mídia física, e só pode ser usado por quem
-                    estiver com o token conectado ao computador. Validade de até 3 anos —
-                    trabalhamos com a configuração de melhor custo-benefício, que é a de 3 anos.
+                    estiver com o token conectado ao computador. Validade de até 3 anos, trabalhamos
+                    com a configuração de melhor custo-benefício, que é a de 3 anos.
                   </p>
                 </CardContent>
               </div>

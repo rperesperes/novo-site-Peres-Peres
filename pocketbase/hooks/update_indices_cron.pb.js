@@ -69,10 +69,10 @@ cronAdd('monthly_indices_update', '0 8 1 * *', () => {
   function sendCronSummaryEmail(results) {
     var config = getCronMailConfig()
     var recipient = 'rafael@peresperes.com.br'
-    var subject = 'Atualização Mensal dos Índices Fiscais — PERES PERES'
+    var subject = 'Atualização Mensal dos Índices Fiscais: PERES PERES'
 
     var textLines = [
-      'Relatório de Atualização Mensal dos Índices — PERES PERES Consultoria & Contabilidade',
+      'Relatório de Atualização Mensal dos Índices: PERES PERES Consultoria & Contabilidade',
       'Data de execução: ' + new Date().toISOString(),
       '',
       '--- RESUMO DOS ÍNDICES ---',
@@ -485,10 +485,10 @@ routerAdd('POST', '/backend/v1/indices/sync-now', (e) => {
   function sendCronSummaryEmail(results) {
     var config = getCronMailConfig()
     var recipient = 'rafael@peresperes.com.br'
-    var subject = 'Atualização Mensal dos Índices Fiscais — PERES PERES'
+    var subject = 'Atualização Mensal dos Índices Fiscais: PERES PERES'
 
     var textLines = [
-      'Relatório de Atualização Mensal dos Índices — PERES PERES Consultoria & Contabilidade',
+      'Relatório de Atualização Mensal dos Índices: PERES PERES Consultoria & Contabilidade',
       'Data de execução: ' + new Date().toISOString(),
       '',
       '--- RESUMO DOS ÍNDICES ---',

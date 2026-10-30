@@ -4,7 +4,8 @@ import { Menu } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { cn } from '@/lib/utils'
-import logoNova from '@/assets/logo-nova-800x200-b63d1.png'
+import logoNova from '@/assets/logo-nova-560w.png'
+import logoNovaOriginal from '@/assets/logo-nova-800x200-b63d1.png'
 
 const NAV_LINKS = [
   { name: 'Início', path: '/' },
@@ -43,6 +44,10 @@ export function Header() {
         <Link to="/" className="flex items-center gap-3 group">
           <img
             src={logoNova}
+            srcSet={`${logoNova} 560w, ${logoNovaOriginal} 800w`}
+            sizes="(max-width: 768px) 240px, 280px"
+            width={280}
+            height={70}
             alt="PERES PERES Consultoria & Contabilidade"
             className="h-10 md:h-12 w-auto object-contain"
           />

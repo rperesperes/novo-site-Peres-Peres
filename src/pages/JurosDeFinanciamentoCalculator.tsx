@@ -1107,10 +1107,10 @@ export default function JurosDeFinanciamentoCalculator() {
                 1. A diferença entre Price e SAC
               </h3>
               <p>
-                No mercado de crédito brasileiro — especialmente no financiamento imobiliário e em
-                operações de longo prazo reguladas pelo Sistema Financeiro da Habitação (SFH) e pelo
-                Sistema de Financiamento Imobiliário (SFI) —, existem duas metodologias consagradas
-                de reembolso de capital:
+                No mercado de crédito brasileiro, especialmente no financiamento imobiliário e em
+                operações com garantia real regidas pelo Sistema Financeiro da Habitação (SFH) e
+                Sistema de Financiamento Imobiliário (SFI), existem duas metodologias consagradas de
+                reembolso de capital:
               </p>
               <ul className="list-disc pl-6 space-y-2 mt-3 mb-4">
                 <li>

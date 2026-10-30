@@ -1119,7 +1119,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
               <p>
                 O Simples Nacional é um regime tributário simplificado e unificado instituído pela
                 Lei Complementar nº 123/2006. Ele reúne em uma única guia de recolhimento mensal (o
-                Documento de Arrecadação do Simples Nacional — DAS) até oito tributos federais,
+                Documento de Arrecadação do Simples Nacional, DAS) até oito tributos federais,
                 estaduais e municipais: IRPJ, CSLL, PIS/Pasep, COFINS, IPI, CPP (Contribuição
                 Patronal Previdenciária), ICMS e ISS.
               </p>

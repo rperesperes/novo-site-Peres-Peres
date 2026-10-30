@@ -121,8 +121,8 @@ export default function TrabalheConosco() {
 
   const handleApplyMailto = (vacancyTitle?: string) => {
     const subject = vacancyTitle
-      ? `Candidatura: ${vacancyTitle} — PERES PERES`
-      : 'Currículo Espontâneo — PERES PERES'
+      ? `Candidatura: ${vacancyTitle}, PERES PERES`
+      : 'Currículo Espontâneo, PERES PERES'
     const mailtoUrl = `mailto:${RECRUITMENT_EMAIL}?subject=${encodeURIComponent(subject)}`
 
     try {

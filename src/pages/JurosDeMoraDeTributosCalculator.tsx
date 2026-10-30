@@ -571,7 +571,7 @@ export default function JurosDeMoraDeTributosCalculator() {
                 <p className="text-xs text-neutral-700 mt-1 leading-relaxed">
                   {SELIC_SERIE_VIGENCIA.rotuloConferencia}.{' '}
                   <strong>{SELIC_SERIE_VIGENCIA.rotuloSerieConsolidada}</strong> (
-                  {SELIC_SERIE_VIGENCIA.taxaMaisRecente.toFixed(2).replace('.', ',')}% a.m.) —{' '}
+                  {SELIC_SERIE_VIGENCIA.taxaMaisRecente.toFixed(2).replace('.', ',')}% a.m.),{' '}
                   {SELIC_SERIE_VIGENCIA.explicacaoFechamentoMes}. Dados oficiais Banco Central do
                   Brasil (Série SGS 4390) e Receita Federal do Brasil (Sicalc).
                 </p>
