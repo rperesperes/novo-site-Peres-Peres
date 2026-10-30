@@ -26,86 +26,65 @@ import {
   ArrowRight,
 } from 'lucide-react'
 
-// 6 Desafios da Agencia de Viagem (textos verbatim)
+// 4 Desafios da Agência de Viagem (textos verbatim)
 const DESAFIOS = [
-  {
-    title: 'Comissão e valor total do pacote',
-    icon: Receipt,
-    text: 'Apurar imposto sobre o valor total da passagem, quando a operação deveria tributar apenas a comissão, é o erro clássico do setor e destrói a margem. A separação entre o que é receita própria e o que é repasse começa no contrato com o fornecedor e precisa chegar intacta à escrituração.',
-  },
-  {
-    title: 'Fornecedores e repasses',
-    icon: FileSpreadsheet,
-    text: 'Operadoras, companhias aéreas, consolidadores e hotéis exigem controle de documentos, notas e retenções que precisa bater com a escrituração. Repasse sem documento correto é despesa que se perde e margem que se esconde.',
-  },
-  {
-    title: 'Câmbio e variação cambial',
-    icon: Coins,
-    text: 'Operações em moeda estrangeira, com preços fixados em dólar ou euro, têm reflexos contábeis e fiscais que exigem critério de conversão definido e aplicado de forma consistente. Sem isso, o resultado do mês vira ficção e a apuração fica exposta.',
-  },
-  {
-    title: 'Sazonalidade e pacotes antecipados',
-    icon: CalendarClock,
-    text: 'Pacote pago com meses de antecedência é dinheiro no caixa, mas não é ainda receita prestada. O reconhecimento acompanha a execução do serviço, e quem controla isso pelo caixa distorce o resultado de todos os meses entre a venda e a viagem.',
-  },
-  {
-    title: 'Cancelamentos e reembolsos',
-    icon: RotateCcw,
-    text: 'Cancelamento com multa, reembolso parcial, no-show e remarcação têm tratamento contábil e fiscal próprio. Parametrizar isso depois que o cancelamento acontece é apagar incêndio, e o custo aparece na apuração.',
-  },
   {
     title: 'Contratos corporativos e agentes de viagem',
     icon: Users2,
     text: 'Contratos com clientes corporativos, faturamento centralizado e agentes de viagem autônomos que vendem em nome da agência exigem tratamento contratual, fiscal e trabalhista específico. A relação do agente autônomo é, em especial, fonte recorrente de discussão trabalhista.',
   },
+  {
+    title: 'Comissão, repasse e receita própria',
+    icon: Receipt,
+    text: 'O valor que o cliente paga pelo pacote não é receita da agência. Comissão, taxa de serviço e repasse a fornecedores têm naturezas distintas e precisam estar separadas na escrituração, sob pena de a agência apurar tributo sobre dinheiro que nunca foi dela.',
+  },
+  {
+    title: 'Câmbio e pacotes internacionais',
+    icon: Coins,
+    text: 'Operações em moeda estrangeira envolvem variação cambial, IOF e momento de reconhecimento da receita que não coincide com o pagamento do cliente. Sem esse controle, a margem do pacote internacional aparece distorcida no fechamento.',
+  },
+  {
+    title: 'Cancelamentos, reembolsos e créditos de fornecedor',
+    icon: RotateCcw,
+    text: 'Cancelamento gera estorno, crédito com fornecedor e, não raro, retenção de multa. O tratamento fiscal de cada uma dessas parcelas é distinto e precisa estar previsto antes de virar lançamento.',
+  },
 ]
 
-// 5 Frentes de Atuacao (textos verbatim na ordem exata: Tributaria, Contabil, Societaria, Financeira e de Gestao, Trabalhista)
+// 4 Frentes de Atuação (Tributária, Contábil, Societária, Financeira e de Gestão)
 const FRENTES_ATUACAO = [
   {
     frente: 'Tributária',
     destaque: true,
     badge: 'Nossa especialidade',
-    text: 'definição da separação entre receita própria e repasse conforme a estrutura contratual, revisão da apuração sobre comissão, tratamento de cancelamentos e acompanhamento da Reforma Tributária aplicada ao setor.',
+    text: 'Definição da separação entre receita de comissão, taxa de serviço e repasses a fornecedores, regime de apuração sobre receita própria e acompanhamento da Reforma Tributária aplicada ao setor de turismo.',
   },
   {
     frente: 'Contábil',
     destaque: false,
-    text: 'escrituração que separa venda, repasse e comissão, com controle de receita antecipada dos pacotes, conciliação com fornecedores e demonstrações que mostrem a margem real por produto e por cliente.',
+    text: 'Escrituração que separa venda, repasse a operadoras e comissões, conciliação de adiantamentos de pacotes e registro adequado de operações com câmbio e cancelamentos.',
   },
   {
     frente: 'Societária',
     destaque: false,
-    text: 'estruturação da agência e das unidades, contratos societários e definição do modelo de participação de agentes e parceiros comerciais no negócio.',
+    text: 'Estruturação societária da agência, elaboração e revisão de contratos de agenciamento e regras claras para retirada dos sócios e distribuição de lucros.',
   },
   {
     frente: 'Financeira e de Gestão',
     destaque: false,
-    text: 'leitura de margem por pacote, por destino e por tipo de cliente, projeção de caixa considerando sazonalidade e adiantamentos, e controle do prazo entre venda, viagem e repasse a fornecedor.',
-  },
-  {
-    frente: 'Trabalhista',
-    destaque: false,
-    text: 'organização da contratação de equipe interna e de agentes autônomos, revisão de riscos de vínculo e conformidade no eSocial.',
+    text: 'Controle de fluxo de caixa entre recebimento do cliente e repasse a fornecedores, leitura de margem real por pacote e gestão dos reflexos de variação cambial.',
   },
 ]
 
-// 3 Razoes Por Que a PERES PERES (textos verbatim)
+// Razões Por Que a PERES PERES (Responsável técnico com dupla formação ANTES de Postura conservadora)
 const POR_QUE_PERES_PERES = [
   {
     num: '1',
     title: 'Responsável técnico com dupla formação',
     icon: Scale,
-    text: 'Rafael Peres Peres Nunes Altoé é contador (CRC 027704), advogado (OAB 87656), auditor (CNAI 10122) e professor. Contrato com fornecedor, câmbio e risco trabalhista do agente autônomo são lidos juntos, na mesma mesa.',
+    text: 'Rafael Peres Peres Nunes Altoé é contador (CRC 027704), advogado (OAB 87656), auditor (CNAI 10122) e professor. Contrato de agenciamento, risco trabalhista do agente autônomo e enquadramento tributário são lidos juntos, na mesma mesa.',
   },
   {
     num: '2',
-    title: 'Capacidade de produzir prova técnica',
-    icon: FileCheck,
-    text: 'A equipe conta com perita contábil formada em perícia judicial e em cálculos trabalhistas. Em discussão sobre reconhecimento de receita, cancelamentos ou relação com agentes, a produção técnica é interna.',
-  },
-  {
-    num: '3',
     title: 'Postura conservadora',
     icon: ShieldCheck,
     text: 'Não veiculamos promessa de percentual de economia. Cada diagnóstico parte de auditoria documental dos números da agência, e quando o enquadramento atual já é o correto, dizemos que é.',
@@ -371,7 +350,7 @@ export default function AgenciasViagemSegment() {
               Como atuamos na agência de viagem
             </h2>
             <p className="text-neutral-700 text-base md:text-lg mt-3 leading-relaxed font-sans">
-              O acompanhamento contábil mensal integra cinco frentes complementares, com foco na
+              O acompanhamento contábil mensal integra quatro frentes complementares, com foco na
               rotina operacional, financeira e societária da agência.
             </p>
           </div>
@@ -450,7 +429,7 @@ export default function AgenciasViagemSegment() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 items-stretch">
+          <div className="grid md:grid-cols-2 gap-6 items-stretch">
             {POR_QUE_PERES_PERES.map((item, idx) => {
               const Icon = item.icon
               return (

@@ -31,12 +31,12 @@ const DESAFIOS = [
   {
     title: 'Enquadramento e Fator R',
     icon: Calculator,
-    text: 'A atividade médica é permitida no Simples Nacional (LC 123/2006, art. 17, V, "e"). A clínica é tributada no Anexo III ou no Anexo V conforme o Fator R, a relação entre folha e receita dos últimos 12 meses. Fator R de 28% ou mais conduz ao Anexo III, de alíquota menor. Como o cálculo é refeito todo mês, decisões de contratação e de pró-labore mudam a guia do mês seguinte.',
+    text: 'A atividade médica é permitida no Simples Nacional (LC 123/2006, art. 18, § 5º-B, VII), desde que a receita não ultrapasse os limites da LC 123/2006. A clínica é tributada no Anexo III ou no Anexo V conforme o Fator R, a relação entre folha e receita dos últimos 12 meses. Fator R de 28% ou mais conduz ao Anexo III, de alíquota menor. Como o cálculo é refeito todo mês, decisões de contratação e de pró-labore mudam a guia do mês seguinte.',
   },
   {
     title: 'Equiparação hospitalar',
     icon: Building,
-    text: 'Clínicas com estrutura de internação ou atendimento em regime hospitalar podem ser equiparadas a hospital para efeitos de PIS e COFINS, com base na Lei nº 10.865/2004. O enquadramento altera o regime de apuração e o aproveitamento de créditos sobre insumos. É análise técnica caso a caso, que depende da estrutura física, do tipo de atendimento e da documentação da clínica, e que a maioria dos escritórios não avalia.',
+    text: 'Clínicas com estrutura de internação ou atendimento em regime hospitalar podem ser equiparadas a hospital para efeitos de PIS e COFINS, conforme a definição do art. 13 da Lei nº 12.101/2009 e o regime de apuração do art. 9º da Lei nº 12.546/2011, além das regras gerais de não cumulatividade da Lei nº 10.865/2004. O enquadramento altera o regime de apuração e o aproveitamento de créditos sobre insumos. É análise técnica caso a caso, que depende da estrutura física, do tipo de atendimento e da documentação da clínica, e que a maioria dos escritórios não avalia.',
   },
   {
     title: 'Pró-labore, distribuição de lucros e INSS',
@@ -117,7 +117,7 @@ const FAQ_ITEMS = [
   {
     question: 'Clínica médica pode ser Simples Nacional?',
     answer:
-      'Sim. A atividade médica é permitida no Simples Nacional (LC 123/2006, art. 17, V, "e"). A clínica é tributada nos Anexos III ou V, conforme o Fator R. A escolha entre Simples, Lucro Presumido e Lucro Real depende dos números da clínica: faturamento, folha, margem e volume de despesas com insumos e equipamentos.',
+      'Sim. A atividade médica é permitida no Simples Nacional (LC 123/2006, art. 18, § 5º-B, VII), desde que a receita não ultrapasse os limites da LC 123/2006. A clínica é tributada nos Anexos III ou V, conforme o Fator R. A escolha entre Simples, Lucro Presumido e Lucro Real depende dos números da clínica: faturamento, folha, margem e volume de despesas com insumos e equipamentos.',
   },
   {
     question: 'O que é Fator R e por que ele importa tanto para clínica médica?',
@@ -127,7 +127,7 @@ const FAQ_ITEMS = [
   {
     question: 'O que é equiparação hospitalar e vale a pena para a minha clínica?',
     answer:
-      'É o enquadramento em que clínicas com estrutura de internação ou atendimento em regime hospitalar são tratadas como hospital para efeitos de PIS e COFINS, com base na Lei nº 10.865/2004. Pode alterar o regime de apuração e o aproveitamento de créditos sobre insumos, mas depende da estrutura física, do tipo de atendimento e da documentação, e deve ser avaliada tecnicamente caso a caso.',
+      'É o enquadramento em que clínicas com estrutura de internação ou atendimento em regime hospitalar podem ser equiparadas a hospital para efeitos de PIS e COFINS, conforme a definição do art. 13 da Lei nº 12.101/2009 e o regime de apuração do art. 9º da Lei nº 12.546/2011, além das regras gerais de não cumulatividade da Lei nº 10.865/2004. Pode alterar o regime de apuração e o aproveitamento de créditos sobre insumos, mas depende da estrutura física, do tipo de atendimento e da documentação, e deve ser avaliada tecnicamente caso a caso.',
   },
   {
     question: 'A clínica aproveita crédito sobre equipamentos e insumos?',

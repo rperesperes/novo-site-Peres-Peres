@@ -160,7 +160,6 @@ const OUTROS_SEGMENTOS = [
   { name: 'Educação e Treinamentos', link: '/contabilidade-para-educacao-e-treinamentos' },
   { name: 'Publicidade e Comunicação', link: '/contabilidade-para-agencias-de-publicidade' },
   { name: 'Agências de Viagem', link: '/contabilidade-para-agencias-de-viagem' },
-  { name: 'MEIs e Profissionais Liberais', link: '/servicos#segmentos' },
 ]
 
 export default function EcommerceSegment() {

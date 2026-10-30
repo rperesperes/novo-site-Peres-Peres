@@ -45,7 +45,7 @@ const DESAFIOS = [
   {
     title: 'Folha docente e corpo técnico',
     icon: Users2,
-    text: 'Professores CLT, professor horista, instrutor MEI e prestador PJ convivem na mesma escola, com tratamentos previdenciários e trabalhistas diferentes. A fronteira com vínculo empregatício é fonte constante de risco, e depende do modelo de contratação e da forma de execução.',
+    text: 'Professores CLT, professor horista, prestador PJ e, em hipóteses restritas, instrutor enquadrado como MEI convivem na mesma escola, com tratamentos previdenciários e trabalhistas diferentes. O enquadramento como MEI só é possível nas ocupações expressamente previstas na lista do Comitê Gestor do Simples Nacional (Resolução CGSN nº 140/2018) e nunca alcança profissões regulamentadas com registro em conselho de classe. A fronteira com vínculo empregatício é fonte constante de risco, e depende do modelo de contratação e da forma de execução.',
   },
   {
     title: 'Material didático, plataformas e conteúdo digital',
@@ -124,7 +124,7 @@ const FAQ_ITEMS = [
       'Não. A imunidade depende do atendimento dos requisitos constitucionais e legais, e precisa ser comprovada e mantida. Entidade beneficente de assistência social que atua em educação tem, adicionalmente, certificação própria com exigências contínuas.',
   },
   {
-    question: 'Como tratar instrutores contratados como MEI?',
+    question: 'Quando o instrutor pode ser contratado como MEI, e quando não pode?',
     answer:
       'Depende de como a contratação acontece na prática. MEI é figura com limites de faturamento e de atividade, e a contratação de instrutor com pessoalidade, habitualidade e subordinação cria risco de reconhecimento de vínculo, independentemente do documento assinado. O desenho do contrato e a rotina de execução precisam ser compatíveis.',
   },

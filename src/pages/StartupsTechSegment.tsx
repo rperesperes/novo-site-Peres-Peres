@@ -76,7 +76,7 @@ const FRENTES_ATUACAO = [
   {
     frente: 'Societária',
     destaque: false,
-    text: 'estruturação societária inicial, tabela de capitalização, vesting de fundadores e colaboradores, instrumentos de stock options e preparação da estrutura para novas rodadas.',
+    text: 'Estruturação de vesting e stock options, acordo de sócios, cláusulas de drag along e tag along, e preparação societária para rodada de investimento, incluindo a leitura dos reflexos fiscais da outorga e do exercício das opções.',
   },
   {
     frente: 'Financeira e de Gestão',
