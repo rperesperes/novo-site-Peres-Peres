@@ -1,7 +1,7 @@
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { BookOpen, GraduationCap, Users, CheckCircle2 } from 'lucide-react'
+import { BookOpen, GraduationCap, Users, CheckCircle2, ExternalLink } from 'lucide-react'
 import logoPadrao from '@/assets/logo-padrao-oficial-844b7.png'
 import rafaelImg from '@/assets/foto-melhorada-por-ia-892a9.png'
 import williamImg from '@/assets/copia-de-img8757-182f8.jpg'
@@ -23,23 +23,22 @@ const TEAM_MEMBERS: TeamMember[] = [
     photo: gabrielaImg,
     alt: 'Gabriela Feitosa - Contadora (CRC 031776) e Perita Contábil (CNPC 8224)',
     description:
-      'Contadora e perita contábil, com formação complementar voltada à produção de prova técnica. Concluiu o curso Veritas Perícia — Formação completa de Peritos Judiciais e Assistentes Técnicos em Cálculos Trabalhistas, e é pós-graduanda em Perícia Contábil e Financeira pela Faculdade Brasileira de Contabilidade (FBC). Atua na elaboração de laudos e pareceres técnicos, com experiência em protocolo junto a tribunais e em execução financeira de órgãos públicos.',
+      'Pós graduanda em Perícia Contábil e Financeira pela Faculdade Brasileira de Contabilidade (FBC) e Bacharel em Ciências Contábeis (UnB). Concluiu o curso Veritas Perícia de Formação completa de Peritos Judiciais e Assistentes Técnicos em Cálculos Trabalhistas. Tem experiência em protocolo junto a tribunais e em execução financeira de órgãos públicos.',
+  },
+  {
+    name: 'William Lisboa',
+    role: 'Graduando em Ciências Contábeis (UnB)',
+    photo: williamImg,
+    alt: 'William Lisboa - Graduando em Ciências Contábeis (UnB)',
+    description:
+      'Formação profissional em Análise de Dados pelo Google. Atua na construção de relatórios e painéis analíticos, com domínio de Power BI e Microsoft Access, e tem experiência em controle de notas fiscais e em assistência de controladoria de mercado.',
   },
   {
     name: 'Clarissa Lebeis',
     role: 'Graduanda em Ciências Contábeis — UnB',
     photo: clarissaImg,
     alt: 'Clarissa Lebeis - Graduanda em Ciências Contábeis — UnB',
-    description:
-      'Graduanda em Ciências Contábeis pela Universidade de Brasília (UnB). Atua na rotina contábil e fiscal do escritório e é responsável pela organização de eventos e encontros técnicos promovidos com clientes e parceiros.',
-  },
-  {
-    name: 'William Lisboa',
-    role: 'Graduando em Ciências Contábeis (UnB) • Formação em Análise de Dados (Google)',
-    photo: williamImg,
-    alt: 'William Lisboa - Graduando em Ciências Contábeis (UnB) • Formação em Análise de Dados (Google)',
-    description:
-      'Graduando em Ciências Contábeis pela Universidade de Brasília (UnB), com formação profissional em Análise de Dados pelo Google. Atua na construção de relatórios e painéis analíticos, com domínio de Power BI e Microsoft Access, e tem experiência em controle de notas fiscais e em assistência de controladoria de mercado.',
+    description: 'Tem experiência na organização de eventos',
   },
 ]
 
@@ -80,6 +79,15 @@ export default function About() {
                 <p className="text-xs text-[#FAB319] font-semibold mt-1 leading-snug">
                   CRC 027704, OAB 87656 e CNAI 10122
                 </p>
+                <a
+                  href="http://lattes.cnpq.br/9472564752604269"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-xs text-neutral-400 hover:text-white transition-colors mt-2"
+                >
+                  <span>CV Lattes</span>
+                  <ExternalLink className="h-3 w-3" />
+                </a>
               </div>
             </div>
             <div className="md:col-span-8 p-6 sm:p-8 lg:p-10 bg-white flex flex-col justify-center">
