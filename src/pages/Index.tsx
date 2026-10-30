@@ -842,8 +842,8 @@ export default function Index() {
               Segmentos e áreas de atuação
             </h2>
             <p className="text-neutral-600 text-base md:text-lg leading-relaxed font-sans">
-              Atendimento especializado com domínio das peculiaridades tributárias, trabalhistas e
-              regulatórias, especialmente dos seguintes nichos:
+              Atendimento e soluções com domínio das peculiaridades contábeis, financeiras,
+              tributárias, trabalhistas e regulatórias, especialmente dos seguintes ninhos:
             </p>
           </div>
 

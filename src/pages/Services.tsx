@@ -607,8 +607,8 @@ export default function Services() {
               Segmentos e Áreas de Atuação
             </h2>
             <p className="text-neutral-600 text-sm md:text-base leading-relaxed">
-              Soluções contábeis e tributárias desenhadas para as particularidades normativas,
-              societárias e operacionais de cada atividade econômica.
+              Atendimento e soluções com domínio das peculiaridades contábeis, financeiras,
+              tributárias, trabalhistas e regulatórias, especialmente dos seguintes ninhos:
             </p>
           </div>
 
