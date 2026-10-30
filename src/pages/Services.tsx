@@ -127,8 +127,8 @@ const SEGMENTOS_ATUACAO = [
     nome: 'Clínicas e Profissionais da Saúde',
     desc: 'Gestão contábil e consultoria tributária com domínio do Fator R no Simples Nacional, equiparação hospitalar e segregação de receitas para redução lícita de tributos.',
     link: '/contabilidade-para-clinicas-medicas',
-    linkText: 'Ver página especializada',
-    destaque: true,
+    linkText: 'Saiba mais informações',
+    destaque: false,
   },
   {
     nome: 'Startups e Empresas de Tecnologia',
@@ -600,9 +600,6 @@ export default function Services() {
            ========================================================= */}
         <section id="segmentos" className="scroll-mt-24 space-y-8">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block">
-              Expertise Setorial
-            </span>
             <h2 className="text-3xl md:text-4xl font-bold text-black">
               Segmentos e Áreas de Atuação
             </h2>
@@ -632,11 +629,6 @@ export default function Services() {
                           <Building2 className="h-5 w-5 text-black" />
                         )}
                       </div>
-                      {item.destaque && (
-                        <span className="text-[11px] font-mono uppercase tracking-wider px-2.5 py-1 rounded font-semibold bg-[#FAB319] text-black">
-                          Especialidade
-                        </span>
-                      )}
                     </div>
                     <CardTitle className="text-xl font-bold text-black font-sans">
                       {item.nome}

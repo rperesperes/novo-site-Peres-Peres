@@ -45,12 +45,30 @@ export default function CaseDetail() {
 
         if (matched) {
           const fallback = SUCCESS_CASES.find((sc) => sc.slug === slug)
+          const splitIntoParagraphs = (text?: string): string[] => {
+            if (!text) return []
+            // Divide preferencialmente por linhas vazias (\n\s*\n)
+            const byEmptyLines = text
+              .split(/\n\s*\n+/)
+              .map((p) => p.trim())
+              .filter(Boolean)
+            if (byEmptyLines.length > 1) {
+              return byEmptyLines
+            }
+            // Se não houver linha vazia dupla, divide por quebra de linha simples (\n)
+            const bySingleLine = text
+              .split(/\n+/)
+              .map((p) => p.trim())
+              .filter(Boolean)
+            return bySingleLine.length > 0 ? bySingleLine : [text.trim()]
+          }
+
           const actionsParagraphs = matched.actions_taken
-            ? matched.actions_taken.split(/\n\s*\n/).filter(Boolean)
+            ? splitIntoParagraphs(matched.actions_taken)
             : fallback?.actionsTaken || []
 
           const resultParagraphs = matched.result
-            ? matched.result.split(/\n\s*\n/).filter(Boolean)
+            ? splitIntoParagraphs(matched.result)
             : fallback?.result.paragraphs || []
 
           setSuccessCase({
@@ -253,33 +271,48 @@ export default function CaseDetail() {
             </div>
           </section>
 
-          {/* Resultado */}
-          <section className="p-6 md:p-8 rounded-xl border border-neutral-200 bg-white shadow-sm space-y-4">
+          {/* Seção de Resultados: cada parágrafo de resultado exibido como seu próprio card/item separado */}
+          <section className="space-y-4">
             <div className="flex items-center gap-2.5 border-l-4 border-[#FAB319] pl-3">
               <Trophy className="h-5 w-5 text-[#FAB319] shrink-0" />
               <h2 className="text-xl md:text-2xl font-bold text-black tracking-tight uppercase">
-                Resultado
+                {successCase.result.paragraphs.length > 1 ? 'Resultados' : 'Resultado'}
               </h2>
             </div>
-            <div className="pl-3 md:pl-5 space-y-4 text-neutral-700 leading-relaxed text-base">
-              {successCase.result.highlightNumber ? (
-                <>
-                  <p>
-                    {successCase.result.highlightPrefix}{' '}
-                    <span className="inline-block font-bold text-black bg-[#FAB319] px-2.5 py-0.5 rounded shadow-sm">
-                      {successCase.result.highlightNumber}
-                    </span>{' '}
-                    {successCase.result.highlightSuffix}
-                  </p>
-                  {successCase.result.paragraphs.slice(1).map((paragraph, pIdx) => (
-                    <p key={pIdx}>{paragraph}</p>
-                  ))}
-                </>
-              ) : (
-                successCase.result.paragraphs.map((paragraph, pIdx) => (
-                  <p key={pIdx}>{paragraph}</p>
-                ))
-              )}
+
+            <div className="grid gap-4">
+              {successCase.result.paragraphs.map((paragraph, pIdx) => {
+                const isFirst = pIdx === 0
+                const hasHighlight = isFirst && Boolean(successCase.result.highlightNumber)
+
+                return (
+                  <div
+                    key={pIdx}
+                    className="p-6 md:p-7 rounded-xl border border-neutral-200 bg-white shadow-sm hover:border-neutral-300 transition-colors space-y-2"
+                  >
+                    {successCase.result.paragraphs.length > 1 && (
+                      <div className="flex items-center gap-2 text-xs font-mono font-semibold text-neutral-500 uppercase tracking-wider">
+                        <span className="h-2 w-2 rounded-full bg-[#FAB319]" />
+                        <span>Resultado {pIdx + 1}</span>
+                      </div>
+                    )}
+
+                    {hasHighlight ? (
+                      <p className="text-neutral-700 leading-relaxed text-base">
+                        {successCase.result.highlightPrefix && (
+                          <>{successCase.result.highlightPrefix} </>
+                        )}
+                        <span className="inline-block font-bold text-black bg-[#FAB319] px-2.5 py-0.5 rounded shadow-sm">
+                          {successCase.result.highlightNumber}
+                        </span>{' '}
+                        {successCase.result.highlightSuffix || paragraph}
+                      </p>
+                    ) : (
+                      <p className="text-neutral-700 leading-relaxed text-base">{paragraph}</p>
+                    )}
+                  </div>
+                )
+              })}
             </div>
           </section>
         </div>
