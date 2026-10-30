@@ -193,7 +193,7 @@ export default function Index() {
             </h2>
             <div className="space-y-4 text-base md:text-lg text-neutral-700 leading-relaxed font-sans">
               <p>
-                Todo cliente PERES PERES tem consultoria — inclusive no plano mais enxuto. Ela não é
+                Todo cliente PERES PERES tem consultoria, inclusive no plano mais enxuto. Ela não é
                 um projeto vendido depois, nem um pacote adicional. É o olhar técnico que acompanha
                 a sua rotina mensal.
               </p>
@@ -235,7 +235,7 @@ export default function Index() {
               Quatro frentes. Uma especialidade.
             </h2>
             <p className="text-neutral-700 text-base md:text-lg mt-3 leading-relaxed font-sans">
-              A consultoria tributária é o nosso eixo técnico — o que nos diferencia no mercado. As
+              A consultoria tributária é o nosso eixo técnico, o que nos diferencia no mercado. As
               frentes contábil, financeira e trabalhista completam a leitura do negócio.
             </p>
           </div>
@@ -732,77 +732,7 @@ export default function Index() {
       {/* =========================================================
           BLOCO 12 [NOVO]: PROVA SOCIAL (estritamente com placeholders)
          ========================================================= */}
-      <section className="py-12 md:py-16 bg-neutral-50 border-b border-neutral-200">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
-              Quem já trabalha com a gente
-            </h2>
-          </div>
-
-          {/* (a) Faixa de números */}
-          <div className="grid md:grid-cols-3 gap-6 mb-10 text-center">
-            <div className="p-6 rounded-xl bg-white border border-neutral-200">
-              <p className="text-xl md:text-2xl font-sans font-bold text-black mb-1">
-                [número de empresas atendidas]
-              </p>
-              <p className="text-xs uppercase tracking-wider text-neutral-500 font-sans">
-                Empresas atendidas
-              </p>
-            </div>
-            <div className="p-6 rounded-xl bg-white border border-neutral-200">
-              <p className="text-xl md:text-2xl font-sans font-bold text-black mb-1">
-                [anos de atuação]
-              </p>
-              <p className="text-xs uppercase tracking-wider text-neutral-500 font-sans">
-                Anos de atuação
-              </p>
-            </div>
-            <div className="p-6 rounded-xl bg-white border border-neutral-200">
-              <p className="text-xl md:text-2xl font-sans font-bold text-black mb-1">
-                [número de segmentos atendidos]
-              </p>
-              <p className="text-xs uppercase tracking-wider text-neutral-500 font-sans">
-                Segmentos atendidos
-              </p>
-            </div>
-          </div>
-
-          {/* (b) Espaço para depoimentos curtos */}
-          <div className="grid md:grid-cols-2 gap-6 mb-10">
-            <div className="p-6 rounded-xl bg-white border border-neutral-200">
-              <p className="text-sm md:text-base text-neutral-700 italic font-sans mb-4 leading-relaxed">
-                &quot;[depoimento 1 — nome, empresa, segmento]&quot;
-              </p>
-              <p className="text-xs text-neutral-500 font-sans font-semibold">
-                [depoimento 1 — nome, empresa, segmento]
-              </p>
-            </div>
-            <div className="p-6 rounded-xl bg-white border border-neutral-200">
-              <p className="text-sm md:text-base text-neutral-700 italic font-sans mb-4 leading-relaxed">
-                &quot;[depoimento 2 — nome, empresa, segmento]&quot;
-              </p>
-              <p className="text-xs text-neutral-500 font-sans font-semibold">
-                [depoimento 2 — nome, empresa, segmento]
-              </p>
-            </div>
-          </div>
-
-          {/* (c) Faixa de logos de clientes */}
-          <div className="p-6 rounded-xl bg-white border border-dashed border-neutral-300 text-center mb-8">
-            <p className="text-xs md:text-sm text-neutral-500 font-sans">
-              [logos de clientes — inserir mediante autorização]
-            </p>
-          </div>
-
-          <div className="text-center max-w-2xl mx-auto">
-            <p className="text-sm text-neutral-600 font-sans leading-relaxed">
-              Construímos relacionamentos de longo prazo — a maioria dos nossos clientes chegou por
-              indicação de outro cliente.
-            </p>
-          </div>
-        </div>
-      </section>
+      <section className="py-12 md:py-16 bg-neutral-50 border-b border-neutral-200"></section>
 
       {/* =========================================================
           BLOCO 13 [NOVO]: FERRAMENTAS E CONTEÚDO TÉCNICO (3 cards)
