@@ -62,6 +62,33 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signInWithOAuth2 = async (provider = 'google') => {
     try {
+      // Pré-validação defensiva da resposta de auth-methods para evitar que o SDK
+      // estoure erros internos criptográficos como "Cannot read properties of undefined (reading 'providers')"
+      // caso o backend esteja indisponível, retorne HTML ou o provider não esteja listado.
+      try {
+        const methods = await pb.collection('users').listAuthMethods()
+        const oauthProviders = methods?.oauth2?.providers || []
+        const hasProvider = oauthProviders.some((p: any) => p && p.name === provider)
+        if (!hasProvider) {
+          const unavailableError = new Error(
+            'Serviço de autenticação indisponível no momento. Tente novamente mais tarde.',
+          )
+          return { error: unavailableError, record: null }
+        }
+      } catch (checkErr: any) {
+        const isAbort =
+          checkErr?.isAbort ||
+          checkErr?.message?.includes?.('autocancelled') ||
+          checkErr?.message?.includes?.('cancelled')
+        if (isAbort) {
+          return { error: checkErr, record: null }
+        }
+        const unavailableError = new Error(
+          'Serviço de autenticação indisponível no momento. Tente novamente.',
+        )
+        return { error: unavailableError, record: null }
+      }
+
       const authData = await pb.collection('users').authWithOAuth2({ provider })
       const record = authData.record
       const email = (record?.email || '').trim().toLowerCase()
@@ -78,7 +105,19 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       }
 
       return { error: null, record }
-    } catch (error) {
+    } catch (error: any) {
+      const msg = error?.message || ''
+      // Se estourar erro de 'providers', converte em mensagem clara de serviço indisponível
+      if (
+        msg.includes('providers') ||
+        msg.includes('Failed to fetch') ||
+        msg.includes('NetworkError')
+      ) {
+        const friendlyError = new Error(
+          'Serviço de autenticação indisponível no momento, tente novamente.',
+        )
+        return { error: friendlyError, record: null }
+      }
       return { error, record: null }
     }
   }

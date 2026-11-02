@@ -33,9 +33,19 @@ export default function Entrar() {
           error?.message?.includes?.('autocancelled') ||
           error?.message?.includes?.('cancelled')
         if (!isCancelled) {
-          setErrorMessage(
-            error?.message || 'Falha ao autenticar com o Google. Acesso exclusivo à equipe.',
-          )
+          const rawMsg = String(error?.message || '')
+          if (
+            rawMsg.includes('providers') ||
+            rawMsg.includes('Failed to fetch') ||
+            rawMsg.includes('NetworkError') ||
+            rawMsg.includes('indisponível')
+          ) {
+            setErrorMessage('Serviço de autenticação indisponível no momento, tente novamente.')
+          } else {
+            setErrorMessage(
+              rawMsg || 'Falha ao autenticar com o Google. Acesso exclusivo à equipe.',
+            )
+          }
         }
         setSubmitting(false)
         return
@@ -52,7 +62,16 @@ export default function Entrar() {
       setSubmitting(false)
     } catch (err: any) {
       console.error('Erro inesperado no login:', err)
-      setErrorMessage('Ocorreu um erro inesperado ao conectar. Tente novamente.')
+      const rawMsg = String(err?.message || '')
+      if (
+        rawMsg.includes('providers') ||
+        rawMsg.includes('Failed to fetch') ||
+        rawMsg.includes('NetworkError')
+      ) {
+        setErrorMessage('Serviço de autenticação indisponível no momento, tente novamente.')
+      } else {
+        setErrorMessage('Serviço de autenticação indisponível no momento, tente novamente.')
+      }
       setSubmitting(false)
     }
   }
