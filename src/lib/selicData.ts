@@ -4,15 +4,15 @@
 // Vigência de referência documentada na ferramenta: atualizada com base na série oficial divulgada.
 
 export const SELIC_SERIE_VIGENCIA = {
-  competenciaConsolidada: 'Setembro/2026',
-  taxaMaisRecente: 1.08,
-  ultimaConferencia: 'Outubro/2026',
-  rotuloConferencia: 'Parâmetros conferidos em outubro/2026',
-  rotuloConsolidacao: 'Consolidada até setembro/2026',
-  rotuloSerieConsolidada: 'Série da Selic consolidada até setembro/2026',
+  competenciaConsolidada: 'Outubro/2026',
+  taxaMaisRecente: 1.07,
+  ultimaConferencia: 'Novembro/2026',
+  rotuloConferencia: 'Parâmetros conferidos em novembro/2026',
+  rotuloConsolidacao: 'Consolidada até outubro/2026',
+  rotuloSerieConsolidada: 'Série da Selic consolidada até outubro/2026',
   explicacaoFechamentoMes: 'a taxa do mês corrente só é divulgada no fechamento do mês',
   textoExplicativoVigencia:
-    'Parâmetros conferidos em outubro/2026. Série da Selic consolidada até setembro/2026, a taxa do mês corrente só é divulgada no fechamento do mês.',
+    'Parâmetros conferidos em novembro/2026. Série da Selic consolidada até outubro/2026, a taxa do mês corrente só é divulgada no fechamento do mês.',
   baseLegal:
     'Art. 61 da Lei nº 9.430/1996, Art. 13 da Lei nº 9.065/1995 e Art. 84 da Lei nº 8.981/1995',
   fonteOficial: 'Banco Central do Brasil (Série SGS 4390) e Receita Federal do Brasil (Sicalc)',
@@ -192,6 +192,7 @@ export const OFFICIAL_SELIC_MONTHLY_SERIES: SelicMonthlyEntry[] = [
   { yearMonth: '2026-07', year: 2026, month: 7, monthLabel: 'Julho/2026', rate: 1.22 },
   { yearMonth: '2026-08', year: 2026, month: 8, monthLabel: 'Agosto/2026', rate: 1.09 },
   { yearMonth: '2026-09', year: 2026, month: 9, monthLabel: 'Setembro/2026', rate: 1.08 },
+  { yearMonth: '2026-10', year: 2026, month: 10, monthLabel: 'Outubro/2026', rate: 1.07 },
 ]
 
 // Mês mais recente disponível na série oficial embutida

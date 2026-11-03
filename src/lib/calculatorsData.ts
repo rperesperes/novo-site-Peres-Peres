@@ -115,7 +115,7 @@ export const CALCULATORS: CalculatorItem[] = [
     slug: 'juros-de-mora-de-tributos',
     name: 'Juros de Mora de Tributos',
     shortDescription:
-      'Cálculo em tempo real de juros de mora pela Selic acumulada até setembro/2026 e multa de 0,33% ao dia sobre tributos federais em atraso.',
+      'Cálculo em tempo real de juros de mora pela Selic acumulada até outubro/2026 e multa de 0,33% ao dia sobre tributos federais em atraso.',
     category: 'Finanças e Tributos',
     legalBasis:
       'Art. 61 da Lei nº 9.430/1996, Art. 13 da Lei nº 9.065/1995 e Art. 84 da Lei nº 8.981/1995',

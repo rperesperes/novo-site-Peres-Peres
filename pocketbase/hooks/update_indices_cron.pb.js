@@ -278,13 +278,13 @@ cronAdd('monthly_indices_update', '0 8 1 * *', () => {
   var results = []
   var nowIso = new Date().toISOString()
 
-  // 1. Taxa Selic (SGS 1178)
-  var selicRes = fetchBcbSeries(1178)
+  // 1. Taxa Selic mensal (SGS 4390)
+  var selicRes = fetchBcbSeries(4390)
   if (selicRes.success) {
     try {
       var selicRec = $app.findFirstRecordByData('indices', 'slug', 'taxa-selic')
       var formattedVal = selicRes.value.replace('.', ',') + '%'
-      var notes = 'Atualizado automaticamente via API SGS/Banco Central (Série 1178)'
+      var notes = 'Atualizado automaticamente via API SGS/Banco Central (Série SGS 4390 / Sicalc)'
       recordIndexEntry(selicRec, formattedVal, selicRes.date, notes)
       results.push({
         name: 'Taxa Selic',
@@ -292,7 +292,7 @@ cronAdd('monthly_indices_update', '0 8 1 * *', () => {
         status: 'updated',
         value: formattedVal,
         date: selicRes.date,
-        source: 'API BCB SGS 1178',
+        source: 'API BCB SGS 4390',
       })
     } catch (e) {
       results.push({
@@ -691,13 +691,13 @@ routerAdd('POST', '/backend/v1/indices/sync-now', (e) => {
       $app.save(indexRec)
     }
 
-    // 1. Selic
-    var selicRes = fetchBcbSeries(1178)
+    // 1. Selic mensal
+    var selicRes = fetchBcbSeries(4390)
     if (selicRes.success) {
       try {
         var selicRec = $app.findFirstRecordByData('indices', 'slug', 'taxa-selic')
         var formattedVal = selicRes.value.replace('.', ',') + '%'
-        var notes = 'Atualizado automaticamente via API SGS/Banco Central (Série 1178)'
+        var notes = 'Atualizado automaticamente via API SGS/Banco Central (Série SGS 4390 / Sicalc)'
         recordIndexEntry(selicRec, formattedVal, selicRes.date, notes)
         results.push({
           name: 'Taxa Selic',
@@ -705,7 +705,7 @@ routerAdd('POST', '/backend/v1/indices/sync-now', (e) => {
           status: 'updated',
           value: formattedVal,
           date: selicRes.date,
-          source: 'API BCB SGS 1178',
+          source: 'API BCB SGS 4390',
         })
       } catch (e) {
         results.push({
