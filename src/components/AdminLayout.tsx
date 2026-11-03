@@ -186,9 +186,6 @@ export default function AdminLayout() {
           ) : (
             <>
               <div className="min-w-0 pr-2">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[#FAB319] block mb-2">
-                  Área Administrativa
-                </span>
                 <Link to="/admin" className="block group">
                   <img
                     src={logoNova}

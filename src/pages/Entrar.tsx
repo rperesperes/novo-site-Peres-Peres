@@ -131,9 +131,6 @@ export default function Entrar() {
             className="h-12 w-auto object-contain"
           />
         </div>
-        <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-          PERES PERES Consultoria &amp; Contabilidade
-        </h1>
 
         {/* 2. Frase curta informando que o acesso é restrito à equipe do escritório */}
         <p className="text-sm sm:text-base text-neutral-400 font-sans leading-relaxed">
