@@ -278,6 +278,51 @@ cronAdd('monthly_indices_update', '0 8 1 * *', () => {
   var results = []
   var nowIso = new Date().toISOString()
 
+  // Sincronização e extensão das séries no banco:
+  // Se o índice igp-m ou selic anualizada base 252 ainda não existirem na coleção indices, registra-os
+  try {
+    var igpmRecCheck = $app.findFirstRecordByData('indices', 'slug', 'igp-m')
+  } catch (_) {
+    try {
+      var indCol = $app.findCollectionByNameOrId('indices')
+      var newIgpm = new Record(indCol)
+      newIgpm.set('name', 'IGP-M (FGV)')
+      newIgpm.set('slug', 'igp-m')
+      newIgpm.set('current_value', '1,47%')
+      newIgpm.set('effective_date', '01/10/2026')
+      newIgpm.set('validity_months', 12)
+      newIgpm.set('notes', 'Índice Geral de Preços do Mercado (FGV / BCB Série SGS 189)')
+      newIgpm.set('update_source', 'automatica')
+      newIgpm.set('last_updated_at', nowIso)
+      $app.save(newIgpm)
+    } catch (ie) {}
+  }
+
+  try {
+    var selic252Check = $app.findFirstRecordByData(
+      'indices',
+      'slug',
+      'taxa-selic-anualizada-base-252',
+    )
+  } catch (_) {
+    try {
+      var indCol2 = $app.findCollectionByNameOrId('indices')
+      var newSelic252 = new Record(indCol2)
+      newSelic252.set('name', 'Taxa Selic anualizada base 252')
+      newSelic252.set('slug', 'taxa-selic-anualizada-base-252')
+      newSelic252.set('current_value', '13,65%')
+      newSelic252.set('effective_date', '30/10/2026')
+      newSelic252.set('validity_months', 12)
+      newSelic252.set(
+        'notes',
+        'Taxa Selic apurada em operações diárias anualizada base 252 (BCB Série SGS 1178)',
+      )
+      newSelic252.set('update_source', 'automatica')
+      newSelic252.set('last_updated_at', nowIso)
+      $app.save(newSelic252)
+    } catch (ie2) {}
+  }
+
   // 1. Taxa Selic mensal (SGS 4390)
   var selicRes = fetchBcbSeries(4390)
   if (selicRes.success) {
@@ -410,7 +455,67 @@ cronAdd('monthly_indices_update', '0 8 1 * *', () => {
     })
   }
 
-  // 5. Salário Mínimo Federal
+  // 5. IGP-M mensal (SGS 189)
+  var igpmRes = fetchBcbSeries(189)
+  if (igpmRes.success) {
+    try {
+      var igpmRec = $app.findFirstRecordByData('indices', 'slug', 'igp-m')
+      var formattedIgpm = igpmRes.value.replace('.', ',') + '%'
+      var igpmNotes = 'Atualizado automaticamente via API SGS/Banco Central (Série 189 - FGV/BCB)'
+      recordIndexEntry(igpmRec, formattedIgpm, igpmRes.date, igpmNotes)
+      results.push({
+        name: 'IGP-M (FGV)',
+        slug: 'igp-m',
+        status: 'updated',
+        value: formattedIgpm,
+        date: igpmRes.date,
+        source: 'API BCB SGS 189',
+      })
+    } catch (e) {
+      results.push({ name: 'IGP-M (FGV)', slug: 'igp-m', status: 'failed', reason: String(e) })
+    }
+  } else {
+    results.push({ name: 'IGP-M (FGV)', slug: 'igp-m', status: 'failed', reason: igpmRes.error })
+  }
+
+  // 6. Taxa Selic anualizada base 252 (SGS 1178)
+  var selic252Res = fetchBcbSeries(1178)
+  if (selic252Res.success) {
+    try {
+      var selic252Rec = $app.findFirstRecordByData(
+        'indices',
+        'slug',
+        'taxa-selic-anualizada-base-252',
+      )
+      var formattedSelic252 = selic252Res.value.replace('.', ',') + '%'
+      var selic252Notes = 'Atualizado automaticamente via API SGS/Banco Central (Série 1178 - BCB)'
+      recordIndexEntry(selic252Rec, formattedSelic252, selic252Res.date, selic252Notes)
+      results.push({
+        name: 'Taxa Selic anualizada base 252',
+        slug: 'taxa-selic-anualizada-base-252',
+        status: 'updated',
+        value: formattedSelic252,
+        date: selic252Res.date,
+        source: 'API BCB SGS 1178',
+      })
+    } catch (e) {
+      results.push({
+        name: 'Taxa Selic anualizada base 252',
+        slug: 'taxa-selic-anualizada-base-252',
+        status: 'failed',
+        reason: String(e),
+      })
+    }
+  } else {
+    results.push({
+      name: 'Taxa Selic anualizada base 252',
+      slug: 'taxa-selic-anualizada-base-252',
+      status: 'failed',
+      reason: selic252Res.error,
+    })
+  }
+
+  // 7. Salário Mínimo Federal
   // Sem API oficial aberta estável: não inventar valor e pedir conferência manual
   results.push({
     name: 'Salário mínimo federal',
