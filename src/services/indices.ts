@@ -121,6 +121,92 @@ export async function createIndexEntry(data: CreateIndexEntryInput): Promise<Ind
   return entry as unknown as IndexEntryRecord
 }
 
+export interface BatchImportEntryItem {
+  effective_date: string
+  value: string
+  notes?: string
+  action: 'create' | 'update' | 'skip'
+  existingEntryId?: string
+}
+
+export interface BatchImportResult {
+  createdCount: number
+  updatedCount: number
+  skippedCount: number
+  errors: string[]
+}
+
+/**
+ * Importa um lote de vigências para um índice, com suporte a criação ou atualização.
+ * Ao final do lote completo, sincroniza o resumo do índice garantindo que aponte
+ * para a vigência com a MAIOR data de início da série histórica.
+ */
+export async function importIndexEntriesBatch(
+  indexId: string,
+  indexSlug: string,
+  items: BatchImportEntryItem[],
+  onProgress?: (processed: number, total: number) => void,
+): Promise<BatchImportResult> {
+  let createdCount = 0
+  let updatedCount = 0
+  let skippedCount = 0
+  const errors: string[] = []
+
+  const total = items.length
+
+  for (let i = 0; i < total; i++) {
+    const item = items[i]
+    if (item.action === 'skip') {
+      skippedCount++
+      if (onProgress) onProgress(i + 1, total)
+      continue
+    }
+
+    try {
+      if (item.action === 'update' && item.existingEntryId) {
+        await pb.collection('index_entries').update(item.existingEntryId, {
+          effective_date: item.effective_date,
+          value: item.value,
+          notes: item.notes || '',
+          source: 'manual',
+        })
+        updatedCount++
+      } else {
+        await pb.collection('index_entries').create({
+          index_id: indexId,
+          index_slug: indexSlug,
+          effective_date: item.effective_date,
+          value: item.value,
+          notes: item.notes || '',
+          source: 'manual',
+        })
+        createdCount++
+      }
+    } catch (err: any) {
+      console.error(`Erro ao importar vigência ${item.effective_date}:`, err)
+      errors.push(`Erro na vigência ${item.effective_date}: ${err?.message || 'Falha ao salvar'}`)
+    }
+
+    if (onProgress) {
+      onProgress(i + 1, total)
+    }
+  }
+
+  // Recalcula o resumo do índice uma vez ao final do lote
+  try {
+    await syncIndexSummaryFromEntries(indexId, indexSlug)
+  } catch (err) {
+    console.error('Erro ao sincronizar resumo após lote:', err)
+  }
+
+  return {
+    createdCount,
+    updatedCount,
+    skippedCount,
+    errors,
+  }
+}
+
 export async function updateIndexEntry(
   id: string,
   data: UpdateIndexEntryInput,

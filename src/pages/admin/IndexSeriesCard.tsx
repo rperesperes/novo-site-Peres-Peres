@@ -31,7 +31,9 @@ import {
   Loader2,
   ChevronDown,
   ChevronUp,
+  FileSpreadsheet,
 } from 'lucide-react'
+import { BatchImportEntriesDialog } from './BatchImportEntriesDialog'
 
 interface IndexSeriesCardProps {
   item: IndexRecord & ReturnType<typeof checkIndexExpiration>
@@ -43,6 +45,7 @@ interface IndexSeriesCardProps {
 export function IndexSeriesCard({ item, entries, onRefresh, formatDate }: IndexSeriesCardProps) {
   const [expanded, setExpanded] = useState(false)
   const [isAddOpen, setIsAddOpen] = useState(false)
+  const [isBatchOpen, setIsBatchOpen] = useState(false)
   const [isEditOpen, setIsEditOpen] = useState(false)
   const [editingEntry, setEditingEntry] = useState<IndexEntryRecord | null>(null)
 
@@ -242,13 +245,24 @@ export function IndexSeriesCard({ item, entries, onRefresh, formatDate }: IndexS
           </p>
         </div>
 
-        <div className="flex items-center gap-2 shrink-0">
+        <div className="flex items-center gap-2 shrink-0 flex-wrap sm:flex-nowrap">
           <Button
             type="button"
             onClick={handleOpenAdd}
-            className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold text-xs h-9 px-3.5 shadow-md flex items-center gap-1.5"
+            className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold text-xs h-9 px-3 shadow-md flex items-center gap-1.5"
           >
-            <Plus className="h-3.5 w-3.5" /> Adicionar Nova Vigência
+            <Plus className="h-3.5 w-3.5" /> Adicionar Vigência
+          </Button>
+
+          <Button
+            type="button"
+            variant="outline"
+            onClick={() => setIsBatchOpen(true)}
+            className="border-neutral-700 bg-neutral-900 text-neutral-200 hover:bg-neutral-800 text-xs h-9 px-3 flex items-center gap-1.5"
+            title="Colar dezenas de vigências de uma vez a partir de planilha ou CSV"
+          >
+            <FileSpreadsheet className="h-3.5 w-3.5 text-[#FAB319]" />
+            Importar em Lote
           </Button>
 
           <Button
@@ -264,7 +278,7 @@ export function IndexSeriesCard({ item, entries, onRefresh, formatDate }: IndexS
               </>
             ) : (
               <>
-                Ver Série Histórica ({entries.length}) <ChevronDown className="h-3.5 w-3.5 ml-1" />
+                Ver Série ({entries.length}) <ChevronDown className="h-3.5 w-3.5 ml-1" />
               </>
             )}
           </Button>
@@ -393,7 +407,7 @@ export function IndexSeriesCard({ item, entries, onRefresh, formatDate }: IndexS
                           className="py-2.5 px-3 text-neutral-300 text-xs max-w-xs truncate"
                           title={entry.notes}
                         >
-                          {entry.notes || '—'}
+                          {entry.notes || ''}
                         </td>
                         <td className="py-2.5 px-3 text-right space-x-1">
                           <Button
@@ -586,6 +600,15 @@ export function IndexSeriesCard({ item, entries, onRefresh, formatDate }: IndexS
           </DialogFooter>
         </DialogContent>
       </Dialog>
+
+      {/* Modal Importar em Lote */}
+      <BatchImportEntriesDialog
+        open={isBatchOpen}
+        onOpenChange={setIsBatchOpen}
+        item={item}
+        existingEntries={entries}
+        onSuccess={onRefresh}
+      />
     </div>
   )
 }
