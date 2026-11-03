@@ -1,14 +1,17 @@
-import PocketBase from 'pocketbase'
+import PocketBase, { ClientResponseError } from 'pocketbase'
 
-// Endereço do backend PocketBase (Skip Cloud).
-//
-// No build do Skip a variável VITE_POCKETBASE_URL é injetada e tem prioridade.
-// Em builds fora do Skip (ex.: Cloudflare Pages, a partir do GitHub), ela não
-// existe: nesse caso usamos a URL de reserva abaixo, que aponta para o mesmo
-// backend, acessível publicamente pelo navegador do visitante do site.
-const POCKETBASE_FALLBACK_URL = 'https://peres-peres-e-e-a-t-f7e7a.shrd03.internal.goskip.dev'
+// Único ponto do app que importa o SDK do PocketBase. Todo o resto importa daqui
+// (scripts/check-pocketbase-client.cjs reprova qualquer outro import no build).
+export type { RecordModel, RecordSubscription } from 'pocketbase'
+export { ClientResponseError }
 
-const pb = new PocketBase(import.meta.env.VITE_POCKETBASE_URL || POCKETBASE_FALLBACK_URL)
+// Endereço público do backend Skip Cloud. É a reserva para builds sem
+// VITE_POCKETBASE_URL (ex.: Cloudflare Pages, onde o .env não é enviado).
+const POCKETBASE_URL =
+  import.meta.env.VITE_POCKETBASE_URL ||
+  'https://peres-peres-e-e-a-t-f7e7a.shrd03.internal.goskip.dev'
+
+const pb = new PocketBase(POCKETBASE_URL)
 pb.autoCancellation(false)
 
 export default pb

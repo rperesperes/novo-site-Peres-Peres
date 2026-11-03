@@ -1,4 +1,4 @@
-import { ClientResponseError } from 'pocketbase'
+import { ClientResponseError } from '@/lib/pocketbase/client'
 
 export type FieldErrors = Record<string, string>
 

@@ -1,7 +1,5 @@
 import { useEffect, useRef } from 'react'
-import type { RecordModel, RecordSubscription } from 'pocketbase'
-
-import pb from '@/lib/pocketbase/client'
+import pb, { type RecordModel, type RecordSubscription } from '@/lib/pocketbase/client'
 
 /**
  * Hook for real-time subscriptions to a PocketBase collection.
