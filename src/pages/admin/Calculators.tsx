@@ -3,7 +3,7 @@ import {
   getIndices,
   IndexRecord,
   checkIndexExpiration,
-  getIndexEntries,
+  getIndexEntriesCounts,
   IndexEntryRecord,
   parseDateFlexible,
 } from '@/services/indices'
@@ -50,7 +50,7 @@ export default function AdminCalculators() {
 
   // Aba Índices
   const [indices, setIndices] = useState<IndexRecord[]>([])
-  const [indexEntriesMap, setIndexEntriesMap] = useState<Record<string, IndexEntryRecord[]>>({})
+  const [indexCountsMap, setIndexCountsMap] = useState<Record<string, number>>({})
   const [loadingIndices, setLoadingIndices] = useState(true)
 
   const { toast } = useToast()
@@ -73,35 +73,13 @@ export default function AdminCalculators() {
     }
   }
 
-  // Carrega índices e série histórica de cada um
+  // Carrega índices e contagens de cada um de forma leve
   const loadIndices = async () => {
     try {
       setLoadingIndices(true)
-      const [data, entries] = await Promise.all([getIndices(), getIndexEntries()])
+      const [data, counts] = await Promise.all([getIndices(), getIndexEntriesCounts()])
       setIndices(data)
-
-      // Agrupa entradas de vigências por slug do índice
-      const entriesMap: Record<string, IndexEntryRecord[]> = {}
-      for (const item of data) {
-        entriesMap[item.slug] = []
-      }
-      for (const entry of entries) {
-        if (!entriesMap[entry.index_slug]) {
-          entriesMap[entry.index_slug] = []
-        }
-        entriesMap[entry.index_slug].push(entry)
-      }
-      // Ordena vigências decrescentes por data cronológica real de início (maior data no topo)
-      for (const slug in entriesMap) {
-        entriesMap[slug].sort((a, b) => {
-          const dateA = parseDateFlexible(a.effective_date)
-          const dateB = parseDateFlexible(b.effective_date)
-          const timeA = dateA ? dateA.getTime() : 0
-          const timeB = dateB ? dateB.getTime() : 0
-          return timeB - timeA
-        })
-      }
-      setIndexEntriesMap(entriesMap)
+      setIndexCountsMap(counts)
     } catch (err: any) {
       console.error('Erro ao buscar índices:', err)
       toast({
@@ -127,6 +105,7 @@ export default function AdminCalculators() {
     loadIndices()
   })
 
+  // Para index_entries, só recarrega contagens ou índices quando necessário
   useRealtime('index_entries', () => {
     loadIndices()
   })
@@ -529,12 +508,12 @@ export default function AdminCalculators() {
               </div>
             ) : (
               indicesStatus.list.map((item) => {
-                const entries = indexEntriesMap[item.slug] || []
+                const count = indexCountsMap[item.slug] || 0
                 return (
                   <IndexSeriesCard
                     key={item.id}
                     item={item}
-                    entries={entries}
+                    initialCount={count}
                     onRefresh={loadIndices}
                     formatDate={formatDate}
                   />

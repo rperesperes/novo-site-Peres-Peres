@@ -62,8 +62,10 @@ export async function getIndices(): Promise<IndexRecord[]> {
 
 export async function getIndexEntries(indexSlug?: string): Promise<IndexEntryRecord[]> {
   const filter = indexSlug ? `index_slug = '${indexSlug}'` : ''
+  // Usa batch pagination explícita para evitar estourar limites
   const list = (await pb.collection('index_entries').getFullList({
     filter: filter || undefined,
+    batch: 500,
   })) as unknown as IndexEntryRecord[]
 
   // Ordena rigorosamente por data cronológica real de início decrescente (maior data primeiro)
@@ -74,6 +76,30 @@ export async function getIndexEntries(indexSlug?: string): Promise<IndexEntryRec
     const timeB = dateB ? dateB.getTime() : 0
     return timeB - timeA
   })
+}
+
+/**
+ * Retorna contagens de vigências agrupadas por slug de índice de forma leve.
+ */
+export async function getIndexEntriesCounts(): Promise<Record<string, number>> {
+  try {
+    // Busca registros apenas com id e index_slug, com batch adequado
+    const list = await pb.collection('index_entries').getFullList({
+      fields: 'id,index_slug',
+      batch: 1000,
+    })
+    const map: Record<string, number> = {}
+    for (const item of list) {
+      const slug = (item as any).index_slug
+      if (slug) {
+        map[slug] = (map[slug] || 0) + 1
+      }
+    }
+    return map
+  } catch (err) {
+    console.error('Erro ao buscar contagens de vigências:', err)
+    return {}
+  }
 }
 
 /**
@@ -141,12 +167,109 @@ export interface BatchImportResult {
  * Ao final do lote completo, sincroniza o resumo do índice garantindo que aponte
  * para a vigência com a MAIOR data de início da série histórica.
  */
+/**
+ * Executa uma operação assíncrona com retry progressivo e backoff exponencial em caso de 429 (Too Many Requests).
+ */
+async function executeWithRetry<T>(
+  fn: () => Promise<T>,
+  options?: {
+    maxRetries?: number
+    baseDelayMs?: number
+    onRetry?: (attempt: number, delayMs: number) => void
+  },
+): Promise<T> {
+  const maxRetries = options?.maxRetries ?? 5
+  const baseDelayMs = options?.baseDelayMs ?? 1000
+
+  let attempt = 0
+  while (true) {
+    try {
+      return await fn()
+    } catch (err: any) {
+      const is429 =
+        err?.status === 429 ||
+        err?.response?.status === 429 ||
+        String(err?.message || '')
+          .toLowerCase()
+          .includes('too many requests')
+
+      if (is429 && attempt < maxRetries) {
+        attempt++
+        const delay = baseDelayMs * Math.pow(2, attempt - 1) + Math.random() * 200
+        if (options?.onRetry) {
+          options.onRetry(attempt, Math.round(delay))
+        }
+        await new Promise((resolve) => setTimeout(resolve, delay))
+        continue
+      }
+      throw err
+    }
+  }
+}
+
+/**
+ * Importa um lote de vigências para um índice com resiliência:
+ * 1. Tenta a rota de lote atômica do backend (/backend/v1/indices/batch-import).
+ * 2. Em caso de falha de rota, recorre à criação individual com espaçamento,
+ *    retry progressivo em 429 e atualização de status para o usuário.
+ * Ao final do lote completo, sincroniza o resumo do índice garantindo que aponte
+ * para a vigência com a MAIOR data de início da série histórica.
+ */
 export async function importIndexEntriesBatch(
   indexId: string,
   indexSlug: string,
   items: BatchImportEntryItem[],
-  onProgress?: (processed: number, total: number) => void,
+  onProgress?: (processed: number, total: number, statusText?: string) => void,
 ): Promise<BatchImportResult> {
+  // 1. Tenta rota dedicada atômica do backend
+  try {
+    if (onProgress) onProgress(0, items.length, 'Processando lote no servidor...')
+    const res = await executeWithRetry(
+      async () => {
+        return await pb.send<BatchImportResult>('/backend/v1/indices/batch-import', {
+          method: 'POST',
+          body: {
+            index_id: indexId,
+            index_slug: indexSlug,
+            items: items.map((it) => ({
+              effective_date: it.effective_date,
+              value: it.value,
+              notes: it.notes,
+              action: it.action,
+            })),
+          },
+        })
+      },
+      {
+        maxRetries: 4,
+        baseDelayMs: 1200,
+        onRetry: (_attempt, delayMs) => {
+          if (onProgress) {
+            onProgress(
+              0,
+              items.length,
+              `Aguardando limite do servidor, retomando em ${Math.ceil(delayMs / 1000)}s...`,
+            )
+          }
+        },
+      },
+    )
+
+    if (onProgress) onProgress(items.length, items.length, 'Concluído com sucesso.')
+    return {
+      createdCount: res.createdCount || 0,
+      updatedCount: res.updatedCount || 0,
+      skippedCount: res.skippedCount || 0,
+      errors: res.errors || [],
+    }
+  } catch (backendErr: any) {
+    console.warn(
+      'Rota de lote do backend falhou ou indisponível, usando fallback sequencial resiliente:',
+      backendErr,
+    )
+  }
+
+  // 2. Fallback resiliente com controle de requisições, espaçamento e retry com backoff
   let createdCount = 0
   let updatedCount = 0
   let skippedCount = 0
@@ -163,38 +286,62 @@ export async function importIndexEntriesBatch(
     }
 
     try {
-      if (item.action === 'update' && item.existingEntryId) {
-        await pb.collection('index_entries').update(item.existingEntryId, {
-          effective_date: item.effective_date,
-          value: item.value,
-          notes: item.notes || '',
-          source: 'manual',
-        })
-        updatedCount++
-      } else {
-        await pb.collection('index_entries').create({
-          index_id: indexId,
-          index_slug: indexSlug,
-          effective_date: item.effective_date,
-          value: item.value,
-          notes: item.notes || '',
-          source: 'manual',
-        })
-        createdCount++
-      }
+      await executeWithRetry(
+        async () => {
+          if (item.action === 'update' && item.existingEntryId) {
+            await pb.collection('index_entries').update(item.existingEntryId, {
+              effective_date: item.effective_date,
+              value: item.value,
+              notes: item.notes || '',
+              source: 'manual',
+            })
+            updatedCount++
+          } else {
+            await pb.collection('index_entries').create({
+              index_id: indexId,
+              index_slug: indexSlug,
+              effective_date: item.effective_date,
+              value: item.value,
+              notes: item.notes || '',
+              source: 'manual',
+            })
+            createdCount++
+          }
+        },
+        {
+          maxRetries: 5,
+          baseDelayMs: 1500,
+          onRetry: (attempt, delayMs) => {
+            if (onProgress) {
+              onProgress(
+                i,
+                total,
+                `Aguardando limite do servidor (${attempt}/5), retomando em ${Math.ceil(delayMs / 1000)}s...`,
+              )
+            }
+          },
+        },
+      )
     } catch (err: any) {
       console.error(`Erro ao importar vigência ${item.effective_date}:`, err)
       errors.push(`Erro na vigência ${item.effective_date}: ${err?.message || 'Falha ao salvar'}`)
     }
 
     if (onProgress) {
-      onProgress(i + 1, total)
+      onProgress(i + 1, total, `Processado ${i + 1} de ${total}`)
+    }
+
+    // Pequeno espaçamento de segurança entre requisições para respeitar o rate limit
+    if (i < total - 1) {
+      await new Promise((resolve) => setTimeout(resolve, 80))
     }
   }
 
   // Recalcula o resumo do índice uma vez ao final do lote
   try {
-    await syncIndexSummaryFromEntries(indexId, indexSlug)
+    await executeWithRetry(async () => {
+      await syncIndexSummaryFromEntries(indexId, indexSlug)
+    })
   } catch (err) {
     console.error('Erro ao sincronizar resumo após lote:', err)
   }

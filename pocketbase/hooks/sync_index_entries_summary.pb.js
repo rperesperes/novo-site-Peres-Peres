@@ -9,36 +9,31 @@
 onRecordAfterCreateSuccess((e) => {
   try {
     var rec = e.record
-    var indexSlug = rec.getString('index_slug')
-    var fallbackIndexId = rec.getString('index_id')
-
-    if (indexSlug || fallbackIndexId) {
+    var slugOrId = rec.getString('index_slug') || rec.getString('index_id')
+    if (slugOrId) {
       var indexRec = null
-      if (indexSlug) {
+      try {
+        indexRec = $app.findFirstRecordByData('indices', 'slug', slugOrId)
+      } catch (_) {}
+      if (!indexRec) {
         try {
-          indexRec = $app.findFirstRecordByData('indices', 'slug', indexSlug)
-        } catch (_) {}
-      }
-      if (!indexRec && fallbackIndexId) {
-        try {
-          indexRec = $app.findRecordById('indices', fallbackIndexId)
+          indexRec = $app.findRecordById('indices', slugOrId)
         } catch (_) {}
       }
 
       if (indexRec) {
         var slug = indexRec.getString('slug')
+        var nowIso = new Date().toISOString()
         var entries = []
         try {
           entries = $app.findRecordsByFilter(
             'index_entries',
             "index_slug = '" + slug + "'",
             '',
-            1000,
+            1500,
             0,
           )
         } catch (_) {}
-
-        var nowIso = new Date().toISOString()
 
         if (!entries || entries.length === 0) {
           indexRec.set('current_value', '')
@@ -83,16 +78,23 @@ onRecordAfterCreateSuccess((e) => {
           }
 
           if (latestEntry) {
-            indexRec.set('current_value', latestEntry.getString('value'))
-            indexRec.set('effective_date', latestEntry.getString('effective_date'))
-            var src = latestEntry.getString('source') || 'manual'
-            indexRec.set('update_source', src)
-            indexRec.set('last_updated_at', nowIso)
-            var notesText = latestEntry.getString('notes')
-            if (notesText) {
-              indexRec.set('notes', notesText)
+            var currVal = indexRec.getString('current_value')
+            var currEff = indexRec.getString('effective_date')
+            var newVal = latestEntry.getString('value')
+            var newEff = latestEntry.getString('effective_date')
+            var newSrc = latestEntry.getString('source') || 'manual'
+            var newNotes = latestEntry.getString('notes') || ''
+
+            if (currVal !== newVal || currEff !== newEff) {
+              indexRec.set('current_value', newVal)
+              indexRec.set('effective_date', newEff)
+              indexRec.set('update_source', newSrc)
+              indexRec.set('last_updated_at', nowIso)
+              if (newNotes) {
+                indexRec.set('notes', newNotes)
+              }
+              $app.save(indexRec)
             }
-            $app.save(indexRec)
           }
         }
       }
@@ -107,36 +109,31 @@ onRecordAfterCreateSuccess((e) => {
 onRecordAfterUpdateSuccess((e) => {
   try {
     var rec = e.record
-    var indexSlug = rec.getString('index_slug')
-    var fallbackIndexId = rec.getString('index_id')
-
-    if (indexSlug || fallbackIndexId) {
+    var slugOrId = rec.getString('index_slug') || rec.getString('index_id')
+    if (slugOrId) {
       var indexRec = null
-      if (indexSlug) {
+      try {
+        indexRec = $app.findFirstRecordByData('indices', 'slug', slugOrId)
+      } catch (_) {}
+      if (!indexRec) {
         try {
-          indexRec = $app.findFirstRecordByData('indices', 'slug', indexSlug)
-        } catch (_) {}
-      }
-      if (!indexRec && fallbackIndexId) {
-        try {
-          indexRec = $app.findRecordById('indices', fallbackIndexId)
+          indexRec = $app.findRecordById('indices', slugOrId)
         } catch (_) {}
       }
 
       if (indexRec) {
         var slug = indexRec.getString('slug')
+        var nowIso = new Date().toISOString()
         var entries = []
         try {
           entries = $app.findRecordsByFilter(
             'index_entries',
             "index_slug = '" + slug + "'",
             '',
-            1000,
+            1500,
             0,
           )
         } catch (_) {}
-
-        var nowIso = new Date().toISOString()
 
         if (!entries || entries.length === 0) {
           indexRec.set('current_value', '')
@@ -181,16 +178,23 @@ onRecordAfterUpdateSuccess((e) => {
           }
 
           if (latestEntry) {
-            indexRec.set('current_value', latestEntry.getString('value'))
-            indexRec.set('effective_date', latestEntry.getString('effective_date'))
-            var src = latestEntry.getString('source') || 'manual'
-            indexRec.set('update_source', src)
-            indexRec.set('last_updated_at', nowIso)
-            var notesText = latestEntry.getString('notes')
-            if (notesText) {
-              indexRec.set('notes', notesText)
+            var currVal = indexRec.getString('current_value')
+            var currEff = indexRec.getString('effective_date')
+            var newVal = latestEntry.getString('value')
+            var newEff = latestEntry.getString('effective_date')
+            var newSrc = latestEntry.getString('source') || 'manual'
+            var newNotes = latestEntry.getString('notes') || ''
+
+            if (currVal !== newVal || currEff !== newEff) {
+              indexRec.set('current_value', newVal)
+              indexRec.set('effective_date', newEff)
+              indexRec.set('update_source', newSrc)
+              indexRec.set('last_updated_at', nowIso)
+              if (newNotes) {
+                indexRec.set('notes', newNotes)
+              }
+              $app.save(indexRec)
             }
-            $app.save(indexRec)
           }
         }
       }
@@ -205,36 +209,31 @@ onRecordAfterUpdateSuccess((e) => {
 onRecordAfterDeleteSuccess((e) => {
   try {
     var rec = e.record
-    var indexSlug = rec.getString('index_slug')
-    var fallbackIndexId = rec.getString('index_id')
-
-    if (indexSlug || fallbackIndexId) {
+    var slugOrId = rec.getString('index_slug') || rec.getString('index_id')
+    if (slugOrId) {
       var indexRec = null
-      if (indexSlug) {
+      try {
+        indexRec = $app.findFirstRecordByData('indices', 'slug', slugOrId)
+      } catch (_) {}
+      if (!indexRec) {
         try {
-          indexRec = $app.findFirstRecordByData('indices', 'slug', indexSlug)
-        } catch (_) {}
-      }
-      if (!indexRec && fallbackIndexId) {
-        try {
-          indexRec = $app.findRecordById('indices', fallbackIndexId)
+          indexRec = $app.findRecordById('indices', slugOrId)
         } catch (_) {}
       }
 
       if (indexRec) {
         var slug = indexRec.getString('slug')
+        var nowIso = new Date().toISOString()
         var entries = []
         try {
           entries = $app.findRecordsByFilter(
             'index_entries',
             "index_slug = '" + slug + "'",
             '',
-            1000,
+            1500,
             0,
           )
         } catch (_) {}
-
-        var nowIso = new Date().toISOString()
 
         if (!entries || entries.length === 0) {
           indexRec.set('current_value', '')
@@ -279,16 +278,23 @@ onRecordAfterDeleteSuccess((e) => {
           }
 
           if (latestEntry) {
-            indexRec.set('current_value', latestEntry.getString('value'))
-            indexRec.set('effective_date', latestEntry.getString('effective_date'))
-            var src = latestEntry.getString('source') || 'manual'
-            indexRec.set('update_source', src)
-            indexRec.set('last_updated_at', nowIso)
-            var notesText = latestEntry.getString('notes')
-            if (notesText) {
-              indexRec.set('notes', notesText)
+            var currVal = indexRec.getString('current_value')
+            var currEff = indexRec.getString('effective_date')
+            var newVal = latestEntry.getString('value')
+            var newEff = latestEntry.getString('effective_date')
+            var newSrc = latestEntry.getString('source') || 'manual'
+            var newNotes = latestEntry.getString('notes') || ''
+
+            if (currVal !== newVal || currEff !== newEff) {
+              indexRec.set('current_value', newVal)
+              indexRec.set('effective_date', newEff)
+              indexRec.set('update_source', newSrc)
+              indexRec.set('last_updated_at', nowIso)
+              if (newNotes) {
+                indexRec.set('notes', newNotes)
+              }
+              $app.save(indexRec)
             }
-            $app.save(indexRec)
           }
         }
       }
@@ -299,3 +305,204 @@ onRecordAfterDeleteSuccess((e) => {
     e.next()
   }
 }, 'index_entries')
+
+// Rota dedicada de importação em lote de vigências
+// Executada no backend em uma transação única ou lote rápido,
+// recalculando o resumo uma única vez ao término.
+routerAdd('POST', '/backend/v1/indices/batch-import', (e) => {
+  try {
+    var reqInfo = e.requestInfo()
+    var body = reqInfo && reqInfo.body ? reqInfo.body : {}
+    var indexSlug = body.index_slug
+    var indexId = body.index_id
+    var items = body.items || []
+    var duplicateResolution = body.duplicate_resolution || 'update'
+
+    if (!indexSlug && !indexId) {
+      return e.json(400, { error: 'index_slug ou index_id é obrigatório.' })
+    }
+
+    if (!items || items.length === 0) {
+      return e.json(400, { error: 'Nenhum item fornecido para importação.' })
+    }
+
+    var indexRec = null
+    if (indexSlug) {
+      try {
+        indexRec = $app.findFirstRecordByData('indices', 'slug', indexSlug)
+      } catch (_) {}
+    }
+    if (!indexRec && indexId) {
+      try {
+        indexRec = $app.findRecordById('indices', indexId)
+      } catch (_) {}
+    }
+
+    if (!indexRec) {
+      return e.json(404, { error: 'Índice não encontrado.' })
+    }
+
+    var slug = indexRec.getString('slug')
+    var resolvedIndexId = indexRec.getString('id')
+    var entriesCol = $app.findCollectionByNameOrId('index_entries')
+
+    // Mapa de vigências já cadastradas para este índice
+    var existingEntries = []
+    try {
+      existingEntries = $app.findRecordsByFilter(
+        'index_entries',
+        "index_slug = '" + slug + "'",
+        '',
+        1500,
+        0,
+      )
+    } catch (_) {}
+
+    var dateToRecordMap = {}
+    for (var i = 0; i < existingEntries.length; i++) {
+      var d = String(existingEntries[i].getString('effective_date')).trim()
+      if (d) {
+        dateToRecordMap[d] = existingEntries[i]
+      }
+    }
+
+    var createdCount = 0
+    var updatedCount = 0
+    var skippedCount = 0
+    var errors = []
+
+    $app.runInTransaction((txApp) => {
+      for (var j = 0; j < items.length; j++) {
+        var it = items[j]
+        var effDate = String(it.effective_date || '').trim()
+        var val = String(it.value || '').trim()
+        var notes = String(it.notes || '').trim()
+        var action = it.action || 'create'
+
+        if (!effDate || !val) {
+          errors.push('Linha ' + (j + 1) + ': data ou valor em branco.')
+          continue
+        }
+
+        var existingRec = dateToRecordMap[effDate]
+
+        if (existingRec) {
+          if (action === 'skip' || duplicateResolution === 'skip') {
+            skippedCount++
+            continue
+          }
+          // Atualiza registro existente
+          try {
+            existingRec.set('value', val)
+            if (notes) {
+              existingRec.set('notes', notes)
+            }
+            existingRec.set('source', 'manual')
+            txApp.save(existingRec)
+            updatedCount++
+          } catch (updateErr) {
+            errors.push('Erro ao atualizar vigência ' + effDate + ': ' + updateErr)
+          }
+        } else {
+          // Cria novo registro
+          try {
+            var newRec = new Record(entriesCol)
+            newRec.set('index_id', resolvedIndexId)
+            newRec.set('index_slug', slug)
+            newRec.set('effective_date', effDate)
+            newRec.set('value', val)
+            newRec.set('notes', notes)
+            newRec.set('source', 'manual')
+            txApp.save(newRec)
+            createdCount++
+            dateToRecordMap[effDate] = newRec
+          } catch (createErr) {
+            errors.push('Erro ao criar vigência ' + effDate + ': ' + createErr)
+          }
+        }
+      }
+    })
+
+    // Sincroniza o resumo do índice uma única vez ao término da transação
+    function parseDateFlexiblePBInRoute(dateStr) {
+      if (!dateStr) return null
+      var s = String(dateStr).trim()
+      if (!s) return null
+      if (s.indexOf('/') !== -1) {
+        var parts = s.split('/')
+        if (parts.length === 3) {
+          return new Date(Number(parts[2]), Number(parts[1]) - 1, Number(parts[0]))
+        }
+      } else if (s.indexOf('-') !== -1) {
+        var p = s.split('-')
+        if (p.length === 3) {
+          return new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]))
+        }
+        if (p.length === 2) {
+          return new Date(Number(p[0]), Number(p[1]) - 1, 1)
+        }
+      }
+      var d = new Date(s)
+      return isNaN(d.getTime()) ? null : d
+    }
+
+    var allUpdatedEntries = []
+    try {
+      allUpdatedEntries = $app.findRecordsByFilter(
+        'index_entries',
+        "index_slug = '" + slug + "'",
+        '',
+        1500,
+        0,
+      )
+    } catch (_) {}
+
+    var nowIsoFinal = new Date().toISOString()
+    if (!allUpdatedEntries || allUpdatedEntries.length === 0) {
+      indexRec.set('current_value', '')
+      indexRec.set('effective_date', '')
+      indexRec.set('update_source', 'manual')
+      indexRec.set('last_updated_at', nowIsoFinal)
+      $app.save(indexRec)
+    } else {
+      var latestEntryFinal = null
+      var latestTimeFinal = -Infinity
+      for (var k = 0; k < allUpdatedEntries.length; k++) {
+        var entFinal = allUpdatedEntries[k]
+        var effDateStrFinal = entFinal.getString('effective_date')
+        var parsedFinal = parseDateFlexiblePBInRoute(effDateStrFinal)
+        var tFinal = parsedFinal ? parsedFinal.getTime() : 0
+        if (tFinal > latestTimeFinal) {
+          latestTimeFinal = tFinal
+          latestEntryFinal = entFinal
+        }
+      }
+
+      if (latestEntryFinal) {
+        indexRec.set('current_value', latestEntryFinal.getString('value'))
+        indexRec.set('effective_date', latestEntryFinal.getString('effective_date'))
+        var srcFinal = latestEntryFinal.getString('source') || 'manual'
+        indexRec.set('update_source', srcFinal)
+        indexRec.set('last_updated_at', nowIsoFinal)
+        var notesTextFinal = latestEntryFinal.getString('notes')
+        if (notesTextFinal) {
+          indexRec.set('notes', notesTextFinal)
+        }
+        $app.save(indexRec)
+      }
+    }
+
+    return e.json(200, {
+      success: true,
+      createdCount: createdCount,
+      updatedCount: updatedCount,
+      skippedCount: skippedCount,
+      errors: errors,
+    })
+  } catch (globalErr) {
+    console.error('[batch-import] Falha global:', globalErr)
+    return e.json(500, {
+      error: 'Erro no processamento do lote: ' + (globalErr.message || globalErr),
+    })
+  }
+})

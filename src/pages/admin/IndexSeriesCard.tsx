@@ -6,6 +6,7 @@ import {
   updateIndexEntry,
   deleteIndexEntry,
   checkIndexExpiration,
+  getIndexEntries,
 } from '@/services/indices'
 import { useToast } from '@/hooks/use-toast'
 import { Input } from '@/components/ui/input'
@@ -37,13 +38,23 @@ import { BatchImportEntriesDialog } from './BatchImportEntriesDialog'
 
 interface IndexSeriesCardProps {
   item: IndexRecord & ReturnType<typeof checkIndexExpiration>
-  entries: IndexEntryRecord[]
+  entries?: IndexEntryRecord[]
+  initialCount?: number
   onRefresh: () => Promise<void>
   formatDate: (iso?: string | null) => string
 }
 
-export function IndexSeriesCard({ item, entries, onRefresh, formatDate }: IndexSeriesCardProps) {
+export function IndexSeriesCard({
+  item,
+  entries: propEntries,
+  initialCount = 0,
+  onRefresh,
+  formatDate,
+}: IndexSeriesCardProps) {
   const [expanded, setExpanded] = useState(false)
+  const [localEntries, setLocalEntries] = useState<IndexEntryRecord[] | null>(propEntries || null)
+  const [loadingSeries, setLoadingSeries] = useState(false)
+  const [entryCount, setEntryCount] = useState(initialCount)
   const [isAddOpen, setIsAddOpen] = useState(false)
   const [isBatchOpen, setIsBatchOpen] = useState(false)
   const [isEditOpen, setIsEditOpen] = useState(false)
@@ -57,8 +68,51 @@ export function IndexSeriesCard({ item, entries, onRefresh, formatDate }: IndexS
 
   const { toast } = useToast()
 
+  // Se o propEntries mudar externamente, atualiza localEntries
+  const entries = localEntries || propEntries || []
+  const displayCount = localEntries
+    ? localEntries.length
+    : entryCount || (propEntries ? propEntries.length : 0)
+
   const isExpired = item.isExpired
-  const isMissing = item.isMissing || entries.length === 0
+  const isMissing = item.isMissing || displayCount === 0
+
+  const toggleExpanded = async () => {
+    if (!expanded) {
+      // Abre e busca sob demanda se ainda não carregou a série completa
+      if (!localEntries) {
+        try {
+          setLoadingSeries(true)
+          const data = await getIndexEntries(item.slug)
+          setLocalEntries(data)
+          setEntryCount(data.length)
+        } catch (err: any) {
+          console.error('Erro ao carregar série do índice:', err)
+          toast({
+            title: 'Erro ao carregar série',
+            description: err?.message || 'Falha ao buscar histórico de vigências.',
+            variant: 'destructive',
+          })
+        } finally {
+          setLoadingSeries(false)
+        }
+      }
+      setExpanded(true)
+    } else {
+      setExpanded(false)
+    }
+  }
+
+  const handleRefreshSeries = async () => {
+    try {
+      const data = await getIndexEntries(item.slug)
+      setLocalEntries(data)
+      setEntryCount(data.length)
+    } catch (err) {
+      console.error('Erro ao atualizar série:', err)
+    }
+    await onRefresh()
+  }
 
   const handleOpenAdd = () => {
     setNewEffectiveDate('')
@@ -101,7 +155,7 @@ export function IndexSeriesCard({ item, entries, onRefresh, formatDate }: IndexS
         description: `Vigência iniciada em ${newEffectiveDate.trim()} cadastrada no histórico.`,
       })
       setIsAddOpen(false)
-      await onRefresh()
+      await handleRefreshSeries()
     } catch (err: any) {
       console.error('Erro ao cadastrar vigência:', err)
       toast({
@@ -145,7 +199,7 @@ export function IndexSeriesCard({ item, entries, onRefresh, formatDate }: IndexS
       })
       setIsEditOpen(false)
       setEditingEntry(null)
-      await onRefresh()
+      await handleRefreshSeries()
     } catch (err: any) {
       console.error('Erro ao atualizar vigência:', err)
       toast({
@@ -173,7 +227,7 @@ export function IndexSeriesCard({ item, entries, onRefresh, formatDate }: IndexS
         title: 'Vigência removida',
         description: 'O registro foi excluído da série histórica.',
       })
-      await onRefresh()
+      await handleRefreshSeries()
     } catch (err: any) {
       console.error('Erro ao excluir vigência:', err)
       toast({
@@ -218,7 +272,7 @@ export function IndexSeriesCard({ item, entries, onRefresh, formatDate }: IndexS
               variant="outline"
               className="text-[10px] font-mono border-neutral-700 text-neutral-300"
             >
-              {entries.length} vigência{entries.length === 1 ? '' : 's'} na série
+              {displayCount} vigência{displayCount === 1 ? '' : 's'} na série
             </Badge>
           </div>
 
@@ -268,17 +322,22 @@ export function IndexSeriesCard({ item, entries, onRefresh, formatDate }: IndexS
           <Button
             type="button"
             variant="outline"
-            onClick={() => setExpanded(!expanded)}
+            onClick={toggleExpanded}
+            disabled={loadingSeries}
             className="border-neutral-800 bg-neutral-950 text-neutral-300 hover:bg-neutral-800 text-xs h-9 px-3 flex items-center gap-1.5"
           >
-            <History className="h-3.5 w-3.5 text-[#FAB319]" />
+            {loadingSeries ? (
+              <Loader2 className="h-3.5 w-3.5 animate-spin text-[#FAB319]" />
+            ) : (
+              <History className="h-3.5 w-3.5 text-[#FAB319]" />
+            )}
             {expanded ? (
               <>
                 Ocultar Série <ChevronUp className="h-3.5 w-3.5 ml-1" />
               </>
             ) : (
               <>
-                Ver Série ({entries.length}) <ChevronDown className="h-3.5 w-3.5 ml-1" />
+                Ver Série ({displayCount}) <ChevronDown className="h-3.5 w-3.5 ml-1" />
               </>
             )}
           </Button>
@@ -607,7 +666,7 @@ export function IndexSeriesCard({ item, entries, onRefresh, formatDate }: IndexS
         onOpenChange={setIsBatchOpen}
         item={item}
         existingEntries={entries}
-        onSuccess={onRefresh}
+        onSuccess={handleRefreshSeries}
       />
     </div>
   )

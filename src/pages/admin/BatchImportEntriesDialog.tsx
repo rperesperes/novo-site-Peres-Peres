@@ -57,7 +57,11 @@ export function BatchImportEntriesDialog({
   const [rawText, setRawText] = useState('')
   const [duplicateResolution, setDuplicateResolution] = useState<'update' | 'skip'>('update')
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [progress, setProgress] = useState<{ current: number; total: number } | null>(null)
+  const [progress, setProgress] = useState<{
+    current: number
+    total: number
+    statusText?: string
+  } | null>(null)
 
   const { toast } = useToast()
 
@@ -146,14 +150,18 @@ export function BatchImportEntriesDialog({
 
     try {
       setIsSubmitting(true)
-      setProgress({ current: 0, total: itemsToImport.length })
+      setProgress({
+        current: 0,
+        total: itemsToImport.length,
+        statusText: 'Iniciando importação...',
+      })
 
       const result = await importIndexEntriesBatch(
         item.id,
         item.slug,
         itemsToImport,
-        (current, total) => {
-          setProgress({ current, total })
+        (current, total, statusText) => {
+          setProgress({ current, total, statusText })
         },
       )
 
@@ -455,18 +463,20 @@ export function BatchImportEntriesDialog({
           {isSubmitting && progress && (
             <div className="bg-neutral-950 border border-neutral-800 rounded-lg p-3 space-y-1.5">
               <div className="flex items-center justify-between text-xs text-neutral-300">
-                <span className="flex items-center gap-1.5">
-                  <Loader2 className="h-3.5 w-3.5 animate-spin text-[#FAB319]" /> Gravando vigências
-                  no banco de dados...
+                <span className="flex items-center gap-1.5 truncate max-w-md">
+                  <Loader2 className="h-3.5 w-3.5 animate-spin text-[#FAB319] shrink-0" />
+                  <span>{progress.statusText || 'Gravando vigências no banco de dados...'}</span>
                 </span>
-                <span className="font-mono text-[#FAB319]">
+                <span className="font-mono text-[#FAB319] shrink-0 ml-2">
                   {progress.current} de {progress.total}
                 </span>
               </div>
               <div className="w-full bg-neutral-800 h-2 rounded-full overflow-hidden">
                 <div
                   className="bg-[#FAB319] h-full transition-all duration-150"
-                  style={{ width: `${(progress.current / progress.total) * 100}%` }}
+                  style={{
+                    width: `${progress.total > 0 ? (progress.current / progress.total) * 100 : 0}%`,
+                  }}
                 />
               </div>
             </div>
