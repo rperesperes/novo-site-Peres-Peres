@@ -1,2 +1,7 @@
 /blog https://blog.peresperes.com.br 301
 /blog/* https://blog.peresperes.com.br/:splat 301
+/casos-de-sucesso /casos 301
+/casos-de-sucesso/* /casos/:splat 301
+/cases /casos 301
+/calculators /calculadoras 301
+/privacidade /politica-de-privacidade 301
