@@ -83,10 +83,10 @@ export async function getIndexEntries(indexSlug?: string): Promise<IndexEntryRec
  */
 export async function getIndexEntriesCounts(): Promise<Record<string, number>> {
   try {
-    // Busca registros apenas com id e index_slug, com batch adequado
+    // Busca registros com batch moderado (500) para evitar estourar o tempo de resposta ou rate limit
     const list = await pb.collection('index_entries').getFullList({
       fields: 'id,index_slug',
-      batch: 1000,
+      batch: 500,
     })
     const map: Record<string, number> = {}
     for (const item of list) {
@@ -97,7 +97,7 @@ export async function getIndexEntriesCounts(): Promise<Record<string, number>> {
     }
     return map
   } catch (err) {
-    console.error('Erro ao buscar contagens de vigências:', err)
+    console.warn('Falha leve ao buscar contagens de vigências, retornando mapa vazio:', err)
     return {}
   }
 }

@@ -58,6 +58,7 @@ export default function AdminJobs() {
   const { toast } = useToast()
   const [vacancies, setVacancies] = useState<JobVacancyRecord[]>([])
   const [loading, setLoading] = useState(true)
+  const [errorMsg, setErrorMsg] = useState<string | null>(null)
 
   // Modal de criação / edição
   const [modalOpen, setModalOpen] = useState(false)
@@ -73,13 +74,16 @@ export default function AdminJobs() {
   const loadVacancies = async () => {
     try {
       setLoading(true)
+      setErrorMsg(null)
       const data = await getAllJobVacancies()
       setVacancies(data)
     } catch (err: any) {
       console.error('Erro ao carregar vagas:', err)
+      const msg = err?.message || 'Não foi possível buscar as vagas do banco de dados.'
+      setErrorMsg(msg)
       toast({
         title: 'Erro ao carregar vagas',
-        description: err?.message || 'Não foi possível buscar as vagas do banco.',
+        description: msg,
         variant: 'destructive',
       })
     } finally {
@@ -248,11 +252,54 @@ export default function AdminJobs() {
         </div>
       </div>
 
+      {/* Alerta de erro caso ocorra falha de consulta */}
+      {errorMsg && (
+        <div className="p-4 rounded-xl bg-red-950/80 border border-red-800 text-red-200 flex items-start justify-between gap-3 shadow-lg">
+          <div className="flex items-start gap-3">
+            <XCircle className="h-5 w-5 text-red-400 shrink-0 mt-0.5" />
+            <div>
+              <h4 className="font-bold text-sm text-white">Falha ao consultar vagas</h4>
+              <p className="text-xs text-red-300 mt-1 leading-relaxed">{errorMsg}</p>
+              <p className="text-[11px] text-red-400 mt-1">
+                Não foi possível recuperar as vagas do banco de dados. Clique ao lado para tentar
+                recarregar.
+              </p>
+            </div>
+          </div>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => loadVacancies()}
+            className="border-red-800 bg-red-900/40 text-red-100 hover:bg-red-800 hover:text-white text-xs h-8 shrink-0"
+          >
+            Tentar novamente
+          </Button>
+        </div>
+      )}
+
       {/* Lista de Vagas */}
       {loading ? (
         <Card className="bg-neutral-950 border-neutral-800 p-12 text-center">
           <div className="h-6 w-6 border-2 border-[#FAB319] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
           <p className="text-sm text-neutral-400">Carregando vagas cadastradas...</p>
+        </Card>
+      ) : errorMsg ? (
+        <Card className="bg-neutral-950 border-neutral-800 p-12 text-center">
+          <div className="w-12 h-12 rounded-xl bg-red-950/80 border border-red-800 flex items-center justify-center text-red-400 mx-auto mb-4">
+            <XCircle className="h-6 w-6" />
+          </div>
+          <h3 className="text-lg font-bold text-white mb-2">Erro ao carregar vagas</h3>
+          <p className="text-sm text-neutral-400 max-w-md mx-auto mb-6">
+            Ocorreu uma falha ao comunicar com o banco de dados. Os registros não puderam ser
+            exibidos.
+          </p>
+          <Button
+            type="button"
+            onClick={() => loadVacancies()}
+            className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold text-xs"
+          >
+            Recarregar vagas
+          </Button>
         </Card>
       ) : vacancies.length === 0 ? (
         <Card className="bg-neutral-950 border-neutral-800 p-12 text-center">

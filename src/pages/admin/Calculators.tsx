@@ -52,6 +52,8 @@ export default function AdminCalculators() {
   const [indices, setIndices] = useState<IndexRecord[]>([])
   const [indexCountsMap, setIndexCountsMap] = useState<Record<string, number>>({})
   const [loadingIndices, setLoadingIndices] = useState(true)
+  const [errorIndices, setErrorIndices] = useState<string | null>(null)
+  const [errorAccesses, setErrorAccesses] = useState<string | null>(null)
 
   const { toast } = useToast()
 
@@ -59,13 +61,16 @@ export default function AdminCalculators() {
   const loadAccesses = async (period = periodFilter) => {
     try {
       setLoadingAccesses(true)
+      setErrorAccesses(null)
       const data = await getCalculatorAccesses(period)
       setAccesses(data)
     } catch (err: any) {
       console.error('Erro ao buscar acessos das calculadoras:', err)
+      const msg = err?.message || 'Falha ao buscar registros de uso das calculadoras.'
+      setErrorAccesses(msg)
       toast({
         title: 'Erro ao carregar estatísticas',
-        description: err?.message || 'Falha ao buscar registros de uso das calculadoras.',
+        description: msg,
         variant: 'destructive',
       })
     } finally {
@@ -73,18 +78,29 @@ export default function AdminCalculators() {
     }
   }
 
-  // Carrega índices e contagens de cada um de forma leve
+  // Carrega índices com resiliência: busca os índices principais primeiro e contagens de forma desacoplada
   const loadIndices = async () => {
     try {
       setLoadingIndices(true)
-      const [data, counts] = await Promise.all([getIndices(), getIndexEntriesCounts()])
+      setErrorIndices(null)
+      // Carrega a coleção de índices primeiro
+      const data = await getIndices()
       setIndices(data)
-      setIndexCountsMap(counts)
+
+      // Em segundo plano, busca contagens sem que uma lentidão nelas impeça a listagem
+      try {
+        const counts = await getIndexEntriesCounts()
+        setIndexCountsMap(counts)
+      } catch (countsErr) {
+        console.warn('Contagens de vigências não puderam ser carregadas de imediato:', countsErr)
+      }
     } catch (err: any) {
       console.error('Erro ao buscar índices:', err)
+      const msg = err?.message || 'Falha ao buscar índices cadastrados no banco de dados.'
+      setErrorIndices(msg)
       toast({
         title: 'Erro ao carregar índices',
-        description: err?.message || 'Falha ao buscar índices cadastrados.',
+        description: msg,
         variant: 'destructive',
       })
     } finally {
@@ -359,6 +375,27 @@ export default function AdminCalculators() {
             </div>
           </div>
 
+          {/* Alerta de erro na aba de calculadoras se a consulta falhar */}
+          {errorAccesses && (
+            <div className="p-4 rounded-xl bg-red-950/70 border border-red-800 text-red-200 flex items-start justify-between gap-3 shadow-lg">
+              <div className="flex items-start gap-3">
+                <AlertTriangle className="h-5 w-5 text-red-400 shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="font-bold text-sm text-white">Falha ao consultar estatísticas</h4>
+                  <p className="text-xs text-red-300 mt-1 leading-relaxed">{errorAccesses}</p>
+                </div>
+              </div>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => loadAccesses()}
+                className="border-red-800 bg-red-900/40 text-red-100 hover:bg-red-800 hover:text-white text-xs h-8 shrink-0"
+              >
+                Tentar novamente
+              </Button>
+            </div>
+          )}
+
           {/* Tabela de Calculadoras */}
           <div className="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden shadow-xl">
             {loadingAccesses ? (
@@ -453,58 +490,108 @@ export default function AdminCalculators() {
         {/* ABA 2: ÍNDICES */}
         {/* ========================================================================= */}
         <TabsContent value="indices" className="space-y-6">
-          {/* Alerta no topo quando houver índices vencidos */}
-          {indicesStatus.expiredCount > 0 ? (
-            <div className="p-4 rounded-xl bg-red-950/70 border border-red-800 text-red-200 flex items-start gap-3 shadow-lg">
-              <AlertTriangle className="h-5 w-5 text-red-400 shrink-0 mt-0.5" />
-              <div>
-                <h4 className="font-bold text-sm text-white">
-                  Atenção: {indicesStatus.expiredCount} índice
-                  {indicesStatus.expiredCount === 1 ? ' está vencido' : 's estão vencidos'}
-                </h4>
-                <p className="text-xs text-red-300 mt-1 leading-relaxed">
-                  Os índices destacados em vermelho ultrapassaram o prazo de validade configurado
-                  (padrão de 12 meses) a partir de sua última data de vigência. Atualize os valores
-                  e a data para restaurar a conformidade técnica.
-                </p>
+          {/* Alerta de erro de conexão com o banco de dados */}
+          {errorIndices && (
+            <div className="p-4 rounded-xl bg-red-950/80 border border-red-800 text-red-200 flex items-start justify-between gap-3 shadow-lg">
+              <div className="flex items-start gap-3">
+                <AlertTriangle className="h-5 w-5 text-red-400 shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="font-bold text-sm text-white">
+                    Falha ao consultar índices no banco de dados
+                  </h4>
+                  <p className="text-xs text-red-300 mt-1 leading-relaxed">{errorIndices}</p>
+                  <p className="text-[11px] text-red-400 mt-1">
+                    Os registros do banco de dados não puderam ser recuperados. Clique no botão ao
+                    lado para tentar recarregar.
+                  </p>
+                </div>
               </div>
-            </div>
-          ) : indicesStatus.emptyCount > 0 ? (
-            <div className="p-4 rounded-xl bg-amber-950/60 border border-amber-800 text-amber-200 flex items-start gap-3 shadow-lg">
-              <Clock className="h-5 w-5 text-[#FAB319] shrink-0 mt-0.5" />
-              <div>
-                <h4 className="font-bold text-sm text-white">
-                  {indicesStatus.emptyCount} índice
-                  {indicesStatus.emptyCount === 1 ? '' : 's'} aguardando preenchimento inicial
-                </h4>
-                <p className="text-xs text-amber-300 mt-1 leading-relaxed">
-                  Os índices oficiais iniciam com campos vazios para que o responsável técnico
-                  cadastre os valores oficiais e suas respectivas datas de vigência diretamente no
-                  painel.
-                </p>
-              </div>
-            </div>
-          ) : (
-            <div className="p-4 rounded-xl bg-emerald-950/50 border border-emerald-800 text-emerald-200 flex items-start gap-3 shadow-lg">
-              <ShieldCheck className="h-5 w-5 text-emerald-400 shrink-0 mt-0.5" />
-              <div>
-                <h4 className="font-bold text-sm text-white">
-                  Todos os índices estão dentro do prazo de validade
-                </h4>
-                <p className="text-xs text-emerald-300 mt-1 leading-relaxed">
-                  Nenhum índice cadastrado encontra-se vencido. As estimativas das calculadoras
-                  estão operando com parâmetros regulares.
-                </p>
-              </div>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => loadIndices()}
+                className="border-red-800 bg-red-900/40 text-red-100 hover:bg-red-800 hover:text-white text-xs h-8 shrink-0"
+              >
+                Recarregar índices
+              </Button>
             </div>
           )}
+
+          {/* Alerta no topo quando houver índices e não houver erro */}
+          {!errorIndices &&
+            indices.length > 0 &&
+            (indicesStatus.expiredCount > 0 ? (
+              <div className="p-4 rounded-xl bg-red-950/70 border border-red-800 text-red-200 flex items-start gap-3 shadow-lg">
+                <AlertTriangle className="h-5 w-5 text-red-400 shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="font-bold text-sm text-white">
+                    Atenção: {indicesStatus.expiredCount} índice
+                    {indicesStatus.expiredCount === 1 ? ' está vencido' : 's estão vencidos'}
+                  </h4>
+                  <p className="text-xs text-red-300 mt-1 leading-relaxed">
+                    Os índices destacados em vermelho ultrapassaram o prazo de validade configurado
+                    (padrão de 12 meses) a partir de sua última data de vigência. Atualize os
+                    valores e a data para restaurar a conformidade técnica.
+                  </p>
+                </div>
+              </div>
+            ) : indicesStatus.emptyCount > 0 ? (
+              <div className="p-4 rounded-xl bg-amber-950/60 border border-amber-800 text-amber-200 flex items-start gap-3 shadow-lg">
+                <Clock className="h-5 w-5 text-[#FAB319] shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="font-bold text-sm text-white">
+                    {indicesStatus.emptyCount} índice
+                    {indicesStatus.emptyCount === 1 ? '' : 's'} aguardando preenchimento inicial
+                  </h4>
+                  <p className="text-xs text-amber-300 mt-1 leading-relaxed">
+                    Os índices oficiais iniciam com campos vazios para que o responsável técnico
+                    cadastre os valores oficiais e suas respectivas datas de vigência diretamente no
+                    painel.
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <div className="p-4 rounded-xl bg-emerald-950/50 border border-emerald-800 text-emerald-200 flex items-start gap-3 shadow-lg">
+                <ShieldCheck className="h-5 w-5 text-emerald-400 shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="font-bold text-sm text-white">
+                    Todos os índices estão dentro do prazo de validade
+                  </h4>
+                  <p className="text-xs text-emerald-300 mt-1 leading-relaxed">
+                    Nenhum índice cadastrado encontra-se vencido. As estimativas das calculadoras
+                    estão operando com parâmetros regulares.
+                  </p>
+                </div>
+              </div>
+            ))}
 
           {/* Lista de Índices com Série Histórica de Vigências */}
           <div className="space-y-4">
             {loadingIndices ? (
-              <div className="py-20 text-center text-neutral-400 flex flex-col items-center justify-center gap-2">
+              <div className="py-20 text-center text-neutral-400 flex flex-col items-center justify-center gap-2 bg-neutral-900 border border-neutral-800 rounded-xl">
                 <Loader2 className="h-6 w-6 animate-spin text-[#FAB319]" />
                 <p className="text-sm">Carregando índices e séries históricas...</p>
+              </div>
+            ) : indicesStatus.list.length === 0 ? (
+              /* Se não houver índices mas não houve erro */
+              <div className="p-12 text-center bg-neutral-900 border border-neutral-800 rounded-xl space-y-3">
+                <AlertTriangle className="h-8 w-8 text-[#FAB319] mx-auto" />
+                <h4 className="text-base font-bold text-white">
+                  Nenhum índice retornado pelo banco
+                </h4>
+                <p className="text-xs text-neutral-400 max-w-md mx-auto">
+                  {errorIndices
+                    ? 'Ocorreu um erro ao carregar os dados. Verifique a mensagem acima.'
+                    : 'A consulta ao banco de dados foi concluída com sucesso, mas a coleção está vazia.'}
+                </p>
+                <Button
+                  onClick={() => loadIndices()}
+                  variant="outline"
+                  className="border-neutral-700 bg-neutral-950 text-white hover:bg-neutral-800 text-xs h-9"
+                >
+                  <RefreshCw className="h-3.5 w-3.5 mr-1.5 text-[#FAB319]" />
+                  Recarregar
+                </Button>
               </div>
             ) : (
               indicesStatus.list.map((item) => {

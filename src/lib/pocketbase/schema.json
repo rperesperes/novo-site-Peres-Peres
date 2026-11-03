@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T13:04:00.459Z",
+  "generatedAt": "2026-11-03T13:22:22.807Z",
   "collections": [
     {
       "name": "users",
@@ -326,11 +326,11 @@
       "name": "contact_requests",
       "type": "base",
       "apiRules": {
-        "list": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
-        "view": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
+        "list": "@request.auth.id != ''",
+        "view": "@request.auth.id != ''",
         "create": "",
-        "update": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
-        "delete": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'"
+        "update": "@request.auth.id != ''",
+        "delete": "@request.auth.id != ''"
       },
       "fields": [
         {
@@ -390,11 +390,11 @@
       "name": "newsletter_subscribers",
       "type": "base",
       "apiRules": {
-        "list": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
-        "view": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
+        "list": "@request.auth.id != ''",
+        "view": "@request.auth.id != ''",
         "create": "",
-        "update": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
-        "delete": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'"
+        "update": "@request.auth.id != ''",
+        "delete": "@request.auth.id != ''"
       },
       "fields": [
         {
@@ -451,11 +451,11 @@
       "name": "indices",
       "type": "base",
       "apiRules": {
-        "list": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
-        "view": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
-        "create": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
-        "update": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
-        "delete": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'"
+        "list": "@request.auth.id != ''",
+        "view": "@request.auth.id != ''",
+        "create": "@request.auth.id != ''",
+        "update": "@request.auth.id != ''",
+        "delete": "@request.auth.id != ''"
       },
       "fields": [
         {
@@ -577,11 +577,11 @@
       "name": "index_entries",
       "type": "base",
       "apiRules": {
-        "list": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
-        "view": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
-        "create": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
-        "update": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
-        "delete": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'"
+        "list": "@request.auth.id != ''",
+        "view": "@request.auth.id != ''",
+        "create": "@request.auth.id != ''",
+        "update": "@request.auth.id != ''",
+        "delete": "@request.auth.id != ''"
       },
       "fields": [
         {

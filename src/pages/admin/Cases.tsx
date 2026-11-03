@@ -33,6 +33,7 @@ import { Plus, Edit, Trash2, CheckCircle2, Eye, EyeOff, Loader2 } from 'lucide-r
 export default function AdminCases() {
   const [cases, setCases] = useState<SuccessCaseRecord[]>([])
   const [loading, setLoading] = useState(true)
+  const [errorMsg, setErrorMsg] = useState<string | null>(null)
   const [isOpen, setIsOpen] = useState(false)
   const [editing, setEditing] = useState<SuccessCaseRecord | null>(null)
   const [saving, setSaving] = useState(false)
@@ -57,13 +58,16 @@ export default function AdminCases() {
   const loadData = async () => {
     try {
       setLoading(true)
+      setErrorMsg(null)
       const data = await getSuccessCases({ sort: 'display_order' })
       setCases(data)
     } catch (e: any) {
-      console.error(e)
+      console.error('Erro ao buscar casos de sucesso:', e)
+      const msg = e?.message || 'Não foi possível carregar os casos do banco de dados.'
+      setErrorMsg(msg)
       toast({
         title: 'Erro ao carregar casos',
-        description: e.message || 'Não foi possível carregar a lista do banco.',
+        description: msg,
         variant: 'destructive',
       })
     } finally {
@@ -228,6 +232,31 @@ export default function AdminCases() {
         </Button>
       </div>
 
+      {/* Alerta de erro de conexão/consulta */}
+      {errorMsg && (
+        <div className="p-4 rounded-xl bg-red-950/80 border border-red-800 text-red-200 flex items-start justify-between gap-3 shadow-lg">
+          <div className="flex items-start gap-3">
+            <EyeOff className="h-5 w-5 text-red-400 shrink-0 mt-0.5" />
+            <div>
+              <h4 className="font-bold text-sm text-white">Falha ao consultar casos de sucesso</h4>
+              <p className="text-xs text-red-300 mt-1 leading-relaxed">{errorMsg}</p>
+              <p className="text-[11px] text-red-400 mt-1">
+                O painel não conseguiu obter os dados do banco. Clique em tentar novamente para
+                atualizar.
+              </p>
+            </div>
+          </div>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => loadData()}
+            className="border-red-800 bg-red-900/40 text-red-100 hover:bg-red-800 hover:text-white text-xs h-8 shrink-0"
+          >
+            Tentar novamente
+          </Button>
+        </div>
+      )}
+
       {/* Tabela de Casos */}
       <div className="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden shadow-xl">
         {loading ? (
@@ -235,8 +264,28 @@ export default function AdminCases() {
             <Loader2 className="h-6 w-6 animate-spin text-[#FAB319]" />
             <p className="text-sm">Carregando casos do banco de dados...</p>
           </div>
+        ) : errorMsg ? (
+          /* Mensagem destacando falha de consulta em vez de lista vazia */
+          <div className="py-16 px-6 text-center space-y-4 max-w-md mx-auto">
+            <div className="w-12 h-12 rounded-full bg-red-950/80 border border-red-800 flex items-center justify-center mx-auto text-red-400">
+              <EyeOff className="h-6 w-6" />
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-base font-bold text-white">Erro ao consultar registros</h3>
+              <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed font-sans">
+                Ocorreu uma falha na comunicação com o banco de dados. Os registros não puderam ser
+                exibidos.
+              </p>
+            </div>
+            <Button
+              onClick={() => loadData()}
+              className="bg-[#FAB319] hover:bg-[#e0a116] text-black font-semibold text-xs h-10 px-4"
+            >
+              Recarregar Casos
+            </Button>
+          </div>
         ) : cases.length === 0 ? (
-          /* Mensagem para lista vazia apontando para o botão Novo Caso */
+          /* Mensagem para lista vazia confirmada */
           <div className="py-16 px-6 text-center space-y-4 max-w-md mx-auto">
             <div className="w-12 h-12 rounded-full bg-neutral-950 border border-neutral-800 flex items-center justify-center mx-auto text-neutral-500">
               <EyeOff className="h-6 w-6" />
