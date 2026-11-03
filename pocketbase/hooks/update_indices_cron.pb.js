@@ -235,6 +235,67 @@ cronAdd('monthly_indices_update', '0 8 1 * *', () => {
     }
   }
 
+  function parseDateFlexible(dateStr) {
+    if (!dateStr) return null
+    var s = String(dateStr).trim()
+    if (!s) return null
+    if (s.indexOf('/') !== -1) {
+      var parts = s.split('/')
+      if (parts.length === 3) {
+        return new Date(Number(parts[2]), Number(parts[1]) - 1, Number(parts[0]))
+      }
+    } else if (s.indexOf('-') !== -1) {
+      var p = s.split('-')
+      if (p.length === 3) {
+        return new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]))
+      }
+      if (p.length === 2) {
+        return new Date(Number(p[0]), Number(p[1]) - 1, 1)
+      }
+    }
+    var d = new Date(s)
+    return isNaN(d.getTime()) ? null : d
+  }
+
+  function syncIndexSummaryToLatest(indexRec) {
+    var slug = indexRec.getString('slug')
+    var entries = []
+    try {
+      entries = $app.findRecordsByFilter(
+        'index_entries',
+        "index_slug = '" + slug + "'",
+        '',
+        1000,
+        0,
+      )
+    } catch (_) {}
+
+    if (!entries || entries.length === 0) return
+
+    var latestEntry = entries[0]
+    var latestTime = -Infinity
+    for (var i = 0; i < entries.length; i++) {
+      var entry = entries[i]
+      var parsed = parseDateFlexible(entry.getString('effective_date'))
+      var t = parsed ? parsed.getTime() : 0
+      if (t > latestTime) {
+        latestTime = t
+        latestEntry = entry
+      }
+    }
+
+    if (latestEntry) {
+      indexRec.set('current_value', latestEntry.getString('value'))
+      indexRec.set('effective_date', latestEntry.getString('effective_date'))
+      var src = latestEntry.getString('source') || 'manual'
+      indexRec.set('update_source', src)
+      indexRec.set('last_updated_at', nowIso)
+      var nText = latestEntry.getString('notes')
+      if (nText) indexRec.set('notes', nText)
+      $app.save(indexRec)
+    }
+  }
+
   function recordIndexEntry(indexRec, formattedVal, effectiveDate, notesText) {
     var slug = indexRec.getString('slug')
     var entriesCol = $app.findCollectionByNameOrId('index_entries')
@@ -265,13 +326,8 @@ cronAdd('monthly_indices_update', '0 8 1 * *', () => {
       $app.save(newEntry)
     }
 
-    // Atualiza o resumo da vigência mais recente na coleção indices
-    indexRec.set('current_value', formattedVal)
-    indexRec.set('effective_date', effectiveDate)
-    indexRec.set('update_source', 'automatica')
-    indexRec.set('last_updated_at', nowIso)
-    indexRec.set('notes', notesText)
-    $app.save(indexRec)
+    // Atualiza o resumo para a vigência com MAIOR data cronológica de início da série
+    syncIndexSummaryToLatest(indexRec)
   }
 
   console.log('[Cron Indices] Executando rotina mensal de atualização dos índices...')
@@ -760,6 +816,67 @@ routerAdd('POST', '/backend/v1/indices/sync-now', (e) => {
     var results = []
     var nowIso = new Date().toISOString()
 
+    function parseDateFlexible(dateStr) {
+      if (!dateStr) return null
+      var s = String(dateStr).trim()
+      if (!s) return null
+      if (s.indexOf('/') !== -1) {
+        var parts = s.split('/')
+        if (parts.length === 3) {
+          return new Date(Number(parts[2]), Number(parts[1]) - 1, Number(parts[0]))
+        }
+      } else if (s.indexOf('-') !== -1) {
+        var p = s.split('-')
+        if (p.length === 3) {
+          return new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]))
+        }
+        if (p.length === 2) {
+          return new Date(Number(p[0]), Number(p[1]) - 1, 1)
+        }
+      }
+      var d = new Date(s)
+      return isNaN(d.getTime()) ? null : d
+    }
+
+    function syncIndexSummaryToLatest(indexRec) {
+      var slug = indexRec.getString('slug')
+      var entries = []
+      try {
+        entries = $app.findRecordsByFilter(
+          'index_entries',
+          "index_slug = '" + slug + "'",
+          '',
+          1000,
+          0,
+        )
+      } catch (_) {}
+
+      if (!entries || entries.length === 0) return
+
+      var latestEntry = entries[0]
+      var latestTime = -Infinity
+      for (var i = 0; i < entries.length; i++) {
+        var entry = entries[i]
+        var parsed = parseDateFlexible(entry.getString('effective_date'))
+        var t = parsed ? parsed.getTime() : 0
+        if (t > latestTime) {
+          latestTime = t
+          latestEntry = entry
+        }
+      }
+
+      if (latestEntry) {
+        indexRec.set('current_value', latestEntry.getString('value'))
+        indexRec.set('effective_date', latestEntry.getString('effective_date'))
+        var src = latestEntry.getString('source') || 'manual'
+        indexRec.set('update_source', src)
+        indexRec.set('last_updated_at', nowIso)
+        var nText = latestEntry.getString('notes')
+        if (nText) indexRec.set('notes', nText)
+        $app.save(indexRec)
+      }
+    }
+
     function recordIndexEntry(indexRec, formattedVal, effectiveDate, notesText) {
       var slug = indexRec.getString('slug')
       var entriesCol = $app.findCollectionByNameOrId('index_entries')
@@ -788,12 +905,8 @@ routerAdd('POST', '/backend/v1/indices/sync-now', (e) => {
         $app.save(newEntry)
       }
 
-      indexRec.set('current_value', formattedVal)
-      indexRec.set('effective_date', effectiveDate)
-      indexRec.set('update_source', 'automatica')
-      indexRec.set('last_updated_at', nowIso)
-      indexRec.set('notes', notesText)
-      $app.save(indexRec)
+      // Atualiza o resumo para a vigência com MAIOR data cronológica de início da série
+      syncIndexSummaryToLatest(indexRec)
     }
 
     // 1. Selic mensal

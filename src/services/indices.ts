@@ -62,11 +62,46 @@ export async function getIndices(): Promise<IndexRecord[]> {
 
 export async function getIndexEntries(indexSlug?: string): Promise<IndexEntryRecord[]> {
   const filter = indexSlug ? `index_slug = '${indexSlug}'` : ''
-  const list = await pb.collection('index_entries').getFullList({
+  const list = (await pb.collection('index_entries').getFullList({
     filter: filter || undefined,
-    sort: '-effective_date',
+  })) as unknown as IndexEntryRecord[]
+
+  // Ordena rigorosamente por data cronológica real de início decrescente (maior data primeiro)
+  return list.sort((a, b) => {
+    const dateA = parseDateFlexible(a.effective_date)
+    const dateB = parseDateFlexible(b.effective_date)
+    const timeA = dateA ? dateA.getTime() : 0
+    const timeB = dateB ? dateB.getTime() : 0
+    return timeB - timeA
   })
-  return list as unknown as IndexEntryRecord[]
+}
+
+/**
+ * Recalcula o resumo do índice na coleção indices apontando sempre para a vigência
+ * com a MAIOR data de início da série histórica, preservando a regra de que
+ * vigências antigas ou retroativas nunca sobrescrevem a vigência vigente.
+ */
+export async function syncIndexSummaryFromEntries(
+  indexId: string,
+  indexSlug: string,
+): Promise<void> {
+  const allEntries = await getIndexEntries(indexSlug)
+  if (allEntries.length > 0) {
+    const latest = allEntries[0] // já ordenado pela maior data cronológica de início
+    await pb.collection('indices').update(indexId, {
+      current_value: latest.value,
+      effective_date: latest.effective_date,
+      update_source: latest.source || 'manual',
+      last_updated_at: new Date().toISOString(),
+    })
+  } else {
+    await pb.collection('indices').update(indexId, {
+      current_value: '',
+      effective_date: '',
+      update_source: 'manual',
+      last_updated_at: new Date().toISOString(),
+    })
+  }
 }
 
 export async function createIndexEntry(data: CreateIndexEntryInput): Promise<IndexEntryRecord> {
@@ -76,18 +111,9 @@ export async function createIndexEntry(data: CreateIndexEntryInput): Promise<Ind
   }
   const entry = await pb.collection('index_entries').create(payload)
 
-  // Atualizar também o resumo do índice se esta vigência for a mais recente
+  // Atualiza o resumo do índice garantindo que aponte para a vigência de MAIOR data de início
   try {
-    const allEntries = await getIndexEntries(data.index_slug)
-    const latest = allEntries[0]
-    if (latest && latest.id === entry.id) {
-      await pb.collection('indices').update(data.index_id, {
-        current_value: latest.value,
-        effective_date: latest.effective_date,
-        update_source: latest.source || 'manual',
-        last_updated_at: new Date().toISOString(),
-      })
-    }
+    await syncIndexSummaryFromEntries(data.index_id, data.index_slug)
   } catch (err) {
     console.error('Erro ao sincronizar resumo do índice:', err)
   }
@@ -109,16 +135,7 @@ export async function updateIndexEntry(
 
   if (indexId && indexSlug) {
     try {
-      const allEntries = await getIndexEntries(indexSlug)
-      const latest = allEntries[0]
-      if (latest) {
-        await pb.collection('indices').update(indexId, {
-          current_value: latest.value,
-          effective_date: latest.effective_date,
-          update_source: latest.source || 'manual',
-          last_updated_at: new Date().toISOString(),
-        })
-      }
+      await syncIndexSummaryFromEntries(indexId, indexSlug)
     } catch (err) {
       console.error('Erro ao sincronizar resumo do índice após edição de vigência:', err)
     }
@@ -135,23 +152,7 @@ export async function deleteIndexEntry(
   await pb.collection('index_entries').delete(id)
   if (indexId && indexSlug) {
     try {
-      const allEntries = await getIndexEntries(indexSlug)
-      const latest = allEntries[0]
-      if (latest) {
-        await pb.collection('indices').update(indexId, {
-          current_value: latest.value,
-          effective_date: latest.effective_date,
-          update_source: latest.source || 'manual',
-          last_updated_at: new Date().toISOString(),
-        })
-      } else {
-        await pb.collection('indices').update(indexId, {
-          current_value: '',
-          effective_date: '',
-          update_source: 'manual',
-          last_updated_at: new Date().toISOString(),
-        })
-      }
+      await syncIndexSummaryFromEntries(indexId, indexSlug)
     } catch (err) {
       console.error('Erro ao sincronizar resumo do índice após exclusão de vigência:', err)
     }

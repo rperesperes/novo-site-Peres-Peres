@@ -5,6 +5,7 @@ import {
   checkIndexExpiration,
   getIndexEntries,
   IndexEntryRecord,
+  parseDateFlexible,
 } from '@/services/indices'
 import { IndexSeriesCard } from './IndexSeriesCard'
 import { getCalculatorAccesses, CalculatorAccessRecord } from '@/services/calculator_accesses'
@@ -90,10 +91,14 @@ export default function AdminCalculators() {
         }
         entriesMap[entry.index_slug].push(entry)
       }
-      // Ordena vigências decrescentes por data de início
+      // Ordena vigências decrescentes por data cronológica real de início (maior data no topo)
       for (const slug in entriesMap) {
         entriesMap[slug].sort((a, b) => {
-          return (b.effective_date || '').localeCompare(a.effective_date || '')
+          const dateA = parseDateFlexible(a.effective_date)
+          const dateB = parseDateFlexible(b.effective_date)
+          const timeA = dateA ? dateA.getTime() : 0
+          const timeB = dateB ? dateB.getTime() : 0
+          return timeB - timeA
         })
       }
       setIndexEntriesMap(entriesMap)
