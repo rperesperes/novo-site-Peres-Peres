@@ -296,8 +296,41 @@ cronAdd('monthly_indices_update', '0 8 1 * *', () => {
     }
   }
 
-  function recordIndexEntry(indexRec, formattedVal, effectiveDate, notesText) {
+  // Blindagem explícita: mapeamento unívoco entre slug interno e código da série oficial SGS
+  var EXPECTED_SGS_MAP = {
+    'taxa-selic': '4390',
+    'taxa-selic-anualizada-base-252': '1178',
+    'taxa-referencial': '226',
+    ipca: '433',
+    inpc: '188',
+    'igp-m': '189',
+  }
+
+  function validateSeriesMatch(slug, seriesCode) {
+    var expected = EXPECTED_SGS_MAP[slug]
+    if (expected && String(expected) !== String(seriesCode)) {
+      var msg =
+        '[BLINDAGEM SGS] Tentativa rejeitada de gravar ponto da Série ' +
+        seriesCode +
+        ' no índice ' +
+        slug +
+        ' (esperado: ' +
+        expected +
+        ')'
+      console.error(msg)
+      return false
+    }
+    return true
+  }
+
+  function recordIndexEntry(indexRec, formattedVal, effectiveDate, notesText, sgsSeriesCode) {
     var slug = indexRec.getString('slug')
+
+    // Blindagem de segurança: rejeita gravação se a série consultada não bater com o índice de destino
+    if (sgsSeriesCode && !validateSeriesMatch(slug, sgsSeriesCode)) {
+      throw new Error('Série SGS ' + sgsSeriesCode + ' incompatível com índice ' + slug)
+    }
+
     var entriesCol = $app.findCollectionByNameOrId('index_entries')
     var existingEntry = null
     try {
@@ -386,7 +419,7 @@ cronAdd('monthly_indices_update', '0 8 1 * *', () => {
       var selicRec = $app.findFirstRecordByData('indices', 'slug', 'taxa-selic')
       var formattedVal = selicRes.value.replace('.', ',') + '%'
       var notes = 'Atualizado automaticamente via API SGS/Banco Central (Série SGS 4390 / Sicalc)'
-      recordIndexEntry(selicRec, formattedVal, selicRes.date, notes)
+      recordIndexEntry(selicRec, formattedVal, selicRes.date, notes, '4390')
       results.push({
         name: 'Taxa Selic',
         slug: 'taxa-selic',
@@ -419,7 +452,7 @@ cronAdd('monthly_indices_update', '0 8 1 * *', () => {
       var trRec = $app.findFirstRecordByData('indices', 'slug', 'taxa-referencial')
       var formattedTr = trRes.value.replace('.', ',') + '%'
       var trNotes = 'Atualizado automaticamente via API SGS/Banco Central (Série 226)'
-      recordIndexEntry(trRec, formattedTr, trRes.date, trNotes)
+      recordIndexEntry(trRec, formattedTr, trRes.date, trNotes, '226')
       results.push({
         name: 'Taxa Referencial (TR)',
         slug: 'taxa-referencial',
@@ -452,7 +485,7 @@ cronAdd('monthly_indices_update', '0 8 1 * *', () => {
       var ipcaRec = $app.findFirstRecordByData('indices', 'slug', 'ipca')
       var formattedIpca = ipcaRes.value.replace('.', ',') + '%'
       var ipcaNotes = 'Atualizado automaticamente via API SGS/Banco Central (Série 433 - IBGE/BCB)'
-      recordIndexEntry(ipcaRec, formattedIpca, ipcaRes.date, ipcaNotes)
+      recordIndexEntry(ipcaRec, formattedIpca, ipcaRes.date, ipcaNotes, '433')
       results.push({
         name: 'IPCA',
         slug: 'ipca',
@@ -485,7 +518,7 @@ cronAdd('monthly_indices_update', '0 8 1 * *', () => {
       var inpcRec = $app.findFirstRecordByData('indices', 'slug', 'inpc')
       var formattedInpc = inpcRes.value.replace('.', ',') + '%'
       var inpcNotes = 'Atualizado automaticamente via API SGS/Banco Central (Série 188 - IBGE/BCB)'
-      recordIndexEntry(inpcRec, formattedInpc, inpcRes.date, inpcNotes)
+      recordIndexEntry(inpcRec, formattedInpc, inpcRes.date, inpcNotes, '188')
       results.push({
         name: 'INPC',
         slug: 'inpc',
@@ -518,7 +551,7 @@ cronAdd('monthly_indices_update', '0 8 1 * *', () => {
       var igpmRec = $app.findFirstRecordByData('indices', 'slug', 'igp-m')
       var formattedIgpm = igpmRes.value.replace('.', ',') + '%'
       var igpmNotes = 'Atualizado automaticamente via API SGS/Banco Central (Série 189 - FGV/BCB)'
-      recordIndexEntry(igpmRec, formattedIgpm, igpmRes.date, igpmNotes)
+      recordIndexEntry(igpmRec, formattedIgpm, igpmRes.date, igpmNotes, '189')
       results.push({
         name: 'IGP-M (FGV)',
         slug: 'igp-m',
@@ -545,7 +578,7 @@ cronAdd('monthly_indices_update', '0 8 1 * *', () => {
       )
       var formattedSelic252 = selic252Res.value.replace('.', ',') + '%'
       var selic252Notes = 'Atualizado automaticamente via API SGS/Banco Central (Série 1178 - BCB)'
-      recordIndexEntry(selic252Rec, formattedSelic252, selic252Res.date, selic252Notes)
+      recordIndexEntry(selic252Rec, formattedSelic252, selic252Res.date, selic252Notes, '1178')
       results.push({
         name: 'Taxa Selic anualizada base 252',
         slug: 'taxa-selic-anualizada-base-252',
@@ -877,8 +910,39 @@ routerAdd('POST', '/backend/v1/indices/sync-now', (e) => {
       }
     }
 
-    function recordIndexEntry(indexRec, formattedVal, effectiveDate, notesText) {
+    var EXPECTED_SGS_MAP_ROUTE = {
+      'taxa-selic': '4390',
+      'taxa-selic-anualizada-base-252': '1178',
+      'taxa-referencial': '226',
+      ipca: '433',
+      inpc: '188',
+      'igp-m': '189',
+    }
+
+    function validateSeriesMatchRoute(slug, seriesCode) {
+      var expected = EXPECTED_SGS_MAP_ROUTE[slug]
+      if (expected && String(expected) !== String(seriesCode)) {
+        var msg =
+          '[BLINDAGEM SGS ROUTE] Tentativa rejeitada de gravar ponto da Série ' +
+          seriesCode +
+          ' no índice ' +
+          slug +
+          ' (esperado: ' +
+          expected +
+          ')'
+        console.error(msg)
+        return false
+      }
+      return true
+    }
+
+    function recordIndexEntry(indexRec, formattedVal, effectiveDate, notesText, sgsSeriesCode) {
       var slug = indexRec.getString('slug')
+
+      if (sgsSeriesCode && !validateSeriesMatchRoute(slug, sgsSeriesCode)) {
+        throw new Error('Série SGS ' + sgsSeriesCode + ' incompatível com índice ' + slug)
+      }
+
       var entriesCol = $app.findCollectionByNameOrId('index_entries')
       var existingEntry = null
       try {
@@ -916,7 +980,7 @@ routerAdd('POST', '/backend/v1/indices/sync-now', (e) => {
         var selicRec = $app.findFirstRecordByData('indices', 'slug', 'taxa-selic')
         var formattedVal = selicRes.value.replace('.', ',') + '%'
         var notes = 'Atualizado automaticamente via API SGS/Banco Central (Série SGS 4390 / Sicalc)'
-        recordIndexEntry(selicRec, formattedVal, selicRes.date, notes)
+        recordIndexEntry(selicRec, formattedVal, selicRes.date, notes, '4390')
         results.push({
           name: 'Taxa Selic',
           slug: 'taxa-selic',
@@ -949,7 +1013,7 @@ routerAdd('POST', '/backend/v1/indices/sync-now', (e) => {
         var trRec = $app.findFirstRecordByData('indices', 'slug', 'taxa-referencial')
         var formattedTr = trRes.value.replace('.', ',') + '%'
         var trNotes = 'Atualizado automaticamente via API SGS/Banco Central (Série 226)'
-        recordIndexEntry(trRec, formattedTr, trRes.date, trNotes)
+        recordIndexEntry(trRec, formattedTr, trRes.date, trNotes, '226')
         results.push({
           name: 'Taxa Referencial (TR)',
           slug: 'taxa-referencial',
@@ -983,7 +1047,7 @@ routerAdd('POST', '/backend/v1/indices/sync-now', (e) => {
         var formattedIpca = ipcaRes.value.replace('.', ',') + '%'
         var ipcaNotes =
           'Atualizado automaticamente via API SGS/Banco Central (Série 433 - IBGE/BCB)'
-        recordIndexEntry(ipcaRec, formattedIpca, ipcaRes.date, ipcaNotes)
+        recordIndexEntry(ipcaRec, formattedIpca, ipcaRes.date, ipcaNotes, '433')
         results.push({
           name: 'IPCA',
           slug: 'ipca',
@@ -1007,7 +1071,7 @@ routerAdd('POST', '/backend/v1/indices/sync-now', (e) => {
         var formattedInpc = inpcRes.value.replace('.', ',') + '%'
         var inpcNotes =
           'Atualizado automaticamente via API SGS/Banco Central (Série 188 - IBGE/BCB)'
-        recordIndexEntry(inpcRec, formattedInpc, inpcRes.date, inpcNotes)
+        recordIndexEntry(inpcRec, formattedInpc, inpcRes.date, inpcNotes, '188')
         results.push({
           name: 'INPC',
           slug: 'inpc',
@@ -1023,7 +1087,68 @@ routerAdd('POST', '/backend/v1/indices/sync-now', (e) => {
       results.push({ name: 'INPC', slug: 'inpc', status: 'failed', reason: inpcRes.error })
     }
 
-    // 5. Salário Mínimo
+    // 5. IGP-M mensal (SGS 189)
+    var igpmRes = fetchBcbSeries(189)
+    if (igpmRes.success) {
+      try {
+        var igpmRec = $app.findFirstRecordByData('indices', 'slug', 'igp-m')
+        var formattedIgpm = igpmRes.value.replace('.', ',') + '%'
+        var igpmNotes = 'Atualizado automaticamente via API SGS/Banco Central (Série 189 - FGV/BCB)'
+        recordIndexEntry(igpmRec, formattedIgpm, igpmRes.date, igpmNotes, '189')
+        results.push({
+          name: 'IGP-M (FGV)',
+          slug: 'igp-m',
+          status: 'updated',
+          value: formattedIgpm,
+          date: igpmRes.date,
+          source: 'API BCB SGS 189',
+        })
+      } catch (e) {
+        results.push({ name: 'IGP-M (FGV)', slug: 'igp-m', status: 'failed', reason: String(e) })
+      }
+    } else {
+      results.push({ name: 'IGP-M (FGV)', slug: 'igp-m', status: 'failed', reason: igpmRes.error })
+    }
+
+    // 6. Taxa Selic anualizada base 252 (SGS 1178)
+    var selic252Res = fetchBcbSeries(1178)
+    if (selic252Res.success) {
+      try {
+        var selic252Rec = $app.findFirstRecordByData(
+          'indices',
+          'slug',
+          'taxa-selic-anualizada-base-252',
+        )
+        var formattedSelic252 = selic252Res.value.replace('.', ',') + '%'
+        var selic252Notes =
+          'Atualizado automaticamente via API SGS/Banco Central (Série 1178 - BCB)'
+        recordIndexEntry(selic252Rec, formattedSelic252, selic252Res.date, selic252Notes, '1178')
+        results.push({
+          name: 'Taxa Selic anualizada base 252',
+          slug: 'taxa-selic-anualizada-base-252',
+          status: 'updated',
+          value: formattedSelic252,
+          date: selic252Res.date,
+          source: 'API BCB SGS 1178',
+        })
+      } catch (e) {
+        results.push({
+          name: 'Taxa Selic anualizada base 252',
+          slug: 'taxa-selic-anualizada-base-252',
+          status: 'failed',
+          reason: String(e),
+        })
+      }
+    } else {
+      results.push({
+        name: 'Taxa Selic anualizada base 252',
+        slug: 'taxa-selic-anualizada-base-252',
+        status: 'failed',
+        reason: selic252Res.error,
+      })
+    }
+
+    // 7. Salário Mínimo
     results.push({
       name: 'Salário mínimo federal',
       slug: 'salario-minimo-federal',

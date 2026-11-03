@@ -5,7 +5,34 @@ routerAdd('POST', '/backend/v1/indices/seed-full-history', (e) => {
   var entriesCol = $app.findCollectionByNameOrId('index_entries')
   var nowIso = new Date().toISOString()
 
-  function upsertEntry(slug, effectiveDate, value, source, notes) {
+  var EXPECTED_SGS_MAP_SEED = {
+    'taxa-selic': '4390',
+    'taxa-selic-anualizada-base-252': '1178',
+    'taxa-referencial': '226',
+    ipca: '433',
+    inpc: '188',
+    'igp-m': '189',
+  }
+
+  function validateSeriesMatchSeed(slug, seriesCode) {
+    var expected = EXPECTED_SGS_MAP_SEED[slug]
+    if (expected && String(expected) !== String(seriesCode)) {
+      console.error(
+        '[BLINDAGEM SGS SEED] Rejeitada tentativa de gravar Série ' +
+          seriesCode +
+          ' no índice ' +
+          slug,
+      )
+      return false
+    }
+    return true
+  }
+
+  function upsertEntry(slug, effectiveDate, value, source, notes, seriesCode) {
+    if (seriesCode && !validateSeriesMatchSeed(slug, seriesCode)) {
+      return false
+    }
+
     var indexRec = null
     try {
       indexRec = $app.findFirstRecordByData('indices', 'slug', slug)
@@ -66,7 +93,7 @@ routerAdd('POST', '/backend/v1/indices/seed-full-history', (e) => {
     for (var i = 0; i < selicData.length; i++) {
       var pt = selicData[i]
       var valFormatted = pt.valor.replace('.', ',') + '%'
-      upsertEntry('taxa-selic', pt.data, valFormatted, 'automatica', 'Oficial BCB SGS 4390')
+      upsertEntry('taxa-selic', pt.data, valFormatted, 'automatica', 'Oficial BCB SGS 4390', '4390')
     }
     summary.push({
       code: '4390',
@@ -83,7 +110,14 @@ routerAdd('POST', '/backend/v1/indices/seed-full-history', (e) => {
     for (var j = 0; j < igpmData.length; j++) {
       var pt2 = igpmData[j]
       var valFormatted2 = pt2.valor.replace('.', ',') + '%'
-      upsertEntry('igp-m', pt2.data, valFormatted2, 'automatica', 'Oficial FGV / BCB SGS 189')
+      upsertEntry(
+        'igp-m',
+        pt2.data,
+        valFormatted2,
+        'automatica',
+        'Oficial FGV / BCB SGS 189',
+        '189',
+      )
     }
     summary.push({
       code: '189',
@@ -100,7 +134,14 @@ routerAdd('POST', '/backend/v1/indices/seed-full-history', (e) => {
     for (var k = 0; k < ipcaData.length; k++) {
       var pt3 = ipcaData[k]
       var valFormatted3 = pt3.valor.replace('.', ',') + '%'
-      upsertEntry('ipca', pt3.data, valFormatted3, 'automatica', 'Oficial IBGE / BCB SGS 433')
+      upsertEntry(
+        'ipca',
+        pt3.data,
+        valFormatted3,
+        'automatica',
+        'Oficial IBGE / BCB SGS 433',
+        '433',
+      )
     }
     summary.push({
       code: '433',
@@ -117,7 +158,14 @@ routerAdd('POST', '/backend/v1/indices/seed-full-history', (e) => {
     for (var m = 0; m < inpcData.length; m++) {
       var pt4 = inpcData[m]
       var valFormatted4 = pt4.valor.replace('.', ',') + '%'
-      upsertEntry('inpc', pt4.data, valFormatted4, 'automatica', 'Oficial IBGE / BCB SGS 188')
+      upsertEntry(
+        'inpc',
+        pt4.data,
+        valFormatted4,
+        'automatica',
+        'Oficial IBGE / BCB SGS 188',
+        '188',
+      )
     }
     summary.push({
       code: '188',
@@ -166,6 +214,7 @@ routerAdd('POST', '/backend/v1/indices/seed-full-history', (e) => {
                 formattedTr,
                 'automatica',
                 'Oficial BCB SGS 226',
+                '226',
               )
               trCount++
               if (!trFirst) trFirst = item
@@ -221,6 +270,7 @@ routerAdd('POST', '/backend/v1/indices/seed-full-history', (e) => {
                 formattedS252,
                 'automatica',
                 'Oficial BCB SGS 1178',
+                '1178',
               )
               selic252Count++
               if (!selic252First) selic252First = item2

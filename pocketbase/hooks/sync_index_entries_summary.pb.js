@@ -6,6 +6,66 @@
 // nunca o registro mais recentemente cadastrado ou editado. Inserir vigência
 // retroativa apenas completa o histórico, sem substituir o vigente.
 
+// Validação prévia de integridade: impede que um registro de Série 1178 seja gravado em 'taxa-selic' (SGS 4390)
+// e vice-versa, protegendo contra inserções manuais ou acidentais via API.
+onRecordCreateRequest((e) => {
+  try {
+    var rec = e.record
+    var slug = rec.getString('index_slug')
+    var notes = rec.getString('notes') || ''
+
+    if (slug === 'taxa-selic') {
+      if (notes.indexOf('1178') !== -1) {
+        throw new BadRequestError(
+          'Inconsistência de série: anotação da Série 1178 (Selic anualizada) não permitida na série mensal taxa-selic (SGS 4390).',
+        )
+      }
+    } else if (slug === 'taxa-selic-anualizada-base-252') {
+      if (notes.indexOf('4390') !== -1) {
+        throw new BadRequestError(
+          'Inconsistência de série: anotação da Série 4390 (Selic mensal) não permitida na série anualizada base 252 (SGS 1178).',
+        )
+      }
+    }
+  } catch (err) {
+    if (err instanceof BadRequestError) {
+      throw err
+    }
+    console.error('[validate_index_entries_create] erro:', err)
+  } finally {
+    e.next()
+  }
+}, 'index_entries')
+
+onRecordUpdateRequest((e) => {
+  try {
+    var rec = e.record
+    var slug = rec.getString('index_slug')
+    var notes = rec.getString('notes') || ''
+
+    if (slug === 'taxa-selic') {
+      if (notes.indexOf('1178') !== -1) {
+        throw new BadRequestError(
+          'Inconsistência de série: anotação da Série 1178 (Selic anualizada) não permitida na série mensal taxa-selic (SGS 4390).',
+        )
+      }
+    } else if (slug === 'taxa-selic-anualizada-base-252') {
+      if (notes.indexOf('4390') !== -1) {
+        throw new BadRequestError(
+          'Inconsistência de série: anotação da Série 4390 (Selic mensal) não permitida na série anualizada base 252 (SGS 1178).',
+        )
+      }
+    }
+  } catch (err) {
+    if (err instanceof BadRequestError) {
+      throw err
+    }
+    console.error('[validate_index_entries_update] erro:', err)
+  } finally {
+    e.next()
+  }
+}, 'index_entries')
+
 onRecordAfterCreateSuccess((e) => {
   try {
     var rec = e.record
@@ -381,6 +441,24 @@ routerAdd('POST', '/backend/v1/indices/batch-import', (e) => {
 
         if (!effDate || !val) {
           errors.push('Linha ' + (j + 1) + ': data ou valor em branco.')
+          continue
+        }
+
+        // Blindagem no lote: rejeita ponto cruzado entre Selic mensal e anualizada
+        if (slug === 'taxa-selic' && notes.indexOf('1178') !== -1) {
+          errors.push(
+            'Linha ' +
+              (j + 1) +
+              ': anotação referencia Série 1178 em índice taxa-selic (SGS 4390). Registro recusado.',
+          )
+          continue
+        }
+        if (slug === 'taxa-selic-anualizada-base-252' && notes.indexOf('4390') !== -1) {
+          errors.push(
+            'Linha ' +
+              (j + 1) +
+              ': anotação referencia Série 4390 em índice taxa-selic-anualizada-base-252 (SGS 1178). Registro recusado.',
+          )
           continue
         }
 
