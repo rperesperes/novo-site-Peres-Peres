@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T17:25:46.245Z",
+  "generatedAt": "2026-11-03T18:04:39.903Z",
   "collections": [
     {
       "name": "users",
@@ -776,6 +776,94 @@
       "indexes": [
         "CREATE INDEX idx_job_vacancies_status_order ON job_vacancies (status, display_order)"
       ]
+    },
+    {
+      "name": "social_links",
+      "type": "base",
+      "apiRules": {
+        "list": "",
+        "view": "",
+        "create": "@request.auth.id != \"\"",
+        "update": "@request.auth.id != \"\"",
+        "delete": "@request.auth.id != \"\""
+      },
+      "fields": [
+        {
+          "name": "instagram",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "facebook",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "tiktok",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "x",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "pinterest",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "threads",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "youtube",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "linkedin",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "twitch",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "kwai",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": []
     }
   ]
 }

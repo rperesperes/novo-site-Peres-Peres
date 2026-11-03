@@ -1,16 +1,39 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { SITE_INFO } from '@/lib/data'
-import { MapPin, Mail, MessageSquare, Linkedin, Instagram } from 'lucide-react'
+import { MapPin, Mail, MessageSquare } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useToast } from '@/hooks/use-toast'
+import { SOCIAL_NETWORKS, getSocialLinks, type SocialLinkRecord } from '@/services/social_links'
+import { SocialNetworkIcon } from '@/components/SocialNetworkIcon'
 import logoPadrao from '@/assets/logo-padrao-oficial-844b7.png'
 
 export function Footer() {
   const { toast } = useToast()
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
+  const [socialLinks, setSocialLinks] = useState<SocialLinkRecord | null>(null)
+
+  // Links de redes sociais vindos do painel: no site aparece somente as
+  // redes com link preenchido. Blog e WhatsApp não fazem parte dessa
+  // configuração e seguem fixos, como já estão hoje.
+  useEffect(() => {
+    let active = true
+    getSocialLinks().then((rec) => {
+      if (active) setSocialLinks(rec)
+    })
+    return () => {
+      active = false
+    }
+  }, [])
+
+  const socialNetworksWithLink = socialLinks
+    ? SOCIAL_NETWORKS.filter((net) => {
+        const link = socialLinks[net.id]
+        return typeof link === 'string' && link.trim() !== ''
+      })
+    : []
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -185,25 +208,19 @@ export function Footer() {
                 {loading ? 'Assinando...' : 'Assinar'}
               </Button>
             </form>
-            <div className="flex items-center gap-4 mt-8">
-              <a
-                href="https://www.linkedin.com/company/peresperes"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neutral-400 hover:text-[#FAB319] transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href="https://www.instagram.com/peresperes.com.br"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neutral-400 hover:text-[#FAB319] transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
+            <div className="flex flex-wrap items-center gap-4 mt-8">
+              {socialNetworksWithLink.map((net) => (
+                <a
+                  key={net.id}
+                  href={socialLinks[net.id]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-neutral-400 hover:text-[#FAB319] transition-colors"
+                  aria-label={net.label}
+                >
+                  <SocialNetworkIcon network={net.id} className="h-5 w-5" />
+                </a>
+              ))}
             </div>
           </div>
         </div>

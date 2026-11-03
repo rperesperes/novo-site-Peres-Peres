@@ -13,7 +13,7 @@ import AdminCases from './pages/admin/Cases'
 import AdminJobs from './pages/admin/Jobs'
 import AdminEmails from './pages/admin/Emails'
 import AdminCalculators from './pages/admin/Calculators'
-import AdminPlaceholderSection from './pages/admin/AdminPlaceholderSection'
+import AdminSettings from './pages/admin/Settings'
 import About from './pages/About'
 import TrabalheConosco from './pages/TrabalheConosco'
 import Services from './pages/Services'
@@ -139,15 +139,7 @@ const App = () => (
             <Route path="vagas" element={<AdminJobs />} />
             <Route path="emails" element={<AdminEmails />} />
             <Route path="calculators" element={<AdminCalculators />} />
-            <Route
-              path="settings"
-              element={
-                <AdminPlaceholderSection
-                  title="Configurações"
-                  description="Parâmetros institucionais, chaves de integração e dados do escritório"
-                />
-              }
-            />
+            <Route path="settings" element={<AdminSettings />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
