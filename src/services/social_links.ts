@@ -13,6 +13,10 @@ export const SOCIAL_NETWORKS = [
   { id: 'linkedin', label: 'LinkedIn' },
   { id: 'twitch', label: 'Twitch' },
   { id: 'kwai', label: 'Kwai' },
+  { id: 'tumblr', label: 'Tumblr' },
+  { id: 'reddit', label: 'Reddit' },
+  { id: 'medium', label: 'Medium' },
+  { id: 'substack', label: 'Substack' },
 ] as const
 
 export type SocialNetworkId = (typeof SOCIAL_NETWORKS)[number]['id']
@@ -28,6 +32,10 @@ export interface SocialLinksMap {
   linkedin?: string
   twitch?: string
   kwai?: string
+  tumblr?: string
+  reddit?: string
+  medium?: string
+  substack?: string
 }
 
 export interface SocialLinkRecord extends SocialLinksMap {
@@ -72,7 +80,7 @@ export function normalizeSocialUrl(value: string): string {
  */
 export async function getSocialLinks(): Promise<SocialLinkRecord | null> {
   try {
-    const records = await pb.collection('social_links').getFullList({
+    const records = await pb.collection(COLLECTION).getFullList({
       sort: 'created',
     })
     if (records.length === 0) return null
@@ -102,9 +110,9 @@ export async function saveSocialLinks(values: SocialLinksMap): Promise<SaveSocia
       payload[net.id] = normalizeSocialUrl(values[net.id] || '')
     }
     if (existing) {
-      await pb.collection('social_links').update(existing.id, payload)
+      await pb.collection(COLLECTION).update(existing.id, payload)
     } else {
-      await pb.collection('social_links').create(payload)
+      await pb.collection(COLLECTION).create(payload)
     }
     return { ok: true }
   } catch (err: unknown) {
