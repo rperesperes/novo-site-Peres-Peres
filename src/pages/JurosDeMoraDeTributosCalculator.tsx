@@ -443,7 +443,7 @@ export default function JurosDeMoraDeTributosCalculator() {
           'Calculadora gratuita de juros de mora pela Selic acumulada e multa de mora de 0,33% ao dia para tributos federais em atraso conforme a Lei 9.430/1996.',
         provider: {
           '@type': 'AccountingService',
-          name: 'PERES PERES Consultoria e Contabilidade',
+          name: 'PERES PERES Consultoria & Contabilidade',
           url: 'https://peresperes.com.br',
         },
       },
