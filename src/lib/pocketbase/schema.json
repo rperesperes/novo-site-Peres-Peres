@@ -1,16 +1,792 @@
 {
-  "version": 2,
+  "generatedAt": "2026-11-06T16:06:05.014Z",
   "collections": [
     {
-      "id": "pbc_3431616908",
+      "name": "users",
+      "type": "auth",
+      "apiRules": {
+        "list": "id = @request.auth.id",
+        "view": "id = @request.auth.id",
+        "create": "",
+        "update": "id = @request.auth.id",
+        "delete": "id = @request.auth.id"
+      },
+      "fields": [
+        {
+          "name": "name",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "avatar",
+          "type": "file",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": [
+        "CREATE UNIQUE INDEX `idx_tokenKey__pb_users_auth_` ON `users` (`tokenKey`)",
+        "CREATE UNIQUE INDEX `idx_email__pb_users_auth_` ON `users` (`email`) WHERE `email` != ''"
+      ]
+    },
+    {
+      "name": "posts",
+      "type": "base",
+      "apiRules": {
+        "list": "",
+        "view": "",
+        "create": "@request.auth.id != ''",
+        "update": "@request.auth.id != ''",
+        "delete": "@request.auth.id != ''"
+      },
+      "fields": [
+        {
+          "name": "title",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "slug",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "category",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "excerpt",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "content",
+          "type": "editor",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "cover",
+          "type": "file",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "status",
+          "type": "select",
+          "required": false,
+          "system": false,
+          "selectValues": ["draft", "published"]
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": ["CREATE UNIQUE INDEX idx_posts_slug ON posts (slug)"]
+    },
+    {
+      "name": "resources",
+      "type": "base",
+      "apiRules": {
+        "list": "",
+        "view": "",
+        "create": "@request.auth.id != ''",
+        "update": "@request.auth.id != ''",
+        "delete": "@request.auth.id != ''"
+      },
+      "fields": [
+        {
+          "name": "title",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "category",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "file",
+          "type": "file",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "link",
+          "type": "url",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": []
+    },
+    {
+      "name": "success_cases",
+      "type": "base",
+      "apiRules": {
+        "list": "@request.auth.id != '' || status = 'published' || status = ''",
+        "view": "@request.auth.id != '' || status = 'published' || status = ''",
+        "create": "@request.auth.id != ''",
+        "update": "@request.auth.id != ''",
+        "delete": "@request.auth.id != ''"
+      },
+      "fields": [
+        {
+          "name": "title",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "client_name",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "result",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "sector",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "before",
+          "type": "number",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "after",
+          "type": "number",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "savings",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "image",
+          "type": "file",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        },
+        {
+          "name": "segment",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "context",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "challenge",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "actions_taken",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "highlight_phrase",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "display_order",
+          "type": "number",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "status",
+          "type": "select",
+          "required": false,
+          "system": false,
+          "selectValues": ["published", "hidden"]
+        },
+        {
+          "name": "slug",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "badge_text",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "badge_subtext",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "highlight_number",
+          "type": "text",
+          "required": false,
+          "system": false
+        }
+      ],
+      "indexes": []
+    },
+    {
+      "name": "contact_requests",
+      "type": "base",
+      "apiRules": {
+        "list": "@request.auth.id != ''",
+        "view": "@request.auth.id != ''",
+        "create": "",
+        "update": "@request.auth.id != ''",
+        "delete": "@request.auth.id != ''"
+      },
+      "fields": [
+        {
+          "name": "name",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "email",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "phone",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "message",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "source_page",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        },
+        {
+          "name": "archived",
+          "type": "bool",
+          "required": false,
+          "system": false
+        }
+      ],
+      "indexes": ["CREATE INDEX idx_contact_requests_created ON contact_requests (created DESC)"]
+    },
+    {
+      "name": "newsletter_subscribers",
+      "type": "base",
+      "apiRules": {
+        "list": "@request.auth.id != ''",
+        "view": "@request.auth.id != ''",
+        "create": "",
+        "update": "@request.auth.id != ''",
+        "delete": "@request.auth.id != ''"
+      },
+      "fields": [
+        {
+          "name": "email",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "source",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        },
+        {
+          "name": "archived",
+          "type": "bool",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "status",
+          "type": "select",
+          "required": false,
+          "system": false,
+          "selectValues": ["ativo", "desativado"]
+        },
+        {
+          "name": "status_updated_at",
+          "type": "date",
+          "required": false,
+          "system": false
+        }
+      ],
+      "indexes": [
+        "CREATE INDEX idx_newsletter_subscribers_created ON newsletter_subscribers (created DESC)"
+      ]
+    },
+    {
+      "name": "indices",
+      "type": "base",
+      "apiRules": {
+        "list": "@request.auth.id != ''",
+        "view": "@request.auth.id != ''",
+        "create": "@request.auth.id != ''",
+        "update": "@request.auth.id != ''",
+        "delete": "@request.auth.id != ''"
+      },
+      "fields": [
+        {
+          "name": "name",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "slug",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "current_value",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "effective_date",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "validity_months",
+          "type": "number",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "notes",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        },
+        {
+          "name": "update_source",
+          "type": "select",
+          "required": false,
+          "system": false,
+          "selectValues": ["manual", "automatica"]
+        },
+        {
+          "name": "last_updated_at",
+          "type": "date",
+          "required": false,
+          "system": false
+        }
+      ],
+      "indexes": ["CREATE UNIQUE INDEX idx_indices_slug ON indices (slug)"]
+    },
+    {
+      "name": "calculator_accesses",
+      "type": "base",
+      "apiRules": {
+        "list": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
+        "view": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
+        "create": "",
+        "update": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'",
+        "delete": "@request.auth.id != '' && @request.auth.email = 'rafael@peresperes.com.br'"
+      },
+      "fields": [
+        {
+          "name": "calculator_slug",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "calculator_name",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "accessed_at",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": [
+        "CREATE INDEX idx_calc_acc_slug ON calculator_accesses (calculator_slug)",
+        "CREATE INDEX idx_calc_acc_created ON calculator_accesses (created DESC)"
+      ]
+    },
+    {
+      "name": "index_entries",
+      "type": "base",
+      "apiRules": {
+        "list": "@request.auth.id != ''",
+        "view": "@request.auth.id != ''",
+        "create": "@request.auth.id != ''",
+        "update": "@request.auth.id != ''",
+        "delete": "@request.auth.id != ''"
+      },
+      "fields": [
+        {
+          "name": "index_id",
+          "type": "relation",
+          "required": true,
+          "system": false,
+          "collectionRef": "indices"
+        },
+        {
+          "name": "index_slug",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "effective_date",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "value",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "source",
+          "type": "select",
+          "required": false,
+          "system": false,
+          "selectValues": ["manual", "automatica"]
+        },
+        {
+          "name": "notes",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": [
+        "CREATE INDEX idx_entries_index_id ON index_entries (index_id)",
+        "CREATE INDEX idx_entries_index_slug ON index_entries (index_slug)",
+        "CREATE INDEX idx_entries_effective_date ON index_entries (effective_date DESC)",
+        "CREATE UNIQUE INDEX idx_entries_slug_date ON index_entries (index_slug, effective_date)"
+      ]
+    },
+    {
+      "name": "system_settings",
+      "type": "base",
+      "apiRules": {
+        "list": null,
+        "view": null,
+        "create": null,
+        "update": null,
+        "delete": null
+      },
+      "fields": [
+        {
+          "name": "key",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "value",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": ["CREATE UNIQUE INDEX idx_system_settings_key ON system_settings (key)"]
+    },
+    {
+      "name": "job_vacancies",
+      "type": "base",
+      "apiRules": {
+        "list": "@request.auth.id != '' || status = 'aberta'",
+        "view": "@request.auth.id != '' || status = 'aberta'",
+        "create": "@request.auth.id != ''",
+        "update": "@request.auth.id != ''",
+        "delete": "@request.auth.id != ''"
+      },
+      "fields": [
+        {
+          "name": "title",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "area",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "contract_type",
+          "type": "select",
+          "required": true,
+          "system": false,
+          "selectValues": ["CLT", "Estágio", "PJ", "Temporário"]
+        },
+        {
+          "name": "modality",
+          "type": "select",
+          "required": true,
+          "system": false,
+          "selectValues": ["Presencial", "Híbrido", "Remoto"]
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "responsibilities",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "requirements",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "status",
+          "type": "select",
+          "required": true,
+          "system": false,
+          "selectValues": ["aberta", "encerrada"]
+        },
+        {
+          "name": "display_order",
+          "type": "number",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": [
+        "CREATE INDEX idx_job_vacancies_status_order ON job_vacancies (status, display_order)"
+      ]
+    },
+    {
       "name": "social_links",
       "type": "base",
-      "system": false,
-      "listRule": "",
-      "viewRule": "",
-      "createRule": "@request.auth.id != \"\"",
-      "updateRule": "@request.auth.id != \"\"",
-      "deleteRule": "@request.auth.id != \"\"",
+      "apiRules": {
+        "list": "",
+        "view": "",
+        "create": "@request.auth.id != \"\"",
+        "update": "@request.auth.id != \"\"",
+        "delete": "@request.auth.id != \"\""
+      },
       "fields": [
         {
           "name": "instagram",
