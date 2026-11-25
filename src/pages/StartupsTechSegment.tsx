@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { useSeo } from '@/hooks/use-seo'
+import { StartupsCnaeSection } from '@/components/StartupsCnaeSection'
 import {
   Layers,
   Code2,
@@ -356,6 +357,11 @@ export default function StartupsTechSegment() {
           </div>
         </div>
       </section>
+
+      {/* =========================================================
+          SEÇÃO CNAE, REGIME TRIBUTÁRIO E ISS (entre desafios e como atuamos)
+         ========================================================= */}
+      <StartupsCnaeSection />
 
       {/* =========================================================
           SEÇÃO 2: COMO ATUAMOS NA STARTUP (5 itens)
