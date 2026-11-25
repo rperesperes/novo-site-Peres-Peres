@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import type { RecordModel, RecordSubscription } from '@/lib/pocketbase/client'
+import type { RecordModel, RecordSubscription } from 'pocketbase'
 
 import pb from '@/lib/pocketbase/client'
 

@@ -383,6 +383,16 @@ const SERVICOS_OPERACIONAIS_PONTUAIS = [
 ]
 
 export default function Services() {
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id)
+    if (!el) return
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    el.scrollIntoView({
+      behavior: prefersReducedMotion ? 'auto' : 'smooth',
+      block: 'start',
+    })
+  }
+
   useEffect(() => {
     const pageTitle = 'Serviços Contábeis e Tributários | PERES PERES Consultoria & Contabilidade'
     const pageDesc =
@@ -424,6 +434,66 @@ export default function Services() {
             <span className="flex items-center gap-1.5">
               <Sparkles className="h-4 w-4 text-[#FAB319]" /> Metodologia Preventiva e Ética
             </span>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================
+          BLOCO 0: NAVEGAÇÃO INTERNA ("Navegue por assunto")
+         ========================================================= */}
+      <section
+        id="navegacao-por-assunto"
+        aria-label="Navegue por assunto"
+        className="bg-neutral-950 text-white border-b border-neutral-800 py-10 md:py-12"
+      >
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="text-center space-y-2 mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-white">Navegue por assunto</h2>
+            <p className="text-sm md:text-base text-neutral-400">
+              Clique para ir direto ao que te interessa
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            {[
+              {
+                target: 'consultoria-tributaria',
+                title: 'Principais Serviços',
+                desc: 'Consultoria tributária, contabilidade, planejamento fiscal e recuperação de créditos.',
+              },
+              {
+                target: 'segmentos',
+                title: 'Segmentos e Áreas de Atuação',
+                desc: 'Como o escritório atende por setor, porte e necessidade da empresa.',
+              },
+              {
+                target: 'planos',
+                title: 'Planos de Acompanhamento',
+                desc: 'Modelos de acompanhamento contínuo, por escopo e frequência.',
+              },
+              {
+                target: 'servicos-avulsos',
+                title: 'Serviços Avulsos',
+                desc: 'Demandas pontuais, sem contrato de acompanhamento.',
+              },
+            ].map((item) => (
+              <button
+                key={item.target}
+                type="button"
+                onClick={() => scrollToSection(item.target)}
+                className="group flex flex-col items-start gap-2 rounded-xl border border-neutral-800 bg-neutral-900/60 p-4 md:p-5 text-left transition-colors hover:border-[#FAB319] focus-visible:border-[#FAB319] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FAB319]/60"
+              >
+                <span className="flex w-full items-start justify-between gap-2">
+                  <span className="font-semibold text-sm md:text-base text-white leading-snug group-hover:text-[#FAB319] transition-colors">
+                    {item.title}
+                  </span>
+                  <ArrowRight className="h-4 w-4 shrink-0 mt-0.5 text-[#FAB319] transition-transform group-hover:translate-x-0.5" />
+                </span>
+                <span className="text-xs md:text-sm text-neutral-400 leading-relaxed group-hover:text-neutral-300 transition-colors">
+                  {item.desc}
+                </span>
+              </button>
+            ))}
           </div>
         </div>
       </section>
