@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/accordion'
 import { useSeo } from '@/hooks/use-seo'
 import { ProfessionExerciseForm } from '@/components/ProfessionExerciseForm'
+import { MedicosCnaeSection } from '@/components/MedicosCnaeSection'
 import {
   Calculator,
   Coins,
@@ -384,6 +385,9 @@ export default function MedicosSegment() {
           </div>
         </div>
       </section>
+
+      {/* SEÇÃO: CNAE, REGIME TRIBUTÁRIO E ISS (componente dedicado) */}
+      <MedicosCnaeSection />
 
       {/* =========================================================
           SEÇÃO 2: COMO ATUAMOS COM O MÉDICO (5 itens)
