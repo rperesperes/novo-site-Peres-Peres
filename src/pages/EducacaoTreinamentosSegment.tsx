@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { useSeo } from '@/hooks/use-seo'
+import { EducacaoCnaeSection } from '@/components/EducacaoCnaeSection'
 import {
   GraduationCap,
   Award,
@@ -358,8 +359,13 @@ export default function EducacaoTreinamentosSegment() {
       </section>
 
       {/* =========================================================
-          SECAO 2: COMO ATUAMOS NA EDUCACAO (5 itens)
-         ========================================================= */}
+           SECAO 1.5: CNAE, REGIME TRIBUTARIO E ISS
+          ========================================================= */}
+      <EducacaoCnaeSection />
+
+      {/* =========================================================
+           SECAO 2: COMO ATUAMOS NA EDUCACAO (5 itens)
+          ========================================================= */}
       <section className="py-14 md:py-20 bg-neutral-50 border-b border-neutral-200">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="max-w-3xl mb-12">
