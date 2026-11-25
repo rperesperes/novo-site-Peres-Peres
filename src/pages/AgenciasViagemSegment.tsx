@@ -178,7 +178,7 @@ export default function AgenciasViagemSegment() {
             {
               '@type': 'ListItem',
               position: 2,
-              name: 'Segmentos',
+              name: 'Áreas de atuação',
               item: 'https://peresperes.com.br/servicos',
             },
             {
@@ -230,7 +230,7 @@ export default function AgenciasViagemSegment() {
             </Link>
             <ChevronRight className="h-3.5 w-3.5 text-neutral-600" />
             <Link to="/servicos" className="hover:text-white transition-colors">
-              Segmentos
+              Áreas de atuação
             </Link>
             <ChevronRight className="h-3.5 w-3.5 text-neutral-600" />
             <span className="text-[#FAB319] font-medium">Agências de Viagem</span>

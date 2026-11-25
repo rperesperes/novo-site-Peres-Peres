@@ -278,11 +278,11 @@ export default function ArquitetosSegment() {
 
             {/* Parágrafo de abertura verbatim */}
             <p className="text-base sm:text-lg md:text-xl text-neutral-300 max-w-3xl leading-relaxed font-sans">
-              O arquiteto que formaliza a própria pessoa jurídica, normalmente uma sociedade
-              limitada de um único sócio, a chamada PJ unipessoal, concentra a decisão financeira no
-              que cerca o projeto: regime tributário, retenções dos contratantes, RRT e a fronteira
-              entre pró-labore e distribuição de lucros. A PERES PERES cuida da contabilidade mensal
-              e dessa leitura.
+              O arquiteto que abre a própria pessoa jurídica, normalmente uma sociedade limitada de
+              um único sócio, a chamada PJ unipessoal, concentra a decisão financeira no que cerca o
+              projeto: regime tributário, retenções dos contratantes, RRT e a fronteira entre
+              pró-labore e distribuição de lucros. A PERES PERES cuida da contabilidade mensal e
+              dessa leitura.
             </p>
 
             {/* Chamada para ação no Hero */}

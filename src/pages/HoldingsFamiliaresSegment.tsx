@@ -260,7 +260,7 @@ export default function HoldingsFamiliaresSegment() {
           <div className="space-y-6 animate-fade-in-up">
             <div className="inline-flex items-center gap-2 border border-neutral-700 bg-neutral-900/60 px-3 py-1 rounded text-xs tracking-wider uppercase text-neutral-300 font-sans">
               <Landmark className="h-3.5 w-3.5 text-[#FAB319]" />
-              Segmento Especializado
+              Área de Atuação Especializada
             </div>
 
             {/* H1 obrigatorio */}

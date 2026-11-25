@@ -221,8 +221,8 @@ export default function MeiCompleto() {
                 <ArrowRight className="h-5 w-5 shrink-0 mt-0.5 text-[#FAB319] transition-transform group-hover:translate-x-0.5" />
               </span>
               <span className="text-sm md:text-base text-neutral-600 leading-relaxed">
-                Para quem vai formalizar a atividade, está com DAS atrasado, com declaração pendente
-                ou com o CNPJ irregular.
+                Para quem vai abrir a atividade, está com DAS atrasado, com declaração pendente ou
+                com o CNPJ irregular.
               </span>
             </button>
 

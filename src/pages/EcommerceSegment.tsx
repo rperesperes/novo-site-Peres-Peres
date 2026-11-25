@@ -198,7 +198,7 @@ export default function EcommerceSegment() {
             {
               '@type': 'ListItem',
               position: 2,
-              name: 'Segmentos',
+              name: 'Áreas de atuação',
               item: 'https://peresperes.com.br/servicos',
             },
             {

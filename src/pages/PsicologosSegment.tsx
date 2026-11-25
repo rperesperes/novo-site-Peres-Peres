@@ -83,7 +83,7 @@ const FRENTES_ATUACAO = [
   {
     frente: 'Financeira e de Gestão',
     destaque: false,
-    text: 'leitura de retirada mensal efetiva, projeção de caixa com base na agenda, formação de preço da sessão e planejamento do momento de formalizar a PJ.',
+    text: 'leitura de retirada mensal efetiva, projeção de caixa com base na agenda, formação de preço da sessão e planejamento do momento de abrir a PJ.',
   },
   {
     frente: 'Trabalhista',
@@ -277,9 +277,9 @@ export default function PsicologosSegment() {
 
             {/* Parágrafo de abertura verbatim */}
             <p className="text-base sm:text-lg md:text-xl text-neutral-300 max-w-3xl leading-relaxed font-sans">
-              O psicólogo que formaliza sua pessoa jurídica, normalmente uma sociedade limitada de
-              um só sócio, a chamada PJ unipessoal, ganha em organização e em margem, mas assume
-              decisões técnicas que o formato não resolve sozinho: regime tributário, pró-labore e o
+              O psicólogo que abre sua pessoa jurídica, normalmente uma sociedade limitada de um só
+              sócio, a chamada PJ unipessoal, ganha em organização e em margem, mas assume decisões
+              técnicas que o formato não resolve sozinho: regime tributário, pró-labore e o
               enquadramento certo para quem vive da própria agenda de atendimentos. A PERES PERES
               cuida da contabilidade mensal e dessas decisões.
             </p>

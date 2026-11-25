@@ -976,7 +976,7 @@ export default function JurosDeMoraDeTributosCalculator() {
                 </h3>
               </div>
               <span className="text-xs font-mono text-neutral-500 uppercase">
-                Auditoria Aritmética
+                Conferência Aritmética
               </span>
             </div>
 

@@ -219,7 +219,7 @@ export default function About() {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-black mb-3">Nossa Equipe</h2>
             <p className="text-neutral-600 max-w-2xl mx-auto leading-relaxed text-sm md:text-base">
-              Profissionais dedicados à governança fiscal, contabilidade consultiva, auditoria e
+              Profissionais dedicados à governança fiscal, contabilidade consultiva, diagnóstico e
               perícia, atuando de forma integrada sob a coordenação do responsável técnico.
             </p>
           </div>
