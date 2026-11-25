@@ -279,9 +279,46 @@ export default function MeiCompleto() {
           </div>
 
           <div className="space-y-6">
+            <p className="text-neutral-700 text-sm md:text-base leading-relaxed">
+              Dívida de MEI não tem uma única saída, e a escolha depende do tipo de débito, do valor
+              e do momento. O perdão autorizado pela Lei Complementar 238 de 2026 é o caminho mais
+              restrito dos três: alcança somente a contribuição previdenciária com vencimento até 13
+              de outubro de 2026, e não resolve ICMS, ISS nem dívida posterior a essa data.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm space-y-2">
+                <h3 className="text-lg font-semibold text-black">Acompanhamento mensal</h3>
+                <p className="text-neutral-700 text-sm leading-relaxed">
+                  O caminho mais barato é o que evita a dívida. A verificação periódica de
+                  pendências federais, estaduais e municipais identifica a guia em atraso e o aviso
+                  de irregularidade antes de virarem inscrição, bloqueio de CNPJ ou impedimento de
+                  emissão de nota.
+                </p>
+              </div>
+              <div className="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm space-y-2">
+                <h3 className="text-lg font-semibold text-black">Parcelamento do DAS</h3>
+                <p className="text-neutral-700 text-sm leading-relaxed">
+                  O DAS em atraso pode ser parcelado diretamente com a Receita Federal, com prazo e
+                  número de parcelas conforme a regra vigente. Comparamos sempre com crédito
+                  bancário, porque o custo do parcelamento com o governo costuma ser menor que o de
+                  um financiamento para o mesmo valor.
+                </p>
+              </div>
+              <div className="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm space-y-2">
+                <h3 className="text-lg font-semibold text-black">Negociação por edital</h3>
+                <p className="text-neutral-700 text-sm leading-relaxed">
+                  Programas de transação e editais de negociação vigentes costumam trazer desconto
+                  de multa e juros, e alcançam situações que o perdão de 2026 não alcança, como ICMS
+                  e ISS e dívidas posteriores. A adesão depende de edital aberto, e o enquadramento
+                  é avaliado caso a caso.
+                </p>
+              </div>
+            </div>
+
             <div className="space-y-2">
               <h3 className="text-lg md:text-xl font-semibold text-black">
-                Perdão de dívidas do DAS
+                Perdão de dívidas do DAS: um dos caminhos, não o único
               </h3>
               <p className="text-neutral-700 text-sm md:text-base leading-relaxed">
                 A Lei Complementar 238 de 2026 também autorizou o perdão das dívidas da contribuição
@@ -310,6 +347,13 @@ export default function MeiCompleto() {
                 por competência, acrescido de juros e multa, permanece exigível.
               </p>
             </div>
+
+            <p className="text-neutral-700 text-sm md:text-base leading-relaxed">
+              Antes de escolher entre parcelar, negociar por edital ou aguardar o perdão, vale
+              comparar o custo de cada caminho e o efeito de cada um sobre a situação fiscal do
+              CNPJ. Existem situações em que pagar mais rápido sai mais caro, e situações em que
+              esperar o perdão custa a emissão de nota do mês.
+            </p>
           </div>
         </section>
 
