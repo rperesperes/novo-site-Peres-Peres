@@ -165,9 +165,9 @@ const OUTROS_SEGMENTOS = [
 
 export default function PublicidadeComunicacaoSegment() {
   useSeo({
-    title: 'Contabilidade para Agências de Publicidade | Consultoria em Brasília | PERES PERES',
+    title: 'Contabilidade para Agências de Publicidade: CNAE e ISS',
     description:
-      'Contabilidade e consultoria para agências de publicidade e comunicação: mídia, comissão, retenções da cadeia criativa e margem do job. Atendimento em Brasília e no Brasil.',
+      'Contabilidade para agências de publicidade com mídia, comissão, retenções da cadeia criativa e margem por job: como organizar o caixa sem surpresas.',
     canonical: 'https://peresperes.com.br/contabilidade-para-agencias-de-publicidade',
   })
 

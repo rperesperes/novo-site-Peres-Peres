@@ -174,9 +174,9 @@ const OUTROS_SEGMENTOS = [
 
 export default function MedicosSegment() {
   useSeo({
-    title: 'Contabilidade para Médicos | PJ, Fator R e Pró-labore | PERES PERES',
+    title: 'Contabilidade para Médicos: Simples, Fator R e Pró-labore',
     description:
-      'Contabilidade e consultoria para médicos: PJ unipessoal, Simples Nacional, Fator R, pró-labore e distribuição de lucros. Atendimento em Brasília e no Brasil.',
+      'Contabilidade para médicos com PJ, Simples Nacional, Fator R, pró-labore e distribuição de lucros: como reduzir a carga sem risco de autuação.',
     canonical: 'https://peresperes.com.br/profissoes-regulamentadas/medicos',
   })
 

@@ -167,9 +167,9 @@ const OUTROS_SEGMENTOS = [
 
 export default function StartupsTechSegment() {
   useSeo({
-    title: 'Contabilidade para Startups e Tech | Consultoria em Brasília | PERES PERES',
+    title: 'Contabilidade para Startups e Tech: CNAE, SaaS e Vesting',
     description:
-      'Contabilidade e consultoria para startups e empresas de tecnologia: enquadramento, SaaS, vesting e números prontos para investidor. Atendimento em Brasília e no Brasil.',
+      'Contabilidade para startups e tech: enquadramento, SaaS, vesting de sócios e números prontos para investidor, com clareza para o próximo passo.',
     canonical: 'https://peresperes.com.br/contabilidade-para-startups-e-tech',
   })
 

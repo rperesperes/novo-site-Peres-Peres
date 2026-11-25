@@ -165,9 +165,9 @@ const OUTROS_SEGMENTOS = [
 
 export default function ArquitetosSegment() {
   useSeo({
-    title: 'Contabilidade para Arquitetos | PJ, Fator R e RRT | PERES PERES',
+    title: 'Contabilidade para Arquitetos: CNAE, Fator R e Retenções',
     description:
-      'Contabilidade e consultoria para arquitetos: PJ unipessoal, Fator R no Simples, retenções de contratantes e receita por projeto. Atendimento em Brasília e no Brasil.',
+      'Contabilidade para arquitetos com PJ, Fator R no Simples, retenções de clientes e receita por projeto: como lidar com a carga fiscal sem surpresas.',
     canonical: 'https://peresperes.com.br/profissoes-regulamentadas/arquitetos',
   })
 

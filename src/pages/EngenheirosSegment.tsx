@@ -164,9 +164,9 @@ const OUTROS_SEGMENTOS = [
 
 export default function EngenheirosSegment() {
   useSeo({
-    title: 'Contabilidade para Engenheiros | PJ, Fator R e Retenções | PERES PERES',
+    title: 'Contabilidade para Engenheiros: CNAE, Fator R e Retenções',
     description:
-      'Contabilidade e consultoria para engenheiros: PJ unipessoal, Fator R no Simples, retenções de contratantes e receita por medição. Atendimento em Brasília e no Brasil.',
+      'Contabilidade para engenheiros com PJ, Fator R no Simples, retenções de contratantes e receita por medição: o que muda no caixa e no faturamento.',
     canonical: 'https://peresperes.com.br/profissoes-regulamentadas/engenheiros',
   })
 

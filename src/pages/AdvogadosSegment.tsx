@@ -171,9 +171,9 @@ const OUTROS_SEGMENTOS = [
 
 export default function AdvogadosSegment() {
   useSeo({
-    title: 'Contabilidade para Advogados | Honorários, Sociedade e ISS | PERES PERES',
+    title: 'Contabilidade para Advogados e Escritórios de Advocacia',
     description:
-      'Contabilidade e consultoria para advogados: honorários e sucumbência, ISS por município, sociedade de advogados e estrutura do escritório de advocacia. Atendimento em Brasília e no Brasil.',
+      'Contabilidade para advogados: honorários, retenções, ISS por município e sociedade de advogados, com as regras explicadas sem surpresas no caixa.',
     canonical: 'https://peresperes.com.br/profissoes-regulamentadas/advogados',
   })
 

@@ -166,9 +166,9 @@ const OUTROS_SEGMENTOS = [
 
 export default function EducacaoTreinamentosSegment() {
   useSeo({
-    title: 'Contabilidade para Escolas e Cursos | Consultoria em Brasília | PERES PERES',
+    title: 'Contabilidade para Escolas e Cursos: CNAE e Imunidade',
     description:
-      'Contabilidade e consultoria para escolas, cursos e negócios de educação: enquadramento, imunidade, sazonalidade de matrícula e folha docente. Atendimento em Brasília e no Brasil.',
+      'Contabilidade para escolas, cursos e treinamentos: enquadramento, imunidade, sazonalidade de matrícula e folha docente, explicados em linguagem clara.',
     canonical: 'https://peresperes.com.br/contabilidade-para-educacao-e-treinamentos',
   })
 

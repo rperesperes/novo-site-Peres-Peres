@@ -146,9 +146,9 @@ const OUTROS_SEGMENTOS = [
 
 export default function AgenciasViagemSegment() {
   useSeo({
-    title: 'Contabilidade para Agências de Viagem | Consultoria em Brasília | PERES PERES',
+    title: 'Contabilidade para Agências de Viagem: CNAE e Câmbio',
     description:
-      'Contabilidade e consultoria para agências de viagem: comissão x repasse, câmbio, pacotes antecipados e cancelamentos. Atendimento em Brasília e no Brasil.',
+      'Contabilidade para agências de viagem: comissão x repasse, câmbio, pacotes antecipados e cancelamentos, com regras de ISS e de retenção explicadas.',
     canonical: 'https://peresperes.com.br/contabilidade-para-agencias-de-viagem',
   })
 

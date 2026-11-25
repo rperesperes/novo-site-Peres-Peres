@@ -164,9 +164,9 @@ const OUTROS_SEGMENTOS = [
 
 export default function PsicologosSegment() {
   useSeo({
-    title: 'Contabilidade para Psicólogos | PJ, Fator R e Retiradas | PERES PERES',
+    title: 'Contabilidade para Psicólogos: CNAE, Simples e CRP',
     description:
-      'Contabilidade e consultoria para psicólogos: PJ unipessoal, Fator R, pró-labore e atendimento online. Atendimento em Brasília e no Brasil.',
+      'Contabilidade para psicólogos que atendem como PJ: CNAE, Simples Nacional, Fator R, retiradas e atendimento online, com as regras explicadas.',
     canonical: 'https://peresperes.com.br/profissoes-regulamentadas/psicologos',
   })
 

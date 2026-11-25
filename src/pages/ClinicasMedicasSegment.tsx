@@ -167,9 +167,9 @@ const OUTROS_SEGMENTOS = [
 
 export default function ClinicasMedicasSegment() {
   useSeo({
-    title: 'Contabilidade para Clínicas Médicas | Consultoria Tributária em Brasília | PERES PERES',
+    title: 'Contabilidade para Clínicas Médicas: Fator R e ISS',
     description:
-      'Contabilidade e consultoria para clínicas médicas: gestão do Fator R no Simples Nacional, equiparação hospitalar e créditos sobre insumos. Atendimento em Brasília e no Brasil.',
+      'Contabilidade para clínicas médicas: Fator R no Simples, equiparação hospitalar, créditos sobre insumos e cuidados com a folha de profissionais.',
     canonical: 'https://peresperes.com.br/contabilidade-para-clinicas-medicas',
   })
 

@@ -167,9 +167,9 @@ const OUTROS_SEGMENTOS = [
 
 export default function HoldingsFamiliaresSegment() {
   useSeo({
-    title: 'Holdings Familiares e Patrimoniais | Consultoria em Brasília | PERES PERES',
+    title: 'Holding Familiar e Patrimonial: Sucessão, ITCMD e Regime',
     description:
-      'Estruturação de holdings familiares e patrimoniais: desenho societário, sucessão e impacto fiscal avaliados juntos. Atendimento em Brasília e em todo o Brasil.',
+      'Holding familiar e patrimonial: desenho societário, sucessão e impacto fiscal avaliados juntos, para planejar família e patrimônio sem improviso.',
     canonical: 'https://peresperes.com.br/holdings-familiares-e-patrimoniais',
   })
 

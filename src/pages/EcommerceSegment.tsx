@@ -166,9 +166,9 @@ const OUTROS_SEGMENTOS = [
 
 export default function EcommerceSegment() {
   useSeo({
-    title: 'Contabilidade para E-commerce | Consultoria Tributária em Brasília | PERES PERES',
+    title: 'Contabilidade para E-commerce: Regime, ICMS e Sublimite',
     description:
-      'Contabilidade e consultoria para e-commerce e lojas virtuais: ICMS interestadual, DIFAL, marketplaces, estoque e precificação. Atendimento em Brasília e no Brasil.',
+      'Contabilidade para e-commerce e lojas virtuais: ICMS entre estados, DIFAL, marketplaces, estoque e precificação, com foco em evitar cobranças.',
     canonical: 'https://peresperes.com.br/contabilidade-para-ecommerce',
   })
 
