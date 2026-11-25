@@ -414,7 +414,7 @@ export default function MeiCompleto() {
                 Teto de faturamento
               </h3>
               <p className="text-neutral-300 text-sm md:text-base leading-relaxed">
-                em 2026 o limite anual é de <strong>81 mil reais</strong>, o equivalente a{' '}
+                Em 2026 o limite anual é de <strong>81 mil reais</strong>, o equivalente a{' '}
                 <strong>6.750 reais por mês</strong>. A Lei Complementar 238 de 2026 elevou o teto
                 para <strong>110 mil reais em 2027</strong> e <strong>140 mil reais em 2028</strong>
                 . O limite é proporcional no ano de abertura do CNPJ.
@@ -426,7 +426,7 @@ export default function MeiCompleto() {
                 Contratação de empregados
               </h3>
               <p className="text-neutral-300 text-sm md:text-base leading-relaxed">
-                hoje o MEI pode ter um empregado. A partir de 1º de janeiro de 2027, poderá ter até
+                Hoje o MEI pode ter um empregado. A partir de 1º de janeiro de 2027, poderá ter até
                 dois, desde que cada um receba até um salário mínimo ou o piso da categoria.
               </p>
             </div>
@@ -436,7 +436,7 @@ export default function MeiCompleto() {
                 Perdão de dívidas do DAS
               </h3>
               <p className="text-neutral-300 text-sm md:text-base leading-relaxed">
-                a Lei Complementar 238 de 2026 também autorizou o perdão das dívidas da contribuição
+                A Lei Complementar 238 de 2026 também autorizou o perdão das dívidas da contribuição
                 previdenciária do MEI vencidas até 13 de outubro de 2026. Segundo a Receita Federal,
                 o perdão é aplicado automaticamente, sem necessidade de pedido, inclusive para
                 dívidas parceladas ou em cobrança. Quem estiver discutindo a dívida na Justiça
@@ -450,7 +450,7 @@ export default function MeiCompleto() {
                 Antes de aceitar o perdão, entenda o que você perde
               </h3>
               <p className="text-neutral-300 text-sm md:text-base leading-relaxed">
-                ao deixar de pagar as contribuições em atraso, você também deixa de contar o tempo
+                Ao deixar de pagar as contribuições em atraso, você também deixa de contar o tempo
                 de contribuição ao INSS desses meses, o que pode afetar aposentadoria, auxílios e
                 contagem de carência. Vale lembrar que o DAS-MEI é a forma mais barata de contribuir
                 para o INSS, com valor inferior à metade do que se pagaria como autônomo ou
