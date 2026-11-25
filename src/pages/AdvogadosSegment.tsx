@@ -19,6 +19,7 @@ import {
 } from '@/components/ui/accordion'
 import { useSeo } from '@/hooks/use-seo'
 import { ProfessionExerciseForm } from '@/components/ProfessionExerciseForm'
+import { AdvogadosCnaeSection } from '@/components/AdvogadosCnaeSection'
 import {
   Scale,
   Receipt,
@@ -343,133 +344,8 @@ export default function AdvogadosSegment() {
         ]}
       />
 
-      {/* =========================================================
-         SEÇÃO NOVA: CNAE, REGIME TRIBUTÁRIO E ISS
-        =========================================================
-         REGRA PARA QUEM FOR PREENCHER A TABELA DEPOIS (texto de apoio,
-         não aparece na página):
-         - As linhas estão PRONTAS MAS EM BRANCO: nenhum código de CNAE
-           foi preenchido nesta etapa. Preencher somente códigos CNAE
-           validados, com código e descrição oficiais.
-         - Coluna 3 (regimes): quando a atividade for PERMITIDA no Simples
-           Nacional, informar também EM QUAL ANEXO a receita é tributada;
-           quando NÃO for permitida, escrever a vedação e o dispositivo
-           legal, sem deixar o campo em branco. Informar também a
-           observação para Lucro Presumido e para Lucro Real.
-         - Coluna 4 (observações): informar se a atividade admite MEI e o
-           ponto de atenção no item de serviço usado pelo município para
-           cobrar o ISS (item da lista da LC 116/2003).
-         - Identificação das linhas (área da página): Advocacia. Linha 1 é
-           a atividade principal; linhas 2 e 3 são atividades complementares.
-        ========================================================= */}
-      <section id="cnae-regime-iss" className="py-14 md:py-20 bg-white border-b border-neutral-200">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <div className="max-w-3xl mb-10">
-            <span className="text-xs uppercase tracking-wider text-neutral-500 font-semibold block mb-2 font-sans">
-              Enquadramento da banca
-            </span>
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
-              CNAE, regime tributário e ISS
-            </h2>
-          </div>
-
-          {/* Parágrafo de abertura verbatim */}
-          <p className="text-neutral-700 text-base md:text-lg leading-relaxed font-sans max-w-4xl mb-10">
-            O CNAE não define sozinho quanto a banca paga. Ele entra na apuração junto com o regime
-            tributário, e a mesma atividade pode ser exercida no Simples Nacional, no Lucro
-            Presumido ou no Lucro Real. O que existe são vedações por atividade: o artigo 17 da Lei
-            Complementar 123 de 2006 impede o Simples Nacional em determinadas atividades, o Anexo
-            XI da Resolução CGSN 140 de 2018 define o que pode ser MEI, e o Lucro Real é o regime
-            residual, admitido em qualquer atividade. Também é preciso separar o código de CNAE do
-            item de serviço que o município usa para cobrar o ISS, porque o ISS é cobrado pelo item
-            da lista da Lei Complementar 116 de 2003, não pelo código de atividade.
-          </p>
-
-          {/* Tabela pronta para preenchimento futuro: linhas em branco, sem código CNAE */}
-          <div className="overflow-x-auto rounded-xl border border-neutral-200 shadow-sm">
-            <Table className="min-w-[720px] font-sans">
-              <TableHeader>
-                <TableRow className="bg-black hover:bg-black border-neutral-800">
-                  <TableHead className="text-white font-semibold text-xs md:text-sm w-[24%]">
-                    Código e descrição da atividade
-                  </TableHead>
-                  <TableHead className="text-white font-semibold text-xs md:text-sm w-[20%]">
-                    Função na empresa (atividade principal ou complementar)
-                  </TableHead>
-                  <TableHead className="text-white font-semibold text-xs md:text-sm w-[32%]">
-                    Regimes em que a atividade pode ser exercida (Simples Nacional, Lucro Presumido
-                    e Lucro Real)
-                  </TableHead>
-                  <TableHead className="text-white font-semibold text-xs md:text-sm w-[24%]">
-                    Observações (MEI e item de serviço do ISS)
-                  </TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {/* Linha 1: atividade principal da área Advocacia, colunas em branco */}
-                <TableRow
-                  aria-label="Advocacia, atividade principal"
-                  data-area="Advocacia"
-                  data-funcao="atividade principal"
-                >
-                  <TableCell className="h-20 align-top">&nbsp;</TableCell>
-                  <TableCell className="h-20 align-top">&nbsp;</TableCell>
-                  <TableCell className="h-20 align-top">&nbsp;</TableCell>
-                  <TableCell className="h-20 align-top">&nbsp;</TableCell>
-                </TableRow>
-                {/* Linhas 2 e 3: atividades complementares da área Advocacia, colunas em branco */}
-                <TableRow
-                  aria-label="Advocacia, atividade complementar"
-                  data-area="Advocacia"
-                  data-funcao="atividade complementar"
-                >
-                  <TableCell className="h-20 align-top">&nbsp;</TableCell>
-                  <TableCell className="h-20 align-top">&nbsp;</TableCell>
-                  <TableCell className="h-20 align-top">&nbsp;</TableCell>
-                  <TableCell className="h-20 align-top">&nbsp;</TableCell>
-                </TableRow>
-                <TableRow
-                  aria-label="Advocacia, atividade complementar"
-                  data-area="Advocacia"
-                  data-funcao="atividade complementar"
-                >
-                  <TableCell className="h-20 align-top">&nbsp;</TableCell>
-                  <TableCell className="h-20 align-top">&nbsp;</TableCell>
-                  <TableCell className="h-20 align-top">&nbsp;</TableCell>
-                  <TableCell className="h-20 align-top">&nbsp;</TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </div>
-
-          <p className="text-xs md:text-sm text-neutral-500 font-sans mt-3 leading-relaxed max-w-4xl">
-            Tabela mantida para preenchimento futuro, com os códigos CNAE validados pela equipe. A
-            primeira linha corresponde à atividade principal da Advocacia, e as duas linhas
-            seguintes são reservadas para atividades complementares.
-          </p>
-
-          {/* Caixa de destaque: fundo escuro, detalhe dourado, texto verbatim */}
-          <div className="mt-10 bg-black text-white rounded-xl p-6 md:p-8 border-l-4 border-[#FAB319] shadow-md">
-            <div className="flex items-start gap-4">
-              <ShieldCheck className="h-6 w-6 text-[#FAB319] shrink-0 mt-1" />
-              <div className="space-y-4">
-                <p className="text-base md:text-lg leading-relaxed font-sans text-neutral-100">
-                  Código escolhido sem conferência costuma aparecer na fiscalização, não na
-                  abertura. A verificação de enquadramento e dos requisitos de CNAE está incluída na
-                  abertura e na alteração de empresas.
-                </p>
-                <Link
-                  to="/servicos#servicos-avulsos"
-                  className="inline-flex items-center gap-1.5 text-sm md:text-base font-semibold text-[#FAB319] hover:text-[#e0a116] underline decoration-[#FAB319] decoration-2 underline-offset-4 font-sans"
-                >
-                  Conheça o serviço de Abertura e Encerramento de Empresas
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* SEÇÃO: CNAE, REGIME TRIBUTÁRIO E ISS (componente dedicado) */}
+      <AdvogadosCnaeSection />
 
       {/* =========================================================
           SEÇÃO 1: DESAFIOS DA BANCA (6 cards)
