@@ -3,12 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
+import { SegmentFaq } from '@/components/SegmentFaq'
 import { useSeo } from '@/hooks/use-seo'
 import { ContinueReading } from '@/components/ContinueReading'
 import { HoldingsCnaeSection } from '@/components/HoldingsCnaeSection'
@@ -114,32 +109,37 @@ const POR_QUE_PERES_PERES = [
   },
 ]
 
-// 5 Perguntas e Respostas do FAQ (textos verbatim)
+// 6 Perguntas e Respostas do FAQ (textos verbatim)
 const FAQ_ITEMS = [
   {
-    question: 'Vale a pena constituir uma holding familiar?',
+    question: 'Holding pode ser Simples Nacional?',
     answer:
-      'Depende do patrimônio, do perfil dos bens, da quantidade de herdeiros e do objetivo da família. A holding faz sentido quando organiza a sucessão, reduz conflito e evita um custo maior no futuro. Quando o patrimônio é pequeno, o custo de manutenção pode superar o benefício, e é isso que a análise precisa mostrar antes de qualquer constituição.',
+      'Em regra, não. A atividade de holding de bens e participações consta das atividades vedadas ao Simples Nacional (LC 123/2006, art. 17, V, por não ser objeto de permissão, e art. 18). A estrutura de holding tributa pelo Lucro Presumido ou pelo Lucro Real, conforme o caso, e o enquadramento é avaliado na constituição.',
   },
   {
-    question: 'Como funciona a transferência de imóveis para a holding?',
+    question: 'Qual o CNAE de holding?',
     answer:
-      'Os imóveis são integralizados ao capital social, com avaliação e registro, e a operação exige atenção à incidência tributária e à documentação de cada matrícula. A definição do desenho antes da operação é o que evita custo e retrabalho no cartório e no registro.',
+      'Os códigos usuais são 6463-8/00 (holdings de instituições não financeiras) e 7490-1/03 (atividades de combinação de serviços administrativos, usado para holdings patrimoniais). A escolha entre os dois acompanha o objeto real da estrutura, e a definição correta evita desenquadramento de atividade no cadastro.',
   },
   {
-    question: 'A holding substitui o testamento?',
+    question: 'Holding pode ter sócio pessoa jurídica?',
     answer:
-      'Não. A holding organiza e antecipa a sucessão pela via societária, com regras de governança e transmissão de quotas. O testamento disciplina o que está fora da estrutura. As duas ferramentas são complementares, não excludentes.',
+      'Sim. A sociedade limitada admite pessoa jurídica no quadro societário, e o desenho com PJ no quadro é comum em estruturas com múltiplos veículos. Cada configuração altera o fluxo de decisões e a formalização, e a composição societária é definida junto com o desenho da governança familiar.',
   },
   {
-    question: 'Qual o custo de manutenção da holding?',
+    question: 'Qual o regime tributário mais comum?',
     answer:
-      'Há custo de constituição, de avaliação e registro, e custo recorrente de contabilidade, apuração e obrigações acessórias. A decisão deve comparar esse custo com o que a estrutura evita em inventário, conflito e carga tributária futura.',
+      'O Lucro Presumido é o regime mais comum nas holdings de caráter patrimonial, pela simplicidade de apuração sobre a receita recebida. Quando há fluxo relevante de rendimentos de participações ou operações mais complexas, avalia-se o Lucro Real. O Simples Nacional não é opção pela vedação por atividade.',
   },
   {
-    question: 'Holding reduz imposto imediatamente?',
+    question: 'Holding que aluga imóvel próprio pode ser Simples?',
     answer:
-      'Não necessariamente. O ganho da estruturação está no desenho da sucessão, na organização patrimonial e na eficiência da transmissão, e não em uma redução automática de carga. Qualquer efeito tributário depende do caso concreto e precisa ser demonstrado antes da operação.',
+      'Não, quando a locação de imóveis é a atividade principal da empresa. A locação de imóveis próprios é atividade vedada ao Simples Nacional pela LC 123/2006 (art. 17, V). A receita de aluguel recebe tratamento pelo regime da empresa, e o enquadramento correto é decidido antes da constituição.',
+  },
+  {
+    question: 'Holding paga imposto sobre aluguel?',
+    answer:
+      'Sim. A receita de locação da holding é tributada conforme o regime adotado, com IRPJ, CSLL, PIS e COFINS sobre a receita de aluguel recebida. No Lucro Presumido, a base de IRPJ e CSLL para locação de imóveis segue as regras do art. 15 da Lei nº 9.249/1995, e o tratamento é apurado mês a mês.',
   },
 ]
 
@@ -494,39 +494,6 @@ export default function HoldingsFamiliaresSegment() {
       </section>
 
       {/* =========================================================
-          SECAO 4: FAQ (5 perguntas e respostas com rich snippet)
-         ========================================================= */}
-      <section className="py-14 md:py-20 bg-neutral-50 border-b border-neutral-200">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <span className="text-xs uppercase tracking-wider text-neutral-500 font-semibold block font-sans">
-              Perguntas frequentes
-            </span>
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
-              Dúvidas recorrentes sobre holdings familiares e patrimoniais
-            </h2>
-          </div>
-
-          <Accordion type="single" collapsible className="w-full space-y-3">
-            {FAQ_ITEMS.map((item, idx) => (
-              <AccordionItem
-                key={idx}
-                value={`item-${idx}`}
-                className="bg-white border border-neutral-200 rounded-lg px-6 py-1 data-[state=open]:border-neutral-300 shadow-sm"
-              >
-                <AccordionTrigger className="text-left font-sans font-semibold text-base sm:text-lg text-black hover:no-underline py-4">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="font-sans text-sm sm:text-base text-neutral-700 leading-relaxed pb-4 pt-1">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
-
-      {/* =========================================================
           SECAO 5: OUTROS SEGMENTOS ATENDIDOS
          ========================================================= */}
       <section className="py-12 md:py-16 bg-white border-b border-neutral-200">
@@ -597,9 +564,14 @@ export default function HoldingsFamiliaresSegment() {
         </div>
       </section>
 
+      <SegmentFaq
+        heading="Dúvidas recorrentes sobre holdings familiares e patrimoniais"
+        items={FAQ_ITEMS}
+      />
+
       {/* =========================================================
-        SEÇÃO: CONTINUE LENDO (2 cards)
-       ========================================================= */}
+         SEÇÃO: CONTINUE LENDO (2 cards)
+        ========================================================= */}
       <ContinueReading
         items={[
           {

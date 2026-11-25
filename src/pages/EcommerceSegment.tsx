@@ -3,12 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
+import { SegmentFaq } from '@/components/SegmentFaq'
 import { useSeo } from '@/hooks/use-seo'
 import { ContinueReading } from '@/components/ContinueReading'
 import {
@@ -114,32 +109,37 @@ const POR_QUE_PERES_PERES = [
   },
 ]
 
-// 5 Perguntas e Respostas do FAQ (textos verbatim)
+// 6 Perguntas e Respostas do FAQ (textos verbatim)
 const FAQ_ITEMS = [
   {
-    question: 'E-commerce deve ser Simples Nacional?',
+    question: 'Loja virtual pode ser MEI?',
     answer:
-      'Depende do faturamento, da margem, da atividade e do cumprimento dos requisitos legais. O Simples costuma fazer sentido no início da operação, quando o faturamento ainda está dentro do limite e a margem é compatível. Com crescimento e margem apertada, a simulação entre os regimes precisa ser refeita, porque o regime que era vantajoso no primeiro ano pode não ser mais no terceiro.',
+      'Em regra, não. A vedação por atividade do art. 3º da Resolução CGSN 140/2018 impede o comércio ativo pela internet, e revenda com estoque fica fora do MEI. Quem vende produto que fabrica pode ter caminho pelo MEI, e a análise depende do que é vendido e de como a venda acontece.',
   },
   {
-    question: 'Como funciona a tributação de venda para outro estado?',
+    question: 'Qual o CNAE de e-commerce?',
     answer:
-      'Envolve ICMS interestadual, diferencial de alíquota ao consumidor final e, quando a mercadoria está no regime, substituição tributária. O resultado depende da mercadoria, do estado de destino e da condição do adquirente, e o cálculo precisa ser feito por operação, não por média geral.',
+      'Não existe um CNAE exclusivo de loja virtual: o código segue a atividade da mercadoria vendida, com o comércio varejista correspondente, e pode haver CNAE secundário para serviços correlatos. A definição correta no pedido de abertura evita retrabalho na Junta Comercial e na Fazenda.',
   },
   {
-    question: 'Como conciliar repasses de marketplace na contabilidade?',
+    question: 'Quando o ICMS sai do DAS?',
     answer:
-      'Conciliando o valor bruto da venda com o extrato da plataforma, que mostra comissão, retenções, frete e prazo de repasse. O valor que entra na conta não é o valor da venda, e registrar apenas o repasse líquido esconde a receita real e a comissão paga.',
+      'Quando a mercadoria está em regime de substituição tributária ou sujeita a antecipação: o imposto é recolhido em guia própria, fora do DAS (LC 123/2006, art. 13, § 1º, XI, e Convênios do Confaz aplicáveis). O enquadramento varia por produto e por estado, e é isso que precisa estar parametrizado no sistema.',
   },
   {
-    question: 'Como precificar produto considerando os tributos?',
+    question: 'O que é sublimite de 3,6 milhões?',
     answer:
-      'Partindo da carga tributária efetiva da operação, e não da alíquota nominal do regime. Preço formado sobre custo mais margem, sem tributo, frete e comissão na conta, é preço que não sustenta a operação quando o volume cresce.',
+      'É o teto para recolher ICMS e ISS pelo Simples (LC 123/2006, art. 3º, § 5º). Acima de R$ 3,6 milhões, esses tributos passam a ser apurados fora do DAS, e o restante continua no regime até o limite de R$ 4,8 milhões. Para o e-commerce, a ultrapassagem muda a forma de recolher ICMS e exige readequação da apuração.',
   },
   {
-    question: 'Vendo por marketplace, preciso de inscrição estadual em outros estados?',
+    question: 'Produto com substituição tributária entra na base do Simples?',
     answer:
-      'Depende. A exigência varia conforme a existência de operação naquele território, o modelo de logística, a condição do adquirente e a legislação do estado de destino. Não existe resposta única, e a definição precisa ser feita estado a estado, conforme onde a loja efetivamente opera.',
+      'Sim, a receita entra na apuração do DAS, mas o ICMS da mercadoria em substituição tributária é excluído dessa guia e recolhido à parte (LC 123/2006, art. 13, § 1º, XI). O tratamento do imposto retido a mais ou a menos segue regra própria de ressarcimento no estado.',
+  },
+  {
+    question: 'Preciso de inscrição estadual em cada estado?',
+    answer:
+      'Não, em regra. A inscrição estadual é exigida no estado da sede, e a venda interestadual para consumidor final gera DIFAL recolhido pelo destino, sem abrir filial (Convênio ICMS 93/2015). Inscrição em outros estados entra em cena quando há estoque ou operação efetiva naquele território.',
   },
 ]
 
@@ -488,39 +488,6 @@ export default function EcommerceSegment() {
       </section>
 
       {/* =========================================================
-          SECAO 4: FAQ (5 perguntas e respostas com rich snippet)
-         ========================================================= */}
-      <section className="py-14 md:py-20 bg-neutral-50 border-b border-neutral-200">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <span className="text-xs uppercase tracking-wider text-neutral-500 font-semibold block font-sans">
-              Perguntas frequentes
-            </span>
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
-              Dúvidas recorrentes sobre contabilidade para e-commerce
-            </h2>
-          </div>
-
-          <Accordion type="single" collapsible className="w-full space-y-3">
-            {FAQ_ITEMS.map((item, idx) => (
-              <AccordionItem
-                key={idx}
-                value={`item-${idx}`}
-                className="bg-white border border-neutral-200 rounded-lg px-6 py-1 data-[state=open]:border-neutral-300 shadow-sm"
-              >
-                <AccordionTrigger className="text-left font-sans font-semibold text-base sm:text-lg text-black hover:no-underline py-4">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="font-sans text-sm sm:text-base text-neutral-700 leading-relaxed pb-4 pt-1">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
-
-      {/* =========================================================
           SECAO 5: OUTROS SEGMENTOS ATENDIDOS
          ========================================================= */}
       <section className="py-12 md:py-16 bg-white border-b border-neutral-200">
@@ -590,6 +557,11 @@ export default function EcommerceSegment() {
           </div>
         </div>
       </section>
+
+      <SegmentFaq
+        heading="Dúvidas recorrentes sobre contabilidade para e-commerce"
+        items={FAQ_ITEMS}
+      />
 
       {/* =========================================================
           SEÇÃO: CONTINUE LENDO (2 cards)

@@ -3,12 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
+import { SegmentFaq } from '@/components/SegmentFaq'
 import { useSeo } from '@/hooks/use-seo'
 import { ContinueReading } from '@/components/ContinueReading'
 import { ClinicasCnaeSection } from '@/components/ClinicasCnaeSection'
@@ -114,32 +109,37 @@ const POR_QUE_PERES_PERES = [
   },
 ]
 
-// 5 Perguntas e Respostas do FAQ (textos verbatim)
+// 6 Perguntas e Respostas do FAQ (textos verbatim)
 const FAQ_ITEMS = [
   {
-    question: 'Clínica médica pode ser Simples Nacional?',
+    question: 'Clínica pode ser MEI?',
     answer:
-      'Sim. A atividade médica é permitida no Simples Nacional (LC 123/2006, art. 18, § 5º-B, VII), desde que a receita não ultrapasse os limites da LC 123/2006. A clínica é tributada nos Anexos III ou V, conforme o Fator R. A escolha entre Simples, Lucro Presumido e Lucro Real depende dos números da clínica: faturamento, folha, margem e volume de despesas com insumos e equipamentos.',
+      'Não. As atividades médicas constam das atividades vedadas ao MEI por atividade (Resolução CGSN 140/2018, art. 3º, XIV). O caminho é a microempresa ou empresa de pequeno porte no Simples Nacional, com a atividade de saúde permitida no regime pela LC 123/2006, art. 18, § 5º-B, VII.',
   },
   {
-    question: 'O que é Fator R e por que ele importa tanto para clínica médica?',
+    question: 'Qual o CNAE de clínica médica?',
     answer:
-      'É a razão entre a folha de pagamento e a receita bruta dos últimos 12 meses. Quando o resultado é igual ou superior a 28%, a clínica é tributada no Anexo III, com alíquotas menores. Abaixo disso, no Anexo V. O percentual é recalculado mês a mês, então contratação, pró-labore e distribuição de lucros afetam a guia do mês seguinte.',
+      'O principal é 8630-5/03 (atividade médica ambulatorial restrita a consultas), usado para clínicas de consultas e especialidades. Clínicas com atendimento mais amplo ou com internação usam códigos próprios, e a definição do CNAE correto antes do pedido de abertura evita erro de enquadramento na Fazenda.',
   },
   {
-    question: 'O que é equiparação hospitalar e vale a pena para a minha clínica?',
+    question: 'O que é equiparação hospitalar?',
     answer:
-      'É o enquadramento em que clínicas com estrutura de internação ou atendimento em regime hospitalar podem ser equiparadas a hospital para efeitos de PIS e COFINS, conforme a definição do art. 13 da Lei nº 12.101/2009 e o regime de apuração do art. 9º da Lei nº 12.546/2011, além das regras gerais de não cumulatividade da Lei nº 10.865/2004. Pode alterar o regime de apuração e o aproveitamento de créditos sobre insumos, mas depende da estrutura física, do tipo de atendimento e da documentação, e deve ser avaliada tecnicamente caso a caso.',
+      'É o enquadramento em que clínicas com estrutura de internação ou atendimento em regime hospitalar podem ser equiparadas a hospital para efeitos de PIS e COFINS (art. 13 da Lei nº 12.101/2009 e art. 9º da Lei nº 12.546/2011). Depende da estrutura física, do tipo de atendimento e da documentação, e deve ser avaliada tecnicamente caso a caso.',
   },
   {
-    question: 'A clínica aproveita crédito sobre equipamentos e insumos?',
+    question: 'Quando se aplica a presunção de oito por cento?',
     answer:
-      'Depende do regime. No Simples Nacional não há crédito desses tributos. No Lucro Presumido o aproveitamento é limitado. No Lucro Real é mais amplo, e o crédito é recorrentemente perdido por erro de enquadramento dos insumos.',
+      'No Lucro Presumido, a base do IRPJ e da CSLL sobre a receita de serviços é de 32%, e não de 8% (Lei nº 9.249/1995, art. 15). A presunção reduzida de 8% vale para revenda de mercadorias, prestação cumulativa de serviços de hospital e outras hipóteses do art. 15, e não para a consulta médica isolada.',
   },
   {
-    question: 'Vocês atendem clínicas em todo o Brasil ou só em Brasília?',
+    question: 'Consulta médica tem presunção reduzida?',
     answer:
-      'A sede é em Brasília/DF, com atendimento em todo o Brasil, de forma presencial ou remota.',
+      'Não. A consulta médica é serviço de saúde, com presunção de 32% para IRPJ e CSLL no Lucro Presumido (Lei nº 9.249/1995, art. 15, § 1º, III). A presunção reduzida de 8% alcança a receita hospitalar prestada cumulativamente com serviços, conforme o art. 15, caput, e não a atividade de consultório.',
+  },
+  {
+    question: 'Clínica precisa ser sociedade empresária?',
+    answer:
+      'Não obrigatoriamente. A clínica pode constituir sociedade simples ou empresária, e a escolha depende da estrutura da operação e do registro na Junta Comercial. O que muda o regime tributário é a atividade e o enquadramento, e não a forma societária em si, e a decisão é feita na abertura.',
   },
 ]
 
@@ -490,39 +490,6 @@ export default function ClinicasMedicasSegment() {
       </section>
 
       {/* =========================================================
-          SEÇÃO 4: FAQ (5 perguntas e respostas com rich snippet)
-         ========================================================= */}
-      <section className="py-14 md:py-20 bg-neutral-50 border-b border-neutral-200">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <span className="text-xs uppercase tracking-wider text-neutral-500 font-semibold block font-sans">
-              Perguntas frequentes
-            </span>
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
-              Dúvidas recorrentes sobre contabilidade para clínicas médicas
-            </h2>
-          </div>
-
-          <Accordion type="single" collapsible className="w-full space-y-3">
-            {FAQ_ITEMS.map((item, idx) => (
-              <AccordionItem
-                key={idx}
-                value={`item-${idx}`}
-                className="bg-white border border-neutral-200 rounded-lg px-6 py-1 data-[state=open]:border-neutral-300 shadow-sm"
-              >
-                <AccordionTrigger className="text-left font-sans font-semibold text-base sm:text-lg text-black hover:no-underline py-4">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="font-sans text-sm sm:text-base text-neutral-700 leading-relaxed pb-4 pt-1">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
-
-      {/* =========================================================
           SEÇÃO 5: OUTROS SEGMENTOS ATENDIDOS
          ========================================================= */}
       <section className="py-12 md:py-16 bg-white border-b border-neutral-200">
@@ -593,9 +560,14 @@ export default function ClinicasMedicasSegment() {
         </div>
       </section>
 
+      <SegmentFaq
+        heading="Dúvidas recorrentes sobre contabilidade para clínicas médicas"
+        items={FAQ_ITEMS}
+      />
+
       {/* =========================================================
-        SEÇÃO: CONTINUE LENDO (2 cards)
-       ========================================================= */}
+          SEÇÃO: CONTINUE LENDO (2 cards)
+         ========================================================= */}
       <ContinueReading
         items={[
           {

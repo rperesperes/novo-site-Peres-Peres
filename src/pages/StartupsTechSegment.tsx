@@ -3,12 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
+import { SegmentFaq } from '@/components/SegmentFaq'
 import { useSeo } from '@/hooks/use-seo'
 import { ContinueReading } from '@/components/ContinueReading'
 import { StartupsCnaeSection } from '@/components/StartupsCnaeSection'
@@ -114,32 +109,37 @@ const POR_QUE_PERES_PERES = [
   },
 ]
 
-// 5 Perguntas e Respostas do FAQ (textos verbatim)
+// 6 Perguntas e Respostas do FAQ (textos verbatim)
 const FAQ_ITEMS = [
   {
-    question: 'Qual regime tributário é melhor para uma startup?',
+    question: 'Startup pode ser MEI?',
     answer:
-      'Depende dos números: receita recorrente, margem, folha e projeção de crescimento. Receita recorrente com margem alta e folha enxuta frequentemente torna o Lucro Presumido ou o Lucro Real mais vantajoso do que o Simples Nacional, mas a resposta só existe com simulação sobre os números reais da empresa.',
+      'Em regra, não. O MEI é vedado por atividade quando há participação de outra pessoa jurídica como sócia, o que é comum em startups com investimento (Resolução CGSN 140/2018, art. 3º). Startup que se encaixa nas ocupações permitidas e não tem PJ no quadro pode ser MEI, mas a análise é caso a caso.',
   },
   {
-    question: 'Como a SaaS deve ser tributada?',
+    question: 'Qual o CNAE para software?',
     answer:
-      'A fronteira entre licença de software, assinatura e prestação de serviço tem consequências sobre ISS, ICMS e PIS/COFINS, e a regulamentação varia conforme o município e o modelo de negócio. O enquadramento correto dos produtos é decisão que precisa ser tomada antes da parametrização do faturamento, não depois.',
+      'Os principais são 6201-5/01 (desenvolvimento de programas de computador sob encomenda) e 6201-5/02 (produtos de software padronizados, incluindo licenciamento e SaaS). A escolha entre sob encomenda e produto padronizado muda o tratamento tributário e precisa ser decidida antes do pedido de abertura.',
   },
   {
-    question: 'Como a startup deve se preparar para uma rodada de investimento?',
+    question: 'Software é tributado por ISS ou ICMS?',
     answer:
-      'Com histórico contábil consistente, demonstrações organizadas, contratos societários em ordem e posição fiscal limpa. A due diligence vai olhar tudo isso, e cada inconsistência encontrada vira argumento de negociação contra a empresa.',
+      'Software sob encomenda é serviço e tributa ISS, com base na LC 116/2003. Programa padronizado vendido em licença regularmente tributa ICMS, conforme jurisprudência do STJ sobre licenciamento. A fronteira entre os dois é um dos pontos que mais geram erro de enquadramento no setor.',
   },
   {
-    question: 'Como estruturar vesting e stock options sem risco fiscal?',
+    question: 'Qual o anexo do Simples para software?',
     answer:
-      'O desenho precisa considerar os reflexos tributários no momento da concessão, do cumprimento do vesting e do exercício da opção, além da forma societária de cada instrumento. Estruturar depois do primeiro exercício costuma gerar custo que seria evitável.',
+      'O desenvolvimento de software pode cair no Anexo III ou no Anexo V, conforme o Fator R (Resolução CGSN 140/2018, art. 25, § 1º, V e VI). Com folha de pagamento igual ou superior a 28% da receita, aplica-se o Anexo III, com alíquota inicial menor; abaixo disso, o Anexo V.',
   },
   {
-    question: 'Vocês atendem startups fora de Brasília?',
+    question: 'Como funciona o Fator R em tecnologia?',
     answer:
-      'Sim. A sede é em Brasília/DF, com atendimento em todo o Brasil, de forma presencial ou remota, incluindo empresas com times distribuídos.',
+      'É a razão entre a folha de pagamento dos últimos 12 meses e a receita bruta do mesmo período. O resultado define se a receita de software é tributada no Anexo III ou no Anexo V, e o percentual é recalculado a cada mês, então pró-labore, contratação e crescimento de receita alteram a guia do mês seguinte.',
+  },
+  {
+    question: 'O que muda se o desenvolvimento é terceirizado?',
+    answer:
+      'A contratação de fábrica de software altera a composição de custos e pode reduzir o Fator R, porque a folha terceirizada não entra na razão que define o anexo (Resolução CGSN 140/2018, art. 25, § 1º). O enquadramento precisa refletir a operação real, e a simulação deve considerar o efeito no anexo antes da contratação.',
   },
 ]
 
@@ -488,39 +488,6 @@ export default function StartupsTechSegment() {
       </section>
 
       {/* =========================================================
-          SEÇÃO 4: FAQ (5 perguntas e respostas com rich snippet)
-         ========================================================= */}
-      <section className="py-14 md:py-20 bg-neutral-50 border-b border-neutral-200">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <span className="text-xs uppercase tracking-wider text-neutral-500 font-semibold block font-sans">
-              Perguntas frequentes
-            </span>
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
-              Dúvidas recorrentes sobre contabilidade para startups e tech
-            </h2>
-          </div>
-
-          <Accordion type="single" collapsible className="w-full space-y-3">
-            {FAQ_ITEMS.map((item, idx) => (
-              <AccordionItem
-                key={idx}
-                value={`item-${idx}`}
-                className="bg-white border border-neutral-200 rounded-lg px-6 py-1 data-[state=open]:border-neutral-300 shadow-sm"
-              >
-                <AccordionTrigger className="text-left font-sans font-semibold text-base sm:text-lg text-black hover:no-underline py-4">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="font-sans text-sm sm:text-base text-neutral-700 leading-relaxed pb-4 pt-1">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
-
-      {/* =========================================================
           SEÇÃO 5: OUTROS SEGMENTOS ATENDIDOS
          ========================================================= */}
       <section className="py-12 md:py-16 bg-white border-b border-neutral-200">
@@ -591,9 +558,14 @@ export default function StartupsTechSegment() {
         </div>
       </section>
 
+      <SegmentFaq
+        heading="Dúvidas recorrentes sobre contabilidade para startups e tech"
+        items={FAQ_ITEMS}
+      />
+
       {/* =========================================================
-        SEÇÃO: CONTINUE LENDO (2 cards)
-       ========================================================= */}
+          SEÇÃO: CONTINUE LENDO (2 cards)
+         ========================================================= */}
       <ContinueReading
         items={[
           {

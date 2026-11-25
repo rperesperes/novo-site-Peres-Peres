@@ -3,12 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
+import { SegmentFaq } from '@/components/SegmentFaq'
 import { useSeo } from '@/hooks/use-seo'
 import { ContinueReading } from '@/components/ContinueReading'
 import { AgenciasViagemCnaeSection } from '@/components/AgenciasViagemCnaeSection'
@@ -93,32 +88,37 @@ const POR_QUE_PERES_PERES = [
   },
 ]
 
-// 5 Perguntas e Respostas do FAQ (textos verbatim)
+// 6 Perguntas e Respostas do FAQ (textos verbatim)
 const FAQ_ITEMS = [
   {
-    question: 'A agência tributa sobre a comissão ou sobre o valor total do pacote?',
+    question: 'Agência de viagem pode ser MEI?',
     answer:
-      'Depende de como a operação está estruturada: quem é a parte no contrato com o fornecedor, o que a agência fatura em nome próprio e o que é mero repasse. Quando contrato e parametrização não estão alinhados, a agência acaba apurando imposto sobre valor que nunca foi dela, e esse é um dos erros mais caros do setor.',
+      'Sim, na ocupação de agente de viagens independente, prevista no Anexo XI da Resolução CGSN 140/2018. A permissão alcança quem trabalha sozinho dentro do limite de faturamento do MEI. Agência com estrutura de operação e equipe ultrapassa o MEI e deve abrir como microempresa.',
   },
   {
-    question: 'Como funciona a tributação de pacotes internacionais?',
+    question: 'Qual o CNAE de agência de viagens?',
     answer:
-      'Pacotes internacionais envolvem prestadores no exterior, moeda estrangeira e composição de preço com múltiplos fornecedores. O tratamento depende da estrutura do pacote e dos contratos, e precisa de parametrização específica, não de regra genérica.',
+      'O código é 7911-2/00 (agências de viagens), que compreende organização e venda de viagens, pacotes turísticos e excursões. Operador turístico usa código próprio (7912-1/00), e a distinção entre os dois muda o tratamento e deve estar correta no cartão CNPJ desde a abertura.',
   },
   {
-    question: 'Como tratar cancelamentos e reembolsos na apuração?',
+    question: 'Qual o anexo do Simples para turismo?',
     answer:
-      'Cancelamento, multa, reembolso e remarcação têm tratamentos distintos, e todos precisam estar parametrizados antes de acontecer. Reembolso tratado como venda estornada, ou multa tratada como devolução, distorce a apuração e cria contingência.',
+      'Agência de viagem e turismo é tributada pelo Anexo III do Simples Nacional, sem depender do Fator R (Resolução CGSN 140/2018, art. 25, § 1º, III, alínea c). O enquadramento direto pelo Anexo III vale para a receita da agência, e a alíquota efetiva acompanha a faixa de faturamento.',
   },
   {
-    question: 'Como funciona a contratação de agentes de viagem autônomos?',
+    question: 'O ISS incide sobre a comissão ou sobre o valor total?',
     answer:
-      'O agente autônomo que vende em nome da agência gera responsabilidades contratuais, fiscais e, quando a relação tem pessoalidade e habitualidade, risco trabalhista. O desenho do contrato e a rotina de execução precisam ser compatíveis com o que se pretende formalizar.',
+      'Na agência que atua como intermediária, o ISS incide sobre a comissão retida, e não sobre o repasse ao fornecedor (LC 116/2003, art. 7º, § 1º, VII e VIII). Quando a agência contrata o serviço em nome próprio, o enquadramento muda, e a separação entre comissão e repasse precisa estar no contrato e na parametrização.',
   },
   {
-    question: 'Vocês atendem agências fora de Brasília?',
+    question: 'É obrigatório ter Cadastur?',
     answer:
-      'Sim. A sede é em Brasília/DF, com atendimento em todo o Brasil, de forma presencial ou remota.',
+      'Sim. O registro no Cadastur é condição para exercer a atividade de agência de turismo (Lei nº 11.771/2011, art. 21, inciso VI). O cadastro é mantido pelo Ministério do Turismo e deve estar ativo, e a regularidade dele integra a conformidade da empresa junto aos órgãos fiscalizadores.',
+  },
+  {
+    question: 'Comissão e repasse entram na mesma base?',
+    answer:
+      'No Simples Nacional, a receita bruta que entra no DAS é a que a agência fatura em nome próprio, e o mero repasse ao fornecedor não é receita da agência (LC 123/2006, art. 3º, § 2º). A separação entre comissão e repasse precisa estar amparada em contrato e documentos, e é isso que define a base.',
   },
 ]
 
@@ -468,39 +468,6 @@ export default function AgenciasViagemSegment() {
       </section>
 
       {/* =========================================================
-          SECAO 4: FAQ (5 perguntas e respostas com rich snippet)
-         ========================================================= */}
-      <section className="py-14 md:py-20 bg-neutral-50 border-b border-neutral-200">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <span className="text-xs uppercase tracking-wider text-neutral-500 font-semibold block font-sans">
-              Perguntas frequentes
-            </span>
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
-              Dúvidas recorrentes sobre contabilidade para agências de viagem
-            </h2>
-          </div>
-
-          <Accordion type="single" collapsible className="w-full space-y-3">
-            {FAQ_ITEMS.map((item, idx) => (
-              <AccordionItem
-                key={idx}
-                value={`item-${idx}`}
-                className="bg-white border border-neutral-200 rounded-lg px-6 py-1 data-[state=open]:border-neutral-300 shadow-sm"
-              >
-                <AccordionTrigger className="text-left font-sans font-semibold text-base sm:text-lg text-black hover:no-underline py-4">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="font-sans text-sm sm:text-base text-neutral-700 leading-relaxed pb-4 pt-1">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
-
-      {/* =========================================================
           SECAO 5: OUTROS SEGMENTOS ATENDIDOS
          ========================================================= */}
       <section className="py-12 md:py-16 bg-white border-b border-neutral-200">
@@ -571,9 +538,14 @@ export default function AgenciasViagemSegment() {
         </div>
       </section>
 
+      <SegmentFaq
+        heading="Dúvidas recorrentes sobre contabilidade para agências de viagem"
+        items={FAQ_ITEMS}
+      />
+
       {/* =========================================================
-        SEÇÃO: CONTINUE LENDO (2 cards)
-       ========================================================= */}
+         SEÇÃO: CONTINUE LENDO (2 cards)
+        ========================================================= */}
       <ContinueReading
         items={[
           {
