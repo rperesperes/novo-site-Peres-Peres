@@ -211,7 +211,7 @@ export default function MeiCompleto() {
           <div className="grid md:grid-cols-2 gap-4">
             <button
               type="button"
-              onClick={() => scrollToSection('servicos-incluidos')}
+              onClick={() => scrollToSection('regularizacao-dividas')}
               className="group flex flex-col items-start gap-3 rounded-xl border border-neutral-200 bg-white p-6 md:p-8 text-left shadow-sm transition-colors hover:border-[#FAB319] focus-visible:border-[#FAB319] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FAB319]/60"
             >
               <span className="flex w-full items-start justify-between gap-2">
@@ -269,7 +269,50 @@ export default function MeiCompleto() {
         </section>
 
         {/* =========================================================
-            BLOCO 4: COMO FUNCIONA
+           BLOCO 4: REGULARIZAÇÃO DE DÍVIDAS E PENDÊNCIAS
+          ========================================================= */}
+        <section id="regularizacao-dividas" className="scroll-mt-24 space-y-8">
+          <div className="border-l-4 border-[#FAB319] pl-4 md:pl-6">
+            <h2 className="text-2xl md:text-4xl font-bold text-black">
+              Regularização de dívidas e pendências
+            </h2>
+          </div>
+
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <h3 className="text-lg md:text-xl font-semibold text-black">
+                Perdão de dívidas do DAS
+              </h3>
+              <p className="text-neutral-700 text-sm md:text-base leading-relaxed">
+                A Lei Complementar 238 de 2026 também autorizou o perdão das dívidas da contribuição
+                previdenciária do MEI vencidas até 13 de outubro de 2026. Segundo a Receita Federal,
+                o perdão é aplicado automaticamente, sem necessidade de pedido, inclusive para
+                dívidas parceladas ou em cobrança. Quem estiver discutindo a dívida na Justiça
+                precisa desistir da ação e apresentar requerimento. Para manter o benefício, quem
+                continuar como MEI deve pagar em dia o DAS de janeiro a junho de 2027.
+              </p>
+            </div>
+
+            <div className="rounded-lg border border-[#FAB319]/40 bg-neutral-50 p-6 space-y-2">
+              <h3 className="text-base md:text-lg font-semibold text-black">
+                Antes de aceitar o perdão, entenda o que você perde
+              </h3>
+              <p className="text-neutral-700 text-sm md:text-base leading-relaxed">
+                Ao deixar de pagar as contribuições em atraso, você também deixa de contar o tempo
+                de contribuição ao INSS desses meses, o que pode afetar aposentadoria, auxílios e
+                contagem de carência. Vale lembrar que o DAS-MEI é a forma mais barata de contribuir
+                para o INSS, com valor inferior à metade do que se pagaria como autônomo ou
+                profissional liberal. O perdão também alcança somente a parte federal: a parcela
+                estadual, municipal ou distrital continua devida. No Distrito Federal, o resíduo de
+                ISS entre 1 e 5 reais por competência, acrescido de juros e multa, permanece
+                exigível. Por isso a análise é feita caso a caso.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================
+           BLOCO 5: COMO FUNCIONA
            ========================================================= */}
         <section aria-labelledby="como-funciona-titulo" className="space-y-8">
           <div className="border-l-4 border-[#FAB319] pl-4 md:pl-6">
@@ -293,7 +336,7 @@ export default function MeiCompleto() {
         </section>
 
         {/* =========================================================
-            BLOCO 5: PLANOS DE ACOMPANHAMENTO MENSAL
+           BLOCO 6: PLANOS DE ACOMPANHAMENTO MENSAL
            ========================================================= */}
         <section id="planos" className="scroll-mt-24 space-y-8">
           <div className="text-center max-w-3xl mx-auto space-y-3">
@@ -400,7 +443,7 @@ export default function MeiCompleto() {
         </section>
 
         {/* =========================================================
-            BLOCO 6: LIMITE DE FATURAMENTO
+           BLOCO 7: LIMITE DE FATURAMENTO / O QUE MUDA NO MEI EM 2027
            ========================================================= */}
         <section
           id="limite-faturamento"
@@ -431,36 +474,6 @@ export default function MeiCompleto() {
               </p>
             </div>
 
-            <div className="space-y-2">
-              <h3 className="text-lg md:text-xl font-semibold text-[#FAB319]">
-                Perdão de dívidas do DAS
-              </h3>
-              <p className="text-neutral-300 text-sm md:text-base leading-relaxed">
-                A Lei Complementar 238 de 2026 também autorizou o perdão das dívidas da contribuição
-                previdenciária do MEI vencidas até 13 de outubro de 2026. Segundo a Receita Federal,
-                o perdão é aplicado automaticamente, sem necessidade de pedido, inclusive para
-                dívidas parceladas ou em cobrança. Quem estiver discutindo a dívida na Justiça
-                precisa desistir da ação e apresentar requerimento. Para manter o benefício, quem
-                continuar como MEI deve pagar em dia o DAS de janeiro a junho de 2027.
-              </p>
-            </div>
-
-            <div className="rounded-lg border border-[#FAB319]/40 bg-neutral-900 p-6 space-y-2">
-              <h3 className="text-base md:text-lg font-semibold text-[#FAB319]">
-                Antes de aceitar o perdão, entenda o que você perde
-              </h3>
-              <p className="text-neutral-300 text-sm md:text-base leading-relaxed">
-                Ao deixar de pagar as contribuições em atraso, você também deixa de contar o tempo
-                de contribuição ao INSS desses meses, o que pode afetar aposentadoria, auxílios e
-                contagem de carência. Vale lembrar que o DAS-MEI é a forma mais barata de contribuir
-                para o INSS, com valor inferior à metade do que se pagaria como autônomo ou
-                profissional liberal. O perdão também alcança somente a parte federal: a parcela
-                estadual, municipal ou distrital continua devida. No Distrito Federal, o resíduo de
-                ISS entre 1 e 5 reais por competência, acrescido de juros e multa, permanece
-                exigível. Por isso a análise é feita caso a caso.
-              </p>
-            </div>
-
             <p className="flex gap-2 rounded-lg border border-[#FAB319]/40 bg-neutral-900 p-4 text-sm text-neutral-300 leading-relaxed">
               <span className="font-semibold text-[#FAB319]">Atenção:</span>
               <span>
@@ -473,7 +486,7 @@ export default function MeiCompleto() {
         </section>
 
         {/* =========================================================
-            BLOCO 7: FAQ
+           BLOCO 8: FAQ
            ========================================================= */}
         <section aria-labelledby="faq-titulo" className="space-y-8">
           <div className="text-center max-w-2xl mx-auto space-y-2">
@@ -504,7 +517,7 @@ export default function MeiCompleto() {
         </section>
 
         {/* =========================================================
-            BLOCO 8: CHAMADA FINAL
+           BLOCO 9: CHAMADA FINAL
            ========================================================= */}
         <section className="bg-black text-white p-8 md:p-12 rounded-2xl text-center border border-neutral-800 shadow-xl">
           <div className="max-w-2xl mx-auto space-y-4">
