@@ -449,9 +449,6 @@ export default function Services() {
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="text-center space-y-2 mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-white">Navegue por assunto</h2>
-            <p className="text-sm md:text-base text-neutral-400">
-              Clique para ir direto ao que te interessa
-            </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
