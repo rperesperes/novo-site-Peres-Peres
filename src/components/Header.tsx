@@ -11,7 +11,6 @@ const NAV_LINKS = [
   { name: 'Início', path: '/' },
   { name: 'Sobre Nós', path: '/sobre' },
   { name: 'Serviços', path: '/servicos' },
-  { name: 'MEI Completo', path: '/mei-completo' },
   { name: 'Casos de Sucesso', path: '/casos' },
   { name: 'Calculadoras', path: '/calculadoras' },
   { name: 'Blog', path: 'https://blog.peresperes.com.br', external: true },

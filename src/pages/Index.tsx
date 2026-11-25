@@ -82,16 +82,20 @@ const TEMAS_REFORMA = [
 ]
 
 // Bloco 11: Segmentos e áreas de atuação (9 segmentos na ordem estrita do briefing)
-const SEGMENTOS_ATUACAO = [
-  'Clínicas e Profissionais da Saúde',
-  'Startups e Empresas de Tecnologia',
-  'Profissões Regulamentadas',
-  'Holdings Familiares e Patrimoniais',
-  'Educação e Treinamentos',
-  'Publicidade e Comunicação',
-  'Agências de Viagem',
-  'E-commerces',
-  'MEIs e Profissionais Liberais',
+const SEGMENTOS_ATUACAO: { nome: string; href?: string; desc?: string }[] = [
+  { nome: 'Clínicas e Profissionais da Saúde' },
+  { nome: 'Startups e Empresas de Tecnologia' },
+  { nome: 'Profissões Regulamentadas' },
+  { nome: 'Holdings Familiares e Patrimoniais' },
+  { nome: 'Educação e Treinamentos' },
+  { nome: 'Publicidade e Comunicação' },
+  { nome: 'Agências de Viagem' },
+  { nome: 'E-commerces' },
+  {
+    nome: 'MEIs - Microempreendedores Individuais',
+    href: '/mei-completo',
+    desc: 'Abertura, obrigações mensais, regularização de débitos e apoio na transição para microempresa',
+  },
 ]
 
 import { useSeo } from '@/hooks/use-seo'
@@ -848,17 +852,31 @@ export default function Index() {
           </div>
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-w-4xl mx-auto">
-            {SEGMENTOS_ATUACAO.map((segmento, idx) => (
-              <div
-                key={idx}
-                className="bg-neutral-50 border border-neutral-200 hover:border-neutral-300 rounded-lg p-3.5 flex items-center gap-2.5 transition-colors"
-              >
-                <span className="h-2 w-2 rounded-full bg-[#FAB319] shrink-0" />
-                <span className="text-sm font-sans font-medium text-neutral-900 leading-snug">
-                  {segmento}
-                </span>
-              </div>
-            ))}
+            {SEGMENTOS_ATUACAO.map((segmento, idx) =>
+              segmento.href ? (
+                <Link
+                  key={idx}
+                  to={segmento.href}
+                  title={segmento.desc}
+                  className="bg-neutral-50 border border-neutral-200 hover:border-[#FAB319] rounded-lg p-3.5 flex items-center gap-2.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FAB319]/60"
+                >
+                  <span className="h-2 w-2 rounded-full bg-[#FAB319] shrink-0" />
+                  <span className="text-sm font-sans font-medium text-neutral-900 leading-snug">
+                    {segmento.nome}
+                  </span>
+                </Link>
+              ) : (
+                <div
+                  key={idx}
+                  className="bg-neutral-50 border border-neutral-200 hover:border-neutral-300 rounded-lg p-3.5 flex items-center gap-2.5 transition-colors"
+                >
+                  <span className="h-2 w-2 rounded-full bg-[#FAB319] shrink-0" />
+                  <span className="text-sm font-sans font-medium text-neutral-900 leading-snug">
+                    {segmento.nome}
+                  </span>
+                </div>
+              ),
+            )}
           </div>
 
           <div className="mt-10 text-center">

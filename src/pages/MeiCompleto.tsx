@@ -144,7 +144,7 @@ export default function MeiCompleto() {
   useSeo({
     title: 'MEI Completo | PERES PERES Consultoria & Contabilidade',
     description:
-      'MEI com contador de verdade por trás: obrigações em dia, DAS, declaração anual, notas fiscais e orientação sobre o limite de faturamento. PERES PERES Consultoria & Contabilidade.',
+      'Abertura, obrigações em dia e dúvidas respondidas por quem entende. Apoio para crescer ou para sair do MEI, com contador responsável técnico por trás de cada entrega. PERES PERES Consultoria & Contabilidade.',
   })
 
   const scrollToSection = (id: string) => {
@@ -170,8 +170,9 @@ export default function MeiCompleto() {
           </span>
           <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight">MEI Completo</h1>
           <p className="text-base md:text-xl text-neutral-300 max-w-3xl mx-auto leading-relaxed">
-            O MEI com contador de verdade por trás: obrigações em dia, dúvidas respondidas por quem
-            entende e apoio na hora de crescer ou de sair do MEI.
+            Abertura, obrigações em dia e dúvidas respondidas por quem entende. Apoio para crescer
+            ou para sair do MEI, com contador responsável técnico por trás de cada entrega, não
+            apenas a guia do mês.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 pt-2">
             <Button
@@ -405,29 +406,68 @@ export default function MeiCompleto() {
           id="limite-faturamento"
           className="scroll-mt-24 bg-neutral-950 text-white rounded-2xl p-8 md:p-12 border border-neutral-800 shadow-xl"
         >
-          <div className="max-w-3xl mx-auto space-y-5">
-            <h2 className="text-2xl md:text-4xl font-bold text-white">
-              O limite do MEI está mudando
-            </h2>
-            <p className="text-neutral-300 text-sm md:text-base leading-relaxed">
-              O teto anual de faturamento do MEI em 2026 é de <strong>R$ 81 mil</strong>, o
-              equivalente a <strong>R$ 6.750 por mês</strong>. A Lei Complementar 238 de 2026 elevou
-              o limite para <strong>R$ 110 mil em 2027</strong> e{' '}
-              <strong>R$ 140 mil em 2028</strong>.
-            </p>
-            <p className="text-neutral-300 text-sm md:text-base leading-relaxed">
-              No ano de abertura do CNPJ, o limite é proporcional aos meses de atividade.
-            </p>
+          <div className="max-w-3xl mx-auto space-y-8">
+            <h2 className="text-2xl md:text-4xl font-bold text-white">O que muda no MEI em 2027</h2>
+
+            <div className="space-y-2">
+              <h3 className="text-lg md:text-xl font-semibold text-[#FAB319]">
+                Teto de faturamento
+              </h3>
+              <p className="text-neutral-300 text-sm md:text-base leading-relaxed">
+                em 2026 o limite anual é de <strong>81 mil reais</strong>, o equivalente a{' '}
+                <strong>6.750 reais por mês</strong>. A Lei Complementar 238 de 2026 elevou o teto
+                para <strong>110 mil reais em 2027</strong> e <strong>140 mil reais em 2028</strong>
+                . O limite é proporcional no ano de abertura do CNPJ.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-lg md:text-xl font-semibold text-[#FAB319]">
+                Contratação de empregados
+              </h3>
+              <p className="text-neutral-300 text-sm md:text-base leading-relaxed">
+                hoje o MEI pode ter um empregado. A partir de 1º de janeiro de 2027, poderá ter até
+                dois, desde que cada um receba até um salário mínimo ou o piso da categoria.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-lg md:text-xl font-semibold text-[#FAB319]">
+                Perdão de dívidas do DAS
+              </h3>
+              <p className="text-neutral-300 text-sm md:text-base leading-relaxed">
+                a Lei Complementar 238 de 2026 também autorizou o perdão das dívidas da contribuição
+                previdenciária do MEI vencidas até 13 de outubro de 2026. Segundo a Receita Federal,
+                o perdão é aplicado automaticamente, sem necessidade de pedido, inclusive para
+                dívidas parceladas ou em cobrança. Quem estiver discutindo a dívida na Justiça
+                precisa desistir da ação e apresentar requerimento. Para manter o benefício, quem
+                continuar como MEI deve pagar em dia o DAS de janeiro a junho de 2027.
+              </p>
+            </div>
+
+            <div className="rounded-lg border border-[#FAB319]/40 bg-neutral-900 p-6 space-y-2">
+              <h3 className="text-base md:text-lg font-semibold text-[#FAB319]">
+                Antes de aceitar o perdão, entenda o que você perde
+              </h3>
+              <p className="text-neutral-300 text-sm md:text-base leading-relaxed">
+                ao deixar de pagar as contribuições em atraso, você também deixa de contar o tempo
+                de contribuição ao INSS desses meses, o que pode afetar aposentadoria, auxílios e
+                contagem de carência. Vale lembrar que o DAS-MEI é a forma mais barata de contribuir
+                para o INSS, com valor inferior à metade do que se pagaria como autônomo ou
+                profissional liberal. O perdão também alcança somente a parte federal: a parcela
+                estadual, municipal ou distrital continua devida. No Distrito Federal, o resíduo de
+                ISS entre 1 e 5 reais por competência, acrescido de juros e multa, permanece
+                exigível. Por isso a análise é feita caso a caso.
+              </p>
+            </div>
+
             <p className="flex gap-2 rounded-lg border border-[#FAB319]/40 bg-neutral-900 p-4 text-sm text-neutral-300 leading-relaxed">
               <span className="font-semibold text-[#FAB319]">Atenção:</span>
               <span>
-                confira os valores na legislação vigente antes de tomar qualquer decisão, porque as
-                regras podem ser alteradas.
+                o novo teto de faturamento e a contratação de até dois empregados ainda dependem de
+                regulamentação pelo Comitê Gestor do Simples Nacional, e os valores devem ser
+                conferidos na legislação vigente.
               </span>
-            </p>
-            <p className="text-base md:text-lg font-semibold text-white leading-relaxed">
-              Crescer acima do limite não é problema, desde que a migração para microempresa seja
-              planejada antes do estouro.
             </p>
           </div>
         </section>

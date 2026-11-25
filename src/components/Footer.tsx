@@ -148,6 +148,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/mei-completo" className="hover:text-[#FAB319] transition-colors">
+                  MEI Completo
+                </Link>
+              </li>
+              <li>
                 <Link to="/casos" className="hover:text-[#FAB319] transition-colors">
                   Casos de Sucesso
                 </Link>

@@ -217,11 +217,11 @@ const SEGMENTOS_ATUACAO = [
     linkText: 'Saiba mais informações',
   },
   {
-    nome: 'MEIs e Profissionais Liberais',
+    nome: 'MEIs - Microempreendedores Individuais',
     icon: UserCheck,
-    desc: 'Orientação técnica, conformidade cadastral, desenquadramento planejado e migração estruturada para microempresa (ME).',
-    link: '/contato',
-    linkText: 'Solicitar atendimento',
+    desc: 'Abertura, obrigações mensais, regularização de débitos e apoio na transição para microempresa',
+    link: '/mei-completo',
+    linkText: 'Saiba mais informações',
   },
 ]
 
