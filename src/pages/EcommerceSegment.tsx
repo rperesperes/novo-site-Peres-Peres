@@ -25,6 +25,7 @@ import {
   Phone,
   ArrowRight,
 } from 'lucide-react'
+import { EcommerceCnaeSection } from '@/components/EcommerceCnaeSection'
 
 // 6 Desafios do E-commerce (textos verbatim)
 const DESAFIOS = [
@@ -358,8 +359,13 @@ export default function EcommerceSegment() {
       </section>
 
       {/* =========================================================
-          SECAO 2: COMO ATUAMOS NO E-COMMERCE (5 itens)
-         ========================================================= */}
+         SECAO: CNAE, REGIME TRIBUTARIO E ICMS
+        ========================================================= */}
+      <EcommerceCnaeSection />
+
+      {/* =========================================================
+         SECAO 2: COMO ATUAMOS NO E-COMMERCE (5 itens)
+        ========================================================= */}
       <section className="py-14 md:py-20 bg-neutral-50 border-b border-neutral-200">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="max-w-3xl mb-12">
