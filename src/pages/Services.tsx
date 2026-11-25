@@ -241,7 +241,7 @@ const PLANOS = [
       'Emissão pontual de guias tributárias (DAS, DARFs, FGTS e eSocial)',
       'Envio de obrigações acessórias federais e distritais (DCTFWeb, DEFIS/ECF)',
       'Balancetes e demonstrações contábeis anuais obrigatórias',
-      'Canal de atendimento direto para dúvidas rotineiras de faturamento e certidões',
+      'Canal de atendimento direto para dúvidas rotineiras de faturamento, emissão de notas fiscais de serviço pelo volume do plano contratado e certidões',
     ],
   },
   {
@@ -761,6 +761,74 @@ export default function Services() {
                 </div>
               </Card>
             ))}
+          </div>
+        </section>
+
+        {/* =========================================================
+            BLOCO: EMISSÃO DE NOTA FISCAL SEM TRAVAR O FATURAMENTO
+           ========================================================= */}
+        <section id="emissao-nota-fiscal" className="scroll-mt-24 space-y-8">
+          <div className="border-l-4 border-[#FAB319] pl-4 md:pl-6">
+            <h2 className="text-2xl md:text-4xl font-bold text-black font-sans">
+              Emissão de nota fiscal sem travar o faturamento
+            </h2>
+          </div>
+
+          <div className="bg-white border border-neutral-200 rounded-xl p-6 md:p-8 shadow-sm space-y-6">
+            <p className="text-base md:text-lg text-neutral-700 leading-relaxed font-sans">
+              Quem troca de contador raramente troca por causa do imposto. Troca porque a nota
+              fiscal travou no dia do faturamento, o cliente cobrou e ninguém respondeu. Boa parte
+              dessa demora não está na emissão em si, e sim no cadastro municipal, no
+              credenciamento, na senha do portal e na definição do item de serviço. É aí que a
+              operação para.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-5">
+              {[
+                {
+                  icon: Users2,
+                  title: 'Equipe dedicada ao faturamento',
+                  desc: 'quem resolve o cadastro municipal, o credenciamento, a senha do portal e a definição do item de serviço é a nossa equipe, não o cliente. A emissão só é dada como resolvida quando a nota sai de fato, com acompanhamento até o documento emitido.',
+                },
+                {
+                  icon: Laptop,
+                  title: 'Aplicativo próprio do escritório',
+                  desc: 'o cliente que prefere emitir por conta própria usa o aplicativo da PERES PERES, sem entrar no portal da prefeitura, com a mesma equipe dando suporte quando aparece erro.',
+                },
+                {
+                  icon: Briefcase,
+                  title: 'Domínio dos sistemas de mercado',
+                  desc: 'operamos os principais emissores usados por empresas e escritórios no dia a dia, e o cliente que já tem sistema próprio não precisa trocar de ferramenta para trocar de contador.',
+                },
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="p-5 rounded-lg bg-neutral-50 border border-neutral-200 flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="p-1.5 rounded bg-black text-[#FAB319] w-fit mb-3">
+                      <item.icon className="h-4 w-4" aria-hidden="true" />
+                    </div>
+                    <h3 className="font-semibold text-black text-base mb-2 font-sans">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs md:text-sm text-neutral-600 leading-relaxed font-sans">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-black text-white rounded-xl p-6 md:p-8 border border-neutral-800 flex items-start gap-4">
+              <Sparkles className="h-5 w-5 text-[#FAB319] shrink-0 mt-0.5" aria-hidden="true" />
+              <p className="text-sm md:text-base text-neutral-200 leading-relaxed font-sans">
+                A emissão da nota fiscal de serviço está incluída no acompanhamento mensal, pelo
+                volume previsto no plano contratado. Parametrização inicial de emissor, implantação
+                de novo sistema e treinamento da equipe do cliente são conduzidos como projeto
+                próprio.
+              </p>
+            </div>
           </div>
         </section>
 
