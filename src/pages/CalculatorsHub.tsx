@@ -255,8 +255,8 @@ export default function CalculatorsHub() {
               <h3 className="font-semibold text-lg text-black mb-2">Memória de cálculo aberta</h3>
               <p className="text-xs md:text-sm text-neutral-600 leading-relaxed">
                 Exibição integral das etapas da operação aritmética, dedução de parcelas a deduzir e
-                alíquotas efetivas, viabilizando a auditoria e a conferência por qualquer contador
-                ou auditor.
+                alíquotas efetivas, viabilizando a conferência e a validação por qualquer contador
+                habilitado.
               </p>
             </div>
           </div>

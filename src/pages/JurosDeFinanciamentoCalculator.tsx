@@ -1448,7 +1448,7 @@ export default function JurosDeFinanciamentoCalculator() {
               <p className="text-xs md:text-sm text-neutral-700 leading-relaxed mt-2">
                 Recomendamos sempre solicitar a Planilha de Custo Efetivo Total (CET) detalhada
                 antes de firmar qualquer compromisso financeiro. Se você ou sua empresa necessita de
-                assessoria técnica contábil para auditoria de contratos bancários ou planejamento
+                assessoria técnica contábil para diagnóstico de contratos bancários ou planejamento
                 patrimonial,{' '}
                 <Link
                   to="/contato"
@@ -1623,7 +1623,7 @@ export default function JurosDeFinanciamentoCalculator() {
             </h2>
 
             <p className="text-neutral-400 text-base md:text-lg leading-relaxed">
-              Nossa equipe estrutura pareceres de viabilidade financeira, auditoria de encargos
+              Nossa equipe estrutura pareceres de viabilidade financeira, diagnóstico de encargos
               bancários e planejamento tributário estratégico para assegurar a melhor eficiência de
               capital para você ou sua empresa.
             </p>

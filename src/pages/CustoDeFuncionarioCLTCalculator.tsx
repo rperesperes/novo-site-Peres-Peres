@@ -1641,8 +1641,8 @@ export default function CustoDeFuncionarioCLTCalculator() {
               <p className="text-sm text-neutral-700 leading-relaxed">
                 O resultado gerado por esta ferramenta é uma estimativa matemática orientativa
                 baseada nos parâmetros fornecidos e nas regras gerais da legislação trabalhista e
-                tributária nacional. Os cálculos não substituem a análise detalhada e a auditoria de
-                um profissional habilitado perante o Conselho Regional de Contabilidade, nem
+                tributária nacional. Os cálculos não substituem a análise detalhada e o diagnóstico
+                de um profissional habilitado perante o Conselho Regional de Contabilidade, nem
                 contemplam particularidades de convenções coletivas de trabalho (CCT), adicionais
                 sindicais específicos ou planos de benefícios próprios. Para estruturação formal da
                 folha de pagamento e parecer trabalhista da sua empresa, acesse a nossa página de{' '}
@@ -1802,7 +1802,7 @@ export default function CustoDeFuncionarioCLTCalculator() {
 
             <p className="text-neutral-400 text-sm md:text-base leading-relaxed">
               Nossa equipe de consultoria trabalhista e departamento pessoal estrutura pareceres
-              técnicos, auditoria de folha, enquadramento previdenciário e rotinas de eSocial com
+              técnicos, diagnóstico de folha, enquadramento previdenciário e rotinas de eSocial com
               total conformidade legal e segurança jurídica.
             </p>
 

@@ -911,7 +911,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
             </div>
             <p className="text-xs text-neutral-600 mb-4 leading-relaxed">
               Demonstração matemática transparente de cada etapa do cálculo para conferência e
-              auditoria independente:
+              validação independente:
             </p>
 
             <div className="font-mono text-xs md:text-sm bg-white border border-neutral-200 rounded p-4 space-y-4 text-neutral-800">
@@ -1582,7 +1582,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
                 análise aprofundada e o parecer técnico individualizado de um profissional
                 habilitado perante o Conselho Regional de Contabilidade. Variáveis como créditos de
                 ICMS, regimes de substituição tributária, retenções na fonte e particularidades
-                cadastrais de cada município exigem auditoria fiscal específica. Para estruturar o
+                cadastrais de cada município exigem diagnóstico fiscal específico. Para estruturar o
                 planejamento tributário formal do seu negócio, acesse a nossa página de{' '}
                 <Link
                   to="/contato"
@@ -1733,7 +1733,7 @@ export default function SimplesNacionalOuLucroPresumidoCalculator() {
 
             <p className="text-neutral-400 text-sm md:text-base leading-relaxed">
               Nossa equipe estrutura pareceres contábeis detalhados, simulações de transição de
-              regime e auditoria de créditos com total conformidade técnica e segurança perante a
+              regime e diagnóstico de créditos com total conformidade técnica e segurança perante a
               Receita Federal.
             </p>
 

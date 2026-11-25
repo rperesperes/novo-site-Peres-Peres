@@ -110,7 +110,7 @@ const POR_QUE_PERES_PERES = [
     num: '3',
     title: 'Postura conservadora',
     icon: ShieldCheck,
-    text: 'Não veiculamos promessa de percentual de economia. Cada diagnóstico parte de auditoria documental do patrimônio e dos números da família, e quando a estrutura não se justifica, dizemos que não se justifica.',
+    text: 'Não veiculamos promessa de percentual de economia. Cada análise parte de diagnóstico documental do patrimônio e dos números da família, e quando a estrutura não se justifica, dizemos que não se justifica.',
   },
 ]
 
@@ -143,7 +143,7 @@ const FAQ_ITEMS = [
   },
 ]
 
-// Demais segmentos atendidos pelo escritorio
+// Demais áreas de atuação atendidas pelo escritório
 const OUTROS_SEGMENTOS = [
   { name: 'Advogados (Profissões Regulamentadas)', link: '/profissoes-regulamentadas/advogados' },
   { name: 'Médicos (Profissões Regulamentadas)', link: '/profissoes-regulamentadas/medicos' },
@@ -199,7 +199,7 @@ export default function HoldingsFamiliaresSegment() {
             {
               '@type': 'ListItem',
               position: 2,
-              name: 'Segmentos',
+              name: 'Áreas de atuação',
               item: 'https://peresperes.com.br/servicos',
             },
             {
@@ -251,7 +251,7 @@ export default function HoldingsFamiliaresSegment() {
             </Link>
             <ChevronRight className="h-3.5 w-3.5 text-neutral-600" />
             <Link to="/servicos" className="hover:text-white transition-colors">
-              Segmentos
+              Áreas de atuação
             </Link>
             <ChevronRight className="h-3.5 w-3.5 text-neutral-600" />
             <span className="text-[#FAB319] font-medium">Holdings Familiares e Patrimoniais</span>
@@ -533,7 +533,7 @@ export default function HoldingsFamiliaresSegment() {
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="max-w-3xl mb-8 space-y-2">
             <h3 className="text-2xl md:text-3xl font-sans font-bold text-black leading-tight">
-              Conheça os outros segmentos
+              Conheça as outras áreas de atuação
             </h3>
             <p className="text-neutral-600 text-sm md:text-base leading-relaxed font-sans">
               Além de holdings familiares e patrimoniais, a PERES PERES oferece contabilidade e

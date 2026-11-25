@@ -1737,11 +1737,11 @@ export default function SimplesNacionalHibridoCalculator() {
               id="cta-final-hibrido-title"
               className="text-2xl md:text-3xl font-bold text-white leading-tight"
             >
-              Deseja auditar sua segregação de receitas com um especialista?
+              Deseja revisar sua segregação de receitas com um especialista?
             </h2>
 
             <p className="text-neutral-400 text-sm md:text-base leading-relaxed">
-              Nossa equipe estrutura pareceres formais de enquadramento, auditoria de créditos
+              Nossa equipe estrutura pareceres formais de enquadramento, diagnóstico de créditos
               acumulados de ICMS, sublimites estaduais e planejamento tributário personalizado para
               garantir eficiência e conformidade fiscal sem recolhimento em duplicidade.
             </p>

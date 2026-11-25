@@ -116,7 +116,7 @@ const POR_QUE_PERES_PERES = [
     num: '3',
     title: 'Postura conservadora',
     icon: ShieldCheck,
-    text: 'Não veiculamos promessa de percentual de economia. Cada diagnóstico parte de auditoria documental dos números do escritório, e quando o formato atual já é o adequado, dizemos que é.',
+    text: 'Não veiculamos promessa de percentual de economia. Cada análise parte de diagnóstico documental dos números do escritório, e quando o formato atual já é o adequado, dizemos que é.',
   },
 ]
 
@@ -203,7 +203,7 @@ export default function AdvogadosSegment() {
             {
               '@type': 'ListItem',
               position: 2,
-              name: 'Segmentos',
+              name: 'Áreas de atuação',
               item: 'https://peresperes.com.br/servicos#segmentos',
             },
             {
@@ -251,7 +251,7 @@ export default function AdvogadosSegment() {
          ========================================================= */}
       <section className="relative bg-black text-white border-b border-neutral-800 pt-8 pb-16 md:pb-20">
         <div className="container mx-auto px-4 max-w-5xl">
-          {/* Breadcrumb verbatim: Início > Segmentos > Profissões Regulamentadas > Advogados */}
+          {/* Breadcrumb verbatim: Início > Áreas de atuação > Profissões Regulamentadas > Advogados */}
           <nav
             aria-label="Breadcrumb"
             className="flex flex-wrap items-center gap-2 text-xs md:text-sm text-neutral-400 mb-8 font-sans"
@@ -261,7 +261,7 @@ export default function AdvogadosSegment() {
             </Link>
             <ChevronRight className="h-3.5 w-3.5 text-neutral-600" />
             <Link to="/servicos#segmentos" className="hover:text-white transition-colors">
-              Segmentos
+              Áreas de atuação
             </Link>
             <ChevronRight className="h-3.5 w-3.5 text-neutral-600" />
             <Link to="/servicos#segmentos" className="hover:text-white transition-colors">
@@ -574,7 +574,7 @@ export default function AdvogadosSegment() {
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="max-w-3xl mb-8 space-y-2">
             <h3 className="text-2xl md:text-3xl font-sans font-bold text-black leading-tight">
-              Conheça os outros segmentos
+              Conheça as outras áreas de atuação
             </h3>
             <p className="text-neutral-600 text-sm md:text-base leading-relaxed font-sans">
               A PERES PERES oferece contabilidade mensal e consultoria especializada para diferentes

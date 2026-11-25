@@ -1671,10 +1671,10 @@ export default function IRPFeRestituicaoCalculator() {
               </h3>
               <p className="text-sm text-neutral-700 leading-relaxed">
                 O resultado gerado por esta ferramenta é uma estimativa matemática orientativa e não
-                substitui a auditoria fiscal detalhada e o parecer técnico de um contador habilitado
-                perante o Conselho Regional de Contabilidade. Para estruturação de planejamento
-                tributário para pessoa física ou regularização de declarações em malha fina, acesse
-                a nossa página de{' '}
+                substitui o diagnóstico fiscal detalhado e o parecer técnico de um contador
+                habilitado perante o Conselho Regional de Contabilidade. Para estruturação de
+                planejamento tributário para pessoa física ou regularização de declarações em malha
+                fina, acesse a nossa página de{' '}
                 <Link
                   to="/contato"
                   className="font-semibold text-black underline underline-offset-2 hover:text-neutral-700 transition-colors"
@@ -1823,7 +1823,7 @@ export default function IRPFeRestituicaoCalculator() {
             </h2>
 
             <p className="text-neutral-400 text-sm md:text-base leading-relaxed">
-              Nossa equipe estrutura auditoria completa de documentos, simulação dos modelos
+              Nossa equipe estrutura diagnóstico completo de documentos, simulação dos modelos
               completo e simplificado, e acompanhamento contra retenções em malha fina.
             </p>
 

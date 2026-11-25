@@ -1333,8 +1333,8 @@ export default function JurosDeMoraDeTributosCalculator() {
               </p>
               <p className="text-xs md:text-sm text-neutral-700 leading-relaxed mt-2">
                 Recomenda-se a conferência técnica antes da emissão de guias definitivas. Se a sua
-                empresa necessita de auditoria de débitos tributários, certidões ou planejamento de
-                passivos fiscais,{' '}
+                empresa necessita de diagnóstico de débitos tributários, certidões ou planejamento
+                de passivos fiscais,{' '}
                 <Link
                   to="/contato"
                   className="text-black font-semibold underline hover:text-neutral-700"

@@ -189,7 +189,7 @@ export default function CalculatorDetail() {
                   </h3>
                   <p className="text-xs text-neutral-600 leading-relaxed">
                     Quando disponibilizada, cada simulação apresentará os passos aritméticos e os
-                    fundamentos normativos detalhados, permitindo auditoria pontual por sua equipe
+                    fundamentos normativos detalhados, permitindo conferência pontual por sua equipe
                     contábil.
                   </p>
                 </div>

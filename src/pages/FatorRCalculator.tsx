@@ -481,7 +481,7 @@ export default function FatorRCalculator() {
               </h3>
             </div>
             <p className="text-xs text-neutral-600 mb-4 leading-relaxed">
-              Demonstração explícita da aritmética aplicada para auditoria e conferência manual dos
+              Demonstração explícita da aritmética aplicada para conferência manual e validação dos
               valores digitados:
             </p>
 
@@ -1153,8 +1153,8 @@ export default function FatorRCalculator() {
             </h2>
 
             <p className="text-neutral-400 text-sm md:text-base leading-relaxed">
-              Nossa equipe estrutura pareceres contábeis, planejamento de pró-labore e auditoria de
-              enquadramento no Simples Nacional com total segurança técnica e jurídica.
+              Nossa equipe estrutura pareceres contábeis, planejamento de pró-labore e diagnóstico
+              de enquadramento no Simples Nacional com total segurança técnica e jurídica.
             </p>
 
             {/* Ponto focal 2: Botão em #FAB319 com texto preto */}
