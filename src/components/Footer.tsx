@@ -153,6 +153,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/perdao-divida-mei" className="hover:text-[#FAB319] transition-colors">
+                  Perdão das dívidas do MEI
+                </Link>
+              </li>
+              <li>
                 <Link to="/casos" className="hover:text-[#FAB319] transition-colors">
                   Casos de Sucesso
                 </Link>

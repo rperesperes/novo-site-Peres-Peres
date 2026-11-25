@@ -18,6 +18,7 @@ import About from './pages/About'
 import TrabalheConosco from './pages/TrabalheConosco'
 import Services from './pages/Services'
 import MeiCompleto from './pages/MeiCompleto'
+import PerdaoDividaMei from './pages/PerdaoDividaMei'
 import Cases from './pages/Cases'
 import CaseDetail from './pages/CaseDetail'
 
@@ -68,6 +69,7 @@ const App = () => (
             <Route path="/servicos/registro-de-marcas" element={<RegistroDeMarcas />} />
             <Route path="/servicos/inteligencia-financeira" element={<InteligenciaFinanceira />} />
             <Route path="/mei-completo" element={<MeiCompleto />} />
+            <Route path="/perdao-divida-mei" element={<PerdaoDividaMei />} />
             <Route path="/casos" element={<Cases />} />
             <Route path="/casos/:slug" element={<CaseDetail />} />
             <Route path="/recursos" element={<Resources />} />
