@@ -36,6 +36,7 @@ import SimplesNacionalHibridoCalculator from './pages/SimplesNacionalHibridoCalc
 import JurosDeMoraDeTributosCalculator from './pages/JurosDeMoraDeTributosCalculator'
 import IRPFeRestituicaoCalculator from './pages/IRPFeRestituicaoCalculator'
 import JurosDeFinanciamentoCalculator from './pages/JurosDeFinanciamentoCalculator'
+import ProLaboreDividendosCalculator from './pages/ProLaboreDividendosCalculator'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Entrar from './pages/Entrar'
 import ClinicasMedicasSegment from './pages/ClinicasMedicasSegment'
@@ -130,6 +131,10 @@ const App = () => (
             <Route
               path="/calculadoras/juros-de-financiamento"
               element={<JurosDeFinanciamentoCalculator />}
+            />
+            <Route
+              path="/calculadoras/pro-labore-ou-dividendos"
+              element={<ProLaboreDividendosCalculator />}
             />
             <Route path="/calculadoras/:slug" element={<CalculatorDetail />} />
           </Route>

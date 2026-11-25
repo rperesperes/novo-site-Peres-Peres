@@ -93,9 +93,9 @@ export const CALCULATORS: CalculatorItem[] = [
     slug: 'pro-labore-ou-dividendos',
     name: 'Pró-labore ou Dividendos',
     shortDescription:
-      'Avaliação de incidência de INSS, IRPF e distribuição isenta de lucros apurados pelos sócios.',
+      'Avaliação de incidência de INSS e de imposto de renda sobre o pró-labore e sobre a distribuição de lucros, considerando a retenção de 10 por cento na fonte sobre lucros e dividendos que ultrapassarem 50 mil reais por mês por empresa pagadora.',
     category: 'Folha e Trabalhista',
-    legalBasis: 'Art. 10 da Lei nº 9.249/1995 e Lei nº 8.212/1991',
+    legalBasis: 'Lei nº 8.212/1991, art. 10 da Lei nº 9.249/1995 e Lei nº 15.270/2025',
     updatedAt: FOLHA_TRABALHISTA_VIGENCIA.ultimaConferencia,
   },
 
