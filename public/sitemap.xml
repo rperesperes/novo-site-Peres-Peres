@@ -11,31 +11,37 @@
   <!-- Serviços Principais -->
   <url>
     <loc>https://peresperes.com.br/servicos</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://peresperes.com.br/profissoes-regulamentadas</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://peresperes.com.br/profissoes-regulamentadas/medicos</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://peresperes.com.br/profissoes-regulamentadas/advogados</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://peresperes.com.br/profissoes-regulamentadas/psicologos</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://peresperes.com.br/profissoes-regulamentadas/engenheiros</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -104,6 +110,18 @@
     <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://peresperes.com.br/mei-completo</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://peresperes.com.br/perdao-divida-mei</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- Institucional -->
@@ -204,6 +222,18 @@
   <url>
     <loc>https://peresperes.com.br/calculadoras/juros-de-financiamento</loc>
     <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://peresperes.com.br/calculadoras/rescisao-trabalhista</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://peresperes.com.br/calculadoras/pro-labore-ou-dividendos</loc>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
