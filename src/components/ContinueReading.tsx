@@ -9,14 +9,14 @@ export interface ContinueReadingItem {
 }
 
 interface ContinueReadingProps {
-  /** Dois cards, mesma ordem definida pela página que usa o bloco. */
-  items: [ContinueReadingItem, ContinueReadingItem]
+  /** Um ou mais cards, mesma ordem definida pela página que usa o bloco. */
+  items: ContinueReadingItem[]
 }
 
 /**
- * Bloco "Continue lendo", padrão compartilhado das páginas de profissões
- * regulamentadas: título + dois cards com título, descrição de uma linha e
- * botão de acesso. Renderizado ao final de cada página, antes do rodapé.
+ * Bloco "Continue lendo", padrão compartilhado das páginas de segmento e de
+ * profissões regulamentadas: título + cards com título, descrição de uma linha
+ * e botão de acesso. Renderizado ao final de cada página, antes do rodapé.
  */
 export function ContinueReading({ items }: ContinueReadingProps) {
   return (
@@ -34,7 +34,13 @@ export function ContinueReading({ items }: ContinueReadingProps) {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-4 md:gap-6 items-stretch">
+        <div
+          className={
+            items.length > 2
+              ? 'grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 items-stretch'
+              : 'grid sm:grid-cols-2 gap-4 md:gap-6 items-stretch'
+          }
+        >
           {items.map((item, idx) => (
             <div
               key={idx}

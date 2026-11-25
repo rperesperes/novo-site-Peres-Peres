@@ -157,7 +157,6 @@ const OUTROS_SEGMENTOS = [
   },
   { name: 'Clínicas Médicas e Saúde', link: '/contabilidade-para-clinicas-medicas' },
   { name: 'Startups e Empresas de Tecnologia', link: '/contabilidade-para-startups-e-tech' },
-  { name: 'Holdings Familiares e Patrimoniais', link: '/holdings-familiares-e-patrimoniais' },
   { name: 'Educação e Treinamentos', link: '/contabilidade-para-educacao-e-treinamentos' },
   { name: 'Agências de Viagem', link: '/contabilidade-para-agencias-de-viagem' },
   { name: 'E-commerce', link: '/contabilidade-para-ecommerce' },
@@ -604,6 +603,13 @@ export default function PublicidadeComunicacaoSegment() {
               'Conheça as frentes tributárias, contábeis, societárias e trabalhistas da PERES PERES Consultoria & Contabilidade, do acompanhamento mensal à consultoria especializada.',
             to: '/servicos#planos-de-acompanhamento',
             cta: 'Ver Serviços',
+          },
+          {
+            title: 'Estrutura patrimonial do sócio',
+            description:
+              'A organização do patrimônio dos sócios é decisão separada da agência. Se a holding entrar como sócia da agência, a agência deixa de poder optar pelo Simples, por força do artigo 3º, parágrafo quarto, inciso I, da Lei Complementar 123 de 2006.',
+            to: '/holdings-familiares-e-patrimoniais',
+            cta: 'Ver Estrutura patrimonial do sócio',
           },
         ]}
       />
