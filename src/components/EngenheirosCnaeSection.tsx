@@ -59,8 +59,16 @@ const CNAE_ROWS: CnaeRow[] = [
     codigo: '7119-7/02',
     descricao: 'Atividades de estudos geológicos',
     funcao: 'Complementar, para geotecnia, sondagem e estudos de solo.',
-    regimes: [],
-    observacoes: '',
+    regimes: [
+      {
+        label: 'Simples Nacional',
+        text: 'pelo Anexo V com Fator R, porque a geologia está expressamente no artigo 18, parágrafo quinto-I, inciso sexto, da Lei Complementar 123 de 2006, migrando para o Anexo III quando o Fator R alcançar 28 por cento, na forma do parágrafo quinto-J.',
+      },
+      { label: 'Lucro Presumido', text: 'permitido.' },
+      { label: 'Lucro Real', text: 'permitido.' },
+    ],
+    observacoes:
+      'Usado em geotecnia, sondagem e estudos de solo, e costuma vir acompanhado do 7119-7/01 em levantamento de campo.',
     principal: false,
   },
   {
@@ -76,16 +84,30 @@ const CNAE_ROWS: CnaeRow[] = [
     codigo: '7119-7/04',
     descricao: 'Serviços de perícia técnica relacionados à segurança do trabalho',
     funcao: 'Complementar, para laudos, avaliações e programas de segurança.',
-    regimes: [],
-    observacoes: 'Normalmente com engenheiro de segurança no quadro.',
+    regimes: [
+      {
+        label: '',
+        text: 'Definir conforme a atividade efetivamente prestada, porque a lei não traz enquadramento específico para essa subclasse.',
+      },
+    ],
+    observacoes:
+      'A receita de laudo e de programa de segurança prestada por engenheiro de segurança tende ao Anexo V com Fator R quando é serviço técnico, e ao Anexo IV quando está vinculada à execução de obra, e essa distinção precisa ser feita caso a caso.',
     principal: false,
   },
   {
     codigo: '7120-1/00',
     descricao: 'Testes e análises técnicas',
     funcao: 'Complementar, para laboratórios, ensaios de materiais e controle tecnológico.',
-    regimes: [],
-    observacoes: '',
+    regimes: [
+      {
+        label: 'Simples Nacional',
+        text: 'pelo Anexo V com Fator R, porque testes e análises técnicas e tecnológicas estão expressamente no artigo 18, parágrafo quinto-I, inciso sexto, da Lei Complementar 123 de 2006, migrando para o Anexo III com Fator R de 28 por cento.',
+      },
+      { label: 'Lucro Presumido', text: 'permitido.' },
+      { label: 'Lucro Real', text: 'permitido.' },
+    ],
+    observacoes:
+      'Típico de laboratório, ensaio de materiais e controle tecnológico, e exige conferência do item de serviço na lei do município, porque ensaio prestado para indústria pode ter tratamento de ISS diferente do serviço de engenharia.',
     principal: false,
   },
   {
@@ -93,16 +115,28 @@ const CNAE_ROWS: CnaeRow[] = [
     descricao:
       'Atividades técnicas relacionadas à engenharia e arquitetura não especificadas anteriormente',
     funcao: 'Residual, apenas quando a atividade não couber em outro código.',
-    regimes: [],
-    observacoes: '',
+    regimes: [
+      {
+        label: '',
+        text: 'Definir conforme a atividade efetivamente prestada.',
+      },
+    ],
+    observacoes:
+      'É o código residual da classe e só deve ser usado quando a atividade não couber em nenhuma subclasse específica, conferindo antes se a receita não recai em vedação por atividade do artigo 17 da Lei Complementar 123 de 2006.',
     principal: false,
   },
   {
     codigo: '7490-1/99',
     descricao: 'Outras atividades profissionais, científicas e técnicas',
     funcao: 'Complementar.',
-    regimes: [],
-    observacoes: '',
+    regimes: [
+      {
+        label: '',
+        text: 'Definir conforme a atividade efetivamente prestada.',
+      },
+    ],
+    observacoes:
+      'Residual de uso restrito. Código residual usado sem critério enfraquece a defesa em fiscalização, porque deixa de descrever o que a empresa faz.',
     principal: false,
   },
 ]
