@@ -3,12 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
+import { SegmentFaq } from '@/components/SegmentFaq'
 import { useSeo } from '@/hooks/use-seo'
 import { ProfessionExerciseForm } from '@/components/ProfessionExerciseForm'
 import { PsicologosCnaeSection } from '@/components/PsicologosCnaeSection'
@@ -114,32 +109,37 @@ const POR_QUE_PERES_PERES = [
   },
 ]
 
-// 5 Perguntas e Respostas do FAQ (textos verbatim)
+// 6 Perguntas e Respostas do FAQ (textos verbatim)
 const FAQ_ITEMS = [
   {
     question: 'Psicólogo pode ser MEI?',
     answer:
-      'Não. A atividade de psicólogo não consta entre as ocupações permitidas ao MEI (Resolução CGSN nº 140/2018, Anexo XI), e o CNAE da atividade, 8650-0/03, não é autorizado para esse enquadramento. Abrir MEI com CNAE genérico para depois atender como psicólogo não formaliza a situação e cria risco fiscal. Os caminhos possíveis são a atuação como pessoa física, o empresário individual ou a sociedade limitada, e a escolha entre eles depende de faturamento, despesas e objetivo profissional.',
+      'Não. A atividade de psicólogo não consta do Anexo XI da Resolução CGSN nº 140/2018, lista fechada de ocupações autorizadas ao MEI. Os caminhos possíveis são a atuação como pessoa física, o empresário individual ou a sociedade limitada, conforme faturamento e objetivo profissional.',
   },
   {
-    question: 'Como tributar atendimento por videochamada para paciente de outro estado?',
+    question: 'Qual o CNAE de psicólogo?',
     answer:
-      'O ponto central é definir o município competente para o ISS da prestação de serviço, e essa definição depende da regra aplicável ao caso e do local da prestação. Não é uma regra única para todas as situações, e o atendimento à distância exige parametrização específica para não gerar cobrança em duplicidade nem omissão de recolhimento.',
+      'O código mais comum é 8650-0/03, atividade de psicologia e psicanálise. Os códigos secundários dependem das atividades acessórias do consultório, e a tabela desta página lista os mais comuns antes da escolha do enquadramento.',
   },
   {
-    question: 'Como funciona o Fator R na prática?',
+    question: 'Psicólogo pode ser Simples Nacional?',
     answer:
-      'É a razão entre a folha de pagamento, incluindo o pró-labore, dos últimos 12 meses, e a receita bruta dos últimos 12 meses. Resultado igual ou superior a 28% enquadra no Anexo III, de alíquotas menores. Abaixo disso, no Anexo V. O cálculo é refeito todo mês, então mudanças de pró-labore e contratação alteram a guia do mês seguinte.',
+      'Pode. A atividade de psicologia é permitida no Simples Nacional (LC 123/2006, art. 18, § 5º-B, XXI) e é tributada no Anexo III, com alíquota reajustada pelo Fator R quando a prestação de serviços tem folha em relação à receita.',
   },
   {
-    question: 'Quanto de pró-labore devo retirar?',
+    question: 'Como funciona o Fator R na psicologia?',
     answer:
-      'O valor precisa considerar dois efeitos ao mesmo tempo: o Fator R, que define o anexo do Simples Nacional e depende da folha em relação à receita, e a proteção previdenciária, que depende da contribuição sobre o pró-labore. Existe um ponto de equilíbrio entre pagar menos hoje e garantir contribuição para o futuro, e ele é diferente para cada faturamento.',
+      'É a razão entre a folha de pagamento, incluindo o pró-labore, e a receita bruta dos últimos 12 meses. Resultado igual ou superior a 28% conduz ao Anexo III, de alíquotas menores; abaixo disso, ao Anexo V. O cálculo é refeito todo mês.',
   },
   {
-    question: 'Vocês emitem as guias e entregam as obrigações?',
+    question: 'Qual o ISS do psicólogo?',
     answer:
-      'Sim. O acompanhamento mensal inclui apuração dos tributos, emissão das guias, entrega das obrigações acessórias e conferência dos repasses recebidos, com leitura do resultado do mês e não apenas do cumprimento da obrigação.',
+      'O ISS incide sobre a receita de serviços psicológicos, e o município competente é definido pelas regras da LC nº 116/2003. Atendimento online para paciente de outro estado exige verificar a regra aplicável ao caso antes de parametrizar a nota.',
+  },
+  {
+    question: 'Psicólogo pode emitir nota para plano de saúde?',
+    answer:
+      'Pode. A PJ do psicólogo emite nota fiscal de serviços para a operadora pelo valor do repasse recebido, e a conciliação entre glosas, retenções e repasses precisa estar na escrituração do mês.',
   },
 ]
 
@@ -485,39 +485,6 @@ export default function PsicologosSegment() {
       </section>
 
       {/* =========================================================
-          SEÇÃO 4: FAQ (5 perguntas e respostas verbatim com rich snippet)
-         ========================================================= */}
-      <section className="py-14 md:py-20 bg-neutral-50 border-b border-neutral-200">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <span className="text-xs uppercase tracking-wider text-neutral-500 font-semibold block font-sans">
-              Perguntas frequentes
-            </span>
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
-              Dúvidas recorrentes sobre contabilidade para psicólogos
-            </h2>
-          </div>
-
-          <Accordion type="single" collapsible className="w-full space-y-3">
-            {FAQ_ITEMS.map((item, idx) => (
-              <AccordionItem
-                key={idx}
-                value={`item-${idx}`}
-                className="bg-white border border-neutral-200 rounded-lg px-6 py-1 data-[state=open]:border-neutral-300 shadow-sm"
-              >
-                <AccordionTrigger className="text-left font-sans font-semibold text-base sm:text-lg text-black hover:no-underline py-4">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="font-sans text-sm sm:text-base text-neutral-700 leading-relaxed pb-4 pt-1">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
-
-      {/* =========================================================
           SEÇÃO 5: CONHEÇA AS OUTRAS PROFISSÕES REGULAMENTADAS
          ========================================================= */}
       <section className="py-12 md:py-16 bg-white border-b border-neutral-200">
@@ -626,6 +593,11 @@ export default function PsicologosSegment() {
       {/* =========================================================
           SEÇÃO 8: CONTINUE LENDO (2 cards)
          ========================================================= */}
+      <SegmentFaq
+        heading="Dúvidas recorrentes sobre contabilidade para psicólogos"
+        items={FAQ_ITEMS}
+      />
+
       <ContinueReading
         items={[
           {

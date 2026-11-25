@@ -3,12 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
+import { SegmentFaq } from '@/components/SegmentFaq'
 import { useSeo } from '@/hooks/use-seo'
 import { ProfessionExerciseForm } from '@/components/ProfessionExerciseForm'
 import { ArquitetosCnaeSection } from '@/components/ArquitetosCnaeSection'
@@ -114,33 +109,37 @@ const POR_QUE_PERES_PERES = [
   },
 ]
 
-// 5 Perguntas e Respostas do FAQ (textos verbatim)
+// 6 Perguntas e Respostas do FAQ (textos verbatim)
 const FAQ_ITEMS = [
   {
     question: 'Arquiteto pode ser MEI?',
     answer:
-      'Não. A arquitetura e urbanismo não consta do Anexo XI da Resolução CGSN nº 140/2018 (editada com base no art. 18-A da LC 123/2006), que é uma lista fechada de ocupações autorizadas ao MEI — quem não está nela não pode. A via correta é a pessoa jurídica: sociedade limitada unipessoal enquadrada no Simples Nacional, em que a arquitetura é tributada no Anexo III (LC 123/2006, art. 18, § 5º-B, XVIII) e migra para o Anexo V quando o Fator R fica abaixo de 28%.',
+      'Não. A arquitetura e urbanismo não consta do Anexo XI da Resolução CGSN nº 140/2018, lista fechada de ocupações autorizadas ao MEI. A via correta é a pessoa jurídica, normalmente a sociedade limitada unipessoal optante pelo Simples Nacional.',
   },
   {
-    question: 'Arquiteto deve optar pelo Simples Nacional?',
+    question: 'Qual o CNAE de arquitetura?',
     answer:
-      'Depende dos números, mas o ponto de partida é que a arquitetura é permitida no Simples e está entre as atividades tributadas no Anexo III, de alíquotas menores, desde que o Fator R se mantenha em 28% ou mais. Quando a margem é alta e as despesas dedutíveis são relevantes, o Lucro Presumido pode ser comparativamente melhor. A decisão precisa vir de simulação.',
+      'O código principal é 7110-3/00, serviços de arquitetura e urbanismo. Códigos secundários podem ser incluídos conforme os serviços oferecidos, e a tabela desta página lista os mais comuns antes da escolha do enquadramento.',
   },
   {
-    question: 'Como funciona o Fator R para o arquiteto na prática?',
+    question: 'Arquiteto pode usar arquitetura no nome da empresa?',
     answer:
-      'É a razão entre a folha de pagamento, incluindo o pró-labore, dos últimos 12 meses, e a receita bruta dos últimos 12 meses. Quando o resultado se mantém em 28% ou mais, a atividade permanece no Anexo III. Abaixo disso, migra para o Anexo V. Como o cálculo é refeito todo mês, o planejamento de pró-labore e de contratação é o que mantém o arquiteto no anexo mais vantajoso.',
+      'Pode, desde que a empresa tenha registro no CAU e sócios ou responsáveis técnicos com formação e registro profissional, condição exigida para o uso do termo na razão social (Lei 12.378/2010).',
   },
   {
-    question:
-      'Como tratar serviço prestado para construtora ou órgão público com retenções na nota?',
+    question: 'Qual o anexo do Simples?',
     answer:
-      'Depende do contratante e da natureza do serviço. Retenções de imposto de renda, contribuição previdenciária e ISS têm regras próprias, e a conciliação entre o valor retido, o valor faturado e o valor recebido precisa estar na escrituração. Não existe percentual único aplicável a todos os contratos.',
+      'A arquitetura é tributada no Anexo III do Simples Nacional (LC 123/2006, art. 18, § 5º-B, XVIII), desde que o Fator R se mantenha em 28% ou mais. Abaixo desse percentual, a tributação migra para o Anexo V, de alíquotas maiores.',
   },
   {
-    question: 'O RRT é despesa dedutível da PJ?',
+    question: 'Projeto de interiores tem código próprio?',
     answer:
-      'O RRT é custo inerente ao exercício da atividade e, como despesa da pessoa jurídica, deve ser lançado na contabilidade e não no bolso do profissional. A dedutibilidade para fins de apuração depende do regime adotado, e a classificação correta precisa ser feita conforme o regime da empresa.',
+      'Tem. O CNAE 7410-2/99, design de interiores, cobre o projeto de interiores quando o serviço se limita ao design de ambientes. Quando há projeto arquitetônico de obra, o código é o 7110-3/00, e a combinação precisa refletir o que a empresa realmente executa.',
+  },
+  {
+    question: 'Arquiteto precisa de registro no CAU?',
+    answer:
+      'Sim. A pessoa jurídica que presta serviços de arquitetura e urbanismo precisa de registro no CAU, com responsável técnico (Lei 12.378/2010). O RRT da empresa acompanha cada projeto, e os códigos de CNAE precisam ser compatíveis com as atividades registradas.',
   },
 ]
 
@@ -486,39 +485,6 @@ export default function ArquitetosSegment() {
       </section>
 
       {/* =========================================================
-          SEÇÃO 4: FAQ (5 perguntas e respostas verbatim com rich snippet)
-         ========================================================= */}
-      <section className="py-14 md:py-20 bg-neutral-50 border-b border-neutral-200">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <span className="text-xs uppercase tracking-wider text-neutral-500 font-semibold block font-sans">
-              Perguntas frequentes
-            </span>
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
-              Dúvidas recorrentes sobre contabilidade para arquitetos
-            </h2>
-          </div>
-
-          <Accordion type="single" collapsible className="w-full space-y-3">
-            {FAQ_ITEMS.map((item, idx) => (
-              <AccordionItem
-                key={idx}
-                value={`item-${idx}`}
-                className="bg-white border border-neutral-200 rounded-lg px-6 py-1 data-[state=open]:border-neutral-300 shadow-sm"
-              >
-                <AccordionTrigger className="text-left font-sans font-semibold text-base sm:text-lg text-black hover:no-underline py-4">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="font-sans text-sm sm:text-base text-neutral-700 leading-relaxed pb-4 pt-1">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
-
-      {/* =========================================================
           SEÇÃO 5: CONHEÇA AS OUTRAS PROFISSÕES REGULAMENTADAS
          ========================================================= */}
       <section className="py-12 md:py-16 bg-white border-b border-neutral-200">
@@ -627,6 +593,11 @@ export default function ArquitetosSegment() {
       {/* =========================================================
           SEÇÃO 8: CONTINUE LENDO (2 cards)
          ========================================================= */}
+      <SegmentFaq
+        heading="Dúvidas recorrentes sobre contabilidade para arquitetos"
+        items={FAQ_ITEMS}
+      />
+
       <ContinueReading
         items={[
           {

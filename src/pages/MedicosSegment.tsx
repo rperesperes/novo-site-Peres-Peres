@@ -3,12 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
+import { SegmentFaq } from '@/components/SegmentFaq'
 import { useSeo } from '@/hooks/use-seo'
 import { ProfessionExerciseForm } from '@/components/ProfessionExerciseForm'
 import { MedicosCnaeSection } from '@/components/MedicosCnaeSection'
@@ -119,37 +114,37 @@ const POR_QUE_PERES_PERES = [
   },
 ]
 
-// 5 Perguntas e Respostas do FAQ (textos verbatim)
+// 6 Perguntas e Respostas do FAQ (textos verbatim)
 const FAQ_ITEMS = [
   {
     question: 'Médico pode ser MEI?',
     answer:
-      'Não. A medicina não consta do Anexo XI da Resolução CGSN nº 140/2018 (editada com base no art. 18-A da LC 123/2006), que é uma lista fechada de ocupações autorizadas ao MEI — quem não está nela não pode. A via correta é a pessoa jurídica: sociedade limitada unipessoal enquadrada no Simples Nacional, em que a medicina é tributada conforme o Fator R, entre os Anexos III e V.',
+      'Não. A medicina não consta do Anexo XI da Resolução CGSN nº 140/2018, lista fechada de ocupações autorizadas ao MEI. A via correta é a pessoa jurídica, como sociedade limitada unipessoal no Simples Nacional.',
   },
   {
-    question: 'O que é PJ unipessoal e é a melhor estrutura para o médico?',
+    question: 'Qual o CNAE de médico?',
     answer:
-      'PJ unipessoal é a sociedade limitada com um único sócio, também chamada de LTDA unipessoal. É a estrutura mais comum para o médico que passa a atuar como pessoa jurídica, porque separa o patrimônio pessoal do negócio e permite enquadramento tributário próprio. Se é a melhor estrutura depende do faturamento, das despesas dedutíveis e de como o médico pretende atuar, e essa resposta só existe com os números na mão.',
+      'O código mais comum para a atividade médica é 8630-5/03, atividade médica ambulatorial restrita a consultas. Clínicas com procedimentos usam códigos da classe 8630-5, e o enquadramento correto é verificado antes da abertura.',
   },
   {
-    question: 'Simples Nacional ou Lucro Presumido para médico?',
+    question: 'Como funciona o Fator R para médicos?',
     answer:
-      'Depende dos números, mas o ponto de partida é que a atividade médica é permitida no Simples Nacional (LC 123/2006, art. 17, V, "e") e é tributada nos Anexos III ou V, conforme o Fator R. Quando a margem é alta e as despesas dedutíveis são relevantes, o Lucro Presumido pode ser comparativamente melhor. A decisão precisa vir de simulação, não de regra geral.',
+      'É a razão entre a folha de pagamento, incluindo o pró-labore, e a receita bruta dos últimos 12 meses. Com resultado igual ou superior a 28%, a medicina fica no Anexo III do Simples; abaixo disso, no Anexo V. O cálculo é refeito todo mês.',
   },
   {
-    question: 'Como funciona o Fator R na prática?',
+    question: 'Qual o anexo do Simples para medicina?',
     answer:
-      'É a razão entre a folha de pagamento, incluindo o pró-labore, dos últimos 12 meses, e a receita bruta dos últimos 12 meses. Resultado igual ou superior a 28% enquadra no Anexo III, de alíquotas menores. Abaixo disso, no Anexo V. O cálculo é refeito todo mês, então mudanças de pró-labore e contratação alteram a guia do mês seguinte.',
+      'A atividade médica é permitida no Simples Nacional (LC 123/2006, art. 17, V, "e") e é tributada no Anexo III ou no Anexo V, conforme o Fator R (LC 123/2006, art. 18, § 5º-B, VII).',
   },
   {
-    question: 'Todo valor retirado precisa ser pró-labore?',
+    question: 'Consulta médica tem presunção reduzida?',
     answer:
-      'Não. O sócio pode receber pró-labore, que tem contribuição previdenciária, e distribuição de lucros, que não tem, desde que a empresa tenha lucro apurado e a distribuição respeite os limites aplicáveis. A definição de quanto vai para cada rubrica é decisão técnica com efeito direto no imposto, na contribuição e na proteção previdenciária do médico.',
+      'Não. No Lucro Presumido, a presunção de lucro de serviços é de 32% (Lei nº 9.249/1995, art. 15), e a medicina não tem percentual reduzido. A leitura de presunção reduzida costuma se confundir com o Fator R, que só vale dentro do Simples Nacional.',
   },
   {
-    question: 'Vocês atendem médicos fora de Brasília?',
+    question: 'Médico pode emitir nota para plano de saúde?',
     answer:
-      'Sim. A sede é em Brasília/DF, com atendimento em todo o Brasil, de forma presencial ou remota.',
+      'Pode. A PJ do médico emite nota fiscal de serviços para a operadora pelo valor do repasse recebido, e a conciliação entre glosas, retenções e repasses precisa estar na escrituração do mês.',
   },
 ]
 
@@ -513,39 +508,6 @@ export default function MedicosSegment() {
       </section>
 
       {/* =========================================================
-          SEÇÃO 4: FAQ (5 perguntas e respostas verbatim com rich snippet)
-         ========================================================= */}
-      <section className="py-14 md:py-20 bg-neutral-50 border-b border-neutral-200">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <span className="text-xs uppercase tracking-wider text-neutral-500 font-semibold block font-sans">
-              Perguntas frequentes
-            </span>
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
-              Dúvidas recorrentes sobre contabilidade para médicos
-            </h2>
-          </div>
-
-          <Accordion type="single" collapsible className="w-full space-y-3">
-            {FAQ_ITEMS.map((item, idx) => (
-              <AccordionItem
-                key={idx}
-                value={`item-${idx}`}
-                className="bg-white border border-neutral-200 rounded-lg px-6 py-1 data-[state=open]:border-neutral-300 shadow-sm"
-              >
-                <AccordionTrigger className="text-left font-sans font-semibold text-base sm:text-lg text-black hover:no-underline py-4">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="font-sans text-sm sm:text-base text-neutral-700 leading-relaxed pb-4 pt-1">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
-
-      {/* =========================================================
           SEÇÃO 5: CONHEÇA AS OUTRAS PROFISSÕES REGULAMENTADAS
          ========================================================= */}
       <section className="py-12 md:py-16 bg-white border-b border-neutral-200">
@@ -654,6 +616,11 @@ export default function MedicosSegment() {
       {/* =========================================================
           SEÇÃO 8: CONTINUE LENDO (2 cards)
          ========================================================= */}
+      <SegmentFaq
+        heading="Dúvidas recorrentes sobre contabilidade para médicos"
+        items={FAQ_ITEMS}
+      />
+
       <ContinueReading
         items={[
           {

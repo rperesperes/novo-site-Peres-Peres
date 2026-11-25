@@ -3,12 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
+import { SegmentFaq } from '@/components/SegmentFaq'
 import { useSeo } from '@/hooks/use-seo'
 import { ContinueReading } from '@/components/ContinueReading'
 import { EducacaoCnaeSection } from '@/components/EducacaoCnaeSection'
@@ -113,32 +108,37 @@ const POR_QUE_PERES_PERES = [
   },
 ]
 
-// 5 Perguntas e Respostas do FAQ (textos verbatim)
+// 6 Perguntas e Respostas do FAQ (textos verbatim)
 const FAQ_ITEMS = [
   {
-    question: 'Escola e curso livre são tributados da mesma forma?',
+    question: 'Escola pode ser MEI?',
     answer:
-      'Não. A natureza da instituição muda o tratamento. Escola com fins lucrativos é contribuinte normal e pode ser optante do Simples Nacional, conforme a atividade. Instituição de educação sem fins lucrativos pode alcançar a imunidade sobre impostos prevista no art. 150, VI, "c", da Constituição Federal, desde que atenda aos requisitos constitucionais e legais. Curso livre com fins lucrativos não tem imunidade.',
+      'Não. O ensino não consta do Anexo XI da Resolução CGSN nº 140/2018, lista fechada de ocupações autorizadas ao MEI, e escolas têm limites próprios de faturamento e estrutura. O caminho é a pessoa jurídica, com enquadramento conforme a atividade de ensino.',
   },
   {
-    question: 'Escola sem fins lucrativos é sempre imune?',
+    question: 'Qual o CNAE de curso livre?',
     answer:
-      'Não. A imunidade depende do atendimento dos requisitos constitucionais e legais, e precisa ser comprovada e mantida. Entidade beneficente de assistência social que atua em educação tem, adicionalmente, certificação própria com exigências contínuas.',
+      'Os códigos mais comuns são do grupo 8591-0, como 8591-1/00 para ensino de arte e cultura e 8592-9/99 para ensino de formação profissional em geral. A tabela desta página lista os códigos mais usados antes da escolha do enquadramento.',
   },
   {
-    question: 'Quando o instrutor pode ser contratado como MEI — e quando não pode?',
+    question: 'Qual o anexo do Simples para ensino?',
     answer:
-      'Depende de como a contratação acontece na prática. MEI é figura com limites de faturamento e de atividade, e a contratação de instrutor com pessoalidade, habitualidade e subordinação cria risco de reconhecimento de vínculo, independentemente do documento assinado. O desenho do contrato e a rotina de execução precisam ser compatíveis.',
+      'Ensino com fins lucrativos é permitido no Simples Nacional e tributado no Anexo III (LC 123/2006, art. 18, § 5º-B, IX), com alíquota reajustada pelo Fator R. Abaixo de 28% de folha sobre receita, a tributação migra para o Anexo V.',
   },
   {
-    question: 'Como organizar o caixa de uma escola com sazonalidade de matrícula?',
+    question: 'Material didático tem presunção diferente da mensalidade?',
     answer:
-      'Separando o que é receita recebida do que é receita ainda não prestada. Matrícula anual paga em parcelas, semestralidade e pacote de curso precisam de controle de receita antecipada, com orçamento anual alinhado ao calendário letivo e projeção de caixa por período, não apenas pelo mês corrente.',
+      'Tem. A venda de material didático é revenda de mercadoria e não recebe o tratamento de serviço de ensino, com base e tributos próprios. A segregação entre mensalidade e material na escrituração define o enquadramento correto de cada receita.',
   },
   {
-    question: 'Como estruturar filiais, franquias ou polos?',
+    question: 'Escola sem fins lucrativos tem imunidade?',
     answer:
-      'Cada unidade tem obrigações cadastrais, fiscais e trabalhistas próprias, e a estrutura societária precisa refletir o modelo escolhido. A decisão entre filial, unidade própria em sociedade separada, franquia ou polo credenciado tem efeito fiscal, trabalhista e de responsabilidade, e deve ser tomada antes da abertura.',
+      'Pode ter. A imunidade do art. 150, VI, "c", da Constituição Federal alcança instituições de educação sem fins lucrativos que atendam aos requisitos constitucionais e legais, e o enquadramento precisa ser comprovado e mantido, não assumido.',
+  },
+  {
+    question: 'Como declarar receita de matrícula?',
+    answer:
+      'A matrícula integra a receita da instituição e é escriturada como tal, com o competência conforme a prestação do serviço. Matrícula anual paga em parcelas exige controle de receita antecipada alinhado ao calendário letivo.',
   },
 ]
 
@@ -488,39 +488,6 @@ export default function EducacaoTreinamentosSegment() {
       </section>
 
       {/* =========================================================
-          SECAO 4: FAQ (5 perguntas e respostas com rich snippet)
-         ========================================================= */}
-      <section className="py-14 md:py-20 bg-neutral-50 border-b border-neutral-200">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <span className="text-xs uppercase tracking-wider text-neutral-500 font-semibold block font-sans">
-              Perguntas frequentes
-            </span>
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
-              Dúvidas recorrentes sobre contabilidade para escolas e cursos
-            </h2>
-          </div>
-
-          <Accordion type="single" collapsible className="w-full space-y-3">
-            {FAQ_ITEMS.map((item, idx) => (
-              <AccordionItem
-                key={idx}
-                value={`item-${idx}`}
-                className="bg-white border border-neutral-200 rounded-lg px-6 py-1 data-[state=open]:border-neutral-300 shadow-sm"
-              >
-                <AccordionTrigger className="text-left font-sans font-semibold text-base sm:text-lg text-black hover:no-underline py-4">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="font-sans text-sm sm:text-base text-neutral-700 leading-relaxed pb-4 pt-1">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
-
-      {/* =========================================================
           SECAO 5: OUTROS SEGMENTOS ATENDIDOS
          ========================================================= */}
       <section className="py-12 md:py-16 bg-white border-b border-neutral-200">
@@ -594,6 +561,11 @@ export default function EducacaoTreinamentosSegment() {
       {/* =========================================================
         SEÇÃO: CONTINUE LENDO (2 cards)
        ========================================================= */}
+      <SegmentFaq
+        heading="Dúvidas recorrentes sobre contabilidade para escolas e cursos"
+        items={FAQ_ITEMS}
+      />
+
       <ContinueReading
         items={[
           {

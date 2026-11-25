@@ -3,12 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
+import { SegmentFaq } from '@/components/SegmentFaq'
 import { useSeo } from '@/hooks/use-seo'
 import { ProfessionExerciseForm } from '@/components/ProfessionExerciseForm'
 import { EngenheirosCnaeSection } from '@/components/EngenheirosCnaeSection'
@@ -114,32 +109,37 @@ const POR_QUE_PERES_PERES = [
   },
 ]
 
-// 5 Perguntas e Respostas do FAQ (textos verbatim)
+// 6 Perguntas e Respostas do FAQ (textos verbatim)
 const FAQ_ITEMS = [
   {
     question: 'Engenheiro pode ser MEI?',
     answer:
-      'Não. A engenharia não consta do Anexo XI da Resolução CGSN nº 140/2018 (editada com base no art. 18-A da LC 123/2006), que é uma lista fechada de ocupações autorizadas ao MEI — quem não está nela não pode. A via correta é a pessoa jurídica: sociedade limitada unipessoal enquadrada no Simples Nacional, em que a engenharia é tributada no Anexo V (LC 123/2006, art. 18, § 5º-I, VI) e migra para o Anexo III quando o Fator R alcança 28%.',
+      'Não. A engenharia não consta do Anexo XI da Resolução CGSN nº 140/2018, lista fechada de ocupações autorizadas ao MEI. A via correta é a pessoa jurídica, normalmente a sociedade limitada unipessoal optante pelo Simples Nacional.',
   },
   {
-    question: 'Engenheiro deve optar pelo Simples Nacional?',
+    question: 'Qual o CNAE de engenharia?',
     answer:
-      'Depende dos números, mas o ponto de partida é que a engenharia é permitida no Simples e sua tributação começa no Anexo V, subindo para o Anexo III quando o Fator R alcança 28%. Quando a margem é alta e as despesas dedutíveis são relevantes, o Lucro Presumido pode ser comparativamente melhor. A decisão precisa vir de simulação.',
+      'O código depende do ramo: 7112-0/00 para engenharia (atividade multidisciplinar), além de códigos próprios para cada especialidade, como 7119-7/99 ou 7119-7/01. A tabela desta página lista os códigos mais comuns antes da escolha do enquadramento.',
   },
   {
-    question: 'Como funciona o Fator R para o engenheiro na prática?',
+    question: 'Qual o anexo do Simples para engenharia?',
     answer:
-      'É a razão entre a folha de pagamento, incluindo o pró-labore, dos últimos 12 meses, e a receita bruta dos últimos 12 meses. Quando o resultado alcança 28%, a tributação migra do Anexo V para o Anexo III, de alíquotas menores. Como o cálculo é refeito todo mês, o planejamento de pró-labore e de contratação é o que mantém o engenheiro no anexo mais vantajoso.',
+      'A engenharia é tributada no Anexo V do Simples Nacional (LC 123/2006, art. 18, § 5º-I, VI). Quando o Fator R alcança 28%, a tributação migra para o Anexo III, de alíquotas menores, e o cálculo é refeito mês a mês.',
   },
   {
-    question: 'Como tratar serviço prestado para construtora com retenções na nota?',
+    question: 'Quando se aplica a presunção de oito por cento?',
     answer:
-      'Depende do contratante e da natureza do serviço. Retenções de imposto de renda, contribuição previdenciária e ISS têm regras próprias, e a conciliação entre o valor retido, o valor faturado e o valor recebido precisa estar na escrituração. Não existe percentual único aplicável a todos os contratos.',
+      'No Lucro Presumido, a presunção de 8% sobre a receita de serviços de engenharia decorre do art. 15 da Lei 9.249/1995. Sobre essa base incidem IRPJ, CSLL, PIS e Cofins, e a escolha entre regimes precisa vir de simulação com os números reais.',
   },
   {
-    question: 'A ART é despesa dedutível da PJ?',
+    question: 'O que é Fator R?',
     answer:
-      'A ART é custo inerente ao exercício da atividade e, como despesa da pessoa jurídica, deve ser lançada na contabilidade e não no bolso do profissional. A dedutibilidade para fins de apuração depende do regime adotado, e a classificação correta precisa ser feita conforme o regime da empresa.',
+      'É a razão entre a folha de pagamento, incluindo o pró-labore, e a receita bruta dos últimos 12 meses. No Simples, resultado igual ou superior a 28% conduz do Anexo V ao Anexo III, de alíquotas menores, e o cálculo é refeito todo mês.',
+  },
+  {
+    question: 'Engenheiro precisa de registro no CREA como pessoa jurídica?',
+    answer:
+      'Sim. A pessoa jurídica que presta serviços de engenharia precisa de registro no CREA, com responsável técnico (Lei 5.194/1966). A ART da empresa acompanha cada contrato, e os códigos de CNAE precisam ser compatíveis com as atividades registradas.',
   },
 ]
 
@@ -485,39 +485,6 @@ export default function EngenheirosSegment() {
       </section>
 
       {/* =========================================================
-          SEÇÃO 4: FAQ (5 perguntas e respostas verbatim com rich snippet)
-         ========================================================= */}
-      <section className="py-14 md:py-20 bg-neutral-50 border-b border-neutral-200">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <span className="text-xs uppercase tracking-wider text-neutral-500 font-semibold block font-sans">
-              Perguntas frequentes
-            </span>
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
-              Dúvidas recorrentes sobre contabilidade para engenheiros
-            </h2>
-          </div>
-
-          <Accordion type="single" collapsible className="w-full space-y-3">
-            {FAQ_ITEMS.map((item, idx) => (
-              <AccordionItem
-                key={idx}
-                value={`item-${idx}`}
-                className="bg-white border border-neutral-200 rounded-lg px-6 py-1 data-[state=open]:border-neutral-300 shadow-sm"
-              >
-                <AccordionTrigger className="text-left font-sans font-semibold text-base sm:text-lg text-black hover:no-underline py-4">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="font-sans text-sm sm:text-base text-neutral-700 leading-relaxed pb-4 pt-1">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
-
-      {/* =========================================================
           SEÇÃO 5: CONHEÇA AS OUTRAS PROFISSÕES REGULAMENTADAS
          ========================================================= */}
       <section className="py-12 md:py-16 bg-white border-b border-neutral-200">
@@ -626,6 +593,11 @@ export default function EngenheirosSegment() {
       {/* =========================================================
           SEÇÃO 8: CONTINUE LENDO (2 cards)
          ========================================================= */}
+      <SegmentFaq
+        heading="Dúvidas recorrentes sobre contabilidade para engenheiros"
+        items={FAQ_ITEMS}
+      />
+
       <ContinueReading
         items={[
           {

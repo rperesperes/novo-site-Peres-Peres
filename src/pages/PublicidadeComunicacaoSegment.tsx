@@ -3,12 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
+import { SegmentFaq } from '@/components/SegmentFaq'
 import { useSeo } from '@/hooks/use-seo'
 import { ContinueReading } from '@/components/ContinueReading'
 import {
@@ -113,32 +108,37 @@ const POR_QUE_PERES_PERES = [
   },
 ]
 
-// 5 Perguntas e Respostas do FAQ (textos verbatim)
+// 6 Perguntas e Respostas do FAQ (textos verbatim)
 const FAQ_ITEMS = [
   {
-    question: 'A agência tributa sobre a verba de mídia ou só sobre a comissão?',
+    question: 'Agência de publicidade pode ser MEI?',
     answer:
-      'Depende de como a operação está estruturada: quem é a parte no contrato com o veículo, quem fatura e em que condição o repasse acontece. Contrato mal desenhado faz a agência apurar imposto sobre valor que é repasse, e isso é corrigível com ajuste de contrato e de parametrização, desde que feito de forma organizada.',
+      'Não. As atividades de publicidade não constam do Anexo XI da Resolução CGSN nº 140/2018, lista fechada de ocupações autorizadas ao MEI. O caminho é a pessoa jurídica, normalmente sociedade limitada optante pelo Simples Nacional.',
   },
   {
-    question: 'A agência precisa reter INSS dos prestadores? Sobre o quê?',
+    question: 'Qual o CNAE de agência?',
     answer:
-      'O setor de comunicação tem regras próprias de retenção previdenciária sobre serviços terceirizados, e a resposta depende da atividade do prestador, do CNAE da agência e da forma do contrato. É um dos pontos que mais geram autuação no setor, e precisa de rotina mensal organizada, não de improviso.',
+      'O código mais comum é 7310-0/00, agências de publicidade. Códigos secundários cobrem atividades como produção de eventos e pesquisa de mercado, e a tabela desta página lista os mais usados antes da escolha do enquadramento.',
   },
   {
-    question: 'Como precificar o job sem perder margem tributária?',
+    question: 'Verba de mídia entra na base de cálculo?',
     answer:
-      'Incluindo o tributo na composição do preço desde a proposta, considerando a retenção que o cliente vai fazer, a comissão da agência e o custo dos prestadores. Preço formado só sobre custo criativo esconde um imposto que vai sair do caixa no fechamento.',
+      'Depende de quem é a parte no contrato com o veículo e em que condição o repasse acontece. Contrato mal desenhado faz a agência apurar imposto sobre valor que é repasse, o que é corrigível com ajuste de contrato e de parametrização.',
   },
   {
-    question: 'Contratar influenciador e creator tem risco trabalhista?',
+    question: 'Qual o anexo do Simples para publicidade?',
     answer:
-      'Tem, quando a relação na prática tem pessoalidade, habitualidade e subordinação, mesmo com contrato de prestação de serviços assinado. O desenho do contrato e a rotina de execução precisam ser compatíveis com o que se pretende formalizar.',
+      'A publicidade é permitida no Simples Nacional e tributada no Anexo III (LC 123/2006, art. 18, § 5º-B, XII), com alíquota reajustada pelo Fator R. Abaixo de 28% de folha sobre receita, a tributação migra para o Anexo V.',
   },
   {
-    question: 'Vocês atendem agências fora de Brasília?',
+    question: 'Qual o ISS de publicidade?',
     answer:
-      'Sim. A sede é em Brasília/DF, com atendimento em todo o Brasil, de forma presencial ou remota.',
+      'O ISS incide sobre os serviços de publicidade conforme a lista da LC nº 116/2003, com alíquota definida pelo município, dentro do piso de 5% fixado no art. 8º-A. A separação entre comissão e repasse de mídia define a base.',
+  },
+  {
+    question: 'Agência pode ter sócio de outra empresa?',
+    answer:
+      'Pode, desde que a outra empresa não seja vedada pela LC 123/2006, art. 3º, § 4º, II. Sociedade com participação de empresa fora do Simples não impede a opção, mas a participação em holding familiar muda o enquadramento e precisa ser avaliada antes.',
   },
 ]
 
@@ -482,39 +482,6 @@ export default function PublicidadeComunicacaoSegment() {
       </section>
 
       {/* =========================================================
-          SECAO 4: FAQ (5 perguntas e respostas com rich snippet)
-         ========================================================= */}
-      <section className="py-14 md:py-20 bg-neutral-50 border-b border-neutral-200">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <span className="text-xs uppercase tracking-wider text-neutral-500 font-semibold block font-sans">
-              Perguntas frequentes
-            </span>
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
-              Dúvidas recorrentes sobre contabilidade para agências de publicidade
-            </h2>
-          </div>
-
-          <Accordion type="single" collapsible className="w-full space-y-3">
-            {FAQ_ITEMS.map((item, idx) => (
-              <AccordionItem
-                key={idx}
-                value={`item-${idx}`}
-                className="bg-white border border-neutral-200 rounded-lg px-6 py-1 data-[state=open]:border-neutral-300 shadow-sm"
-              >
-                <AccordionTrigger className="text-left font-sans font-semibold text-base sm:text-lg text-black hover:no-underline py-4">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="font-sans text-sm sm:text-base text-neutral-700 leading-relaxed pb-4 pt-1">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
-
-      {/* =========================================================
           SECAO 5: OUTROS SEGMENTOS ATENDIDOS
          ========================================================= */}
       <section className="py-12 md:py-16 bg-white border-b border-neutral-200">
@@ -588,6 +555,11 @@ export default function PublicidadeComunicacaoSegment() {
       {/* =========================================================
           SEÇÃO 7: CONTINUE LENDO (2 cards)
          ========================================================= */}
+      <SegmentFaq
+        heading="Dúvidas recorrentes sobre contabilidade para agências de publicidade"
+        items={FAQ_ITEMS}
+      />
+
       <ContinueReading
         items={[
           {

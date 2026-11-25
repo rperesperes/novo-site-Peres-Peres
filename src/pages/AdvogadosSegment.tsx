@@ -11,16 +11,11 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
 import { useSeo } from '@/hooks/use-seo'
 import { ProfessionExerciseForm } from '@/components/ProfessionExerciseForm'
 import { AdvogadosCnaeSection } from '@/components/AdvogadosCnaeSection'
 import { ContinueReading } from '@/components/ContinueReading'
+import { SegmentFaq } from '@/components/SegmentFaq'
 import {
   Scale,
   Receipt,
@@ -120,33 +115,37 @@ const POR_QUE_PERES_PERES = [
   },
 ]
 
-// 5 Perguntas e Respostas do FAQ (textos verbatim com correção de grafia de "município")
+// 6 Perguntas e Respostas do FAQ (textos verbatim)
 const FAQ_ITEMS = [
   {
-    question:
-      'Advogado deve atuar como autônomo, como sociedade de advogados ou como sociedade limitada?',
+    question: 'Advogado pode ser MEI?',
     answer:
-      'Não existe resposta única. O MEI é vedado à advocacia, então a decisão real é entre atuar como pessoa física, como sociedade de advogados registrada na OAB ou como sociedade limitada. Cada formato tem regime tributário, exigências de registro e efeito de responsabilidade distintos, e a escolha depende do faturamento, da quantidade de sócios e do objetivo do escritório.',
+      'Não. A advocacia não consta do Anexo XI da Resolução CGSN nº 140/2018, lista fechada de ocupações autorizadas ao MEI. As vias possíveis são a atuação como pessoa física, a sociedade de advogados registrada na OAB ou a sociedade limitada, cada uma com regime e exigências próprios.',
   },
   {
-    question: 'Sociedade de advogados pode optar pelo Simples Nacional?',
+    question: 'Advogado pode ser sócio de outra empresa?',
     answer:
-      'Pode, desde a LC nº 147/2014. A sociedade de advogados é tributada no Anexo IV do Simples Nacional (LC 123/2006, art. 18, § 5º-C, VII), com alíquota inicial de 4,5%, mas a contribuição previdenciária patronal (20% sobre a folha) não está incluída no DAS e é recolhida em guia separada. Isso muda a comparação com o Lucro Presumido, porque a conta precisa somar o DAS mais o INSS patronal, e não apenas a alíquota do anexo.',
+      'Pode. Não há vedação ao advogado como sócio de empresa de outro segmento, e a participação em outras pessoas jurídicas é comum. O que a Lei nº 8.906/1994, art. 15, restringe é a forma da sociedade de advogados, que não pode assumir natureza mercantil de atividade estranha à advocacia.',
   },
   {
-    question: 'Como tributar honorários sucumbenciais?',
+    question: 'Qual o regime tributário de uma sociedade de advogados?',
     answer:
-      'Os honorários de sucumbência são direito autônomo do advogado e não se confundem com os honorários contratuais (Lei nº 8.906/1994, art. 22). O tratamento do recebimento envolve questões de retenção, de eventual discussão sobre incidência e de rateio com o cliente, e precisa ser analisado conforme o caso, porque há controvérsia sobre a tributação em determinadas hipóteses.',
+      'Desde a LC nº 147/2014, a sociedade de advogados pode optar pelo Simples Nacional e é tributada no Anexo IV (LC 123/2006, art. 18, § 5º-C, VII), com a contribuição previdenciária patronal recolhida fora do DAS. Em regime normal, aplica-se o Lucro Presumido, com presunção de 32% para serviços (Lei nº 9.249/1995, art. 15).',
   },
   {
-    question: 'Como funciona o ISS quando atuo em município diferente da sede?',
+    question: 'Qual o CNAE de escritório de advocacia?',
     answer:
-      'O ISS é devido ao município competente, e a competência depende do estabelecimento prestador e das regras do município, o que exige atenção quando a atuação ocorre fora do domicílio do escritório. Não existe regra única aplicável a todas as situações, e a definição precisa considerar o município envolvido e o formato da prestação.',
+      'O CNAE principal é 6911-7/01, serviços de advocacia. Os códigos secundários dependem das atividades acessórias do escritório, e a tabela desta página lista os mais comuns antes da escolha do enquadramento.',
   },
   {
-    question: 'A anuidade da OAB tem tratamento tributário próprio?',
+    question: 'Advogado pode optar pelo Simples Nacional?',
     answer:
-      'A anuidade da OAB é despesa própria do exercício profissional, e o tratamento para fins de apuração depende do regime adotado e da forma de escrituração. Em determinados regimes há limitação para despesas que não se enquadrem como custo direto da atividade, e a classificação correta precisa ser feita conforme o regime do escritório.',
+      'Depende do formato. A sociedade de advogados pode optar desde a LC nº 147/2014 e fica no Anexo IV, com contribuição patronal fora do DAS. A sociedade unipessoal de advocacia (Lei nº 13.338/2016) segue o mesmo enquadramento do Anexo IV.',
+  },
+  {
+    question: 'Como é feito o registro na OAB da sociedade?',
+    answer:
+      'O registro do ato constitucional é feito na OAB do estado da sede, com a inscrição OAB de todos os sócios (Lei nº 8.906/1994, art. 15). É esse registro que caracteriza a sociedade de advogados e define o enquadramento como sociedade simples.',
   },
 ]
 
@@ -500,39 +499,6 @@ export default function AdvogadosSegment() {
       </section>
 
       {/* =========================================================
-          SEÇÃO 4: FAQ (5 perguntas e respostas verbatim com rich snippet)
-         ========================================================= */}
-      <section className="py-14 md:py-20 bg-neutral-50 border-b border-neutral-200">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-            <span className="text-xs uppercase tracking-wider text-neutral-500 font-semibold block font-sans">
-              Perguntas frequentes
-            </span>
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
-              Dúvidas recorrentes sobre contabilidade para advogados
-            </h2>
-          </div>
-
-          <Accordion type="single" collapsible className="w-full space-y-3">
-            {FAQ_ITEMS.map((item, idx) => (
-              <AccordionItem
-                key={idx}
-                value={`item-${idx}`}
-                className="bg-white border border-neutral-200 rounded-lg px-6 py-1 data-[state=open]:border-neutral-300 shadow-sm"
-              >
-                <AccordionTrigger className="text-left font-sans font-semibold text-base sm:text-lg text-black hover:no-underline py-4">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="font-sans text-sm sm:text-base text-neutral-700 leading-relaxed pb-4 pt-1">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
-
-      {/* =========================================================
           SEÇÃO 5: CONHEÇA AS OUTRAS PROFISSÕES REGULAMENTADAS
          ========================================================= */}
       <section className="py-12 md:py-16 bg-white border-b border-neutral-200">
@@ -641,6 +607,11 @@ export default function AdvogadosSegment() {
       {/* =========================================================
           SEÇÃO 8: CONTINUE LENDO (2 cards)
          ========================================================= */}
+      <SegmentFaq
+        heading="Dúvidas recorrentes sobre contabilidade para advogados"
+        items={FAQ_ITEMS}
+      />
+
       <ContinueReading
         items={[
           {
