@@ -12,6 +12,7 @@ import {
 import { useSeo } from '@/hooks/use-seo'
 import { ProfessionExerciseForm } from '@/components/ProfessionExerciseForm'
 import { ArquitetosCnaeSection } from '@/components/ArquitetosCnaeSection'
+import { ContinueReading } from '@/components/ContinueReading'
 import {
   Calculator,
   Building2,
@@ -155,7 +156,6 @@ const OUTRAS_PROFISSOES = [
 const OUTROS_SEGMENTOS = [
   { name: 'Clínicas Médicas e Saúde', link: '/contabilidade-para-clinicas-medicas' },
   { name: 'Startups e Empresas de Tecnologia', link: '/contabilidade-para-startups-e-tech' },
-  { name: 'Holdings Familiares e Patrimoniais', link: '/holdings-familiares-e-patrimoniais' },
   { name: 'Educação e Treinamentos', link: '/contabilidade-para-educacao-e-treinamentos' },
   { name: 'Publicidade e Comunicação', link: '/contabilidade-para-agencias-de-publicidade' },
   { name: 'Agências de Viagem', link: '/contabilidade-para-agencias-de-viagem' },
@@ -623,6 +623,28 @@ export default function ArquitetosSegment() {
           </div>
         </div>
       </section>
+
+      {/* =========================================================
+          SEÇÃO 8: CONTINUE LENDO (2 cards)
+         ========================================================= */}
+      <ContinueReading
+        items={[
+          {
+            title: 'Engenheiros',
+            description:
+              'Atuação nas duas frentes, projeto e obra, com os registros no CREA e no CAU tratados junto com o regime tributário da pessoa jurídica.',
+            to: '/profissoes-regulamentadas/engenheiros',
+            cta: 'Ver página de Engenheiros',
+          },
+          {
+            title: 'Abertura e alteração de empresas',
+            description:
+              'Constituição da PJ do arquiteto ou da sociedade de arquitetos, com enquadramento de CNAE, registro no CAU e escolha do regime tributário avaliados desde a abertura.',
+            to: '/servicos#servicos-avulsos',
+            cta: 'Ver Abertura e alteração de empresas',
+          },
+        ]}
+      />
     </div>
   )
 }

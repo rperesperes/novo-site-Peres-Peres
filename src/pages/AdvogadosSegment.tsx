@@ -20,6 +20,7 @@ import {
 import { useSeo } from '@/hooks/use-seo'
 import { ProfessionExerciseForm } from '@/components/ProfessionExerciseForm'
 import { AdvogadosCnaeSection } from '@/components/AdvogadosCnaeSection'
+import { ContinueReading } from '@/components/ContinueReading'
 import {
   Scale,
   Receipt,
@@ -161,7 +162,6 @@ const OUTRAS_PROFISSOES = [
 const OUTROS_SEGMENTOS = [
   { name: 'Clínicas Médicas e Saúde', link: '/contabilidade-para-clinicas-medicas' },
   { name: 'Startups e Empresas de Tecnologia', link: '/contabilidade-para-startups-e-tech' },
-  { name: 'Holdings Familiares e Patrimoniais', link: '/holdings-familiares-e-patrimoniais' },
   { name: 'Educação e Treinamentos', link: '/contabilidade-para-educacao-e-treinamentos' },
   { name: 'Publicidade e Comunicação', link: '/contabilidade-para-agencias-de-publicidade' },
   { name: 'Agências de Viagem', link: '/contabilidade-para-agencias-de-viagem' },
@@ -637,6 +637,28 @@ export default function AdvogadosSegment() {
           </div>
         </div>
       </section>
+
+      {/* =========================================================
+          SEÇÃO 8: CONTINUE LENDO (2 cards)
+         ========================================================= */}
+      <ContinueReading
+        items={[
+          {
+            title: 'Abertura e alteração de empresas',
+            description:
+              'Constituição da sociedade de advogados ou da PJ unipessoal do advogado, com escolha do regime tributário e registro na OAB avaliados antes do pedido na Junta Comercial.',
+            to: '/servicos#servicos-avulsos',
+            cta: 'Ver Abertura e alteração de empresas',
+          },
+          {
+            title: 'Serviços',
+            description:
+              'Conheça os serviços tributários e de contabilidade mensal da PERES PERES Consultoria & Contabilidade, do acompanhamento rotineiro à consultoria especializada.',
+            to: '/servicos',
+            cta: 'Ver Serviços',
+          },
+        ]}
+      />
     </div>
   )
 }

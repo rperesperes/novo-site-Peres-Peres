@@ -12,6 +12,7 @@ import {
 import { useSeo } from '@/hooks/use-seo'
 import { ProfessionExerciseForm } from '@/components/ProfessionExerciseForm'
 import { MedicosCnaeSection } from '@/components/MedicosCnaeSection'
+import { ContinueReading } from '@/components/ContinueReading'
 import {
   Calculator,
   Coins,
@@ -164,7 +165,6 @@ const OUTRAS_PROFISSOES = [
 const OUTROS_SEGMENTOS = [
   { name: 'Clínicas Médicas e Saúde', link: '/contabilidade-para-clinicas-medicas' },
   { name: 'Startups e Empresas de Tecnologia', link: '/contabilidade-para-startups-e-tech' },
-  { name: 'Holdings Familiares e Patrimoniais', link: '/holdings-familiares-e-patrimoniais' },
   { name: 'Educação e Treinamentos', link: '/contabilidade-para-educacao-e-treinamentos' },
   { name: 'Publicidade e Comunicação', link: '/contabilidade-para-agencias-de-publicidade' },
   { name: 'Agências de Viagem', link: '/contabilidade-para-agencias-de-viagem' },
@@ -650,6 +650,28 @@ export default function MedicosSegment() {
           </div>
         </div>
       </section>
+
+      {/* =========================================================
+          SEÇÃO 8: CONTINUE LENDO (2 cards)
+         ========================================================= */}
+      <ContinueReading
+        items={[
+          {
+            title: 'Clínicas médicas',
+            description:
+              'Quando a clínica se equipara a hospital, como fica o regime tributário e o que muda na estrutura quando entram exames e equipe de apoio.',
+            to: '/contabilidade-para-clinicas-medicas',
+            cta: 'Ver Clínicas médicas',
+          },
+          {
+            title: 'Abertura e alteração de empresas',
+            description:
+              'Constituição da PJ do médico ou da sociedade de médicos, com enquadramento de CNAE, registro no CRM e escolha do regime tributário avaliados desde a abertura.',
+            to: '/servicos#servicos-avulsos',
+            cta: 'Ver Abertura e alteração de empresas',
+          },
+        ]}
+      />
     </div>
   )
 }
