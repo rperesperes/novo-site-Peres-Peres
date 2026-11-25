@@ -106,14 +106,28 @@ const ESTRUTURA_PATRIMONIAL: SegmentoCard[] = [
   },
 ]
 
-const GRUPOS: { titulo: string; cards: SegmentoCard[]; lg: string }[] = [
+const GRUPOS: { titulo: string; abertura: string; cards: SegmentoCard[]; lg: string }[] = [
   {
     titulo: 'Profissões regulamentadas',
+    abertura:
+      'Se a sua atividade é regulamentada por conselho de classe, a primeira decisão não é quanto custa a contabilidade. É como a sua profissão pode ser tributada, e essa resposta muda conforme a forma societária escolhida.',
     cards: PROFISSOES_REGULAMENTADAS,
     lg: 'lg:grid-cols-3',
   },
-  { titulo: 'Áreas de atuação', cards: SEGMENTOS, lg: 'lg:grid-cols-3' },
-  { titulo: 'Estrutura patrimonial', cards: ESTRUTURA_PATRIMONIAL, lg: 'lg:grid-cols-3' },
+  {
+    titulo: 'Áreas de atuação',
+    abertura:
+      'Se a sua empresa já opera, o problema raramente é abrir CNPJ. É fazer a rotina do mês caber no regime certo, com a base de cálculo correta e o limite de faturamento sob controle.',
+    cards: SEGMENTOS,
+    lg: 'lg:grid-cols-3',
+  },
+  {
+    titulo: 'Estrutura patrimonial',
+    abertura:
+      'Organizar patrimônio não é serviço de contabilidade. É decisão de família e de sucessão, com efeito tributário, e por isso é tratada em separado.',
+    cards: ESTRUTURA_PATRIMONIAL,
+    lg: 'lg:grid-cols-3',
+  },
 ]
 
 function SegmentoCardItem({ item }: { item: SegmentoCard }) {
@@ -156,6 +170,9 @@ export function SegmentosGrade() {
     <div className="space-y-10">
       {GRUPOS.map((grupo) => (
         <div key={grupo.titulo}>
+          <p className="text-xs md:text-sm text-neutral-500 leading-relaxed font-sans mb-1">
+            {grupo.abertura}
+          </p>
           <h3 className="text-lg md:text-xl font-bold text-black font-sans mb-4">{grupo.titulo}</h3>
           <div className={`grid sm:grid-cols-2 ${grupo.lg} gap-6 items-stretch`}>
             {grupo.cards.map((item) => (
