@@ -27,7 +27,6 @@ import {
   GitMerge,
   History,
   LineChart,
-  Stethoscope,
 } from 'lucide-react'
 
 // Itens da Consultoria Tributária
@@ -124,58 +123,46 @@ const INTELIGENCIA_FINANCEIRA_ITEMS = [
 // Segmentos e áreas de atuação
 const SEGMENTOS_ATUACAO = [
   {
-    nome: 'Advogados (Profissões Regulamentadas)',
+    nome: 'Advogados',
     desc: 'Contabilidade e consultoria para advogados: honorários e sucumbência, ISS por município, sociedade de advogados e estrutura da banca.',
     link: '/profissoes-regulamentadas/advogados',
     linkText: 'Saiba mais informações',
-    destaque: true,
   },
   {
-    nome: 'Médicos (Profissões Regulamentadas)',
+    nome: 'Médicos',
     desc: 'Contabilidade e consultoria para médicos: PJ unipessoal, Simples Nacional, Fator R, pró-labore e distribuição de lucros.',
     link: '/profissoes-regulamentadas/medicos',
     linkText: 'Saiba mais informações',
-    destaque: true,
   },
   {
-    nome: 'Psicólogos (Profissões Regulamentadas)',
+    nome: 'Psicólogos',
     desc: 'Contabilidade e consultoria para psicólogos: PJ unipessoal, Fator R, pró-labore e atendimento online.',
     link: '/profissoes-regulamentadas/psicologos',
     linkText: 'Saiba mais informações',
-    destaque: true,
   },
   {
-    nome: 'Engenheiros (Profissões Regulamentadas)',
+    nome: 'Engenheiros',
     desc: 'Contabilidade e consultoria para engenheiros: PJ unipessoal, Fator R no Simples, retenções de contratantes e receita por medição.',
     link: '/profissoes-regulamentadas/engenheiros',
     linkText: 'Saiba mais informações',
-    destaque: true,
   },
   {
-    nome: 'Arquitetos (Profissões Regulamentadas)',
+    nome: 'Arquitetos',
     desc: 'Contabilidade e consultoria para arquitetos: PJ unipessoal, Fator R no Simples, retenções de contratantes e receita por projeto.',
     link: '/profissoes-regulamentadas/arquitetos',
     linkText: 'Saiba mais informações',
-    destaque: true,
   },
   {
     nome: 'Clínicas e Profissionais da Saúde',
     desc: 'Gestão contábil e consultoria tributária com domínio do Fator R no Simples Nacional, equiparação hospitalar e segregação de receitas para redução lícita de tributos.',
     link: '/contabilidade-para-clinicas-medicas',
     linkText: 'Saiba mais informações',
-    destaque: false,
   },
   {
     nome: 'Startups e Empresas de Tecnologia',
     desc: 'Estruturação contábil para negócios digitais, SaaS, captação de investimentos, incentivos fiscais e transição segura de regimes tributários.',
     link: '/contabilidade-para-startups-e-tech',
     linkText: 'Saiba mais informações',
-  },
-  {
-    nome: 'Profissões Regulamentadas',
-    desc: 'Atendimento direcionado a sociedades uniprofissionais, escritórios de advocacia, engenharia, arquitetura e consultoria, com apuração correta de ISS e IRPJ.',
-    link: '/contato',
-    linkText: 'Solicitar atendimento',
   },
   {
     nome: 'Holdings Familiares e Patrimoniais',
@@ -715,21 +702,13 @@ export default function Services() {
             {SEGMENTOS_ATUACAO.map((item) => (
               <Card
                 key={item.nome}
-                className={`flex flex-col justify-between transition-all duration-300 ${
-                  item.destaque
-                    ? 'border-2 border-black bg-white shadow-xl relative ring-1 ring-black/5'
-                    : 'border border-neutral-200 bg-white shadow-sm hover:shadow-md'
-                }`}
+                className="flex flex-col justify-between transition-all duration-300 border border-neutral-200 bg-white shadow-sm hover:shadow-md"
               >
                 <div>
                   <CardHeader className="pb-4">
                     <div className="flex items-center justify-between gap-2 mb-2">
                       <div className="h-10 w-10 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center">
-                        {item.destaque ? (
-                          <Stethoscope className="h-5 w-5 text-black" />
-                        ) : (
-                          <Building2 className="h-5 w-5 text-black" />
-                        )}
+                        <Building2 className="h-5 w-5 text-black" />
                       </div>
                     </div>
                     <CardTitle className="text-xl font-bold text-black font-sans">
@@ -746,11 +725,7 @@ export default function Services() {
                   <Button
                     asChild
                     variant="outline"
-                    className={`w-full font-semibold h-10 text-xs md:text-sm ${
-                      item.destaque
-                        ? 'border-black text-black hover:bg-neutral-100'
-                        : 'border-neutral-200 text-neutral-800 hover:bg-neutral-50'
-                    }`}
+                    className="w-full font-semibold h-10 text-xs md:text-sm border-neutral-200 text-neutral-800 hover:bg-neutral-50"
                   >
                     <Link
                       to={item.link}
