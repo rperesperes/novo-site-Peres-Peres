@@ -24,7 +24,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     photo: gabrielaImg,
     alt: 'Gabriela Feitosa - Contadora (CRC 031776) e Perita Contábil (CNPC 8224)',
     description:
-      'Pós graduanda em Perícia Contábil e Financeira pela Faculdade Brasileira de Contabilidade (FBC) e Bacharel em Ciências Contábeis (UnB). Concluiu o curso Veritas Perícia de Formação completa de Peritos Judiciais e Assistentes Técnicos em Cálculos Trabalhistas. Tem experiência em protocolo junto a tribunais e em execução financeira de órgãos públicos.',
+      'Pós graduanda em Perícia Contábil e Financeira, Reforma Tributária, Finanças e Controladoria pela Faculdade Brasileira de Contabilidade (FBC) e Bacharel em Ciências Contábeis (UnB). Concluiu o curso Veritas Perícia de Formação completa de Peritos Judiciais e Assistentes Técnicos em Cálculos Trabalhistas. Tem experiência em protocolo junto a tribunais e em execução financeira de órgãos públicos.',
   },
   {
     name: 'William Lisboa',

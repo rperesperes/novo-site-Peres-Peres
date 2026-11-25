@@ -106,8 +106,15 @@ const ESTRUTURA_PATRIMONIAL: SegmentoCard[] = [
   },
 ]
 
-const GRUPOS: { titulo: string; abertura: string; cards: SegmentoCard[]; lg: string }[] = [
+const GRUPOS: {
+  id: string
+  titulo: string
+  abertura: string
+  cards: SegmentoCard[]
+  lg: string
+}[] = [
   {
+    id: 'profissoes-regulamentadas',
     titulo: 'Profissões regulamentadas',
     abertura:
       'Se a sua atividade é regulamentada por conselho de classe, a primeira decisão não é quanto custa a contabilidade. É como a sua profissão pode ser tributada, e essa resposta muda conforme a forma societária escolhida.',
@@ -115,6 +122,7 @@ const GRUPOS: { titulo: string; abertura: string; cards: SegmentoCard[]; lg: str
     lg: 'lg:grid-cols-3',
   },
   {
+    id: 'areas-de-atuacao',
     titulo: 'Áreas de atuação',
     abertura:
       'Se a sua empresa já opera, o problema raramente é abrir CNPJ. É fazer a rotina do mês caber no regime certo, com a base de cálculo correta e o limite de faturamento sob controle.',
@@ -122,6 +130,7 @@ const GRUPOS: { titulo: string; abertura: string; cards: SegmentoCard[]; lg: str
     lg: 'lg:grid-cols-3',
   },
   {
+    id: 'estrutura-patrimonial',
     titulo: 'Estrutura patrimonial',
     abertura:
       'Organizar patrimônio não é serviço de contabilidade. É decisão de família e de sucessão, com efeito tributário, e por isso é tratada em separado.',
@@ -164,23 +173,77 @@ function SegmentoCardItem({ item }: { item: SegmentoCard }) {
   )
 }
 
+const ATALHOS: { href: string; texto: string; apoio: string }[] = [
+  {
+    href: '#profissoes-regulamentadas',
+    texto: 'Minha profissão é regulamentada por conselho',
+    apoio: 'OAB, CRM, CRP, CREA ou CAU. A primeira decisão é como a atividade pode ser tributada.',
+  },
+  {
+    href: '#areas-de-atuacao',
+    texto: 'Tenho empresa e preciso da rotina em ordem',
+    apoio: 'Apuração, base de cálculo, limite de faturamento e obrigações do mês.',
+  },
+  {
+    href: '#estrutura-patrimonial',
+    texto: 'Quero organizar patrimônio e sucessão',
+    apoio: 'Bens, imóveis e herdeiros, em estrutura separada da empresa.',
+  },
+]
+
+/** Atalho "Qual é o seu caso hoje?": links de âncora para os três grupos (não filtra nada). */
+function CasoAtalho() {
+  return (
+    <nav aria-labelledby="qual-caso-hoje" className="mb-10">
+      <h3
+        id="qual-caso-hoje"
+        className="text-sm md:text-base font-semibold text-neutral-700 font-sans mb-3"
+      >
+        Qual é o seu caso hoje?
+      </h3>
+      <ul className="grid gap-3 sm:grid-cols-3">
+        {ATALHOS.map((atalho) => (
+          <li key={atalho.href}>
+            <Link
+              to={atalho.href}
+              className="block h-full rounded-lg border border-neutral-200 bg-white px-4 py-3 transition-colors hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              <span className="block text-sm font-medium text-neutral-800 font-sans leading-snug">
+                {atalho.texto}
+              </span>
+              <span className="mt-1 block text-xs text-neutral-500 font-sans leading-relaxed">
+                {atalho.apoio}
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
+
 /** Grade de doze cards em três grupos, do bloco Segmentos e Áreas de Atuação. */
 export function SegmentosGrade() {
   return (
-    <div className="space-y-10">
-      {GRUPOS.map((grupo) => (
-        <div key={grupo.titulo}>
-          <p className="text-xs md:text-sm text-neutral-500 leading-relaxed font-sans mb-1">
-            {grupo.abertura}
-          </p>
-          <h3 className="text-lg md:text-xl font-bold text-black font-sans mb-4">{grupo.titulo}</h3>
-          <div className={`grid sm:grid-cols-2 ${grupo.lg} gap-6 items-stretch`}>
-            {grupo.cards.map((item) => (
-              <SegmentoCardItem key={item.nome} item={item} />
-            ))}
+    <div>
+      <CasoAtalho />
+      <div className="space-y-10">
+        {GRUPOS.map((grupo) => (
+          <div key={grupo.id} id={grupo.id} className="scroll-mt-24">
+            <p className="text-xs md:text-sm text-neutral-500 leading-relaxed font-sans mb-1">
+              {grupo.abertura}
+            </p>
+            <h3 className="text-lg md:text-xl font-bold text-black font-sans mb-4">
+              {grupo.titulo}
+            </h3>
+            <div className={`grid sm:grid-cols-2 ${grupo.lg} gap-6 items-stretch`}>
+              {grupo.cards.map((item) => (
+                <SegmentoCardItem key={item.nome} item={item} />
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   )
 }
