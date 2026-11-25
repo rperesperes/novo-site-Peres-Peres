@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { useSeo } from '@/hooks/use-seo'
+import { HoldingsCnaeSection } from '@/components/HoldingsCnaeSection'
 import {
   Layers,
   Coins,
@@ -355,6 +356,11 @@ export default function HoldingsFamiliaresSegment() {
           </div>
         </div>
       </section>
+
+      {/* =========================================================
+          SECAO CNAE: CNAE, VEDACOES E REGIME TRIBUTARIO
+         ========================================================= */}
+      <HoldingsCnaeSection />
 
       {/* =========================================================
           SECAO 2: COMO ATUAMOS NA HOLDING FAMILIAR (5 itens)
