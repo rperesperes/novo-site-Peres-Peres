@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { useSeo } from '@/hooks/use-seo'
+import { ContinueReading } from '@/components/ContinueReading'
 import {
   ShoppingCart,
   Receipt,
@@ -589,6 +590,28 @@ export default function EcommerceSegment() {
           </div>
         </div>
       </section>
+
+      {/* =========================================================
+          SEÇÃO: CONTINUE LENDO (2 cards)
+         ========================================================= */}
+      <ContinueReading
+        items={[
+          {
+            title: 'MEI Completo',
+            description:
+              'Até quanto o MEI pode faturar, o que muda ao ultrapassar o limite e como planejar a migração para microempresa sem sobressalto de imposto.',
+            to: '/mei-completo',
+            cta: 'Ver MEI Completo',
+          },
+          {
+            title: 'Abertura e alteração de empresas',
+            description:
+              'Constituição ou alteração da PJ do e-commerce, com definição de CNAE, regime tributário e obrigações de ICMS e ISS avaliadas desde a abertura.',
+            to: '/servicos#servicos-avulsos',
+            cta: 'Ver Abertura e alteração de empresas',
+          },
+        ]}
+      />
     </div>
   )
 }

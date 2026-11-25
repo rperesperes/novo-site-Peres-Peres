@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { useSeo } from '@/hooks/use-seo'
+import { ContinueReading } from '@/components/ContinueReading'
 import { ClinicasCnaeSection } from '@/components/ClinicasCnaeSection'
 import {
   Calculator,
@@ -591,6 +592,28 @@ export default function ClinicasMedicasSegment() {
           </div>
         </div>
       </section>
+
+      {/* =========================================================
+        SEÇÃO: CONTINUE LENDO (2 cards)
+       ========================================================= */}
+      <ContinueReading
+        items={[
+          {
+            title: 'Médicos',
+            description:
+              'Comparação entre atuar como pessoa física e como pessoa jurídica, com os efeitos de cada caminho no imposto, no INSS e no bolso do médico.',
+            to: '/profissoes-regulamentadas/medicos',
+            cta: 'Ver Médicos',
+          },
+          {
+            title: 'Abertura e alteração de empresas',
+            description:
+              'Constituição ou alteração da PJ da clínica, com enquadramento de CNAE, equiparação hospitalar e escolha do regime tributário avaliados desde a abertura.',
+            to: '/servicos#servicos-avulsos',
+            cta: 'Ver Abertura e alteração de empresas',
+          },
+        ]}
+      />
     </div>
   )
 }

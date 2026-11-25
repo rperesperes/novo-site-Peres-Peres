@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { useSeo } from '@/hooks/use-seo'
+import { ContinueReading } from '@/components/ContinueReading'
 import {
   Megaphone,
   Receipt,
@@ -584,6 +585,28 @@ export default function PublicidadeComunicacaoSegment() {
           </div>
         </div>
       </section>
+
+      {/* =========================================================
+          SEÇÃO 7: CONTINUE LENDO (2 cards)
+         ========================================================= */}
+      <ContinueReading
+        items={[
+          {
+            title: 'Abertura e alteração de empresas',
+            description:
+              'Constituição ou alteração da PJ da agência, com a escrituração separando a verba de mídia da receita própria desde a abertura, para o imposto incidir só sobre o que é da agência.',
+            to: '/servicos#servicos-avulsos',
+            cta: 'Ver Abertura e alteração de empresas',
+          },
+          {
+            title: 'Serviços',
+            description:
+              'Conheça as frentes tributárias, contábeis, societárias e trabalhistas da PERES PERES Consultoria & Contabilidade, do acompanhamento mensal à consultoria especializada.',
+            to: '/servicos',
+            cta: 'Ver Serviços',
+          },
+        ]}
+      />
     </div>
   )
 }

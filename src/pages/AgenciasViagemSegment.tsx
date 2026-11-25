@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { useSeo } from '@/hooks/use-seo'
+import { ContinueReading } from '@/components/ContinueReading'
 import { AgenciasViagemCnaeSection } from '@/components/AgenciasViagemCnaeSection'
 import {
   Compass,
@@ -569,6 +570,28 @@ export default function AgenciasViagemSegment() {
           </div>
         </div>
       </section>
+
+      {/* =========================================================
+        SEÇÃO: CONTINUE LENDO (2 cards)
+       ========================================================= */}
+      <ContinueReading
+        items={[
+          {
+            title: 'Abertura e alteração de empresas',
+            description:
+              'Constituição ou alteração da PJ da agência, com a base de cálculo do ISS e a separação entre comissão e repasse de mídia ou de bilhete definidas desde a abertura.',
+            to: '/servicos#servicos-avulsos',
+            cta: 'Ver Abertura e alteração de empresas',
+          },
+          {
+            title: 'Serviços',
+            description:
+              'Conheça as frentes tributárias, contábeis, societárias e trabalhistas da PERES PERES Consultoria & Contabilidade, do acompanhamento mensal à consultoria especializada.',
+            to: '/servicos',
+            cta: 'Ver Serviços',
+          },
+        ]}
+      />
     </div>
   )
 }

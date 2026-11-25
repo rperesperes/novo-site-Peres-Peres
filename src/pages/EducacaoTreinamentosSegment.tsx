@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { useSeo } from '@/hooks/use-seo'
+import { ContinueReading } from '@/components/ContinueReading'
 import { EducacaoCnaeSection } from '@/components/EducacaoCnaeSection'
 import {
   GraduationCap,
@@ -589,6 +590,28 @@ export default function EducacaoTreinamentosSegment() {
           </div>
         </div>
       </section>
+
+      {/* =========================================================
+        SEÇÃO: CONTINUE LENDO (2 cards)
+       ========================================================= */}
+      <ContinueReading
+        items={[
+          {
+            title: 'Abertura e alteração de empresas',
+            description:
+              'Constituição ou alteração da PJ de ensino, com definição do CNAE de educação e da segregação entre mensalidade e material didático avaliadas desde a abertura.',
+            to: '/servicos#servicos-avulsos',
+            cta: 'Ver Abertura e alteração de empresas',
+          },
+          {
+            title: 'Serviços',
+            description:
+              'Conheça as frentes tributárias, contábeis, societárias e trabalhistas da PERES PERES Consultoria & Contabilidade, do acompanhamento mensal à consultoria especializada.',
+            to: '/servicos',
+            cta: 'Ver Serviços',
+          },
+        ]}
+      />
     </div>
   )
 }

@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { useSeo } from '@/hooks/use-seo'
+import { ContinueReading } from '@/components/ContinueReading'
 import { HoldingsCnaeSection } from '@/components/HoldingsCnaeSection'
 import {
   Layers,
@@ -595,6 +596,28 @@ export default function HoldingsFamiliaresSegment() {
           </div>
         </div>
       </section>
+
+      {/* =========================================================
+        SEÇÃO: CONTINUE LENDO (2 cards)
+       ========================================================= */}
+      <ContinueReading
+        items={[
+          {
+            title: 'Abertura e alteração de empresas',
+            description:
+              'Constituição ou alteração da holding, com as vedações ao Simples Nacional e a escolha do CNAE de holding patrimonial ou familiar avaliadas desde a abertura.',
+            to: '/servicos#servicos-avulsos',
+            cta: 'Ver Abertura e alteração de empresas',
+          },
+          {
+            title: 'Serviços',
+            description:
+              'Conheça as frentes tributárias, contábeis, societárias e trabalhistas da PERES PERES Consultoria & Contabilidade, do acompanhamento mensal à consultoria especializada.',
+            to: '/servicos',
+            cta: 'Ver Serviços',
+          },
+        ]}
+      />
     </div>
   )
 }
