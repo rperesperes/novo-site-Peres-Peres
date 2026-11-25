@@ -27,6 +27,16 @@ import {
   GitMerge,
   History,
   LineChart,
+  Stethoscope,
+  Brain,
+  Ruler,
+  DraftingCompass,
+  HeartPulse,
+  Rocket,
+  Landmark,
+  Megaphone,
+  Plane,
+  ShoppingCart,
 } from 'lucide-react'
 
 // Itens da Consultoria Tributária
@@ -124,78 +134,91 @@ const INTELIGENCIA_FINANCEIRA_ITEMS = [
 const SEGMENTOS_ATUACAO = [
   {
     nome: 'Advogados',
+    icon: Scale,
     desc: 'Contabilidade e consultoria para advogados: honorários e sucumbência, ISS por município, sociedade de advogados e estrutura da banca.',
     link: '/profissoes-regulamentadas/advogados',
     linkText: 'Saiba mais informações',
   },
   {
     nome: 'Médicos',
+    icon: Stethoscope,
     desc: 'Contabilidade e consultoria para médicos: PJ unipessoal, Simples Nacional, Fator R, pró-labore e distribuição de lucros.',
     link: '/profissoes-regulamentadas/medicos',
     linkText: 'Saiba mais informações',
   },
   {
     nome: 'Psicólogos',
+    icon: Brain,
     desc: 'Contabilidade e consultoria para psicólogos: PJ unipessoal, Fator R, pró-labore e atendimento online.',
     link: '/profissoes-regulamentadas/psicologos',
     linkText: 'Saiba mais informações',
   },
   {
     nome: 'Engenheiros',
+    icon: Ruler,
     desc: 'Contabilidade e consultoria para engenheiros: PJ unipessoal, Fator R no Simples, retenções de contratantes e receita por medição.',
     link: '/profissoes-regulamentadas/engenheiros',
     linkText: 'Saiba mais informações',
   },
   {
     nome: 'Arquitetos',
+    icon: DraftingCompass,
     desc: 'Contabilidade e consultoria para arquitetos: PJ unipessoal, Fator R no Simples, retenções de contratantes e receita por projeto.',
     link: '/profissoes-regulamentadas/arquitetos',
     linkText: 'Saiba mais informações',
   },
   {
     nome: 'Clínicas e Profissionais da Saúde',
+    icon: HeartPulse,
     desc: 'Gestão contábil e consultoria tributária com domínio do Fator R no Simples Nacional, equiparação hospitalar e segregação de receitas para redução lícita de tributos.',
     link: '/contabilidade-para-clinicas-medicas',
     linkText: 'Saiba mais informações',
   },
   {
     nome: 'Startups e Empresas de Tecnologia',
+    icon: Rocket,
     desc: 'Estruturação contábil para negócios digitais, SaaS, captação de investimentos, incentivos fiscais e transição segura de regimes tributários.',
     link: '/contabilidade-para-startups-e-tech',
     linkText: 'Saiba mais informações',
   },
   {
     nome: 'Holdings Familiares e Patrimoniais',
+    icon: Landmark,
     desc: 'Planejamento patrimonial e sucessório, proteção de bens e otimização da carga tributária na locação e na alienação de imóveis.',
     link: '/holdings-familiares-e-patrimoniais',
     linkText: 'Saiba mais informações',
   },
   {
     nome: 'Educação e Treinamentos',
+    icon: GraduationCap,
     desc: 'Assessoria contábil para instituições de ensino, escolas, cursos livres e infoprodutores, com enquadramento de atividades e aproveitamento de isenções.',
     link: '/contabilidade-para-educacao-e-treinamentos',
     linkText: 'Saiba mais informações',
   },
   {
     nome: 'Publicidade e Comunicação',
+    icon: Megaphone,
     desc: 'Contabilidade estratégica para agências de publicidade, marketing digital, produção audiovisual e veículos de comunicação, com tratamento de repasses e retenções.',
     link: '/contabilidade-para-agencias-de-publicidade',
     linkText: 'Saiba mais informações',
   },
   {
     nome: 'Agências de Viagem',
+    icon: Plane,
     desc: 'Contabilidade e consultoria especializada em comissão, repasse a fornecedores, câmbio, pacotes antecipados e tratamento de cancelamentos.',
     link: '/contabilidade-para-agencias-de-viagem',
     linkText: 'Saiba mais informações',
   },
   {
     nome: 'E-commerces',
+    icon: ShoppingCart,
     desc: 'Contabilidade para comércio eletrônico com domínio de regras de DIFAL, ICMS interestadual, marketplaces e substituição tributária.',
     link: '/contabilidade-para-ecommerce',
     linkText: 'Saiba mais informações',
   },
   {
     nome: 'MEIs e Profissionais Liberais',
+    icon: UserCheck,
     desc: 'Orientação técnica, conformidade cadastral, desenquadramento planejado e migração estruturada para microempresa (ME).',
     link: '/contato',
     linkText: 'Solicitar atendimento',
@@ -708,7 +731,7 @@ export default function Services() {
                   <CardHeader className="pb-4">
                     <div className="flex items-center justify-between gap-2 mb-2">
                       <div className="h-10 w-10 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center">
-                        <Building2 className="h-5 w-5 text-black" />
+                        <item.icon className="h-5 w-5 text-black" aria-hidden="true" />
                       </div>
                     </div>
                     <CardTitle className="text-xl font-bold text-black font-sans">
