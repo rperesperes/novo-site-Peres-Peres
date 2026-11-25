@@ -31,7 +31,6 @@ import {
   ShieldCheck,
   ChevronRight,
   Phone,
-  ArrowRight,
 } from 'lucide-react'
 
 // 6 Desafios do Escritório de Advocacia (textos verbatim)
@@ -314,24 +313,13 @@ export default function AdvogadosSegment() {
         </div>
       </section>
 
-      {/* =========================================================
-          BANNER INFORMATIVO DE TRANSIÇÃO: HOLDINGS PATRIMONIAIS
-         ========================================================= */}
+      {/* FRASE DE TRANSIÇÃO: estrutura patrimonial do advogado, sem link */}
       <section className="bg-neutral-50 border-b border-neutral-200 py-4">
         <div className="container mx-auto px-4 max-w-5xl">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-sm text-neutral-700 font-sans">
-            <span className="font-medium text-neutral-900">
-              Para o desenho patrimonial do escritório próprio, veja a página de Holdings Familiares
-              e Patrimoniais.
-            </span>
-            <Link
-              to="/holdings-familiares-e-patrimoniais"
-              className="inline-flex items-center gap-1.5 font-semibold text-black hover:text-neutral-700 underline decoration-[#FAB319] decoration-2 underline-offset-4 shrink-0"
-            >
-              Acessar Holdings Patrimoniais
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
+          <p className="text-sm text-neutral-700 font-sans">
+            A estrutura patrimonial do advogado é decisão separada da sociedade de advogados e é
+            tratada em atendimento próprio.
+          </p>
         </div>
       </section>
 
