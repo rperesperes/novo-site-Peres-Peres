@@ -606,14 +606,14 @@ export default function HoldingsFamiliaresSegment() {
             title: 'Abertura e alteração de empresas',
             description:
               'Constituição ou alteração da holding, com as vedações ao Simples Nacional e a escolha do CNAE de holding patrimonial ou familiar avaliadas desde a abertura.',
-            to: '/servicos#servicos-avulsos',
+            to: '/servicos#abertura-e-alteracao-de-empresas',
             cta: 'Ver Abertura e alteração de empresas',
           },
           {
             title: 'Serviços',
             description:
               'Conheça as frentes tributárias, contábeis, societárias e trabalhistas da PERES PERES Consultoria & Contabilidade, do acompanhamento mensal à consultoria especializada.',
-            to: '/servicos',
+            to: '/servicos#planos-de-acompanhamento',
             cta: 'Ver Serviços',
           },
         ]}

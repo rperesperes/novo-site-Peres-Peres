@@ -609,7 +609,7 @@ export default function ClinicasMedicasSegment() {
             title: 'Abertura e alteração de empresas',
             description:
               'Constituição ou alteração da PJ da clínica, com enquadramento de CNAE, equiparação hospitalar e escolha do regime tributário avaliados desde a abertura.',
-            to: '/servicos#servicos-avulsos',
+            to: '/servicos#abertura-e-alteracao-de-empresas',
             cta: 'Ver Abertura e alteração de empresas',
           },
         ]}

@@ -600,14 +600,14 @@ export default function StartupsTechSegment() {
             title: 'Abertura e alteração de empresas',
             description:
               'Constituição ou alteração da PJ da startup, com a escolha do CNAE entre software sob encomenda e produto padronizado, e o efeito disso no regime tributário, avaliada antes do pedido na Junta Comercial.',
-            to: '/servicos#servicos-avulsos',
+            to: '/servicos#abertura-e-alteracao-de-empresas',
             cta: 'Ver Abertura e alteração de empresas',
           },
           {
             title: 'Serviços',
             description:
               'Conheça as frentes tributárias, contábeis, societárias e trabalhistas da PERES PERES Consultoria & Contabilidade, do acompanhamento mensal à consultoria especializada.',
-            to: '/servicos',
+            to: '/servicos#planos-de-acompanhamento',
             cta: 'Ver Serviços',
           },
         ]}

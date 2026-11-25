@@ -595,14 +595,14 @@ export default function PublicidadeComunicacaoSegment() {
             title: 'Abertura e alteração de empresas',
             description:
               'Constituição ou alteração da PJ da agência, com a escrituração separando a verba de mídia da receita própria desde a abertura, para o imposto incidir só sobre o que é da agência.',
-            to: '/servicos#servicos-avulsos',
+            to: '/servicos#abertura-e-alteracao-de-empresas',
             cta: 'Ver Abertura e alteração de empresas',
           },
           {
             title: 'Serviços',
             description:
               'Conheça as frentes tributárias, contábeis, societárias e trabalhistas da PERES PERES Consultoria & Contabilidade, do acompanhamento mensal à consultoria especializada.',
-            to: '/servicos',
+            to: '/servicos#planos-de-acompanhamento',
             cta: 'Ver Serviços',
           },
         ]}

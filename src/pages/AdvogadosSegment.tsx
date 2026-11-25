@@ -647,14 +647,14 @@ export default function AdvogadosSegment() {
             title: 'Abertura e alteração de empresas',
             description:
               'Constituição da sociedade de advogados ou da PJ unipessoal do advogado, com escolha do regime tributário e registro na OAB avaliados antes do pedido na Junta Comercial.',
-            to: '/servicos#servicos-avulsos',
+            to: '/servicos#abertura-e-alteracao-de-empresas',
             cta: 'Ver Abertura e alteração de empresas',
           },
           {
             title: 'Serviços',
             description:
               'Conheça os serviços tributários e de contabilidade mensal da PERES PERES Consultoria & Contabilidade, do acompanhamento rotineiro à consultoria especializada.',
-            to: '/servicos',
+            to: '/servicos#planos-de-acompanhamento',
             cta: 'Ver Serviços',
           },
         ]}

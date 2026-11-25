@@ -510,7 +510,11 @@ export default function Services() {
             BLOCO 1: CONSULTORIA TRIBUTÁRIA
            ========================================================= */}
         <section id="consultoria-tributaria" className="scroll-mt-24 space-y-8">
-          <div className="border-l-4 border-[#FAB319] pl-4 md:pl-6">
+          <div
+            id="principais-servicos"
+            tabIndex={-1}
+            className="border-l-4 border-[#FAB319] pl-4 md:pl-6 scroll-mt-24"
+          >
             <h2 className="text-2xl md:text-4xl font-bold text-black">Consultoria Tributária</h2>
           </div>
 
@@ -711,7 +715,11 @@ export default function Services() {
             BLOCO: SEGMENTOS E ÁREAS DE ATUAÇÃO
            ========================================================= */}
         <section id="segmentos" className="scroll-mt-24 space-y-8">
-          <div className="text-center max-w-3xl mx-auto space-y-3">
+          <div
+            id="segmentos-e-areas-de-atuacao"
+            tabIndex={-1}
+            className="text-center max-w-3xl mx-auto space-y-3 scroll-mt-24"
+          >
             <h2 className="text-3xl md:text-4xl font-bold text-black">
               Segmentos e Áreas de Atuação
             </h2>
@@ -836,7 +844,11 @@ export default function Services() {
             BLOCO 4: PLANOS DE ACOMPANHAMENTO
            ========================================================= */}
         <section id="planos" className="scroll-mt-24 space-y-8">
-          <div className="text-center max-w-3xl mx-auto space-y-3">
+          <div
+            id="planos-de-acompanhamento"
+            tabIndex={-1}
+            className="text-center max-w-3xl mx-auto space-y-3 scroll-mt-24"
+          >
             <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block">
               Modalidades de Atendimento Contínuo
             </span>
@@ -927,7 +939,11 @@ export default function Services() {
             BLOCO 5: SERVIÇOS AVULSOS
            ========================================================= */}
         <section id="servicos-avulsos" className="scroll-mt-24 space-y-12">
-          <div className="text-center max-w-3xl mx-auto space-y-3">
+          <div
+            id="servicos-avulsos-titulo"
+            tabIndex={-1}
+            className="text-center max-w-3xl mx-auto space-y-3 scroll-mt-24"
+          >
             <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block">
               Demandas Pontuais e Especializadas
             </span>
@@ -1004,7 +1020,13 @@ export default function Services() {
                 return (
                   <Card
                     key={servico.id}
-                    className="border border-neutral-200 bg-white hover:border-neutral-300 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+                    id={
+                      servico.id === 'abertura-encerramento'
+                        ? 'abertura-e-alteracao-de-empresas'
+                        : undefined
+                    }
+                    tabIndex={servico.id === 'abertura-encerramento' ? -1 : undefined}
+                    className="border border-neutral-200 bg-white hover:border-neutral-300 hover:shadow-md transition-all duration-200 flex flex-col justify-between scroll-mt-24"
                   >
                     <CardHeader className="p-5 pb-3">
                       <div className="h-10 w-10 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center mb-3">

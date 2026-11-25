@@ -639,7 +639,7 @@ export default function EngenheirosSegment() {
             title: 'Abertura e alteração de empresas',
             description:
               'Constituição da PJ do engenheiro ou da sociedade de engenheiros, com enquadramento de CNAE, registro no CREA e escolha do regime tributário avaliados desde a abertura.',
-            to: '/servicos#servicos-avulsos',
+            to: '/servicos#abertura-e-alteracao-de-empresas',
             cta: 'Ver Abertura e alteração de empresas',
           },
         ]}

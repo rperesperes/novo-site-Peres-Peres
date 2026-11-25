@@ -4,13 +4,22 @@ import { Header } from './Header'
 import { Footer } from './Footer'
 import { WhatsAppButton } from './WhatsAppButton'
 import { CALCULATORS } from '@/lib/calculatorsData'
+import { useHashScroll } from '@/hooks/use-hash-scroll'
 
 export default function Layout() {
   const location = useLocation()
 
+  // Salto para a âncora da URL: funciona tanto na navegação inicial (link
+  // aberto em nova aba com hash) quanto na troca de rota dentro do app.
+  useHashScroll()
+
   // Scroll to top and set document title on route change
   useEffect(() => {
-    window.scrollTo(0, 0)
+    // Quando a URL tem hash, o salto para a âncora tem prioridade: a troca de
+    // rota não volta ao topo antes do posicionamento no bloco.
+    if (!location.hash) {
+      window.scrollTo(0, 0)
+    }
 
     const titles: Record<string, string> = {
       '/': 'Consultoria & Contabilidade Tributária em Brasília | PERES PERES Consultoria & Contabilidade',

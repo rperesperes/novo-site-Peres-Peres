@@ -640,7 +640,7 @@ export default function ArquitetosSegment() {
             title: 'Abertura e alteração de empresas',
             description:
               'Constituição da PJ do arquiteto ou da sociedade de arquitetos, com enquadramento de CNAE, registro no CAU e escolha do regime tributário avaliados desde a abertura.',
-            to: '/servicos#servicos-avulsos',
+            to: '/servicos#abertura-e-alteracao-de-empresas',
             cta: 'Ver Abertura e alteração de empresas',
           },
         ]}

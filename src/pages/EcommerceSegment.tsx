@@ -607,7 +607,7 @@ export default function EcommerceSegment() {
             title: 'Abertura e alteração de empresas',
             description:
               'Constituição ou alteração da PJ do e-commerce, com definição de CNAE, regime tributário e obrigações de ICMS e ISS avaliadas desde a abertura.',
-            to: '/servicos#servicos-avulsos',
+            to: '/servicos#abertura-e-alteracao-de-empresas',
             cta: 'Ver Abertura e alteração de empresas',
           },
         ]}

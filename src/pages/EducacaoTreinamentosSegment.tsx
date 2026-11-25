@@ -600,14 +600,14 @@ export default function EducacaoTreinamentosSegment() {
             title: 'Abertura e alteração de empresas',
             description:
               'Constituição ou alteração da PJ de ensino, com definição do CNAE de educação e da segregação entre mensalidade e material didático avaliadas desde a abertura.',
-            to: '/servicos#servicos-avulsos',
+            to: '/servicos#abertura-e-alteracao-de-empresas',
             cta: 'Ver Abertura e alteração de empresas',
           },
           {
             title: 'Serviços',
             description:
               'Conheça as frentes tributárias, contábeis, societárias e trabalhistas da PERES PERES Consultoria & Contabilidade, do acompanhamento mensal à consultoria especializada.',
-            to: '/servicos',
+            to: '/servicos#planos-de-acompanhamento',
             cta: 'Ver Serviços',
           },
         ]}

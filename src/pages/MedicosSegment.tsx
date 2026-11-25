@@ -667,7 +667,7 @@ export default function MedicosSegment() {
             title: 'Abertura e alteração de empresas',
             description:
               'Constituição da PJ do médico ou da sociedade de médicos, com enquadramento de CNAE, registro no CRM e escolha do regime tributário avaliados desde a abertura.',
-            to: '/servicos#servicos-avulsos',
+            to: '/servicos#abertura-e-alteracao-de-empresas',
             cta: 'Ver Abertura e alteração de empresas',
           },
         ]}

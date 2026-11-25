@@ -632,14 +632,14 @@ export default function PsicologosSegment() {
             title: 'Abertura e alteração de empresas',
             description:
               'Constituição da PJ do psicólogo, do empresário individual à sociedade de sócio único, com escolha do regime tributário avaliada antes do registro.',
-            to: '/servicos#servicos-avulsos',
+            to: '/servicos#abertura-e-alteracao-de-empresas',
             cta: 'Ver Abertura e alteração de empresas',
           },
           {
             title: 'Serviços',
             description:
               'Conheça os serviços tributários e de contabilidade mensal da PERES PERES Consultoria & Contabilidade, do acompanhamento rotineiro à consultoria especializada.',
-            to: '/servicos',
+            to: '/servicos#planos-de-acompanhamento',
             cta: 'Ver Serviços',
           },
         ]}
