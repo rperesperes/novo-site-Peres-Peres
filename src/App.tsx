@@ -17,6 +17,7 @@ import AdminSettings from './pages/admin/Settings'
 import About from './pages/About'
 import TrabalheConosco from './pages/TrabalheConosco'
 import Services from './pages/Services'
+import MeiCompleto from './pages/MeiCompleto'
 import Cases from './pages/Cases'
 import CaseDetail from './pages/CaseDetail'
 
@@ -65,6 +66,7 @@ const App = () => (
             <Route path="/servicos/certificado-digital" element={<CertificadoDigital />} />
             <Route path="/servicos/registro-de-marcas" element={<RegistroDeMarcas />} />
             <Route path="/servicos/inteligencia-financeira" element={<InteligenciaFinanceira />} />
+            <Route path="/mei-completo" element={<MeiCompleto />} />
             <Route path="/casos" element={<Cases />} />
             <Route path="/casos/:slug" element={<CaseDetail />} />
             <Route path="/recursos" element={<Resources />} />
