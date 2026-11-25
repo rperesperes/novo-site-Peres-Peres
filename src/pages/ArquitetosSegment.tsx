@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/accordion'
 import { useSeo } from '@/hooks/use-seo'
 import { ProfessionExerciseForm } from '@/components/ProfessionExerciseForm'
+import { ArquitetosCnaeSection } from '@/components/ArquitetosCnaeSection'
 import {
   Calculator,
   Building2,
@@ -355,6 +356,11 @@ export default function ArquitetosSegment() {
           </div>
         </div>
       </section>
+
+      {/* =========================================================
+          SEÇÃO CNAE, REGIME TRIBUTÁRIO E ISS (entre desafios e como atuamos)
+         ========================================================= */}
+      <ArquitetosCnaeSection />
 
       {/* =========================================================
           SEÇÃO 2: COMO ATUAMOS COM O ARQUITETO (5 itens)
