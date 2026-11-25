@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { useSeo } from '@/hooks/use-seo'
+import { AgenciasViagemCnaeSection } from '@/components/AgenciasViagemCnaeSection'
 import {
   Compass,
   Receipt,
@@ -338,7 +339,12 @@ export default function AgenciasViagemSegment() {
       </section>
 
       {/* =========================================================
-          SECAO 2: COMO ATUAMOS NA AGÊNCIA DE VIAGEM (5 itens)
+          SECAO 2: CNAE, REGIME TRIBUTARIO E ISS
+         ========================================================= */}
+      <AgenciasViagemCnaeSection />
+
+      {/* =========================================================
+          SECAO 3: COMO ATUAMOS NA AGÊNCIA DE VIAGEM (5 itens)
          ========================================================= */}
       <section className="py-14 md:py-20 bg-neutral-50 border-b border-neutral-200">
         <div className="container mx-auto px-4 max-w-5xl">
