@@ -47,7 +47,7 @@ const PROFISSOES_REGULAMENTADAS: SegmentoCard[] = [
   {
     nome: 'Engenheiros',
     icon: Ruler,
-    desc: 'a receita por medição e a retenção do contratante que chega descontada antes de o dinheiro cair.',
+    desc: 'a receita por medição e a retenção do cliente que chega descontada antes de o dinheiro cair.',
     link: '/profissoes-regulamentadas/engenheiros',
   },
   {
@@ -112,7 +112,7 @@ const GRUPOS: { titulo: string; cards: SegmentoCard[]; lg: string }[] = [
     cards: PROFISSOES_REGULAMENTADAS,
     lg: 'lg:grid-cols-3',
   },
-  { titulo: 'Segmentos', cards: SEGMENTOS, lg: 'lg:grid-cols-3' },
+  { titulo: 'Áreas de atuação', cards: SEGMENTOS, lg: 'lg:grid-cols-3' },
   { titulo: 'Estrutura patrimonial', cards: ESTRUTURA_PATRIMONIAL, lg: 'lg:grid-cols-3' },
 ]
 

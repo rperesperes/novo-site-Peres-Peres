@@ -89,7 +89,7 @@ const POR_QUE_PERES_PERES = [
     num: '2',
     title: 'Postura conservadora',
     icon: ShieldCheck,
-    text: 'Não veiculamos promessa de percentual de economia. Cada diagnóstico parte de auditoria documental dos números da agência, e quando o enquadramento atual já é o correto, dizemos que é.',
+    text: 'Não veiculamos promessa de percentual de economia. Cada diagnóstico parte de diagnóstico documental dos números da agência, e quando o enquadramento atual já é o correto, dizemos que é.',
   },
 ]
 
@@ -239,7 +239,7 @@ export default function AgenciasViagemSegment() {
           <div className="space-y-6 animate-fade-in-up">
             <div className="inline-flex items-center gap-2 border border-neutral-700 bg-neutral-900/60 px-3 py-1 rounded text-xs tracking-wider uppercase text-neutral-300 font-sans">
               <Compass className="h-3.5 w-3.5 text-[#FAB319]" />
-              Segmento Especializado
+              Área de Atuação Especializada
             </div>
 
             {/* H1 obrigatorio */}
@@ -252,8 +252,8 @@ export default function AgenciasViagemSegment() {
               Agências de viagem trabalham com comissão, repasse a fornecedores, câmbio e pacotes
               pagos com meses de antecedência. É um modelo em que receita bruta e comissão real
               costumam se confundir na escrituração, com efeito direto no imposto e na margem. A
-              PERES PERES atende esse segmento com contabilidade mensal organizada e consultoria
-              aplicada à rotina da agência, da emissão ao fechamento.
+              PERES PERES atende essa área de atuação com contabilidade mensal organizada e
+              consultoria aplicada à rotina da agência, da emissão ao fechamento.
             </p>
 
             {/* Chamada para acao no Hero */}
@@ -507,7 +507,7 @@ export default function AgenciasViagemSegment() {
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="max-w-3xl mb-8 space-y-2">
             <h3 className="text-2xl md:text-3xl font-sans font-bold text-black leading-tight">
-              Conheça os outros segmentos
+              Conheça as outras áreas de atuação
             </h3>
             <p className="text-neutral-600 text-sm md:text-base leading-relaxed font-sans">
               Além de agências de viagem, a PERES PERES oferece contabilidade e consultoria

@@ -230,9 +230,9 @@ export default function Index() {
             </h2>
             <div className="space-y-4 text-base md:text-lg text-neutral-700 leading-relaxed font-sans">
               <p>
-                Todo cliente PERES PERES tem consultoria, inclusive no plano mais enxuto. Ela não é
-                um projeto vendido depois, nem um pacote adicional. É o olhar técnico que acompanha
-                a sua rotina mensal.
+                Todo cliente PERES PERES tem consultoria, inclusive no acompanhamento mensal mais
+                enxuto. Ela não é um projeto vendido depois, nem um extra adicional. É o olhar
+                técnico que acompanha a sua rotina mensal.
               </p>
               <p>
                 Um escritório puramente operacional entrega guia de imposto. O nosso lê o seu mês e
@@ -576,7 +576,7 @@ export default function Index() {
                 <div>
                   <h3 className="text-2xl font-sans font-bold text-black mb-1">On Demand</h3>
                   <p className="text-sm text-neutral-600 font-sans leading-relaxed">
-                    Equipe multidisciplinar sob demanda para projetos pontuais, perícias e alta
+                    Equipe multidisciplinar sob demanda para projetos avulsos, perícias e alta
                     complexidade.
                   </p>
                 </div>
@@ -602,7 +602,7 @@ export default function Index() {
                   className="w-full border-neutral-900 text-black hover:bg-neutral-100 text-sm font-sans"
                   asChild
                 >
-                  <Link to="/contato">Falar sobre projetos pontuais</Link>
+                  <Link to="/contato">Falar sobre projetos avulsos</Link>
                 </Button>
               </div>
             </div>
@@ -650,8 +650,8 @@ export default function Index() {
               <p>
                 A PERES PERES adota postura estritamente conservadora e fundamentada. Não veiculamos
                 promessas de resultado nem percentuais de economia genéricos: cada diagnóstico
-                decorre de auditoria documental detalhada, lastreada nas regras da Receita Federal e
-                em decisões consolidadas dos tribunais superiores.
+                decorre de diagnóstico documental detalhado, lastreado nas regras da Receita Federal
+                e em decisões consolidadas dos tribunais superiores.
               </p>
               <p>
                 Na prática, isso significa que a nossa recomendação pode ser não fazer nada. Se o
@@ -837,14 +837,14 @@ export default function Index() {
       </section>
 
       {/* =========================================================
-          BLOCO 11 [NOVO / ATUALIZADO]: SEGMENTOS E ÁREAS DE ATUAÇÃO
-         ========================================================= */}
-      <section className="py-12 md:py-16 bg-white border-b border-neutral-200">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <div className="text-center max-w-3xl mx-auto mb-8 space-y-2">
-            <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
-              Segmentos e áreas de atuação
-            </h2>
+         BLOCO 11 [NOVO / ATUALIZADO]: SEGMENTOS E ÁREAS DE ATUAÇÃO
+         ========================================================= -->
+    <section className="py-12 md:py-16 bg-white border-b border-neutral-200">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <div className="text-center max-w-3xl mx-auto mb-8 space-y-2">
+          <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
+            Áreas de atuação
+          </h2>
             <p className="text-neutral-600 text-base md:text-lg leading-relaxed font-sans">
               Atendimento e soluções com domínio das peculiaridades contábeis, financeiras,
               tributárias, trabalhistas e regulatórias, especialmente dos seguintes ninhos:

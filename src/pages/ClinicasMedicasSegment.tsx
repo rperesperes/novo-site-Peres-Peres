@@ -110,7 +110,7 @@ const POR_QUE_PERES_PERES = [
     num: '3',
     title: 'Postura conservadora',
     icon: ShieldCheck,
-    text: 'Não veiculamos promessa de percentual de economia. Cada diagnóstico parte de auditoria documental dos números da clínica, e quando o estudo não sustenta determinada tese, dizemos que não sustenta.',
+    text: 'Não veiculamos promessa de percentual de economia. Cada diagnóstico parte de diagnóstico documental dos números da clínica, e quando o estudo não sustenta determinada tese, dizemos que não sustenta.',
   },
 ]
 
@@ -251,7 +251,7 @@ export default function ClinicasMedicasSegment() {
             </Link>
             <ChevronRight className="h-3.5 w-3.5 text-neutral-600" />
             <Link to="/servicos" className="hover:text-white transition-colors">
-              Segmentos
+              Áreas de atuação
             </Link>
             <ChevronRight className="h-3.5 w-3.5 text-neutral-600" />
             <span className="text-[#FAB319] font-medium">Clínicas Médicas</span>
@@ -260,7 +260,7 @@ export default function ClinicasMedicasSegment() {
           <div className="space-y-6 animate-fade-in-up">
             <div className="inline-flex items-center gap-2 border border-neutral-700 bg-neutral-900/60 px-3 py-1 rounded text-xs tracking-wider uppercase text-neutral-300 font-sans">
               <Stethoscope className="h-3.5 w-3.5 text-[#FAB319]" />
-              Segmento Especializado
+              Área de Atuação Especializada
             </div>
 
             {/* H1 obrigatório */}
@@ -272,7 +272,7 @@ export default function ClinicasMedicasSegment() {
             <p className="text-base sm:text-lg md:text-xl text-neutral-300 max-w-3xl leading-relaxed font-sans">
               Clínicas médicas operam com carga tributária alta, folha de equipe técnica relevante e
               um regime próprio de enquadramento, em que o Fator R define a alíquota do Simples
-              Nacional mês a mês. A PERES PERES atende esse segmento com contabilidade mensal
+              Nacional mês a mês. A PERES PERES atende essa área de atuação com contabilidade mensal
               completa e consultoria tributária aplicada à rotina da clínica, incluindo a avaliação
               de equiparação hospitalar quando a estrutura atende aos requisitos.
             </p>
@@ -529,7 +529,7 @@ export default function ClinicasMedicasSegment() {
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="max-w-3xl mb-8 space-y-2">
             <h3 className="text-2xl md:text-3xl font-sans font-bold text-black leading-tight">
-              Conheça os outros segmentos
+              Conheça as outras áreas de atuação
             </h3>
             <p className="text-neutral-600 text-sm md:text-base leading-relaxed font-sans">
               Além de clínicas médicas, a PERES PERES oferece contabilidade e consultoria

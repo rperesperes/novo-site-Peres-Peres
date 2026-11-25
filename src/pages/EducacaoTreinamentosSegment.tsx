@@ -109,7 +109,7 @@ const POR_QUE_PERES_PERES = [
     num: '3',
     title: 'Postura conservadora',
     icon: ShieldCheck,
-    text: 'Não veiculamos promessa de percentual de economia. Cada diagnóstico parte de auditoria documental dos números da instituição, e quando determinada tese não se sustenta, dizemos que não se sustenta.',
+    text: 'Não veiculamos promessa de percentual de economia. Cada diagnóstico parte de diagnóstico documental dos números da instituição, e quando determinada tese não se sustenta, dizemos que não se sustenta.',
   },
 ]
 
@@ -250,7 +250,7 @@ export default function EducacaoTreinamentosSegment() {
             </Link>
             <ChevronRight className="h-3.5 w-3.5 text-neutral-600" />
             <Link to="/servicos" className="hover:text-white transition-colors">
-              Segmentos
+              Áreas de atuação
             </Link>
             <ChevronRight className="h-3.5 w-3.5 text-neutral-600" />
             <span className="text-[#FAB319] font-medium">Educação e Treinamentos</span>
@@ -259,7 +259,7 @@ export default function EducacaoTreinamentosSegment() {
           <div className="space-y-6 animate-fade-in-up">
             <div className="inline-flex items-center gap-2 border border-neutral-700 bg-neutral-900/60 px-3 py-1 rounded text-xs tracking-wider uppercase text-neutral-300 font-sans">
               <GraduationCap className="h-3.5 w-3.5 text-[#FAB319]" />
-              Segmento Especializado
+              Área de Atuação Especializada
             </div>
 
             {/* H1 obrigatorio */}
@@ -271,8 +271,8 @@ export default function EducacaoTreinamentosSegment() {
             <p className="text-base sm:text-lg md:text-xl text-neutral-300 max-w-3xl leading-relaxed font-sans">
               Escolas, cursos e negócios de treinamento operam com sazonalidade de matrícula, folha
               de corpo docente e contratos de prestação de serviço educacional, e cada um desses
-              elementos tem reflexo tributário e trabalhista próprio. A PERES PERES atende esse
-              segmento com contabilidade mensal organizada e consultoria aplicada à rotina da
+              elementos tem reflexo tributário e trabalhista próprio. A PERES PERES atende essa área
+              de atuação com contabilidade mensal organizada e consultoria aplicada à rotina da
               instituição, do enquadramento à estruturação de unidades.
             </p>
 
@@ -527,7 +527,7 @@ export default function EducacaoTreinamentosSegment() {
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="max-w-3xl mb-8 space-y-2">
             <h3 className="text-2xl md:text-3xl font-sans font-bold text-black leading-tight">
-              Conheça os outros segmentos
+              Conheça as outras áreas de atuação
             </h3>
             <p className="text-neutral-600 text-sm md:text-base leading-relaxed font-sans">
               Além de educação e treinamentos, a PERES PERES oferece contabilidade e consultoria
