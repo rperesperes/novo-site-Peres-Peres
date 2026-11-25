@@ -1134,7 +1134,7 @@ export default function PJouCLTCalculator() {
             </div>
             <p className="text-xs text-neutral-600 mb-4 leading-relaxed">
               Memória discriminada linha por linha com todos os tributos incidentes em cada modelo,
-              permitindo auditoria pontual por contadores e gestores:
+              permitindo conferência pontual linha a linha por contadores e gestores:
             </p>
 
             <div className="space-y-4 font-mono text-xs">
