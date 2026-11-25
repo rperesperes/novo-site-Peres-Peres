@@ -298,14 +298,16 @@ export default function MeiCompleto() {
                 Antes de aceitar o perdão, entenda o que você perde
               </h3>
               <p className="text-neutral-700 text-sm md:text-base leading-relaxed">
-                Ao deixar de pagar as contribuições em atraso, você também deixa de contar o tempo
-                de contribuição ao INSS desses meses, o que pode afetar aposentadoria, auxílios e
-                contagem de carência. Vale lembrar que o DAS-MEI é a forma mais barata de contribuir
-                para o INSS, com valor inferior à metade do que se pagaria como autônomo ou
-                profissional liberal. O perdão também alcança somente a parte federal: a parcela
-                estadual, municipal ou distrital continua devida. No Distrito Federal, o resíduo de
-                ISS entre 1 e 5 reais por competência, acrescido de juros e multa, permanece
-                exigível. Por isso a análise é feita caso a caso.
+                A contrapartida do perdão ainda não está totalmente definida. A Receita Federal e a
+                Procuradoria-Geral da Fazenda Nacional informarão ao INSS a relação das competências
+                perdoadas, mas os efeitos para contagem de tempo de contribuição, carência e
+                aquisição de benefícios serão definidos pelo INSS, que é o órgão competente para
+                essa análise. Por isso a decisão de avaliar esse ponto antes depende de cada caso.
+                Vale lembrar que o DAS-MEI é a forma mais barata de contribuir para o INSS, com
+                valor inferior à metade do que se pagaria como autônomo ou profissional liberal. O
+                perdão também alcança somente a parte federal: a parcela estadual, municipal ou
+                distrital continua devida. No Distrito Federal, o resíduo de ISS entre 1 e 5 reais
+                por competência, acrescido de juros e multa, permanece exigível.
               </p>
             </div>
           </div>
