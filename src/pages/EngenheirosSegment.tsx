@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { useSeo } from '@/hooks/use-seo'
+import { ProfessionExerciseForm } from '@/components/ProfessionExerciseForm'
 import {
   Calculator,
   Building2,
@@ -303,6 +304,15 @@ export default function EngenheirosSegment() {
           </div>
         </div>
       </section>
+
+      <ProfessionExerciseForm
+        title="Engenheiro, pessoa física ou pessoa jurídica"
+        intro="A engenharia pode ser exercida em nome próprio, como pessoa física, com registro no conselho de classe e emissão da respectiva anotação de responsabilidade técnica, ou por meio de pessoa jurídica. A receita por medição de obra tem tratamento distinto da receita de projeto entregue ou de serviço continuado, especialmente quanto às retenções praticadas por tomadores pessoa jurídica e à contribuição previdenciária em cessão de mão de obra. Não existe a opção de MEI para a atividade."
+        extraItems={[
+          'Se a receita virá por medição de obra, com retenções do tomador, ou por projeto entregue.',
+          'Se haverá cessão de mão de obra ou empreitada, hipótese com regras próprias de retenção previdenciária.',
+        ]}
+      />
 
       {/* =========================================================
           SEÇÃO 1: DESAFIOS DO ENGENHEIRO (6 cards)

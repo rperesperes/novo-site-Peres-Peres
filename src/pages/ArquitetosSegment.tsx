@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { useSeo } from '@/hooks/use-seo'
+import { ProfessionExerciseForm } from '@/components/ProfessionExerciseForm'
 import {
   Calculator,
   Building2,
@@ -304,6 +305,15 @@ export default function ArquitetosSegment() {
           </div>
         </div>
       </section>
+
+      <ProfessionExerciseForm
+        title="Arquiteto, pessoa física ou pessoa jurídica"
+        intro="A arquitetura pode ser exercida em nome próprio, como pessoa física, com registro no conselho de classe e anotação de responsabilidade técnica, ou por meio de pessoa jurídica. A receita por projeto entregue e a receita por acompanhamento de obra têm tratamentos distintos quanto a retenções e à forma de apuração no período. Não existe a opção de MEI para a atividade."
+        extraItems={[
+          'Se a receita será por projeto entregue ou por acompanhamento de obra, porque o tratamento das retenções muda entre os dois formatos.',
+          'O volume de despesas com equipe, softwares, maquetes e deslocamento, dedutíveis apenas na pessoa jurídica.',
+        ]}
+      />
 
       {/* =========================================================
           SEÇÃO 1: DESAFIOS DO ARQUITETO (6 cards)

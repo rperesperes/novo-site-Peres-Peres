@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { useSeo } from '@/hooks/use-seo'
+import { ProfessionExerciseForm } from '@/components/ProfessionExerciseForm'
 import {
   Scale,
   Receipt,
@@ -324,6 +325,15 @@ export default function AdvogadosSegment() {
           </div>
         </div>
       </section>
+
+      <ProfessionExerciseForm
+        title="Advogado, pessoa física ou sociedade de advocacia"
+        intro="A advocacia pode ser exercida em nome próprio, como pessoa física, ou por meio de sociedade de advogados ou de sociedade unipessoal de advocacia, ambas previstas no artigo 15 da Lei 8.906 de 1994, com a redação dada pela Lei 13.247 de 2016, e registradas no Conselho Seccional da OAB. Não existe a opção de MEI: a atividade não consta do Anexo XI da Resolução CGSN 140 de 2018, com redação da Resolução CGSN 165 de 2022, e o artigo 16 do Estatuto impede o exercício da advocacia em forma empresarial."
+        extraItems={[
+          'Se a opção pelo Simples Nacional levará a sociedade ao Anexo IV, em que o DAS não inclui a contribuição previdenciária patronal, recolhida separadamente, conforme a Lei Complementar 123 de 2006 com a alteração da Lei Complementar 147 de 2014.',
+          'Se o município reconhece o ISS fixo da sociedade uniprofissional, hipótese admitida pelo Superior Tribunal de Justiça no Tema 1.323, julgado pela Primeira Seção em 2025, e pela Súmula 663 do Supremo Tribunal Federal, que declarou recebidos pela Constituição os parágrafos 1 e 3 do artigo 9 do Decreto-Lei 406 de 1968.',
+        ]}
+      />
 
       {/* =========================================================
           SEÇÃO 1: DESAFIOS DA BANCA (6 cards)
