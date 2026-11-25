@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { useSeo } from '@/hooks/use-seo'
+import { ClinicasCnaeSection } from '@/components/ClinicasCnaeSection'
 import {
   Calculator,
   Building,
@@ -358,6 +359,11 @@ export default function ClinicasMedicasSegment() {
           </div>
         </div>
       </section>
+
+      {/* =========================================================
+          SEÇÃO CNAE, EQUIPARAÇÃO HOSPITALAR E REGIME TRIBUTÁRIO
+         ========================================================= */}
+      <ClinicasCnaeSection />
 
       {/* =========================================================
           SEÇÃO 2: COMO ATUAMOS NA CLÍNICA MÉDICA (5 itens)
