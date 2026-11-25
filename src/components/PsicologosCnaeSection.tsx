@@ -43,8 +43,7 @@ const CNAE_ROWS: CnaeRow[] = [
         text: 'permitido.',
       },
     ],
-    observacoes:
-      'Este é o código da psicologia. O 8650-0/04 é fisioterapia e o 8650-0/02 é nutrição, e não devem ser usados por quem não exerce essas atividades.',
+    observacoes: 'Este é o código da psicologia.',
     principal: true,
   },
   {
@@ -138,11 +137,11 @@ export function PsicologosCnaeSection() {
         {/* Parágrafo de abertura verbatim */}
         <p className="text-neutral-700 text-base md:text-lg leading-relaxed font-sans max-w-4xl mb-10">
           O CNAE não define sozinho quanto o psicólogo paga, e três confusões aparecem na abertura
-          da pessoa jurídica. A primeira é usar o código de outra profissão da saúde, como
-          fisioterapia ou nutrição, porque os códigos ficam próximos na lista. A segunda é tratar o
-          CNAE como se fosse o item de serviço usado pelo município para cobrar o ISS. A terceira é
-          esquecer que a pessoa jurídica que presta serviços de psicologia precisa de registro no
-          Conselho Regional de Psicologia.
+          da pessoa jurídica. A primeira é usar um código que não corresponde à atividade exercida,
+          porque os códigos ficam próximos na lista. A segunda é tratar o CNAE como se fosse o item
+          de serviço usado pelo município para cobrar o ISS. A terceira é esquecer que a pessoa
+          jurídica que presta serviços de psicologia precisa de registro no Conselho Regional de
+          Psicologia.
         </p>
 
         {/* SUBBLOCO 1: os códigos da atividade */}
