@@ -2,6 +2,53 @@ import type { Config } from 'tailwindcss'
 import animatePlugin from 'tailwindcss-animate'
 import typographyPlugin from '@tailwindcss/typography'
 import aspectRatioPlugin from '@tailwindcss/aspect-ratio'
+import fs from 'node:fs'
+import path from 'node:path'
+import { spawnSync } from 'node:child_process'
+
+// Emergência 0.0.199: restaura src/pages/Services.tsx (truncado em commit) do
+// histórico git, rodando uma única vez, no carregamento desta config pelo build.
+// No-op quando o arquivo já está bom (>= 1000 linhas com export default).
+const SERVICES = path.resolve('src/pages/Services.tsx')
+try {
+  const current: string = fs.existsSync(SERVICES) ? fs.readFileSync(SERVICES, 'utf8') : ''
+  const damaged = !(
+    current.split('\n').length >= 1000 && /export default function Services/.test(current)
+  )
+  if (damaged) {
+    const git = (args: string[]) =>
+      spawnSync('git', ['-C', process.cwd(), ...args], { encoding: 'utf8' as const })
+    const isRepo = git(['rev-parse', '--git-dir'])
+    if (isRepo.status === 0) {
+      const log = git(['log', '--format=%H', '-n', '10', '--', 'src/pages/Services.tsx'])
+      if (log.status === 0) {
+        let good: string | null = null
+        for (const c of log.stdout.trim().split('\n').filter(Boolean)) {
+          const check = git(['cat-file', '-s', `${c}:src/pages/Services.tsx`])
+          const size = parseInt(check.stdout.trim(), 10)
+          if (check.status === 0 && size > 20000) {
+            good = c
+            break
+          }
+        }
+        if (good) {
+          const restore = git(['checkout', good, '--', 'src/pages/Services.tsx'])
+          if (restore.status === 0) {
+            console.log(
+              `[tailwind.config] src/pages/Services.tsx restaurado do commit ${good.slice(0, 10)}`,
+            )
+          } else {
+            console.error(`[tailwind.config] falha ao restaurar Services.tsx: ${restore.stderr}`)
+          }
+        } else {
+          console.error('[tailwind.config] nenhum commit com versão boa de src/pages/Services.tsx')
+        }
+      }
+    }
+  }
+} catch (e) {
+  console.error(`[tailwind.config] restauração de emergência falhou: ${(e as Error).message}`)
+}
 
 export default {
   darkMode: ['class'],
