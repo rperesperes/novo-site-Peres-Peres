@@ -46,7 +46,7 @@ const DESAFIOS = [
   {
     title: 'Pró-labore e proteção previdenciária',
     icon: Coins,
-    text: 'O psicólogo que atua como autônomo ou por PJ própria depende do pró-labore para contribuir ao INSS, manter aposentadoria e acessar auxílios. Retirar tudo como lucro isento barateia hoje e cobra caro amanhã, porque o tempo de contribuição não se recupera.',
+    text: 'Retirar tudo como distribuição de lucros, sem pró-labore, barateia hoje e cobra caro amanhã, porque o tempo de contribuição não se recupera. O psicólogo que atua como autônomo ou por PJ própria depende do pró-labore para contribuir ao INSS, manter aposentadoria e acessar auxílios. Acima de 50 mil reais por mês por empresa pagadora, a distribuição sofre retenção de 10 por cento na fonte, conforme a Lei 15.270 de 2025.',
   },
   {
     title: 'Convênios e plataformas de agenda',
