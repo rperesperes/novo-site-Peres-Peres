@@ -306,7 +306,7 @@ export default function PsicologosSegment() {
       </section>
 
       <ProfessionExerciseForm
-        title="Psicólogo, pessoa física ou pessoa jurídica"
+        title="Psicólogo como pessoa física ou pessoa jurídica?"
         intro="A psicologia pode ser exercida em nome próprio, como pessoa física, ou por meio de pessoa jurídica, em regra uma sociedade limitada unipessoal. Não existe a opção de MEI: a atividade não consta do Anexo XI da Resolução CGSN 140 de 2018, com redação da Resolução CGSN 165 de 2022. O atendimento online não altera a natureza da receita, mas exige atenção ao município competente para o ISS."
         extraItems={[
           'A proporção entre atendimento presencial e online, que afeta o ISS devido ao município.',

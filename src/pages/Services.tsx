@@ -90,7 +90,7 @@ const TRABALHISTA_ITEMS = [
   },
   {
     title: 'Enquadramento de Sócios e Pró-Labore',
-    desc: 'Adequação formal entre retiradas de pró-labore e distribuição de lucros isenta, garantindo conformidade com as regras da Receita Federal e proteção previdenciária aos administradores.',
+    desc: 'Adequação formal entre retiradas de pró-labore e distribuição de lucros, considerando a retenção de 10 por cento na fonte sobre lucros e dividendos que ultrapassarem 50 mil reais por mês por empresa pagadora, conforme a Lei 15.270 de 2025, e a incidência da contribuição previdenciária sobre o pró-labore. A definição entre uma e outra forma de retirada é feita com base nos números do caso, e não em regra geral.',
   },
   {
     title: 'Revisão de Obrigações Trabalhistas',

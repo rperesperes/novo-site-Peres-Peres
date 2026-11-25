@@ -307,7 +307,7 @@ export default function ArquitetosSegment() {
       </section>
 
       <ProfessionExerciseForm
-        title="Arquiteto, pessoa física ou pessoa jurídica"
+        title="Arquiteto como pessoa física ou pessoa jurídica?"
         intro="A arquitetura pode ser exercida em nome próprio, como pessoa física, com registro no conselho de classe e anotação de responsabilidade técnica, ou por meio de pessoa jurídica. A receita por projeto entregue e a receita por acompanhamento de obra têm tratamentos distintos quanto a retenções e à forma de apuração no período. Não existe a opção de MEI para a atividade."
         extraItems={[
           'Se a receita será por projeto entregue ou por acompanhamento de obra, porque o tratamento das retenções muda entre os dois formatos.',
