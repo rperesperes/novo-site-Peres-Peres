@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/accordion'
 import { useSeo } from '@/hooks/use-seo'
 import { ProfessionExerciseForm } from '@/components/ProfessionExerciseForm'
+import { PsicologosCnaeSection } from '@/components/PsicologosCnaeSection'
 import {
   Brain,
   Scale,
@@ -31,7 +32,7 @@ const DESAFIOS = [
   {
     title: 'PJ, empresário individual ou pessoa física',
     icon: UserCheck,
-    text: 'O MEI não é alternativa para o psicólogo, porque a atividade não consta entre as ocupações permitidas (Resolução CGSN nº 140/2018, Anexo XI, editado com base no art. 18-A da LC 123/2006), e a psicologia é atividade de prestação de serviços tributada no Anexo III do Simples quando exercida por pessoa jurídica (LC 123/2006, art. 18, § 5º-B, IV). Os caminhos reais são atuar como pessoa física, constituir empresário individual ou abrir sociedade limitada, normalmente de sócio único. Cada formato tem regime, limite e efeito previdenciário próprio, e a decisão precisa ser tomada com números, não por indicação de colega.',
+    text: 'O MEI não é alternativa para o psicólogo, porque a atividade não consta entre as ocupações permitidas (Resolução CGSN nº 140/2018, Anexo XI, editado com base no art. 18-A da LC 123/2006), e a psicologia é atividade de prestação de serviços tributada no Anexo III do Simples quando exercida por pessoa jurídica (LC 123/2006, art. 18, § 5º-B, XXI). Os caminhos reais são atuar como pessoa física, constituir empresário individual ou abrir sociedade limitada, normalmente de sócio único. Cada formato tem regime, limite e efeito previdenciário próprio, e a decisão precisa ser tomada com números, não por indicação de colega.',
   },
   {
     title: 'Atendimento à distância e em outros estados',
@@ -354,6 +355,11 @@ export default function PsicologosSegment() {
           </div>
         </div>
       </section>
+
+      {/* =========================================================
+          SEÇÃO CNAE, REGIME TRIBUTÁRIO E ISS (componente próprio)
+         ========================================================= */}
+      <PsicologosCnaeSection />
 
       {/* =========================================================
           SEÇÃO 2: COMO ATUAMOS COM O PSICÓLOGO (5 frentes verbatim)
