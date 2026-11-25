@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/accordion'
 import { useSeo } from '@/hooks/use-seo'
 import { ProfessionExerciseForm } from '@/components/ProfessionExerciseForm'
+import { EngenheirosCnaeSection } from '@/components/EngenheirosCnaeSection'
 import {
   Calculator,
   Building2,
@@ -354,6 +355,11 @@ export default function EngenheirosSegment() {
           </div>
         </div>
       </section>
+
+      {/* =========================================================
+          SEÇÃO CNAE, REGIME TRIBUTÁRIO E ISS (entre desafios e como atuamos)
+         ========================================================= */}
+      <EngenheirosCnaeSection />
 
       {/* =========================================================
           SEÇÃO 2: COMO ATUAMOS COM O ENGENHEIRO (5 itens)
