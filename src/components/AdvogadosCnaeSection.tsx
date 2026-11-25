@@ -158,7 +158,7 @@ export function AdvogadosCnaeSection() {
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="max-w-3xl mb-10">
           <span className="text-xs uppercase tracking-wider text-neutral-500 font-semibold block mb-2 font-sans">
-            Enquadramento da banca
+            Enquadramento do escritório de advocacia
           </span>
           <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
             CNAE, regime tributário e ISS
@@ -167,11 +167,12 @@ export function AdvogadosCnaeSection() {
 
         {/* Parágrafo de abertura verbatim */}
         <p className="text-neutral-700 text-base md:text-lg leading-relaxed font-sans max-w-4xl mb-10">
-          O CNAE não define sozinho quanto a banca paga. Ele entra na apuração junto com o regime
-          tributário, e a advocacia pode ser exercida no Simples Nacional, no Lucro Presumido ou no
-          Lucro Real. Duas confusões são frequentes: tratar o CNAE como se fosse o item de serviço
-          usado pelo município para cobrar o ISS, e achar que existe uma lista de códigos vedados,
-          quando o que existe é vedação por atividade, no artigo 17 da Lei Complementar 123 de 2006.
+          O CNAE não define sozinho quanto o escritório paga. Ele entra na apuração junto com o
+          regime tributário, e a advocacia pode ser exercida no Simples Nacional, no Lucro Presumido
+          ou no Lucro Real. Duas confusões são frequentes: tratar o CNAE como se fosse o item de
+          serviço usado pelo município para cobrar o ISS, e achar que existe uma lista de códigos
+          vedados, quando o que existe é vedação por atividade, no artigo 17 da Lei Complementar 123
+          de 2006.
         </p>
 
         {/* SUBBLOCO 1: os códigos da atividade advocatícia */}

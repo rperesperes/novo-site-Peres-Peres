@@ -34,7 +34,7 @@ import {
   ArrowRight,
 } from 'lucide-react'
 
-// 6 Desafios da Banca (textos verbatim)
+// 6 Desafios do Escritório de Advocacia (textos verbatim)
 const DESAFIOS = [
   {
     title: 'Honorários com retenção na fonte',
@@ -49,12 +49,12 @@ const DESAFIOS = [
   {
     title: 'ISS e atuação em municípios diferentes',
     icon: MapPin,
-    text: 'O ISS sobre serviços advocatícios é devido ao município competente, e a competência depende do estabelecimento prestador e das regras municipais. Patrocinar causas fora do domicílio da banca muda a alíquota e o município competente, e parametrizar errado gera custo em dobro.',
+    text: 'O ISS sobre serviços advocatícios é devido ao município competente, e a competência depende do estabelecimento prestador e das regras municipais. Patrocinar causas fora do domicílio do escritório muda a alíquota e o município competente, e parametrizar errado gera custo em dobro.',
   },
   {
     title: 'Sociedade de advogados e opção pelo Simples',
     icon: Building2,
-    text: 'A sociedade de advogados tem registro obrigatório na OAB e não pode assumir forma mercantil (Lei nº 8.906/1994, art. 15). Desde a LC nº 147/2014, a sociedade de advogados pode optar pelo Simples Nacional, mas o enquadramento é sempre no Anexo IV (LC 123/2006, art. 18, § 5º-C, VII), em que a contribuição previdenciária patronal fica fora do DAS e precisa ser recolhida separadamente. Não há Fator R na advocacia, e a escolha entre atuar como pessoa física, como sociedade de advogados ou como sociedade limitada muda completamente a alíquota efetiva — decisão que precisa ser tomada antes da constituição, considerando a incidência da contribuição patronal fora do Simples.',
+    text: 'A sociedade de advogados tem registro obrigatório na OAB e não pode assumir forma mercantil (Lei nº 8.906/1994, art. 15). Desde a LC nº 147/2014, a sociedade de advogados pode optar pelo Simples Nacional, mas o enquadramento é sempre no Anexo IV (LC 123/2006, art. 18, § 5º-C, VII), em que a contribuição previdenciária patronal fica fora do DAS e precisa ser recolhida separadamente. Não há Fator R na advocacia, e a escolha entre atuar como pessoa física, como sociedade de advogados ou como sociedade limitada muda completamente a alíquota efetiva, decisão que precisa ser tomada antes da constituição, considerando a incidência da contribuição patronal fora do Simples.',
   },
   {
     title: 'Sócios, associados e correspondentes',
@@ -62,9 +62,9 @@ const DESAFIOS = [
     text: 'O pagamento a advogado associado, a correspondente de outra comarca e a estagiário exige estrutura documental e fiscal correta. Contratação sem desenho adequado gera risco trabalhista e tributário, e o documento assinado, sozinho, não afasta a discussão quando a prática é diferente.',
   },
   {
-    title: 'Estrutura e crescimento da banca',
+    title: 'Estrutura e crescimento do escritório',
     icon: TrendingUp,
-    text: 'LTDA de sócio único, entrada de novo sócio, abertura de filial em outro estado e o desenho patrimonial do escritório próprio são decisões societárias que têm efeito fiscal e de responsabilidade. Crescer sem estruturar transforma a banca em um conjunto de contratos desconectados.',
+    text: 'LTDA de sócio único, entrada de novo sócio, abertura de filial em outro estado e o desenho patrimonial do escritório próprio são decisões societárias que têm efeito fiscal e de responsabilidade. Crescer sem estruturar transforma o escritório em um conjunto de contratos desconectados.',
   },
 ]
 
@@ -79,7 +79,7 @@ const FRENTES_ATUACAO = [
   {
     frente: 'Contábil',
     destaque: false,
-    text: 'escrituração separada por origem de receita, com conciliação de honorários contratuais, sucumbenciais, custas e retenções, e demonstrações que reflitam o resultado real da banca.',
+    text: 'escrituração separada por origem de receita, com conciliação de honorários contratuais, sucumbenciais, custas e retenções, e demonstrações que reflitam o resultado real do escritório.',
   },
   {
     frente: 'Societária',
@@ -104,7 +104,7 @@ const POR_QUE_PERES_PERES = [
     num: '1',
     title: 'Responsável técnico com dupla formação',
     icon: Scale,
-    text: 'Rafael Peres Peres Nunes Altoé é contador (CRC 027704), advogado (OAB 87656), auditor (CNAI 10122) e professor. Ele atua nas duas frentes que a banca exige ao mesmo tempo: a leitura tributária do regime e a leitura societária da constituição.',
+    text: 'Rafael Peres Peres Nunes Altoé é contador (CRC 027704), advogado (OAB 87656), auditor (CNAI 10122) e professor. Ele atua nas duas frentes que o escritório de advocacia exige ao mesmo tempo: a leitura tributária do regime e a leitura societária da constituição.',
   },
   {
     num: '2',
@@ -116,7 +116,7 @@ const POR_QUE_PERES_PERES = [
     num: '3',
     title: 'Postura conservadora',
     icon: ShieldCheck,
-    text: 'Não veiculamos promessa de percentual de economia. Cada diagnóstico parte de auditoria documental dos números da banca, e quando o formato atual já é o adequado, dizemos que é.',
+    text: 'Não veiculamos promessa de percentual de economia. Cada diagnóstico parte de auditoria documental dos números do escritório, e quando o formato atual já é o adequado, dizemos que é.',
   },
 ]
 
@@ -131,7 +131,7 @@ const FAQ_ITEMS = [
   {
     question: 'Sociedade de advogados pode optar pelo Simples Nacional?',
     answer:
-      'Pode, desde a LC nº 147/2014. A sociedade de advogados é tributada no Anexo IV do Simples Nacional (LC 123/2006, art. 18, § 5º-C, VII), com alíquota inicial de 4,5%, mas a contribuição previdenciária patronal (20% sobre a folha) não está incluída no DAS e é recolhida em guia separada. Isso muda a comparação com o Lucro Presumido — a conta precisa somar o DAS mais o INSS patronal, não apenas a alíquota do anexo.',
+      'Pode, desde a LC nº 147/2014. A sociedade de advogados é tributada no Anexo IV do Simples Nacional (LC 123/2006, art. 18, § 5º-C, VII), com alíquota inicial de 4,5%, mas a contribuição previdenciária patronal (20% sobre a folha) não está incluída no DAS e é recolhida em guia separada. Isso muda a comparação com o Lucro Presumido, porque a conta precisa somar o DAS mais o INSS patronal, e não apenas a alíquota do anexo.',
   },
   {
     question: 'Como tributar honorários sucumbenciais?',
@@ -141,12 +141,12 @@ const FAQ_ITEMS = [
   {
     question: 'Como funciona o ISS quando atuo em município diferente da sede?',
     answer:
-      'O ISS é devido ao município competente, e a competência depende do estabelecimento prestador e das regras do município, o que exige atenção quando a atuação ocorre fora do domicílio da banca. Não existe regra única aplicável a todas as situações, e a definição precisa considerar o município envolvido e o formato da prestação.',
+      'O ISS é devido ao município competente, e a competência depende do estabelecimento prestador e das regras do município, o que exige atenção quando a atuação ocorre fora do domicílio do escritório. Não existe regra única aplicável a todas as situações, e a definição precisa considerar o município envolvido e o formato da prestação.',
   },
   {
     question: 'A anuidade da OAB tem tratamento tributário próprio?',
     answer:
-      'A anuidade da OAB é despesa própria do exercício profissional, e o tratamento para fins de apuração depende do regime adotado e da forma de escrituração. Em determinados regimes há limitação para despesas que não se enquadrem como custo direto da atividade, e a classificação correta precisa ser feita conforme o regime da banca.',
+      'A anuidade da OAB é despesa própria do exercício profissional, e o tratamento para fins de apuração depende do regime adotado e da forma de escrituração. Em determinados regimes há limitação para despesas que não se enquadrem como custo direto da atividade, e a classificação correta precisa ser feita conforme o regime do escritório.',
   },
 ]
 
@@ -174,7 +174,7 @@ export default function AdvogadosSegment() {
   useSeo({
     title: 'Contabilidade para Advogados | Honorários, Sociedade e ISS | PERES PERES',
     description:
-      'Contabilidade e consultoria para advogados: honorários e sucumbência, ISS por município, sociedade de advogados e estrutura da banca. Atendimento em Brasília e no Brasil.',
+      'Contabilidade e consultoria para advogados: honorários e sucumbência, ISS por município, sociedade de advogados e estrutura do escritório de advocacia. Atendimento em Brasília e no Brasil.',
     canonical: 'https://peresperes.com.br/profissoes-regulamentadas/advogados',
   })
 
@@ -289,7 +289,7 @@ export default function AdvogadosSegment() {
               único, a chamada PJ unipessoal, precisa lidar com uma rotina tributária que o
               exercício da advocacia torna específica: honorários com retenção, sucumbência, ISS por
               município e a escolha de regime que muda a alíquota efetiva. A PERES PERES cuida da
-              contabilidade mensal e da leitura tributária da banca.
+              contabilidade mensal e da leitura tributária do escritório de advocacia.
             </p>
 
             {/* Chamada para ação no Hero */}
@@ -348,7 +348,7 @@ export default function AdvogadosSegment() {
       <AdvogadosCnaeSection />
 
       {/* =========================================================
-          SEÇÃO 1: DESAFIOS DA BANCA (6 cards)
+          SEÇÃO 1: DESAFIOS DO ESCRITÓRIO (6 cards)
          ========================================================= */}
       <section className="py-14 md:py-20 bg-white border-b border-neutral-200">
         <div className="container mx-auto px-4 max-w-5xl">
@@ -357,12 +357,12 @@ export default function AdvogadosSegment() {
               Peculiaridades da advocacia
             </span>
             <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
-              Desafios da banca
+              Desafios do escritório
             </h2>
             <p className="text-neutral-700 text-base md:text-lg mt-3 leading-relaxed font-sans">
               A rotina tributária e societária do advogado exige critério técnico contínuo. Estas
-              são as principais questões que impactam diretamente a rentabilidade e o caixa da
-              banca.
+              são as principais questões que impactam diretamente a rentabilidade e o caixa do
+              escritório.
             </p>
           </div>
 
@@ -389,7 +389,7 @@ export default function AdvogadosSegment() {
       </section>
 
       {/* =========================================================
-          SEÇÃO 2: COMO ATUAMOS NA BANCA (5 itens)
+          SEÇÃO 2: COMO ATUAMOS NO ESCRITÓRIO (5 itens)
          ========================================================= */}
       <section className="py-14 md:py-20 bg-neutral-50 border-b border-neutral-200">
         <div className="container mx-auto px-4 max-w-5xl">
@@ -398,7 +398,7 @@ export default function AdvogadosSegment() {
               Estrutura de atendimento
             </span>
             <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
-              Como atuamos na banca
+              Como atuamos no escritório
             </h2>
             <p className="text-neutral-700 text-base md:text-lg mt-3 leading-relaxed font-sans">
               O acompanhamento contábil mensal integra cinco frentes complementares, com foco na

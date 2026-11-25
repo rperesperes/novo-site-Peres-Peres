@@ -135,7 +135,7 @@ const SEGMENTOS_ATUACAO = [
   {
     nome: 'Advogados',
     icon: Scale,
-    desc: 'Contabilidade e consultoria para advogados: honorários e sucumbência, ISS por município, sociedade de advogados e estrutura da banca.',
+    desc: 'Contabilidade e consultoria para advogados: honorários e sucumbência, ISS por município, sociedade de advogados e estrutura do escritório de advocacia.',
     link: '/profissoes-regulamentadas/advogados',
     linkText: 'Saiba mais informações',
   },
