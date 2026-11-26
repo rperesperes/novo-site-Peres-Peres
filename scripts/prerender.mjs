@@ -2,26 +2,42 @@
  * Pré-renderização estática (SSR) das rotas principais do site PERES PERES.
  *
  * Uso manual: node scripts/prerender.mjs
- * (idempotente: gera de novo os mesmos arquivos; sem hook no package.json,
- * porque os arquivos de build são protegidos contra edição)
+ * (idempotente: roda o build e gera de novo os mesmos arquivos; sem hook no
+ * package.json, porque os arquivos de build são protegidos contra edição)
  *
  * O script:
- *  1. faz o build normal do Vite (mesmo comportamento de `npm run build`,
- *     incluindo o prebuild do ícone apple-touch);
+ *  1. faz o build normal do Vite (mesmo comportamento de `npm run build`);
  *  2. carrega src/ssr/prerender-entry.tsx via ssrLoadModule (fora dos arquivos
  *     protegidos) e renderiza cada rota principal para string;
  *  3. escreve dist/<rota>/index.html com o corpo preenchido em <div id="root">,
  *     mantendo o script do bundle, para a SPA hidratar normalmente no navegador;
  *  4. injeta no <head> o title, meta description, canonical e os JSON-LDs da
  *     rota (mesmos valores que o useSeo da página define no navegador).
+ *
+ * Rotas com falha de renderização são puladas com aviso, sem abortar as demais.
  */
-import { build } from 'vite'
-import { createServer } from 'vite'
+import { build, createServer } from 'vite'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 import fs from 'node:fs'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
+
+const escapeHtml = (value) =>
+  value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+
+/**
+ * Substitui uma tag no head tolerando variação de ordem de atributos e de
+ * aspas (o build do Vite pode minificar/reescrever o template).
+ * `headPattern` casa a tag inteira; usa o flag "s" para atributos multilinha.
+ */
+function replaceTag(out, tagRegex, replacement) {
+  const next = out.replace(tagRegex, replacement)
+  if (next === out) {
+    console.warn(`prerender: aviso: padrão não encontrado no head: ${tagRegex}`)
+  }
+  return next
+}
 
 /** Escreve dist/<rota>/index.html preenchido; devolve o caminho gravado. */
 function writeRouteFile(route, html, bodyHtml, seo, jsonLdScripts) {
@@ -32,61 +48,65 @@ function writeRouteFile(route, html, bodyHtml, seo, jsonLdScripts) {
   let out = html
 
   // 1. head: title da rota
-  out = out.replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(seo.title)}</title>`)
+  out = replaceTag(
+    out,
+    /<title\b[^>]*>[\s\S]*?<\/title>/i,
+    `<title>${escapeHtml(seo.title)}</title>`,
+  )
 
   // 2. head: meta description da rota
-  out = out.replace(
-    /<meta\s+name="description"\s+content="[\s\S]*?"\s*\/>/,
+  out = replaceTag(
+    out,
+    /<meta\b[^>]*name=["']description["'][^>]*>/i,
     `<meta name="description" content="${escapeHtml(seo.description)}" />`,
   )
 
   // 3. head: canonical da rota
-  out = out.replace(
-    /<link\s+rel="canonical"\s+href="[\s\S]*?"\s*\/>/,
+  out = replaceTag(
+    out,
+    /<link\b[^>]*rel=["']canonical["'][^>]*>/i,
     `<link rel="canonical" href="${seo.canonical}" />`,
   )
 
   // 4. head: og:title, og:description, og:url e twitter:* da rota
-  out = out.replace(
-    /<meta\s+property="og:url"\s+content="[\s\S]*?"\s*\/>/,
+  out = replaceTag(
+    out,
+    /<meta\b[^>]*property=["']og:url["'][^>]*>/i,
     `<meta property="og:url" content="${seo.canonical}" />`,
   )
-  out = out.replace(
-    /<meta\s+property="og:title"\s+content="[\s\S]*?"\s*\/>/,
+  out = replaceTag(
+    out,
+    /<meta\b[^>]*property=["']og:title["'][^>]*>/i,
     `<meta property="og:title" content="${escapeHtml(seo.title)}" />`,
   )
-  out = out.replace(
-    /<meta\s+property="og:description"\s+content="[\s\S]*?"\s*\/>/,
+  out = replaceTag(
+    out,
+    /<meta\b[^>]*property=["']og:description["'][^>]*>/i,
     `<meta property="og:description" content="${escapeHtml(seo.description)}" />`,
   )
-  out = out.replace(
-    /<meta\s+name="twitter:title"\s+content="[\s\S]*?"\s*\/>/,
+  out = replaceTag(
+    out,
+    /<meta\b[^>]*name=["']twitter:title["'][^>]*>/i,
     `<meta name="twitter:title" content="${escapeHtml(seo.title)}" />`,
   )
-  out = out.replace(
-    /<meta\s+name="twitter:description"\s+content="[\s\S]*?"\s*\/>/,
+  out = replaceTag(
+    out,
+    /<meta\b[^>]*name=["']twitter:description["'][^>]*>/i,
     `<meta name="twitter:description" content="${escapeHtml(seo.description)}" />`,
   )
 
-  // 5. body: conteúdo renderizado dentro do div#root
-  out = out.replace(/<div id="root"><\/div>/, `<div id="root">${bodyHtml}</div>`)
+  // 5. body: conteúdo renderizado dentro do div#root (vazio ou já preenchido
+  //    por uma execução anterior, para o script ser reexecutável).
+  out = out.replace(/<div id="root">[\s\S]*?<\/div>/, `<div id="root">${bodyHtml}</div>`)
 
   // 6. head: JSON-LDs da rota (FAQPage + BreadcrumbList das páginas de segmento)
   if (jsonLdScripts.length > 0) {
-    out = out.replace(/<\/head>/, `${jsonLdScripts.join('\n')}\n  </head>`)
+    out = replaceTag(out, /<\/head>/i, `${jsonLdScripts.join('\n')}\n  </head>`)
   }
 
   fs.mkdirSync(dir, { recursive: true })
   fs.writeFileSync(file, out, 'utf8')
   return file
-}
-
-function escapeHtml(value) {
-  return value
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
 }
 
 async function main() {
@@ -95,7 +115,6 @@ async function main() {
     root,
     logLevel: 'info',
     build: {
-      // gera dist/ com o mesmo layout do `vite build` padrão
       emptyOutDir: true,
     },
   })
@@ -110,36 +129,52 @@ async function main() {
     resolve: { conditions: ['import', 'module', 'browser|default'] },
   })
 
-  const { ROUTES, renderRoute } = await vite.ssrLoadModule('/src/ssr/prerender-entry.tsx')
+  const { ROUTES, renderRoute, JSONLD_CONTENT_BY_ID } = await vite.ssrLoadModule(
+    '/src/ssr/prerender-entry.tsx',
+  )
+  const jsonLdContentById = JSONLD_CONTENT_BY_ID || {}
 
   const template = fs.readFileSync(path.join(root, 'dist/index.html'), 'utf8')
-  if (!template.includes('<div id="root"></div>')) {
+  if (!/<div id="root">\s*<\/div>/.test(template)) {
     throw new Error('prerender: dist/index.html nao contem <div id="root"></div>')
   }
 
   const written = []
+  const skipped = []
   for (const route of ROUTES) {
-    const { html: bodyHtml, seo, jsonLdIds } = renderRoute(route)
+    try {
+      const { html: bodyHtml, seo, jsonLdIds } = renderRoute(route)
 
-    // JSON-LDs que a página registraria via useEffect: lê o conteúdo do script
-    // direto do corpo renderizado? Não: o useEffect não roda no SSR. Então
-    // extraímos o JSON-LD do corpo SSR? Também não. O conteúdo do JSON-LD
-    // (FAQPage + BreadcrumbList) é constante por página e vive no código da
-    // página; aqui registramos o <script> com o id e conteúdo mínimos.
-    const jsonLdScripts = (jsonLdIds || []).map((id) => {
-      return `<script type="application/ld+json" id="${id}">{}</script>`
-      // conteúdo real injetado abaixo (ver prerender-entry.tsx)
-    })
+      // JSON-LDs reais por rota: lê o conteúdo dos scripts com o id conhecido
+      // diretamente do HTML SSR do corpo? O useEffect não roda no SSR; então o
+      // conteúdo vive no módulo da página, e o entry SSR o importa (ver
+      // JSONLD_CONTENT_BY_ID em prerender-entry.tsx).
+      const jsonLdScripts = (jsonLdIds || []).map((id) => {
+        const content = jsonLdContentById[id]
+        if (!content) {
+          console.warn(`prerender: aviso: JSON-LD ${id} sem conteúdo mapeado; script vazio`)
+          return `<script type="application/ld+json" id="${id}">{}</script>`
+        }
+        return `<script type="application/ld+json" id="${id}">${content}</script>`
+      })
 
-    const file = writeRouteFile(route, template, bodyHtml, seo, jsonLdScripts)
-    written.push(file)
-    console.log(
-      `prerender: ${route} -> ${path.relative(root, file)} (${bodyHtml.length} bytes de corpo)`,
-    )
+      const file = writeRouteFile(route, template, bodyHtml, seo, jsonLdScripts)
+      written.push(file)
+      console.log(
+        `prerender: ${route} -> ${path.relative(root, file)} (${bodyHtml.length} bytes de corpo)`,
+      )
+    } catch (err) {
+      // Rota com problema (ex. rede no PocketBase) não derruba as demais.
+      skipped.push(route)
+      console.warn(`prerender: aviso: rota ${route} pulada: ${err?.message || err}`)
+    }
   }
 
   await vite.close()
   console.log(`prerender: ${written.length} páginas geradas em dist/`)
+  if (skipped.length > 0) {
+    console.warn(`prerender: rotas puladas: ${skipped.join(', ')}`)
+  }
 }
 
 main().catch((err) => {

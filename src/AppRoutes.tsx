@@ -1,0 +1,155 @@
+import { Routes, Route, Navigate } from 'react-router-dom'
+import { Toaster } from '@/components/ui/toaster'
+import { Toaster as Sonner } from '@/components/ui/sonner'
+import { TooltipProvider } from '@/components/ui/tooltip'
+import Layout from './components/Layout'
+import NotFound from './pages/NotFound'
+import { AuthProvider } from './hooks/use-auth'
+import AdminLayout from './components/AdminLayout'
+
+// Pages
+import Index from './pages/Index'
+import AdminCases from './pages/admin/Cases'
+import AdminJobs from './pages/admin/Jobs'
+import AdminEmails from './pages/admin/Emails'
+import AdminCalculators from './pages/admin/Calculators'
+import AdminSettings from './pages/admin/Settings'
+import About from './pages/About'
+import TrabalheConosco from './pages/TrabalheConosco'
+import Services from './pages/Services'
+import MeiCompleto from './pages/MeiCompleto'
+import PerdaoDividaMei from './pages/PerdaoDividaMei'
+import Cases from './pages/Cases'
+import CaseDetail from './pages/CaseDetail'
+
+import Resources from './pages/Resources'
+import Contact from './pages/Contact'
+import CalculatorsHub from './pages/CalculatorsHub'
+import CalculatorDetail from './pages/CalculatorDetail'
+import FatorRCalculator from './pages/FatorRCalculator'
+import SimplesNacionalOuLucroPresumidoCalculator from './pages/SimplesNacionalOuLucroPresumidoCalculator'
+import CustoDeFuncionarioCLTCalculator from './pages/CustoDeFuncionarioCLTCalculator'
+import CertificadoDigital from './pages/CertificadoDigital'
+import RegistroDeMarcas from './pages/RegistroDeMarcas'
+import InteligenciaFinanceira from './pages/InteligenciaFinanceira'
+import PJouCLTCalculator from './pages/PJouCLTCalculator'
+import SimplesNacionalHibridoCalculator from './pages/SimplesNacionalHibridoCalculator'
+import JurosDeMoraDeTributosCalculator from './pages/JurosDeMoraDeTributosCalculator'
+import IRPFeRestituicaoCalculator from './pages/IRPFeRestituicaoCalculator'
+import JurosDeFinanciamentoCalculator from './pages/JurosDeFinanciamentoCalculator'
+import ProLaboreDividendosCalculator from './pages/ProLaboreDividendosCalculator'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import Entrar from './pages/Entrar'
+import ClinicasMedicasSegment from './pages/ClinicasMedicasSegment'
+import StartupsTechSegment from './pages/StartupsTechSegment'
+import HoldingsFamiliaresSegment from './pages/HoldingsFamiliaresSegment'
+import EducacaoTreinamentosSegment from './pages/EducacaoTreinamentosSegment'
+import PublicidadeComunicacaoSegment from './pages/PublicidadeComunicacaoSegment'
+import AgenciasViagemSegment from './pages/AgenciasViagemSegment'
+import EcommerceSegment from './pages/EcommerceSegment'
+import MedicosSegment from './pages/MedicosSegment'
+import AdvogadosSegment from './pages/AdvogadosSegment'
+import PsicologosSegment from './pages/PsicologosSegment'
+import EngenheirosSegment from './pages/EngenheirosSegment'
+import ArquitetosSegment from './pages/ArquitetosSegment'
+
+/**
+ * Árvore de rotas compartilhada entre o app (BrowserRouter em App.tsx) e o
+ * entry de pré-renderização (StaticRouter em src/ssr/prerender-entry.tsx).
+ * NÃO inclui nenhum Router: quem envolve define o router apropriado.
+ */
+export const AppRoutes = () => (
+  <AuthProvider>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Index />} />
+          <Route path="/sobre" element={<About />} />
+          <Route path="/trabalhe-conosco" element={<TrabalheConosco />} />
+          <Route path="/servicos" element={<Services />} />
+          <Route path="/servicos/certificado-digital" element={<CertificadoDigital />} />
+          <Route path="/servicos/registro-de-marcas" element={<RegistroDeMarcas />} />
+          <Route path="/servicos/inteligencia-financeira" element={<InteligenciaFinanceira />} />
+          <Route path="/mei-completo" element={<MeiCompleto />} />
+          <Route path="/perdao-divida-mei" element={<PerdaoDividaMei />} />
+          <Route path="/casos" element={<Cases />} />
+          <Route path="/casos/:slug" element={<CaseDetail />} />
+          <Route path="/recursos" element={<Resources />} />
+          <Route path="/contato" element={<Contact />} />
+          <Route path="/entrar" element={<Entrar />} />
+          <Route path="/politica-de-privacidade" element={<PrivacyPolicy />} />
+          <Route path="/contabilidade-para-clinicas-medicas" element={<ClinicasMedicasSegment />} />
+          <Route path="/contabilidade-para-startups-e-tech" element={<StartupsTechSegment />} />
+          <Route
+            path="/holdings-familiares-e-patrimoniais"
+            element={<HoldingsFamiliaresSegment />}
+          />
+          <Route
+            path="/contabilidade-para-educacao-e-treinamentos"
+            element={<EducacaoTreinamentosSegment />}
+          />
+          <Route
+            path="/contabilidade-para-agencias-de-publicidade"
+            element={<PublicidadeComunicacaoSegment />}
+          />
+          <Route
+            path="/contabilidade-para-agencias-de-viagem"
+            element={<AgenciasViagemSegment />}
+          />
+          <Route path="/contabilidade-para-ecommerce" element={<EcommerceSegment />} />
+          <Route path="/profissoes-regulamentadas/medicos" element={<MedicosSegment />} />
+          <Route path="/profissoes-regulamentadas/advogados" element={<AdvogadosSegment />} />
+          <Route path="/profissoes-regulamentadas/psicologos" element={<PsicologosSegment />} />
+          <Route path="/profissoes-regulamentadas/engenheiros" element={<EngenheirosSegment />} />
+          <Route path="/profissoes-regulamentadas/arquitetos" element={<ArquitetosSegment />} />
+          <Route
+            path="/profissoes-regulamentadas"
+            element={<Navigate to="/servicos#segmentos" replace />}
+          />
+          <Route path="/calculadoras" element={<CalculatorsHub />} />
+          <Route path="/calculadoras/fator-r" element={<FatorRCalculator />} />
+          <Route
+            path="/calculadoras/simples-nacional-ou-lucro-presumido"
+            element={<SimplesNacionalOuLucroPresumidoCalculator />}
+          />
+          <Route
+            path="/calculadoras/custo-de-funcionario-clt"
+            element={<CustoDeFuncionarioCLTCalculator />}
+          />
+          <Route path="/calculadoras/pj-ou-clt" element={<PJouCLTCalculator />} />
+          <Route
+            path="/calculadoras/simples-nacional-hibrido"
+            element={<SimplesNacionalHibridoCalculator />}
+          />
+          <Route
+            path="/calculadoras/juros-de-mora-de-tributos"
+            element={<JurosDeMoraDeTributosCalculator />}
+          />
+          <Route path="/calculadoras/irpf-e-restituicao" element={<IRPFeRestituicaoCalculator />} />
+          <Route
+            path="/calculadoras/juros-de-financiamento"
+            element={<JurosDeFinanciamentoCalculator />}
+          />
+          <Route
+            path="/calculadoras/pro-labore-ou-dividendos"
+            element={<ProLaboreDividendosCalculator />}
+          />
+          <Route path="/calculadoras/:slug" element={<CalculatorDetail />} />
+        </Route>
+        <Route path="/login" element={<Navigate to="/entrar" replace />} />
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<AdminCases />} />
+          <Route path="cases" element={<AdminCases />} />
+          <Route path="jobs" element={<AdminJobs />} />
+          <Route path="vagas" element={<AdminJobs />} />
+          <Route path="emails" element={<AdminEmails />} />
+          <Route path="calculators" element={<AdminCalculators />} />
+          <Route path="settings" element={<AdminSettings />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </TooltipProvider>
+  </AuthProvider>
+)

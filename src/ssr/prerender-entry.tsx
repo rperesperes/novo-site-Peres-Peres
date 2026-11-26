@@ -10,10 +10,10 @@
  * MESMOS valores definidos em cada página, para o prerender injetar no
  * <head> do HTML gerado.
  */
-import { StrictMode, Suspense } from 'react'
+import { Suspense } from 'react'
 import { renderToString } from 'react-dom/server'
-import { StaticRouter } from 'react-router-dom/server'
-import App from '@/App'
+import { StaticRouter } from 'react-router'
+import { AppRoutes } from '@/AppRoutes'
 
 export interface PrerenderedPage {
   /** HTML renderizado do corpo da rota (para dentro de <div id="root">). */
@@ -176,13 +176,11 @@ export function renderRoute(path: string): PrerenderedPage {
   let html = ''
   try {
     html = renderToString(
-      <StrictMode>
-        <Suspense fallback={null}>
-          <StaticRouter location={path}>
-            <App />
-          </StaticRouter>
-        </Suspense>
-      </StrictMode>,
+      <Suspense fallback={null}>
+        <StaticRouter location={path}>
+          <AppRoutes />
+        </StaticRouter>
+      </Suspense>,
     )
   } catch (err) {
     // Sem corpo, o prerender falha: um HTML só de head seria pior que o atual.
