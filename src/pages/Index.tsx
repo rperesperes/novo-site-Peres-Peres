@@ -53,34 +53,6 @@ const ROTINAS_ACOMPANHAMENTO = [
   },
 ]
 
-// Bloco 10: Reforma Tributária (6 temas)
-const TEMAS_REFORMA = [
-  {
-    title: 'IBS e CBS',
-    desc: 'A substituição de PIS, COFINS, ICMS e ISS por dois tributos sobre valor agregado, com crédito amplo e alíquotas de referência. O ponto de atenção é o desenho do crédito: o que passa a ser aproveitável e o que deixa de ser.',
-  },
-  {
-    title: 'Imposto Seletivo',
-    desc: 'Incide sobre bens e serviços considerados prejudiciais à saúde ou ao meio ambiente, com alíquota própria e regras específicas de incidência. Empresas desses setores precisam revisar precificação e cadeia de crédito antes de o tributo entrar em vigor.',
-  },
-  {
-    title: 'Split Payment',
-    desc: 'O recolhimento do tributo na liquidação financeira, separando o valor do imposto no momento do pagamento. Impacta diretamente o fluxo de caixa, o capital de giro e a conciliação de recebíveis.',
-  },
-  {
-    title: 'Nova nota fiscal',
-    desc: 'A nota fiscal eletrônica passa a incorporar novos campos e o detalhamento do IBS e da CBS por item. Exige revisão de cadastro de produtos, classificação e integração do sistema de emissão.',
-  },
-  {
-    title: 'Obrigações acessórias',
-    desc: 'Extinção de declarações do regime antigo e criação de novas obrigações de apuração e recolhimento. O cronograma é escalonado e muda o calendário fiscal da empresa por vários anos.',
-  },
-  {
-    title: 'Transição e creditamento',
-    desc: 'Convívio entre o regime atual e o novo, com alíquotas-teste, prazos escalonados e regras específicas de aproveitamento de saldos credores acumulados. É a fase de maior risco de perda financeira por falta de planejamento.',
-  },
-]
-
 // Bloco 11: Segmentos e áreas de atuação (9 segmentos na ordem estrita do briefing)
 const SEGMENTOS_ATUACAO: { nome: string; href?: string; desc?: string }[] = [
   { nome: 'Clínicas e Profissionais da Saúde' },
@@ -779,10 +751,10 @@ export default function Index() {
          ========================================================= */}
       <section className="py-12 md:py-16 bg-neutral-100 border-b border-neutral-200">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="bg-white border-2 border-neutral-900 rounded-2xl p-6 sm:p-8 md:p-10 shadow-sm space-y-8">
+          <div className="bg-white border-2 border-neutral-900 rounded-2xl p-6 sm:p-8 md:p-10 shadow-sm space-y-6">
             <div className="space-y-3">
               <div className="inline-flex items-center gap-2 bg-[#FAB319]/20 border border-[#FAB319] text-black px-3 py-1 rounded text-xs font-semibold uppercase tracking-wider font-sans">
-                Diagnóstico Setorial
+                Análise da transição
               </div>
 
               <h2 className="text-3xl md:text-4xl font-sans font-bold text-black leading-tight">
@@ -790,35 +762,21 @@ export default function Index() {
               </h2>
 
               <p className="text-neutral-700 text-base md:text-lg leading-relaxed font-sans">
-                A Reforma Tributária não se resume à troca de PIS, COFINS, ICMS e ISS pelo IBS e
-                pela CBS. Ela altera a forma de calcular crédito, de precificar, de emitir documento
-                fiscal e de apurar tributo, com regras de transição que convivem com o regime antigo
-                por vários anos. Quem se antecipa escolhe onde se posicionar; quem espera descobre o
-                impacto na primeira nota emitida.
+                A Reforma Tributária troca PIS, COFINS, ICMS e ISS pelo IBS e pela CBS em uma
+                transição que vai até 2033, e altera a forma de calcular crédito, de precificar, de
+                emitir documento fiscal e de apurar tributo.
+              </p>
+
+              <p className="text-neutral-700 text-base md:text-lg leading-relaxed font-sans">
+                Em 2026 começa a fase de teste, com IBS a 0,1% e CBS a 0,9% sem cobrança (art. 348
+                da Lei Complementar 214 de 2025), e em 2027 o PIS e a COFINS acabam e entra a CBS.
+              </p>
+
+              <p className="text-neutral-700 text-base md:text-lg leading-relaxed font-sans">
+                Quem está no Simples precisa decidir, ainda em 2026, se apura IBS e CBS pelo regime
+                regular, uma escolha semestral e irretratável que muda o crédito do cliente.
               </p>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
-              {TEMAS_REFORMA.map((tema, idx) => (
-                <div
-                  key={idx}
-                  className="bg-neutral-50 border border-neutral-200 rounded-xl p-5 flex flex-col h-full"
-                >
-                  <h3 className="text-base font-sans font-bold text-black leading-snug min-h-[1.5rem] mb-2">
-                    {tema.title}
-                  </h3>
-                  <p className="text-sm font-sans font-normal text-neutral-600 leading-relaxed mt-0">
-                    {tema.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <p className="text-neutral-700 text-base md:text-lg leading-relaxed font-sans">
-              Fazemos o diagnóstico do impacto da Reforma no seu setor a partir dos seus próprios
-              números: qual o efeito sobre a carga, o crédito, o preço e o caixa, e o que precisa
-              estar pronto em cada fase da transição.
-            </p>
 
             <div className="pt-2">
               <Button
@@ -826,9 +784,8 @@ export default function Index() {
                 className="bg-black hover:bg-neutral-800 text-white font-semibold text-base h-12 px-8 font-sans"
                 asChild
               >
-                <Link to="/contato">
-                  Solicitar diagnóstico da Reforma Tributária{' '}
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                <Link to="/reforma-tributaria">
+                  Ler a análise completa <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </div>

@@ -52,6 +52,7 @@ import AdvogadosSegment from './pages/AdvogadosSegment'
 import PsicologosSegment from './pages/PsicologosSegment'
 import EngenheirosSegment from './pages/EngenheirosSegment'
 import ArquitetosSegment from './pages/ArquitetosSegment'
+import ReformaTributaria from './pages/ReformaTributaria'
 
 /**
  * Árvore de rotas compartilhada entre o app (BrowserRouter em App.tsx) e o
@@ -99,6 +100,7 @@ export const AppRoutes = () => (
             element={<AgenciasViagemSegment />}
           />
           <Route path="/contabilidade-para-ecommerce" element={<EcommerceSegment />} />
+          <Route path="/reforma-tributaria" element={<ReformaTributaria />} />
           <Route path="/profissoes-regulamentadas/medicos" element={<MedicosSegment />} />
           <Route path="/profissoes-regulamentadas/advogados" element={<AdvogadosSegment />} />
           <Route path="/profissoes-regulamentadas/psicologos" element={<PsicologosSegment />} />

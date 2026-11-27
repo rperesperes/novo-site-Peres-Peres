@@ -186,6 +186,15 @@ const SEO_BY_ROUTE: Record<
     ogDescription:
       'Contabilidade para agências de viagem, com separação entre comissão e repasse, câmbio, pacotes antecipados e cancelamentos tratados com regras claras.',
   },
+  '/reforma-tributaria': {
+    title: 'Reforma Tributária: o que muda para a sua empresa até 2033',
+    description:
+      'Cronograma da Reforma Tributária, escolha do Simples para IBS e CBS, split payment e o que fazer em 2026, explicados pela PERES PERES Consultoria & Contabilidade.',
+    canonical: 'https://peresperes.com.br/reforma-tributaria',
+    ogTitle: 'Reforma Tributária: o que muda para a sua empresa até 2033',
+    ogDescription:
+      'Cronograma da transição, escolha do Simples para IBS e CBS e os passos de 2026 que definem crédito, preço e caixa da sua empresa nos próximos anos.',
+  },
   '/holdings-familiares-e-patrimoniais': {
     title: 'Holding Familiar e Patrimonial: Sucessão, ITCMD e Regime',
     description:
@@ -211,6 +220,7 @@ const JSONLD_IDS_BY_ROUTE: Record<string, string[]> = {
   '/contabilidade-para-clinicas-medicas': ['faq-jsonld-clinicas-medicas'],
   '/contabilidade-para-agencias-de-viagem': ['faq-jsonld-agencias-viagem'],
   '/holdings-familiares-e-patrimoniais': ['faq-jsonld-holdings-familiares'],
+  '/reforma-tributaria': ['faq-jsonld-reforma-tributaria'],
 }
 
 /**

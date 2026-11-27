@@ -13,6 +13,7 @@ const NAV_LINKS = [
   { name: 'Serviços', path: '/servicos' },
   { name: 'Casos de Sucesso', path: '/casos' },
   { name: 'Calculadoras', path: '/calculadoras' },
+  { name: 'Reforma Tributária', path: '/reforma-tributaria' },
   { name: 'Blog', path: 'https://blog.peresperes.com.br', external: true },
 ]
 export function Header() {

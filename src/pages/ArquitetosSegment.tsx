@@ -8,6 +8,7 @@ import { useSeo } from '@/hooks/use-seo'
 import { ProfessionExerciseForm } from '@/components/ProfessionExerciseForm'
 import { ArquitetosCnaeSection } from '@/components/ArquitetosCnaeSection'
 import { ContinueReading } from '@/components/ContinueReading'
+import ShareLine from '@/components/ShareLine'
 import {
   Calculator,
   Building2,
