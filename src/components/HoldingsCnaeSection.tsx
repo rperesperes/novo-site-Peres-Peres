@@ -173,9 +173,9 @@ export function HoldingsCnaeSection() {
         <p className="text-neutral-700 text-base md:text-lg leading-relaxed font-sans max-w-4xl mb-10">
           Na holding, o código de atividade é a tradução cadastral de uma escolha societária. O
           efeito tributário depende do que a holding faz: se controla empresas, se apenas detém
-          participação, se aluga imóvel próprio ou se administra patrimônio. O código precisa
-          refletir essa escolha, porque é ela que define o regime possível e, no Simples Nacional,
-          define também se a empresa pode optar.
+          participação, se aluga imóvel próprio ou se administra patrimônio. Os CNAES precisam
+          refletir essa escolha, porque alguns CNAEs não são aceitos pelo regime tributário do
+          Simples Nacional, somente do Lucro Presumido e Lucro Real.
         </p>
 
         {/* SUBBLOCO 1: os códigos da holding */}
