@@ -168,6 +168,9 @@ export default function EngenheirosSegment() {
     description:
       'Contabilidade para engenheiros com PJ, Fator R no Simples, retenções de contratantes e receita por medição: o que muda no caixa e no faturamento.',
     canonical: 'https://peresperes.com.br/profissoes-regulamentadas/engenheiros',
+    ogTitle: 'Contabilidade para Engenheiros e Empresas de Engenharia',
+    ogDescription:
+      'Contabilidade para engenheiros e empresas de engenharia, com Fator R no Simples, retenções de contratantes e receita por medição aplicadas à rotina.',
   })
 
   // JSON-LD para Rich Snippet FAQPage e BreadcrumbList

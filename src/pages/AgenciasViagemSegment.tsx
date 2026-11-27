@@ -150,6 +150,9 @@ export default function AgenciasViagemSegment() {
     description:
       'Contabilidade para agências de viagem: comissão x repasse, câmbio, pacotes antecipados e cancelamentos, com regras de ISS e de retenção explicadas.',
     canonical: 'https://peresperes.com.br/contabilidade-para-agencias-de-viagem',
+    ogTitle: 'Contabilidade para Agências de Viagem',
+    ogDescription:
+      'Contabilidade para agências de viagem, com separação entre comissão e repasse, câmbio, pacotes antecipados e cancelamentos tratados com regras claras.',
   })
 
   // JSON-LD para Rich Snippet FAQPage e BreadcrumbList

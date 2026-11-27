@@ -168,6 +168,9 @@ export default function ArquitetosSegment() {
     description:
       'Contabilidade para arquitetos com PJ, Fator R no Simples, retenções de clientes e receita por projeto: como lidar com a carga fiscal sem surpresas.',
     canonical: 'https://peresperes.com.br/profissoes-regulamentadas/arquitetos',
+    ogTitle: 'Contabilidade para Arquitetos e Escritórios de Arquitetura',
+    ogDescription:
+      'Contabilidade para arquitetos e escritórios de arquitetura, com Fator R no Simples, retenções de clientes e receita por projeto aplicadas à rotina.',
   })
 
   // JSON-LD para Rich Snippet FAQPage e BreadcrumbList

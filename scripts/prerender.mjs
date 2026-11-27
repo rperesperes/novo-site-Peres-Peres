@@ -40,7 +40,7 @@ function replaceTag(out, tagRegex, replacement) {
 }
 
 /** Escreve dist/<rota>/index.html preenchido; devolve o caminho gravado. */
-function writeRouteFile(route, html, bodyHtml, seo, jsonLdScripts) {
+function writeRouteFile(route, html, bodyHtml, seo, share, jsonLdScripts) {
   const cleanRoute = route === '/' ? '' : route.replace(/^\//, '')
   const dir = path.join(root, 'dist', cleanRoute)
   const file = path.join(dir, 'index.html')
@@ -69,30 +69,31 @@ function writeRouteFile(route, html, bodyHtml, seo, jsonLdScripts) {
   )
 
   // 4. head: og:title, og:description, og:url e twitter:* da rota
+  //    (valores de compartilhamento próprios, mantidos em sincronia com o useSeo)
   out = replaceTag(
     out,
     /<meta\b[^>]*property=["']og:url["'][^>]*>/i,
-    `<meta property="og:url" content="${seo.canonical}" />`,
+    `<meta property="og:url" content="${share.ogUrl}" />`,
   )
   out = replaceTag(
     out,
     /<meta\b[^>]*property=["']og:title["'][^>]*>/i,
-    `<meta property="og:title" content="${escapeHtml(seo.title)}" />`,
+    `<meta property="og:title" content="${escapeHtml(share.ogTitle)}" />`,
   )
   out = replaceTag(
     out,
     /<meta\b[^>]*property=["']og:description["'][^>]*>/i,
-    `<meta property="og:description" content="${escapeHtml(seo.description)}" />`,
+    `<meta property="og:description" content="${escapeHtml(share.ogDescription)}" />`,
   )
   out = replaceTag(
     out,
     /<meta\b[^>]*name=["']twitter:title["'][^>]*>/i,
-    `<meta name="twitter:title" content="${escapeHtml(seo.title)}" />`,
+    `<meta name="twitter:title" content="${escapeHtml(share.ogTitle)}" />`,
   )
   out = replaceTag(
     out,
     /<meta\b[^>]*name=["']twitter:description["'][^>]*>/i,
-    `<meta name="twitter:description" content="${escapeHtml(seo.description)}" />`,
+    `<meta name="twitter:description" content="${escapeHtml(share.ogDescription)}" />`,
   )
 
   // 5. body: conteúdo renderizado dentro do div#root (vazio ou já preenchido
@@ -143,7 +144,7 @@ async function main() {
   const skipped = []
   for (const route of ROUTES) {
     try {
-      const { html: bodyHtml, seo, jsonLdIds } = renderRoute(route)
+      const { html: bodyHtml, seo, share, jsonLdIds } = renderRoute(route)
 
       // JSON-LDs reais por rota: lê o conteúdo dos scripts com o id conhecido
       // diretamente do HTML SSR do corpo? O useEffect não roda no SSR; então o
@@ -158,7 +159,7 @@ async function main() {
         return `<script type="application/ld+json" id="${id}">${content}</script>`
       })
 
-      const file = writeRouteFile(route, template, bodyHtml, seo, jsonLdScripts)
+      const file = writeRouteFile(route, template, bodyHtml, seo, share, jsonLdScripts)
       written.push(file)
       console.log(
         `prerender: ${route} -> ${path.relative(root, file)} (${bodyHtml.length} bytes de corpo)`,

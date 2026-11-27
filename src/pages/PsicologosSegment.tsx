@@ -168,6 +168,9 @@ export default function PsicologosSegment() {
     description:
       'Contabilidade para psicólogos que atendem como PJ: CNAE, Simples Nacional, Fator R, retiradas e atendimento online, com as regras explicadas.',
     canonical: 'https://peresperes.com.br/profissoes-regulamentadas/psicologos',
+    ogTitle: 'Contabilidade para Psicólogos',
+    ogDescription:
+      'Contabilidade para psicólogos que atendem como pessoa jurídica, com CNAE correto, enquadramento no Simples Nacional e obrigações junto ao CRP.',
   })
 
   // JSON-LD para Rich Snippet FAQPage e BreadcrumbList

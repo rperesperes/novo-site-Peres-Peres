@@ -170,6 +170,9 @@ export default function EducacaoTreinamentosSegment() {
     description:
       'Contabilidade para escolas, cursos e treinamentos: enquadramento, imunidade, sazonalidade de matrícula e folha docente, explicados em linguagem clara.',
     canonical: 'https://peresperes.com.br/contabilidade-para-educacao-e-treinamentos',
+    ogTitle: 'Contabilidade para Escolas e Cursos',
+    ogDescription:
+      'Contabilidade para escolas e cursos, com enquadramento, imunidade, sazonalidade de matrículas e folha docente tratados em linguagem clara.',
   })
 
   // JSON-LD para Rich Snippet FAQPage e BreadcrumbList

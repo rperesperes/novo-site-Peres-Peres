@@ -171,6 +171,9 @@ export default function StartupsTechSegment() {
     description:
       'Contabilidade para startups e tech: enquadramento, SaaS, vesting de sócios e números prontos para investidor, com clareza para o próximo passo.',
     canonical: 'https://peresperes.com.br/contabilidade-para-startups-e-tech',
+    ogTitle: 'Contabilidade para Startups e Empresas de Tecnologia',
+    ogDescription:
+      'Contabilidade para startups e empresas de tecnologia, com enquadramento, SaaS, vesting de sócios e números prontos para o investidor.',
   })
 
   // JSON-LD para Rich Snippet FAQPage e BreadcrumbList

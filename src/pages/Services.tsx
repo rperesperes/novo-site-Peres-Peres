@@ -313,6 +313,23 @@ export default function Services() {
       document.head.appendChild(metaDescTag)
     }
     metaDescTag.setAttribute('content', pageDesc)
+
+    // Etiquetas de compartilhamento social próprias da página de Serviços
+    const shareTitle = 'Serviços de Contabilidade Consultiva'
+    const shareDescription =
+      'Serviços de contabilidade consultiva em Brasília e em todo o Brasil, com consultoria tributária, recuperação de créditos, área trabalhista e societária.'
+    const ogUrl = 'https://peresperes.com.br/servicos'
+
+    const ogTitleTag = document.querySelector('meta[property="og:title"]')
+    if (ogTitleTag) ogTitleTag.setAttribute('content', shareTitle)
+    const ogDescTag = document.querySelector('meta[property="og:description"]')
+    if (ogDescTag) ogDescTag.setAttribute('content', shareDescription)
+    const ogUrlTag = document.querySelector('meta[property="og:url"]')
+    if (ogUrlTag) ogUrlTag.setAttribute('content', ogUrl)
+    const twTitleTag = document.querySelector('meta[name="twitter:title"]')
+    if (twTitleTag) twTitleTag.setAttribute('content', shareTitle)
+    const twDescTag = document.querySelector('meta[name="twitter:description"]')
+    if (twDescTag) twDescTag.setAttribute('content', shareDescription)
   }, [])
 
   return (

@@ -171,6 +171,9 @@ export default function ClinicasMedicasSegment() {
     description:
       'Contabilidade para clínicas médicas: Fator R no Simples, equiparação hospitalar, créditos sobre insumos e cuidados com a folha de profissionais.',
     canonical: 'https://peresperes.com.br/contabilidade-para-clinicas-medicas',
+    ogTitle: 'Contabilidade para Clínicas Médicas',
+    ogDescription:
+      'Contabilidade para clínicas médicas, com Fator R no Simples, equiparação hospitalar, créditos sobre insumos e folha de profissionais em dia.',
   })
 
   // JSON-LD para Rich Snippet FAQPage e BreadcrumbList

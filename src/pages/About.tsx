@@ -49,6 +49,9 @@ export default function About() {
     description:
       'Conheça a história e o corpo técnico da PERES PERES Consultoria & Contabilidade em Brasília, sob responsabilidade de Rafael Peres Peres Nunes Altoé (CRC 027704).',
     canonical: 'https://peresperes.com.br/sobre',
+    ogTitle: 'Sobre a PERES PERES',
+    ogDescription:
+      'A história e o corpo técnico da PERES PERES Consultoria & Contabilidade em Brasília, sob responsabilidade de Rafael Peres Peres Nunes Altoé, CRC 027704.',
   })
 
   return (

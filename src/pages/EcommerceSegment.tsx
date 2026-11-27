@@ -170,6 +170,9 @@ export default function EcommerceSegment() {
     description:
       'Contabilidade para e-commerce e lojas virtuais: ICMS entre estados, DIFAL, marketplaces, estoque e precificação, com foco em evitar cobranças.',
     canonical: 'https://peresperes.com.br/contabilidade-para-ecommerce',
+    ogTitle: 'Contabilidade para E-commerce',
+    ogDescription:
+      'Contabilidade para e-commerce e lojas virtuais, com ICMS interestadual, DIFAL, marketplaces, estoque e precificação tratados sem cobranças indevidas.',
   })
 
   // JSON-LD para Rich Snippet FAQPage e BreadcrumbList

@@ -169,6 +169,9 @@ export default function PublicidadeComunicacaoSegment() {
     description:
       'Contabilidade para agências de publicidade com mídia, comissão, retenções da cadeia criativa e margem por job: como organizar o caixa sem surpresas.',
     canonical: 'https://peresperes.com.br/contabilidade-para-agencias-de-publicidade',
+    ogTitle: 'Contabilidade para Agências de Publicidade',
+    ogDescription:
+      'Contabilidade para agências de publicidade, com separação de mídia e comissão, retenções da cadeia criativa e margem por job organizadas no caixa.',
   })
 
   // JSON-LD para Rich Snippet FAQPage e BreadcrumbList

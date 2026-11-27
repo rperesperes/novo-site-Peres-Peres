@@ -20,6 +20,8 @@ export interface PrerenderedPage {
   html: string
   /** Valores que o useSeo da página define no navegador. */
   seo: { title: string; description: string; canonical: string }
+  /** Etiquetas de compartilhamento social (og:*) da página. */
+  share: { ogTitle: string; ogDescription: string; ogUrl: string }
   /** Caminhos dos JSON-LDs extras que a página registra via useEffect. */
   jsonLdIds: string[]
 }
@@ -48,7 +50,16 @@ export const ROUTES = [
  * Mantenha em sincronia com o useSeo de cada página; o prerender falha o
  * build se os valores de canonical divergirem do que a página define.
  */
-const SEO_BY_ROUTE: Record<string, { title: string; description: string; canonical: string }> = {
+const SEO_BY_ROUTE: Record<
+  string,
+  {
+    title: string
+    description: string
+    canonical: string
+    ogTitle?: string
+    ogDescription?: string
+  }
+> = {
   '/': {
     title: 'PERES PERES Consultoria & Contabilidade em Brasília',
     description:
@@ -60,6 +71,9 @@ const SEO_BY_ROUTE: Record<string, { title: string; description: string; canonic
     description:
       'Conheça os serviços da PERES PERES Consultoria & Contabilidade em Brasília: consultoria tributária, recuperação de créditos, consultoria trabalhista, societária e planos de acompanhamento mensal.',
     canonical: 'https://peresperes.com.br/servicos',
+    ogTitle: 'Serviços de Contabilidade Consultiva',
+    ogDescription:
+      'Serviços de contabilidade consultiva em Brasília e em todo o Brasil, com consultoria tributária, recuperação de créditos, área trabalhista e societária.',
   },
   '/mei-completo': {
     title: 'MEI Completo | PERES PERES Consultoria & Contabilidade',
@@ -72,12 +86,18 @@ const SEO_BY_ROUTE: Record<string, { title: string; description: string; canonic
     description:
       'Conheça a história e o corpo técnico da PERES PERES Consultoria & Contabilidade em Brasília, sob responsabilidade de Rafael Peres Peres Nunes Altoé (CRC 027704).',
     canonical: 'https://peresperes.com.br/sobre',
+    ogTitle: 'Sobre a PERES PERES',
+    ogDescription:
+      'A história e o corpo técnico da PERES PERES Consultoria & Contabilidade em Brasília, sob responsabilidade de Rafael Peres Peres Nunes Altoé, CRC 027704.',
   },
   '/profissoes-regulamentadas/advogados': {
     title: 'Contabilidade para Advogados e Escritórios de Advocacia',
     description:
       'Contabilidade para advogados: honorários, retenções, ISS por município e sociedade de advogados, com as regras explicadas sem surpresas no caixa.',
     canonical: 'https://peresperes.com.br/profissoes-regulamentadas/advogados',
+    ogTitle: 'Contabilidade para Advogados e Sociedades de Advocacia',
+    ogDescription:
+      'Contabilidade para advogados e sociedades de advocacia, com honorários, retenções, ISS e regras do regime aplicadas ao dia a dia do escritório.',
   },
   '/profissoes-regulamentadas/medicos': {
     title: 'Contabilidade para Médicos: Simples, Fator R e Pró-labore',
@@ -90,60 +110,90 @@ const SEO_BY_ROUTE: Record<string, { title: string; description: string; canonic
     description:
       'Contabilidade para psicólogos: CNAE correto, enquadramento no Simples Nacional e obrigações junto ao CRP, explicados sem juridiquês.',
     canonical: 'https://peresperes.com.br/profissoes-regulamentadas/psicologos',
+    ogTitle: 'Contabilidade para Psicólogos',
+    ogDescription:
+      'Contabilidade para psicólogos que atendem como pessoa jurídica, com CNAE correto, enquadramento no Simples Nacional e obrigações junto ao CRP.',
   },
   '/profissoes-regulamentadas/engenheiros': {
     title: 'Contabilidade para Engenheiros: CNAE, Fator R e Retenções',
     description:
       'Contabilidade para engenheiros: CNAE, Fator R, retenções em contratos com construtoras e órgãos públicos, com as regras aplicadas à rotina.',
     canonical: 'https://peresperes.com.br/profissoes-regulamentadas/engenheiros',
+    ogTitle: 'Contabilidade para Engenheiros e Empresas de Engenharia',
+    ogDescription:
+      'Contabilidade para engenheiros e empresas de engenharia, com Fator R no Simples, retenções de contratantes e receita por medição aplicadas à rotina.',
   },
   '/profissoes-regulamentadas/arquitetos': {
     title: 'Contabilidade para Arquitetos: CNAE, Fator R e Retenções',
     description:
       'Contabilidade para arquitetos: CNAE, Fator R, retenções em projetos e responsabilidade técnica, com as regras aplicadas à rotina do escritório.',
     canonical: 'https://peresperes.com.br/profissoes-regulamentadas/arquitetos',
+    ogTitle: 'Contabilidade para Arquitetos e Escritórios de Arquitetura',
+    ogDescription:
+      'Contabilidade para arquitetos e escritórios de arquitetura, com Fator R no Simples, retenções de clientes e receita por projeto aplicadas à rotina.',
   },
   '/contabilidade-para-agencias-de-publicidade': {
     title: 'Contabilidade para Agências de Publicidade: CNAE e ISS',
     description:
       'Contabilidade para agências de publicidade: CNAE, ISS, retenções de agenciamento e repasses, com as regras aplicadas ao caixa da agência.',
     canonical: 'https://peresperes.com.br/contabilidade-para-agencias-de-publicidade',
+    ogTitle: 'Contabilidade para Agências de Publicidade',
+    ogDescription:
+      'Contabilidade para agências de publicidade, com separação de mídia e comissão, retenções da cadeia criativa e margem por job organizadas no caixa.',
   },
   '/contabilidade-para-educacao-e-treinamentos': {
     title: 'Contabilidade para Escolas e Cursos: CNAE e Imunidade',
     description:
       'Contabilidade para escolas e cursos: CNAE, imunidade, sazonalidade de matrículas e material didático, com as regras aplicadas à instituição.',
     canonical: 'https://peresperes.com.br/contabilidade-para-educacao-e-treinamentos',
+    ogTitle: 'Contabilidade para Escolas e Cursos',
+    ogDescription:
+      'Contabilidade para escolas e cursos, com enquadramento, imunidade, sazonalidade de matrículas e folha docente tratados em linguagem clara.',
   },
   '/contabilidade-para-ecommerce': {
     title: 'Contabilidade para E-commerce: Regime, ICMS e Sublimite',
     description:
       'Contabilidade para e-commerce: escolha de regime, ICMS interestadual, ST, DIFAL e sublimite, com as regras aplicadas à operação real da loja.',
     canonical: 'https://peresperes.com.br/contabilidade-para-ecommerce',
+    ogTitle: 'Contabilidade para E-commerce',
+    ogDescription:
+      'Contabilidade para e-commerce e lojas virtuais, com ICMS interestadual, DIFAL, marketplaces, estoque e precificação tratados sem cobranças indevidas.',
   },
   '/contabilidade-para-startups-e-tech': {
     title: 'Contabilidade para Startups e Tech: CNAE, SaaS e Vesting',
     description:
       'Contabilidade para startups e tech: CNAE, receita recorrente de SaaS, vesting de sócios e incentivos, com as regras aplicadas ao estágio da empresa.',
     canonical: 'https://peresperes.com.br/contabilidade-para-startups-e-tech',
+    ogTitle: 'Contabilidade para Startups e Empresas de Tecnologia',
+    ogDescription:
+      'Contabilidade para startups e empresas de tecnologia, com enquadramento, SaaS, vesting de sócios e números prontos para o investidor.',
   },
   '/contabilidade-para-clinicas-medicas': {
     title: 'Contabilidade para Clínicas Médicas: Fator R e ISS',
     description:
       'Contabilidade para clínicas médicas: enquadramento, Fator R, ISS, convênios e repasses, com as regras aplicadas à operação da clínica.',
     canonical: 'https://peresperes.com.br/contabilidade-para-clinicas-medicas',
+    ogTitle: 'Contabilidade para Clínicas Médicas',
+    ogDescription:
+      'Contabilidade para clínicas médicas, com Fator R no Simples, equiparação hospitalar, créditos sobre insumos e folha de profissionais em dia.',
   },
   '/contabilidade-para-agencias-de-viagem': {
     title: 'Contabilidade para Agências de Viagem: CNAE e Câmbio',
     description:
       'Contabilidade para agências de viagem: comissão x repasse, câmbio, pacotes antecipados e cancelamentos, com regras de ISS e de retenção explicadas.',
     canonical: 'https://peresperes.com.br/contabilidade-para-agencias-de-viagem',
+    ogTitle: 'Contabilidade para Agências de Viagem',
+    ogDescription:
+      'Contabilidade para agências de viagem, com separação entre comissão e repasse, câmbio, pacotes antecipados e cancelamentos tratados com regras claras.',
   },
   '/holdings-familiares-e-patrimoniais': {
     title: 'Holding Familiar e Patrimonial: Sucessão, ITCMD e Regime',
     description:
       'Contabilidade para holdings familiares e patrimoniais: desenho da estrutura, ITCMD, sucessão e regime, com as regras aplicadas ao patrimônio da família.',
     canonical: 'https://peresperes.com.br/holdings-familiares-e-patrimoniais',
+    ogTitle: 'Estruturação de Holdings Familiares e Planejamento Patrimonial',
+    ogDescription:
+      'Estruturação de holdings familiares com desenho societário, sucessão e impacto fiscal avaliados juntos, para planejar família e patrimônio sem improviso.',
   },
 }
 
@@ -193,5 +243,14 @@ export function renderRoute(path: string): PrerenderedPage {
     )
   }
 
-  return { html, seo, jsonLdIds: JSONLD_IDS_BY_ROUTE[path] || [] }
+  return {
+    html,
+    seo,
+    share: {
+      ogTitle: seo.ogTitle || seo.title,
+      ogDescription: seo.ogDescription || seo.description,
+      ogUrl: seo.canonical,
+    },
+    jsonLdIds: JSONLD_IDS_BY_ROUTE[path] || [],
+  }
 }

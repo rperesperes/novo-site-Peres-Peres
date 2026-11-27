@@ -171,6 +171,9 @@ export default function HoldingsFamiliaresSegment() {
     description:
       'Holding familiar e patrimonial: desenho societário, sucessão e impacto fiscal avaliados juntos, para planejar família e patrimônio sem improviso.',
     canonical: 'https://peresperes.com.br/holdings-familiares-e-patrimoniais',
+    ogTitle: 'Estruturação de Holdings Familiares e Planejamento Patrimonial',
+    ogDescription:
+      'Estruturação de holdings familiares com desenho societário, sucessão e impacto fiscal avaliados juntos, para planejar família e patrimônio sem improviso.',
   })
 
   // JSON-LD para Rich Snippet FAQPage e BreadcrumbList

@@ -174,6 +174,9 @@ export default function AdvogadosSegment() {
     description:
       'Contabilidade para advogados: honorários, retenções, ISS por município e sociedade de advogados, com as regras explicadas sem surpresas no caixa.',
     canonical: 'https://peresperes.com.br/profissoes-regulamentadas/advogados',
+    ogTitle: 'Contabilidade para Advogados e Sociedades de Advocacia',
+    ogDescription:
+      'Contabilidade para advogados e sociedades de advocacia, com honorários, retenções, ISS e regras do regime aplicadas ao dia a dia do escritório.',
   })
 
   // JSON-LD para Rich Snippet FAQPage e BreadcrumbList
