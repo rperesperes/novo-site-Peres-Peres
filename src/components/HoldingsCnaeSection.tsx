@@ -8,6 +8,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { ShieldCheck, ArrowRight } from 'lucide-react'
+import { HoldingsReforma2027Section } from '@/components/HoldingsReforma2027Section'
 
 type RegimeNota = {
   label: string
@@ -149,7 +150,7 @@ const DESTAQUE_QUATRO_FATOS = {
 const DESTAQUES = [
   {
     title: 'O que mudou no cálculo em 2026',
-    text: 'Até 2025, a conta da holding se fazia quase toda sobre a economia de IRPF na distribuição de lucros. Desde 1º de janeiro de 2026, a Lei 15.270 de 2025 restabeleceu a incidência de imposto de renda retido na fonte de 10% sobre lucros e dividendos pagos a pessoa física residente acima de 50 mil reais por mês, por empresa pagadora. Isso não elimina a holding, mas muda a aritmética: o cálculo precisa ser refeito com a regra vigente, e não com o modelo de isenção plena que vigorou por quase três décadas. Projeção feita antes de 2026 e nunca revista é o erro mais comum em estruturas patrimoniais.',
+    text: 'Até 2025, a conta da holding se fazia quase toda sobre a economia de IRPF na distribuição de lucros. Desde 1º de janeiro de 2026, a Lei 15.270 de 2025 restabeleceu a incidência de imposto de renda retido na fonte de 10% sobre lucros e dividendos pagos a pessoa física residente acima de 50 mil reais por mês, por empresa pagadora. Isso não elimina a holding, mas muda a aritmética: o cálculo precisa ser refeito com a regra vigente, e não com o modelo de isenção plena que vigorou por quase três décadas. Projeção feita antes de 2026 e nunca revista é o erro mais comum em estruturas patrimoniais. as duas mudanças, a de 2026 e a de 2027, se somam, e quem projetou a holding com o modelo antigo precisa refazer as duas contas.',
   },
 ]
 
@@ -321,6 +322,9 @@ export function HoldingsCnaeSection() {
             </div>
           </div>
         ))}
+
+        {/* SUBBLOCO 3.5: reforma tributária 2027 na holding */}
+        <HoldingsReforma2027Section />
 
         {/* SUBBLOCO 4: regimes tributários, 4 cartões */}
         <div className="mt-12">
