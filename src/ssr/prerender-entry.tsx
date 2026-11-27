@@ -43,6 +43,7 @@ export const ROUTES = [
   '/contabilidade-para-clinicas-medicas',
   '/contabilidade-para-agencias-de-viagem',
   '/holdings-familiares-e-patrimoniais',
+  '/reforma-tributaria',
 ] as const
 
 /**
