@@ -114,12 +114,38 @@ const CNAE_ROWS: CnaeRow[] = [
   },
 ]
 
-// 2 caixas de destaque intermediárias (textos literais do briefing)
+// Caixa de destaque dos quatro fatos (textos literais do briefing)
+const DESTAQUE_QUATRO_FATOS = {
+  title: 'Não é a holding que fica fora do Simples. São quatro fatos.',
+  intro:
+    'A Lei Complementar 123 de 2006 não veda a holding pelo nome, nem pelo código de atividade escolhido no contrato social. Veda fatos concretos, e a análise é feita um por um.',
+  items: [
+    {
+      title: 'Pessoa jurídica sócia',
+      text: 'o artigo 3º, parágrafo quarto, inciso primeiro, impede a opção da empresa de cujo capital participe outra pessoa jurídica.',
+    },
+    {
+      title: 'Sócio com mais de 10 por cento em outra empresa',
+      text: 'o inciso quarto do mesmo dispositivo impede a opção quando o titular ou sócio participa com mais de 10 por cento do capital de outra empresa não beneficiada pela lei, e a receita bruta global supera o limite de 4,8 milhões de reais.',
+    },
+    {
+      title: 'Participação em outra pessoa jurídica',
+      text: 'o inciso sétimo impede a opção de quem participa do capital de outra pessoa jurídica.',
+    },
+    {
+      title: 'Atividade imobiliária',
+      text: 'o artigo 17 veda a opção de quem se dedique ao loteamento e à incorporação de imóveis, no inciso décimo quarto, e de quem se dedique à locação de imóveis próprios, no inciso décimo quinto.',
+    },
+  ],
+  paragraphs: [
+    'A palavra decisiva do artigo 17 é dedicar-se. Empresa cuja atividade preponderante é prestação de serviço ou comércio, e que apenas mantém imóvel próprio em uso na própria operação, sem locá-lo a terceiros e sem incorporar ou lotejar, não se dedica à locação de imóveis próprios. Ter imóvel no ativo não a exclui do Simples e não a transforma em holding imobiliária. A ressalva do inciso décimo quinto alcança apenas a locação de imóveis próprios para atividades de lazer, como quadras, campos e salões de festa.',
+    'As vedações de participação societária são de outra natureza. São objetivas e não dependem da atividade preponderante: basta a pessoa jurídica no quadro societário, ou a participação no capital de outra empresa, para afastar a opção, ainda que toda a receita venha de serviço. É essa diferença que separa a empresa de serviço que tem imóvel próprio, e pode ser optante, da estrutura de participação, que não pode.',
+    'Consequência prática: o enquadramento se decide pela atividade efetivamente exercida e pela composição societária, não pelo nome da estrutura. Empresa de serviço ou comércio com imóvel próprio no ativo pode ser optante. Empresa que loca imóvel próprio a terceiros, inclusive para a empresa da própria família, que incorpora ou loteia, ou que tenha ou detenha participação societária, não pode.',
+  ],
+}
+
+// Caixa de destaque intermediária (texto literal do briefing)
 const DESTAQUES = [
-  {
-    title: 'Duas travas, não uma, tiram a holding do Simples',
-    text: 'A primeira trava está no artigo 3º, parágrafo quarto, inciso sétimo, da Lei Complementar 123 de 2006: quem participa do capital de outra pessoa jurídica não pode optar pelo Simples Nacional. Isso atinge toda holding de participação, porque deter cotas é a razão de existir dela. A segunda trava está no artigo 17, inciso décimo quinto, da mesma lei: locação de imóveis próprios é vedada ao Simples. Isso atinge a holding imobiliária de renda. As duas vedações são independentes, e uma holding que faz as duas coisas é barrada duas vezes. Na prática, quem abre holding contando com o Simples está contando com um regime que a lei não permite, e a descoberta costuma acontecer na primeira guia.',
-  },
   {
     title: 'O que mudou no cálculo em 2026',
     text: 'Até 2025, a conta da holding se fazia quase toda sobre a economia de IRPF na distribuição de lucros. Desde 1º de janeiro de 2026, a Lei 15.270 de 2025 restabeleceu a incidência de imposto de renda retido na fonte de 10 por cento sobre lucros e dividendos pagos a pessoa física residente acima de 50 mil reais por mês, por empresa pagadora. Isso não elimina a holding, mas muda a aritmética: o cálculo precisa ser refeito com a regra vigente, e não com o modelo de isenção plena que vigorou por quase três décadas. Projeção feita antes de 2026 e nunca revista é o erro mais comum em estruturas patrimoniais.',
@@ -241,7 +267,41 @@ export function HoldingsCnaeSection() {
           </Table>
         </div>
 
-        {/* SUBBLOCOS 2 e 3: caixas de destaque, textos verbatim */}
+        {/* SUBBLOCO 2: caixa de destaque dos quatro fatos, textos verbatim */}
+        <div className="mt-10 bg-black text-white rounded-xl p-6 md:p-8 border-l-4 border-[#FAB319] shadow-md">
+          <div className="flex items-start gap-4">
+            <ShieldCheck className="h-6 w-6 text-[#FAB319] shrink-0 mt-1" />
+            <div className="space-y-4">
+              <h3 className="text-lg md:text-xl font-sans font-bold text-white leading-snug">
+                {DESTAQUE_QUATRO_FATOS.title}
+              </h3>
+              <p className="text-base md:text-lg leading-relaxed font-sans text-neutral-100">
+                {DESTAQUE_QUATRO_FATOS.intro}
+              </p>
+              <ul className="space-y-2.5 list-disc pl-5 marker:text-[#FAB319]">
+                {DESTAQUE_QUATRO_FATOS.items.map((item, idx) => (
+                  <li
+                    key={idx}
+                    className="text-base md:text-lg leading-relaxed font-sans text-neutral-100"
+                  >
+                    <span className="font-bold text-white">{item.title}: </span>
+                    {item.text}
+                  </li>
+                ))}
+              </ul>
+              {DESTAQUE_QUATRO_FATOS.paragraphs.map((paragraph, idx) => (
+                <p
+                  key={idx}
+                  className="text-base md:text-lg leading-relaxed font-sans text-neutral-100"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* SUBBLOCO 3: caixa de destaque, texto verbatim */}
         {DESTAQUES.map((destaque, idx) => (
           <div
             key={idx}

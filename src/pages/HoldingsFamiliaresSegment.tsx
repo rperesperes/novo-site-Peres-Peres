@@ -114,7 +114,7 @@ const FAQ_ITEMS = [
   {
     question: 'Holding pode ser Simples Nacional?',
     answer:
-      'Em regra, não. A atividade de holding de bens e participações consta das atividades vedadas ao Simples Nacional (LC 123/2006, art. 17, V, por não ser objeto de permissão, e art. 18). A estrutura de holding tributa pelo Lucro Presumido ou pelo Lucro Real, conforme o caso, e o enquadramento é avaliado na constituição.',
+      'Depende da composição societária e da atividade efetivamente exercida, porque a lei não veda a holding pelo nome, e sim fatos do artigo 3º, parágrafo quarto, e do artigo 17.',
   },
   {
     question: 'Qual o CNAE de holding?',
@@ -134,7 +134,7 @@ const FAQ_ITEMS = [
   {
     question: 'Holding que aluga imóvel próprio pode ser Simples?',
     answer:
-      'Não, quando a locação de imóveis é a atividade principal da empresa. A locação de imóveis próprios é atividade vedada ao Simples Nacional pela LC 123/2006 (art. 17, V). A receita de aluguel recebe tratamento pelo regime da empresa, e o enquadramento correto é decidido antes da constituição.',
+      'Não, porque o artigo 17, inciso décimo quinto, veda a opção de quem se dedique à locação de imóveis próprios.',
   },
   {
     question: 'Holding paga imposto sobre aluguel?',
