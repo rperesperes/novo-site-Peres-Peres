@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 import { Header } from './Header'
 import { Footer } from './Footer'
 import { WhatsAppButton } from './WhatsAppButton'
-import { CALCULATORS } from '@/lib/calculatorsData'
 import { useHashScroll } from '@/hooks/use-hash-scroll'
 
 export default function Layout() {
@@ -13,7 +12,12 @@ export default function Layout() {
   // aberto em nova aba com hash) quanto na troca de rota dentro do app.
   useHashScroll()
 
-  // Scroll to top and set document title on route change
+  // Scroll to top on route change. O <title> das rotas com SEO próprio é
+  // definido pela própria página (useSeo/document.title no componente da
+  // página), em sincronia com a tabela SEO_BY_ROUTE do prerender: este
+  // efeito roda DEPOIS do efeito da página e, por isso, NÃO pode
+  // sobrescrever esses títulos (era o que deixava /servicos e
+  // /reforma-tributaria com título genérico no HTML final, depois do JS).
   useEffect(() => {
     // Quando a URL tem hash, o salto para a âncora tem prioridade: a troca de
     // rota não volta ao topo antes do posicionamento no bloco.
@@ -21,53 +25,49 @@ export default function Layout() {
       window.scrollTo(0, 0)
     }
 
-    const titles: Record<string, string> = {
-      '/': 'Consultoria & Contabilidade Tributária em Brasília | PERES PERES Consultoria & Contabilidade',
-      '/sobre': 'Sobre Nós | PERES PERES Consultoria & Contabilidade',
-      '/servicos': 'Serviços e Planos Contábeis | PERES PERES Consultoria & Contabilidade',
+    // Rotas cujo título a própria página define (useSeo ou document.title no
+    // componente): o Layout não interfere.
+    const PAGE_MANAGED_TITLE_PATHS = new Set([
+      '/',
+      '/sobre',
+      '/servicos',
+      '/servicos/certificado-digital',
+      '/servicos/registro-de-marcas',
+      '/servicos/inteligencia-financeira',
+      '/mei-completo',
+      '/perdao-divida-mei',
+      '/contato',
+      '/entrar',
+      '/calculadoras',
+      '/contabilidade-para-clinicas-medicas',
+      '/contabilidade-para-startups-e-tech',
+      '/holdings-familiares-e-patrimoniais',
+      '/contabilidade-para-educacao-e-treinamentos',
+      '/contabilidade-para-agencias-de-publicidade',
+      '/contabilidade-para-agencias-de-viagem',
+      '/contabilidade-para-ecommerce',
+      '/reforma-tributaria',
+      '/profissoes-regulamentadas/medicos',
+      '/profissoes-regulamentadas/advogados',
+      '/profissoes-regulamentadas/psicologos',
+      '/profissoes-regulamentadas/engenheiros',
+      '/profissoes-regulamentadas/arquitetos',
+    ])
+    const layoutTitles: Record<string, string> = {
       '/casos': 'Casos Reais | PERES PERES Consultoria & Contabilidade',
       '/recursos': 'Recursos e Materiais | PERES PERES Consultoria & Contabilidade',
-      '/contato': 'Fale com o Escritório | PERES PERES Consultoria & Contabilidade',
       '/politica-de-privacidade':
         'Política de Privacidade | PERES PERES Consultoria & Contabilidade',
-      '/calculadoras':
-        'Calculadoras Tributárias e Trabalhistas Gratuitas | PERES PERES Consultoria & Contabilidade',
     }
 
-    if (location.pathname.startsWith('/casos/')) {
-      // Título da aba seguindo o padrão "Nome da página | PERES PERES Consultoria & Contabilidade"
-      document.title = 'Caso Real | PERES PERES Consultoria & Contabilidade'
-    } else if (location.pathname === '/calculadoras') {
-      document.title = titles['/calculadoras']
-    } else if (location.pathname.startsWith('/calculadoras/')) {
-      const slug = location.pathname.replace('/calculadoras/', '').trim()
-      const foundCalc = CALCULATORS.find((c) => c.slug === slug)
-      if (foundCalc) {
-        // Se for uma das calculadoras funcionais, seus próprios componentes definem seu title otimizado
-        if (slug === 'fator-r') {
-          document.title = 'Calculadora fator r: Anexo III ou V | PERES PERES'
-        } else if (slug === 'simples-nacional-ou-lucro-presumido') {
-          document.title = 'Simples ou Lucro Presumido: qual paga menos | PERES'
-        } else if (slug === 'simples-nacional-hibrido') {
-          document.title = 'calculadora simples nacional hibrido: icms e iss | PERES'
-        } else if (slug === 'custo-de-funcionario-clt') {
-          document.title = 'calculadora custo funcionário clt: encargos | PERES'
-        } else if (slug === 'pj-ou-clt') {
-          document.title = 'calculadora pj ou clt: comparativo | PERES PERES'
-        } else if (slug === 'juros-de-mora-de-tributos') {
-          document.title = 'calculadora juros de mora selic: tributos | PERES'
-        } else if (slug === 'irpf-e-restituicao') {
-          document.title = 'calculadora irpf e restituição: 2026 | PERES PERES'
-        } else if (slug === 'juros-de-financiamento') {
-          document.title = 'calculadora juros financiamento: price e sac | PERES'
-        } else {
-          document.title = `${foundCalc.name}, em desenvolvimento | PERES PERES Consultoria & Contabilidade`
-        }
-      } else {
-        document.title = 'Calculadora | PERES PERES Consultoria & Contabilidade'
-      }
-    } else {
-      document.title = titles[location.pathname] || 'PERES PERES Consultoria & Contabilidade'
+    if (layoutTitles[location.pathname]) {
+      document.title = layoutTitles[location.pathname]
+    } else if (
+      !PAGE_MANAGED_TITLE_PATHS.has(location.pathname) &&
+      !location.pathname.startsWith('/casos/') // CaseDetail define o próprio
+    ) {
+      // Página sem título próprio (ex.: NotFound e rotas desconhecidas).
+      document.title = 'PERES PERES Consultoria & Contabilidade'
     }
   }, [location.pathname])
 
