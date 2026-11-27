@@ -137,11 +137,11 @@ const REGIMES_CARDS = [
   },
   {
     title: 'Lucro Presumido, com atenção ao tipo de receita',
-    text: 'Presunção de 32 por cento para IRPJ e CSLL na receita de prestação de serviço, na forma do artigo 15, parágrafo primeiro, inciso terceiro, alínea a, e do artigo 20 da Lei 9.249 de 1995. A receita de intermediação é serviço e não se confunde com revenda de mercadoria, o que afasta a presunção de 8 por cento. IRPJ de 15 por cento mais adicional de 10 por cento sobre o que exceder 20 mil reais por mês, na forma do artigo 3º, parágrafo primeiro, da Lei 9.430 de 1996, CSLL de 9 por cento, PIS de 0,65 por cento e COFINS de 3 por cento no cumulativo, e ISS de 2 por cento a 5 por cento sobre o preço do serviço. Vedações no artigo 13, inciso primeiro, e no artigo 14 da Lei 9.718 de 1998.',
+    text: 'Presunção de 32% para IRPJ e CSLL na receita de prestação de serviço, na forma do artigo 15, parágrafo primeiro, inciso terceiro, alínea a, e do artigo 20 da Lei 9.249 de 1995. A receita de intermediação é serviço e não se confunde com revenda de mercadoria, o que afasta a presunção de 8%. IRPJ de 15% mais adicional de 10% sobre o que exceder 20 mil reais por mês, na forma do artigo 3º, parágrafo primeiro, da Lei 9.430 de 1996, CSLL de 9%, PIS de 0,65% e COFINS de 3% no cumulativo, e ISS de 2% a 5% sobre o preço do serviço. Vedações no artigo 13, inciso primeiro, e no artigo 14 da Lei 9.718 de 1998.',
   },
   {
     title: 'Lucro Real, obrigatório acima do limite do Presumido',
-    text: 'Tributa o lucro efetivo, com PIS e COFINS não cumulativos de 9,25 por cento pela Lei 10.833 de 2003, IRPJ de 15 por cento mais adicional e CSLL de 9 por cento. Em agência com margem baixa e volume alto de repasse, é o regime que mostra o resultado real, e é onde a separação entre receita própria e repasse faz mais diferença na apuração.',
+    text: 'Tributa o lucro efetivo, com PIS e COFINS não cumulativos de 9,25% pela Lei 10.833 de 2003, IRPJ de 15% mais adicional e CSLL de 9%. Em agência com margem baixa e volume alto de repasse, é o regime que mostra o resultado real, e é onde a separação entre receita própria e repasse faz mais diferença na apuração.',
   },
 ]
 

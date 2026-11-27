@@ -86,7 +86,7 @@ const SEGMENTOS: SegmentoCard[] = [
   {
     nome: 'Clínicas Médicas',
     icon: HeartPulse,
-    desc: 'a presunção de oito por cento que exige estrutura empresarial, e não só o código certo.',
+    desc: 'a presunção de 8% que exige estrutura empresarial, e não só o código certo.',
     link: '/contabilidade-para-clinicas-medicas',
   },
   {

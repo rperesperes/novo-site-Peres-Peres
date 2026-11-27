@@ -71,7 +71,7 @@ const CNAE_ROWS: CnaeRow[] = [
     funcao: 'Atividade principal de consultório que só realiza consulta.',
     regimes: [
       { label: 'Simples Nacional', text: 'com Fator R.' },
-      { label: 'Lucro Presumido', text: 'com presunção de 32 por cento para IRPJ e CSLL.' },
+      { label: 'Lucro Presumido', text: 'com presunção de 32% para IRPJ e CSLL.' },
       { label: 'Lucro Real', text: 'permitido.' },
     ],
     observacoes:
@@ -160,7 +160,7 @@ const CNAE_ROWS: CnaeRow[] = [
 const DESTAQUES = [
   {
     title: 'A presunção reduzida exige três requisitos, e um deles não está no CNAE',
-    text: 'Para aplicar 8 por cento no IRPJ e 12 por cento na CSLL no Lucro Presumido, a clínica precisa cumprir três condições cumulativas, na forma do artigo 15, parágrafo primeiro, inciso terceiro, alínea a, e parágrafo segundo, da Lei 9.249 de 1995. A primeira é estar organizada como sociedade empresária, de direito e de fato, com registro na Junta Comercial e caráter empresarial efetivo. A segunda é atender às normas da Anvisa. A terceira é prestar o serviço em efetivo contexto assistencial, com suporte clínico e integração ao processo diagnóstico-terapêutico do paciente, e não apenas a execução técnica do procedimento. Consultas médicas simples estão excluídas do conceito. É o entendimento da Solução de Consulta COSIT 213 de 2026, da Solução de Consulta COSIT 175 de 2019 e da Solução de Consulta 6.039 da SRRF06. O ponto prático: clínica registrada no conselho de classe e constituída como sociedade simples, que apenas cede profissionais, não tem o elemento de empresa que a norma exige, e nesse formato a presunção reduzida não se sustenta.',
+    text: 'Para aplicar 8% no IRPJ e 12% na CSLL no Lucro Presumido, a clínica precisa cumprir três condições cumulativas, na forma do artigo 15, parágrafo primeiro, inciso terceiro, alínea a, e parágrafo segundo, da Lei 9.249 de 1995. A primeira é estar organizada como sociedade empresária, de direito e de fato, com registro na Junta Comercial e caráter empresarial efetivo. A segunda é atender às normas da Anvisa. A terceira é prestar o serviço em efetivo contexto assistencial, com suporte clínico e integração ao processo diagnóstico-terapêutico do paciente, e não apenas a execução técnica do procedimento. Consultas médicas simples estão excluídas do conceito. É o entendimento da Solução de Consulta COSIT 213 de 2026, da Solução de Consulta COSIT 175 de 2019 e da Solução de Consulta 6.039 da SRRF06. O ponto prático: clínica registrada no conselho de classe e constituída como sociedade simples, que apenas cede profissionais, não tem o elemento de empresa que a norma exige, e nesse formato a presunção reduzida não se sustenta.',
   },
   {
     title: 'A presunção reduzida muda também o PIS e a COFINS',
@@ -172,15 +172,15 @@ const DESTAQUES = [
 const REGIMES_CARDS = [
   {
     title: 'Simples Nacional, com Fator R',
-    text: 'A clínica em atividade médica é tributada pelo Anexo III quando a folha e o pró-labore alcançam 28 por cento da receita dos últimos 12 meses, e migra para o Anexo V abaixo disso. Como o cálculo é refeito todo mês, a decisão de contratar e o valor do pró-labore alteram a guia do mês seguinte. O limite é de 4,8 milhões de reais por ano, com sublimite de 3,6 milhões para o ISS na forma do artigo 13-A da Lei Complementar 123 de 2006. O ISS é recolhido fora do DAS, diretamente ao município.',
+    text: 'A clínica em atividade médica é tributada pelo Anexo III quando a folha e o pró-labore alcançam 28% da receita dos últimos 12 meses, e migra para o Anexo V abaixo disso. Como o cálculo é refeito todo mês, a decisão de contratar e o valor do pró-labore alteram a guia do mês seguinte. O limite é de 4,8 milhões de reais por ano, com sublimite de 3,6 milhões para o ISS na forma do artigo 13-A da Lei Complementar 123 de 2006. O ISS é recolhido fora do DAS, diretamente ao município.',
   },
   {
     title: 'Lucro Presumido, com dois cenários possíveis',
-    text: 'Sem equiparação, a presunção é de 32 por cento para IRPJ e CSLL. Com equiparação reconhecida, cai para 8 por cento no IRPJ e 12 por cento na CSLL. A diferença na base de cálculo é de 75 por cento no IRPJ e de 62,5 por cento na CSLL, e é justamente por isso que o enquadramento precisa de documentação que o sustente: contrato social, alvará, notas fiscais, prontuários e registros assistenciais. IRPJ de 15 por cento mais adicional de 10 por cento sobre o que exceder 20 mil reais por mês, na forma do artigo 3º, parágrafo primeiro, da Lei 9.430 de 1996, CSLL de 9 por cento, PIS de 0,65 por cento e COFINS de 3 por cento no cumulativo, e ISS de 2 por cento a 5 por cento.',
+    text: 'Sem equiparação, a presunção é de 32% para IRPJ e CSLL. Com equiparação reconhecida, cai para 8% no IRPJ e 12% na CSLL. A diferença na base de cálculo é de 75% no IRPJ e de 62,5% na CSLL, e é justamente por isso que o enquadramento precisa de documentação que o sustente: contrato social, alvará, notas fiscais, prontuários e registros assistenciais. IRPJ de 15% mais adicional de 10% sobre o que exceder 20 mil reais por mês, na forma do artigo 3º, parágrafo primeiro, da Lei 9.430 de 1996, CSLL de 9%, PIS de 0,65% e COFINS de 3% no cumulativo, e ISS de 2% a 5%.',
   },
   {
     title: 'Lucro Real, onde o crédito aparece',
-    text: 'Tributa o lucro efetivo, com PIS e COFINS não cumulativos de 9,25 por cento pela Lei 10.833 de 2003, IRPJ de 15 por cento mais adicional e CSLL de 9 por cento. Em clínica com folha alta, margem apertada e volume relevante de insumos, o não cumulativo pode compensar a alíquota maior, e é o regime em que a equiparação e o creditamento produzem o maior efeito conjunto. É obrigatório acima do limite do Presumido.',
+    text: 'Tributa o lucro efetivo, com PIS e COFINS não cumulativos de 9,25% pela Lei 10.833 de 2003, IRPJ de 15% mais adicional e CSLL de 9%. Em clínica com folha alta, margem apertada e volume relevante de insumos, o não cumulativo pode compensar a alíquota maior, e é o regime em que a equiparação e o creditamento produzem o maior efeito conjunto. É obrigatório acima do limite do Presumido.',
   },
   {
     title: 'MEI, vedado',
@@ -190,7 +190,7 @@ const REGIMES_CARDS = [
 
 // 3 armadilhas mais comuns (textos literais do briefing)
 const ARMADILHAS = [
-  'Aplicar a presunção de 8 por cento tendo o código correto, mas sendo sociedade simples sem registro na Junta Comercial e sem estrutura empresarial.',
+  'Aplicar a presunção de 8% tendo o código correto, mas sendo sociedade simples sem registro na Junta Comercial e sem estrutura empresarial.',
   'Faturar consulta e procedimento com o mesmo código, e tratar toda a receita como se tivesse o mesmo enquadramento.',
   'Reconhecer receita de convênio pelo valor faturado, e não pelo valor repassado após glosa, distorcendo a base de cálculo e o resultado.',
 ]
@@ -216,8 +216,7 @@ export function ClinicasCnaeSection() {
           Na clínica, o código de atividade é o começo da análise, não o fim. O que decide quanto a
           clínica paga é a combinação entre o que ela faz de fato, o tipo societário que ela assumiu
           e o enquadramento tributário que disso resulta. Duas clínicas com o mesmo CNAE podem ter
-          presunção de 8 por cento e de 32 por cento no Lucro Presumido, dependendo de como estão
-          organizadas.
+          presunção de 8% e de 32% no Lucro Presumido, dependendo de como estão organizadas.
         </p>
 
         {/* SUBBLOCO 1: os códigos da clínica */}

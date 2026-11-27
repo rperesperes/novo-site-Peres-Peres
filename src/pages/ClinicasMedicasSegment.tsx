@@ -127,7 +127,7 @@ const FAQ_ITEMS = [
       'É o enquadramento em que clínicas com estrutura de internação ou atendimento em regime hospitalar podem ser equiparadas a hospital para efeitos de PIS e COFINS (art. 13 da Lei nº 12.101/2009 e art. 9º da Lei nº 12.546/2011). Depende da estrutura física, do tipo de atendimento e da documentação, e deve ser avaliada tecnicamente caso a caso.',
   },
   {
-    question: 'Quando se aplica a presunção de oito por cento?',
+    question: 'Quando se aplica a presunção de 8%?',
     answer:
       'No Lucro Presumido, a base do IRPJ e da CSLL sobre a receita de serviços é de 32%, e não de 8% (Lei nº 9.249/1995, art. 15). A presunção reduzida de 8% vale para revenda de mercadorias, prestação cumulativa de serviços de hospital e outras hipóteses do art. 15, e não para a consulta médica isolada.',
   },

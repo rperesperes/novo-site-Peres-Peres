@@ -48,7 +48,7 @@ const DESAFIOS = [
   {
     title: 'Pró-labore e proteção previdenciária',
     icon: Coins,
-    text: 'Retirar tudo como distribuição de lucros, sem pró-labore, cria lacuna que não se recupera depois, e no caso da arquitetura há ainda o efeito do pró-labore sobre o Fator R. O arquiteto que atua como autônomo ou por PJ própria depende do pró-labore para contribuir ao INSS e manter proteção previdenciária. Acima de 50 mil reais por mês por empresa pagadora, a distribuição sofre retenção de 10 por cento na fonte, conforme a Lei 15.270 de 2025.',
+    text: 'Retirar tudo como distribuição de lucros, sem pró-labore, cria lacuna que não se recupera depois, e no caso da arquitetura há ainda o efeito do pró-labore sobre o Fator R. O arquiteto que atua como autônomo ou por PJ própria depende do pró-labore para contribuir ao INSS e manter proteção previdenciária. Acima de 50 mil reais por mês por empresa pagadora, a distribuição sofre retenção de 10% na fonte, conforme a Lei 15.270 de 2025.',
   },
   {
     title: 'Estrutura para sócios e sociedades de projeto',

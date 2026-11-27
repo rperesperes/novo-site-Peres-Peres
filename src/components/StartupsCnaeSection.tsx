@@ -32,7 +32,7 @@ const CNAE_ROWS: CnaeRow[] = [
     regimes: [
       {
         label: 'Simples Nacional',
-        text: 'pelo Anexo V, por força do artigo 18, parágrafo quinto-I, da Lei Complementar 123 de 2006, migrando ao Anexo III quando o Fator R alcançar 28 por cento, na forma do parágrafo quinto-J.',
+        text: 'pelo Anexo V, por força do artigo 18, parágrafo quinto-I, da Lei Complementar 123 de 2006, migrando ao Anexo III quando o Fator R alcançar 28%, na forma do parágrafo quinto-J.',
       },
       { label: 'Lucro Presumido', text: 'permitido.' },
       { label: 'Lucro Real', text: 'permitido.' },
@@ -133,15 +133,15 @@ const REGIMES_CARDS = [
   },
   {
     title: 'Simples Nacional, Anexo V com Fator R',
-    text: 'A receita de desenvolvimento e licenciamento de software é tributada pelo Anexo V, com migração ao Anexo III quando a folha e o pró-labore alcançam 28 por cento da receita dos últimos 12 meses, na forma do artigo 18, parágrafo quinto-J, da Lei Complementar 123 de 2006. O Anexo V começa em alíquota nominal mais alta, e com receita de 600 mil reais em doze meses a alíquota efetiva fica em torno de 17,85 por cento no V, contra cerca de 10,56 por cento no III. Comparar os dois sem calcular o Fator R é o erro mais caro do setor. O limite é de 4,8 milhões de reais por ano, com sublimite de 3,6 milhões para ISS na forma do artigo 13-A.',
+    text: 'A receita de desenvolvimento e licenciamento de software é tributada pelo Anexo V, com migração ao Anexo III quando a folha e o pró-labore alcançam 28% da receita dos últimos 12 meses, na forma do artigo 18, parágrafo quinto-J, da Lei Complementar 123 de 2006. O Anexo V começa em alíquota nominal mais alta, e com receita de 600 mil reais em doze meses a alíquota efetiva fica em torno de 17,85% no V, contra cerca de 10,56% no III. Comparar os dois sem calcular o Fator R é o erro mais caro do setor. O limite é de 4,8 milhões de reais por ano, com sublimite de 3,6 milhões para ISS na forma do artigo 13-A.',
   },
   {
     title: 'Lucro Presumido, com atenção ao percentual',
-    text: 'A regra de presunção para prestação de serviços é de 32 por cento para o IRPJ e para a CSLL, na forma do artigo 15, parágrafo primeiro, inciso terceiro, alínea a, e do artigo 20 da Lei 9.249 de 1995. Receita de licenciamento de software não se confunde com receita de revenda de mercadoria, e por isso não cabe aplicar a presunção de 8 por cento reservada ao comércio. IRPJ de 15 por cento mais adicional de 10 por cento sobre o que exceder 20 mil reais por mês, na forma do artigo 3º, parágrafo primeiro, da Lei 9.430 de 1996, CSLL de 9 por cento, PIS de 0,65 por cento e COFINS de 3 por cento no cumulativo, e ISS de 2 por cento a 5 por cento. Vedações no artigo 13, inciso primeiro, e no artigo 14 da Lei 9.718 de 1998.',
+    text: 'A regra de presunção para prestação de serviços é de 32% para o IRPJ e para a CSLL, na forma do artigo 15, parágrafo primeiro, inciso terceiro, alínea a, e do artigo 20 da Lei 9.249 de 1995. Receita de licenciamento de software não se confunde com receita de revenda de mercadoria, e por isso não cabe aplicar a presunção de 8% reservada ao comércio. IRPJ de 15% mais adicional de 10% sobre o que exceder 20 mil reais por mês, na forma do artigo 3º, parágrafo primeiro, da Lei 9.430 de 1996, CSLL de 9%, PIS de 0,65% e COFINS de 3% no cumulativo, e ISS de 2% a 5%. Vedações no artigo 13, inciso primeiro, e no artigo 14 da Lei 9.718 de 1998.',
   },
   {
     title: 'Lucro Real, e aqui existe um incentivo que só ele alcança',
-    text: 'O Lucro Real tributa o lucro efetivo, com PIS e COFINS não cumulativos de 9,25 por cento pela Lei 10.833 de 2003, IRPJ de 15 por cento mais adicional e CSLL de 9 por cento. É o único regime que permite aproveitar os incentivos à inovação tecnológica dos artigos 17 a 26 da Lei 11.196 de 2005, que autorizam a exclusão de parte dos dispêndios em pesquisa e desenvolvimento tecnológico da base do IRPJ e da CSLL, com adicional em determinadas hipóteses. Empresa optante pelo Simples não acessa esse benefício. Para startup intensiva em desenvolvimento, essa comparação pode inverter a conclusão de regime.',
+    text: 'O Lucro Real tributa o lucro efetivo, com PIS e COFINS não cumulativos de 9,25% pela Lei 10.833 de 2003, IRPJ de 15% mais adicional e CSLL de 9%. É o único regime que permite aproveitar os incentivos à inovação tecnológica dos artigos 17 a 26 da Lei 11.196 de 2005, que autorizam a exclusão de parte dos dispêndios em pesquisa e desenvolvimento tecnológico da base do IRPJ e da CSLL, com adicional em determinadas hipóteses. Empresa optante pelo Simples não acessa esse benefício. Para startup intensiva em desenvolvimento, essa comparação pode inverter a conclusão de regime.',
   },
 ]
 

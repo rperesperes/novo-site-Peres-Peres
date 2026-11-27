@@ -32,11 +32,11 @@ const CNAE_ROWS: CnaeRow[] = [
     regimes: [
       {
         label: 'Simples Nacional',
-        text: 'permitido, com enquadramento de partida no Anexo III por força do artigo 18, parágrafo quinto-B, inciso vinte e um, da Lei Complementar 123 de 2006, migrando para o Anexo V quando o Fator R ficar abaixo de 28 por cento, na forma do parágrafo quinto-M.',
+        text: 'permitido, com enquadramento de partida no Anexo III por força do artigo 18, parágrafo quinto-B, inciso vinte e um, da Lei Complementar 123 de 2006, migrando para o Anexo V quando o Fator R ficar abaixo de 28%, na forma do parágrafo quinto-M.',
       },
       {
         label: 'Lucro Presumido',
-        text: 'permitido, com presunção de 32 por cento para o IRPJ e para a CSLL.',
+        text: 'permitido, com presunção de 32% para o IRPJ e para a CSLL.',
       },
       {
         label: 'Lucro Real',
@@ -97,15 +97,15 @@ const REGIMES_CARDS = [
   },
   {
     title: 'Simples Nacional, permitido com regras próprias',
-    text: 'A psicologia está no artigo 18, parágrafo quinto-B, inciso vinte e um, da Lei Complementar 123 de 2006, e o enquadramento de partida é o Anexo III. O Fator R decide a permanência: com folha igual ou superior a 28 por cento da receita dos últimos 12 meses, permanece no Anexo III; abaixo disso, migra para o Anexo V, na forma do parágrafo quinto-M. O cálculo é refeito mensalmente, então a decisão de quanto pagar de pró-labore altera a guia do mês seguinte. O ISS é recolhido fora do DAS, diretamente ao município.',
+    text: 'A psicologia está no artigo 18, parágrafo quinto-B, inciso vinte e um, da Lei Complementar 123 de 2006, e o enquadramento de partida é o Anexo III. O Fator R decide a permanência: com folha igual ou superior a 28% da receita dos últimos 12 meses, permanece no Anexo III; abaixo disso, migra para o Anexo V, na forma do parágrafo quinto-M. O cálculo é refeito mensalmente, então a decisão de quanto pagar de pró-labore altera a guia do mês seguinte. O ISS é recolhido fora do DAS, diretamente ao município.',
   },
   {
     title: 'Lucro Presumido, permitido',
-    text: 'Presunção de 32 por cento para IRPJ e para CSLL, com IRPJ de 15 por cento mais adicional de 10 por cento sobre o que exceder 20 mil reais por mês, CSLL de 9 por cento, PIS de 0,65 por cento e COFINS de 3 por cento no regime cumulativo, e ISS de 2 por cento a 5 por cento. Vedações no artigo 13, inciso primeiro, e no artigo 14 da Lei 9.718 de 1998.',
+    text: 'Presunção de 32% para IRPJ e para CSLL, com IRPJ de 15% mais adicional de 10% sobre o que exceder 20 mil reais por mês, CSLL de 9%, PIS de 0,65% e COFINS de 3% no regime cumulativo, e ISS de 2% a 5%. Vedações no artigo 13, inciso primeiro, e no artigo 14 da Lei 9.718 de 1998.',
   },
   {
     title: 'Lucro Real, permitido',
-    text: 'Tributa o lucro efetivo, com PIS e COFINS não cumulativos de 9,25 por cento na forma da Lei 10.833 de 2003, IRPJ de 15 por cento mais adicional e CSLL de 9 por cento. Costuma ser a melhor escolha quando há muitas despesas dedutíveis, prejuízo ou margem comprimida, e é obrigatório acima do limite do Lucro Presumido.',
+    text: 'Tributa o lucro efetivo, com PIS e COFINS não cumulativos de 9,25% na forma da Lei 10.833 de 2003, IRPJ de 15% mais adicional e CSLL de 9%. Costuma ser a melhor escolha quando há muitas despesas dedutíveis, prejuízo ou margem comprimida, e é obrigatório acima do limite do Lucro Presumido.',
   },
 ]
 
@@ -115,7 +115,7 @@ const CHECKLIST_ABERTURA = [
   'Verificar o registro da pessoa jurídica no Conselho Regional de Psicologia antes de assinar contrato com convênio ou escola.',
   'Separar o código de CNAE do item de serviço usado para o ISS municipal.',
   'Definir o pró-labore com base no Fator R, porque é ele que decide entre o Anexo III e o Anexo V.',
-  'Simular o Simples com Fator R e o Presumido com presunção de 32 por cento antes de decidir o regime.',
+  'Simular o Simples com Fator R e o Presumido com presunção de 32% antes de decidir o regime.',
 ]
 
 export function PsicologosCnaeSection() {

@@ -32,11 +32,11 @@ const CNAE_ROWS: CnaeRow[] = [
     regimes: [
       {
         label: 'Simples Nacional',
-        text: 'permitido, com enquadramento de partida no Anexo III por força do artigo 18, parágrafo quinto-B, inciso sétimo, da Lei Complementar 123 de 2006, migrando para o Anexo V quando o Fator R ficar abaixo de 28 por cento, na forma do parágrafo quinto-M.',
+        text: 'permitido, com enquadramento de partida no Anexo III por força do artigo 18, parágrafo quinto-B, inciso sétimo, da Lei Complementar 123 de 2006, migrando para o Anexo V quando o Fator R ficar abaixo de 28%, na forma do parágrafo quinto-M.',
       },
       {
         label: 'Lucro Presumido',
-        text: 'permitido, com presunção de 32 por cento para o IRPJ e para a CSLL, porque consulta médica não se enquadra como serviço hospitalar.',
+        text: 'permitido, com presunção de 32% para o IRPJ e para a CSLL, porque consulta médica não se enquadra como serviço hospitalar.',
       },
       {
         label: 'Lucro Real',
@@ -44,7 +44,7 @@ const CNAE_ROWS: CnaeRow[] = [
       },
     ],
     observacoes:
-      'É o código que corresponde à consulta, e não ao procedimento ou ao exame. O ISS é o item 4.01 da lista anexa à Lei Complementar 116 de 2003, com alíquota de 2 por cento a 5 por cento definida pelo município.',
+      'É o código que corresponde à consulta, e não ao procedimento ou ao exame. O ISS é o item 4.01 da lista anexa à Lei Complementar 116 de 2003, com alíquota de 2% a 5% definida pelo município.',
     principal: true,
   },
   {
@@ -140,15 +140,15 @@ const REGIMES_CARDS = [
   },
   {
     title: 'Simples Nacional, permitido com regras próprias',
-    text: 'A medicina está no artigo 18, parágrafo quinto-B, inciso sétimo, da Lei Complementar 123 de 2006, e o enquadramento de partida é o Anexo III. O Fator R define a permanência: com folha igual ou superior a 28 por cento da receita dos últimos 12 meses, a atividade permanece no Anexo III; abaixo disso, migra para o Anexo V, na forma do parágrafo quinto-M. O cálculo é refeito mensalmente, então decisão de pró-labore e de contratação altera a guia do mês seguinte. O ISS é recolhido fora do DAS, diretamente ao município.',
+    text: 'A medicina está no artigo 18, parágrafo quinto-B, inciso sétimo, da Lei Complementar 123 de 2006, e o enquadramento de partida é o Anexo III. O Fator R define a permanência: com folha igual ou superior a 28% da receita dos últimos 12 meses, a atividade permanece no Anexo III; abaixo disso, migra para o Anexo V, na forma do parágrafo quinto-M. O cálculo é refeito mensalmente, então decisão de pró-labore e de contratação altera a guia do mês seguinte. O ISS é recolhido fora do DAS, diretamente ao município.',
   },
   {
     title: 'Lucro Presumido, permitido',
-    text: 'Presunção de 32 por cento para IRPJ e para CSLL na consulta médica, com IRPJ de 15 por cento mais adicional de 10 por cento sobre o que exceder 20 mil reais por mês, CSLL de 9 por cento, PIS de 0,65 por cento e COFINS de 3 por cento no regime cumulativo, e ISS de 2 por cento a 5 por cento. A presunção reduzida de 8 por cento depende dos requisitos do subbloco anterior e não se aplica automaticamente. Vedações no artigo 13, inciso primeiro, e no artigo 14 da Lei 9.718 de 1998, incluindo receita acima de 78 milhões de reais no ano anterior e sócio residente no exterior.',
+    text: 'Presunção de 32% para IRPJ e para CSLL na consulta médica, com IRPJ de 15% mais adicional de 10% sobre o que exceder 20 mil reais por mês, CSLL de 9%, PIS de 0,65% e COFINS de 3% no regime cumulativo, e ISS de 2% a 5%. A presunção reduzida de 8% depende dos requisitos do subbloco anterior e não se aplica automaticamente. Vedações no artigo 13, inciso primeiro, e no artigo 14 da Lei 9.718 de 1998, incluindo receita acima de 78 milhões de reais no ano anterior e sócio residente no exterior.',
   },
   {
     title: 'Lucro Real, permitido',
-    text: 'Tributa o lucro efetivo, com PIS e COFINS não cumulativos de 9,25 por cento na forma da Lei 10.833 de 2003, IRPJ de 15 por cento mais adicional e CSLL de 9 por cento. Costuma ser a melhor escolha em ano de margem comprimida, prejuízo, ou quando há muitas despesas dedutíveis e crédito de PIS e COFINS sobre insumos, e é obrigatório acima do limite do Lucro Presumido.',
+    text: 'Tributa o lucro efetivo, com PIS e COFINS não cumulativos de 9,25% na forma da Lei 10.833 de 2003, IRPJ de 15% mais adicional e CSLL de 9%. Costuma ser a melhor escolha em ano de margem comprimida, prejuízo, ou quando há muitas despesas dedutíveis e crédito de PIS e COFINS sobre insumos, e é obrigatório acima do limite do Lucro Presumido.',
   },
 ]
 
@@ -260,7 +260,7 @@ export function MedicosCnaeSection() {
             <ShieldCheck className="h-6 w-6 text-[#FAB319] shrink-0 mt-1" />
             <div className="space-y-3">
               <h3 className="text-lg md:text-xl font-sans font-bold text-white leading-snug">
-                A presunção de 8 por cento não vale para consulta
+                A presunção de 8% não vale para consulta
               </h3>
               <p className="text-base md:text-lg leading-relaxed font-sans text-neutral-100">
                 O percentual reduzido do Lucro Presumido é reservado a serviços hospitalares e a
@@ -270,9 +270,8 @@ export function MedicosCnaeSection() {
                 primeiro, inciso terceiro, alínea a, e parágrafo segundo, da Lei 9.249 de 1995. É o
                 entendimento da Solução de Consulta Cosit 175 de 2019 e da Solução de Consulta Disit
                 SRRF08 8001 de 2025. Consulta médica isolada não se enquadra nesse conceito, e a
-                presunção aplicável é de 32 por cento. Para a CSLL, o percentual é de 12 por cento
-                nas atividades com presunção de 8 por cento no IRPJ, e de 32 por cento nas demais,
-                conforme o artigo 20 da mesma lei.
+                presunção aplicável é de 32%. Para a CSLL, o percentual é de 12% nas atividades com
+                presunção de 8% no IRPJ, e de 32% nas demais, conforme o artigo 20 da mesma lei.
               </p>
             </div>
           </div>

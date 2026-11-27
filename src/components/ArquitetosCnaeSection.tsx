@@ -33,7 +33,7 @@ const CNAE_ROWS: CnaeRow[] = [
     regimes: [
       {
         label: 'Simples Nacional',
-        text: 'pelo Anexo V com Fator R, por força do artigo 18, parágrafo quinto-I, incisos quinto e sexto, da Lei Complementar 123 de 2006, com a redação da Lei Complementar 155 de 2016, migrando para o Anexo III quando o Fator R alcançar 28 por cento, na forma do parágrafo quinto-J.',
+        text: 'pelo Anexo V com Fator R, por força do artigo 18, parágrafo quinto-I, incisos quinto e sexto, da Lei Complementar 123 de 2006, com a redação da Lei Complementar 155 de 2016, migrando para o Anexo III quando o Fator R alcançar 28%, na forma do parágrafo quinto-J.',
       },
       { label: 'Lucro Presumido', text: 'permitido.' },
       { label: 'Lucro Real', text: 'permitido.' },
@@ -139,15 +139,15 @@ const REGIMES_CARDS = [
   },
   {
     title: 'Simples Nacional, com dois enquadramentos possíveis',
-    text: 'Projeto e serviços técnicos de arquitetura ficam no Anexo V com Fator R, e migram ao Anexo III quando a folha alcança 28 por cento da receita dos últimos 12 meses, na forma do artigo 18, parágrafo quinto-J. Já a execução de obra, a execução de projetos, o paisagismo e a decoração de interiores ficam no Anexo IV, por força do parágrafo quinto-C, inciso primeiro, hipótese em que a contribuição previdenciária patronal é recolhida fora do DAS, à alíquota de 20 por cento sobre a folha, e não existe Fator R. Uma empresa que projeta e executa tem receita nos dois anexos no mesmo mês. O limite é de 4,8 milhões de reais por ano, do artigo 3º, inciso segundo, com sublimite de 3,6 milhões para ICMS e ISS na forma do artigo 13-A.',
+    text: 'Projeto e serviços técnicos de arquitetura ficam no Anexo V com Fator R, e migram ao Anexo III quando a folha alcança 28% da receita dos últimos 12 meses, na forma do artigo 18, parágrafo quinto-J. Já a execução de obra, a execução de projetos, o paisagismo e a decoração de interiores ficam no Anexo IV, por força do parágrafo quinto-C, inciso primeiro, hipótese em que a contribuição previdenciária patronal é recolhida fora do DAS, à alíquota de 20% sobre a folha, e não existe Fator R. Uma empresa que projeta e executa tem receita nos dois anexos no mesmo mês. O limite é de 4,8 milhões de reais por ano, do artigo 3º, inciso segundo, com sublimite de 3,6 milhões para ICMS e ISS na forma do artigo 13-A.',
   },
   {
     title: 'Lucro Presumido, permitido com uma exceção relevante',
-    text: 'A regra geral é presunção de 32 por cento para IRPJ e CSLL. Na construção civil, a empreitada total com fornecimento de todos os materiais incorporados à obra tem presunção de 8 por cento no IRPJ e 12 por cento na CSLL, na forma dos artigos 15 e 20 da Lei 9.249 de 1995. Na empreitada parcial ou apenas de mão de obra, os percentuais voltam a 32 por cento. O entendimento está na Solução de Consulta COSIT 119, de 2019, atualizada pela Solução de Consulta COSIT 80, de 2025. IRPJ de 15 por cento mais adicional de 10 por cento sobre o que exceder 20 mil reais por mês, na forma do artigo 3º, parágrafo primeiro, da Lei 9.430 de 1996, CSLL de 9 por cento, PIS de 0,65 por cento e COFINS de 3 por cento no cumulativo, e ISS de 2 por cento a 5 por cento. Vedações no artigo 13, inciso primeiro, e no artigo 14 da Lei 9.718 de 1998.',
+    text: 'A regra geral é presunção de 32% para IRPJ e CSLL. Na construção civil, a empreitada total com fornecimento de todos os materiais incorporados à obra tem presunção de 8% no IRPJ e 12% na CSLL, na forma dos artigos 15 e 20 da Lei 9.249 de 1995. Na empreitada parcial ou apenas de mão de obra, os percentuais voltam a 32%. O entendimento está na Solução de Consulta COSIT 119, de 2019, atualizada pela Solução de Consulta COSIT 80, de 2025. IRPJ de 15% mais adicional de 10% sobre o que exceder 20 mil reais por mês, na forma do artigo 3º, parágrafo primeiro, da Lei 9.430 de 1996, CSLL de 9%, PIS de 0,65% e COFINS de 3% no cumulativo, e ISS de 2% a 5%. Vedações no artigo 13, inciso primeiro, e no artigo 14 da Lei 9.718 de 1998.',
   },
   {
     title: 'Lucro Real, obrigatório acima do limite do Presumido',
-    text: 'Tributa o lucro efetivo, com PIS e COFINS não cumulativos de 9,25 por cento pela Lei 10.833 de 2003, IRPJ de 15 por cento mais adicional e CSLL de 9 por cento. É atrativo em margem comprimida, prejuízo ou volume alto de insumos, e na construção civil o não cumulativo permite crédito sobre insumos e serviços.',
+    text: 'Tributa o lucro efetivo, com PIS e COFINS não cumulativos de 9,25% pela Lei 10.833 de 2003, IRPJ de 15% mais adicional e CSLL de 9%. É atrativo em margem comprimida, prejuízo ou volume alto de insumos, e na construção civil o não cumulativo permite crédito sobre insumos e serviços.',
   },
 ]
 

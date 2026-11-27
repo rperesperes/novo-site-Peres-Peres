@@ -1068,10 +1068,10 @@ export default function JurosDeMoraDeTributosCalculator() {
                   <strong>Multa de mora:</strong> possui finalidade estritamente punitiva e
                   desestimuladora da impontualidade. Seu propósito é sancionar a mora do devedor e
                   estimular o recolhimento tempestivo. É apurada à taxa diária de{' '}
-                  <strong>0,33%</strong> (trinta e três centésimos por cento) por dia corrido de
-                  atraso, com termo inicial no primeiro dia útil subsequente ao vencimento do
-                  tributo e termo final no dia do efetivo pagamento, restando o seu montante total{' '}
-                  <strong>limitado a 20%</strong> (art. 61, § 2º).
+                  <strong>0,33%</strong> por dia corrido de atraso, com termo inicial no primeiro
+                  dia útil subsequente ao vencimento do tributo e termo final no dia do efetivo
+                  pagamento, restando o seu montante total <strong>limitado a 20%</strong> (art. 61,
+                  § 2º).
                 </li>
                 <li>
                   <strong>Juros de mora:</strong> possuem função compensatória e indenizatória pela

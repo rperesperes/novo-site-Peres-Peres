@@ -22,7 +22,7 @@ const CONTATO_PATH = '/contato'
 
 const PERDOADO = [
   {
-    title: 'Cem por cento do débito federal',
+    title: '100% do débito federal',
     desc: 'principal, juros, multa e encargo legal da contribuição previdenciária do MEI com vencimento até 13 de outubro de 2026, na forma do artigo 13, parágrafo primeiro, inciso dez, da Lei Complementar 123 de 2006.',
   },
   {

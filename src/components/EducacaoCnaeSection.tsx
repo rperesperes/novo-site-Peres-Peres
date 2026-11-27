@@ -148,7 +148,7 @@ const DESTAQUES = [
   },
   {
     title: 'Uma escola costuma ter três receitas, não uma',
-    text: 'Mensalidade, taxa de matrícula e material didático têm naturezas distintas. A receita de serviço educacional e a receita de comercialização de material têm tratamento tributário diferente, e no Lucro Presumido a diferença de presunção é grande: o serviço fica em 32 por cento e o comércio de material didático em 8 por cento. Somar tudo numa base única faz a escola pagar imposto sobre presunção que não se aplica. A segregação precisa existir na escrituração e no contrato, com o custo do material identificado separadamente. O mesmo raciocínio vale para a escola que também franqueia a marca: receita de franquia é serviço, e não se confunde com o fornecimento de material ao franqueado.',
+    text: 'Mensalidade, taxa de matrícula e material didático têm naturezas distintas. A receita de serviço educacional e a receita de comercialização de material têm tratamento tributário diferente, e no Lucro Presumido a diferença de presunção é grande: o serviço fica em 32% e o comércio de material didático em 8%. Somar tudo numa base única faz a escola pagar imposto sobre presunção que não se aplica. A segregação precisa existir na escrituração e no contrato, com o custo do material identificado separadamente. O mesmo raciocínio vale para a escola que também franqueia a marca: receita de franquia é serviço, e não se confunde com o fornecimento de material ao franqueado.',
   },
 ]
 
@@ -164,11 +164,11 @@ const REGIMES_CARDS = [
   },
   {
     title: 'Lucro Presumido, com segregação de receita',
-    text: 'Presunção de 32 por cento para IRPJ e CSLL na receita de serviço educacional, e de 8 por cento na receita de comércio de material didático, na forma do artigo 15, parágrafo primeiro, inciso segundo, da Lei 9.249 de 1995, para a receita de revenda de mercadorias. IRPJ de 15 por cento mais adicional de 10 por cento sobre o que exceder 20 mil reais por mês, na forma do artigo 3º, parágrafo primeiro, da Lei 9.430 de 1996, CSLL de 9 por cento, PIS de 0,65 por cento e COFINS de 3 por cento no cumulativo, e ISS de 2 por cento a 5 por cento sobre a receita de serviço. Vedações no artigo 13, inciso primeiro, e no artigo 14 da Lei 9.718 de 1998.',
+    text: 'Presunção de 32% para IRPJ e CSLL na receita de serviço educacional, e de 8% na receita de comércio de material didático, na forma do artigo 15, parágrafo primeiro, inciso segundo, da Lei 9.249 de 1995, para a receita de revenda de mercadorias. IRPJ de 15% mais adicional de 10% sobre o que exceder 20 mil reais por mês, na forma do artigo 3º, parágrafo primeiro, da Lei 9.430 de 1996, CSLL de 9%, PIS de 0,65% e COFINS de 3% no cumulativo, e ISS de 2% a 5% sobre a receita de serviço. Vedações no artigo 13, inciso primeiro, e no artigo 14 da Lei 9.718 de 1998.',
   },
   {
     title: 'Lucro Real, permitido e obrigatório acima do limite',
-    text: 'Tributa o lucro efetivo, com PIS e COFINS não cumulativos de 9,25 por cento pela Lei 10.833 de 2003, IRPJ de 15 por cento mais adicional e CSLL de 9 por cento. Em instituição com folha docente alta e margem apertada, costuma ser o regime que revela o resultado real, e é onde a segregação de receita e o controle de receita antecipada fazem mais diferença.',
+    text: 'Tributa o lucro efetivo, com PIS e COFINS não cumulativos de 9,25% pela Lei 10.833 de 2003, IRPJ de 15% mais adicional e CSLL de 9%. Em instituição com folha docente alta e margem apertada, costuma ser o regime que revela o resultado real, e é onde a segregação de receita e o controle de receita antecipada fazem mais diferença.',
   },
 ]
 

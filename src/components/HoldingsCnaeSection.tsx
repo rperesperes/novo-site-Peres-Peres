@@ -80,7 +80,7 @@ const CNAE_ROWS: CnaeRow[] = [
       },
       {
         label: 'Lucro Presumido',
-        text: 'permitido, com presunção de 32 por cento sobre a receita de aluguel, na forma do artigo 15, parágrafo primeiro, inciso terceiro, da Lei 9.249 de 1995.',
+        text: 'permitido, com presunção de 32% sobre a receita de aluguel, na forma do artigo 15, parágrafo primeiro, inciso terceiro, da Lei 9.249 de 1995.',
       },
       { label: 'Lucro Real', text: 'permitido.' },
     ],
@@ -116,7 +116,8 @@ const CNAE_ROWS: CnaeRow[] = [
 
 // Caixa de destaque dos quatro fatos (textos literais do briefing)
 const DESTAQUE_QUATRO_FATOS = {
-  title: 'Não é a holding que fica fora do Simples. São quatro fatos.',
+  title:
+    'A holding não fica necessariamente fora do Simples Nacional. Depende das atividades em contrato social, CNAEs e na prática. Via de regra, há 4 fatos que vedam o Simples Nacional para as holdings',
   intro:
     'A Lei Complementar 123 de 2006 não veda a holding pelo nome, nem pelo código de atividade escolhido no contrato social. Veda fatos concretos, e a análise é feita um por um.',
   items: [
@@ -125,8 +126,8 @@ const DESTAQUE_QUATRO_FATOS = {
       text: 'o artigo 3º, parágrafo quarto, inciso primeiro, impede a opção da empresa de cujo capital participe outra pessoa jurídica.',
     },
     {
-      title: 'Sócio com mais de 10 por cento em outra empresa',
-      text: 'o inciso quarto do mesmo dispositivo impede a opção quando o titular ou sócio participa com mais de 10 por cento do capital de outra empresa não beneficiada pela lei, e a receita bruta global supera o limite de 4,8 milhões de reais.',
+      title: 'Sócio com mais de 10% em outra empresa',
+      text: 'o inciso quarto do mesmo dispositivo impede a opção quando o titular ou sócio participa com mais de 10% do capital de outra empresa não beneficiada pela lei, e a receita bruta global supera o limite de 4,8 milhões de reais.',
     },
     {
       title: 'Participação em outra pessoa jurídica',
@@ -148,7 +149,7 @@ const DESTAQUE_QUATRO_FATOS = {
 const DESTAQUES = [
   {
     title: 'O que mudou no cálculo em 2026',
-    text: 'Até 2025, a conta da holding se fazia quase toda sobre a economia de IRPF na distribuição de lucros. Desde 1º de janeiro de 2026, a Lei 15.270 de 2025 restabeleceu a incidência de imposto de renda retido na fonte de 10 por cento sobre lucros e dividendos pagos a pessoa física residente acima de 50 mil reais por mês, por empresa pagadora. Isso não elimina a holding, mas muda a aritmética: o cálculo precisa ser refeito com a regra vigente, e não com o modelo de isenção plena que vigorou por quase três décadas. Projeção feita antes de 2026 e nunca revista é o erro mais comum em estruturas patrimoniais.',
+    text: 'Até 2025, a conta da holding se fazia quase toda sobre a economia de IRPF na distribuição de lucros. Desde 1º de janeiro de 2026, a Lei 15.270 de 2025 restabeleceu a incidência de imposto de renda retido na fonte de 10% sobre lucros e dividendos pagos a pessoa física residente acima de 50 mil reais por mês, por empresa pagadora. Isso não elimina a holding, mas muda a aritmética: o cálculo precisa ser refeito com a regra vigente, e não com o modelo de isenção plena que vigorou por quase três décadas. Projeção feita antes de 2026 e nunca revista é o erro mais comum em estruturas patrimoniais.',
   },
 ]
 
@@ -164,11 +165,11 @@ const REGIMES_CARDS = [
   },
   {
     title: 'Lucro Presumido, o regime usual',
-    text: 'Presunção de 32 por cento sobre a receita de aluguel, na forma do artigo 15, parágrafo primeiro, inciso terceiro, da Lei 9.249 de 1995, com IRPJ de 15 por cento mais adicional de 10 por cento sobre o que exceder 20 mil reais por mês, na forma do artigo 3º, parágrafo primeiro, da Lei 9.430 de 1996, CSLL de 9 por cento, PIS de 0,65 por cento e COFINS de 3 por cento no cumulativo. Vedações no artigo 13, inciso primeiro, e no artigo 14 da Lei 9.718 de 1998. É o regime mais usado em holding patrimonial, e o que costuma ser comparado com o cenário de manter o imóvel na pessoa física.',
+    text: 'Presunção de 32% sobre a receita de aluguel, na forma do artigo 15, parágrafo primeiro, inciso terceiro, da Lei 9.249 de 1995, com IRPJ de 15% mais adicional de 10% sobre o que exceder 20 mil reais por mês, na forma do artigo 3º, parágrafo primeiro, da Lei 9.430 de 1996, CSLL de 9%, PIS de 0,65% e COFINS de 3% no cumulativo. Vedações no artigo 13, inciso primeiro, e no artigo 14 da Lei 9.718 de 1998. É o regime mais usado em holding patrimonial, e o que costuma ser comparado com o cenário de manter o imóvel na pessoa física.',
   },
   {
     title: 'Lucro Real, quando a estrutura exige',
-    text: 'Tributa o lucro efetivo, com PIS e COFINS não cumulativos de 9,25 por cento pela Lei 10.833 de 2003, IRPJ de 15 por cento mais adicional e CSLL de 9 por cento. Em holding com despesa relevante, depreciação de imóvel, juros de financiamento ou prejuízo acumulado, o Real pode ser melhor que o Presumido, e é obrigatório acima do limite do Presumido. Nesta escolha, a simulação com números reais da família é indispensável.',
+    text: 'Tributa o lucro efetivo, com PIS e COFINS não cumulativos de 9,25% pela Lei 10.833 de 2003, IRPJ de 15% mais adicional e CSLL de 9%. Em holding com despesa relevante, depreciação de imóvel, juros de financiamento ou prejuízo acumulado, o Real pode ser melhor que o Presumido, e é obrigatório acima do limite do Presumido. Nesta escolha, a simulação com números reais da família é indispensável.',
   },
 ]
 

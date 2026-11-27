@@ -48,7 +48,7 @@ const DESAFIOS = [
   {
     title: 'Pró-labore e proteção previdenciária',
     icon: Coins,
-    text: 'Retirar tudo como distribuição de lucros, sem pró-labore, cria lacuna que não se recupera depois, e no caso da engenharia há ainda o efeito do pró-labore sobre o Fator R. O engenheiro que atua como autônomo ou por PJ própria depende do pró-labore para contribuir ao INSS e manter proteção previdenciária. Acima de 50 mil reais por mês por empresa pagadora, a distribuição sofre retenção de 10 por cento na fonte, conforme a Lei 15.270 de 2025.',
+    text: 'Retirar tudo como distribuição de lucros, sem pró-labore, cria lacuna que não se recupera depois, e no caso da engenharia há ainda o efeito do pró-labore sobre o Fator R. O engenheiro que atua como autônomo ou por PJ própria depende do pró-labore para contribuir ao INSS e manter proteção previdenciária. Acima de 50 mil reais por mês por empresa pagadora, a distribuição sofre retenção de 10% na fonte, conforme a Lei 15.270 de 2025.',
   },
   {
     title: 'Estrutura para sócios técnicos',
@@ -127,7 +127,7 @@ const FAQ_ITEMS = [
       'A engenharia é tributada no Anexo V do Simples Nacional (LC 123/2006, art. 18, § 5º-I, VI). Quando o Fator R alcança 28%, a tributação migra para o Anexo III, de alíquotas menores, e o cálculo é refeito mês a mês.',
   },
   {
-    question: 'Quando se aplica a presunção de oito por cento?',
+    question: 'Quando se aplica a presunção de 8%?',
     answer:
       'No Lucro Presumido, a presunção de 8% sobre a receita de serviços de engenharia decorre do art. 15 da Lei 9.249/1995. Sobre essa base incidem IRPJ, CSLL, PIS e Cofins, e a escolha entre regimes precisa vir de simulação com os números reais.',
   },

@@ -336,7 +336,7 @@ export default function MedicosSegment() {
         intro="A medicina pode ser exercida em nome próprio, como pessoa física, ou por meio de pessoa jurídica, em regra uma sociedade limitada unipessoal. Não existe a opção de MEI: a atividade não consta do Anexo XI da Resolução CGSN 140 de 2018, com redação da Resolução CGSN 165 de 2022. A escolha altera a tributação da receita do consultório, as retenções praticadas por tomadores pessoa jurídica e a possibilidade de deduzir as despesas da atividade."
         extraItems={[
           'O volume de despesas do consultório, como aluguel, secretária, equipamentos e materiais, que só são dedutíveis na pessoa jurídica.',
-          'O Fator R, porque a medicina no Simples Nacional fica no Anexo III ou no Anexo V conforme a folha dos últimos doze meses alcançar 28 por cento da receita.',
+          'O Fator R, porque a medicina no Simples Nacional fica no Anexo III ou no Anexo V conforme a folha dos últimos doze meses alcançar 28% da receita.',
         ]}
       />
 

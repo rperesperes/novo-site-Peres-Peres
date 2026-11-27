@@ -33,7 +33,7 @@ const CNAE_ROWS: CnaeRow[] = [
     regimes: [
       {
         label: 'Simples Nacional',
-        text: 'pelo Anexo V, por força do artigo 18, parágrafo quinto-I, incisos quinto e sexto, da Lei Complementar 123 de 2006, com a redação da Lei Complementar 155 de 2016, migrando para o Anexo III quando o Fator R for igual ou superior a 28 por cento, na forma do parágrafo quinto-J.',
+        text: 'pelo Anexo V, por força do artigo 18, parágrafo quinto-I, incisos quinto e sexto, da Lei Complementar 123 de 2006, com a redação da Lei Complementar 155 de 2016, migrando para o Anexo III quando o Fator R for igual ou superior a 28%, na forma do parágrafo quinto-J.',
       },
       { label: 'Lucro Presumido', text: 'permitido.' },
       { label: 'Lucro Real', text: 'permitido.' },
@@ -62,7 +62,7 @@ const CNAE_ROWS: CnaeRow[] = [
     regimes: [
       {
         label: 'Simples Nacional',
-        text: 'pelo Anexo V com Fator R, porque a geologia está expressamente no artigo 18, parágrafo quinto-I, inciso sexto, da Lei Complementar 123 de 2006, migrando para o Anexo III quando o Fator R alcançar 28 por cento, na forma do parágrafo quinto-J.',
+        text: 'pelo Anexo V com Fator R, porque a geologia está expressamente no artigo 18, parágrafo quinto-I, inciso sexto, da Lei Complementar 123 de 2006, migrando para o Anexo III quando o Fator R alcançar 28%, na forma do parágrafo quinto-J.',
       },
       { label: 'Lucro Presumido', text: 'permitido.' },
       { label: 'Lucro Real', text: 'permitido.' },
@@ -101,7 +101,7 @@ const CNAE_ROWS: CnaeRow[] = [
     regimes: [
       {
         label: 'Simples Nacional',
-        text: 'pelo Anexo V com Fator R, porque testes e análises técnicas e tecnológicas estão expressamente no artigo 18, parágrafo quinto-I, inciso sexto, da Lei Complementar 123 de 2006, migrando para o Anexo III com Fator R de 28 por cento.',
+        text: 'pelo Anexo V com Fator R, porque testes e análises técnicas e tecnológicas estão expressamente no artigo 18, parágrafo quinto-I, inciso sexto, da Lei Complementar 123 de 2006, migrando para o Anexo III com Fator R de 28%.',
       },
       { label: 'Lucro Presumido', text: 'permitido.' },
       { label: 'Lucro Real', text: 'permitido.' },
@@ -153,11 +153,11 @@ const REGIMES_CARDS = [
   },
   {
     title: 'Lucro Presumido, com uma exceção que vale muito',
-    text: 'A regra geral para prestação de serviços é presunção de 32 por cento para o IRPJ e para a CSLL. A exceção é a construção civil: na empreitada total, com fornecimento de todos os materiais indispensáveis incorporados à obra, a presunção cai para 8 por cento no IRPJ e 12 por cento na CSLL, na forma dos artigos 15 e 20 da Lei 9.249 de 1995. Na empreitada parcial, ou na empreitada apenas de mão de obra, os percentuais voltam a 32 por cento. O entendimento está consolidado na Solução de Consulta COSIT 119, de 2019, e foi atualizado na Solução de Consulta COSIT 80, de 2025, que revisitou os entendimentos anteriores. IRPJ de 15 por cento mais adicional de 10 por cento sobre o que exceder 20 mil reais por mês, na forma do artigo 3º, parágrafo primeiro, da Lei 9.430 de 1996, CSLL de 9 por cento, PIS de 0,65 por cento e COFINS de 3 por cento no cumulativo, e ISS de 2 por cento a 5 por cento. Vedações no artigo 13, inciso primeiro, e no artigo 14 da Lei 9.718 de 1998.',
+    text: 'A regra geral para prestação de serviços é presunção de 32% para o IRPJ e para a CSLL. A exceção é a construção civil: na empreitada total, com fornecimento de todos os materiais indispensáveis incorporados à obra, a presunção cai para 8% no IRPJ e 12% na CSLL, na forma dos artigos 15 e 20 da Lei 9.249 de 1995. Na empreitada parcial, ou na empreitada apenas de mão de obra, os percentuais voltam a 32%. O entendimento está consolidado na Solução de Consulta COSIT 119, de 2019, e foi atualizado na Solução de Consulta COSIT 80, de 2025, que revisitou os entendimentos anteriores. IRPJ de 15% mais adicional de 10% sobre o que exceder 20 mil reais por mês, na forma do artigo 3º, parágrafo primeiro, da Lei 9.430 de 1996, CSLL de 9%, PIS de 0,65% e COFINS de 3% no cumulativo, e ISS de 2% a 5%. Vedações no artigo 13, inciso primeiro, e no artigo 14 da Lei 9.718 de 1998.',
   },
   {
     title: 'Lucro Real, obrigatório acima do limite do Presumido',
-    text: 'Tributa o lucro efetivo, com PIS e COFINS não cumulativos de 9,25 por cento pela Lei 10.833 de 2003, IRPJ de 15 por cento mais adicional e CSLL de 9 por cento. É especialmente atrativo em margem comprimida, prejuízo ou volume alto de insumos, porque na construção civil o não cumulativo permite crédito sobre insumos e serviços, o que o cumulativo não permite.',
+    text: 'Tributa o lucro efetivo, com PIS e COFINS não cumulativos de 9,25% pela Lei 10.833 de 2003, IRPJ de 15% mais adicional e CSLL de 9%. É especialmente atrativo em margem comprimida, prejuízo ou volume alto de insumos, porque na construção civil o não cumulativo permite crédito sobre insumos e serviços, o que o cumulativo não permite.',
   },
 ]
 
@@ -284,16 +284,16 @@ export function EngenheirosCnaeSection() {
             execução de projetos e os serviços de paisagismo e de decoração de interiores ficam no
             Anexo IV, por força do artigo 18, parágrafo quinto-C, inciso primeiro, da Lei
             Complementar 123 de 2006. Nesse anexo a contribuição previdenciária patronal não está
-            incluída no DAS e é recolhida separadamente, à alíquota de 20 por cento sobre a folha, e
-            não existe Fator R. Já arquitetura e urbanismo, engenharia, medição, cartografia,
+            incluída no DAS e é recolhida separadamente, à alíquota de 20% sobre a folha, e não
+            existe Fator R. Já arquitetura e urbanismo, engenharia, medição, cartografia,
             topografia, geologia, geodésia, testes e análises técnicas, pesquisa, design, desenho e
             agronomia ficam no Anexo V, por força do parágrafo quinto-I, incisos quinto e sexto, e
-            migram ao Anexo III quando o Fator R alcança 28 por cento, na forma do parágrafo
-            quinto-J. A Resolução CGSN 140 de 2018 reproduz esse enquadramento no artigo 25, inciso
-            quinto, alíneas q e r. Consequência prática: uma empresa que projeta e executa tem
-            receita nos dois anexos no mesmo mês, e aplicar Fator R sobre receita de Anexo IV, ou
-            somar tudo em uma alíquota única, recolhe a menor ou a maior, com ajuste e multa em
-            qualquer dos casos.
+            migram ao Anexo III quando o Fator R alcança 28%, na forma do parágrafo quinto-J. A
+            Resolução CGSN 140 de 2018 reproduz esse enquadramento no artigo 25, inciso quinto,
+            alíneas q e r. Consequência prática: uma empresa que projeta e executa tem receita nos
+            dois anexos no mesmo mês, e aplicar Fator R sobre receita de Anexo IV, ou somar tudo em
+            uma alíquota única, recolhe a menor ou a maior, com ajuste e multa em qualquer dos
+            casos.
           </p>
         </div>
 

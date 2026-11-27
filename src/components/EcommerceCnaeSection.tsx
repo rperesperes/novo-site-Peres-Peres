@@ -38,7 +38,7 @@ const CNAE_ROWS: CnaeRow[] = [
       },
       {
         label: 'Lucro Presumido',
-        text: 'com presunção de 8 por cento para o IRPJ e de 12 por cento para a CSLL, na forma do artigo 15, parágrafo primeiro, incisos primeiro e terceiro, da Lei 9.249 de 1995, e do artigo 20 da mesma lei.',
+        text: 'com presunção de 8% para o IRPJ e de 12% para a CSLL, na forma do artigo 15, parágrafo primeiro, incisos primeiro e terceiro, da Lei 9.249 de 1995, e do artigo 20 da mesma lei.',
       },
       { label: 'Lucro Real', text: 'permitido.' },
     ],
@@ -130,12 +130,12 @@ const REGIMES_CARDS = [
     text: 'A receita de revenda de mercadorias é tributada pelo Anexo I. Se a loja industrializa o que vende, a receita de industrialização própria vai ao Anexo II. O limite é de 4,8 milhões de reais por ano, do artigo 3º, inciso segundo, da Lei Complementar 123 de 2006, com sublimite de 3,6 milhões para recolhimento de ICMS e ISS na forma do artigo 13-A, e os artigos 19 e 20 tratam do excesso de limite. Acima do sublimite, o ICMS passa a ser recolhido fora do DAS, e esse é o ponto em que a maioria das lojas descobre o problema tarde.',
   },
   {
-    title: 'Lucro Presumido, presunção de 8 por cento',
-    text: 'Na revenda de mercadorias e na atividade industrial, a presunção é de 8 por cento para o IRPJ e de 12 por cento para a CSLL, na forma do artigo 15, parágrafo primeiro, incisos primeiro e terceiro, e do artigo 20, ambos da Lei 9.249 de 1995. IRPJ de 15 por cento mais adicional de 10 por cento sobre o que exceder 20 mil reais por mês, na forma do artigo 3º, parágrafo primeiro, da Lei 9.430 de 1996, CSLL de 9 por cento, PIS de 0,65 por cento e COFINS de 3 por cento no cumulativo, e ICMS conforme a legislação estadual. Vedações no artigo 13, inciso primeiro, e no artigo 14 da Lei 9.718 de 1998. Atenção: receita de comissão por intermediação é serviço, com presunção de 32 por cento, e não se mistura com a receita de mercadoria.',
+    title: 'Lucro Presumido, presunção de 8%',
+    text: 'Na revenda de mercadorias e na atividade industrial, a presunção é de 8% para o IRPJ e de 12% para a CSLL, na forma do artigo 15, parágrafo primeiro, incisos primeiro e terceiro, e do artigo 20, ambos da Lei 9.249 de 1995. IRPJ de 15% mais adicional de 10% sobre o que exceder 20 mil reais por mês, na forma do artigo 3º, parágrafo primeiro, da Lei 9.430 de 1996, CSLL de 9%, PIS de 0,65% e COFINS de 3% no cumulativo, e ICMS conforme a legislação estadual. Vedações no artigo 13, inciso primeiro, e no artigo 14 da Lei 9.718 de 1998. Atenção: receita de comissão por intermediação é serviço, com presunção de 32%, e não se mistura com a receita de mercadoria.',
   },
   {
     title: 'Lucro Real, atrativo em margem apertada',
-    text: 'Tributa o lucro efetivo, com PIS e COFINS não cumulativos de 9,25 por cento pela Lei 10.833 de 2003, IRPJ de 15 por cento mais adicional e CSLL de 9 por cento. No comércio eletrônico, o não cumulativo permite crédito sobre aquisição de mercadoria para revenda, frete e embalagem, o que costuma compensar em operação de margem baixa e volume alto.',
+    text: 'Tributa o lucro efetivo, com PIS e COFINS não cumulativos de 9,25% pela Lei 10.833 de 2003, IRPJ de 15% mais adicional e CSLL de 9%. No comércio eletrônico, o não cumulativo permite crédito sobre aquisição de mercadoria para revenda, frete e embalagem, o que costuma compensar em operação de margem baixa e volume alto.',
   },
 ]
 

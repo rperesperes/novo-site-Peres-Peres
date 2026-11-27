@@ -32,11 +32,11 @@ const CNAE_ROWS: CnaeRow[] = [
     regimes: [
       {
         label: 'Simples Nacional',
-        text: 'permitido, tributado no Anexo IV por força do artigo 18, parágrafo quinto-C, inciso sétimo, da Lei Complementar 123 de 2006, com alíquotas nominais de 4,5 por cento a 33 por cento e sem Fator R, com a contribuição previdenciária patronal e o ISS recolhidos fora do DAS.',
+        text: 'permitido, tributado no Anexo IV por força do artigo 18, parágrafo quinto-C, inciso sétimo, da Lei Complementar 123 de 2006, com alíquotas nominais de 4,5% a 33% e sem Fator R, com a contribuição previdenciária patronal e o ISS recolhidos fora do DAS.',
       },
       {
         label: 'Lucro Presumido',
-        text: 'permitido, com presunção de 32 por cento para o IRPJ e para a CSLL.',
+        text: 'permitido, com presunção de 32% para o IRPJ e para a CSLL.',
       },
       {
         label: 'Lucro Real',
@@ -140,15 +140,15 @@ const REGIMES_CARDS = [
   },
   {
     title: 'Simples Nacional, permitido com regras próprias',
-    text: 'A advocacia é tributada pelo Anexo IV, na forma do artigo 18, parágrafo quinto-C, inciso sétimo, da Lei Complementar 123 de 2006, com alíquotas nominais de 4,5 por cento a 33 por cento na redação da Lei Complementar 155 de 2016, vigente desde primeiro de janeiro de 2018. Não existe Fator R no Anexo IV, e isso é decisivo: não há caminho para migrar ao Anexo III aumentando a folha. A contribuição previdenciária patronal é recolhida fora do DAS, assim como o ISS, pago ao município sobre o faturamento, no item 17.14 da lista da Lei Complementar 116 de 2003, com alíquota de 2 por cento a 5 por cento. O DAS do Anexo IV reúne IRPJ, CSLL, PIS e COFINS. O limite de receita bruta é de 4,8 milhões de reais por ano, do artigo 3º, inciso segundo, da Lei Complementar 123 de 2006. Os impedimentos do artigo 17 se aplicam integralmente, em especial o sócio pessoa jurídica, do artigo 3º, parágrafo quarto, inciso primeiro, e o sócio domiciliado no exterior, situações comuns em escritórios estruturados com holding ou com sócio estrangeiro. Além do efeito no Simples Nacional, sócio pessoa jurídica não é admitido na sociedade de advogados, porque só advogado pode ser sócio.',
+    text: 'A advocacia é tributada pelo Anexo IV, na forma do artigo 18, parágrafo quinto-C, inciso sétimo, da Lei Complementar 123 de 2006, com alíquotas nominais de 4,5% a 33% na redação da Lei Complementar 155 de 2016, vigente desde primeiro de janeiro de 2018. Não existe Fator R no Anexo IV, e isso é decisivo: não há caminho para migrar ao Anexo III aumentando a folha. A contribuição previdenciária patronal é recolhida fora do DAS, assim como o ISS, pago ao município sobre o faturamento, no item 17.14 da lista da Lei Complementar 116 de 2003, com alíquota de 2% a 5%. O DAS do Anexo IV reúne IRPJ, CSLL, PIS e COFINS. O limite de receita bruta é de 4,8 milhões de reais por ano, do artigo 3º, inciso segundo, da Lei Complementar 123 de 2006. Os impedimentos do artigo 17 se aplicam integralmente, em especial o sócio pessoa jurídica, do artigo 3º, parágrafo quarto, inciso primeiro, e o sócio domiciliado no exterior, situações comuns em escritórios estruturados com holding ou com sócio estrangeiro. Além do efeito no Simples Nacional, sócio pessoa jurídica não é admitido na sociedade de advogados, porque só advogado pode ser sócio.',
   },
   {
     title: 'Lucro Presumido, permitido',
-    text: 'Base presumida de 32 por cento para o IRPJ, do artigo 15, parágrafo primeiro, inciso terceiro, alínea a, da Lei 9.249 de 1995, e de 32 por cento para a CSLL, do artigo 20, inciso primeiro. IRPJ de 15 por cento mais adicional de 10 por cento sobre o que exceder 20 mil reais por mês, CSLL de 9 por cento, PIS de 0,65 por cento e COFINS de 3 por cento no regime cumulativo, e ISS de 2 por cento a 5 por cento. Vedações no artigo 13, inciso primeiro, e no artigo 14 da Lei 9.718 de 1998, incluindo receita bruta acima de 78 milhões de reais no ano anterior e sócio residente no exterior.',
+    text: 'Base presumida de 32% para o IRPJ, do artigo 15, parágrafo primeiro, inciso terceiro, alínea a, da Lei 9.249 de 1995, e de 32% para a CSLL, do artigo 20, inciso primeiro. IRPJ de 15% mais adicional de 10% sobre o que exceder 20 mil reais por mês, CSLL de 9%, PIS de 0,65% e COFINS de 3% no regime cumulativo, e ISS de 2% a 5%. Vedações no artigo 13, inciso primeiro, e no artigo 14 da Lei 9.718 de 1998, incluindo receita bruta acima de 78 milhões de reais no ano anterior e sócio residente no exterior.',
   },
   {
     title: 'Lucro Real, permitido',
-    text: 'Tributa o lucro efetivo, com PIS e COFINS não cumulativos de 9,25 por cento na forma da Lei 10.833 de 2003, IRPJ de 15 por cento mais adicional e CSLL de 9 por cento. Costuma ser a melhor escolha em ano de margem comprimida, prejuízo, ou quando há muitas despesas dedutíveis e creditamento de PIS e COFINS, e é obrigatório acima do limite do Lucro Presumido.',
+    text: 'Tributa o lucro efetivo, com PIS e COFINS não cumulativos de 9,25% na forma da Lei 10.833 de 2003, IRPJ de 15% mais adicional e CSLL de 9%. Costuma ser a melhor escolha em ano de margem comprimida, prejuízo, ou quando há muitas despesas dedutíveis e creditamento de PIS e COFINS, e é obrigatório acima do limite do Lucro Presumido.',
   },
 ]
 
