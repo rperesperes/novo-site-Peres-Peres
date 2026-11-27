@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
 import { SegmentFaq } from '@/components/SegmentFaq'
 import { useSeo } from '@/hooks/use-seo'
+import ShareLine from '@/components/ShareLine'
 import { ContinueReading } from '@/components/ContinueReading'
 import { HoldingsCnaeSection } from '@/components/HoldingsCnaeSection'
 import {
@@ -278,6 +279,11 @@ export default function HoldingsFamiliaresSegment() {
               sucessão, mas só entrega resultado quando o desenho societário e o impacto fiscal são
               avaliados juntos, na mesma operação.
             </p>
+            <ShareLine
+              title="Estruturação de holdings familiares e planejamento patrimonial"
+              tone="dark"
+              className="pt-1"
+            />
 
             {/* Chamada para acao no Hero */}
             <div className="flex flex-wrap items-center gap-4 pt-2">

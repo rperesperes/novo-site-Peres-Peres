@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
 import { SegmentFaq } from '@/components/SegmentFaq'
 import { useSeo } from '@/hooks/use-seo'
+import ShareLine from '@/components/ShareLine'
 import { ContinueReading } from '@/components/ContinueReading'
 import {
   Megaphone,
@@ -277,6 +278,11 @@ export default function PublicidadeComunicacaoSegment() {
               cada job. A PERES PERES atende essa área de atuação com contabilidade mensal
               organizada e consultoria aplicada à rotina da agência, da proposta ao fechamento.
             </p>
+            <ShareLine
+              title="Contabilidade e consultoria para agências de publicidade e comunicação"
+              tone="dark"
+              className="pt-1"
+            />
 
             {/* Chamada para acao no Hero */}
             <div className="flex flex-wrap items-center gap-4 pt-2">

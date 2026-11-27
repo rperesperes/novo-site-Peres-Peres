@@ -7,6 +7,7 @@ import { SegmentFaq } from '@/components/SegmentFaq'
 import { useSeo } from '@/hooks/use-seo'
 import { ProfessionExerciseForm } from '@/components/ProfessionExerciseForm'
 import { PsicologosCnaeSection } from '@/components/PsicologosCnaeSection'
+import ShareLine from '@/components/ShareLine'
 import { ContinueReading } from '@/components/ContinueReading'
 import {
   Brain,
@@ -286,6 +287,11 @@ export default function PsicologosSegment() {
               enquadramento certo para quem vive da própria agenda de atendimentos. A PERES PERES
               cuida da contabilidade mensal e dessas decisões.
             </p>
+            <ShareLine
+              title="Contabilidade e consultoria para psicólogos"
+              tone="dark"
+              className="pt-1"
+            />
 
             {/* Chamada para ação no Hero */}
             <div className="flex flex-wrap items-center gap-4 pt-2">

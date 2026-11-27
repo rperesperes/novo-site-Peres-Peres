@@ -286,6 +286,11 @@ export default function ArquitetosSegment() {
               pró-labore e distribuição de lucros. A PERES PERES cuida da contabilidade mensal e
               dessa leitura.
             </p>
+            <ShareLine
+              title="Contabilidade e consultoria para arquitetos"
+              tone="dark"
+              className="pt-1"
+            />
 
             {/* Chamada para ação no Hero */}
             <div className="flex flex-wrap items-center gap-4 pt-2">

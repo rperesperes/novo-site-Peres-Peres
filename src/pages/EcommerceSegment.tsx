@@ -22,6 +22,7 @@ import {
   ArrowRight,
 } from 'lucide-react'
 import { EcommerceCnaeSection } from '@/components/EcommerceCnaeSection'
+import ShareLine from '@/components/ShareLine'
 
 // 6 Desafios do E-commerce (textos verbatim)
 const DESAFIOS = [
@@ -278,6 +279,11 @@ export default function EcommerceSegment() {
               modelo exige, porque no comércio eletrônico o erro de parametrização não fica na
               planilha. Ele aparece na margem de cada pedido.
             </p>
+            <ShareLine
+              title="Contabilidade e consultoria para e-commerces e lojas virtuais"
+              tone="dark"
+              className="pt-1"
+            />
 
             {/* Chamada para acao no Hero */}
             <div className="flex flex-wrap items-center gap-4 pt-2">

@@ -7,6 +7,7 @@ import { SegmentFaq } from '@/components/SegmentFaq'
 import { useSeo } from '@/hooks/use-seo'
 import { ContinueReading } from '@/components/ContinueReading'
 import { ClinicasCnaeSection } from '@/components/ClinicasCnaeSection'
+import ShareLine from '@/components/ShareLine'
 import {
   Calculator,
   Building,
@@ -279,6 +280,11 @@ export default function ClinicasMedicasSegment() {
               completa e consultoria tributária aplicada à rotina da clínica, incluindo a avaliação
               de equiparação hospitalar quando a estrutura atende aos requisitos.
             </p>
+            <ShareLine
+              title="Contabilidade e consultoria tributária para clínicas médicas"
+              tone="dark"
+              className="pt-1"
+            />
 
             {/* Chamada para ação no Hero */}
             <div className="flex flex-wrap items-center gap-4 pt-2">

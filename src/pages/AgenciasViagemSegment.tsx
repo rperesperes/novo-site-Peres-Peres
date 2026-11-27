@@ -7,6 +7,7 @@ import { SegmentFaq } from '@/components/SegmentFaq'
 import { useSeo } from '@/hooks/use-seo'
 import { ContinueReading } from '@/components/ContinueReading'
 import { AgenciasViagemCnaeSection } from '@/components/AgenciasViagemCnaeSection'
+import ShareLine from '@/components/ShareLine'
 import {
   Compass,
   Receipt,
@@ -258,6 +259,11 @@ export default function AgenciasViagemSegment() {
               PERES PERES atende essa área de atuação com contabilidade mensal organizada e
               consultoria aplicada à rotina da agência, da emissão ao fechamento.
             </p>
+            <ShareLine
+              title="Contabilidade e consultoria para agências de viagem"
+              tone="dark"
+              className="pt-1"
+            />
 
             {/* Chamada para acao no Hero */}
             <div className="flex flex-wrap items-center gap-4 pt-2">

@@ -7,6 +7,7 @@ import { SegmentFaq } from '@/components/SegmentFaq'
 import { useSeo } from '@/hooks/use-seo'
 import { ProfessionExerciseForm } from '@/components/ProfessionExerciseForm'
 import { EngenheirosCnaeSection } from '@/components/EngenheirosCnaeSection'
+import ShareLine from '@/components/ShareLine'
 import { ContinueReading } from '@/components/ContinueReading'
 import {
   Calculator,
@@ -286,6 +287,11 @@ export default function EngenheirosSegment() {
               entre pró-labore e distribuição de lucros. A PERES PERES cuida da contabilidade mensal
               e dessa leitura.
             </p>
+            <ShareLine
+              title="Contabilidade e consultoria para engenheiros"
+              tone="dark"
+              className="pt-1"
+            />
 
             {/* Chamada para ação no Hero */}
             <div className="flex flex-wrap items-center gap-4 pt-2">

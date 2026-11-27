@@ -7,6 +7,7 @@ import { SegmentFaq } from '@/components/SegmentFaq'
 import { useSeo } from '@/hooks/use-seo'
 import { ContinueReading } from '@/components/ContinueReading'
 import { StartupsCnaeSection } from '@/components/StartupsCnaeSection'
+import ShareLine from '@/components/ShareLine'
 import {
   Layers,
   Code2,
@@ -278,6 +279,11 @@ export default function StartupsTechSegment() {
               financeira da operação, do MVP à captação, com números organizados para a due
               diligence e decisões fiscais tomadas antes que virem custo.
             </p>
+            <ShareLine
+              title="Contabilidade e consultoria para startups e empresas de tecnologia"
+              tone="dark"
+              className="pt-1"
+            />
 
             {/* Chamada para ação no Hero */}
             <div className="flex flex-wrap items-center gap-4 pt-2">

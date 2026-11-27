@@ -7,6 +7,7 @@ import { SegmentFaq } from '@/components/SegmentFaq'
 import { useSeo } from '@/hooks/use-seo'
 import { ContinueReading } from '@/components/ContinueReading'
 import { EducacaoCnaeSection } from '@/components/EducacaoCnaeSection'
+import ShareLine from '@/components/ShareLine'
 import {
   GraduationCap,
   Award,
@@ -278,6 +279,11 @@ export default function EducacaoTreinamentosSegment() {
               de atuação com contabilidade mensal organizada e consultoria aplicada à rotina da
               instituição, do enquadramento à estruturação de unidades.
             </p>
+            <ShareLine
+              title="Contabilidade e consultoria para escolas, cursos e negócios de educação"
+              tone="dark"
+              className="pt-1"
+            />
 
             {/* Chamada para acao no Hero */}
             <div className="flex flex-wrap items-center gap-4 pt-2">

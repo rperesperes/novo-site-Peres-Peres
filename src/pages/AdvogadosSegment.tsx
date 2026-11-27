@@ -14,6 +14,7 @@ import {
 import { useSeo } from '@/hooks/use-seo'
 import { ProfessionExerciseForm } from '@/components/ProfessionExerciseForm'
 import { AdvogadosCnaeSection } from '@/components/AdvogadosCnaeSection'
+import ShareLine from '@/components/ShareLine'
 import { ContinueReading } from '@/components/ContinueReading'
 import { SegmentFaq } from '@/components/SegmentFaq'
 import {
@@ -292,6 +293,11 @@ export default function AdvogadosSegment() {
               município e a escolha de regime que muda a alíquota efetiva. A PERES PERES cuida da
               contabilidade mensal e da leitura tributária do escritório de advocacia.
             </p>
+            <ShareLine
+              title="Contabilidade e consultoria para advogados"
+              tone="dark"
+              className="pt-1"
+            />
 
             {/* Chamada para ação no Hero */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
