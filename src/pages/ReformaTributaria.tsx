@@ -107,6 +107,21 @@ const AGENDA_2026 = [
   'Revisar contrato com cláusula de repasse tributário, para que o efeito da transição não fique todo de um lado.',
 ]
 
+// Caixa "Prazo que vence agora": sensível à data (janela de cancelamento da
+// opção feita em setembro de 2026, LC 227 de 2026). A data é calculada no
+// render, com Date nativo: no navegador o componente reexecuta a cada visita,
+// então o estado exibido acompanha o relógio real do visitante mesmo quando o
+// HTML vem pré-renderizado.
+const JANELA_LIMITE = new Date(2026, 10, 30, 23, 59, 59)
+
+const PRAZO_TITULO = 'Prazo que vence agora'
+const PRAZO_TEXTO =
+  'A opção feita em setembro de 2026 pode ser cancelada até 30 de novembro de 2026, e o efeito começa em janeiro de 2027. Quem optou e não reviu a decisão até essa data fica com ela para o primeiro semestre.'
+
+const JANELA_ENCERRADA_TITULO = 'Janela encerrada'
+const JANELA_ENCERRADA_TEXTO =
+  'A janela de cancelamento da opção feita em setembro de 2026 se encerrou em 30 de novembro de 2026. A próxima janela é em março, para o segundo semestre de 2027, na forma da Lei Complementar 227 de 2026. Quem não fez a opção em setembro permanece no regime do Simples para IBS e CBS no primeiro semestre de 2027.'
+
 export default function ReformaTributaria() {
   useSeo({
     title: 'Reforma Tributária: o que muda para a sua empresa até 2033',
@@ -116,9 +131,14 @@ export default function ReformaTributaria() {
     ogTitle: 'Reforma Tributária: o que muda para a sua empresa até 2033',
     ogDescription:
       'Cronograma da transição, escolha do Simples para IBS e CBS e os passos de 2026 que definem crédito, preço e caixa da sua empresa nos próximos anos.',
+    dateModified: '2026-11-27',
   })
 
-  // JSON-LD FAQPage e BreadcrumbList
+  // A janela de cancelamento está aberta enquanto a data atual for igual ou
+  // anterior a 30 de novembro de 2026 (fim do dia, horário local do visitante).
+  const janelaAberta = new Date() <= JANELA_LIMITE
+
+  // JSON-LD FAQPage, BreadcrumbList e WebPage (com dateModified)
   useEffect(() => {
     const scriptId = 'faq-jsonld-reforma-tributaria'
     let scriptTag = document.getElementById(scriptId) as HTMLScriptElement | null
@@ -148,6 +168,11 @@ export default function ReformaTributaria() {
               item: 'https://peresperes.com.br/reforma-tributaria',
             },
           ],
+        },
+        {
+          '@type': 'WebPage',
+          '@id': 'https://peresperes.com.br/reforma-tributaria',
+          dateModified: '2026-11-27',
         },
         {
           '@type': 'FAQPage',
@@ -307,22 +332,17 @@ export default function ReformaTributaria() {
       </section>
 
       {/* =========================================================
-          SEÇÃO 4: PRAZO QUE VENCE AGORA (caixa de destaque)
+          SEÇÃO 4: PRAZO QUE VENCE AGORA / JANELA ENCERRADA (caixa de destaque,
+          sensível à data: título e texto dependem da data atual do visitante)
          ========================================================= */}
       <section className="py-14 md:py-20 bg-white border-b border-neutral-200">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="bg-white rounded-2xl p-6 sm:p-8 md:p-10 border-2 border-black shadow-sm space-y-5">
             <h2 className="text-2xl md:text-3xl font-sans font-bold text-black leading-tight">
-              Prazo que vence agora
+              {janelaAberta ? PRAZO_TITULO : JANELA_ENCERRADA_TITULO}
             </h2>
             <p className="text-base md:text-lg text-neutral-700 leading-relaxed font-sans">
-              A opção feita em setembro de 2026 pode ser cancelada até 30 de novembro de 2026, e o
-              efeito começa em janeiro de 2027. Quem optou e não reviu a decisão até essa data fica
-              com ela para o primeiro semestre.
-            </p>
-            <p className="text-neutral-600 text-sm md:text-base leading-relaxed font-sans">
-              Se a sua empresa fez a opção e ainda não reavaliou o efeito sobre crédito, preço e
-              caixa, essa janela é o momento de decidir com os números na mesa.
+              {janelaAberta ? PRAZO_TEXTO : JANELA_ENCERRADA_TEXTO}
             </p>
           </div>
         </div>
@@ -488,6 +508,20 @@ export default function ReformaTributaria() {
           },
         ]}
       />
+
+      {/* =========================================================
+          SEÇÃO 11: ÚLTIMA REVISÃO (linha discreta de data)
+         ========================================================= */}
+      <section
+        aria-label="Última revisão"
+        className="py-4 bg-neutral-50 border-t border-neutral-200"
+      >
+        <div className="container mx-auto px-4 max-w-5xl">
+          <p className="text-xs text-neutral-500 leading-relaxed font-sans">
+            Última revisão em 27 de novembro de 2026
+          </p>
+        </div>
+      </section>
     </div>
   )
 }

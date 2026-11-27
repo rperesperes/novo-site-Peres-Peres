@@ -15,6 +15,12 @@ interface SeoProps {
    * description.
    */
   ogDescription?: string
+  /**
+   * Data da última revisão do conteúdo, em ISO 8601 (YYYY-MM-DD). Marcada
+   * para buscadores como meta article:modified_time e og:updated_time, e
+   * mantida em sincronia com a tabela SEO_BY_ROUTE do prerender.
+   */
+  dateModified?: string
 }
 
 /**
@@ -23,9 +29,18 @@ interface SeoProps {
  *
  * Também mantém as etiquetas de compartilhamento social (Open Graph e Twitter
  * Card) alinhadas: og:title/og:description usam ogTitle/ogDescription quando
- * fornecidos, e og:url segue o canonical da página.
+ * fornecidos, e og:url segue o canonical da página. Quando a página informa
+ * dateModified (ISO 8601), espelha a data em og:updated_time e
+ * article:modified_time.
  */
-export function useSeo({ title, description, canonical, ogTitle, ogDescription }: SeoProps) {
+export function useSeo({
+  title,
+  description,
+  canonical,
+  ogTitle,
+  ogDescription,
+  dateModified,
+}: SeoProps) {
   useEffect(() => {
     const shareTitle = ogTitle || title
     const shareDescription = ogDescription || description
@@ -44,6 +59,26 @@ export function useSeo({ title, description, canonical, ogTitle, ogDescription }
         document.head.appendChild(metaDesc)
       }
       metaDesc.setAttribute('content', description)
+    }
+
+    // Data de modificação do conteúdo, para buscadores (article:modified_time
+    // e og:updated_time), quando a página informa uma.
+    if (dateModified) {
+      let articleModifiedTag = document.querySelector('meta[name="article:modified_time"]')
+      if (!articleModifiedTag) {
+        articleModifiedTag = document.createElement('meta')
+        articleModifiedTag.setAttribute('name', 'article:modified_time')
+        document.head.appendChild(articleModifiedTag)
+      }
+      articleModifiedTag.setAttribute('content', dateModified)
+
+      let ogUpdatedTag = document.querySelector('meta[property="og:updated_time"]')
+      if (!ogUpdatedTag) {
+        ogUpdatedTag = document.createElement('meta')
+        ogUpdatedTag.setAttribute('property', 'og:updated_time')
+        document.head.appendChild(ogUpdatedTag)
+      }
+      ogUpdatedTag.setAttribute('content', dateModified)
     }
 
     // Etiquetas de compartilhamento social (og:* e twitter:*)
@@ -79,5 +114,5 @@ export function useSeo({ title, description, canonical, ogTitle, ogDescription }
       }
       linkCan.setAttribute('href', canonical)
     }
-  }, [title, description, canonical, ogTitle, ogDescription])
+  }, [title, description, canonical, ogTitle, ogDescription, dateModified])
 }

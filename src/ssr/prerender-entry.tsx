@@ -19,7 +19,7 @@ export interface PrerenderedPage {
   /** HTML renderizado do corpo da rota (para dentro de <div id="root">). */
   html: string
   /** Valores que o useSeo da página define no navegador. */
-  seo: { title: string; description: string; canonical: string }
+  seo: { title: string; description: string; canonical: string; dateModified?: string }
   /** Etiquetas de compartilhamento social (og:*) da página. */
   share: { ogTitle: string; ogDescription: string; ogUrl: string }
   /** Caminhos dos JSON-LDs extras que a página registra via useEffect. */
@@ -58,6 +58,8 @@ const SEO_BY_ROUTE: Record<
     canonical: string
     ogTitle?: string
     ogDescription?: string
+    /** Data da última revisão do conteúdo, ISO 8601 (sincronizada com o useSeo). */
+    dateModified?: string
   }
 > = {
   '/': {
@@ -194,6 +196,7 @@ const SEO_BY_ROUTE: Record<
     ogTitle: 'Reforma Tributária: o que muda para a sua empresa até 2033',
     ogDescription:
       'Cronograma da transição, escolha do Simples para IBS e CBS e os passos de 2026 que definem crédito, preço e caixa da sua empresa nos próximos anos.',
+    dateModified: '2026-11-27',
   },
   '/holdings-familiares-e-patrimoniais': {
     title: 'Holding Familiar e Patrimonial: Sucessão, ITCMD e Regime',
