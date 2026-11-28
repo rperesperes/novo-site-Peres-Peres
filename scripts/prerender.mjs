@@ -14,7 +14,10 @@
  *  4. injeta no <head> o title, meta description, canonical e os JSON-LDs da
  *     rota (mesmos valores que o useSeo da página define no navegador).
  *
- * Rotas com falha de renderização são puladas com aviso, sem abortar as demais.
+ * Rotas com falha de prerender (etiqueta ausente, render quebrado, padrão não
+ * encontrado no head) são FATAIS: abortam o build imediatamente. Falha externa
+ * (ex. rede) pula a rota com aviso, mas o build falha ao final se houver
+ * rotas puladas.
  */
 import { build, createServer } from 'vite'
 import { fileURLToPath } from 'node:url'
@@ -34,7 +37,7 @@ const escapeHtml = (value) =>
 function replaceTag(out, tagRegex, replacement) {
   const next = out.replace(tagRegex, replacement)
   if (next === out) {
-    console.warn(`prerender: aviso: padrão não encontrado no head: ${tagRegex}`)
+    throw new Error(`prerender: padrão não encontrado no head: ${tagRegex}`)
   }
   return next
 }
@@ -165,16 +168,29 @@ async function main() {
         `prerender: ${route} -> ${path.relative(root, file)} (${bodyHtml.length} bytes de corpo)`,
       )
     } catch (err) {
-      // Rota com problema (ex. rede no PocketBase) não derruba as demais.
-      skipped.push(route)
-      console.warn(`prerender: aviso: rota ${route} pulada: ${err?.message || err}`)
+      const message = err?.message || String(err)
+      if (message.startsWith('prerender:')) {
+        // Erro de prerender (etiqueta de compartilhamento ausente, falha de
+        // render, padrão não encontrado no head): FATAL, aborta o build
+        // imediatamente nomeando rota e campo.
+        await vite.close().catch(() => {})
+        throw err
+      }
+      // Falha externa (ex. rede no PocketBase) não derruba as demais, mas o
+      // build falha ao final com a lista de rotas puladas.
+      skipped.push({ route, message })
+      console.warn(`prerender: aviso: rota ${route} pulada: ${message}`)
     }
   }
 
   await vite.close()
   console.log(`prerender: ${written.length} páginas geradas em dist/`)
   if (skipped.length > 0) {
-    console.warn(`prerender: rotas puladas: ${skipped.join(', ')}`)
+    console.error(
+      `prerender: FALHA: ${skipped.length} rota(s) pulada(s): ` +
+        skipped.map((s) => `${s.route} (${s.message})`).join('; '),
+    )
+    process.exit(1)
   }
 }
 
