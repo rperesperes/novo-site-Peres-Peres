@@ -57,8 +57,9 @@ const SEO_BY_ROUTE: Record<
     title: string
     description: string
     canonical: string
-    ogTitle?: string
-    ogDescription?: string
+    /** Compartilhamento social: OBRIGATÓRIO por rota (o build falha sem ele). */
+    ogTitle: string
+    ogDescription: string
     /** Data da última revisão do conteúdo, ISO 8601 (sincronizada com o useSeo). */
     dateModified?: string
   }
@@ -68,6 +69,9 @@ const SEO_BY_ROUTE: Record<
     description:
       'Contabilidade consultiva e estratégica para empresas, de Brasília para todo o Brasil. Responsável Rafael Peres Peres Nunes Altoé (CRC 027704).',
     canonical: 'https://peresperes.com.br/',
+    ogTitle: 'PERES PERES Consultoria & Contabilidade em Brasília',
+    ogDescription:
+      'Contabilidade consultiva e estratégica para empresas, de Brasília para todo o Brasil. Responsável Rafael Peres Peres Nunes Altoé (CRC 027704).',
   },
   '/servicos': {
     title: 'Serviços Contábeis e Tributários | PERES PERES Consultoria & Contabilidade',
@@ -83,6 +87,9 @@ const SEO_BY_ROUTE: Record<
     description:
       'Abertura, obrigações em dia e dúvidas respondidas por quem entende. Apoio para crescer ou para sair do MEI, com contador responsável técnico por trás de cada entrega. PERES PERES Consultoria & Contabilidade.',
     canonical: 'https://peresperes.com.br/mei-completo',
+    ogTitle: 'MEI Completo: obrigações em dia e dúvidas respondidas',
+    ogDescription:
+      'Abertura, obrigações em dia e dúvidas respondidas por quem entende. Apoio para crescer ou para sair do MEI, com contador responsável técnico por trás de cada entrega.',
   },
   '/sobre': {
     title: 'Sobre Nós e Equipe Técnica | PERES PERES Consultoria & Contabilidade',
@@ -107,6 +114,9 @@ const SEO_BY_ROUTE: Record<
     description:
       'Contabilidade para médicos: escolha de regime, Fator R, pró-labore e distribuição de lucros, com as regras aplicadas ao dia a dia do consultório.',
     canonical: 'https://peresperes.com.br/profissoes-regulamentadas/medicos',
+    ogTitle: 'Contabilidade para Médicos: regime, Fator R e pró-labore',
+    ogDescription:
+      'Contabilidade para médicos com escolha de regime, Fator R, pró-labore e distribuição de lucros aplicados ao dia a dia do consultório.',
   },
   '/profissoes-regulamentadas/psicologos': {
     title: 'Contabilidade para Psicólogos: CNAE, Simples e CRP',
@@ -129,7 +139,7 @@ const SEO_BY_ROUTE: Record<
   '/profissoes-regulamentadas/arquitetos': {
     title: 'Contabilidade para Arquitetos: CNAE, Fator R e Retenções',
     description:
-      'Contabilidade para arquitetos: CNAE, Fator R, retenções em projetos e responsabilidade técnica, com as regras aplicadas à rotina do escritório.',
+      'Contabilidade para arquitetos: CNAE, Factor R, retenções em projetos e responsabilidade técnica, com as regras aplicadas à rotina do escritório.',
     canonical: 'https://peresperes.com.br/profissoes-regulamentadas/arquitetos',
     ogTitle: 'Contabilidade para Arquitetos e Escritórios de Arquitetura',
     ogDescription:
@@ -200,9 +210,9 @@ const SEO_BY_ROUTE: Record<
     dateModified: '2026-11-27',
   },
   '/holdings-familiares-e-patrimoniais': {
-    title: 'Holding Familiar e Patrimonial: Sucessão, ITCMD e Regime',
+    title: 'Estruturação de Holdings Familiares e Planejamento Patrimonial',
     description:
-      'Contabilidade para holdings familiares e patrimoniais: desenho da estrutura, ITCMD, sucessão e regime, com as regras aplicadas ao patrimônio da família.',
+      'Estruturação de holdings familiares com desenho societário, sucessão e impacto fiscal avaliados juntos, para planejar família e patrimônio sem improviso.',
     canonical: 'https://peresperes.com.br/holdings-familiares-e-patrimoniais',
     ogTitle: 'Estruturação de Holdings Familiares e Planejamento Patrimonial',
     ogDescription:
@@ -237,6 +247,22 @@ export function renderRoute(path: string): PrerenderedPage {
     throw new Error(`prerender: rota sem SEO mapeado: ${path}`)
   }
 
+  // Endurecimento: toda rota pré-renderizada precisa de título, descrição,
+  // canonical e etiquetas de compartilhamento PRÓPRIOS. Faltar qualquer um
+  // falha o build com a rota e o campo exatos, em vez de gerar HTML com
+  // texto institucional genérico.
+  const missingFields: string[] = []
+  if (!seo.title) missingFields.push('title (título da aba)')
+  if (!seo.description) missingFields.push('description (meta description)')
+  if (!seo.canonical) missingFields.push('canonical (endereço canônico)')
+  if (!seo.ogTitle) missingFields.push('ogTitle (título de compartilhamento)')
+  if (!seo.ogDescription) missingFields.push('ogDescription (descrição de compartilhamento)')
+  if (missingFields.length > 0) {
+    throw new Error(
+      `prerender: rota ${path} sem etiqueta própria em SEO_BY_ROUTE: ${missingFields.join('; ')}`,
+    )
+  }
+
   let html = ''
   try {
     html = renderToString(
@@ -261,8 +287,8 @@ export function renderRoute(path: string): PrerenderedPage {
     html,
     seo,
     share: {
-      ogTitle: seo.ogTitle || seo.title,
-      ogDescription: seo.ogDescription || seo.description,
+      ogTitle: seo.ogTitle,
+      ogDescription: seo.ogDescription,
       ogUrl: seo.canonical,
     },
     jsonLdIds: JSONLD_IDS_BY_ROUTE[path] || [],
